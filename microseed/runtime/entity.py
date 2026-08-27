@@ -2088,6 +2088,16 @@ class Microseed:
                 "binding_id":binding.binding_id,"rows":tuple(rows),
                 "projection_signature_sha256":projection.signature_sha256,
                 "relation_ids":tuple(sorted(binding.relation_ids())),
+                "direct_probe_capability_ids":tuple(sorted({
+                    action_id for action_id in binding.action_ids
+                    if any(
+                        row.condition_signature_sha256 == action_result_digest({
+                            "task_id":binding.task_id,"action_id":str(action_id),
+                            "channel_ids":list(binding.channel_ids),"horizon":int(binding.horizon),
+                        })
+                        for row in rows
+                    )
+                })),
             })
         if not derived:
             return {"status":"NO_REPRESENTED_CURRENT_MISSING_DISCRIMINATOR","deficit_id":str(old_deficit_id),"authority":"NONE"}
@@ -2102,6 +2112,162 @@ class Microseed:
             "status":"CURRENT_UNIQUE_REVISED_SURFACE_MISSING_DISCRIMINATOR",
             "deficit_id":str(old_deficit_id),"revised_hypothesis_digest_sha256":revised,
             "missing_discriminator_signature_sha256":sig,"witnesses":tuple(derived[sig]),
+            "authority":"NONE","probe_selection_authority":"NONE","execution_authority":"NONE",
+            "truth_authority":"NONE","answer_authority":"NONE",
+        }
+
+    def current_revised_surface_direct_probe_availability(
+        self, *, old_deficit_id: str, successor_deficit_id: str,
+    ) -> dict[str, Any]:
+        """Find current direct EFFECT capabilities that exactly bear on the derived discriminator.
+
+        This is an inert availability surface only. It neither chooses among multiple probes
+        nor executes the unique one. Capability identity comes from the existing routing
+        action handles; currentness/qualification/epoch remain owned by CapabilityRegistry.
+        """
+        successor=self.epistemic_deficits.records.get(str(successor_deficit_id))
+        if successor is None or successor.state==EpistemicDeficitState.STALE:
+            return {"status":"ABSTAIN","reason":"CURRENT_SUCCESSOR_DEFICIT_REQUIRED","authority":"NONE"}
+        derived=self.derive_current_revised_surface_missing_discriminator(str(old_deficit_id))
+        if derived.get("status")!="CURRENT_UNIQUE_REVISED_SURFACE_MISSING_DISCRIMINATOR":
+            return {"status":"ABSTAIN","reason":derived.get("status","MISSING_DISCRIMINATOR_NOT_CURRENT"),"authority":"NONE"}
+        sig=str(derived["missing_discriminator_signature_sha256"])
+        if successor.missing_discriminator_signature_sha256!=sig:
+            return {"status":"ABSTAIN","reason":"SUCCESSOR_DISCRIMINATOR_CONTENT_MISMATCH","authority":"NONE"}
+        candidate_ids=set()
+        for witness in derived.get("witnesses",()):
+            candidate_ids.update(str(x) for x in witness.get("direct_probe_capability_ids",()))
+        current=[]
+        rejected=[]
+        for cid in sorted(candidate_ids):
+            cap=self.capabilities.contracts.get(cid)
+            epoch=self.capabilities.epochs.get(cid)
+            if cap is None:
+                rejected.append((cid,"CAPABILITY_NOT_FOUND")); continue
+            if cap.authority!=Authority.EFFECT:
+                rejected.append((cid,"CAPABILITY_NOT_EFFECT_AUTHORIZED")); continue
+            if cap.qualification not in {QualificationState.QUALIFIED,QualificationState.SHADOW_QUALIFIED}:
+                rejected.append((cid,"CAPABILITY_NOT_QUALIFIED")); continue
+            if cap.currentness!="CURRENT" or epoch is None:
+                rejected.append((cid,"CAPABILITY_NOT_CURRENT")); continue
+            current.append((cid,int(epoch),cap.computed_signature_sha256()))
+        base={
+            "old_deficit_id":str(old_deficit_id),"successor_deficit_id":str(successor_deficit_id),
+            "missing_discriminator_signature_sha256":sig,"rejected_candidates":tuple(rejected),
+            "authority":"NONE","probe_selection_authority":"NONE","execution_authority":"NONE",
+            "truth_authority":"NONE","answer_authority":"NONE",
+        }
+        if not current:
+            return {**base,"status":"NO_CURRENT_DIRECT_PROBE_AVAILABLE","current_probe_candidates":()}
+        if len(current)>1:
+            return {**base,"status":"CURRENT_DIRECT_PROBE_AMBIGUOUS","current_probe_candidates":tuple(current)}
+        cid,epoch,cap_sig=current[0]
+        return {
+            **base,"status":"CURRENT_UNIQUE_DIRECT_PROBE_AVAILABLE",
+            "probe_capability_id":cid,"probe_capability_epoch":epoch,
+            "probe_capability_signature_sha256":cap_sig,"current_probe_candidates":tuple(current),
+        }
+
+    def derive_current_revised_surface_direct_probe_program_candidate(
+        self, *, old_deficit_id: str, successor_deficit_id: str,
+    ) -> dict[str, Any]:
+        """Form a one-step proposal-only program from the exact qualified branch relations.
+
+        No search is needed: unique current direct-probe availability already identifies
+        the primitive.  Candidate ancestry is the content digest of every current qualified
+        branch relation for that primitive plus their exact frame epochs.
+        """
+        available=self.current_revised_surface_direct_probe_availability(
+            old_deficit_id=str(old_deficit_id),successor_deficit_id=str(successor_deficit_id),
+        )
+        if available.get("status")!="CURRENT_UNIQUE_DIRECT_PROBE_AVAILABLE":
+            return {"status":"ABSTAIN","reason":available.get("status","DIRECT_PROBE_NOT_UNIQUE"),
+                    "authority":"NONE","execution_authority":"NONE"}
+        probe=str(available["probe_capability_id"])
+        derived=self.derive_current_revised_surface_missing_discriminator(str(old_deficit_id))
+        relation_digests=set(); frame_epochs=set(); relation_ids=set()
+        for witness in derived.get("witnesses",()):
+            binding=self.action_outcome_learning.projection_conditioned_bindings.get(str(witness.get("binding_id","")))
+            if binding is None or not self._projection_conditioned_binding_current(binding):
+                continue
+            for bucket_id in tuple(sorted(set(binding.qualified_bucket_ids))):
+                relation_id=binding.relation_id_for(bucket_id,probe)
+                relation=None if relation_id is None else self.action_outcome_learning.relations.get(relation_id)
+                if relation is None or not self._action_outcome_relation_structurally_current(relation):
+                    return {"status":"ABSTAIN","reason":f"DIRECT_PROBE_RELATION_NOT_CURRENT:{relation_id}",
+                            "authority":"NONE","execution_authority":"NONE"}
+                edge=relation.as_epistemic_alternative_relation()
+                if edge is None:
+                    return {"status":"ABSTAIN","reason":f"DIRECT_PROBE_RELATION_NOT_LOSSLESSLY_PROJECTABLE:{relation_id}",
+                            "authority":"NONE","execution_authority":"NONE"}
+                relation_ids.add(str(relation_id)); relation_digests.add(edge.digest()); frame_epochs.add(edge.frame_epoch)
+        if not relation_digests:
+            return {"status":"ABSTAIN","reason":"DIRECT_PROBE_RELATION_ANCESTRY_REQUIRED","authority":"NONE"}
+        temp=GeneratedEpistemicProgramCandidate(
+            candidate_id="CURRENT-DIRECT-PROBE-TEMP",steps=(probe,),
+            source_relation_digests=tuple(sorted(relation_digests)),frame_epochs=tuple(sorted(frame_epochs)),
+            assistance_ancestry=("CURRENT_REVISED_SURFACE_DIRECT_PROBE","EXACT_QUALIFIED_BRANCH_RELATION_ANCESTRY"),
+        )
+        candidate=GeneratedEpistemicProgramCandidate(
+            candidate_id="generated-direct-probe-program-"+temp.digest()[:20],steps=temp.steps,
+            source_relation_digests=temp.source_relation_digests,frame_epochs=temp.frame_epochs,
+            assistance_ancestry=temp.assistance_ancestry,
+        )
+        return {
+            "status":"CURRENT_DIRECT_PROBE_PROGRAM_CANDIDATE","candidate":candidate,
+            "source_relation_ids":tuple(sorted(relation_ids)),
+            "missing_discriminator_signature_sha256":available["missing_discriminator_signature_sha256"],
+            "authority":"NONE","proposal_authority":"NONE","qualification_authority":"NONE",
+            "execution_authority":"NONE","truth_authority":"NONE",
+        }
+
+    def instantiate_current_revised_surface_direct_probe_trial(
+        self, *, old_deficit_id: str, successor_deficit_id: str, obligation: QueryObligation,
+    ) -> dict[str, Any]:
+        """Reuse the existing inert EpistemicProgramTrial owner for the current direct probe."""
+        formed=self.derive_current_revised_surface_direct_probe_program_candidate(
+            old_deficit_id=str(old_deficit_id),successor_deficit_id=str(successor_deficit_id),
+        )
+        if formed.get("status")!="CURRENT_DIRECT_PROBE_PROGRAM_CANDIDATE":
+            return {"status":"ABSTAIN","reason":formed.get("reason",formed.get("status","CANDIDATE_UNAVAILABLE")),
+                    "authority":"NONE","execution_authority":"NONE"}
+        deficit=self.epistemic_deficits.records.get(str(successor_deficit_id))
+        if deficit is None or deficit.state!=EpistemicDeficitState.PROBE_AVAILABLE:
+            return {"status":"ABSTAIN","reason":"PROBE_AVAILABLE_DEFICIT_REQUIRED","authority":"NONE","execution_authority":"NONE"}
+        current=self.action_closure.current_state
+        if current is None:
+            return {"status":"ABSTAIN","reason":"CURRENT_CONTROL_STATE_REQUIRED","authority":"NONE","execution_authority":"NONE"}
+        try:
+            trial=begin_generated_epistemic_program_trial(
+                formed["candidate"],deficit_id=deficit.deficit_id,
+                discrimination_signature_sha256=deficit.missing_discriminator_signature_sha256,
+                capabilities=self.capabilities,obligation=obligation,current_frame_epochs=dict(self.frames.epochs),
+                start_state_id=current.state_id,start_state_evidence_id=current.evidence_id,
+            )
+        except ValueError as exc:
+            return {"status":"ABSTAIN","reason":str(exc),"authority":"NONE","execution_authority":"NONE"}
+        return {
+            "status":"EPISTEMIC_TRIAL_INSTANTIATED","trial":trial,"candidate":formed["candidate"],
+            "authority":"NONE","execution_authority":"NONE","truth_authority":"NONE",
+        }
+
+    def bind_current_revised_surface_direct_probe(
+        self, *, old_deficit_id: str, successor_deficit_id: str,
+    ) -> dict[str, Any]:
+        """Bind the unique current direct probe into the existing PROBE_AVAILABLE lifecycle."""
+        available=self.current_revised_surface_direct_probe_availability(
+            old_deficit_id=str(old_deficit_id),successor_deficit_id=str(successor_deficit_id),
+        )
+        if available.get("status")!="CURRENT_UNIQUE_DIRECT_PROBE_AVAILABLE":
+            return {"status":"ABSTAIN","reason":available.get("status","DIRECT_PROBE_NOT_UNIQUE"),
+                    "availability":available,"authority":"NONE","execution_authority":"NONE"}
+        rec=self.epistemic_deficits.records[str(successor_deficit_id)]
+        if rec.state!=EpistemicDeficitState.ACTION_LIMITED:
+            return {"status":"ABSTAIN","reason":f"SUCCESSOR_NOT_ACTION_LIMITED:{rec.state.value}",
+                    "availability":available,"authority":"NONE","execution_authority":"NONE"}
+        packet=self.bind_probe_capability(str(successor_deficit_id),str(available["probe_capability_id"]))
+        return {
+            "status":"PROBE_AVAILABLE","deficit":packet,"availability":available,
             "authority":"NONE","probe_selection_authority":"NONE","execution_authority":"NONE",
             "truth_authority":"NONE","answer_authority":"NONE",
         }

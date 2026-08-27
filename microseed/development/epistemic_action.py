@@ -849,16 +849,43 @@ def derive_epistemic_program_step_commitment(
             TernaryCommitment.UNKNOWN, binding=TernaryCommitment.UNKNOWN,
             reason="EPISTEMIC_DEFICIT_NOT_FOUND", qualifiers=(("authority_gain", "NONE"),),
         )
-    elif deficit.state != EpistemicDeficitState.ACTION_LIMITED:
-        need = RelationalCommitment(
-            _sha({"need": target, "state": deficit.state.value}), target,
-            TernaryCommitment.UNKNOWN, reason=f"EPISTEMIC_DEFICIT_NOT_ACTION_LIMITED:{deficit.state.value}",
-            qualifiers=(("authority_gain", "NONE"),), premise_ids=(deficit.deficit_id,),
-        )
     elif deficit.missing_discriminator_signature_sha256 != trial.discrimination_signature_sha256:
         need = RelationalCommitment(
             _sha({"need": target, "disc": deficit.missing_discriminator_signature_sha256}), target,
             TernaryCommitment.UNKNOWN, reason="EPISTEMIC_DISCRIMINATION_SIGNATURE_MISMATCH",
+            qualifiers=(("authority_gain", "NONE"),), premise_ids=(deficit.deficit_id,),
+        )
+    elif deficit.state == EpistemicDeficitState.PROBE_AVAILABLE:
+        bound_epochs=dict(trial.capability_epochs)
+        if len(trial.steps) != 1:
+            need = RelationalCommitment(
+                _sha({"need": target, "state": deficit.state.value, "steps": trial.steps}), target,
+                TernaryCommitment.UNKNOWN, reason="PROBE_AVAILABLE_REQUIRES_BOUND_SINGLE_PRIMITIVE",
+                qualifiers=(("authority_gain", "NONE"),), premise_ids=(deficit.deficit_id,),
+            )
+        elif deficit.probe_capability_id != expected_cid:
+            need = RelationalCommitment(
+                _sha({"need": target, "bound_probe": deficit.probe_capability_id, "step": expected_cid}), target,
+                TernaryCommitment.UNKNOWN, reason="PROBE_AVAILABLE_BOUND_TO_DIFFERENT_PRIMITIVE",
+                qualifiers=(("authority_gain", "NONE"),), premise_ids=(deficit.deficit_id,),
+            )
+        elif deficit.probe_capability_epoch is None or bound_epochs.get(expected_cid) != deficit.probe_capability_epoch:
+            need = RelationalCommitment(
+                _sha({"need": target, "bound_epoch": deficit.probe_capability_epoch, "trial_epoch": bound_epochs.get(expected_cid)}), target,
+                TernaryCommitment.UNKNOWN, reason="PROBE_AVAILABLE_BOUND_EPOCH_MISMATCH",
+                qualifiers=(("authority_gain", "NONE"),), premise_ids=(deficit.deficit_id,),
+            )
+        else:
+            need = RelationalCommitment(
+                _sha({"need": target, "deficit": deficit.serializable(), "trial": trial.digest()}), target,
+                TernaryCommitment.YES, reason="CURRENT_BOUND_PROBE_DISCRIMINATION_NEED",
+                qualifiers=(("authority_gain", "NONE"), ("semantic_goal_authority", "NONE"), ("truth_authority", "NONE")),
+                premise_ids=(deficit.deficit_id, deficit.unknown_evidence_id),
+            )
+    elif deficit.state != EpistemicDeficitState.ACTION_LIMITED:
+        need = RelationalCommitment(
+            _sha({"need": target, "state": deficit.state.value}), target,
+            TernaryCommitment.UNKNOWN, reason=f"EPISTEMIC_DEFICIT_NOT_ACTION_LIMITED:{deficit.state.value}",
             qualifiers=(("authority_gain", "NONE"),), premise_ids=(deficit.deficit_id,),
         )
     else:
