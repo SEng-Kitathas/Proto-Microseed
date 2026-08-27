@@ -455,6 +455,52 @@ class EpistemicContrastRow:
         )
 
 
+def derive_pre_evidence_discriminator_signature(
+    *,
+    hypothesis_digest_sha256: str,
+    rows: Iterable[EpistemicContrastRow],
+    projection_content_signatures: dict[str, str],
+) -> str:
+    """Content identity for a represented discriminator before any actual probe evidence.
+
+    Binding ids, qualification evidence, assistance ancestry, and projection epochs are
+    deliberately excluded: they establish provenance/currentness, not the discriminator's
+    predicted partition content.  Projection *content* remains bound by its opaque SHA.
+    This grants no currentness, probe, answer, truth, selection, or execution authority.
+    """
+    import hashlib, json
+
+    hyp = _sha256_token(
+        hypothesis_digest_sha256, error="EPISTEMIC_HYPOTHESIS_DIGEST_SHA256_REQUIRED"
+    )
+    canonical = []
+    seen: set[tuple[str, str | None, tuple[tuple[str, str], ...]]] = set()
+    for row in rows:
+        psig = projection_content_signatures.get(row.projection_id)
+        if psig is None:
+            raise ValueError(f"EPISTEMIC_DISCRIMINATOR_PROJECTION_CONTENT_REQUIRED:{row.projection_id}")
+        psig = _sha256_token(psig, error="EPISTEMIC_PROJECTION_SIGNATURE_SHA256_REQUIRED")
+        key = (psig, row.condition_signature_sha256, tuple(row.candidate_outcome_digests))
+        if key in seen:
+            continue
+        seen.add(key)
+        canonical.append({
+            "projection_signature_sha256": psig,
+            "condition_signature_sha256": row.condition_signature_sha256,
+            "candidate_outcome_digests": [list(x) for x in row.candidate_outcome_digests],
+        })
+    if not canonical:
+        raise ValueError("EPISTEMIC_DISCRIMINATOR_CONTRAST_ROWS_REQUIRED")
+    canonical.sort(key=lambda x: json.dumps(x, sort_keys=True, separators=(",", ":")))
+    payload = {
+        "hypothesis_digest_sha256": hyp,
+        "canonical_contrast_rows": canonical,
+    }
+    return hashlib.sha256(
+        json.dumps(payload, sort_keys=True, separators=(",", ":")).encode("utf-8")
+    ).hexdigest()
+
+
 @dataclass
 class EpistemicContrastBinding:
     """Content-bound opaque contrast for one exact deficit hypothesis digest."""
