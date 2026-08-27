@@ -2154,78 +2154,100 @@ class Microseed:
              and b.binding_origin=="DERIVED_CURRENT_REVISED_SURFACE_CONTRAST"),
             key=lambda b:b.binding_id,
         ))
-        if len(requirements)!=1:
+        if not requirements:
             return unknown("UNIQUE_CURRENT_REGISTERED_DISCRIMINATOR_REQUIRED",(deficit.deficit_id,))
-        requirement=requirements[0]
-        projection_signatures={}
-        for row in requirement.rows:
-            projection=self.epistemic_projections.records.get(row.projection_id)
-            if projection is None or not self.epistemic_projections.is_current(row.projection_id,row.projection_epoch):
-                return unknown("REGISTERED_DISCRIMINATOR_PROJECTION_NOT_CURRENT",(deficit.deficit_id,requirement.binding_id))
-            projection_signatures[row.projection_id]=projection.signature_sha256
-        required_signature=derive_pre_evidence_discriminator_signature(
-            hypothesis_digest_sha256=requirement.hypothesis_digest_sha256,
-            rows=requirement.rows,projection_content_signatures=projection_signatures,
-        )
+        grouped: dict[str, list[tuple[EpistemicContrastBinding, dict[str,str]]]] = {}
+        for requirement in requirements:
+            projection_signatures={}
+            current=True
+            for row in requirement.rows:
+                projection=self.epistemic_projections.records.get(row.projection_id)
+                if projection is None or not self.epistemic_projections.is_current(row.projection_id,row.projection_epoch):
+                    current=False; break
+                projection_signatures[row.projection_id]=projection.signature_sha256
+            if not current:
+                continue
+            signature=derive_pre_evidence_discriminator_signature(
+                hypothesis_digest_sha256=requirement.hypothesis_digest_sha256,
+                rows=requirement.rows,projection_content_signatures=projection_signatures,
+            )
+            grouped.setdefault(signature,[]).append((requirement,projection_signatures))
+        if len(grouped)!=1:
+            return unknown("UNIQUE_CURRENT_REGISTERED_DISCRIMINATOR_REQUIRED",(deficit.deficit_id,*tuple(b.binding_id for b in requirements)))
+        required_signature=next(iter(grouped))
+        equivalents=tuple(grouped[required_signature])
         if required_signature!=deficit.missing_discriminator_signature_sha256:
-            return unknown("REGISTERED_DISCRIMINATOR_CONTENT_MISMATCH",(deficit.deficit_id,requirement.binding_id))
+            return unknown("REGISTERED_DISCRIMINATOR_CONTENT_MISMATCH",(deficit.deficit_id,*tuple(r.binding_id for r,_ in equivalents)))
         if len(trial.steps)!=1 or not trial.source_relation_digests:
-            return unknown("PROGRAM_EXACT_SOURCE_RELATION_ANCESTRY_REQUIRED",(deficit.deficit_id,requirement.binding_id,trial.trial_id))
+            return unknown("PROGRAM_EXACT_SOURCE_RELATION_ANCESTRY_REQUIRED",(deficit.deficit_id,trial.trial_id))
         step=str(trial.steps[0]); trial_sources=set(str(x) for x in trial.source_relation_digests)
-        reconstructed=[]; required_sources=set()
-        for row in requirement.rows:
-            row_matches=[]
-            candidate_ids=tuple(cid for cid,_ in row.candidate_outcome_digests)
-            for routing in self.action_outcome_learning.projection_conditioned_bindings.values():
-                if routing.projection_id!=row.projection_id or routing.projection_epoch!=row.projection_epoch:
-                    continue
-                if not self._projection_conditioned_binding_current(routing) or step not in routing.action_ids:
-                    continue
-                if any(cid not in routing.qualified_bucket_ids for cid in candidate_ids):
-                    continue
-                condition=action_result_digest({
-                    "task_id":routing.task_id,"action_id":step,
-                    "channel_ids":list(routing.channel_ids),"horizon":int(routing.horizon),
-                })
-                if condition!=row.condition_signature_sha256:
-                    continue
-                outcomes=[]; sources=set(); valid=True
-                for cid,expected_outcome in row.candidate_outcome_digests:
-                    relation_id=routing.relation_id_for(cid,step)
-                    relation=None if relation_id is None else self.action_outcome_learning.relations.get(relation_id)
-                    if relation is None or not self._action_outcome_relation_structurally_current(relation):
-                        valid=False; break
-                    edge=relation.as_epistemic_alternative_relation()
-                    if edge is None:
-                        valid=False; break
-                    actual=action_result_digest({"opaque_next_state_id":str(relation.next_state_id)})
-                    if actual!=expected_outcome:
-                        valid=False; break
-                    outcomes.append((str(cid),actual)); sources.add(edge.digest())
-                if valid and sources.issubset(trial_sources):
-                    row_matches.append((tuple(outcomes),frozenset(sources)))
-            distinct={(m[0],m[1]) for m in row_matches}
-            if not distinct:
-                return unknown("PROGRAM_SOURCE_RELATIONS_DO_NOT_REALIZE_REGISTERED_CONTRAST",(deficit.deficit_id,requirement.binding_id,trial.trial_id))
-            source_sets={m[1] for m in distinct}
-            if len(source_sets)!=1:
-                return unknown("PROGRAM_REGISTERED_CONTRAST_ROUTE_AMBIGUOUS",(deficit.deficit_id,requirement.binding_id,trial.trial_id))
-            outcomes,sources=next(iter(distinct))
-            reconstructed.append(EpistemicContrastRow(
-                row.projection_id,row.projection_epoch,outcomes,row.condition_signature_sha256
-            ))
-            required_sources.update(sources)
-        if required_sources!=trial_sources:
-            return unknown("PROGRAM_SOURCE_RELATION_ANCESTRY_NOT_EXACT",(deficit.deficit_id,requirement.binding_id,trial.trial_id))
-        program_signature=derive_pre_evidence_discriminator_signature(
-            hypothesis_digest_sha256=requirement.hypothesis_digest_sha256,
-            rows=tuple(reconstructed),projection_content_signatures=projection_signatures,
-        )
-        if program_signature!=required_signature:
-            return unknown("PROGRAM_PREDICTED_PARTITION_DOES_NOT_SATISFY_DISCRIMINATOR",(deficit.deficit_id,requirement.binding_id,trial.trial_id))
-        premises=(deficit.deficit_id,requirement.binding_id,trial.trial_id,*tuple(sorted(trial_sources)))
+        successful=[]
+        saw_exact_source_mismatch=False
+        for requirement,projection_signatures in equivalents:
+            reconstructed=[]; required_sources=set(); route_problem=None
+            for row in requirement.rows:
+                row_matches=[]
+                candidate_ids=tuple(cid for cid,_ in row.candidate_outcome_digests)
+                for routing in self.action_outcome_learning.projection_conditioned_bindings.values():
+                    if routing.projection_id!=row.projection_id or routing.projection_epoch!=row.projection_epoch:
+                        continue
+                    if not self._projection_conditioned_binding_current(routing) or step not in routing.action_ids:
+                        continue
+                    if any(cid not in routing.qualified_bucket_ids for cid in candidate_ids):
+                        continue
+                    condition=action_result_digest({
+                        "task_id":routing.task_id,"action_id":step,
+                        "channel_ids":list(routing.channel_ids),"horizon":int(routing.horizon),
+                    })
+                    if condition!=row.condition_signature_sha256:
+                        continue
+                    outcomes=[]; sources=set(); valid=True
+                    for cid,expected_outcome in row.candidate_outcome_digests:
+                        relation_id=routing.relation_id_for(cid,step)
+                        relation=None if relation_id is None else self.action_outcome_learning.relations.get(relation_id)
+                        if relation is None or not self._action_outcome_relation_structurally_current(relation):
+                            valid=False; break
+                        edge=relation.as_epistemic_alternative_relation()
+                        if edge is None:
+                            valid=False; break
+                        actual=action_result_digest({"opaque_next_state_id":str(relation.next_state_id)})
+                        if actual!=expected_outcome:
+                            valid=False; break
+                        outcomes.append((str(cid),actual)); sources.add(edge.digest())
+                    if valid and sources.issubset(trial_sources):
+                        row_matches.append((tuple(outcomes),frozenset(sources)))
+                distinct={(m[0],m[1]) for m in row_matches}
+                if not distinct:
+                    route_problem="PROGRAM_SOURCE_RELATIONS_DO_NOT_REALIZE_REGISTERED_CONTRAST"; break
+                source_sets={m[1] for m in distinct}
+                if len(source_sets)!=1:
+                    route_problem="PROGRAM_REGISTERED_CONTRAST_ROUTE_AMBIGUOUS"; break
+                outcomes,sources=next(iter(distinct))
+                reconstructed.append(EpistemicContrastRow(
+                    row.projection_id,row.projection_epoch,outcomes,row.condition_signature_sha256
+                ))
+                required_sources.update(sources)
+            if route_problem is not None:
+                continue
+            if required_sources!=trial_sources:
+                saw_exact_source_mismatch=True
+                continue
+            program_signature=derive_pre_evidence_discriminator_signature(
+                hypothesis_digest_sha256=requirement.hypothesis_digest_sha256,
+                rows=tuple(reconstructed),projection_content_signatures=projection_signatures,
+            )
+            if program_signature==required_signature:
+                successful.append((requirement,program_signature,tuple(sorted(required_sources))))
+        if not successful:
+            reason="PROGRAM_SOURCE_RELATION_ANCESTRY_NOT_EXACT" if saw_exact_source_mismatch else "PROGRAM_SOURCE_RELATIONS_DO_NOT_REALIZE_REGISTERED_CONTRAST"
+            return unknown(reason,(deficit.deficit_id,*tuple(r.binding_id for r,_ in equivalents),trial.trial_id))
+        successful_content={(sig,sources) for _,sig,sources in successful}
+        if len(successful_content)!=1:
+            return unknown("PROGRAM_REGISTERED_CONTRAST_ROUTE_AMBIGUOUS",(deficit.deficit_id,*tuple(r.binding_id for r,_,_ in successful),trial.trial_id))
+        program_signature,sources=next(iter(successful_content))
+        premises=(deficit.deficit_id,*tuple(r.binding_id for r,_ in equivalents),trial.trial_id,*sources)
         return RelationalCommitment(
-            action_result_digest({"target":target,"requirement":required_signature,"program":program_signature,"sources":sorted(trial_sources)}),
+            action_result_digest({"target":target,"requirement":required_signature,"program":program_signature,"sources":list(sources),"equivalent_requirement_ids":[r.binding_id for r,_ in equivalents]}),
             target,TernaryCommitment.YES,reason="CURRENT_PROGRAM_SATISFIES_REGISTERED_MISSING_DISCRIMINATOR",
             qualifiers=(("authority_gain","NONE"),("truth_authority","NONE"),("execution_authority","NONE"),("semantic_question_authority","NONE")),
             premise_ids=premises,
