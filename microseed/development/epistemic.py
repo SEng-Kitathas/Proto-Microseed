@@ -529,6 +529,7 @@ class EpistemicContrastBinding:
         if self.binding_origin not in {
             "SUPPLIED_AND_PROVENANCED",
             "EXTERNALLY_QUALIFIED_OPAQUE_CONTRAST",
+            "DERIVED_CURRENT_REVISED_SURFACE_CONTRAST",
         }:
             raise ValueError("EPISTEMIC_CONTRAST_BINDING_ORIGIN_UNQUALIFIED")
         self.assistance_ancestry = tuple(self.assistance_ancestry)

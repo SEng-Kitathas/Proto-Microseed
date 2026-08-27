@@ -11,30 +11,26 @@ def _close(m,td):
     m.biography.close();m.evidence.conn.close();m.store.conn.close();td.cleanup()
 
 
-def test_bound_single_probe_collides_with_action_limited_only_need_gate():
+def test_bound_single_probe_crosses_need_gate_only_with_independent_program_satisfaction():
     td,m,calls,c=_qualified_refinement_fixture()
     try:
         b=_qualify_revised_surface(m,c);m.accept_revisit_hypothesis_revision('D',b.binding_id)
         fresh=m.append_evidence('E-U-1902',{'kind':'FRESH_UNKNOWN_AFTER_REVISED_SURFACE'},EpistemicStatus.UNKNOWN_INCOMPLETE,source='RESEARCH')
-        s=m.record_revised_surface_action_limited_unknown(old_deficit_id='D',new_deficit_id='D-1902',unknown_evidence_id=fresh.evidence_id)
+        m.record_revised_surface_action_limited_unknown(old_deficit_id='D',new_deficit_id='D-1902',unknown_evidence_id=fresh.evidence_id)
         bound=m.bind_current_revised_surface_direct_probe(old_deficit_id='D',successor_deficit_id='D-1902')
         assert bound['status']=='PROBE_AVAILABLE'
-        cap=m.capabilities.contracts['B']
-        trial=EpistemicProgramTrial(
-            trial_id='T-1902',deficit_id='D-1902',discrimination_signature_sha256=s.missing_discriminator_signature_sha256,
-            relation_candidate_id='R-1902',relation_candidate_sha256='a'*64,steps=('B',),
-            capability_epochs=(('B',m.capabilities.epochs['B']),),capability_signatures=(('B',cap.computed_signature_sha256()),),
-            frame_epochs=tuple(),obligation_id='Q',operational_scope_id='S',
-            start_state_id=m.action_closure.current_state.state_id,start_state_evidence_id=m.action_closure.current_state.evidence_id,
-        )
+        formed=m.instantiate_current_revised_surface_direct_probe_trial(old_deficit_id='D',successor_deficit_id='D-1902',obligation=act_ob())
+        assert formed['status']=='EPISTEMIC_TRIAL_INSTANTIATED'
+        trial=formed['trial']; sat=m.derive_current_program_discriminator_satisfaction(trial)
+        assert sat.licenses_yes(),sat.serializable()
         cmt=derive_epistemic_program_step_commitment(
             trial=trial,deficit=m.epistemic_deficits.records['D-1902'],
             feasibility=RecruitmentOption('B',FeasibilityState.FEASIBLE),capabilities=m.capabilities,
             obligation=act_ob(),current_frame_epochs=dict(m.frames.epochs),current_state=m.action_closure.current_state,
+            program_discriminator_satisfaction=sat,
         )
         assert cmt.reason=='EPISTEMIC_PROGRAM_STEP_ALL_LICENSED',cmt.serializable()
         assert cmt.commitment.value=='YES'
-        assert calls==['A','B']  # fixture history only; commitment itself is inert
     finally:_close(m,td)
 
 

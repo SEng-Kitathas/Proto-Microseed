@@ -838,6 +838,7 @@ def derive_epistemic_program_step_commitment(
     current_state: OpaqueControlStateWitness | None,
     priority_commitment: RelationalCommitment | None = None,
     information_commitment: RelationalCommitment | None = None,
+    program_discriminator_satisfaction: RelationalCommitment | None = None,
 ) -> RelationalCommitment:
     idx = len(trial.step_records)
     target = f"epistemic-program:{trial.trial_id}:step:{idx}"
@@ -857,7 +858,15 @@ def derive_epistemic_program_step_commitment(
         )
     elif deficit.state == EpistemicDeficitState.PROBE_AVAILABLE:
         bound_epochs=dict(trial.capability_epochs)
-        if len(trial.steps) != 1:
+        if program_discriminator_satisfaction is None or not program_discriminator_satisfaction.licenses_yes():
+            need = RelationalCommitment(
+                _sha({"need": target, "program_satisfaction": None if program_discriminator_satisfaction is None else program_discriminator_satisfaction.serializable()}), target,
+                TernaryCommitment.UNKNOWN,
+                reason="PROGRAM_DISCRIMINATOR_SATISFACTION_REQUIRED" if program_discriminator_satisfaction is None else program_discriminator_satisfaction.reason,
+                qualifiers=(("authority_gain", "NONE"),),
+                premise_ids=(deficit.deficit_id,) if program_discriminator_satisfaction is None else tuple(program_discriminator_satisfaction.premise_ids),
+            )
+        elif len(trial.steps) != 1:
             need = RelationalCommitment(
                 _sha({"need": target, "state": deficit.state.value, "steps": trial.steps}), target,
                 TernaryCommitment.UNKNOWN, reason="PROBE_AVAILABLE_REQUIRES_BOUND_SINGLE_PRIMITIVE",
@@ -959,11 +968,13 @@ def nominate_epistemic_program_step_intent(
     current_state: OpaqueControlStateWitness | None,
     priority_commitment: RelationalCommitment | None = None,
     information_commitment: RelationalCommitment | None = None,
+    program_discriminator_satisfaction: RelationalCommitment | None = None,
 ) -> tuple[BoundedActionIntent | None, RelationalCommitment]:
     commitment = derive_epistemic_program_step_commitment(
         trial=trial, deficit=deficit, feasibility=feasibility, capabilities=capabilities,
         obligation=obligation, current_frame_epochs=current_frame_epochs, current_state=current_state,
         priority_commitment=priority_commitment, information_commitment=information_commitment,
+        program_discriminator_satisfaction=program_discriminator_satisfaction,
     )
     if not commitment.licenses_yes() or current_state is None:
         return None, commitment

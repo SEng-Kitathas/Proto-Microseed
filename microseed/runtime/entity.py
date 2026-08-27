@@ -776,10 +776,11 @@ class Microseed:
         and re-derived immediately before EFFECT.
         """
         deficit=self.epistemic_deficits.records.get(trial.deficit_id)
+        satisfaction=self.derive_current_program_discriminator_satisfaction(trial) if deficit is not None and deficit.state==EpistemicDeficitState.PROBE_AVAILABLE else None
         intent,cmt=derive_epistemic_program_step_intent(
             trial=trial, deficit=deficit, feasibility=feasibility, capabilities=self.capabilities,
             obligation=obligation, current_frame_epochs=dict(self.frames.epochs),
-            current_state=self.action_closure.current_state,
+            current_state=self.action_closure.current_state,program_discriminator_satisfaction=satisfaction,
         )
         if intent is None:
             return {"status":"ABSTAIN","reason":cmt.reason,"commitment":cmt.serializable(),"execution_authority":"NONE"}
@@ -799,10 +800,11 @@ class Microseed:
             feasibility_obligation=feasibility_obligation, capabilities=self.capabilities,
         )
         deficit=self.epistemic_deficits.records.get(trial.deficit_id)
+        satisfaction=self.derive_current_program_discriminator_satisfaction(trial) if deficit is not None and deficit.state==EpistemicDeficitState.PROBE_AVAILABLE else None
         intent,cmt=derive_epistemic_program_step_intent(
             trial=trial, deficit=deficit, feasibility=option, capabilities=self.capabilities,
             obligation=obligation, current_frame_epochs=dict(self.frames.epochs),
-            current_state=self.action_closure.current_state,
+            current_state=self.action_closure.current_state,program_discriminator_satisfaction=satisfaction,
         )
         if intent is None:
             return {"status":"ABSTAIN","reason":cmt.reason,"commitment":cmt.serializable(),"feasibility_basis":feasibility_basis,"execution_authority":"NONE"}
@@ -833,6 +835,7 @@ class Microseed:
             )
         except ValueError as exc:
             return {"status":"ABSTAIN","reason":str(exc),"execution_authority":"NONE"}
+        satisfaction=self.derive_current_program_discriminator_satisfaction(trial) if deficit.state==EpistemicDeficitState.PROBE_AVAILABLE else None
         first=trial.steps[0]
         option=next((x for x in feasibility_options if x.capability_id==first),None)
         if option is None:
@@ -844,6 +847,7 @@ class Microseed:
         local=derive_epistemic_program_step_commitment(
             trial=trial, deficit=deficit, feasibility=option, capabilities=self.capabilities,
             obligation=obligation, current_frame_epochs=dict(self.frames.epochs), current_state=current_state,
+            program_discriminator_satisfaction=satisfaction,
         )
         if not local.licenses_yes():
             return {"status":"ABSTAIN","reason":local.reason,"commitment":local.serializable(),"feasibility_basis":feasibility_basis.get(first),"execution_authority":"NONE"}
@@ -864,6 +868,7 @@ class Microseed:
             trial=trial, deficit=deficit, feasibility=option, capabilities=self.capabilities,
             obligation=obligation, current_frame_epochs=dict(self.frames.epochs),
             current_state=current_state, priority_commitment=priority, information_commitment=information,
+            program_discriminator_satisfaction=satisfaction,
         )
         if not commitment.licenses_yes():
             return {"status":"ABSTAIN","reason":commitment.reason,"priority":priority.serializable(),"information":information.serializable(),"commitment":commitment.serializable(),"feasibility_basis":feasibility_basis.get(first),"execution_authority":"NONE"}
@@ -1271,6 +1276,7 @@ class Microseed:
                 "feasibility_basis":basis.get(target),"execution_authority":"NONE",
             }
         deficit=self.epistemic_deficits.records.get(trial.deficit_id)
+        satisfaction=self.derive_current_program_discriminator_satisfaction(trial) if deficit is not None and deficit.state==EpistemicDeficitState.PROBE_AVAILABLE else None
         priority=derive_current_decision_bearing_commitment_from_grounded_surface(
             trial=trial, deficit=deficit, decision_context=decision_context, feasibility_options=options,
             capabilities=self.capabilities, values=self.values, current_frame_epochs=dict(self.frames.epochs),
@@ -1286,6 +1292,7 @@ class Microseed:
             trial=trial, deficit=deficit, feasibility=option, capabilities=self.capabilities, obligation=obligation,
             current_frame_epochs=dict(self.frames.epochs), current_state=self.action_closure.current_state,
             priority_commitment=priority, information_commitment=information,
+            program_discriminator_satisfaction=satisfaction,
         )
         if intent is None:
             return {"status":"ABSTAIN","reason":cmt.reason,"priority":priority.serializable(),"information":information.serializable(),"commitment":cmt.serializable(),"feasibility_basis":basis.get(target),"execution_authority":"NONE"}
@@ -1298,6 +1305,7 @@ class Microseed:
     ) -> dict[str, Any]:
         """Research-only: nominate one primitive only when the UNKNOWN is current-decision-bearing."""
         deficit=self.epistemic_deficits.records.get(trial.deficit_id)
+        satisfaction=self.derive_current_program_discriminator_satisfaction(trial) if deficit is not None and deficit.state==EpistemicDeficitState.PROBE_AVAILABLE else None
         priority_options,_priority_basis=derive_current_grounded_feasibility_surface(
             capabilities=self.capabilities, operational_scope_id=obligation.operational_scope_id,
         )
@@ -1322,6 +1330,7 @@ class Microseed:
         intent,cmt=derive_epistemic_program_step_intent(
             trial=trial, deficit=deficit, feasibility=option, capabilities=self.capabilities, obligation=obligation,
             current_frame_epochs=dict(self.frames.epochs), current_state=self.action_closure.current_state, priority_commitment=priority, information_commitment=information,
+            program_discriminator_satisfaction=satisfaction,
         )
         if intent is None:
             return {"status":"ABSTAIN","reason":cmt.reason,"priority":priority.serializable(),"information":information.serializable(),"commitment":cmt.serializable(),"feasibility_basis":feasibility_basis,"execution_authority":"NONE"}
@@ -1397,6 +1406,10 @@ class Microseed:
             return {"status":"PROGRAM_EVIDENCE_REJECTED","reason":"CURRENT_EPISTEMIC_DEFICIT_REQUIRED"}
         if deficit.missing_discriminator_signature_sha256 != trial.discrimination_signature_sha256:
             return {"status":"PROGRAM_EVIDENCE_REJECTED","reason":"PROGRAM_DISCRIMINATION_SIGNATURE_MISMATCH"}
+        if deficit.state==EpistemicDeficitState.PROBE_AVAILABLE:
+            satisfaction=self.derive_current_program_discriminator_satisfaction(trial)
+            if not satisfaction.licenses_yes():
+                return {"status":"PROGRAM_EVIDENCE_REJECTED","reason":satisfaction.reason,"program_discriminator_satisfaction":satisfaction.serializable()}
         for rec in trial.step_records:
             intent=self.action_closure.intents.get(rec.intent_id); execution=self.action_closure.executions.get(rec.execution_id); outcome=self.action_closure.outcomes.get(rec.outcome_id)
             if intent is None or execution is None or outcome is None:
@@ -1459,9 +1472,11 @@ class Microseed:
                     current_topology_epochs=dict(self.topologies.epochs), current_coordination_epochs=dict(self.coordinations.epochs),
                 )
                 information=derive_current_program_discrimination_commitment(trial=trial,decision_context=epistemic_step_context.decision_context,decision_bearing_commitment=priority)
+            satisfaction=self.derive_current_program_discriminator_satisfaction(trial) if deficit is not None and deficit.state==EpistemicDeficitState.PROBE_AVAILABLE else None
             fresh=derive_epistemic_program_step_commitment(
                 trial=trial, deficit=deficit, feasibility=feasibility, capabilities=self.capabilities, obligation=obligation,
                 current_frame_epochs=dict(self.frames.epochs), current_state=self.action_closure.current_state, priority_commitment=priority, information_commitment=information,
+                program_discriminator_satisfaction=satisfaction,
             )
             if fresh.commitment_id!=intent.action_commitment.commitment_id:
                 return fresh,"EPISTEMIC_PROGRAM_STEP_PREMISE_DRIFT",{"fresh_commitment":fresh.serializable()}
@@ -2116,6 +2131,106 @@ class Microseed:
             "truth_authority":"NONE","answer_authority":"NONE",
         }
 
+    def derive_current_program_discriminator_satisfaction(self, trial) -> RelationalCommitment:
+        """Independently prove that a generated program realizes its registered missing contrast.
+
+        The trial's copied discriminator field is not evidence here. The proof is rebuilt
+        from the current registered contrast plus the trial's exact source relation digests.
+        """
+        target=f"program-discriminator-satisfaction:{trial.trial_id}"
+        deficit=self.epistemic_deficits.records.get(str(trial.deficit_id))
+        def unknown(reason: str, premise_ids=()):
+            return RelationalCommitment(
+                action_result_digest({"target":target,"reason":reason,"premises":list(premise_ids)}),
+                target,TernaryCommitment.UNKNOWN,reason=reason,
+                qualifiers=(("authority_gain","NONE"),("truth_authority","NONE"),("execution_authority","NONE")),
+                premise_ids=tuple(str(x) for x in premise_ids),
+            )
+        if deficit is None or deficit.state==EpistemicDeficitState.STALE:
+            return unknown("CURRENT_EPISTEMIC_DEFICIT_REQUIRED",(trial.deficit_id,))
+        requirements=tuple(sorted(
+            (b for b in self.epistemic_contrasts.bindings.values()
+             if b.deficit_id==deficit.deficit_id and b.state=="CURRENT"
+             and b.binding_origin=="DERIVED_CURRENT_REVISED_SURFACE_CONTRAST"),
+            key=lambda b:b.binding_id,
+        ))
+        if len(requirements)!=1:
+            return unknown("UNIQUE_CURRENT_REGISTERED_DISCRIMINATOR_REQUIRED",(deficit.deficit_id,))
+        requirement=requirements[0]
+        projection_signatures={}
+        for row in requirement.rows:
+            projection=self.epistemic_projections.records.get(row.projection_id)
+            if projection is None or not self.epistemic_projections.is_current(row.projection_id,row.projection_epoch):
+                return unknown("REGISTERED_DISCRIMINATOR_PROJECTION_NOT_CURRENT",(deficit.deficit_id,requirement.binding_id))
+            projection_signatures[row.projection_id]=projection.signature_sha256
+        required_signature=derive_pre_evidence_discriminator_signature(
+            hypothesis_digest_sha256=requirement.hypothesis_digest_sha256,
+            rows=requirement.rows,projection_content_signatures=projection_signatures,
+        )
+        if required_signature!=deficit.missing_discriminator_signature_sha256:
+            return unknown("REGISTERED_DISCRIMINATOR_CONTENT_MISMATCH",(deficit.deficit_id,requirement.binding_id))
+        if len(trial.steps)!=1 or not trial.source_relation_digests:
+            return unknown("PROGRAM_EXACT_SOURCE_RELATION_ANCESTRY_REQUIRED",(deficit.deficit_id,requirement.binding_id,trial.trial_id))
+        step=str(trial.steps[0]); trial_sources=set(str(x) for x in trial.source_relation_digests)
+        reconstructed=[]; required_sources=set()
+        for row in requirement.rows:
+            row_matches=[]
+            candidate_ids=tuple(cid for cid,_ in row.candidate_outcome_digests)
+            for routing in self.action_outcome_learning.projection_conditioned_bindings.values():
+                if routing.projection_id!=row.projection_id or routing.projection_epoch!=row.projection_epoch:
+                    continue
+                if not self._projection_conditioned_binding_current(routing) or step not in routing.action_ids:
+                    continue
+                if any(cid not in routing.qualified_bucket_ids for cid in candidate_ids):
+                    continue
+                condition=action_result_digest({
+                    "task_id":routing.task_id,"action_id":step,
+                    "channel_ids":list(routing.channel_ids),"horizon":int(routing.horizon),
+                })
+                if condition!=row.condition_signature_sha256:
+                    continue
+                outcomes=[]; sources=set(); valid=True
+                for cid,expected_outcome in row.candidate_outcome_digests:
+                    relation_id=routing.relation_id_for(cid,step)
+                    relation=None if relation_id is None else self.action_outcome_learning.relations.get(relation_id)
+                    if relation is None or not self._action_outcome_relation_structurally_current(relation):
+                        valid=False; break
+                    edge=relation.as_epistemic_alternative_relation()
+                    if edge is None:
+                        valid=False; break
+                    actual=action_result_digest({"opaque_next_state_id":str(relation.next_state_id)})
+                    if actual!=expected_outcome:
+                        valid=False; break
+                    outcomes.append((str(cid),actual)); sources.add(edge.digest())
+                if valid and sources.issubset(trial_sources):
+                    row_matches.append((tuple(outcomes),frozenset(sources)))
+            distinct={(m[0],m[1]) for m in row_matches}
+            if not distinct:
+                return unknown("PROGRAM_SOURCE_RELATIONS_DO_NOT_REALIZE_REGISTERED_CONTRAST",(deficit.deficit_id,requirement.binding_id,trial.trial_id))
+            source_sets={m[1] for m in distinct}
+            if len(source_sets)!=1:
+                return unknown("PROGRAM_REGISTERED_CONTRAST_ROUTE_AMBIGUOUS",(deficit.deficit_id,requirement.binding_id,trial.trial_id))
+            outcomes,sources=next(iter(distinct))
+            reconstructed.append(EpistemicContrastRow(
+                row.projection_id,row.projection_epoch,outcomes,row.condition_signature_sha256
+            ))
+            required_sources.update(sources)
+        if required_sources!=trial_sources:
+            return unknown("PROGRAM_SOURCE_RELATION_ANCESTRY_NOT_EXACT",(deficit.deficit_id,requirement.binding_id,trial.trial_id))
+        program_signature=derive_pre_evidence_discriminator_signature(
+            hypothesis_digest_sha256=requirement.hypothesis_digest_sha256,
+            rows=tuple(reconstructed),projection_content_signatures=projection_signatures,
+        )
+        if program_signature!=required_signature:
+            return unknown("PROGRAM_PREDICTED_PARTITION_DOES_NOT_SATISFY_DISCRIMINATOR",(deficit.deficit_id,requirement.binding_id,trial.trial_id))
+        premises=(deficit.deficit_id,requirement.binding_id,trial.trial_id,*tuple(sorted(trial_sources)))
+        return RelationalCommitment(
+            action_result_digest({"target":target,"requirement":required_signature,"program":program_signature,"sources":sorted(trial_sources)}),
+            target,TernaryCommitment.YES,reason="CURRENT_PROGRAM_SATISFIES_REGISTERED_MISSING_DISCRIMINATOR",
+            qualifiers=(("authority_gain","NONE"),("truth_authority","NONE"),("execution_authority","NONE"),("semantic_question_authority","NONE")),
+            premise_ids=premises,
+        )
+
     def current_revised_surface_direct_probe_availability(
         self, *, old_deficit_id: str, successor_deficit_id: str,
     ) -> dict[str, Any]:
@@ -2346,11 +2461,34 @@ class Microseed:
                 *discriminator_ancestry,
             ),
         )
+        derived_contrast_binding_id=None
+        if missing_discriminator_signature_sha256 is None and derived.get("status")=="CURRENT_UNIQUE_REVISED_SURFACE_MISSING_DISCRIMINATOR":
+            witnesses=tuple(sorted(derived.get("witnesses",()),key=lambda x:str(x.get("binding_id",""))))
+            if not witnesses:
+                raise ValueError("DERIVED_REVISED_SURFACE_CONTRAST_WITNESS_REQUIRED")
+            representative=witnesses[0]
+            import hashlib
+            derived_contrast_binding_id="derived-revised-contrast-"+hashlib.sha256(
+                f"{rec.deficit_id}:{discriminator_signature}".encode("utf-8")
+            ).hexdigest()[:24]
+            contrast=EpistemicContrastBinding(
+                binding_id=derived_contrast_binding_id,deficit_id=rec.deficit_id,
+                hypothesis_digest_sha256=rec.hypothesis_digest_sha256,
+                rows=tuple(representative["rows"]),
+                binding_origin="DERIVED_CURRENT_REVISED_SURFACE_CONTRAST",
+                assistance_ancestry=(
+                    f"SUCCESSOR_OF:{old_deficit_id}",
+                    f"DERIVED_DISCRIMINATOR:{discriminator_signature}",
+                    "CONTENT_EQUIVALENT_REPRESENTATIVE_IF_MULTIPLE_ROUTING_WITNESSES",
+                ),
+            )
+            self.register_epistemic_contrast(contrast)
         packet={
             "old_deficit_id":str(old_deficit_id),"new_deficit_id":rec.deficit_id,
             "revised_hypothesis_digest_sha256":rec.hypothesis_digest_sha256,
             "unknown_evidence_id":rec.unknown_evidence_id,
             "projection_anchor":projection_anchor.serializable(),
+            "derived_contrast_binding_id":derived_contrast_binding_id,
             "truth_authority":"NONE","answer_authority":"NONE","model_switch_authority":"NONE",
         }
         self.path.append("EPISTEMIC_REVISED_SURFACE_SUCCESSOR_DEFICIT_RECORDED",packet)
