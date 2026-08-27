@@ -110,6 +110,7 @@ from ..development.epistemic import (
     EpistemicCurrentnessAnchor, EpistemicDeficitRecord, EpistemicDeficitRegistry, EpistemicDeficitState,
     EpistemicProjectionRecord, EpistemicProjectionRegistry, EpistemicContrastRow,
     EpistemicContrastBinding, EpistemicContrastRegistry, EpistemicBearingKind, EpistemicBearingWitness,
+    derive_pre_evidence_discriminator_signature,
 )
 from ..persistence.store import StateStore
 from ..persistence.identity import assess_continuity, continuity_witness_from_exports
@@ -2024,9 +2025,90 @@ class Microseed:
             "authority":"NONE","new_unknown_authority":"NONE","execution_authority":"NONE",
         }
 
+    def derive_current_revised_surface_missing_discriminator(self, old_deficit_id: str) -> dict[str, Any]:
+        """Project a current accepted revised routing surface into an opaque contrast requirement.
+
+        The binding already owns context-conditioned next-state predictions.  This adapter
+        reuses EpistemicContrastRow and content-only discriminator identity; it does not
+        discover semantics, choose a probe, execute anything, or grant truth.  If admitted
+        current history already resolves the projection bucket, the contrast is represented
+        but is not currently missing.
+        """
+        status=self.accepted_revisit_hypothesis_revision_status(str(old_deficit_id))
+        if status.get("status")!="CURRENT_ACCEPTED_REVISED_HYPOTHESIS_SURFACE":
+            return {"status":"ABSTAIN","reason":status.get("status","REVISED_SURFACE_NOT_CURRENT"),"authority":"NONE"}
+        revised=str(status["revised_hypothesis_digest_sha256"])
+        derived: dict[str, list[dict[str,Any]]] = {}
+        for binding_id in tuple(status.get("current_binding_ids",())):
+            binding=self.action_outcome_learning.projection_conditioned_bindings.get(str(binding_id))
+            if binding is None or not self._projection_conditioned_binding_current(binding):
+                continue
+            projection=self.epistemic_projections.records.get(binding.projection_id)
+            if projection is None or not projection.current:
+                continue
+            rows=[]
+            for action_id in tuple(sorted(set(binding.action_ids))):
+                # A uniquely resolved current predecessor context means this model-wide
+                # contrast is no longer a currently missing discriminator.
+                current=self.resolve_current_one_step_visible_history_projection_conditioned_relation(
+                    binding.binding_id,action_id=action_id,task_id=binding.task_id,
+                    channel_id=binding.channel_ids[0],horizon=binding.horizon,
+                )
+                if current.get("status")=="CURRENT_PARTITION_SCOPED_RELATION":
+                    return {
+                        "status":"CURRENT_CONTEXT_ALREADY_RESOLVES_REVISED_SURFACE",
+                        "deficit_id":str(old_deficit_id),"binding_id":binding.binding_id,
+                        "projection_bucket_id":current.get("projection_bucket_id"),
+                        "authority":"NONE","truth_authority":"NONE","execution_authority":"NONE",
+                    }
+                outcomes=[]
+                for bucket_id in tuple(sorted(set(binding.qualified_bucket_ids))):
+                    relation_id=binding.relation_id_for(bucket_id,action_id)
+                    relation=None if relation_id is None else self.action_outcome_learning.relations.get(relation_id)
+                    if relation is None or not self._action_outcome_relation_structurally_current(relation):
+                        outcomes=[]; break
+                    outcomes.append((str(bucket_id),action_result_digest({"opaque_next_state_id":str(relation.next_state_id)})))
+                if len(outcomes)<2 or len({x[1] for x in outcomes})<2:
+                    continue
+                condition=action_result_digest({
+                    "task_id":binding.task_id,"action_id":str(action_id),
+                    "channel_ids":list(binding.channel_ids),"horizon":int(binding.horizon),
+                })
+                rows.append(EpistemicContrastRow(
+                    projection_id=binding.projection_id,projection_epoch=binding.projection_epoch,
+                    candidate_outcome_digests=tuple(outcomes),condition_signature_sha256=condition,
+                ))
+            if not rows:
+                continue
+            sig=derive_pre_evidence_discriminator_signature(
+                hypothesis_digest_sha256=revised,rows=tuple(rows),
+                projection_content_signatures={binding.projection_id:projection.signature_sha256},
+            )
+            derived.setdefault(sig,[]).append({
+                "binding_id":binding.binding_id,"rows":tuple(rows),
+                "projection_signature_sha256":projection.signature_sha256,
+                "relation_ids":tuple(sorted(binding.relation_ids())),
+            })
+        if not derived:
+            return {"status":"NO_REPRESENTED_CURRENT_MISSING_DISCRIMINATOR","deficit_id":str(old_deficit_id),"authority":"NONE"}
+        if len(derived)>1:
+            return {
+                "status":"MISSING_DISCRIMINATOR_AMBIGUOUS","deficit_id":str(old_deficit_id),
+                "missing_discriminator_signatures_sha256":tuple(sorted(derived)),
+                "authority":"NONE","selection_authority":"NONE","execution_authority":"NONE",
+            }
+        sig=next(iter(derived))
+        return {
+            "status":"CURRENT_UNIQUE_REVISED_SURFACE_MISSING_DISCRIMINATOR",
+            "deficit_id":str(old_deficit_id),"revised_hypothesis_digest_sha256":revised,
+            "missing_discriminator_signature_sha256":sig,"witnesses":tuple(derived[sig]),
+            "authority":"NONE","probe_selection_authority":"NONE","execution_authority":"NONE",
+            "truth_authority":"NONE","answer_authority":"NONE",
+        }
+
     def record_revised_surface_action_limited_unknown(
         self, *, old_deficit_id: str, new_deficit_id: str, unknown_evidence_id: str,
-        missing_discriminator_signature_sha256: str,
+        missing_discriminator_signature_sha256: str | None = None,
     ) -> EpistemicDeficitRecord:
         """Create a new bounded deficit after accepted model revision, never rewrite the old one.
 
@@ -2047,6 +2129,15 @@ class Microseed:
         status=self.accepted_revisit_hypothesis_revision_status(str(old_deficit_id))
         if status.get("status")!="CURRENT_ACCEPTED_REVISED_HYPOTHESIS_SURFACE":
             raise ValueError(f"REVISED_SURFACE_NOT_CURRENT:{status.get('status','ABSTAIN')}")
+        derived=self.derive_current_revised_surface_missing_discriminator(str(old_deficit_id))
+        if missing_discriminator_signature_sha256 is None:
+            if derived.get("status")!="CURRENT_UNIQUE_REVISED_SURFACE_MISSING_DISCRIMINATOR":
+                raise ValueError(f"REVISED_SURFACE_MISSING_DISCRIMINATOR_NOT_AVAILABLE:{derived.get('status','ABSTAIN')}")
+            discriminator_signature=str(derived["missing_discriminator_signature_sha256"])
+            discriminator_ancestry=("MISSING_DISCRIMINATOR_DERIVED_FROM_CURRENT_REVISED_SURFACE",)
+        else:
+            discriminator_signature=str(missing_discriminator_signature_sha256)
+            discriminator_ancestry=("CALLER_SUPPLIED_MISSING_DISCRIMINATOR_ASSISTANCE",)
         binding_id=status["current_binding_ids"][0]
         binding=self.action_outcome_learning.projection_conditioned_bindings[binding_id]
         projection=self.epistemic_projections.records[binding.projection_id]
@@ -2054,17 +2145,39 @@ class Microseed:
         anchors=list(old.premise_anchors)
         if projection_anchor not in anchors:
             anchors.append(projection_anchor)
+        if derived.get("status")=="CURRENT_UNIQUE_REVISED_SURFACE_MISSING_DISCRIMINATOR":
+            relation_ids=set()
+            for witness in derived.get("witnesses",()):
+                relation_ids.update(str(x) for x in witness.get("relation_ids",()))
+            relation_anchors=[]
+            for relation_id in sorted(relation_ids):
+                relation=self.action_outcome_learning.relations.get(relation_id)
+                if relation is None or not self._action_outcome_relation_structurally_current(relation):
+                    raise ValueError(f"REVISED_SURFACE_DISCRIMINATOR_RELATION_NOT_CURRENT:{relation_id}")
+                relation_anchors.append(EpistemicCurrentnessAnchor("CAPABILITY_PREMISE",relation.capability_id,relation.capability_epoch))
+                relation_anchors.extend(EpistemicCurrentnessAnchor("FRAME",oid,epoch) for oid,epoch in relation.frame_epochs)
+                relation_anchors.extend(EpistemicCurrentnessAnchor("EPISODE",oid,epoch) for oid,epoch in relation.episode_schema_epochs)
+                relation_anchors.append(EpistemicCurrentnessAnchor("VALUE",relation.value_epoch[0],relation.value_epoch[1]))
+                relation_anchors.extend(EpistemicCurrentnessAnchor("TOPOLOGY",oid,epoch) for oid,epoch in relation.topology_epochs)
+                relation_anchors.extend(EpistemicCurrentnessAnchor("COORDINATION",oid,epoch) for oid,epoch in relation.coordination_epochs)
+                relation_anchors.extend(EpistemicCurrentnessAnchor("CAPABILITY_PREMISE",oid,epoch) for oid,epoch in relation.evidence_premise_epochs)
+                for oid,_signature in relation.evidence_premise_signatures:
+                    if oid in self.capabilities.epochs:
+                        relation_anchors.append(EpistemicCurrentnessAnchor("CAPABILITY_PREMISE",oid,self.capabilities.epochs[oid]))
+            for anchor in relation_anchors:
+                if anchor not in anchors:
+                    anchors.append(anchor)
         rec=self.record_action_limited_unknown(
             deficit_id=str(new_deficit_id),question_key=old.question_key,
             hypothesis_digest_sha256=status["revised_hypothesis_digest_sha256"],
             unknown_evidence_id=str(unknown_evidence_id),
-            missing_discriminator_signature_sha256=str(missing_discriminator_signature_sha256),
+            missing_discriminator_signature_sha256=discriminator_signature,
             premise_anchors=tuple(anchors),
             assistance_ancestry=tuple(old.assistance_ancestry)+(
                 f"SUCCESSOR_OF:{old_deficit_id}",
                 f"ACCEPTED_REVISED_HYPOTHESIS_SURFACE:{status['revised_hypothesis_digest_sha256']}",
                 f"CURRENTNESS_REPRESENTATIVE_PROJECTION:{projection.projection_id}@{projection.epoch}",
-                "MISSING_DISCRIMINATOR_SIGNATURE_SUPPLIED_TO_BOUNDED_SUCCESSOR",
+                *discriminator_ancestry,
             ),
         )
         packet={
