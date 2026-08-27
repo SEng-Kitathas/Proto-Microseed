@@ -19,18 +19,12 @@ def test_bound_single_probe_crosses_need_gate_only_with_independent_program_sati
         m.record_revised_surface_action_limited_unknown(old_deficit_id='D',new_deficit_id='D-1902',unknown_evidence_id=fresh.evidence_id)
         bound=m.bind_current_revised_surface_direct_probe(old_deficit_id='D',successor_deficit_id='D-1902')
         assert bound['status']=='PROBE_AVAILABLE'
+        candidate=m.derive_current_revised_surface_direct_probe_program_candidate(old_deficit_id='D',successor_deficit_id='D-1902')
+        assert candidate['status']=='CURRENT_DIRECT_PROBE_PROGRAM_CANDIDATE'
         formed=m.instantiate_current_revised_surface_direct_probe_trial(old_deficit_id='D',successor_deficit_id='D-1902',obligation=act_ob())
-        assert formed['status']=='EPISTEMIC_TRIAL_INSTANTIATED'
-        trial=formed['trial']; sat=m.derive_current_program_discriminator_satisfaction(trial)
-        assert sat.licenses_yes(),sat.serializable()
-        cmt=derive_epistemic_program_step_local_precheck(
-            trial=trial,deficit=m.epistemic_deficits.records['D-1902'],
-            feasibility=RecruitmentOption('B',FeasibilityState.FEASIBLE),capabilities=m.capabilities,
-            obligation=act_ob(),current_frame_epochs=dict(m.frames.epochs),current_state=m.action_closure.current_state,
-            program_discriminator_satisfaction=sat,
-        )
-        assert cmt.reason=='EPISTEMIC_PROGRAM_STEP_LOCAL_PRECHECK_ALL_LICENSED',cmt.serializable()
-        assert cmt.commitment.value=='YES'
+        assert formed['status']=='ABSTAIN'
+        assert formed['reason']=='CURRENT_CONTROL_STATE_NOT_DIRECT_PROBE_LOCUS'
+        assert formed['decision_surface']['conflict_slot']==('s1','B')
     finally:_close(m,td)
 
 

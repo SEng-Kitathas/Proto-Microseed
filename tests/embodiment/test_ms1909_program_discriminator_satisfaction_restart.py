@@ -1,6 +1,6 @@
 from pathlib import Path
 from microseed import Microseed
-from tests.embodiment.test_ms1904_1905_endogenous_direct_probe_program import _bound
+from tests.embodiment.test_ms1904_1905_endogenous_direct_probe_program import _bound_at_probe_locus as _bound
 from tests.embodiment.test_ms1710_endogenous_epistemic_initiation import act_ob
 
 

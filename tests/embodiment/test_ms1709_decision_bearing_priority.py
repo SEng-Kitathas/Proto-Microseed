@@ -132,7 +132,7 @@ def test_non_action_limited_deficit_returns_unknown_from_need_state_owner():
         carrier = replace(m.epistemic_deficits.records['D'], state=EpistemicDeficitState.REVISIT_REQUIRED)
         r = derive(m, (h1, h2), opts, deficit=carrier)
         assert r.commitment == TernaryCommitment.UNKNOWN
-        assert r.reason == 'ACTION_LIMITED_DEFICIT_REQUIRED'
+        assert r.reason == 'ACTION_LIMITED_OR_EXACT_BOUND_PROBE_AVAILABLE_REQUIRED'
     finally:
         td.cleanup()
 

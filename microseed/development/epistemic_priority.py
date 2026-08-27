@@ -36,8 +36,42 @@ def derive_regulatory_decision_bearing_commitment(
     """
     target = "epistemic-decision-bearing:" + ("NONE" if deficit is None else deficit.deficit_id)
     qnone = (("authority_gain", "NONE"), ("execution_authority", "NONE"), ("truth_authority", "NONE"), ("semantic_goal_authority", "NONE"))
-    if deficit is None or deficit.state != EpistemicDeficitState.ACTION_LIMITED:
-        return RelationalCommitment(_sha({"target": target, "deficit": None}), target, TernaryCommitment.UNKNOWN, reason="ACTION_LIMITED_DEFICIT_REQUIRED", qualifiers=qnone)
+    rows = tuple(dict(x) for x in relation_sets)
+    bound_probe_premises: tuple[str, ...] = ()
+    if deficit is None or deficit.state not in {EpistemicDeficitState.ACTION_LIMITED, EpistemicDeficitState.PROBE_AVAILABLE}:
+        return RelationalCommitment(
+            _sha({"target": target, "deficit": None if deficit is None else deficit.serializable()}),
+            target, TernaryCommitment.UNKNOWN,
+            reason="ACTION_LIMITED_OR_EXACT_BOUND_PROBE_AVAILABLE_REQUIRED", qualifiers=qnone,
+            premise_ids=() if deficit is None else (deficit.deficit_id,),
+        )
+    if deficit.state == EpistemicDeficitState.PROBE_AVAILABLE:
+        probe_id = deficit.probe_capability_id
+        probe_epoch = deficit.probe_capability_epoch
+        if not probe_id or probe_epoch is None:
+            return RelationalCommitment(
+                _sha({"target": target, "probe": probe_id, "epoch": probe_epoch}), target,
+                TernaryCommitment.UNKNOWN, reason="EXACT_BOUND_PROBE_REQUIRED", qualifiers=qnone,
+                premise_ids=(deficit.deficit_id,),
+            )
+        if current_capability_epochs.get(probe_id) != probe_epoch:
+            return RelationalCommitment(
+                _sha({"target": target, "probe": probe_id, "bound_epoch": probe_epoch, "current_epoch": current_capability_epochs.get(probe_id)}),
+                target, TernaryCommitment.UNKNOWN, reason="BOUND_PROBE_CAPABILITY_EPOCH_NOT_CURRENT",
+                qualifiers=qnone, premise_ids=(deficit.deficit_id, probe_id),
+            )
+        probe_slot = (str(start_state_id), str(probe_id))
+        probe_edges = []
+        for rs in rows:
+            rel = rs.get(probe_slot)
+            if rel is None or int(rel.capability_epoch) != int(probe_epoch):
+                return RelationalCommitment(
+                    _sha({"target": target, "probe_slot": probe_slot, "bound_epoch": probe_epoch}),
+                    target, TernaryCommitment.UNKNOWN, reason="BOUND_PROBE_RELATION_REQUIRED_AT_CURRENT_STATE",
+                    qualifiers=qnone, premise_ids=(deficit.deficit_id, probe_id),
+                )
+            probe_edges.append(rel.digest())
+        bound_probe_premises = (str(probe_id),)
     value_anchors = [a for a in deficit.premise_anchors if a.kind == "VALUE"]
     if len(value_anchors) != 1:
         return RelationalCommitment(_sha({"target": target, "anchors": [a.serializable() for a in deficit.premise_anchors]}), target, TernaryCommitment.UNKNOWN, reason="EXACT_CURRENT_VALUE_ANCHOR_REQUIRED", qualifiers=qnone, premise_ids=(deficit.deficit_id,))
@@ -50,7 +84,6 @@ def derive_regulatory_decision_bearing_commitment(
     if float(pressure.get("pressure_magnitude", 0.0)) <= 0.0:
         return RelationalCommitment(_sha({"target": target, "pressure": pressure}), target, TernaryCommitment.NO, reason="NO_CURRENT_REGULATORY_PRESSURE", qualifiers=qnone, premise_ids=(deficit.deficit_id, anchor.object_id))
 
-    rows = tuple(dict(x) for x in relation_sets)
     if len(rows) < 2:
         return RelationalCommitment(_sha({"target": target, "alternatives": len(rows)}), target, TernaryCommitment.UNKNOWN, reason="MULTIPLE_LIVE_RELATIONAL_ALTERNATIVES_REQUIRED", qualifiers=qnone, premise_ids=(deficit.deficit_id,))
 
@@ -101,7 +134,7 @@ def derive_regulatory_decision_bearing_commitment(
     return RelationalCommitment(
         cid, target, stance, reason=reason,
         qualifiers=qnone + (("first_actions", "|".join(first_actions)), ("value_id", anchor.object_id), ("value_epoch", str(anchor.epoch))),
-        premise_ids=(deficit.deficit_id, deficit.unknown_evidence_id, anchor.object_id),
+        premise_ids=(deficit.deficit_id, deficit.unknown_evidence_id, anchor.object_id, *bound_probe_premises),
     )
 
 

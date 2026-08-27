@@ -41,7 +41,7 @@ def test_challenge_bound_refinement_is_proposal_only_and_cannot_reopen_or_replac
         _add_feas_c(m)
         continuation=m.nominate_endogenous_epistemic_program_step_intent_from_current_surface(t2,dc,act_ob())
         assert continuation['status']=='ABSTAIN',continuation
-        assert continuation['reason']=='ACTION_LIMITED_DEFICIT_REQUIRED',continuation
+        assert continuation['reason']=='ACTION_LIMITED_OR_EXACT_BOUND_PROBE_AVAILABLE_REQUIRED',continuation
         assert len(m.action_closure.intents)==before_intents
         assert calls==['A','B']
     finally:

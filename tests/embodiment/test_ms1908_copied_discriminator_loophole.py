@@ -2,7 +2,7 @@ from dataclasses import replace
 from microseed.development.epistemic_action import derive_epistemic_program_step_commitment
 from microseed.development.recruitment import RecruitmentOption
 from microseed.runtime.types import FeasibilityState
-from tests.embodiment.test_ms1904_1905_endogenous_direct_probe_program import _bound,_close
+from tests.embodiment.test_ms1904_1905_endogenous_direct_probe_program import _bound_at_probe_locus as _bound,_close
 from tests.embodiment.test_ms1710_endogenous_epistemic_initiation import act_ob
 
 

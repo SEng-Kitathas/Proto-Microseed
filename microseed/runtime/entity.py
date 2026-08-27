@@ -2425,6 +2425,92 @@ class Microseed:
             "probe_capability_signature_sha256":cap_sig,"current_probe_candidates":tuple(current),
         }
 
+    def derive_current_revised_surface_direct_probe_decision_surface(
+        self, *, old_deficit_id: str, successor_deficit_id: str,
+    ) -> dict[str, Any]:
+        """Compose the exact revised direct-probe conflict with current stable background actions.
+
+        This is an ephemeral zero-authority decision surface only.  It does not
+        select or execute the probe.  The branch relations are the exact qualified
+        projection-conditioned relations that earned the direct-probe candidate;
+        background edges are ordinary current predictive relations on the same
+        value coordinate and current control-state locus.
+        """
+        formed=self.derive_current_revised_surface_direct_probe_program_candidate(
+            old_deficit_id=str(old_deficit_id),successor_deficit_id=str(successor_deficit_id),
+        )
+        if formed.get("status")!="CURRENT_DIRECT_PROBE_PROGRAM_CANDIDATE":
+            return {"status":"ABSTAIN","reason":formed.get("reason",formed.get("status","DIRECT_PROBE_PROGRAM_UNAVAILABLE")),
+                    "authority":"NONE","execution_authority":"NONE","truth_authority":"NONE"}
+        current=self.action_closure.current_state
+        if current is None:
+            return {"status":"ABSTAIN","reason":"CURRENT_CONTROL_STATE_REQUIRED",
+                    "authority":"NONE","execution_authority":"NONE","truth_authority":"NONE"}
+        source_ids=tuple(str(x) for x in formed.get("source_relation_ids",()))
+        branches=[]
+        for rid in source_ids:
+            relation=self.action_outcome_learning.relations.get(rid)
+            if relation is None or not self._action_outcome_relation_structurally_current(relation):
+                return {"status":"ABSTAIN","reason":f"DIRECT_PROBE_RELATION_NOT_CURRENT:{rid}",
+                        "authority":"NONE","execution_authority":"NONE","truth_authority":"NONE"}
+            edge=relation.as_epistemic_alternative_relation()
+            if edge is None:
+                return {"status":"ABSTAIN","reason":f"DIRECT_PROBE_RELATION_NOT_LOSSLESSLY_PROJECTABLE:{rid}",
+                        "authority":"NONE","execution_authority":"NONE","truth_authority":"NONE"}
+            branches.append(edge)
+        if len(branches)<2:
+            return {"status":"ABSTAIN","reason":"MULTIPLE_DIRECT_PROBE_BRANCH_RELATIONS_REQUIRED",
+                    "authority":"NONE","execution_authority":"NONE","truth_authority":"NONE"}
+        conflict_slots={(r.state_id,r.capability_id) for r in branches}
+        value_epochs={r.value_epoch for r in branches}
+        if len(conflict_slots)!=1 or len(value_epochs)!=1:
+            return {"status":"ABSTAIN","reason":"DIRECT_PROBE_BRANCH_SURFACE_NOT_SINGLE_CONFLICT",
+                    "authority":"NONE","execution_authority":"NONE","truth_authority":"NONE"}
+        conflict_slot=next(iter(conflict_slots)); value_epoch=next(iter(value_epochs))
+        if current.state_id!=conflict_slot[0]:
+            return {
+                "status":"ABSTAIN","reason":"CURRENT_CONTROL_STATE_NOT_DIRECT_PROBE_LOCUS",
+                "current_control_state_id":current.state_id,"direct_probe_locus_state_id":conflict_slot[0],
+                "conflict_slot":conflict_slot,"candidate":formed["candidate"],
+                "source_relation_ids":source_ids,"authority":"NONE","execution_authority":"NONE","truth_authority":"NONE",
+            }
+        backgrounds: dict[tuple[str,str], RehearsalTransitionRelation] = {}
+        ambiguous=[]
+        for rid,relation in sorted(self.action_outcome_learning.relations.items()):
+            if rid in source_ids or not self._action_outcome_relation_current(relation):
+                continue
+            edge=relation.as_epistemic_alternative_relation()
+            if edge is None or edge.state_id!=current.state_id or edge.value_epoch!=value_epoch:
+                continue
+            slot=(edge.state_id,edge.capability_id)
+            if slot==conflict_slot:
+                continue
+            prior=backgrounds.get(slot)
+            if prior is not None and prior.digest()!=edge.digest():
+                ambiguous.append(slot); continue
+            backgrounds[slot]=edge
+        if ambiguous:
+            return {
+                "status":"ABSTAIN","reason":"DIRECT_PROBE_BACKGROUND_RELATION_AMBIGUOUS",
+                "ambiguous_slots":tuple(sorted(set(ambiguous))),"conflict_slot":conflict_slot,
+                "authority":"NONE","execution_authority":"NONE","truth_authority":"NONE",
+            }
+        background=tuple(backgrounds[k] for k in sorted(backgrounds))
+        relation_sets=tuple(
+            (branch,*background)
+            for branch in sorted(branches,key=lambda r:r.digest())
+        )
+        return {
+            "status":"CURRENT_REVISED_DIRECT_PROBE_DECISION_SURFACE",
+            "candidate":formed["candidate"],"source_relation_ids":source_ids,
+            "source_relation_digests":tuple(sorted(r.digest() for r in branches)),
+            "relation_sets":relation_sets,"conflict_slot":conflict_slot,
+            "background_relation_count":len(background),"current_control_state_id":current.state_id,
+            "value_epoch":value_epoch,"model_set_authority":"PROPOSAL_ONLY_EPHEMERAL",
+            "truth_authority":"NONE","causal_explanation_authority":"NONE",
+            "evidence_independence_authority":"NONE","execution_authority":"NONE",
+        }
+
     def derive_current_revised_surface_direct_probe_program_candidate(
         self, *, old_deficit_id: str, successor_deficit_id: str,
     ) -> dict[str, Any]:
@@ -2482,12 +2568,13 @@ class Microseed:
         self, *, old_deficit_id: str, successor_deficit_id: str, obligation: QueryObligation,
     ) -> dict[str, Any]:
         """Reuse the existing inert EpistemicProgramTrial owner for the current direct probe."""
-        formed=self.derive_current_revised_surface_direct_probe_program_candidate(
+        surface=self.derive_current_revised_surface_direct_probe_decision_surface(
             old_deficit_id=str(old_deficit_id),successor_deficit_id=str(successor_deficit_id),
         )
-        if formed.get("status")!="CURRENT_DIRECT_PROBE_PROGRAM_CANDIDATE":
-            return {"status":"ABSTAIN","reason":formed.get("reason",formed.get("status","CANDIDATE_UNAVAILABLE")),
-                    "authority":"NONE","execution_authority":"NONE"}
+        if surface.get("status")!="CURRENT_REVISED_DIRECT_PROBE_DECISION_SURFACE":
+            return {"status":"ABSTAIN","reason":surface.get("reason",surface.get("status","DECISION_SURFACE_UNAVAILABLE")),
+                    "decision_surface":surface,"authority":"NONE","execution_authority":"NONE"}
+        formed={"candidate":surface["candidate"]}
         deficit=self.epistemic_deficits.records.get(str(successor_deficit_id))
         if deficit is None or deficit.state!=EpistemicDeficitState.PROBE_AVAILABLE:
             return {"status":"ABSTAIN","reason":"PROBE_AVAILABLE_DEFICIT_REQUIRED","authority":"NONE","execution_authority":"NONE"}
