@@ -2024,9 +2024,99 @@ class Microseed:
             "authority":"NONE","new_unknown_authority":"NONE","execution_authority":"NONE",
         }
 
+    def derive_current_revised_surface_missing_discriminator(self, old_deficit_id: str) -> dict[str, Any]:
+        """Derive an opaque missing-discriminator partition from the current accepted revised surface.
+
+        This is a pure, zero-authority composition over already-qualified projection routing and
+        relation content.  A discriminator is represented only when one current action predicts
+        at least two distinct observable outcomes across the qualified projection buckets.
+        Equivalent partitions collapse; distinct live partitions remain explicit ambiguity.
+        """
+        import hashlib, json
+
+        status = self.accepted_revisit_hypothesis_revision_status(str(old_deficit_id))
+        if status.get("status") != "CURRENT_ACCEPTED_REVISED_HYPOTHESIS_SURFACE":
+            return {
+                "status":"ABSTAIN",
+                "reason":status.get("status","REVISED_SURFACE_NOT_CURRENT"),
+                "deficit_id":str(old_deficit_id),
+                "authority":"NONE",
+            }
+        revised = str(status["revised_hypothesis_digest_sha256"])
+        groups: dict[str, list[dict[str, Any]]] = {}
+        for binding_id in tuple(status.get("current_binding_ids", ())):
+            binding = self.action_outcome_learning.projection_conditioned_bindings.get(str(binding_id))
+            if binding is None or not self._projection_conditioned_binding_current(binding):
+                continue
+            buckets = tuple(sorted(set(str(x) for x in binding.qualified_bucket_ids)))
+            if len(buckets) < 2:
+                continue
+            for action_id in tuple(sorted(set(str(x) for x in binding.action_ids))):
+                outcomes: list[tuple[str, str]] = []
+                complete = True
+                for bucket_id in buckets:
+                    relation_id = binding.relation_id_for(bucket_id, action_id)
+                    relation = None if relation_id is None else self.action_outcome_learning.relations.get(relation_id)
+                    if relation is None or not self._action_outcome_relation_structurally_current(relation):
+                        complete = False
+                        break
+                    observable = {
+                        "next_state_id": str(relation.next_state_id),
+                        "value_effect": float(relation.value_effect),
+                    }
+                    outcome_sha = hashlib.sha256(
+                        json.dumps(observable, sort_keys=True, separators=(",", ":")).encode("utf-8")
+                    ).hexdigest()
+                    outcomes.append((bucket_id, outcome_sha))
+                if not complete or len({digest for _, digest in outcomes}) < 2:
+                    continue
+                partition_payload = {
+                    "revised_hypothesis_digest_sha256": revised,
+                    "projection_id": str(binding.projection_id),
+                    "projection_epoch": int(binding.projection_epoch),
+                    "candidate_outcome_digests": [list(x) for x in outcomes],
+                }
+                signature = hashlib.sha256(
+                    json.dumps(partition_payload, sort_keys=True, separators=(",", ":")).encode("utf-8")
+                ).hexdigest()
+                groups.setdefault(signature, []).append({
+                    "binding_id": str(binding.binding_id),
+                    "projection_id": str(binding.projection_id),
+                    "projection_epoch": int(binding.projection_epoch),
+                    "action_id": action_id,
+                    "candidate_outcome_digests": tuple(outcomes),
+                })
+        if not groups:
+            return {
+                "status":"NO_REPRESENTED_CURRENT_MISSING_DISCRIMINATOR",
+                "deficit_id":str(old_deficit_id),
+                "revised_hypothesis_digest_sha256":revised,
+                "authority":"NONE","truth_authority":"NONE","execution_authority":"NONE",
+            }
+        if len(groups) > 1:
+            return {
+                "status":"MISSING_DISCRIMINATOR_AMBIGUOUS",
+                "deficit_id":str(old_deficit_id),
+                "revised_hypothesis_digest_sha256":revised,
+                "missing_discriminator_signatures_sha256":tuple(sorted(groups)),
+                "witness_groups":tuple((sig, tuple(groups[sig])) for sig in sorted(groups)),
+                "authority":"NONE","truth_authority":"NONE","execution_authority":"NONE",
+            }
+        signature = next(iter(groups))
+        return {
+            "status":"CURRENT_UNIQUE_REVISED_SURFACE_MISSING_DISCRIMINATOR",
+            "deficit_id":str(old_deficit_id),
+            "revised_hypothesis_digest_sha256":revised,
+            "missing_discriminator_signature_sha256":signature,
+            "witnesses":tuple(groups[signature]),
+            "derivation_basis":"CURRENT_QUALIFIED_PROJECTION_BUCKET_OBSERVABLE_PARTITION",
+            "authority":"NONE","truth_authority":"NONE","answer_authority":"NONE",
+            "execution_authority":"NONE","semantic_question_authority":"NONE",
+        }
+
     def record_revised_surface_action_limited_unknown(
         self, *, old_deficit_id: str, new_deficit_id: str, unknown_evidence_id: str,
-        missing_discriminator_signature_sha256: str,
+        missing_discriminator_signature_sha256: str | None = None,
     ) -> EpistemicDeficitRecord:
         """Create a new bounded deficit after accepted model revision, never rewrite the old one.
 
@@ -2047,6 +2137,10 @@ class Microseed:
         status=self.accepted_revisit_hypothesis_revision_status(str(old_deficit_id))
         if status.get("status")!="CURRENT_ACCEPTED_REVISED_HYPOTHESIS_SURFACE":
             raise ValueError(f"REVISED_SURFACE_NOT_CURRENT:{status.get('status','ABSTAIN')}")
+        discriminator=self.derive_current_revised_surface_missing_discriminator(str(old_deficit_id))
+        if discriminator.get("status")!="CURRENT_UNIQUE_REVISED_SURFACE_MISSING_DISCRIMINATOR":
+            raise ValueError(f"REVISED_SURFACE_MISSING_DISCRIMINATOR_NOT_UNIQUE:{discriminator.get('status','ABSTAIN')}")
+        derived_discriminator_signature=str(discriminator["missing_discriminator_signature_sha256"])
         binding_id=status["current_binding_ids"][0]
         binding=self.action_outcome_learning.projection_conditioned_bindings[binding_id]
         projection=self.epistemic_projections.records[binding.projection_id]
@@ -2058,13 +2152,18 @@ class Microseed:
             deficit_id=str(new_deficit_id),question_key=old.question_key,
             hypothesis_digest_sha256=status["revised_hypothesis_digest_sha256"],
             unknown_evidence_id=str(unknown_evidence_id),
-            missing_discriminator_signature_sha256=str(missing_discriminator_signature_sha256),
+            missing_discriminator_signature_sha256=derived_discriminator_signature,
             premise_anchors=tuple(anchors),
             assistance_ancestry=tuple(old.assistance_ancestry)+(
                 f"SUCCESSOR_OF:{old_deficit_id}",
                 f"ACCEPTED_REVISED_HYPOTHESIS_SURFACE:{status['revised_hypothesis_digest_sha256']}",
                 f"CURRENTNESS_REPRESENTATIVE_PROJECTION:{projection.projection_id}@{projection.epoch}",
-                "MISSING_DISCRIMINATOR_SIGNATURE_SUPPLIED_TO_BOUNDED_SUCCESSOR",
+                "MISSING_DISCRIMINATOR_DERIVED_FROM_CURRENT_REVISED_SURFACE",
+                *(
+                    ("CALLER_MISSING_DISCRIMINATOR_TOKEN_IGNORED",)
+                    if missing_discriminator_signature_sha256 is not None
+                    else ()
+                ),
             ),
         )
         packet={
@@ -2072,6 +2171,8 @@ class Microseed:
             "revised_hypothesis_digest_sha256":rec.hypothesis_digest_sha256,
             "unknown_evidence_id":rec.unknown_evidence_id,
             "projection_anchor":projection_anchor.serializable(),
+            "derived_missing_discriminator_signature_sha256":derived_discriminator_signature,
+            "caller_missing_discriminator_token_present":missing_discriminator_signature_sha256 is not None,
             "truth_authority":"NONE","answer_authority":"NONE","model_switch_authority":"NONE",
         }
         self.path.append("EPISTEMIC_REVISED_SURFACE_SUCCESSOR_DEFICIT_RECORDED",packet)
