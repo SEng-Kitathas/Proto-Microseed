@@ -63,7 +63,7 @@ def test_first_step_nonfeasible_abstains_before_priority_relabels_it(state):
         r=m.arbitrate_endogenous_epistemic_trial_candidates((candidate(),),deficit_id='D',decision_context=_context_without_routes(dc),obligation=act_ob())
         assert r['status']=='ABSTAIN'
         reasons='|'.join(r.get('candidate_reasons',(r.get('reason',''),)))
-        assert reasons == ('EPISTEMIC_PROGRAM_STEP_REFUSED' if state=='REFUSED' else 'EPISTEMIC_PROGRAM_STEP_UNRESOLVED')
+        assert reasons == ('EPISTEMIC_PROGRAM_STEP_LOCAL_PRECHECK_REFUSED' if state=='REFUSED' else 'EPISTEMIC_PROGRAM_STEP_LOCAL_PRECHECK_UNRESOLVED')
         assert calls==[]
     finally: td.cleanup()
 

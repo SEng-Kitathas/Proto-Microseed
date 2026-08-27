@@ -3,7 +3,7 @@ from pathlib import Path
 import tempfile
 
 from microseed import Authority, CapabilityContract, EpistemicStatus, Microseed, Observation, OperationalFrameContract, QualificationState, QueryObligation
-from microseed.development.epistemic_action import EpistemicStepExecutionContext
+from microseed.development.epistemic_action import derive_epistemic_program_step_local_precheck, derive_grounded_feasibility_option
 from microseed.development.epistemic_program import begin_epistemic_program_trial
 from microseed.development.relational_algebra import OpaqueTransitionSample, discover_opaque_action_composition_candidates
 
@@ -34,77 +34,122 @@ def fixture(*, feasibility_authority=Authority.DERIVED_READ_ONLY, target='A', de
     return td,m,calls,world,trial
 
 
-def nominate(m,trial): return m.nominate_grounded_epistemic_program_step_intent(trial,'FEAS-A',feas_ob(),act_ob())
-def ctx(trial): return EpistemicStepExecutionContext(trial,feasibility_capability_id='FEAS-A',feasibility_obligation=feas_ob())
+def grounded(m,trial):
+    option,basis=derive_grounded_feasibility_option(
+        target_capability_id=trial.steps[len(trial.step_records)], feasibility_capability_id='FEAS-A',
+        feasibility_obligation=feas_ob(), capabilities=m.capabilities,
+    )
+    return option,basis
 
-def test_fresh_grounded_feasible_nominates_and_executes_only_through_effect_boundary():
+
+def local(m,trial):
+    option,basis=grounded(m,trial)
+    c=derive_epistemic_program_step_local_precheck(
+        trial=trial,deficit=m.epistemic_deficits.records.get(trial.deficit_id),feasibility=option,
+        capabilities=m.capabilities,obligation=act_ob(),current_frame_epochs=dict(m.frames.epochs),
+        current_state=m.action_closure.current_state,
+    )
+    return c,basis
+
+
+def nominate(m,trial): return m.nominate_grounded_epistemic_program_step_intent(trial,'FEAS-A',feas_ob(),act_ob())
+
+
+def test_fresh_grounded_feasible_earns_local_precheck_but_not_decision_authority():
     td,m,calls,w,t=fixture()
     try:
-        n=nominate(m,t);assert n['status']=='ACTION_INTENT_NOMINATED';assert n['intent']['capability_id']=='A';assert n['feasibility_basis']['feasibility']=='FEASIBLE';assert calls==[]
-        r=m.execute_bounded_action(n['intent']['intent_id'],act_ob(),epistemic_step_context=ctx(t));assert r['status']=='ACTION_EXECUTED' and calls==['A']
+        c,b=local(m,t)
+        assert c.licenses_yes() and b['feasibility']=='FEASIBLE'
+        assert c.qualifier('decision_premises')=='LOCAL_PRECHECK_ONLY__NOT_EXECUTABLE'
+        n=nominate(m,t)
+        assert n['status']=='ABSTAIN' and n['reason']=='EPISTEMIC_DECISION_CONTEXT_REQUIRED'
+        assert calls==[] and not m.action_closure.intents
     finally:td.cleanup()
 
-def test_fresh_refusal_at_nomination_abstains():
+
+def test_fresh_refusal_is_owned_by_grounded_feasibility_before_decision_context():
     td,m,calls,w,t=fixture();w['state']='REFUSED'
     try:
-        n=nominate(m,t);assert n['status']=='ABSTAIN' and n['feasibility_basis']['feasibility']=='REFUSED' and calls==[]
+        c,b=local(m,t); assert b['feasibility']=='REFUSED' and c.licenses_no()
+        n=nominate(m,t); assert n['status']=='ABSTAIN' and n['feasibility_basis']['feasibility']=='REFUSED' and calls==[]
     finally:td.cleanup()
 
-def test_fresh_unknown_at_nomination_abstains():
+
+def test_fresh_unknown_is_owned_by_grounded_feasibility_before_decision_context():
     td,m,calls,w,t=fixture();w['state']='UNKNOWN'
     try:
-        n=nominate(m,t);assert n['status']=='ABSTAIN' and n['feasibility_basis']['feasibility']=='UNKNOWN' and calls==[]
+        c,b=local(m,t); assert b['feasibility']=='UNKNOWN' and c.commitment.value=='UNKNOWN'
+        n=nominate(m,t); assert n['status']=='ABSTAIN' and n['feasibility_basis']['feasibility']=='UNKNOWN' and calls==[]
     finally:td.cleanup()
 
-def test_feasible_at_nomination_refused_before_effect_blocks_execution():
-    td,m,calls,w,t=fixture()
-    try:
-        n=nominate(m,t);w['state']='REFUSED';r=m.execute_bounded_action(n['intent']['intent_id'],act_ob(),epistemic_step_context=ctx(t));assert r['status']=='NO_EXECUTION' and calls==[]
-    finally:td.cleanup()
 
-def test_feasibility_capability_invalidation_after_nomination_blocks_execution():
-    td,m,calls,w,t=fixture()
-    try:
-        n=nominate(m,t);m.invalidate_capability('FEAS-A',reason='FEASIBILITY_BASIS_LOST');r=m.execute_bounded_action(n['intent']['intent_id'],act_ob(),epistemic_step_context=ctx(t));assert r['status']=='NO_EXECUTION' and calls==[]
-    finally:td.cleanup()
-
-def test_wrong_target_feasibility_capability_never_nominates():
+def test_wrong_target_feasibility_capability_never_passes_grounded_owner():
     td,m,calls,w,t=fixture(target='B')
     try:
-        n=nominate(m,t);assert n['status']=='ABSTAIN' and n['feasibility_basis']['reason']=='FEASIBILITY_CAPABILITY_TARGET_MISMATCH' and calls==[]
+        option,basis=grounded(m,t)
+        assert basis['reason']=='FEASIBILITY_CAPABILITY_TARGET_MISMATCH'
+        assert option.feasibility.value=='UNKNOWN'
+        n=nominate(m,t); assert n['status']=='ABSTAIN' and n['feasibility_basis']['reason']=='FEASIBILITY_CAPABILITY_TARGET_MISMATCH' and calls==[]
     finally:td.cleanup()
+
 
 def test_feasibility_capability_must_depend_on_target_effect_capability():
     td,m,calls,w,t=fixture(depend=False)
     try:
-        n=nominate(m,t);assert n['status']=='ABSTAIN' and n['feasibility_basis']['reason']=='FEASIBILITY_CAPABILITY_TARGET_DEPENDENCY_MISSING' and calls==[]
+        option,basis=grounded(m,t)
+        assert basis['reason']=='FEASIBILITY_CAPABILITY_TARGET_DEPENDENCY_MISSING'
+        assert option.feasibility.value=='UNKNOWN'
+        assert nominate(m,t)['status']=='ABSTAIN' and calls==[]
     finally:td.cleanup()
+
 
 def test_feasibility_capability_cannot_carry_effect_authority():
     td,m,calls,w,t=fixture(feasibility_authority=Authority.EFFECT)
     try:
-        n=nominate(m,t);assert n['status']=='ABSTAIN' and n['feasibility_basis']['reason']=='FEASIBILITY_CAPABILITY_REQUIRES_DERIVED_READ_ONLY' and calls==[]
+        option,basis=grounded(m,t)
+        assert basis['reason']=='FEASIBILITY_CAPABILITY_REQUIRES_DERIVED_READ_ONLY'
+        assert option.feasibility.value=='UNKNOWN'
+        assert nominate(m,t)['status']=='ABSTAIN' and calls==[]
     finally:td.cleanup()
 
 
-def test_noncurrent_feasibility_capability_is_rejected_by_currentness_owner_before_nomination():
+def test_noncurrent_feasibility_capability_is_rejected_by_currentness_owner():
     td,m,calls,w,t=fixture()
     try:
         m.invalidate_capability('FEAS-A',reason='MS1914_FEASIBILITY_CURRENTNESS_HOSTILE')
-        n=nominate(m,t)
-        assert n['status']=='ABSTAIN'
-        assert n['feasibility_basis']['reason']=='FEASIBILITY_CAPABILITY_NOT_CURRENT'
-        assert calls==[]
+        option,basis=grounded(m,t)
+        assert basis['reason']=='FEASIBILITY_CAPABILITY_NOT_CURRENT'
+        assert option.feasibility.value=='UNKNOWN'
+        assert nominate(m,t)['status']=='ABSTAIN' and calls==[]
     finally:td.cleanup()
 
 
-def test_qualified_but_noncurrent_feasibility_capability_is_rejected_by_explicit_currentness_guard():
+def test_qualified_but_noncurrent_feasibility_capability_hits_explicit_currentness_guard():
     td,m,calls,w,t=fixture(feasibility_currentness='STALE')
     try:
         assert m.capabilities.contracts['FEAS-A'].qualification==QualificationState.SHADOW_QUALIFIED
         assert m.capabilities.contracts['FEAS-A'].currentness=='STALE'
+        option,basis=grounded(m,t)
+        assert basis['reason']=='FEASIBILITY_CAPABILITY_NOT_CURRENT'
+        assert option.feasibility.value=='UNKNOWN'
+        assert nominate(m,t)['status']=='ABSTAIN' and calls==[]
+    finally:td.cleanup()
+
+
+def test_grounded_feasibility_local_precheck_never_fires_effect_handler():
+    td,m,calls,w,t=fixture()
+    try:
+        c,b=local(m,t)
+        assert c.licenses_yes() and b['feasibility']=='FEASIBLE'
+        assert calls==[] and not m.action_closure.executions
+    finally:td.cleanup()
+
+
+def test_ms1708_boundary_keeps_feasible_route_distinct_from_lawful_initiation():
+    td,m,calls,w,t=fixture()
+    try:
+        c,b=local(m,t); assert c.licenses_yes()
         n=nominate(m,t)
-        assert n['status']=='ABSTAIN'
-        assert n['feasibility_basis']['reason']=='FEASIBILITY_CAPABILITY_NOT_CURRENT'
-        assert calls==[]
+        assert n['status']=='ABSTAIN' and n['reason']=='EPISTEMIC_DECISION_CONTEXT_REQUIRED'
+        assert n['local_precheck']['commitment']=='YES' and calls==[]
     finally:td.cleanup()

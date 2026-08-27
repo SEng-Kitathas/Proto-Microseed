@@ -7,7 +7,7 @@ from microseed import (
     Authority, CapabilityContract, EpistemicStatus, FeasibilityState, Microseed,
     Observation, OperationalFrameContract, QualificationState, QueryObligation,
 )
-from microseed.development.epistemic_action import EpistemicStepExecutionContext
+from microseed.development.epistemic_action import derive_epistemic_program_step_local_precheck
 from microseed.development.epistemic_program import begin_epistemic_program_trial
 from microseed.development.recruitment import RecruitmentOption
 from microseed.development.relational_algebra import OpaqueTransitionSample, discover_opaque_action_composition_candidates
@@ -57,97 +57,116 @@ def feasible(state=FeasibilityState.FEASIBLE):
     return RecruitmentOption('A',state,local_cost=0.1,model_evidence_ids=('ASSISTANCE:MS1703_TYPED_FEASIBILITY_INPUT',))
 
 
+def local(m,trial,f=None):
+    return derive_epistemic_program_step_local_precheck(
+        trial=trial, deficit=m.epistemic_deficits.records.get(trial.deficit_id),
+        feasibility=f or feasible(), capabilities=m.capabilities, obligation=obligation(),
+        current_frame_epochs=dict(m.frames.epochs), current_state=m.action_closure.current_state,
+    )
+
+
 def nominate(m,trial,f=None):
     return m.nominate_epistemic_program_step_intent(trial,f or feasible(),obligation())
 
 
-def test_no_native_macro_token_is_created_and_only_next_primitive_is_nominated():
+def test_ms1703_local_precheck_represents_next_primitive_without_macro_or_authority():
     td,m,calls,trial=fixture()
     try:
-        r=nominate(m,trial); assert r['status']=='ACTION_INTENT_NOMINATED'
-        i=r['intent']; assert i['basis_kind']=='EPISTEMIC_PROGRAM_STEP' and i['capability_id']=='A'
+        c=local(m,trial)
+        assert c.licenses_yes(),c.serializable()
+        assert c.reason=='EPISTEMIC_PROGRAM_STEP_LOCAL_PRECHECK_ALL_LICENSED'
+        assert c.qualifier('decision_premises')=='LOCAL_PRECHECK_ONLY__NOT_EXECUTABLE'
         assert 'A_then_B' not in m.capabilities.contracts and calls==[]
-        assert i['execution_authority']==i['truth_authority']==i['semantic_intention_authority']=='NONE'
     finally: td.cleanup()
 
 
-def test_feasible_next_step_executes_through_ordinary_effect_boundary_with_fresh_context():
+def test_ms1708_boundary_public_adapter_requires_decision_context_before_intent():
     td,m,calls,trial=fixture()
     try:
-        n=nominate(m,trial); intent_id=n['intent']['intent_id']
-        r=m.execute_bounded_action(intent_id,obligation(),epistemic_step_context=EpistemicStepExecutionContext(trial,feasible()))
-        assert r['status']=='ACTION_EXECUTED' and calls==['A']
-        assert r['execution']['authority']=='EFFECT'
+        before=len(m.action_closure.intents)
+        r=nominate(m,trial)
+        assert r['status']=='ABSTAIN' and r['reason']=='EPISTEMIC_DECISION_CONTEXT_REQUIRED'
+        assert r['local_precheck']['commitment']=='YES'
+        assert len(m.action_closure.intents)==before and calls==[]
     finally: td.cleanup()
 
 
-def test_missing_execution_context_blocks_effect():
+def test_refused_feasibility_is_owned_by_local_precheck_before_decision_context():
     td,m,calls,trial=fixture()
     try:
-        n=nominate(m,trial); r=m.execute_bounded_action(n['intent']['intent_id'],obligation())
-        assert r['status']=='NO_EXECUTION' and r['reason']=='EPISTEMIC_STEP_EXECUTION_CONTEXT_REQUIRED' and calls==[]
-    finally: td.cleanup()
-
-
-def test_refused_feasibility_abstains_before_intent():
-    td,m,calls,trial=fixture()
-    try:
+        c=local(m,trial,feasible(FeasibilityState.REFUSED))
+        assert c.licenses_no() and c.reason=='EPISTEMIC_PROGRAM_STEP_LOCAL_PRECHECK_REFUSED'
         r=nominate(m,trial,feasible(FeasibilityState.REFUSED))
-        assert r['status']=='ABSTAIN' and r['commitment']['commitment']=='NO' and calls==[]
+        assert r['status']=='ABSTAIN' and r['local_precheck']['commitment']=='NO' and calls==[]
     finally: td.cleanup()
 
 
-def test_unknown_feasibility_abstains_before_intent():
+def test_unknown_feasibility_is_owned_by_local_precheck_before_decision_context():
     td,m,calls,trial=fixture()
     try:
+        c=local(m,trial,feasible(FeasibilityState.UNKNOWN))
+        assert c.commitment.value=='UNKNOWN'
         r=nominate(m,trial,feasible(FeasibilityState.UNKNOWN))
-        assert r['status']=='ABSTAIN' and r['commitment']['commitment']=='UNKNOWN' and calls==[]
+        assert r['status']=='ABSTAIN' and r['local_precheck']['commitment']=='UNKNOWN' and calls==[]
     finally: td.cleanup()
 
 
-def test_feasibility_change_between_nomination_and_effect_blocks_execution():
+def test_trial_content_drift_breaks_local_route_precheck():
     td,m,calls,trial=fixture()
     try:
-        n=nominate(m,trial,feasible())
-        ctx=EpistemicStepExecutionContext(trial,feasible(FeasibilityState.UNKNOWN))
-        r=m.execute_bounded_action(n['intent']['intent_id'],obligation(),epistemic_step_context=ctx)
-        assert r['status']=='NO_EXECUTION' and r['reason']=='EPISTEMIC_PROGRAM_STEP_PREMISE_DRIFT' and calls==[]
-    finally: td.cleanup()
-
-
-def test_trial_content_drift_between_nomination_and_effect_blocks_execution():
-    td,m,calls,trial=fixture()
-    try:
-        n=nominate(m,trial)
         changed=replace(trial,start_state_evidence_id='DIFFERENT')
-        r=m.execute_bounded_action(n['intent']['intent_id'],obligation(),epistemic_step_context=EpistemicStepExecutionContext(changed,feasible()))
-        assert r['status']=='NO_EXECUTION' and r['reason']=='EPISTEMIC_PROGRAM_TRIAL_DRIFT' and calls==[]
+        c=local(m,changed)
+        assert not c.licenses_yes()
+        assert calls==[]
     finally: td.cleanup()
 
 
-def test_deficit_staleness_after_nomination_blocks_execution():
+def test_deficit_staleness_breaks_local_need_precheck():
     td,m,calls,trial=fixture()
     try:
-        n=nominate(m,trial); m.epistemic_deficits.mark_stale('D',reason='QUESTION_PREMISE_DRIFT')
-        r=m.execute_bounded_action(n['intent']['intent_id'],obligation(),epistemic_step_context=EpistemicStepExecutionContext(trial,feasible()))
-        assert r['status']=='NO_EXECUTION' and r['reason']=='EPISTEMIC_PROGRAM_STEP_PREMISE_DRIFT' and calls==[]
+        m.epistemic_deficits.mark_stale('D',reason='QUESTION_PREMISE_DRIFT')
+        c=local(m,trial)
+        assert not c.licenses_yes()
+        assert 'NOT_ACTION_LIMITED' in c.reason or c.commitment.value=='UNKNOWN'
+        assert calls==[]
     finally: td.cleanup()
 
 
-def test_control_state_drift_after_nomination_blocks_before_effect():
+def test_control_state_drift_breaks_local_route_precheck():
     td,m,calls,trial=fixture()
     try:
-        n=nominate(m,trial)
         m.observe_opaque_control_state(Observation('CSX','EXT','opaque-control','sx',authority=Authority.OBSERVATION_ONLY),evidence_id='E-CSX')
-        r=m.execute_bounded_action(n['intent']['intent_id'],obligation(),epistemic_step_context=EpistemicStepExecutionContext(trial,feasible()))
-        assert r['status']=='NO_EXECUTION' and r['reason']=='CONTROL_STATE_DRIFT' and calls==[]
+        c=local(m,trial)
+        assert not c.licenses_yes()
+        assert calls==[]
     finally: td.cleanup()
 
 
-def test_component_drift_after_nomination_blocks_before_effect():
+def test_component_drift_breaks_local_route_precheck():
     td,m,calls,trial=fixture()
     try:
-        n=nominate(m,trial); m.invalidate_capability('A',reason='DRIFT')
-        r=m.execute_bounded_action(n['intent']['intent_id'],obligation(),epistemic_step_context=EpistemicStepExecutionContext(trial,feasible()))
-        assert r['status']=='NO_EXECUTION' and r['reason']=='EFFECT_CAPABILITY_NOT_CURRENT' and calls==[]
+        m.invalidate_capability('A',reason='DRIFT')
+        c=local(m,trial)
+        assert not c.licenses_yes()
+        assert calls==[]
+    finally: td.cleanup()
+
+
+def test_public_adapter_abstention_creates_no_execution_or_handler_effect():
+    td,m,calls,trial=fixture()
+    try:
+        r=nominate(m,trial)
+        assert r['status']=='ABSTAIN'
+        assert not m.action_closure.intents and not m.action_closure.executions and calls==[]
+    finally: td.cleanup()
+
+
+def test_local_precheck_has_zero_truth_and_execution_authority_surface():
+    td,m,calls,trial=fixture()
+    try:
+        c=local(m,trial)
+        q=dict(c.qualifiers)
+        assert q['execution_authority']==q['truth_authority']=='NONE'
+        assert q['decision_premises']=='LOCAL_PRECHECK_ONLY__NOT_EXECUTABLE'
+        assert calls==[]
     finally: td.cleanup()

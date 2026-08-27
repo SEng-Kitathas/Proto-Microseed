@@ -1,5 +1,5 @@
 from microseed import EpistemicStatus
-from microseed.development.epistemic_action import derive_epistemic_program_step_commitment
+from microseed.development.epistemic_action import derive_epistemic_program_step_local_precheck
 from microseed.development.epistemic_program import EpistemicProgramTrial
 from microseed.development.recruitment import RecruitmentOption
 from microseed.runtime.types import FeasibilityState
@@ -23,13 +23,13 @@ def test_bound_single_probe_crosses_need_gate_only_with_independent_program_sati
         assert formed['status']=='EPISTEMIC_TRIAL_INSTANTIATED'
         trial=formed['trial']; sat=m.derive_current_program_discriminator_satisfaction(trial)
         assert sat.licenses_yes(),sat.serializable()
-        cmt=derive_epistemic_program_step_commitment(
+        cmt=derive_epistemic_program_step_local_precheck(
             trial=trial,deficit=m.epistemic_deficits.records['D-1902'],
             feasibility=RecruitmentOption('B',FeasibilityState.FEASIBLE),capabilities=m.capabilities,
             obligation=act_ob(),current_frame_epochs=dict(m.frames.epochs),current_state=m.action_closure.current_state,
             program_discriminator_satisfaction=sat,
         )
-        assert cmt.reason=='EPISTEMIC_PROGRAM_STEP_ALL_LICENSED',cmt.serializable()
+        assert cmt.reason=='EPISTEMIC_PROGRAM_STEP_LOCAL_PRECHECK_ALL_LICENSED',cmt.serializable()
         assert cmt.commitment.value=='YES'
     finally:_close(m,td)
 
@@ -53,7 +53,7 @@ def _bound_fixture():
     return td,m,calls,s
 
 def _commit(m,s,t):
-    return derive_epistemic_program_step_commitment(
+    return derive_epistemic_program_step_local_precheck(
         trial=t,deficit=m.epistemic_deficits.records['D-1902'],
         feasibility=RecruitmentOption(t.steps[0],FeasibilityState.FEASIBLE),capabilities=m.capabilities,
         obligation=act_ob(),current_frame_epochs=dict(m.frames.epochs),current_state=m.action_closure.current_state,
@@ -63,21 +63,21 @@ def test_probe_available_does_not_license_wrong_primitive():
     td,m,calls,s=_bound_fixture()
     try:
         cmt=_commit(m,s,_trial(m,s,('A',)))
-        assert cmt.commitment.value=='UNKNOWN' and cmt.reason=='EPISTEMIC_PROGRAM_STEP_UNRESOLVED'
+        assert cmt.commitment.value=='UNKNOWN' and cmt.reason=='EPISTEMIC_PROGRAM_STEP_LOCAL_PRECHECK_UNRESOLVED'
     finally:_close(m,td)
 
 def test_probe_available_does_not_license_multi_step_program():
     td,m,calls,s=_bound_fixture()
     try:
         cmt=_commit(m,s,_trial(m,s,('B','A')))
-        assert cmt.commitment.value=='UNKNOWN' and cmt.reason=='EPISTEMIC_PROGRAM_STEP_UNRESOLVED'
+        assert cmt.commitment.value=='UNKNOWN' and cmt.reason=='EPISTEMIC_PROGRAM_STEP_LOCAL_PRECHECK_UNRESOLVED'
     finally:_close(m,td)
 
 def test_probe_available_does_not_license_wrong_discriminator():
     td,m,calls,s=_bound_fixture()
     try:
         cmt=_commit(m,s,_trial(m,s,('B',),disc='f'*64))
-        assert cmt.commitment.value=='UNKNOWN' and cmt.reason=='EPISTEMIC_PROGRAM_STEP_UNRESOLVED'
+        assert cmt.commitment.value=='UNKNOWN' and cmt.reason=='EPISTEMIC_PROGRAM_STEP_LOCAL_PRECHECK_UNRESOLVED'
     finally:_close(m,td)
 
 def test_probe_available_does_not_license_stale_bound_epoch():
@@ -85,5 +85,5 @@ def test_probe_available_does_not_license_stale_bound_epoch():
     try:
         t=_trial(m,s,('B',),epochs=(('B',m.capabilities.epochs['B']+1),))
         cmt=_commit(m,s,t)
-        assert cmt.commitment.value=='UNKNOWN' and cmt.reason=='EPISTEMIC_PROGRAM_STEP_UNRESOLVED'
+        assert cmt.commitment.value=='UNKNOWN' and cmt.reason=='EPISTEMIC_PROGRAM_STEP_LOCAL_PRECHECK_UNRESOLVED'
     finally:_close(m,td)

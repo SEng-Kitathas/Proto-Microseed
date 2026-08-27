@@ -99,7 +99,7 @@ from ..development.reentry import (
 from ..development.epistemic_program import GeneratedEpistemicProgramCandidate, begin_epistemic_program_trial, begin_generated_epistemic_program_trial, completed_program_evidence_payload
 from ..development.relational_algebra import OpaqueActionCompositionCandidate, OpaqueTransitionSample, discover_opaque_action_composition_candidates, discover_one_step_visible_history_refinements
 from ..development.epistemic_action import (
-    EpistemicStepExecutionContext, EpistemicDecisionBearingContext, derive_epistemic_program_step_commitment,
+    EpistemicStepExecutionContext, EpistemicDecisionBearingContext, derive_epistemic_program_step_commitment, derive_epistemic_program_step_local_precheck,
     derive_grounded_feasibility_option, derive_current_program_discrimination_commitment, derive_current_decision_bearing_commitment,
     derive_current_grounded_feasibility_surface, derive_current_decision_bearing_commitment_from_grounded_surface,
     derive_program_observable_partition, program_partition_strictly_refines,
@@ -768,30 +768,61 @@ class Microseed:
         self.action_closure.add_intent(intent); packet=intent.serializable(); self.path.append("BOUNDED_ACTION_INTENT",packet); self.store.append("BOUNDED_ACTION_INTENT",packet)
         return {"status":"ACTION_INTENT_NOMINATED","intent":packet,"license":license_result,"execution_authority":"NONE"}
 
-    def nominate_epistemic_program_step_intent(self, trial, feasibility: RecruitmentOption, obligation: QueryObligation) -> dict[str, Any]:
-        """Research-only: nominate exactly one current epistemic-program primitive.
+    def nominate_epistemic_program_step_intent(
+        self, trial, feasibility: RecruitmentOption, obligation: QueryObligation,
+        decision_context: EpistemicDecisionBearingContext | None = None,
+    ) -> dict[str, Any]:
+        """Research-only typed-feasibility adapter with mandatory decision premises.
 
-        The adapter grants no execution, truth, feasibility, or semantic-goal
-        authority. The same trial + feasibility premises must be supplied again
-        and re-derived immediately before EFFECT.
+        Historical MS1703 local need/feasibility/route probing is preserved as a
+        zero-authority precheck.  Since MS1708, that precheck is not sufficient
+        for lawful epistemic initiation: priority and program information must
+        be derived from a current decision context before any intent is created.
         """
         deficit=self.epistemic_deficits.records.get(trial.deficit_id)
         satisfaction=self.derive_current_program_discriminator_satisfaction(trial) if deficit is not None and deficit.state==EpistemicDeficitState.PROBE_AVAILABLE else None
+        local=derive_epistemic_program_step_local_precheck(
+            trial=trial, deficit=deficit, feasibility=feasibility, capabilities=self.capabilities,
+            obligation=obligation, current_frame_epochs=dict(self.frames.epochs), current_state=self.action_closure.current_state,
+            program_discriminator_satisfaction=satisfaction,
+        )
+        if not local.licenses_yes():
+            return {"status":"ABSTAIN","reason":local.reason,"local_precheck":local.serializable(),"execution_authority":"NONE"}
+        if decision_context is None:
+            return {"status":"ABSTAIN","reason":"EPISTEMIC_DECISION_CONTEXT_REQUIRED","local_precheck":local.serializable(),"execution_authority":"NONE"}
+        priority_options,_priority_basis=derive_current_grounded_feasibility_surface(
+            capabilities=self.capabilities, operational_scope_id=obligation.operational_scope_id,
+        )
+        priority=derive_current_decision_bearing_commitment_from_grounded_surface(
+            trial=trial, deficit=deficit, decision_context=decision_context, feasibility_options=priority_options,
+            capabilities=self.capabilities, values=self.values, current_frame_epochs=dict(self.frames.epochs),
+            current_episode_epochs=dict(self.episodes.epochs), current_topology_epochs=dict(self.topologies.epochs),
+            current_coordination_epochs=dict(self.coordinations.epochs),
+        )
+        if not priority.licenses_yes():
+            return {"status":"ABSTAIN","reason":priority.reason,"priority":priority.serializable(),"local_precheck":local.serializable(),"execution_authority":"NONE"}
+        information=derive_current_program_discrimination_commitment(
+            trial=trial, decision_context=decision_context, decision_bearing_commitment=priority,
+        )
+        if not information.licenses_yes():
+            return {"status":"ABSTAIN","reason":information.reason,"priority":priority.serializable(),"information":information.serializable(),"local_precheck":local.serializable(),"execution_authority":"NONE"}
         intent,cmt=derive_epistemic_program_step_intent(
             trial=trial, deficit=deficit, feasibility=feasibility, capabilities=self.capabilities,
             obligation=obligation, current_frame_epochs=dict(self.frames.epochs),
-            current_state=self.action_closure.current_state,program_discriminator_satisfaction=satisfaction,
+            current_state=self.action_closure.current_state, priority_commitment=priority,
+            information_commitment=information, program_discriminator_satisfaction=satisfaction,
         )
         if intent is None:
-            return {"status":"ABSTAIN","reason":cmt.reason,"commitment":cmt.serializable(),"execution_authority":"NONE"}
+            return {"status":"ABSTAIN","reason":cmt.reason,"priority":priority.serializable(),"information":information.serializable(),"commitment":cmt.serializable(),"local_precheck":local.serializable(),"execution_authority":"NONE"}
         self.action_closure.add_intent(intent)
         packet=intent.serializable(); self.path.append("BOUNDED_ACTION_INTENT",packet); self.store.append("BOUNDED_ACTION_INTENT",packet)
-        return {"status":"ACTION_INTENT_NOMINATED","intent":packet,"commitment":cmt.serializable(),"execution_authority":"NONE","research_basis":"EPISTEMIC_PROGRAM_STEP"}
+        return {"status":"ACTION_INTENT_NOMINATED","intent":packet,"priority":priority.serializable(),"information":information.serializable(),"commitment":cmt.serializable(),"local_precheck":local.serializable(),"execution_authority":"NONE","research_basis":"EPISTEMIC_PROGRAM_STEP_DECISION_BOUND"}
 
     def nominate_grounded_epistemic_program_step_intent(
-        self, trial, feasibility_capability_id: str, feasibility_obligation: QueryObligation, obligation: QueryObligation
+        self, trial, feasibility_capability_id: str, feasibility_obligation: QueryObligation,
+        obligation: QueryObligation, decision_context: EpistemicDecisionBearingContext | None = None,
     ) -> dict[str, Any]:
-        """Research-only: nominate one primitive using a freshly invoked ordinary feasibility capability."""
+        """Research-only grounded-feasibility adapter with mandatory decision premises."""
         idx=len(trial.step_records)
         if trial.status!="OPEN" or idx>=len(trial.steps):
             return {"status":"ABSTAIN","reason":"EPISTEMIC_PROGRAM_NOT_OPEN","execution_authority":"NONE"}
@@ -801,16 +832,42 @@ class Microseed:
         )
         deficit=self.epistemic_deficits.records.get(trial.deficit_id)
         satisfaction=self.derive_current_program_discriminator_satisfaction(trial) if deficit is not None and deficit.state==EpistemicDeficitState.PROBE_AVAILABLE else None
+        local=derive_epistemic_program_step_local_precheck(
+            trial=trial, deficit=deficit, feasibility=option, capabilities=self.capabilities,
+            obligation=obligation, current_frame_epochs=dict(self.frames.epochs), current_state=self.action_closure.current_state,
+            program_discriminator_satisfaction=satisfaction,
+        )
+        if not local.licenses_yes():
+            return {"status":"ABSTAIN","reason":local.reason,"local_precheck":local.serializable(),"feasibility_basis":feasibility_basis,"execution_authority":"NONE"}
+        if decision_context is None:
+            return {"status":"ABSTAIN","reason":"EPISTEMIC_DECISION_CONTEXT_REQUIRED","local_precheck":local.serializable(),"feasibility_basis":feasibility_basis,"execution_authority":"NONE"}
+        priority_options,_priority_basis=derive_current_grounded_feasibility_surface(
+            capabilities=self.capabilities, operational_scope_id=obligation.operational_scope_id,
+        )
+        priority=derive_current_decision_bearing_commitment_from_grounded_surface(
+            trial=trial, deficit=deficit, decision_context=decision_context, feasibility_options=priority_options,
+            capabilities=self.capabilities, values=self.values, current_frame_epochs=dict(self.frames.epochs),
+            current_episode_epochs=dict(self.episodes.epochs), current_topology_epochs=dict(self.topologies.epochs),
+            current_coordination_epochs=dict(self.coordinations.epochs),
+        )
+        if not priority.licenses_yes():
+            return {"status":"ABSTAIN","reason":priority.reason,"priority":priority.serializable(),"local_precheck":local.serializable(),"feasibility_basis":feasibility_basis,"execution_authority":"NONE"}
+        information=derive_current_program_discrimination_commitment(
+            trial=trial, decision_context=decision_context, decision_bearing_commitment=priority,
+        )
+        if not information.licenses_yes():
+            return {"status":"ABSTAIN","reason":information.reason,"priority":priority.serializable(),"information":information.serializable(),"local_precheck":local.serializable(),"feasibility_basis":feasibility_basis,"execution_authority":"NONE"}
         intent,cmt=derive_epistemic_program_step_intent(
             trial=trial, deficit=deficit, feasibility=option, capabilities=self.capabilities,
             obligation=obligation, current_frame_epochs=dict(self.frames.epochs),
-            current_state=self.action_closure.current_state,program_discriminator_satisfaction=satisfaction,
+            current_state=self.action_closure.current_state, priority_commitment=priority,
+            information_commitment=information, program_discriminator_satisfaction=satisfaction,
         )
         if intent is None:
-            return {"status":"ABSTAIN","reason":cmt.reason,"commitment":cmt.serializable(),"feasibility_basis":feasibility_basis,"execution_authority":"NONE"}
+            return {"status":"ABSTAIN","reason":cmt.reason,"priority":priority.serializable(),"information":information.serializable(),"commitment":cmt.serializable(),"local_precheck":local.serializable(),"feasibility_basis":feasibility_basis,"execution_authority":"NONE"}
         self.action_closure.add_intent(intent)
         packet=intent.serializable(); self.path.append("BOUNDED_ACTION_INTENT",packet); self.store.append("BOUNDED_ACTION_INTENT",packet)
-        return {"status":"ACTION_INTENT_NOMINATED","intent":packet,"commitment":cmt.serializable(),"feasibility_basis":feasibility_basis,"execution_authority":"NONE","research_basis":"EPISTEMIC_PROGRAM_STEP_GROUNDED_FEASIBILITY"}
+        return {"status":"ACTION_INTENT_NOMINATED","intent":packet,"priority":priority.serializable(),"information":information.serializable(),"commitment":cmt.serializable(),"local_precheck":local.serializable(),"feasibility_basis":feasibility_basis,"execution_authority":"NONE","research_basis":"EPISTEMIC_PROGRAM_STEP_GROUNDED_FEASIBILITY_DECISION_BOUND"}
 
     def _evaluate_endogenous_epistemic_trial_candidate(
         self, candidate: OpaqueActionCompositionCandidate | GeneratedEpistemicProgramCandidate, *, deficit_id: str,
@@ -844,7 +901,7 @@ class Microseed:
         # *before* common opportunity priority.  A refused/unknown/missing route
         # must not be relabelled as a priority failure merely because arbitration
         # now shares one grounded feasibility surface.
-        local=derive_epistemic_program_step_commitment(
+        local=derive_epistemic_program_step_local_precheck(
             trial=trial, deficit=deficit, feasibility=option, capabilities=self.capabilities,
             obligation=obligation, current_frame_epochs=dict(self.frames.epochs), current_state=current_state,
             program_discriminator_satisfaction=satisfaction,

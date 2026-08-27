@@ -1,15 +1,17 @@
 from dataclasses import replace
 
-from microseed import Authority, Observation
-from microseed.development.epistemic_action import EpistemicStepExecutionContext
+from microseed import Authority
+from microseed.development.action_closure import BoundedActionIntent, ActionExecutionRecord, ActionOutcomeRecord
+from microseed.development.epistemic_action import derive_epistemic_program_step_local_precheck
 from microseed.development.epistemic_program import advance_epistemic_program_trial
 from microseed.development.recruitment import RecruitmentOption
+from microseed.runtime.commitment import RelationalCommitment, TernaryCommitment
 from microseed.runtime.types import FeasibilityState
 from tests.embodiment.test_ms1710_endogenous_epistemic_initiation import act_ob
 from tests.embodiment.test_ms1904_1905_endogenous_direct_probe_program import _bound, _close
 
 
-def _complete_current_direct_probe(m):
+def _current_direct_probe_trial(m):
     formed = m.instantiate_current_revised_surface_direct_probe_trial(
         old_deficit_id='D', successor_deficit_id='D-1904', obligation=act_ob()
     )
@@ -18,28 +20,69 @@ def _complete_current_direct_probe(m):
     assert trial.steps == ('B',) and trial.status == 'OPEN'
     satisfaction = m.derive_current_program_discriminator_satisfaction(trial)
     assert satisfaction.licenses_yes(), satisfaction.serializable()
+    return trial, satisfaction
 
+
+def _scaffold_complete_current_direct_probe(m):
+    """Build action-closure-owned records for downstream owner pressure only.
+
+    This is deliberately NOT a lawful organism execution proof. MS1915 established
+    that the direct-probe fixture does not currently carry a decision context that
+    earns priority+information; the public adapter must therefore abstain. These
+    records exist only so the completed-evidence owner can still be attacked for
+    binding/content laundering without reopening the unsafe omission path.
+    """
+    trial, satisfaction = _current_direct_probe_trial(m)
     feasibility = RecruitmentOption('B', FeasibilityState.FEASIBLE)
-    nominated = m.nominate_epistemic_program_step_intent(trial, feasibility, act_ob())
-    assert nominated['status'] == 'ACTION_INTENT_NOMINATED', nominated
-    intent = m.action_closure.intents[nominated['intent']['intent_id']]
+    local = derive_epistemic_program_step_local_precheck(
+        trial=trial,
+        deficit=m.epistemic_deficits.records['D-1904'],
+        feasibility=feasibility,
+        capabilities=m.capabilities,
+        obligation=act_ob(),
+        current_frame_epochs=dict(m.frames.epochs),
+        current_state=m.action_closure.current_state,
+        program_discriminator_satisfaction=satisfaction,
+    )
+    assert local.licenses_yes(), local.serializable()
+    assert local.qualifier('decision_premises') == 'LOCAL_PRECHECK_ONLY__NOT_EXECUTABLE'
 
-    context = EpistemicStepExecutionContext(trial, feasibility=feasibility)
-    executed = m.execute_bounded_action(
-        intent.intent_id, act_ob(), epistemic_step_context=context
+    epoch = dict(trial.capability_epochs)['B']
+    intent = BoundedActionIntent(
+        intent_id='MS1912-SCAFFOLD-INTENT', proposal_id=trial.trial_id,
+        proposal_digest=trial.digest(), action_commitment=local,
+        capability_id='B', capability_epoch=epoch,
+        start_state_id=trial.start_state_id,
+        control_state_evidence_id=trial.start_state_evidence_id,
+        expected_next_state_id=None, expected_value_effect=None, value_epoch=None,
+        obligation_id=trial.obligation_id, operational_scope_id=trial.operational_scope_id,
+        basis_kind='EPISTEMIC_PROGRAM_STEP',
+        execution_authority='NONE', truth_authority='NONE', semantic_intention_authority='NONE',
     )
-    assert executed['status'] == 'ACTION_EXECUTED', executed
-    execution = m.action_closure.executions[executed['execution']['execution_id']]
+    m.action_closure.add_intent(intent)
 
-    observed = Observation(
-        'OUT-MS1912-B', 'EXT', f'action-execution:{execution.execution_id}',
-        {'next_state_id': 's2'}, authority=Authority.OBSERVATION_ONLY,
+    execution = ActionExecutionRecord(
+        execution_id='MS1912-SCAFFOLD-EXECUTION', intent_id=intent.intent_id,
+        capability_id='B', capability_epoch=epoch, start_state_id=trial.start_state_id,
+        handler_result_sha256='0'*64,
+        execution_commitment_id='MS1912-SCAFFOLD-NOT-AUTHORIZATION',
+        execution_premise_ids=(local.commitment_id,), authority='NONE',
+        observation_authority='NONE', truth_authority='NONE',
     )
-    outcome_result = m.record_bounded_action_outcome(
-        execution.execution_id, observed, evidence_id='E-MS1912-B'
+    m.action_closure.add_execution(execution)
+
+    prediction = RelationalCommitment(
+        'MS1912-SCAFFOLD-PREDICTION', 'ms1912-scaffold-prediction',
+        TernaryCommitment.UNKNOWN, reason='TEST_SCAFFOLD_NO_PREDICTION_AUTHORITY',
+        qualifiers=(('authority_gain','NONE'),),
     )
-    assert outcome_result['status'] == 'ACTION_OUTCOME_OBSERVED', outcome_result
-    outcome = m.action_closure.outcomes[outcome_result['outcome']['outcome_id']]
+    outcome = ActionOutcomeRecord(
+        outcome_id='MS1912-SCAFFOLD-OUTCOME', execution_id=execution.execution_id,
+        evidence_id='MS1912-SCAFFOLD-EVIDENCE-NOT-PHYSICAL-PROOF', actual_next_state_id='s2',
+        observed_value=None, value_id=None, prediction_commitment=prediction,
+        state_only=True, execution_authority_gain='NONE', qualification_authority='NONE', truth_authority='NONE',
+    )
+    m.action_closure.add_outcome(outcome)
 
     done = advance_epistemic_program_trial(
         trial, intent=intent, execution=execution, outcome=outcome,
@@ -51,10 +94,27 @@ def _complete_current_direct_probe(m):
     return done
 
 
-def test_ranger1_genuine_completed_direct_probe_records_only_bounded_relevance():
+def test_current_direct_probe_cannot_claim_lawful_execution_without_decision_context():
     td, m, calls, binding, successor = _bound()
     try:
-        done = _complete_current_direct_probe(m)
+        trial, _ = _current_direct_probe_trial(m)
+        feasibility = RecruitmentOption('B', FeasibilityState.FEASIBLE)
+        before_intents=len(m.action_closure.intents); before_exec=len(m.action_closure.executions)
+        nominated = m.nominate_epistemic_program_step_intent(trial, feasibility, act_ob())
+        assert nominated['status'] == 'ABSTAIN', nominated
+        assert nominated['reason'] == 'EPISTEMIC_DECISION_CONTEXT_REQUIRED'
+        assert nominated['local_precheck']['commitment'] == 'YES'
+        assert len(m.action_closure.intents)==before_intents
+        assert len(m.action_closure.executions)==before_exec
+        assert calls == ['A','B']
+    finally:
+        _close(m, td)
+
+
+def test_scaffolded_completed_direct_probe_records_only_bounded_relevance():
+    td, m, calls, binding, successor = _bound()
+    try:
+        done = _scaffold_complete_current_direct_probe(m)
         before_events = len(m.store.events())
         result = m.record_completed_epistemic_program_evidence(done, evidence_id='E-MS1912-COMPLETE')
         assert result['status'] == 'PROGRAM_EVIDENCE_RECORDED', result
@@ -72,10 +132,10 @@ def test_ranger1_genuine_completed_direct_probe_records_only_bounded_relevance()
         _close(m, td)
 
 
-def test_ranger2_matching_copied_discriminator_cannot_launder_replaced_source_ancestry():
+def test_scaffolded_completed_trial_cannot_launder_replaced_source_ancestry():
     td, m, calls, binding, successor = _bound()
     try:
-        done = _complete_current_direct_probe(m)
+        done = _scaffold_complete_current_direct_probe(m)
         forged = replace(done, source_relation_digests=('f' * 64,))
         assert forged.discrimination_signature_sha256 == done.discrimination_signature_sha256
         assert forged.status == 'COMPLETE' and forged.step_records == done.step_records
@@ -93,10 +153,10 @@ def test_ranger2_matching_copied_discriminator_cannot_launder_replaced_source_an
         _close(m, td)
 
 
-def test_ranger3_matching_copied_discriminator_cannot_launder_source_superset():
+def test_scaffolded_completed_trial_cannot_launder_source_superset():
     td, m, calls, binding, successor = _bound()
     try:
-        done = _complete_current_direct_probe(m)
+        done = _scaffold_complete_current_direct_probe(m)
         forged = replace(
             done,
             source_relation_digests=tuple(sorted(done.source_relation_digests + ('f' * 64,))),
@@ -112,10 +172,10 @@ def test_ranger3_matching_copied_discriminator_cannot_launder_source_superset():
         _close(m, td)
 
 
-def test_ranger4_actual_step_content_cannot_be_laundered_by_valid_source_ancestry():
+def test_scaffolded_valid_source_ancestry_cannot_launder_forged_step_content():
     td, m, calls, binding, successor = _bound()
     try:
-        done = _complete_current_direct_probe(m)
+        done = _scaffold_complete_current_direct_probe(m)
         bad_record = replace(done.step_records[0], actual_next_state_id='FORGED-MS1912')
         forged = replace(done, step_records=(bad_record,))
         before_events = len(m.store.events())

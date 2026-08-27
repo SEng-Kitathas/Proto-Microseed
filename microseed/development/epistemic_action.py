@@ -827,7 +827,7 @@ def _route_commitment(
     )
 
 
-def derive_epistemic_program_step_commitment(
+def _derive_epistemic_program_step_local_components(
     *,
     trial: EpistemicProgramTrial,
     deficit: EpistemicDeficitRecord | None,
@@ -836,10 +836,16 @@ def derive_epistemic_program_step_commitment(
     obligation: QueryObligation,
     current_frame_epochs: Mapping[str, int],
     current_state: OpaqueControlStateWitness | None,
-    priority_commitment: RelationalCommitment | None = None,
-    information_commitment: RelationalCommitment | None = None,
     program_discriminator_satisfaction: RelationalCommitment | None = None,
-) -> RelationalCommitment:
+) -> tuple[int, str, str, RelationalCommitment, RelationalCommitment, RelationalCommitment]:
+    """Derive need/feasibility/route only; this surface can never authorize EFFECT.
+
+    MS1915 separates the historical MS1703 local precheck from the later
+    decision-bearing epistemic-step commitment.  The local precheck remains
+    useful for diagnosing need, feasibility, route, state, and exact
+    discriminator binding before priority arbitration, but it is not a lawful
+    executable epistemic action by itself.
+    """
     idx = len(trial.step_records)
     target = f"epistemic-program:{trial.trial_id}:step:{idx}"
     expected_cid = trial.steps[idx] if trial.status == "OPEN" and idx < len(trial.steps) else "NONE"
@@ -923,15 +929,26 @@ def derive_epistemic_program_step_commitment(
         trial=trial, capabilities=capabilities, obligation=obligation,
         current_frame_epochs=current_frame_epochs, current_state=current_state,
     )
-    if priority_commitment is None:
-        required=(need,feas,route)
-    elif information_commitment is None:
-        required=(need,priority_commitment,feas,route)
-    else:
-        required=(need,priority_commitment,information_commitment,feas,route)
+    return idx, target, expected_cid, need, feas, route
+
+
+def _finalize_epistemic_program_step_commitment(
+    *,
+    trial: EpistemicProgramTrial,
+    deficit: EpistemicDeficitRecord | None,
+    feasibility: RecruitmentOption,
+    idx: int,
+    target: str,
+    expected_cid: str,
+    required: tuple[RelationalCommitment, ...],
+    reason_prefix: str,
+    decision_premises: str,
+) -> RelationalCommitment:
     combined = conjoin_required_commitments(
-        required, commitment_id=_sha({"epistemic-step": target, "premises": [x.commitment_id for x in required]}),
-        target_id=target, reason_prefix="EPISTEMIC_PROGRAM_STEP",
+        required,
+        commitment_id=_sha({"epistemic-step": target, "premises": [x.commitment_id for x in required]}),
+        target_id=target,
+        reason_prefix=reason_prefix,
     )
     return RelationalCommitment(
         commitment_id=combined.commitment_id,
@@ -948,6 +965,7 @@ def derive_epistemic_program_step_commitment(
             ("step_index", str(idx)),
             ("expected_capability_id", expected_cid),
             ("feasibility_digest", feasibility_digest(feasibility)),
+            ("decision_premises", decision_premises),
             ("proposal_authority", "NONE"),
             ("execution_authority", "NONE"),
             ("truth_authority", "NONE"),
@@ -956,6 +974,108 @@ def derive_epistemic_program_step_commitment(
         premise_ids=combined.premise_ids,
     )
 
+
+def derive_epistemic_program_step_local_precheck(
+    *,
+    trial: EpistemicProgramTrial,
+    deficit: EpistemicDeficitRecord | None,
+    feasibility: RecruitmentOption,
+    capabilities: CapabilityRegistry,
+    obligation: QueryObligation,
+    current_frame_epochs: Mapping[str, int],
+    current_state: OpaqueControlStateWitness | None,
+    program_discriminator_satisfaction: RelationalCommitment | None = None,
+) -> RelationalCommitment:
+    """Zero-authority local gate only; never sufficient to nominate or execute."""
+    idx,target,expected_cid,need,feas,route=_derive_epistemic_program_step_local_components(
+        trial=trial, deficit=deficit, feasibility=feasibility, capabilities=capabilities,
+        obligation=obligation, current_frame_epochs=current_frame_epochs, current_state=current_state,
+        program_discriminator_satisfaction=program_discriminator_satisfaction,
+    )
+    return _finalize_epistemic_program_step_commitment(
+        trial=trial, deficit=deficit, feasibility=feasibility, idx=idx, target=target,
+        expected_cid=expected_cid, required=(need,feas,route),
+        reason_prefix="EPISTEMIC_PROGRAM_STEP_LOCAL_PRECHECK",
+        decision_premises="LOCAL_PRECHECK_ONLY__NOT_EXECUTABLE",
+    )
+
+
+def _missing_epistemic_decision_premise(
+    *, target: str, reason: str, premise_ids: tuple[str, ...], detail: object,
+) -> RelationalCommitment:
+    return RelationalCommitment(
+        _sha({"epistemic-step": target, "missing_or_invalid_decision_premise": reason, "detail": detail}),
+        target, TernaryCommitment.UNKNOWN,
+        reason=reason,
+        qualifiers=(("authority_gain","NONE"),("execution_authority","NONE"),("truth_authority","NONE")),
+        premise_ids=premise_ids,
+    )
+
+
+def derive_epistemic_program_step_commitment(
+    *,
+    trial: EpistemicProgramTrial,
+    deficit: EpistemicDeficitRecord | None,
+    feasibility: RecruitmentOption,
+    capabilities: CapabilityRegistry,
+    obligation: QueryObligation,
+    current_frame_epochs: Mapping[str, int],
+    current_state: OpaqueControlStateWitness | None,
+    priority_commitment: RelationalCommitment | None = None,
+    information_commitment: RelationalCommitment | None = None,
+    program_discriminator_satisfaction: RelationalCommitment | None = None,
+) -> RelationalCommitment:
+    idx,target,expected_cid,need,feas,route=_derive_epistemic_program_step_local_components(
+        trial=trial, deficit=deficit, feasibility=feasibility, capabilities=capabilities,
+        obligation=obligation, current_frame_epochs=current_frame_epochs, current_state=current_state,
+        program_discriminator_satisfaction=program_discriminator_satisfaction,
+    )
+    local=_finalize_epistemic_program_step_commitment(
+        trial=trial, deficit=deficit, feasibility=feasibility, idx=idx, target=target,
+        expected_cid=expected_cid, required=(need,feas,route),
+        reason_prefix="EPISTEMIC_PROGRAM_STEP_LOCAL_PRECHECK",
+        decision_premises="LOCAL_PRECHECK_ONLY__NOT_EXECUTABLE",
+    )
+    if not local.licenses_yes():
+        return local
+
+    if priority_commitment is None:
+        return _missing_epistemic_decision_premise(
+            target=target, reason="EPISTEMIC_DECISION_BEARING_PRIORITY_REQUIRED",
+            premise_ids=(trial.deficit_id,), detail=None,
+        )
+    expected_priority_target=f"epistemic-decision-bearing:{trial.deficit_id}"
+    if priority_commitment.target_id != expected_priority_target or trial.deficit_id not in priority_commitment.premise_ids:
+        return _missing_epistemic_decision_premise(
+            target=target, reason="EPISTEMIC_DECISION_BEARING_PRIORITY_BINDING_REQUIRED",
+            premise_ids=(trial.deficit_id,priority_commitment.commitment_id),
+            detail=priority_commitment.serializable(),
+        )
+
+    if information_commitment is None:
+        return _missing_epistemic_decision_premise(
+            target=target, reason="EPISTEMIC_PROGRAM_INFORMATION_REQUIRED",
+            premise_ids=(trial.deficit_id,priority_commitment.commitment_id), detail=None,
+        )
+    expected_information_target=f"epistemic-program-information:{trial.trial_id}:step:{idx}"
+    info_premises=set(information_commitment.premise_ids)
+    if (
+        information_commitment.target_id != expected_information_target
+        or trial.trial_id not in info_premises
+        or priority_commitment.commitment_id not in info_premises
+    ):
+        return _missing_epistemic_decision_premise(
+            target=target, reason="EPISTEMIC_PROGRAM_INFORMATION_BINDING_REQUIRED",
+            premise_ids=(trial.trial_id,priority_commitment.commitment_id,information_commitment.commitment_id),
+            detail=information_commitment.serializable(),
+        )
+
+    return _finalize_epistemic_program_step_commitment(
+        trial=trial, deficit=deficit, feasibility=feasibility, idx=idx, target=target,
+        expected_cid=expected_cid, required=(need,priority_commitment,information_commitment,feas,route),
+        reason_prefix="EPISTEMIC_PROGRAM_STEP",
+        decision_premises="PRIORITY_AND_INFORMATION_EXACTLY_BOUND",
+    )
 
 def nominate_epistemic_program_step_intent(
     *,

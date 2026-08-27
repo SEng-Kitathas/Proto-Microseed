@@ -26,13 +26,13 @@ def test_ranger1_program_intent_cannot_execute_without_epistemic_context():
     try:
         trial = _current_trial(m)
         feasibility = RecruitmentOption('B', FeasibilityState.FEASIBLE)
+        before_intents=len(m.action_closure.intents); before_exec=len(m.action_closure.executions)
         nominated = m.nominate_epistemic_program_step_intent(trial, feasibility, act_ob())
-        assert nominated['status'] == 'ACTION_INTENT_NOMINATED', nominated
-        before = len(m.action_closure.executions)
-        out = m.execute_bounded_action(nominated['intent']['intent_id'], act_ob())
-        assert out['status'] == 'NO_EXECUTION', out
-        assert out['reason'] == 'EPISTEMIC_STEP_EXECUTION_CONTEXT_REQUIRED'
-        assert len(m.action_closure.executions) == before
+        assert nominated['status'] == 'ABSTAIN', nominated
+        assert nominated['reason'] == 'EPISTEMIC_DECISION_CONTEXT_REQUIRED'
+        assert nominated['local_precheck']['commitment'] == 'YES'
+        assert len(m.action_closure.intents)==before_intents
+        assert len(m.action_closure.executions)==before_exec
     finally:
         _close(m, td)
 
@@ -42,17 +42,16 @@ def test_ranger2_program_intent_cannot_execute_with_forged_trial_context():
     try:
         trial = _current_trial(m)
         feasibility = RecruitmentOption('B', FeasibilityState.FEASIBLE)
+        before_intents=len(m.action_closure.intents); before_exec=len(m.action_closure.executions)
         nominated = m.nominate_epistemic_program_step_intent(trial, feasibility, act_ob())
-        assert nominated['status'] == 'ACTION_INTENT_NOMINATED', nominated
+        assert nominated['status'] == 'ABSTAIN', nominated
+        assert nominated['reason'] == 'EPISTEMIC_DECISION_CONTEXT_REQUIRED'
+        # A forged trial context cannot be supplied to execution because no intent exists
+        # until a current decision-bearing context has already licensed nomination.
         forged = replace(trial, source_relation_digests=('f' * 64,))
-        before = len(m.action_closure.executions)
-        out = m.execute_bounded_action(
-            nominated['intent']['intent_id'], act_ob(),
-            epistemic_step_context=EpistemicStepExecutionContext(forged, feasibility=feasibility),
-        )
-        assert out['status'] == 'NO_EXECUTION', out
-        assert out['reason'] in {'EPISTEMIC_PROGRAM_TRIAL_DRIFT', 'EPISTEMIC_PROGRAM_STEP_PREMISE_DRIFT'}
-        assert len(m.action_closure.executions) == before
+        assert forged.digest() != trial.digest()
+        assert len(m.action_closure.intents)==before_intents
+        assert len(m.action_closure.executions)==before_exec
     finally:
         _close(m, td)
 
@@ -217,7 +216,7 @@ def test_ranger8_manual_wrong_probe_rebind_cannot_unlock_current_program_executi
         nominated = m.nominate_epistemic_program_step_intent(trial, feasibility, act_ob())
         assert nominated['status'] == 'ABSTAIN', nominated
         assert nominated['reason'] in {
-            'EPISTEMIC_PROGRAM_STEP_UNRESOLVED',
+            'EPISTEMIC_PROGRAM_STEP_LOCAL_PRECHECK_UNRESOLVED',
             'PROBE_AVAILABLE_BOUND_TO_DIFFERENT_PRIMITIVE',
         }
         assert len(m.action_closure.executions) == before
