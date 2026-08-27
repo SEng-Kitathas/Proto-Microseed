@@ -20,12 +20,12 @@ def act_ob(): return QueryObligation('Q','epistemic-probe',required_authority=Au
 def feas_ob(): return QueryObligation('Q-FEAS','feasibility:A',required_authority=Authority.DERIVED_READ_ONLY,operational_scope_id='S')
 
 
-def fixture(*, feasibility_authority=Authority.DERIVED_READ_ONLY, target='A', depend=True):
+def fixture(*, feasibility_authority=Authority.DERIVED_READ_ONLY, target='A', depend=True, feasibility_currentness='CURRENT'):
     td=tempfile.TemporaryDirectory();m=Microseed(Path(td.name));calls=[];world={'state':'FEASIBLE'}
     for cid in ('A','B'):
         m.register_capability(CapabilityContract(cid,'opaque',{}, {},(),(),Authority.EFFECT,('MS1706',),'CURRENT',{},dependencies=(),query_obligation_id='Q',qualification=QualificationState.SHADOW_QUALIFIED,handler=lambda _cid=cid,**_:calls.append(_cid) or {'receipt':_cid},operational_scope_id='S'))
     deps=('A',) if depend else ()
-    m.register_capability(CapabilityContract('FEAS-A','bounded-execution-time-feasibility',{'target_capability_id':target},{'output':'FeasibilityState'},(),(),feasibility_authority,('MS1706',),'CURRENT',{},dependencies=deps,query_obligation_id='Q-FEAS',qualification=QualificationState.SHADOW_QUALIFIED,handler=lambda **_: {'feasibility':world['state'],'reason':'FRESH_TEST_WORLD'},operational_scope_id='S'))
+    m.register_capability(CapabilityContract('FEAS-A','bounded-execution-time-feasibility',{'target_capability_id':target},{'output':'FeasibilityState'},(),(),feasibility_authority,('MS1706',),feasibility_currentness,{},dependencies=deps,query_obligation_id='Q-FEAS',qualification=QualificationState.SHADOW_QUALIFIED,handler=lambda **_: {'feasibility':world['state'],'reason':'FRESH_TEST_WORLD'},operational_scope_id='S'))
     m.register_operational_frame(OperationalFrameContract('F','opaque','f'*64,Authority.DERIVED_READ_ONLY,('MS1706',),'CURRENT',qualification=QualificationState.SHADOW_QUALIFIED))
     m.observe_opaque_control_state(Observation('CS','EXT','opaque-control','s0',authority=Authority.OBSERVATION_ONLY),evidence_id='E-CS')
     m.append_evidence('E-U',{'q':'x'},EpistemicStatus.UNKNOWN_INCOMPLETE,source='MS1706')
@@ -84,4 +84,27 @@ def test_feasibility_capability_cannot_carry_effect_authority():
     td,m,calls,w,t=fixture(feasibility_authority=Authority.EFFECT)
     try:
         n=nominate(m,t);assert n['status']=='ABSTAIN' and n['feasibility_basis']['reason']=='FEASIBILITY_CAPABILITY_REQUIRES_DERIVED_READ_ONLY' and calls==[]
+    finally:td.cleanup()
+
+
+def test_noncurrent_feasibility_capability_is_rejected_by_currentness_owner_before_nomination():
+    td,m,calls,w,t=fixture()
+    try:
+        m.invalidate_capability('FEAS-A',reason='MS1914_FEASIBILITY_CURRENTNESS_HOSTILE')
+        n=nominate(m,t)
+        assert n['status']=='ABSTAIN'
+        assert n['feasibility_basis']['reason']=='FEASIBILITY_CAPABILITY_NOT_CURRENT'
+        assert calls==[]
+    finally:td.cleanup()
+
+
+def test_qualified_but_noncurrent_feasibility_capability_is_rejected_by_explicit_currentness_guard():
+    td,m,calls,w,t=fixture(feasibility_currentness='STALE')
+    try:
+        assert m.capabilities.contracts['FEAS-A'].qualification==QualificationState.SHADOW_QUALIFIED
+        assert m.capabilities.contracts['FEAS-A'].currentness=='STALE'
+        n=nominate(m,t)
+        assert n['status']=='ABSTAIN'
+        assert n['feasibility_basis']['reason']=='FEASIBILITY_CAPABILITY_NOT_CURRENT'
+        assert calls==[]
     finally:td.cleanup()
