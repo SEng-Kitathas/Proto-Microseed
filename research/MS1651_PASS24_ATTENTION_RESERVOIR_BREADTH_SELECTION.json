@@ -1,0 +1,64 @@
+{
+  "pass": "MS1651_PASS24",
+  "campaign_discriminator_status": "NARROWED_ENOUGH_TO_CLOSE",
+  "attention_reservoir": {
+    "SELECTED": [
+      {
+        "id": "ENDOGENOUS_EXPERIENCE_FRAME_RELATIONAL_ALGEBRA_CONSTRUCTION",
+        "reason": "Microseed and PAL independently remain dependent on a supplied structured action/effect frame. Historical admission/currentness semantics are now sufficiently separated to stop local recursion; the missing algebra remains a direct prelingual representational blocker rather than an assurance refinement."
+      }
+    ],
+    "OPEN": [
+      {
+        "id": "CAUSAL_COMPLETENESS_ADVERSARIAL_POSSIBILITY_CONSTRUCTION",
+        "reason": "PAL169 shows endogenous runtime falsification and grounded authority still do not prove exhaustive causal closure. Microseed locally saturates under behaviorally equivalent hidden confounding until new orthogonal possibility/evidence construction is earned."
+      },
+      {
+        "id": "PHYSICAL_CALIBRATION_REFERENCE_CORRECTNESS",
+        "reason": "reference-token/interface syntax remains distinct from physical fixture correctness"
+      },
+      {
+        "id": "ORGANISMAL_GROUNDING_OF_HISTORICAL_ADMISSION_BASIS",
+        "reason": "current campaign separated identity/applicability/currentness but does not make an externally qualified basis physically true or complete"
+      }
+    ],
+    "DEFERRED": [
+      {
+        "id": "WHOLE_ORGANISM_R2_RETEST",
+        "reason": "do not rerun until representation/frame premises materially improve"
+      },
+      {
+        "id": "GENERAL_STOCHASTIC_OBSERVATION_RELIABILITY",
+        "reason": "not the highest-load blocker after observation-use plumbing and historical semantics narrowed"
+      }
+    ],
+    "SATURATED_THIS_SLICE": [
+      "blanket channel-stale => historical evidence invalid",
+      "same-id/epoch historical premise without content signature",
+      "old historical basis reused after mapping-content change",
+      "time-decay epistemology",
+      "EvidenceManager or historical-evidence registry",
+      "confidence/threshold sweeps",
+      "treating content signature as physical truth/completeness"
+    ]
+  },
+  "next_campaign": {
+    "range": "MS1653-MS1677",
+    "title": "PRELINGUAL_ENDOGENOUS_EXPERIENCE_FRAME_RELATIONAL_ALGEBRA_CONSTRUCTION",
+    "status": "NOT_STARTED",
+    "primary_discriminator": "Can existing Microseed event individuation, actual-event ancestry, relation/projection construction, query-relative stance, relational-unitization quarry, UNKNOWN and active discrimination construct a useful internally coherent action/effect relational frame from opaque experience without supplied coordinate semantics, privileged axis labels, a latent-state manager, or a representation-grammar zoo?",
+    "pass1": "Remove supplied coordinate/vector meaning while preserving stable opaque event/action/effect identity. Compare equality-only recurrence against one composition-first relational-unitization route. Require gauge-equivalent renaming, held-out predictive/use lift, UNKNOWN when structure is unidentifiable, and zero truth/execution authority. If no lift, localize whether failure is representability, identifiability, or developmental availability before adding any grammar.",
+    "hard_bans": [
+      "privileged x/y/east/north semantics",
+      "latent-state or FrameManager architecture",
+      "hand-enumerated hidden world models",
+      "representation grammar/model zoo",
+      "language as structural oracle",
+      "PAL architecture transplant",
+      "promoting opaque proposal handles to truth or execution authority"
+    ]
+  },
+  "pal169_quarry": "Use PAL169 only as scar pressure that authorization/provenance and absence of discovered counterexamples do not imply exhaustive completeness; do not redirect the selected campaign into PAL causal architecture.",
+  "authority": "RESEARCH_ONLY",
+  "next": "PASS25_RECONCILE_SEAL_HARD_STOP_BEFORE_MS1653"
+}

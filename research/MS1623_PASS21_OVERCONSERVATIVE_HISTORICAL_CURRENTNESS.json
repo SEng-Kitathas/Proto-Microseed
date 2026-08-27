@@ -1,0 +1,31 @@
+{
+  "after_temporary_channel_loss": {
+    "authority": "EVIDENCE_BOUND_PREDICTIVE_RELATION_ONLY",
+    "causal_theorem_authority": "NONE",
+    "empirical_currentness_witness": null,
+    "reason": "STRUCTURAL_PREMISE_NOT_CURRENT",
+    "relation_id": "ACTION-LAW-c09539435c508b0e5aee",
+    "replacement_lineage": null,
+    "status": "STALE_PREDICTIVE_RELATION",
+    "truth_authority": "NONE"
+  },
+  "authority": "RESEARCH_ONLY",
+  "before": {
+    "authority": "EVIDENCE_BOUND_PREDICTIVE_RELATION_ONLY",
+    "causal_theorem_authority": "NONE",
+    "empirical_currentness_witness": null,
+    "reason": null,
+    "relation_id": "ACTION-LAW-c09539435c508b0e5aee",
+    "replacement_lineage": null,
+    "status": "CURRENT_PREDICTIVE_RELATION",
+    "truth_authority": "NONE"
+  },
+  "pass": "MS1623_PASS21",
+  "promotion": "DEFER",
+  "result": "CURRENT_RESEARCH_CARRIER_IS_SAFE_BUT_OVERCONSERVATIVE_WITH_MS1598_MONOLITHIC_BASIS__LIVE_ACCESS_LOSS_TRANSITIVELY_STALES_HISTORICAL_LEARNING",
+  "scar": "LIVE_OBSERVATION_ACCESS_LOSS != HISTORICAL_ADMISSION_BASIS_FAILURE",
+  "stale_closure": [
+    "BASIS",
+    "OBS"
+  ]
+}

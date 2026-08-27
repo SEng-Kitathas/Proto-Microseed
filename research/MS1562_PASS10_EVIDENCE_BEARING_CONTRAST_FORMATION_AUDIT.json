@@ -1,0 +1,37 @@
+{
+  "all_checks_pass": true,
+  "api_quarry": {
+    "assess_epistemic_evidence_bearing": "(self, deficit_id: 'str', binding_id: 'str', evidence_id: 'str') -> 'dict[str, Any]'",
+    "candidate_formation_like_entity_methods": [],
+    "epistemic_contrast_binding": "(binding_id: 'str', deficit_id: 'str', hypothesis_digest_sha256: 'str', rows: 'tuple[EpistemicContrastRow, ...]', binding_origin: 'str' = 'SUPPLIED_AND_PROVENANCED', assistance_ancestry: 'tuple[str, ...]' = (), state: 'str' = 'CURRENT', stale_reason: 'str | None' = None, truth_authority: 'str' = 'NONE', semantic_question_authority: 'str' = 'NONE', raw_projection_discovery_authority: 'str' = 'NONE') -> None",
+    "register_epistemic_contrast": "(self, binding: 'EpistemicContrastBinding') -> 'EpistemicContrastBinding'",
+    "registry_contract": "Current opaque contrasts + historical bearing witnesses.\n\nThis registry can verify bearing *inside* supplied operational coordinates.\nIt cannot discover those coordinates, generate semantic questions, choose a\nscheduler priority, resolve a deficit, or invent replacement hypotheses."
+  },
+  "breadth_rerank": "QUARRY_EXISTING_DEVELOPMENTAL_CONSTRUCTOR_AND_RECURRENCE_ABSTRACTION_MECHANISMS_FOR_THE_SMALLER_INVARIANT__CAN_RECURRING_ACTUAL_OUTCOME_ALTERNATIVES_BE_NOMINATED_AS_EVIDENCE_BOUND_OPAQUE_CANDIDATE_HANDLES_WITHOUT_PREDICTING_WHICH_ONE_WILL_OCCUR",
+  "campaign_pass": 10,
+  "checks": {
+    "bearing_assessment_requires_existing_binding_id": true,
+    "binding_origin_is_supplied_or_externally_qualified_only": true,
+    "binding_requires_caller_supplied_rows": true,
+    "contrast_registration_requires_caller_supplied_binding": true,
+    "no_current_entity_api_discovers_or_nominates_epistemic_contrast": true,
+    "registry_explicitly_refuses_question_or_hypothesis_invention": true
+  },
+  "discriminator": "CAN_EXISTING_EPISTEMIC_EVIDENCE_BEARING_FORM_A_USE_LOCAL_SAFE_VS_HARMFUL_CONTRAST_DIRECTLY_FROM_OBSERVED_CURRENT_CONSEQUENCES_WITHOUT_CALLER_SUPPLIED_CANDIDATE_HANDLES_AND_PREDICTIONS",
+  "localization": "EXISTING_EPISTEMIC_BEARING_IS_A_VERIFIER_OVER_A_PREEXISTING_BOUNDED_CONTRAST__IT_DOES_NOT_FORM_THE_CANDIDATE_HANDLES_OR_THEIR_PREDICTED_OUTCOME_PARTITION_FROM_RAW_ACTION_OUTCOME_EVIDENCE__THEREFORE_ACTIVE_BEARING_AND_PROBING_ARE_DOWNSTREAM_OF_THE_REMAINING_USE_ADEQUACY_HYPOTHESIS_FORMATION_SEAM",
+  "milestone": "MS1562",
+  "non_claims": [
+    "DOES_NOT_PROVE_SEMANTIC_SAFE_HARMFUL_LABELS_MUST_BE_STORED",
+    "DOES_NOT_PROVE_A_GENERAL_QUESTION_GENERATOR_IS_REQUIRED",
+    "DOES_NOT_LICENSE_PROVENANCE_OR_UNCERTAINTY_MANAGER",
+    "DOES_NOT_MUTATE_MAINDEV"
+  ],
+  "surviving_existing_parts": [
+    "EPISTEMIC_DEFICIT_LIFECYCLE",
+    "EPISTEMIC_CONTRAST_VERIFICATION",
+    "DISCRIMINATING_EVIDENCE_BEARING",
+    "HYPOTHESISSET_ACTIVE_DISCRIMINATION",
+    "CURRENTNESS_ANCHORS",
+    "TERNARY_COMMITMENT_CONJUNCTION"
+  ]
+}

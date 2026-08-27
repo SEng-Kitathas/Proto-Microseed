@@ -1,0 +1,85 @@
+{
+  "evaluator_only_diagnostic": {
+    "authority": "EVALUATOR_ONLY__NOT_ORGANISM_EVIDENCE",
+    "deterministic_one_step_deltas": {
+      "COOL": {
+        "ENERGY": -0.6,
+        "INTEGRITY": -0.15,
+        "THERMAL": -1.37
+      },
+      "HARVEST": {
+        "ENERGY": 1.45,
+        "INTEGRITY": -0.35,
+        "THERMAL": 0.8
+      },
+      "REPAIR": {
+        "ENERGY": -0.92,
+        "INTEGRITY": 1.18,
+        "THERMAL": 0.33
+      },
+      "REST": {
+        "ENERGY": 0.05,
+        "INTEGRITY": 0.13,
+        "THERMAL": -0.14
+      }
+    },
+    "representative_true_state": {
+      "ENERGY": 3.2,
+      "INTEGRITY": 6.0,
+      "THERMAL": 7.6
+    }
+  },
+  "localization": "STATE_OR_CONTEXT_DEPENDENT_TOTAL_CONSEQUENCE_IS_SMEARED_BY_GLOBAL_ACTION_VALUE_EFFECT_WITNESS",
+  "nonclaim": "DOES_NOT_PROVE_A_NEW_STATE_REPRESENTATION_PRIMITIVE_IS_MISSING",
+  "organism_evidence": {
+    "quantization_ablation": {
+      "0.05": {
+        "licensed_action_ids": [],
+        "rest_effects": {
+          "ENERGY": -0.05,
+          "INTEGRITY": 0.0,
+          "THERMAL": -0.05
+        },
+        "status": "UNKNOWN_ACTION_SELECTION"
+      },
+      "0.1": {
+        "licensed_action_ids": [],
+        "rest_effects": {
+          "ENERGY": 0.0,
+          "INTEGRITY": 0.0,
+          "THERMAL": -0.1
+        },
+        "status": "UNKNOWN_ACTION_SELECTION"
+      },
+      "0.2": {
+        "licensed_action_ids": [],
+        "rest_effects": {
+          "ENERGY": 0.0,
+          "INTEGRITY": 0.0,
+          "THERMAL": 0.0
+        },
+        "status": "UNKNOWN_ACTION_SELECTION"
+      },
+      "0.25": {
+        "licensed_action_ids": [],
+        "rest_effects": {
+          "ENERGY": 0.0,
+          "INTEGRITY": 0.0,
+          "THERMAL": 0.0
+        },
+        "status": "UNKNOWN_ACTION_SELECTION"
+      },
+      "0.5": {
+        "licensed_action_ids": [],
+        "rest_effects": {
+          "ENERGY": 0.0,
+          "INTEGRITY": 0.0,
+          "THERMAL": 0.0
+        },
+        "status": "UNKNOWN_ACTION_SELECTION"
+      }
+    },
+    "result": "SMALLER_EXISTING_QUANTIZATION_STEP_ALONE_DOES_NOT_RESTORE_A_UNIQUE_LICENSE"
+  },
+  "schema": "microseed.ms1536.pass09.localization.v1"
+}

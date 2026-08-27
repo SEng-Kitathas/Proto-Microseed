@@ -1,0 +1,48 @@
+{
+  "campaign_sha256": "fef97769d09333b82f9870c211af361c821ec25907a2b0ec431e6f653e335f1c",
+  "date": "2026-08-21",
+  "deferred": [
+    "PERSISTENT-DEVELOPMENTAL-IDENTITY",
+    "GENERAL-ACTION-CORRESPONDENCE-SEARCH",
+    "NONLINEAR-SENSORIMOTOR-FRAME"
+  ],
+  "entity_version": "0.4.0-maindev-ms902",
+  "integrated": [
+    "EXTERNALLY_QUALIFIED_OPERATIONAL_FRAME_CONTRACT",
+    "FRAME_EPOCH_CURRENTNESS_REGISTRY",
+    "TRACE_FRAME_EPOCH_BINDING",
+    "CANDIDATE_FRAME_ANCESTRY",
+    "ADMISSION_TIME_FRAME_EPOCH_RECHECK",
+    "TRANSITIVE_FRAME_BOUND_CAPABILITY_INVALIDATION"
+  ],
+  "integration_debt_resolved": [
+    "MS895_FRAME_CURRENTNESS_NOT_FIRST_CLASS"
+  ],
+  "language": "DEFERRED_PRELINGUAL_COGNITION_ACTIVE",
+  "main_dev_disposition": [
+    "ENTITY_EVOLUTION",
+    "METHOD_REFINEMENT"
+  ],
+  "ms903_started": false,
+  "next_ms": 903,
+  "not_integrated_as_claims": [
+    "GENERAL_SENSORIMOTOR_FRAME_CONSTRUCTION",
+    "SEMANTIC_EFFECT_COORDINATE_IDENTITY",
+    "SEMANTIC_ACTION_IDENTITY",
+    "GENERAL_ACTION_CORRESPONDENCE_SEARCH",
+    "OVERLAP_DECONVOLUTION",
+    "ENDOGENOUS_EPISODE_TRACE_GROUPING",
+    "SELF_QUALIFICATION",
+    "LANGUAGE_COGNITION",
+    "PERSISTENT_DEVELOPMENTAL_IDENTITY"
+  ],
+  "parent_entity_version": "0.3.0-maindev-ms877",
+  "parent_main_dev_sha256": "61c3ed272c7290149c199e4c06d5cccba564464291562cfa0ad9df830f9d9f89",
+  "parent_research_terminal_ms": 877,
+  "reactivated": [
+    "TEMPORAL-EPISODE-ABSTRACTION"
+  ],
+  "research_terminal_ms": 902,
+  "schema": "microseed.maindev-continuity-delta.ms902.v0.4",
+  "selected_frontier": "ATTN-MS902-ENDOGENOUS-EPISODE-TRACE-GROUPING__REACTIVATES_TEMPORAL-EPISODE-ABSTRACTION"
+}

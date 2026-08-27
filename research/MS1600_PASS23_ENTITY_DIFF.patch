@@ -1,0 +1,94 @@
+--- /mnt/data/ms1577_original/microseed/runtime/entity.py	2026-08-25 00:00:26.000000000 +0000
++++ microseed/runtime/entity.py	2026-08-25 03:11:14.893612977 +0000
+@@ -793,6 +793,74 @@
+         self.action_closure.add_execution(rec); packet=rec.serializable(); self.path.append("BOUNDED_ACTION_EXECUTED",packet); self.store.append("BOUNDED_ACTION_EXECUTED",packet)
+         return {"status":"ACTION_EXECUTED","execution":packet,"handler_value":result.get("value"),"observation_recorded":False}
+ 
++    def record_bounded_action_outcome_via_observation_basis(
++        self,
++        execution_id: str,
++        *,
++        observation_capability_id: str,
++        observation_obligation: QueryObligation,
++        basis_capability_id: str,
++        basis_obligation: QueryObligation,
++        evidence_id: str,
++        capture_id: str,
++        **observation_kwargs: Any,
++    ) -> dict[str, Any]:
++        """Close one action outcome only through current bounded observation-use ancestry.
++
++        The basis and observation capability remain ordinary qualified capabilities.
++        This bridge adds no truth authority and does not decide whether their
++        qualification evidence was non-circular or physically grounded.
++        """
++        basis_contract = self.capabilities.contracts.get(basis_capability_id)
++        if basis_contract is None or observation_capability_id not in basis_contract.dependencies:
++            return {
++                "status": "OUTCOME_REJECTED",
++                "reason": "OBSERVATION_BASIS_DOES_NOT_BIND_CHANNEL",
++            }
++        basis = self.capabilities.invoke(
++            basis_capability_id, basis_obligation, execution_id=execution_id
++        )
++        if (
++            basis.get("status") != "CAPABILITY_RESULT"
++            or basis.get("authority") != Authority.DERIVED_READ_ONLY.value
++        ):
++            return {
++                "status": "OUTCOME_REJECTED",
++                "reason": "OBSERVATION_BASIS_NOT_CURRENT",
++                "basis": basis,
++            }
++        observed = self.capabilities.invoke(
++            observation_capability_id,
++            observation_obligation,
++            execution_id=execution_id,
++            **observation_kwargs,
++        )
++        if (
++            observed.get("status") != "CAPABILITY_RESULT"
++            or observed.get("authority") != Authority.OBSERVATION_ONLY.value
++            or not isinstance(observed.get("value"), dict)
++        ):
++            return {
++                "status": "OUTCOME_REJECTED",
++                "reason": "OBSERVATION_CAPABILITY_NOT_CURRENT",
++                "observation": observed,
++            }
++        obs = Observation(
++            capture_id=capture_id,
++            origin=f"CAPABILITY:{observation_capability_id}",
++            referent=f"action-execution:{execution_id}",
++            value=dict(observed["value"]),
++            currentness_basis="QUALIFIED_OBSERVATION_CAPABILITY_AND_BOUNDED_USE_BASIS",
++            authority=Authority.OBSERVATION_ONLY,
++            lineage=(
++                f"OBSERVATION_CAPABILITY:{observation_capability_id}@{self.capabilities.epochs[observation_capability_id]}",
++                f"OBSERVATION_USE_BASIS:{basis_capability_id}@{self.capabilities.epochs[basis_capability_id]}",
++            ),
++        )
++        return self.record_bounded_action_outcome(
++            execution_id, obs, evidence_id=evidence_id
++        )
++
+     def record_bounded_action_outcome(self, execution_id: str, obs: Observation, *, evidence_id: str) -> dict[str, Any]:
+         """Close one executed step with external observation; never treat model output as observation."""
+         ex=self.action_closure.executions.get(execution_id)
+@@ -811,7 +879,7 @@
+         latest=self.values.latest.get(vid)
+         if latest is None or latest[0]!=intent.value_epoch[1]: return {"status":"OUTCOME_REJECTED","reason":"NO_PREACTION_VALUE_STATE"}
+         pre=float(latest[1]); self.observe(obs)
+-        ref=self.append_evidence(evidence_id,{"execution_id":execution_id,"next_state_id":next_state,"value_id":vid,"observed_value":observed,"actual_value_effect":round(observed-pre,3),"start_state_id":intent.start_state_id,"capability_id":ex.capability_id,"capability_epoch":ex.capability_epoch,"capture_id":obs.capture_id,"intended_next_state_id":intent.expected_next_state_id,"intended_value_effect":intent.expected_value_effect},EpistemicStatus.PRESSURE_SUPPORTED,source=obs.origin)
++        ref=self.append_evidence(evidence_id,{"execution_id":execution_id,"next_state_id":next_state,"value_id":vid,"observed_value":observed,"actual_value_effect":round(observed-pre,3),"start_state_id":intent.start_state_id,"capability_id":ex.capability_id,"capability_epoch":ex.capability_epoch,"capture_id":obs.capture_id,"observation_lineage":list(obs.lineage),"observation_currentness_basis":obs.currentness_basis,"intended_next_state_id":intent.expected_next_state_id,"intended_value_effect":intent.expected_value_effect},EpistemicStatus.PRESSURE_SUPPORTED,source=obs.origin)
+         value_packet=self.observe_value_state(vid,observed)
+         self.action_closure.set_state(OpaqueControlStateWitness(next_state,ref.evidence_id))
+         state_match=(next_state==intent.expected_next_state_id); effect_match=(round(observed-pre,3)==round(intent.expected_value_effect,3))
+@@ -860,6 +928,7 @@
+             "execution_id":ex.execution_id,"next_state_id":next_state,"observed_values":observed_values,"actual_value_effects":actual_effects,
+             "missing_value_ids":missing,"required_value_epochs":list(intent.required_value_epochs),"start_state_id":intent.start_state_id,
+             "capability_id":ex.capability_id,"capability_epoch":ex.capability_epoch,"capture_id":obs.capture_id,
++            "observation_lineage":list(obs.lineage),"observation_currentness_basis":obs.currentness_basis,
+             "intended_effect_authority":"NONE","semantic_goal_authority":"NONE",
+         },EpistemicStatus.PRESSURE_SUPPORTED,source=obs.origin)
+         value_packets={

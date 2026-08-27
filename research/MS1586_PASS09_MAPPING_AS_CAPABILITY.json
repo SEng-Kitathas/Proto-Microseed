@@ -1,0 +1,22 @@
+{
+  "admitted_authority_before_drift": "OBSERVATION_ONLY",
+  "admitted_qualification_before_drift": "SHADOW_QUALIFIED",
+  "after_frame_drift": {
+    "authority": "NONE",
+    "reason": "STALE",
+    "status": "UNKNOWN_INCOMPLETE"
+  },
+  "authority": "RESEARCH_ONLY",
+  "before_frame_drift": {
+    "authority": "OBSERVATION_ONLY",
+    "capability_id": "OBS-MAP",
+    "status": "CAPABILITY_RESULT",
+    "value": 2.5
+  },
+  "boundary": "QUALIFICATION_EVIDENCE_IS_STILL_EXTERNAL_AND_ITS_INDEPENDENCE_NOT_ESTABLISHED",
+  "pass": "MS1586_PASS09",
+  "result": "EXISTING_CAPABILITY_PLUS_FRAME_LIFECYCLE_CAN_OWN_OBSERVATION_MAPPING_CURRENTNESS__NO_NEW_SENSOR_REGISTRY",
+  "stale_capabilities": [
+    "OBS-MAP"
+  ]
+}

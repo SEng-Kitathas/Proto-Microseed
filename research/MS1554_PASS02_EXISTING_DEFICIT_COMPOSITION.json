@@ -1,0 +1,278 @@
+{
+  "assistance_debt": [
+    "PASS02_EXTERNALLY_NOMINATES_THAT_USE_ADEQUACY_IS_UNRESOLVED",
+    "PASS02_SUPPLIES_THE_PROBE_CAPABILITY_BINDING",
+    "PASS02_DOES_NOT_CREDIT_MICROSEED_WITH_DEFICIT_RECOGNITION_OR_PROBE_SELECTION"
+  ],
+  "campaign": "MS1553-1577_DEVELOPMENTAL_CONSEQUENCE_EVIDENCE_ADEQUACY",
+  "discriminator": "ONCE_A_QUERY_LOCAL_CONSEQUENCE_USE_DEFICIT_IS_NOMINATED_CAN_EXISTING_EPISTEMIC_DEFICIT_CURRENTNESS_PROBE_AND_REVISIT_MACHINERY_CARRY_IT_WITHOUT_NEW_UNCERTAINTY_STATE_OR_TRUTH_AUTHORITY",
+  "disposition": "NARROWED_SURVIVED__EXISTING_DEFICIT_LIFECYCLE_SUFFICIENT_AFTER_NOMINATION__RECOGNITION_AND_DISCRIMINATOR_BINDING_REMAIN_OPEN__NO_MAINDEV_MUTATION",
+  "main_dev_mutation": "NONE",
+  "ms": 1554,
+  "nonclaims": [
+    "NO_AUTOMATIC_USE_ADEQUACY_RECOGNITION",
+    "NO_PROBE_SELECTION_CREDIT",
+    "NO_EVIDENCE_SUFFICIENCY_ESTIMATOR",
+    "NO_QUERY_RISK_SEMANTICS",
+    "NO_PAL_ARCHITECTURE_IMPORT"
+  ],
+  "pass": 2,
+  "phase": "BUILD_DERIVE__REPRESENTATIONAL_LIFECYCLE_QUARRY",
+  "primitive_earned": false,
+  "results": {
+    "authority_ceiling_preserved": true,
+    "cheap_record": {
+      "assistance_ancestry": [
+        "PASS02_EXTERNAL_DEFICIT_NOMINATION_ONLY"
+      ],
+      "candidate_ids": [],
+      "deficit_id": "D-CHEAP",
+      "hypothesis_digest_sha256": "9d9263506e7cbe871d6e82b296a4ae45f92964f499678a5123ac3d1a71133ed9",
+      "identifiability_class": "C_ACTION_LIMITED",
+      "missing_discriminator_signature_sha256": "f98e5f778a06f7527c0e524ef34a19cae6c7700933f3b653514c84e81386399a",
+      "premise_anchors": [
+        {
+          "epoch": 0,
+          "kind": "FRAME",
+          "object_id": "F"
+        },
+        {
+          "epoch": 0,
+          "kind": "EPISODE",
+          "object_id": "E-ENERGY"
+        },
+        {
+          "epoch": 0,
+          "kind": "VALUE",
+          "object_id": "ENERGY"
+        },
+        {
+          "epoch": 0,
+          "kind": "CAPABILITY_PREMISE",
+          "object_id": "REST"
+        },
+        {
+          "epoch": 0,
+          "kind": "CAPABILITY_PREMISE",
+          "object_id": "SENSE"
+        }
+      ],
+      "probe_capability_epoch": null,
+      "probe_capability_id": null,
+      "probe_evidence_ids": [],
+      "question_key": "use-adequacy:97405857723e588c5a87529e4bd84799476f8fdd05cc62737dee9c1d60b09221",
+      "relevant_evidence_ids": [],
+      "semantic_question_authority": "NONE",
+      "stale_evidence_id": null,
+      "stale_reason": null,
+      "state": "ACTION_LIMITED",
+      "truth_authority": "NONE",
+      "unknown_evidence_id": "E-D-CHEAP-UNKNOWN"
+    },
+    "costly_after_probe": {
+      "assistance_ancestry": [
+        "PASS02_EXTERNAL_DEFICIT_NOMINATION_ONLY"
+      ],
+      "candidate_ids": [],
+      "deficit_id": "D-COSTLY",
+      "hypothesis_digest_sha256": "ebe70b35b6ac0fc44f2659a30ad4ae434d57169a654746f32340c4ee1bf6cb62",
+      "identifiability_class": "C_ACTION_LIMITED",
+      "missing_discriminator_signature_sha256": "7ac6ae3b109fe4aba840eb739e4bc6b08915ef0e587e1b325f300ac21e65f88a",
+      "premise_anchors": [
+        {
+          "epoch": 0,
+          "kind": "FRAME",
+          "object_id": "F"
+        },
+        {
+          "epoch": 0,
+          "kind": "EPISODE",
+          "object_id": "E-ENERGY"
+        },
+        {
+          "epoch": 0,
+          "kind": "VALUE",
+          "object_id": "ENERGY"
+        },
+        {
+          "epoch": 0,
+          "kind": "CAPABILITY_PREMISE",
+          "object_id": "REST"
+        },
+        {
+          "epoch": 0,
+          "kind": "CAPABILITY_PREMISE",
+          "object_id": "SENSE"
+        }
+      ],
+      "probe_capability_epoch": 0,
+      "probe_capability_id": "PROBE",
+      "probe_evidence_ids": [
+        "E-PASS02-PROBE"
+      ],
+      "question_key": "use-adequacy:9acc628c547440b24a325713609af381b8af03f5e49a53a7ab8bdd6b638a4c63",
+      "relevant_evidence_ids": [],
+      "semantic_question_authority": "NONE",
+      "stale_evidence_id": null,
+      "stale_reason": null,
+      "state": "REVISIT_REQUIRED",
+      "truth_authority": "NONE",
+      "unknown_evidence_id": "E-D-COSTLY-UNKNOWN"
+    },
+    "costly_after_probe_loss": {
+      "assistance_ancestry": [
+        "PASS02_EXTERNAL_DEFICIT_NOMINATION_ONLY"
+      ],
+      "candidate_ids": [],
+      "deficit_id": "D-COSTLY",
+      "hypothesis_digest_sha256": "ebe70b35b6ac0fc44f2659a30ad4ae434d57169a654746f32340c4ee1bf6cb62",
+      "identifiability_class": "C_ACTION_LIMITED",
+      "missing_discriminator_signature_sha256": "7ac6ae3b109fe4aba840eb739e4bc6b08915ef0e587e1b325f300ac21e65f88a",
+      "premise_anchors": [
+        {
+          "epoch": 0,
+          "kind": "FRAME",
+          "object_id": "F"
+        },
+        {
+          "epoch": 0,
+          "kind": "EPISODE",
+          "object_id": "E-ENERGY"
+        },
+        {
+          "epoch": 0,
+          "kind": "VALUE",
+          "object_id": "ENERGY"
+        },
+        {
+          "epoch": 0,
+          "kind": "CAPABILITY_PREMISE",
+          "object_id": "REST"
+        },
+        {
+          "epoch": 0,
+          "kind": "CAPABILITY_PREMISE",
+          "object_id": "SENSE"
+        }
+      ],
+      "probe_capability_epoch": 0,
+      "probe_capability_id": "PROBE",
+      "probe_evidence_ids": [
+        "E-PASS02-PROBE"
+      ],
+      "question_key": "use-adequacy:9acc628c547440b24a325713609af381b8af03f5e49a53a7ab8bdd6b638a4c63",
+      "relevant_evidence_ids": [],
+      "semantic_question_authority": "NONE",
+      "stale_evidence_id": null,
+      "stale_reason": null,
+      "state": "ACTION_LIMITED",
+      "truth_authority": "NONE",
+      "unknown_evidence_id": "E-D-COSTLY-UNKNOWN"
+    },
+    "costly_after_value_drift": {
+      "assistance_ancestry": [
+        "PASS02_EXTERNAL_DEFICIT_NOMINATION_ONLY"
+      ],
+      "candidate_ids": [],
+      "deficit_id": "D-COSTLY",
+      "hypothesis_digest_sha256": "ebe70b35b6ac0fc44f2659a30ad4ae434d57169a654746f32340c4ee1bf6cb62",
+      "identifiability_class": "C_ACTION_LIMITED",
+      "missing_discriminator_signature_sha256": "7ac6ae3b109fe4aba840eb739e4bc6b08915ef0e587e1b325f300ac21e65f88a",
+      "premise_anchors": [
+        {
+          "epoch": 0,
+          "kind": "FRAME",
+          "object_id": "F"
+        },
+        {
+          "epoch": 0,
+          "kind": "EPISODE",
+          "object_id": "E-ENERGY"
+        },
+        {
+          "epoch": 0,
+          "kind": "VALUE",
+          "object_id": "ENERGY"
+        },
+        {
+          "epoch": 0,
+          "kind": "CAPABILITY_PREMISE",
+          "object_id": "REST"
+        },
+        {
+          "epoch": 0,
+          "kind": "CAPABILITY_PREMISE",
+          "object_id": "SENSE"
+        }
+      ],
+      "probe_capability_epoch": 0,
+      "probe_capability_id": "PROBE2",
+      "probe_evidence_ids": [
+        "E-PASS02-PROBE"
+      ],
+      "question_key": "use-adequacy:9acc628c547440b24a325713609af381b8af03f5e49a53a7ab8bdd6b638a4c63",
+      "relevant_evidence_ids": [],
+      "semantic_question_authority": "NONE",
+      "stale_evidence_id": null,
+      "stale_reason": "PREMISE_DRIFT:VALUE:ENERGY@1:PASS02_VALUE_CONTRACT_DRIFT",
+      "state": "STALE",
+      "truth_authority": "NONE",
+      "unknown_evidence_id": "E-D-COSTLY-UNKNOWN"
+    },
+    "costly_initial_record": {
+      "assistance_ancestry": [
+        "PASS02_EXTERNAL_DEFICIT_NOMINATION_ONLY"
+      ],
+      "candidate_ids": [],
+      "deficit_id": "D-COSTLY",
+      "hypothesis_digest_sha256": "ebe70b35b6ac0fc44f2659a30ad4ae434d57169a654746f32340c4ee1bf6cb62",
+      "identifiability_class": "C_ACTION_LIMITED",
+      "missing_discriminator_signature_sha256": "7ac6ae3b109fe4aba840eb739e4bc6b08915ef0e587e1b325f300ac21e65f88a",
+      "premise_anchors": [
+        {
+          "epoch": 0,
+          "kind": "FRAME",
+          "object_id": "F"
+        },
+        {
+          "epoch": 0,
+          "kind": "EPISODE",
+          "object_id": "E-ENERGY"
+        },
+        {
+          "epoch": 0,
+          "kind": "VALUE",
+          "object_id": "ENERGY"
+        },
+        {
+          "epoch": 0,
+          "kind": "CAPABILITY_PREMISE",
+          "object_id": "REST"
+        },
+        {
+          "epoch": 0,
+          "kind": "CAPABILITY_PREMISE",
+          "object_id": "SENSE"
+        }
+      ],
+      "probe_capability_epoch": null,
+      "probe_capability_id": null,
+      "probe_evidence_ids": [],
+      "question_key": "use-adequacy:9acc628c547440b24a325713609af381b8af03f5e49a53a7ab8bdd6b638a4c63",
+      "relevant_evidence_ids": [],
+      "semantic_question_authority": "NONE",
+      "stale_evidence_id": null,
+      "stale_reason": null,
+      "state": "ACTION_LIMITED",
+      "truth_authority": "NONE",
+      "unknown_evidence_id": "E-D-COSTLY-UNKNOWN"
+    },
+    "distinct_query_local_records": true,
+    "probe_available_not_resolution": true,
+    "probe_evidence_requests_revisit_not_answer": true,
+    "probe_loss_reopens_action_limited": true,
+    "question_premise_drift_stales_deficit": true
+  },
+  "schema": "microseed.ms1554.pass02.existing-deficit-composition.v1",
+  "surviving_localization": "EXISTING_EPISTEMIC_DEFICIT_LIFECYCLE_CAN_CARRY_QUERY_LOCAL_CONSEQUENCE_USE_UNKNOWN_ONCE_NOMINATED__MISSING_SEAM_IS_RECOGNITION_ADMISSION_AND_LAWFUL_DISCRIMINATOR_BINDING"
+}

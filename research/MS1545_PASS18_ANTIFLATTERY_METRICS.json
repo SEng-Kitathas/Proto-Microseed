@@ -1,0 +1,261 @@
+{
+  "nonclaims": [
+    "NO_THRESHOLD_AUTHORITY",
+    "NO_MAINDEV_MUTATION",
+    "NO_MODEL_PROMOTION"
+  ],
+  "purpose": "attack raw-accuracy denominator; measure class balance and whether richer models repair action-median errors without destroying correct cases",
+  "schema": "microseed.ms1545.pass18.antiflattery-metrics.v1",
+  "sources": {
+    "AFFINE": {
+      "ENERGY": {
+        "class_counts": {
+          "NO": 102,
+          "UNKNOWN": 4,
+          "YES": 177
+        },
+        "models": {
+          "ACTION_MEDIAN": {
+            "baseline_correct_break_rate": 0.0,
+            "baseline_error_recovery_rate": 0.0,
+            "baseline_error_rows": 48,
+            "known_rows": 283,
+            "mean_balanced_accuracy": 0.7170354767781238,
+            "overall_accuracy": 0.8303886925795053
+          },
+          "ACTION_PLUS_SHARED_SLOPE": {
+            "baseline_correct_break_rate": 0.01702127659574468,
+            "baseline_error_recovery_rate": 0.1875,
+            "baseline_error_rows": 48,
+            "known_rows": 283,
+            "mean_balanced_accuracy": 0.7079951298701298,
+            "overall_accuracy": 0.8480565371024735
+          },
+          "ACTION_SPECIFIC_AFFINE": {
+            "baseline_correct_break_rate": 0.01702127659574468,
+            "baseline_error_recovery_rate": 0.1875,
+            "baseline_error_rows": 48,
+            "known_rows": 283,
+            "mean_balanced_accuracy": 0.7258491508491508,
+            "overall_accuracy": 0.8480565371024735
+          },
+          "STATE_ONLY_AFFINE": {
+            "baseline_correct_break_rate": 0.3021276595744681,
+            "baseline_error_recovery_rate": 0.4583333333333333,
+            "baseline_error_rows": 48,
+            "known_rows": 283,
+            "mean_balanced_accuracy": 0.4686348373848374,
+            "overall_accuracy": 0.657243816254417
+          }
+        }
+      },
+      "INTEGRITY": {
+        "class_counts": {
+          "NO": 120,
+          "UNKNOWN": 17,
+          "YES": 137
+        },
+        "models": {
+          "ACTION_MEDIAN": {
+            "baseline_correct_break_rate": 0.0,
+            "baseline_error_recovery_rate": 0.0,
+            "baseline_error_rows": 102,
+            "known_rows": 274,
+            "mean_balanced_accuracy": 0.49224309640976305,
+            "overall_accuracy": 0.6277372262773723
+          },
+          "ACTION_PLUS_SHARED_SLOPE": {
+            "baseline_correct_break_rate": 0.08139534883720931,
+            "baseline_error_recovery_rate": 0.14705882352941177,
+            "baseline_error_rows": 102,
+            "known_rows": 274,
+            "mean_balanced_accuracy": 0.48880193880193884,
+            "overall_accuracy": 0.6313868613138686
+          },
+          "ACTION_SPECIFIC_AFFINE": {
+            "baseline_correct_break_rate": 0.05813953488372093,
+            "baseline_error_recovery_rate": 0.22549019607843138,
+            "baseline_error_rows": 102,
+            "known_rows": 274,
+            "mean_balanced_accuracy": 0.5186774645107978,
+            "overall_accuracy": 0.6751824817518248
+          },
+          "STATE_ONLY_AFFINE": {
+            "baseline_correct_break_rate": 0.313953488372093,
+            "baseline_error_recovery_rate": 0.45098039215686275,
+            "baseline_error_rows": 102,
+            "known_rows": 274,
+            "mean_balanced_accuracy": 0.4528532424365757,
+            "overall_accuracy": 0.5985401459854015
+          }
+        }
+      },
+      "THERMAL": {
+        "class_counts": {
+          "NO": 88,
+          "UNKNOWN": 4,
+          "YES": 189
+        },
+        "models": {
+          "ACTION_MEDIAN": {
+            "baseline_correct_break_rate": 0.0,
+            "baseline_error_recovery_rate": 0.0,
+            "baseline_error_rows": 46,
+            "known_rows": 281,
+            "mean_balanced_accuracy": 0.7569882323558793,
+            "overall_accuracy": 0.8362989323843416
+          },
+          "ACTION_PLUS_SHARED_SLOPE": {
+            "baseline_correct_break_rate": 0.00851063829787234,
+            "baseline_error_recovery_rate": 0.21739130434782608,
+            "baseline_error_rows": 46,
+            "known_rows": 281,
+            "mean_balanced_accuracy": 0.7664459043135513,
+            "overall_accuracy": 0.8647686832740213
+          },
+          "ACTION_SPECIFIC_AFFINE": {
+            "baseline_correct_break_rate": 0.06382978723404255,
+            "baseline_error_recovery_rate": 0.3695652173913043,
+            "baseline_error_rows": 46,
+            "known_rows": 281,
+            "mean_balanced_accuracy": 0.7504784245109323,
+            "overall_accuracy": 0.8434163701067615
+          },
+          "STATE_ONLY_AFFINE": {
+            "baseline_correct_break_rate": 0.3148936170212766,
+            "baseline_error_recovery_rate": 0.5652173913043478,
+            "baseline_error_rows": 46,
+            "known_rows": 281,
+            "mean_balanced_accuracy": 0.5095043479911902,
+            "overall_accuracy": 0.6654804270462633
+          }
+        }
+      }
+    },
+    "LOGISTIC": {
+      "ENERGY": {
+        "class_counts": {
+          "NO": 102,
+          "UNKNOWN": 4,
+          "YES": 177
+        },
+        "models": {
+          "ACTION_MEDIAN": {
+            "baseline_correct_break_rate": 0.0,
+            "baseline_error_recovery_rate": 0.0,
+            "baseline_error_rows": 48,
+            "known_rows": 283,
+            "mean_balanced_accuracy": 0.7170354767781238,
+            "overall_accuracy": 0.8303886925795053
+          },
+          "ACTION_PLUS_STATE_INTERACTION": {
+            "baseline_correct_break_rate": 0.06808510638297872,
+            "baseline_error_recovery_rate": 0.22916666666666666,
+            "baseline_error_rows": 48,
+            "known_rows": 283,
+            "mean_balanced_accuracy": 0.6826064560439561,
+            "overall_accuracy": 0.8127208480565371
+          },
+          "ACTION_PLUS_STATE_SHARED": {
+            "baseline_correct_break_rate": 0.19574468085106383,
+            "baseline_error_recovery_rate": 0.3541666666666667,
+            "baseline_error_rows": 48,
+            "known_rows": 283,
+            "mean_balanced_accuracy": 0.5533800478846919,
+            "overall_accuracy": 0.7279151943462897
+          },
+          "STATE_ONLY": {
+            "baseline_correct_break_rate": 0.33191489361702126,
+            "baseline_error_recovery_rate": 0.3125,
+            "baseline_error_rows": 48,
+            "known_rows": 283,
+            "mean_balanced_accuracy": 0.4207493894993895,
+            "overall_accuracy": 0.607773851590106
+          }
+        }
+      },
+      "INTEGRITY": {
+        "class_counts": {
+          "NO": 120,
+          "UNKNOWN": 17,
+          "YES": 137
+        },
+        "models": {
+          "ACTION_MEDIAN": {
+            "baseline_correct_break_rate": 0.0,
+            "baseline_error_recovery_rate": 0.0,
+            "baseline_error_rows": 102,
+            "known_rows": 274,
+            "mean_balanced_accuracy": 0.49224309640976305,
+            "overall_accuracy": 0.6277372262773723
+          },
+          "ACTION_PLUS_STATE_INTERACTION": {
+            "baseline_correct_break_rate": 0.09883720930232558,
+            "baseline_error_recovery_rate": 0.16666666666666666,
+            "baseline_error_rows": 102,
+            "known_rows": 274,
+            "mean_balanced_accuracy": 0.4746384788051455,
+            "overall_accuracy": 0.6277372262773723
+          },
+          "ACTION_PLUS_STATE_SHARED": {
+            "baseline_correct_break_rate": 0.12209302325581395,
+            "baseline_error_recovery_rate": 0.1568627450980392,
+            "baseline_error_rows": 102,
+            "known_rows": 274,
+            "mean_balanced_accuracy": 0.463701730368397,
+            "overall_accuracy": 0.6094890510948905
+          },
+          "STATE_ONLY": {
+            "baseline_correct_break_rate": 0.4418604651162791,
+            "baseline_error_recovery_rate": 0.28431372549019607,
+            "baseline_error_rows": 102,
+            "known_rows": 274,
+            "mean_balanced_accuracy": 0.353017353017353,
+            "overall_accuracy": 0.4562043795620438
+          }
+        }
+      },
+      "THERMAL": {
+        "class_counts": {
+          "NO": 88,
+          "UNKNOWN": 4,
+          "YES": 189
+        },
+        "models": {
+          "ACTION_MEDIAN": {
+            "baseline_correct_break_rate": 0.0,
+            "baseline_error_recovery_rate": 0.0,
+            "baseline_error_rows": 46,
+            "known_rows": 281,
+            "mean_balanced_accuracy": 0.7569882323558793,
+            "overall_accuracy": 0.8362989323843416
+          },
+          "ACTION_PLUS_STATE_INTERACTION": {
+            "baseline_correct_break_rate": 0.14468085106382977,
+            "baseline_error_recovery_rate": 0.21739130434782608,
+            "baseline_error_rows": 46,
+            "known_rows": 281,
+            "mean_balanced_accuracy": 0.621744848718533,
+            "overall_accuracy": 0.7508896797153025
+          },
+          "ACTION_PLUS_STATE_SHARED": {
+            "baseline_correct_break_rate": 0.1829787234042553,
+            "baseline_error_recovery_rate": 0.2608695652173913,
+            "baseline_error_rows": 46,
+            "known_rows": 281,
+            "mean_balanced_accuracy": 0.5849843869580712,
+            "overall_accuracy": 0.7259786476868327
+          },
+          "STATE_ONLY": {
+            "baseline_correct_break_rate": 0.3148936170212766,
+            "baseline_error_recovery_rate": 0.45652173913043476,
+            "baseline_error_rows": 46,
+            "known_rows": 281,
+            "mean_balanced_accuracy": 0.4411375661375661,
+            "overall_accuracy": 0.6476868327402135
+          }
+        }
+      }
+    }
+  }
+}

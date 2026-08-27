@@ -1,0 +1,416 @@
+{
+  "all_checks_pass": true,
+  "campaign_pass": 15,
+  "checks": {
+    "at_least_one_pair_preserves_yes_no_disagreement": true,
+    "every_action_value_pair_has_at_most_three_query_relative_alternatives": true,
+    "evidence_ancestry_remains_attached_per_stance": true
+  },
+  "critical_nonclaim": "ABSENCE_OF_NO_OR_UNKNOWN_STANCES_DOES_NOT_ESTABLISH_EVIDENCE_ADEQUACY__THIS_PASS_EARNS_ONLY_A_DISAGREEMENT_OR_CONTRAST_FORMATION_ROUTE",
+  "current_observation": {
+    "ENERGY": 1.66140694732635,
+    "INTEGRITY": 7.9027217113130614,
+    "THERMAL": 1.9419739762468926
+  },
+  "discriminator": "CAN_EXISTING_QUERY_RELATIVE_REGULATORY_PROJECTION_APPLIED_PER_CURRENT_EVIDENCE_ROW_FORM_A_BOUNDED_DISAGREEMENT_SET_WITHOUT_STABLE_EFFECT_CLUSTERS_NEW_NUMERIC_THRESHOLDS_OR_SEMANTIC_OUTCOME_ONTOLOGY",
+  "localization": "YES__THE_EXISTING_REGULATORY_EFFECT_PROJECTION_CAN_COLLAPSE_CONTINUOUS_NOISY_OUTCOME_EVIDENCE_TO_A_QUERY_RELATIVE_TERNARY_STANCE_SET_WHILE_PRESERVING_EVIDENCE_ANCESTRY__THIS_SOLVES_EFFECT_IDENTITY_FRAGMENTATION_FOR_CONTRAST_FORMATION_WITHOUT_CLAIMING_ANY_STANCE_IS_TRUE_OR_PROBABLE",
+  "main_dev_mutation": "NONE",
+  "milestone": "MS1567",
+  "next_discriminator": "CAN_QUERY_RELATIVE_STANCE_DISAGREEMENT_LAWFULLY_NOMINATE_AN_EXISTING_EPISTEMIC_DEFICIT_AND_CONTENT_BOUND_CONTRAST_WITH_ZERO_NEW_TRUTH_OR_EXECUTION_AUTHORITY__THEN_REUSE_PASS7_ACTIVE_DISCRIMINATION",
+  "pairs": {
+    "COOL::ENERGY": {
+      "bounded_alternative_count": 1,
+      "current_value": 1.66140694732635,
+      "has_yes_no_disagreement": false,
+      "stance_evidence_ids": {
+        "NO": [
+          "E-107-2-COOL-ENERGY",
+          "E-107-21-COOL-ENERGY",
+          "E-107-22-COOL-ENERGY",
+          "E-107-44-COOL-ENERGY",
+          "E-107-58-COOL-ENERGY",
+          "E-107-62-COOL-ENERGY",
+          "E-107-64-COOL-ENERGY",
+          "E-107-75-COOL-ENERGY",
+          "E-107-80-COOL-ENERGY",
+          "E-107-86-COOL-ENERGY",
+          "E-107-88-COOL-ENERGY",
+          "E-107-97-COOL-ENERGY",
+          "E-107-98-COOL-ENERGY"
+        ]
+      },
+      "stance_support": {
+        "NO": 13
+      }
+    },
+    "COOL::INTEGRITY": {
+      "bounded_alternative_count": 1,
+      "current_value": 7.9027217113130614,
+      "has_yes_no_disagreement": false,
+      "stance_evidence_ids": {
+        "YES": [
+          "E-107-1-COOL-INTEGRITY",
+          "E-107-18-COOL-INTEGRITY",
+          "E-107-2-COOL-INTEGRITY",
+          "E-107-44-COOL-INTEGRITY",
+          "E-107-50-COOL-INTEGRITY",
+          "E-107-57-COOL-INTEGRITY",
+          "E-107-58-COOL-INTEGRITY",
+          "E-107-62-COOL-INTEGRITY",
+          "E-107-80-COOL-INTEGRITY",
+          "E-107-84-COOL-INTEGRITY",
+          "E-107-86-COOL-INTEGRITY",
+          "E-107-88-COOL-INTEGRITY",
+          "E-107-97-COOL-INTEGRITY",
+          "E-107-98-COOL-INTEGRITY"
+        ]
+      },
+      "stance_support": {
+        "YES": 14
+      }
+    },
+    "COOL::THERMAL": {
+      "bounded_alternative_count": 1,
+      "current_value": 1.9419739762468926,
+      "has_yes_no_disagreement": false,
+      "stance_evidence_ids": {
+        "NO": [
+          "E-107-1-COOL-THERMAL",
+          "E-107-18-COOL-THERMAL",
+          "E-107-2-COOL-THERMAL",
+          "E-107-22-COOL-THERMAL",
+          "E-107-38-COOL-THERMAL",
+          "E-107-44-COOL-THERMAL",
+          "E-107-50-COOL-THERMAL",
+          "E-107-57-COOL-THERMAL",
+          "E-107-58-COOL-THERMAL",
+          "E-107-64-COOL-THERMAL",
+          "E-107-75-COOL-THERMAL",
+          "E-107-84-COOL-THERMAL",
+          "E-107-88-COOL-THERMAL",
+          "E-107-90-COOL-THERMAL",
+          "E-107-97-COOL-THERMAL",
+          "E-107-98-COOL-THERMAL"
+        ]
+      },
+      "stance_support": {
+        "NO": 16
+      }
+    },
+    "HARVEST::ENERGY": {
+      "bounded_alternative_count": 1,
+      "current_value": 1.66140694732635,
+      "has_yes_no_disagreement": false,
+      "stance_evidence_ids": {
+        "YES": [
+          "E-107-0-HARVEST-ENERGY",
+          "E-107-11-HARVEST-ENERGY",
+          "E-107-14-HARVEST-ENERGY",
+          "E-107-25-HARVEST-ENERGY",
+          "E-107-27-HARVEST-ENERGY",
+          "E-107-29-HARVEST-ENERGY",
+          "E-107-32-HARVEST-ENERGY",
+          "E-107-40-HARVEST-ENERGY",
+          "E-107-48-HARVEST-ENERGY",
+          "E-107-54-HARVEST-ENERGY",
+          "E-107-59-HARVEST-ENERGY",
+          "E-107-66-HARVEST-ENERGY",
+          "E-107-7-HARVEST-ENERGY",
+          "E-107-71-HARVEST-ENERGY",
+          "E-107-73-HARVEST-ENERGY",
+          "E-107-78-HARVEST-ENERGY",
+          "E-107-8-HARVEST-ENERGY",
+          "E-107-82-HARVEST-ENERGY",
+          "E-107-89-HARVEST-ENERGY",
+          "E-107-95-HARVEST-ENERGY",
+          "E-107-96-HARVEST-ENERGY"
+        ]
+      },
+      "stance_support": {
+        "YES": 21
+      }
+    },
+    "HARVEST::INTEGRITY": {
+      "bounded_alternative_count": 1,
+      "current_value": 7.9027217113130614,
+      "has_yes_no_disagreement": false,
+      "stance_evidence_ids": {
+        "YES": [
+          "E-107-0-HARVEST-INTEGRITY",
+          "E-107-11-HARVEST-INTEGRITY",
+          "E-107-25-HARVEST-INTEGRITY",
+          "E-107-27-HARVEST-INTEGRITY",
+          "E-107-29-HARVEST-INTEGRITY",
+          "E-107-32-HARVEST-INTEGRITY",
+          "E-107-40-HARVEST-INTEGRITY",
+          "E-107-48-HARVEST-INTEGRITY",
+          "E-107-59-HARVEST-INTEGRITY",
+          "E-107-63-HARVEST-INTEGRITY",
+          "E-107-66-HARVEST-INTEGRITY",
+          "E-107-7-HARVEST-INTEGRITY",
+          "E-107-71-HARVEST-INTEGRITY",
+          "E-107-73-HARVEST-INTEGRITY",
+          "E-107-78-HARVEST-INTEGRITY",
+          "E-107-8-HARVEST-INTEGRITY",
+          "E-107-82-HARVEST-INTEGRITY",
+          "E-107-89-HARVEST-INTEGRITY",
+          "E-107-9-HARVEST-INTEGRITY"
+        ]
+      },
+      "stance_support": {
+        "YES": 19
+      }
+    },
+    "HARVEST::THERMAL": {
+      "bounded_alternative_count": 1,
+      "current_value": 1.9419739762468926,
+      "has_yes_no_disagreement": false,
+      "stance_evidence_ids": {
+        "YES": [
+          "E-107-0-HARVEST-THERMAL",
+          "E-107-11-HARVEST-THERMAL",
+          "E-107-14-HARVEST-THERMAL",
+          "E-107-27-HARVEST-THERMAL",
+          "E-107-29-HARVEST-THERMAL",
+          "E-107-32-HARVEST-THERMAL",
+          "E-107-40-HARVEST-THERMAL",
+          "E-107-59-HARVEST-THERMAL",
+          "E-107-63-HARVEST-THERMAL",
+          "E-107-66-HARVEST-THERMAL",
+          "E-107-71-HARVEST-THERMAL",
+          "E-107-73-HARVEST-THERMAL",
+          "E-107-78-HARVEST-THERMAL",
+          "E-107-8-HARVEST-THERMAL",
+          "E-107-82-HARVEST-THERMAL",
+          "E-107-89-HARVEST-THERMAL",
+          "E-107-9-HARVEST-THERMAL",
+          "E-107-95-HARVEST-THERMAL"
+        ]
+      },
+      "stance_support": {
+        "YES": 18
+      }
+    },
+    "REPAIR::ENERGY": {
+      "bounded_alternative_count": 1,
+      "current_value": 1.66140694732635,
+      "has_yes_no_disagreement": false,
+      "stance_evidence_ids": {
+        "NO": [
+          "E-107-10-REPAIR-ENERGY",
+          "E-107-13-REPAIR-ENERGY",
+          "E-107-17-REPAIR-ENERGY",
+          "E-107-20-REPAIR-ENERGY",
+          "E-107-23-REPAIR-ENERGY",
+          "E-107-24-REPAIR-ENERGY",
+          "E-107-31-REPAIR-ENERGY",
+          "E-107-33-REPAIR-ENERGY",
+          "E-107-34-REPAIR-ENERGY",
+          "E-107-35-REPAIR-ENERGY",
+          "E-107-36-REPAIR-ENERGY",
+          "E-107-42-REPAIR-ENERGY",
+          "E-107-43-REPAIR-ENERGY",
+          "E-107-47-REPAIR-ENERGY",
+          "E-107-49-REPAIR-ENERGY",
+          "E-107-51-REPAIR-ENERGY",
+          "E-107-60-REPAIR-ENERGY",
+          "E-107-65-REPAIR-ENERGY",
+          "E-107-68-REPAIR-ENERGY",
+          "E-107-70-REPAIR-ENERGY",
+          "E-107-74-REPAIR-ENERGY",
+          "E-107-76-REPAIR-ENERGY",
+          "E-107-79-REPAIR-ENERGY"
+        ]
+      },
+      "stance_support": {
+        "NO": 23
+      }
+    },
+    "REPAIR::INTEGRITY": {
+      "bounded_alternative_count": 2,
+      "current_value": 7.9027217113130614,
+      "has_yes_no_disagreement": true,
+      "stance_evidence_ids": {
+        "NO": [
+          "E-107-10-REPAIR-INTEGRITY",
+          "E-107-13-REPAIR-INTEGRITY",
+          "E-107-20-REPAIR-INTEGRITY",
+          "E-107-93-REPAIR-INTEGRITY"
+        ],
+        "YES": [
+          "E-107-17-REPAIR-INTEGRITY",
+          "E-107-23-REPAIR-INTEGRITY",
+          "E-107-31-REPAIR-INTEGRITY",
+          "E-107-33-REPAIR-INTEGRITY",
+          "E-107-34-REPAIR-INTEGRITY",
+          "E-107-35-REPAIR-INTEGRITY",
+          "E-107-36-REPAIR-INTEGRITY",
+          "E-107-42-REPAIR-INTEGRITY",
+          "E-107-43-REPAIR-INTEGRITY",
+          "E-107-47-REPAIR-INTEGRITY",
+          "E-107-49-REPAIR-INTEGRITY",
+          "E-107-51-REPAIR-INTEGRITY",
+          "E-107-55-REPAIR-INTEGRITY",
+          "E-107-65-REPAIR-INTEGRITY",
+          "E-107-68-REPAIR-INTEGRITY",
+          "E-107-70-REPAIR-INTEGRITY",
+          "E-107-74-REPAIR-INTEGRITY",
+          "E-107-76-REPAIR-INTEGRITY",
+          "E-107-79-REPAIR-INTEGRITY",
+          "E-107-81-REPAIR-INTEGRITY"
+        ]
+      },
+      "stance_support": {
+        "NO": 4,
+        "YES": 20
+      }
+    },
+    "REPAIR::THERMAL": {
+      "bounded_alternative_count": 2,
+      "current_value": 1.9419739762468926,
+      "has_yes_no_disagreement": true,
+      "stance_evidence_ids": {
+        "NO": [
+          "E-107-13-REPAIR-THERMAL",
+          "E-107-23-REPAIR-THERMAL",
+          "E-107-35-REPAIR-THERMAL",
+          "E-107-36-REPAIR-THERMAL",
+          "E-107-43-REPAIR-THERMAL",
+          "E-107-81-REPAIR-THERMAL"
+        ],
+        "YES": [
+          "E-107-17-REPAIR-THERMAL",
+          "E-107-20-REPAIR-THERMAL",
+          "E-107-24-REPAIR-THERMAL",
+          "E-107-34-REPAIR-THERMAL",
+          "E-107-41-REPAIR-THERMAL",
+          "E-107-42-REPAIR-THERMAL",
+          "E-107-49-REPAIR-THERMAL",
+          "E-107-51-REPAIR-THERMAL",
+          "E-107-55-REPAIR-THERMAL",
+          "E-107-60-REPAIR-THERMAL",
+          "E-107-65-REPAIR-THERMAL",
+          "E-107-68-REPAIR-THERMAL",
+          "E-107-70-REPAIR-THERMAL",
+          "E-107-74-REPAIR-THERMAL",
+          "E-107-79-REPAIR-THERMAL",
+          "E-107-93-REPAIR-THERMAL"
+        ]
+      },
+      "stance_support": {
+        "NO": 6,
+        "YES": 16
+      }
+    },
+    "REST::ENERGY": {
+      "bounded_alternative_count": 3,
+      "current_value": 1.66140694732635,
+      "has_yes_no_disagreement": true,
+      "stance_evidence_ids": {
+        "NO": [
+          "E-107-15-REST-ENERGY",
+          "E-107-37-REST-ENERGY",
+          "E-107-5-REST-ENERGY",
+          "E-107-67-REST-ENERGY",
+          "E-107-83-REST-ENERGY"
+        ],
+        "UNKNOWN": [
+          "E-107-12-REST-ENERGY"
+        ],
+        "YES": [
+          "E-107-28-REST-ENERGY",
+          "E-107-39-REST-ENERGY",
+          "E-107-45-REST-ENERGY",
+          "E-107-46-REST-ENERGY",
+          "E-107-52-REST-ENERGY",
+          "E-107-53-REST-ENERGY",
+          "E-107-56-REST-ENERGY",
+          "E-107-6-REST-ENERGY",
+          "E-107-69-REST-ENERGY",
+          "E-107-72-REST-ENERGY",
+          "E-107-77-REST-ENERGY",
+          "E-107-87-REST-ENERGY",
+          "E-107-91-REST-ENERGY",
+          "E-107-92-REST-ENERGY",
+          "E-107-94-REST-ENERGY",
+          "E-107-99-REST-ENERGY"
+        ]
+      },
+      "stance_support": {
+        "NO": 5,
+        "UNKNOWN": 1,
+        "YES": 16
+      }
+    },
+    "REST::INTEGRITY": {
+      "bounded_alternative_count": 1,
+      "current_value": 7.9027217113130614,
+      "has_yes_no_disagreement": false,
+      "stance_evidence_ids": {
+        "YES": [
+          "E-107-12-REST-INTEGRITY",
+          "E-107-15-REST-INTEGRITY",
+          "E-107-16-REST-INTEGRITY",
+          "E-107-19-REST-INTEGRITY",
+          "E-107-26-REST-INTEGRITY",
+          "E-107-28-REST-INTEGRITY",
+          "E-107-37-REST-INTEGRITY",
+          "E-107-39-REST-INTEGRITY",
+          "E-107-4-REST-INTEGRITY",
+          "E-107-46-REST-INTEGRITY",
+          "E-107-5-REST-INTEGRITY",
+          "E-107-52-REST-INTEGRITY",
+          "E-107-53-REST-INTEGRITY",
+          "E-107-61-REST-INTEGRITY",
+          "E-107-67-REST-INTEGRITY",
+          "E-107-69-REST-INTEGRITY",
+          "E-107-72-REST-INTEGRITY",
+          "E-107-83-REST-INTEGRITY",
+          "E-107-85-REST-INTEGRITY",
+          "E-107-91-REST-INTEGRITY",
+          "E-107-92-REST-INTEGRITY",
+          "E-107-94-REST-INTEGRITY"
+        ]
+      },
+      "stance_support": {
+        "YES": 22
+      }
+    },
+    "REST::THERMAL": {
+      "bounded_alternative_count": 2,
+      "current_value": 1.9419739762468926,
+      "has_yes_no_disagreement": true,
+      "stance_evidence_ids": {
+        "NO": [
+          "E-107-12-REST-THERMAL",
+          "E-107-16-REST-THERMAL",
+          "E-107-19-REST-THERMAL",
+          "E-107-26-REST-THERMAL",
+          "E-107-39-REST-THERMAL",
+          "E-107-46-REST-THERMAL",
+          "E-107-5-REST-THERMAL",
+          "E-107-52-REST-THERMAL",
+          "E-107-53-REST-THERMAL",
+          "E-107-56-REST-THERMAL",
+          "E-107-67-REST-THERMAL"
+        ],
+        "YES": [
+          "E-107-15-REST-THERMAL",
+          "E-107-28-REST-THERMAL",
+          "E-107-45-REST-THERMAL",
+          "E-107-6-REST-THERMAL",
+          "E-107-72-REST-THERMAL",
+          "E-107-77-REST-THERMAL",
+          "E-107-85-REST-THERMAL",
+          "E-107-92-REST-THERMAL",
+          "E-107-99-REST-THERMAL"
+        ]
+      },
+      "stance_support": {
+        "NO": 11,
+        "YES": 9
+      }
+    }
+  },
+  "seed": 107
+}

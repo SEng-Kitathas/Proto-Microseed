@@ -1,0 +1,137 @@
+{
+  "after_premise_loss": {
+    "assistance_ancestry": [],
+    "candidate_ids": [],
+    "deficit_id": "D-CAUSE",
+    "hypothesis_digest_sha256": "40b5b675f79d2a7e4b17427b0a056b11667066616a011fde7483015eef7a40ef",
+    "identifiability_class": "C_ACTION_LIMITED",
+    "missing_discriminator_signature_sha256": "82303e919f44af44f0002c6b9dd52325d72b3d72a93cabaacac4c83260de0d2d",
+    "premise_anchors": [
+      {
+        "epoch": 0,
+        "kind": "CAPABILITY_PREMISE",
+        "object_id": "TARGET-ROUTE"
+      },
+      {
+        "epoch": 0,
+        "kind": "CAPABILITY_PREMISE",
+        "object_id": "INTERVENTION-ROUTE"
+      }
+    ],
+    "probe_capability_epoch": 0,
+    "probe_capability_id": "CONTROL-ROUTE",
+    "probe_evidence_ids": [
+      "E-P"
+    ],
+    "question_key": "OPAQUE-CAUSE-Q",
+    "relevant_evidence_ids": [],
+    "semantic_question_authority": "NONE",
+    "stale_evidence_id": null,
+    "stale_reason": "PREMISE_DRIFT:CAPABILITY_PREMISE:TARGET-ROUTE@0:TARGET_ROUTE_CHANGED",
+    "state": "STALE",
+    "truth_authority": "NONE",
+    "unknown_evidence_id": "E-U"
+  },
+  "after_probe_evidence": {
+    "assistance_ancestry": [],
+    "candidate_ids": [],
+    "deficit_id": "D-CAUSE",
+    "hypothesis_digest_sha256": "40b5b675f79d2a7e4b17427b0a056b11667066616a011fde7483015eef7a40ef",
+    "identifiability_class": "C_ACTION_LIMITED",
+    "missing_discriminator_signature_sha256": "82303e919f44af44f0002c6b9dd52325d72b3d72a93cabaacac4c83260de0d2d",
+    "premise_anchors": [
+      {
+        "epoch": 0,
+        "kind": "CAPABILITY_PREMISE",
+        "object_id": "TARGET-ROUTE"
+      },
+      {
+        "epoch": 0,
+        "kind": "CAPABILITY_PREMISE",
+        "object_id": "INTERVENTION-ROUTE"
+      }
+    ],
+    "probe_capability_epoch": 0,
+    "probe_capability_id": "CONTROL-ROUTE",
+    "probe_evidence_ids": [
+      "E-P"
+    ],
+    "question_key": "OPAQUE-CAUSE-Q",
+    "relevant_evidence_ids": [],
+    "semantic_question_authority": "NONE",
+    "stale_evidence_id": null,
+    "stale_reason": null,
+    "state": "REVISIT_REQUIRED",
+    "truth_authority": "NONE",
+    "unknown_evidence_id": "E-U"
+  },
+  "after_probe_loss": {
+    "assistance_ancestry": [],
+    "candidate_ids": [],
+    "deficit_id": "D-CAUSE",
+    "hypothesis_digest_sha256": "40b5b675f79d2a7e4b17427b0a056b11667066616a011fde7483015eef7a40ef",
+    "identifiability_class": "C_ACTION_LIMITED",
+    "missing_discriminator_signature_sha256": "82303e919f44af44f0002c6b9dd52325d72b3d72a93cabaacac4c83260de0d2d",
+    "premise_anchors": [
+      {
+        "epoch": 0,
+        "kind": "CAPABILITY_PREMISE",
+        "object_id": "TARGET-ROUTE"
+      },
+      {
+        "epoch": 0,
+        "kind": "CAPABILITY_PREMISE",
+        "object_id": "INTERVENTION-ROUTE"
+      }
+    ],
+    "probe_capability_epoch": 0,
+    "probe_capability_id": "CONTROL-ROUTE",
+    "probe_evidence_ids": [
+      "E-P"
+    ],
+    "question_key": "OPAQUE-CAUSE-Q",
+    "relevant_evidence_ids": [],
+    "semantic_question_authority": "NONE",
+    "stale_evidence_id": null,
+    "stale_reason": null,
+    "state": "ACTION_LIMITED",
+    "truth_authority": "NONE",
+    "unknown_evidence_id": "E-U"
+  },
+  "authority": "RESEARCH_ONLY",
+  "initial": {
+    "assistance_ancestry": [],
+    "candidate_ids": [],
+    "deficit_id": "D-CAUSE",
+    "hypothesis_digest_sha256": "40b5b675f79d2a7e4b17427b0a056b11667066616a011fde7483015eef7a40ef",
+    "identifiability_class": "C_ACTION_LIMITED",
+    "missing_discriminator_signature_sha256": "82303e919f44af44f0002c6b9dd52325d72b3d72a93cabaacac4c83260de0d2d",
+    "premise_anchors": [
+      {
+        "epoch": 0,
+        "kind": "CAPABILITY_PREMISE",
+        "object_id": "TARGET-ROUTE"
+      },
+      {
+        "epoch": 0,
+        "kind": "CAPABILITY_PREMISE",
+        "object_id": "INTERVENTION-ROUTE"
+      }
+    ],
+    "probe_capability_epoch": 0,
+    "probe_capability_id": "CONTROL-ROUTE",
+    "probe_evidence_ids": [
+      "E-P"
+    ],
+    "question_key": "OPAQUE-CAUSE-Q",
+    "relevant_evidence_ids": [],
+    "semantic_question_authority": "NONE",
+    "stale_evidence_id": null,
+    "stale_reason": "PREMISE_DRIFT:CAPABILITY_PREMISE:TARGET-ROUTE@0:TARGET_ROUTE_CHANGED",
+    "state": "STALE",
+    "truth_authority": "NONE",
+    "unknown_evidence_id": "E-U"
+  },
+  "pass": "MS1610_PASS08",
+  "result": "EXISTING_EPISTEMIC_DEFICIT_LIFECYCLE_CARRIES_CAUSAL_ATTRIBUTION_UNKNOWN__PROBE_LOSS_ACTION_LIMITED__PREMISE_DRIFT_STALE"
+}

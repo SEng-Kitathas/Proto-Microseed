@@ -1,0 +1,24 @@
+{
+  "current_main_dev": "v0.9/MS1027",
+  "identity_claim": "NOT_QUALIFIED",
+  "integration_evidence_through_ms": 1027,
+  "language": "DEFERRED_PRELINGUAL_COGNITION_ACTIVE",
+  "ms1028_started": false,
+  "next_ms": 1028,
+  "parent_main_dev": "v0.8/MS1002",
+  "promoted": [
+    "RecruitmentTopologyContract",
+    "RecruitmentTopologyRegistry",
+    "topology currentness epoch",
+    "topology-bound recruitment currentness",
+    "topology-bound capability currentness",
+    "pending candidate topology epoch recheck"
+  ],
+  "research_only": [
+    "MS1003-1027 pairwise topology constructor",
+    "general higher-order topology constructor/search"
+  ],
+  "research_terminal_ms": 1027,
+  "schema": "microseed.maindev-integration-delta.ms1027.v1",
+  "selected_frontier": "ATTN-MS1027-STRUCTURAL-REWRITE-DEVELOPMENTAL-IDENTITY__REACTIVATES_PERSISTENT_IDENTITY_UNDER_STRUCTURAL_REWRITE"
+}

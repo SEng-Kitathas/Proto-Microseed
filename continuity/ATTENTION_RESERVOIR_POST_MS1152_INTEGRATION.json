@@ -1,0 +1,29 @@
+{
+  "deferred_alive": [
+    "GENERAL_OPEN_ENDED_ACTIVE_LEARNING",
+    "GENERAL_DISCRIMINATOR_LANGUAGE",
+    "GENERAL_HIGHER_ORDER_DISCOVERY_LANGUAGE",
+    "HOST_SUBSTRATE_CAPABILITY_CURRENTNESS",
+    "QUALIFIED_COUNTERFACTUAL_REHEARSAL",
+    "ERGO_PRIVILEGED_CAUSAL_WORLD_GENERATOR",
+    "GENERAL_HIERARCHICAL_PLANNING"
+  ],
+  "integration_debt_open": [
+    "GENERAL_EPISTEMIC_DEFICIT_CURRENTNESS",
+    "GENERAL_QUESTION_REVISITATION_POLICY",
+    "HYPOTHESIS_SET_CURRENTNESS_ANCESTRY",
+    "STALE_UNKNOWN_DEVELOPMENTAL_PRESSURE_SUPPRESSION"
+  ],
+  "integration_debt_resolved": [
+    "MS1148_ZERO_DISAGREEMENT_FALSE_PROBE",
+    "MS1148_NO_FIRST_CLASS_ACTION_LIMITED_DEFICIT_BRIDGE"
+  ],
+  "language": "DEFERRED_PRELINGUAL_COGNITION_ACTIVE",
+  "ms1153_started": false,
+  "schema": "microseed.attention-reservoir.post-ms1152-integration.v1",
+  "selected": {
+    "id": "ATTN-MS1152-EPISTEMIC-DEFICIT-CURRENTNESS-AND-QUESTION-REVISITATION__WHOLE_SYSTEM_MEMORY_ACTIVE_LEARNING",
+    "reason": "MS1128-1152 makes action-limited UNKNOWN durable and developmentally actionable, but the currentness/lifecycle of the question/hypothesis/evidence state itself remains only minimally represented. Revisit policy is deliberately not solved by the v1.4 integration."
+  },
+  "terminal_ms": 1152
+}

@@ -1,0 +1,18 @@
+{
+  "current_campaign_disposition": "NARROWED_COMPLETE__GROUNDED_FEASIBILITY_AND_ENDOGENOUS_STEP_INITIATION_COMPOSE__TICK_LOCAL_INFORMATION_VALUE_AND_REAUTHORIZATION_COMPOSE__EPISODE_INSTANTIATION_REMAINS_EXTERNALLY_SCAFFOLDED__NO_MAINDEV_PROMOTION",
+  "deferred": [
+    "whole-organism R2 retest"
+  ],
+  "main_dev_promotion": "DEFERRED",
+  "milestone": "MS1726",
+  "open": [
+    "PAL47-informed depth-controlled generated-affordance closure search",
+    "physical calibration/reference correctness",
+    "historical admission physical truth/completeness",
+    "causal completeness under hidden confounding",
+    "stochastic observation reliability"
+  ],
+  "pal175_governor": "NO_CURRENT_INFORMATIVE_REPRESENTED_PROGRAM != GENERATED_AFFORDANCE_CLOSURE_SATURATED",
+  "pass": 24,
+  "selected": "MS1728-1752 PRELINGUAL_ENDOGENOUS_EPISTEMIC_TRIAL_INSTANTIATION_AND_OPPORTUNITY_ARBITRATION"
+}

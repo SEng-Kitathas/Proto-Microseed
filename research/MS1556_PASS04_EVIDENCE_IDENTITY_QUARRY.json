@@ -1,0 +1,104 @@
+{
+  "campaign": "MS1553-1577_DEVELOPMENTAL_CONSEQUENCE_EVIDENCE_ADEQUACY",
+  "composition_first_implication": "BEFORE_ANY_PROVENANCE_SUBSYSTEM_TEST_A_READ_ONLY_EVIDENCE_BASIS_PROJECTION_FROM_EXISTING_EVIDENCE_IDS_TO_LEDGER_SHA_SOURCE_EXECUTION_ID__EXACT_DUPLICATE_COLLAPSE_IS_LAWFUL__SOURCE_DIFFERENCE_REMAINS_NONAUTHORITATIVE",
+  "discriminator": "CAN_REDUNDANCY_PRESSURE_BE_PARTLY_EXPRESSED_FROM_EXISTING_CONTENT_BOUND_EVIDENCE_IDENTITY_WITHOUT_A_NEW_PROVENANCE_GRAPH",
+  "learning_carriers": {
+    "ActionOutcomeExperience_fields": [
+      "evidence_id",
+      "execution_id",
+      "start_state_id",
+      "capability_id",
+      "actual_next_state_id",
+      "actual_value_effect",
+      "capability_epoch",
+      "frame_epochs",
+      "episode_schema_epochs",
+      "value_epoch",
+      "topology_epochs",
+      "coordination_epochs"
+    ],
+    "ActionOutcomePredictiveCandidate_fields": [
+      "candidate_id",
+      "start_state_id",
+      "capability_id",
+      "next_state_id",
+      "value_effect",
+      "support",
+      "consistency",
+      "source_evidence_ids",
+      "capability_epoch",
+      "frame_epochs",
+      "episode_schema_epochs",
+      "value_epoch",
+      "topology_epochs",
+      "coordination_epochs",
+      "authority",
+      "truth_authority",
+      "causal_theorem_authority",
+      "qualification_authority",
+      "semantic_goal_authority"
+    ],
+    "candidate_carries_source_evidence_ids": true,
+    "carrier_copies_evidence_sha256": false,
+    "carrier_copies_root_ancestry": false,
+    "carrier_copies_source_identity": false,
+    "experience_carries_evidence_id": true,
+    "experience_example": {
+      "actual_next_state_id": "S1",
+      "actual_value_effect": 0.5,
+      "capability_epoch": 0,
+      "capability_id": "REST",
+      "coordination_epochs": [],
+      "episode_schema_epochs": [
+        [
+          "E",
+          0
+        ]
+      ],
+      "evidence_id": "E1",
+      "execution_id": "X",
+      "frame_epochs": [
+        [
+          "F",
+          0
+        ]
+      ],
+      "start_state_id": "S0",
+      "topology_epochs": [],
+      "value_epoch": [
+        "ENERGY",
+        0
+      ]
+    }
+  },
+  "ledger_observations": {
+    "E1_sha256": "0af1e62d262639533ae78be587d847794628ec7a79b7f3062cdee6bd0a4f7df4",
+    "E2_sha256": "0af1e62d262639533ae78be587d847794628ec7a79b7f3062cdee6bd0a4f7df4",
+    "E3_sha256": "5512464804bbe72cda59b007945f8587bbd82cec05c64ba9b19142cdf1264249",
+    "E4_sha256": "813eaaecbe712acbe2c9692878b15c86768b29394d914db498d6f94a2e831b17",
+    "different_source_is_visible_but_not_independence_proof": true,
+    "exact_duplicate_content_is_detectable_by_existing_sha256": true,
+    "same_source_is_visible_in_ledger": true
+  },
+  "main_dev_mutation": "NONE",
+  "ms": 1556,
+  "new_primitive_earned": false,
+  "nonclaims": [
+    "SOURCE_ID_DIFFERENCE_NOT_INDEPENDENCE",
+    "CONTENT_HASH_DIFFERENCE_NOT_INDEPENDENCE",
+    "NO_STRUCTURAL_ROOT_ANCESTRY_EARNED",
+    "NO_FIXED_QUALIFIER_PROMOTION"
+  ],
+  "pal_transfer": "NONE__PAL34_ONLY_NOMINATED_THE_REDUNDANCY_ATTACK",
+  "pass": 4,
+  "phase": "QUARRY_EXISTING_EVIDENCE_ANCESTRY",
+  "qualification_behavior": {
+    "duplicate_content_basis_reason": "EVIDENCE_BOUND_SHADOW",
+    "duplicate_content_basis_state": "SHADOW_QUALIFIED",
+    "fixed_qualifier_checks_independence": false,
+    "mixed_source_basis_reason": "EVIDENCE_BOUND_SHADOW",
+    "mixed_source_basis_state": "SHADOW_QUALIFIED"
+  },
+  "schema": "microseed.ms1556.pass04.evidence-identity-quarry.v1",
+  "surviving_localization": "EXACT_DUPLICATE_CONTENT_AND_SOURCE_IDENTITY_ALREADY_EXIST_IN_THE_LEDGER__ACTION_LEARNING_PRESERVES_EVIDENCE_IDS__BUT_CURRENT_QUALIFICATION_AND_CONSEQUENCE_USE_DO_NOT_PROJECT_THAT_IDENTITY_INTO_REDUNDANCY_OR_INDEPENDENCE_SEMANTICS__SHARED_STRUCTURAL_ROOT_ANCESTRY_IS_NOT_CURRENTLY_REPRESENTED"
+}

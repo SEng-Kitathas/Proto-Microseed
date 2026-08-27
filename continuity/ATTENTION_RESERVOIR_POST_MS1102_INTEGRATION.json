@@ -1,0 +1,18 @@
+{
+  "deferred_alive": [
+    "GENERAL_MULTI_PARTNER_SEARCH",
+    "GENERAL_HIGHER_ORDER_JOINT_RELATION_LANGUAGE",
+    "SEMANTIC_SELF_OTHER_ONTOLOGY",
+    "PERSISTENT_OTHER_AGENT_IDENTITY",
+    "GENERAL_THEORY_OF_MIND",
+    "CONSTITUTIONAL_VALUE_PRIOR_ORIGIN",
+    "GENERAL_HIERARCHICAL_PLANNING"
+  ],
+  "integration_debt": [],
+  "ms1103_started": false,
+  "schema": "microseed.attention-reservoir.post-ms1102-integration.v1",
+  "selected": {
+    "frontier": "ATTN-MS1102-DISTRIBUTED-TEMPORAL-COMPETENCE-AND-JOINT-EPISODE-GROUNDING__REACTIVATES_TEMPORAL_EPISODE_ABSTRACTION_AND_GENERAL_MULTI_AGENT_PLANNING",
+    "why": "MS1083 and MS1099 expose temporally extended and higher-order joint experience as the next load-bearing prelingual denominator after relation-specific coordination currentness is integrated"
+  }
+}

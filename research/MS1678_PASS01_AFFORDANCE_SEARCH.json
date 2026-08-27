@@ -1,0 +1,61 @@
+{
+  "composed_probe": [
+    "A",
+    "B"
+  ],
+  "composed_route_current": true,
+  "disposition": "ONE_STEP_DISCRIMINATOR_ABSENT__COMPOSED_EXISTING_AFFORDANCE_NOMINATED__EXECUTION_NOT_YET_EARNED",
+  "milestone": "MS1678",
+  "next_discriminator": "CAN_ORDINARY_CONTROL_REALIZE_SELECTED_MACRO_ONE_PRIMITIVE_PER_TICK_WITH_ACTUAL_OUTCOMES_AND_ONE_EPISTEMIC_TRIAL_IDENTITY",
+  "opaque_composition_candidate": {
+    "assistance_ancestry": [
+      "SUPPLIED_STABLE_OPAQUE_EVENT_ACTION_EFFECT_BINDING",
+      "FIXED_TWO_STEP_COMPOSITION_GRAMMAR",
+      "ENDPOINT_EQUALITY_ONLY",
+      "DECLARED_ORIGIN_DEDUPLICATION_WITHOUT_INDEPENDENCE_AUTHORITY"
+    ],
+    "candidate_id": "opaque-comp-ec1ac8b12c97b3e5fe1d",
+    "candidate_sha256": "49b4279314b1a3808ea8a35ea86b0318cfb14a18e0fc85e171d5199d03d22d50",
+    "direct_action_token": "C",
+    "evidence_independence_authority": "NONE",
+    "execution_authority": "NONE",
+    "first_action_token": "A",
+    "frame_epochs": [
+      [
+        "OPAQUE-FRAME",
+        0
+      ]
+    ],
+    "observed_counterexamples": 0,
+    "positive_support": 2,
+    "proposal_authority": "NONE",
+    "qualification_authority": "NONE",
+    "second_action_token": "B",
+    "semantic_action_authority": "NONE",
+    "source_sample_ids": [
+      "0a",
+      "0b",
+      "0c",
+      "1a",
+      "1b",
+      "1c"
+    ],
+    "support_origin_signatures": [
+      "bac25a482481769e7a67efc87306036b9743d5873d6eea397d2653a5e2828692",
+      "ffbc4f5a6120a1aac268a049e710dd40690928ee1a8f682f5cc7d77d9c80a5fc"
+    ],
+    "truth_authority": "NONE"
+  },
+  "pass": 1,
+  "search_side_effect_calls": [],
+  "single_capability_probe": null,
+  "symbolic_action_route": {
+    "current": false,
+    "reasons": [
+      [
+        "A_then_B",
+        "NO_PATH"
+      ]
+    ]
+  }
+}

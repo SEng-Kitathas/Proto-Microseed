@@ -1,0 +1,70 @@
+{
+  "all_pass": true,
+  "legacy_c_compile": {
+    "ms175_tiny_core_v03.c": {
+      "pass": true,
+      "returncode": 0,
+      "stderr": ""
+    },
+    "ms225_working_state_6b.c": {
+      "pass": true,
+      "returncode": 0,
+      "stderr": ""
+    },
+    "ms250_intent_state.c": {
+      "pass": true,
+      "returncode": 0,
+      "stderr": ""
+    },
+    "ms275_micro_composer.c": {
+      "pass": true,
+      "returncode": 0,
+      "stderr": "microseed/runtime/legacy/ms275_micro_composer.c: In function \u2018ensure\u2019:\nmicroseed/runtime/legacy/ms275_micro_composer.c:6:2: warning: this \u2018if\u2019 clause does not guard... [-Wmisleading-indentation]\n    6 |  if((*have)&f)return 1; if(visiting&f)return 0; visiting|=f;\n      |  ^~\nmicroseed/runtime/legacy/ms275_micro_composer.c:6:25: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the \u2018if\u2019\n    6 |  if((*have)&f)return 1; if(visiting&f)return 0; visiting|=f;\n      |                         ^~\n"
+    }
+  },
+  "legacy_c_compile_4_4": true,
+  "legacy_hashes": {
+    "ms175_tiny_core_v03.c": {
+      "actual": "47de0b5b0eb290d69cff8d6b295dad0cd6194aa2fa3c93a1de81c2170f04fd62",
+      "expected": "47de0b5b0eb290d69cff8d6b295dad0cd6194aa2fa3c93a1de81c2170f04fd62",
+      "pass": true
+    },
+    "ms225_working_state_6b.c": {
+      "actual": "860d61a7f0886be49f0f1502f6b17e66d13763207634190f3e0ff4d4103f3a6f",
+      "expected": "860d61a7f0886be49f0f1502f6b17e66d13763207634190f3e0ff4d4103f3a6f",
+      "pass": true
+    },
+    "ms250_intent_state.c": {
+      "actual": "6e15b1f60b192a8d1f8f8380898b407b7b0dd02a20fe14a74246b79548c068c9",
+      "expected": "6e15b1f60b192a8d1f8f8380898b407b7b0dd02a20fe14a74246b79548c068c9",
+      "pass": true
+    },
+    "ms275_micro_composer.c": {
+      "actual": "7de5d110e29e933a7ec382906279f30d9ef4ef80c22f988f325971e682f2f7d6",
+      "expected": "7de5d110e29e933a7ec382906279f30d9ef4ef80c22f988f325971e682f2f7d6",
+      "pass": true
+    },
+    "ms350_runtime_to_hsp_bridge.py": {
+      "actual": "bec94e45e9edc689c00ef959cb052d6c408b9de97d2ed63992554d78744534de",
+      "expected": "bec94e45e9edc689c00ef959cb052d6c408b9de97d2ed63992554d78744534de",
+      "pass": true
+    },
+    "ms450_external_observation_runtime.py": {
+      "actual": "1784259c5599d075baf173435563b5df13058e597dcb2bd25b07fed83c17125f",
+      "expected": "1784259c5599d075baf173435563b5df13058e597dcb2bd25b07fed83c17125f",
+      "pass": true
+    },
+    "ms451_market_runtime.py": {
+      "actual": "c88fec317227e760cd2abc7b80d4b32cc0c985461c3258084112a51a58ab3a53",
+      "expected": "c88fec317227e760cd2abc7b80d4b32cc0c985461c3258084112a51a58ab3a53",
+      "pass": true
+    },
+    "ms50_integrated_kernel.py": {
+      "actual": "60726809d2df9a2ff5bea8b7ff54b5a0c8eda566dd95045a6bcf28920edad602",
+      "expected": "60726809d2df9a2ff5bea8b7ff54b5a0c8eda566dd95045a6bcf28920edad602",
+      "pass": true
+    }
+  },
+  "legacy_hashes_8_8": true,
+  "schema": "microseed.ms1502.legacy-gates.v1"
+}

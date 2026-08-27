@@ -1,0 +1,48 @@
+{
+  "schema": "microseed.maindev-operating-profile.v1.2",
+  "inherits": "microseed.maindev-operating-profile.v1.1",
+  "core_shape_unchanged": true,
+  "language_policy": {
+    "active_phase": "PRELINGUAL",
+    "cognitive_substrate": "DEFERRED",
+    "rule": "developer labels may instrument joint-action research; language may not supply commitment, intention, promise, actor identity, joint-goal semantics, value state, authority, or causal relations under test"
+  },
+  "refinements_from_ms1078_1102": {
+    "BEHAVIORAL_SYNCHRONY_NE_JOINT_COORDINATION": true,
+    "ONE_WAY_PREDICTION_NE_MUTUAL_COORDINATION": true,
+    "SHARED_SCHEDULE_NE_RECIPROCAL_COORDINATION": true,
+    "TEMPORARY_REFUSAL_NE_COORDINATION_RELATION_DRIFT": true,
+    "COUNTERPARTY_CURRENT_NE_COORDINATION_RELATION_CURRENT": true,
+    "COUNTERPARTY_EPOCH_AS_COORDINATION_PROXY_NE_SELECTIVE_INVALIDATION": true,
+    "QUALIFICATION_TICKET_CURRENT_NE_COORDINATION_PREMISES_CURRENT": true,
+    "JOINT_EFFECT_NE_MUTUAL_ACCEPTABILITY": true,
+    "DESIGNER_SOCIAL_CUE_NE_COORDINATION_GROUNDING": true,
+    "PAIRWISE_COORDINATION_LANGUAGE_NE_GENERAL_JOINT_RELATION": true,
+    "SEMANTIC_COMMITMENT_LABEL_NE_OPERATIONAL_JOINT_RELATION": true,
+    "coordination_relation_currentness_must_be_first_class_when_load_bearing": true,
+    "coordination_contract_grants_operational_relation_authority_only": true,
+    "pending_candidates_recheck_coordination_epoch_after_external_qualification": true,
+    "relation_specific_drift_must_not_overinvalidate_unrelated_same_counterparty_capabilities": true
+  },
+  "current_integration": {
+    "research_terminal_ms": 1102,
+    "ms1103_started": false,
+    "selected_frontier": "ATTN-MS1102-DISTRIBUTED-TEMPORAL-COMPETENCE-AND-JOINT-EPISODE-GROUNDING__REACTIVATES_TEMPORAL_EPISODE_ABSTRACTION_AND_GENERAL_MULTI_AGENT_PLANNING",
+    "integration_debt_resolved": [
+      "MS1067_V10_NO_FIRST_CLASS_COUNTERPARTY_CURRENTNESS",
+      "MS1088_V11_NO_FIRST_CLASS_RELATION_SPECIFIC_COORDINATION_CURRENTNESS",
+      "MS1089_V11_COORDINATION_DRIFT_FALSE_GREEN",
+      "MS1090_COUNTERPARTY_PROXY_OVERINVALIDATION"
+    ],
+    "integration_debt_open": [
+      "GENERAL_MULTI_PARTNER_SEARCH",
+      "GENERAL_HIGHER_ORDER_JOINT_RELATION_LANGUAGE",
+      "DISTRIBUTED_TEMPORAL_COMPETENCE_AND_JOINT_EPISODE_GROUNDING",
+      "GENERAL_MULTI_AGENT_PLANNING",
+      "SEMANTIC_COMMITMENT_INTENTION_PROMISE_ONTOLOGY",
+      "PERSISTENT_OTHER_AGENT_IDENTITY_NOT_QUALIFIED",
+      "GENERAL_THEORY_OF_MIND",
+      "CONSTITUTIONAL_VALUE_PRIOR_ORIGIN"
+    ]
+  }
+}

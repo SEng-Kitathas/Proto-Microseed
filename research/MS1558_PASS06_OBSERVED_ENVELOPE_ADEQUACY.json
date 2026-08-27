@@ -1,0 +1,99 @@
+{
+  "campaign": "MS1553-1577_DEVELOPMENTAL_CONSEQUENCE_EVIDENCE_ADEQUACY",
+  "checks": {
+    "envelope_allows_some_unique_action": true,
+    "envelope_harmful_rate_not_worse_in_any_regime": false
+  },
+  "discriminator": "CAN_A_QUERY_LOCAL_STANCE_BE_PRODUCED_BY_REUSING_ONLY_OBSERVED_EFFECT_SUPPORT_PLUS_EXISTING_VALUE_GEOMETRY_WITHOUT_CONFIDENCE_LEVELS_FITTED_MODELS_OR_NEW_THRESHOLDS",
+  "disposition": "REJECTED_AS_GENERAL_ADEQUACY_MECHANISM",
+  "main_dev_mutation": "NONE",
+  "min_support": 5,
+  "ms": 1558,
+  "new_primitive_earned": false,
+  "nonclaims": [
+    "OBSERVED_ENVELOPE_NOT_A_GUARANTEE",
+    "NO_UNSEEN_TAIL_AUTHORITY",
+    "NO_CONFIDENCE_LEVEL",
+    "NO_MAINDEV_PROMOTION",
+    "NO_WHOLE_ORGANISM_CREDIT"
+  ],
+  "pass": 6,
+  "phase": "BORING_ESTIMATOR_FREE_ADEQUACY_PROBE",
+  "rule": "YES_ONLY_IF_EVERY_OBSERVED_CURRENT_SUPPORT_EFFECT_LOWERS_CURRENT_PRESSURE_OR_PRESERVES_AN_UNPRESSURED_COORDINATE__NO_ONLY_IF_EVERY_SUPPORT_EFFECT_WORSENS__OTHERWISE_UNKNOWN",
+  "schema": "microseed.ms1558.pass06.observed-envelope-adequacy.v1",
+  "summary": {
+    "0": {
+      "OBSERVED_ENVELOPE": {
+        "decision": 247,
+        "harmful": 1,
+        "harmful_rate_when_unique": 0.030303030303030304,
+        "missing": 113,
+        "multiple": 0,
+        "none": 214,
+        "safe": 32,
+        "safe_rate_when_unique": 0.9696969696969697,
+        "unique": 33
+      },
+      "POINT": {
+        "decision": 247,
+        "harmful": 5,
+        "harmful_rate_when_unique": 0.026455026455026454,
+        "missing": 113,
+        "multiple": 18,
+        "none": 40,
+        "safe": 184,
+        "safe_rate_when_unique": 0.9735449735449735,
+        "unique": 189
+      }
+    },
+    "1": {
+      "OBSERVED_ENVELOPE": {
+        "decision": 247,
+        "harmful": 1,
+        "harmful_rate_when_unique": 0.07692307692307693,
+        "missing": 113,
+        "multiple": 1,
+        "none": 233,
+        "safe": 12,
+        "safe_rate_when_unique": 0.9230769230769231,
+        "unique": 13
+      },
+      "POINT": {
+        "decision": 247,
+        "harmful": 24,
+        "harmful_rate_when_unique": 0.19834710743801653,
+        "missing": 113,
+        "multiple": 24,
+        "none": 102,
+        "safe": 97,
+        "safe_rate_when_unique": 0.8016528925619835,
+        "unique": 121
+      }
+    },
+    "2": {
+      "OBSERVED_ENVELOPE": {
+        "decision": 261,
+        "harmful": 0,
+        "harmful_rate_when_unique": 0.0,
+        "missing": 99,
+        "multiple": 0,
+        "none": 261,
+        "safe": 0,
+        "safe_rate_when_unique": 0.0,
+        "unique": 0
+      },
+      "POINT": {
+        "decision": 261,
+        "harmful": 0,
+        "harmful_rate_when_unique": 0.0,
+        "missing": 99,
+        "multiple": 0,
+        "none": 261,
+        "safe": 0,
+        "safe_rate_when_unique": 0.0,
+        "unique": 0
+      }
+    }
+  },
+  "support_threshold_ancestry": "REUSES_DISCOVERYCONFIG_MIN_SINGLETON_SAMPLES_DEFAULT_5"
+}

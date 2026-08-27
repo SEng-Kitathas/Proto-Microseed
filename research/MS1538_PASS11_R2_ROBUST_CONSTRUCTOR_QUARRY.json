@@ -1,0 +1,441 @@
+{
+  "anti_confound_reveal_config": {
+    "combination_budget": 50000,
+    "max_candidates": 8,
+    "max_conflict_edges": 5000,
+    "max_lag_ceiling": 0,
+    "max_support_ceiling": 3,
+    "min_lift_over_action_baseline": -1.0,
+    "min_scope_accuracy": 0.0,
+    "min_train_support": 100,
+    "min_validation_accuracy": 0.0,
+    "top_supports_per_order": 16
+  },
+  "channels": {
+    "ENERGY": {
+      "best_revealed_candidates": [
+        {
+          "action_baseline_accuracy": 0.213653603034134,
+          "assistance_ancestry": [
+            "SUPPLIED_RAW_OBSERVATION_BOUNDARIES",
+            "SUPPLIED_OPAQUE_ACTION_TOKENS",
+            "SUPPLIED_OPAQUE_EFFECT_TOKENS",
+            "SUPPLIED_HISTORY_WINDOW_MAX_LAG_0",
+            "SUPPLIED_SUPPORT_CEILING_3",
+            "SUPPLIED_TOP_SUPPORTS_PER_ORDER_16",
+            "EXACT_OBSERVED_EFFECT_DISCORDANCE_EDGES",
+            "BOUNDED_CONFLICT_COVERAGE_RANKING",
+            "SMALLEST_PREDICTIVELY_VALIDATED_SUPPORT_ORDER",
+            "UNTOUCHED_PRESSURE_AND_NOMINATION_VALIDATION",
+            "NO_EFFECT_DISTANCE_METRIC",
+            "NO_NOISE_RATE_MODEL"
+          ],
+          "atoms": [
+            "L0:P0"
+          ],
+          "candidate_id": "robust-constructor-cand-f295260db18878d6cf0b",
+          "evaluated_support_count": 3,
+          "lift": 0.04930467762326168,
+          "min_scope_accuracy": 0.20103092783505155,
+          "observed_conflict_coverage": 0.9542,
+          "pressure_accuracy": 0.2804878048780488,
+          "search_trace": [
+            {
+              "atom_count": 3,
+              "budget_exhausted": false,
+              "candidates_survived": 3,
+              "combinations_evaluated": 3,
+              "conflict_edge_count": 5000,
+              "lag_depth": 0,
+              "support_order": 1,
+              "top_coverage": 0.9542
+            }
+          ],
+          "train_accuracy": 0.3814977973568282,
+          "validation_accuracy": 0.2629582806573957
+        },
+        {
+          "action_baseline_accuracy": 0.213653603034134,
+          "assistance_ancestry": [
+            "SUPPLIED_RAW_OBSERVATION_BOUNDARIES",
+            "SUPPLIED_OPAQUE_ACTION_TOKENS",
+            "SUPPLIED_OPAQUE_EFFECT_TOKENS",
+            "SUPPLIED_HISTORY_WINDOW_MAX_LAG_0",
+            "SUPPLIED_SUPPORT_CEILING_3",
+            "SUPPLIED_TOP_SUPPORTS_PER_ORDER_16",
+            "EXACT_OBSERVED_EFFECT_DISCORDANCE_EDGES",
+            "BOUNDED_CONFLICT_COVERAGE_RANKING",
+            "SMALLEST_PREDICTIVELY_VALIDATED_SUPPORT_ORDER",
+            "UNTOUCHED_PRESSURE_AND_NOMINATION_VALIDATION",
+            "NO_EFFECT_DISTANCE_METRIC",
+            "NO_NOISE_RATE_MODEL"
+          ],
+          "atoms": [
+            "L0:P2"
+          ],
+          "candidate_id": "robust-constructor-cand-61a07921c038747897cd",
+          "evaluated_support_count": 3,
+          "lift": 0.0,
+          "min_scope_accuracy": 0.20772946859903382,
+          "observed_conflict_coverage": 0.8834,
+          "pressure_accuracy": 0.22439024390243903,
+          "search_trace": [
+            {
+              "atom_count": 3,
+              "budget_exhausted": false,
+              "candidates_survived": 3,
+              "combinations_evaluated": 3,
+              "conflict_edge_count": 5000,
+              "lag_depth": 0,
+              "support_order": 1,
+              "top_coverage": 0.9542
+            }
+          ],
+          "train_accuracy": 0.3383259911894273,
+          "validation_accuracy": 0.213653603034134
+        },
+        {
+          "action_baseline_accuracy": 0.213653603034134,
+          "assistance_ancestry": [
+            "SUPPLIED_RAW_OBSERVATION_BOUNDARIES",
+            "SUPPLIED_OPAQUE_ACTION_TOKENS",
+            "SUPPLIED_OPAQUE_EFFECT_TOKENS",
+            "SUPPLIED_HISTORY_WINDOW_MAX_LAG_0",
+            "SUPPLIED_SUPPORT_CEILING_3",
+            "SUPPLIED_TOP_SUPPORTS_PER_ORDER_16",
+            "EXACT_OBSERVED_EFFECT_DISCORDANCE_EDGES",
+            "BOUNDED_CONFLICT_COVERAGE_RANKING",
+            "SMALLEST_PREDICTIVELY_VALIDATED_SUPPORT_ORDER",
+            "UNTOUCHED_PRESSURE_AND_NOMINATION_VALIDATION",
+            "NO_EFFECT_DISTANCE_METRIC",
+            "NO_NOISE_RATE_MODEL"
+          ],
+          "atoms": [
+            "L0:P1"
+          ],
+          "candidate_id": "robust-constructor-cand-78a546f01bfdd03f2c8d",
+          "evaluated_support_count": 3,
+          "lift": -0.00884955752212388,
+          "min_scope_accuracy": 0.15463917525773196,
+          "observed_conflict_coverage": 0.936,
+          "pressure_accuracy": 0.1975609756097561,
+          "search_trace": [
+            {
+              "atom_count": 3,
+              "budget_exhausted": false,
+              "candidates_survived": 3,
+              "combinations_evaluated": 3,
+              "conflict_edge_count": 5000,
+              "lag_depth": 0,
+              "support_order": 1,
+              "top_coverage": 0.9542
+            }
+          ],
+          "train_accuracy": 0.29779735682819386,
+          "validation_accuracy": 0.20480404551201012
+        }
+      ],
+      "native_candidates": [],
+      "pressure_rows": 410,
+      "train_rows": 1135,
+      "validation_rows": 791
+    },
+    "INTEGRITY": {
+      "best_revealed_candidates": [
+        {
+          "action_baseline_accuracy": 0.2471626733921816,
+          "assistance_ancestry": [
+            "SUPPLIED_RAW_OBSERVATION_BOUNDARIES",
+            "SUPPLIED_OPAQUE_ACTION_TOKENS",
+            "SUPPLIED_OPAQUE_EFFECT_TOKENS",
+            "SUPPLIED_HISTORY_WINDOW_MAX_LAG_0",
+            "SUPPLIED_SUPPORT_CEILING_3",
+            "SUPPLIED_TOP_SUPPORTS_PER_ORDER_16",
+            "EXACT_OBSERVED_EFFECT_DISCORDANCE_EDGES",
+            "BOUNDED_CONFLICT_COVERAGE_RANKING",
+            "SMALLEST_PREDICTIVELY_VALIDATED_SUPPORT_ORDER",
+            "UNTOUCHED_PRESSURE_AND_NOMINATION_VALIDATION",
+            "NO_EFFECT_DISTANCE_METRIC",
+            "NO_NOISE_RATE_MODEL"
+          ],
+          "atoms": [
+            "L0:P2"
+          ],
+          "candidate_id": "robust-constructor-cand-1f6b42ddc2f373b9d037",
+          "evaluated_support_count": 3,
+          "lift": 0.023959646910466564,
+          "min_scope_accuracy": 0.22439024390243903,
+          "observed_conflict_coverage": 0.886,
+          "pressure_accuracy": 0.24681933842239187,
+          "search_trace": [
+            {
+              "atom_count": 3,
+              "budget_exhausted": false,
+              "candidates_survived": 3,
+              "combinations_evaluated": 3,
+              "conflict_edge_count": 5000,
+              "lag_depth": 0,
+              "support_order": 1,
+              "top_coverage": 0.9376
+            }
+          ],
+          "train_accuracy": 0.39224526600541026,
+          "validation_accuracy": 0.27112232030264816
+        },
+        {
+          "action_baseline_accuracy": 0.2471626733921816,
+          "assistance_ancestry": [
+            "SUPPLIED_RAW_OBSERVATION_BOUNDARIES",
+            "SUPPLIED_OPAQUE_ACTION_TOKENS",
+            "SUPPLIED_OPAQUE_EFFECT_TOKENS",
+            "SUPPLIED_HISTORY_WINDOW_MAX_LAG_0",
+            "SUPPLIED_SUPPORT_CEILING_3",
+            "SUPPLIED_TOP_SUPPORTS_PER_ORDER_16",
+            "EXACT_OBSERVED_EFFECT_DISCORDANCE_EDGES",
+            "BOUNDED_CONFLICT_COVERAGE_RANKING",
+            "SMALLEST_PREDICTIVELY_VALIDATED_SUPPORT_ORDER",
+            "UNTOUCHED_PRESSURE_AND_NOMINATION_VALIDATION",
+            "NO_EFFECT_DISTANCE_METRIC",
+            "NO_NOISE_RATE_MODEL"
+          ],
+          "atoms": [
+            "L0:P0"
+          ],
+          "candidate_id": "robust-constructor-cand-95566269253103a137ac",
+          "evaluated_support_count": 3,
+          "lift": -0.012610340479192933,
+          "min_scope_accuracy": 0.18536585365853658,
+          "observed_conflict_coverage": 0.9132,
+          "pressure_accuracy": 0.19338422391857507,
+          "search_trace": [
+            {
+              "atom_count": 3,
+              "budget_exhausted": false,
+              "candidates_survived": 3,
+              "combinations_evaluated": 3,
+              "conflict_edge_count": 5000,
+              "lag_depth": 0,
+              "support_order": 1,
+              "top_coverage": 0.9376
+            }
+          ],
+          "train_accuracy": 0.33363390441839497,
+          "validation_accuracy": 0.23455233291298866
+        },
+        {
+          "action_baseline_accuracy": 0.2471626733921816,
+          "assistance_ancestry": [
+            "SUPPLIED_RAW_OBSERVATION_BOUNDARIES",
+            "SUPPLIED_OPAQUE_ACTION_TOKENS",
+            "SUPPLIED_OPAQUE_EFFECT_TOKENS",
+            "SUPPLIED_HISTORY_WINDOW_MAX_LAG_0",
+            "SUPPLIED_SUPPORT_CEILING_3",
+            "SUPPLIED_TOP_SUPPORTS_PER_ORDER_16",
+            "EXACT_OBSERVED_EFFECT_DISCORDANCE_EDGES",
+            "BOUNDED_CONFLICT_COVERAGE_RANKING",
+            "SMALLEST_PREDICTIVELY_VALIDATED_SUPPORT_ORDER",
+            "UNTOUCHED_PRESSURE_AND_NOMINATION_VALIDATION",
+            "NO_EFFECT_DISTANCE_METRIC",
+            "NO_NOISE_RATE_MODEL"
+          ],
+          "atoms": [
+            "L0:P1"
+          ],
+          "candidate_id": "robust-constructor-cand-dc23547c724fdb75e3d9",
+          "evaluated_support_count": 3,
+          "lift": -0.031525851197982346,
+          "min_scope_accuracy": 0.17346938775510204,
+          "observed_conflict_coverage": 0.9376,
+          "pressure_accuracy": 0.21882951653944022,
+          "search_trace": [
+            {
+              "atom_count": 3,
+              "budget_exhausted": false,
+              "candidates_survived": 3,
+              "combinations_evaluated": 3,
+              "conflict_edge_count": 5000,
+              "lag_depth": 0,
+              "support_order": 1,
+              "top_coverage": 0.9376
+            }
+          ],
+          "train_accuracy": 0.33363390441839497,
+          "validation_accuracy": 0.21563682219419925
+        }
+      ],
+      "native_candidates": [],
+      "pressure_rows": 393,
+      "train_rows": 1109,
+      "validation_rows": 793
+    },
+    "THERMAL": {
+      "best_revealed_candidates": [
+        {
+          "action_baseline_accuracy": 0.22081218274111675,
+          "assistance_ancestry": [
+            "SUPPLIED_RAW_OBSERVATION_BOUNDARIES",
+            "SUPPLIED_OPAQUE_ACTION_TOKENS",
+            "SUPPLIED_OPAQUE_EFFECT_TOKENS",
+            "SUPPLIED_HISTORY_WINDOW_MAX_LAG_0",
+            "SUPPLIED_SUPPORT_CEILING_3",
+            "SUPPLIED_TOP_SUPPORTS_PER_ORDER_16",
+            "EXACT_OBSERVED_EFFECT_DISCORDANCE_EDGES",
+            "BOUNDED_CONFLICT_COVERAGE_RANKING",
+            "SMALLEST_PREDICTIVELY_VALIDATED_SUPPORT_ORDER",
+            "UNTOUCHED_PRESSURE_AND_NOMINATION_VALIDATION",
+            "NO_EFFECT_DISTANCE_METRIC",
+            "NO_NOISE_RATE_MODEL"
+          ],
+          "atoms": [
+            "L0:P1"
+          ],
+          "candidate_id": "robust-constructor-cand-fa0c1d4b0812cd9b8c47",
+          "evaluated_support_count": 3,
+          "lift": 0.046954314720812185,
+          "min_scope_accuracy": 0.2182741116751269,
+          "observed_conflict_coverage": 0.961,
+          "pressure_accuracy": 0.255050505050505,
+          "search_trace": [
+            {
+              "atom_count": 3,
+              "budget_exhausted": false,
+              "candidates_survived": 3,
+              "combinations_evaluated": 3,
+              "conflict_edge_count": 5000,
+              "lag_depth": 0,
+              "support_order": 1,
+              "top_coverage": 0.961
+            }
+          ],
+          "train_accuracy": 0.36484098939929327,
+          "validation_accuracy": 0.26776649746192893
+        },
+        {
+          "action_baseline_accuracy": 0.22081218274111675,
+          "assistance_ancestry": [
+            "SUPPLIED_RAW_OBSERVATION_BOUNDARIES",
+            "SUPPLIED_OPAQUE_ACTION_TOKENS",
+            "SUPPLIED_OPAQUE_EFFECT_TOKENS",
+            "SUPPLIED_HISTORY_WINDOW_MAX_LAG_0",
+            "SUPPLIED_SUPPORT_CEILING_3",
+            "SUPPLIED_TOP_SUPPORTS_PER_ORDER_16",
+            "EXACT_OBSERVED_EFFECT_DISCORDANCE_EDGES",
+            "BOUNDED_CONFLICT_COVERAGE_RANKING",
+            "SMALLEST_PREDICTIVELY_VALIDATED_SUPPORT_ORDER",
+            "UNTOUCHED_PRESSURE_AND_NOMINATION_VALIDATION",
+            "NO_EFFECT_DISTANCE_METRIC",
+            "NO_NOISE_RATE_MODEL"
+          ],
+          "atoms": [
+            "L0:P0"
+          ],
+          "candidate_id": "robust-constructor-cand-3e0b34d6bffe2ff8f3d9",
+          "evaluated_support_count": 3,
+          "lift": -0.020304568527918787,
+          "min_scope_accuracy": 0.18461538461538463,
+          "observed_conflict_coverage": 0.8902,
+          "pressure_accuracy": 0.21717171717171718,
+          "search_trace": [
+            {
+              "atom_count": 3,
+              "budget_exhausted": false,
+              "candidates_survived": 3,
+              "combinations_evaluated": 3,
+              "conflict_edge_count": 5000,
+              "lag_depth": 0,
+              "support_order": 1,
+              "top_coverage": 0.961
+            }
+          ],
+          "train_accuracy": 0.3303886925795053,
+          "validation_accuracy": 0.20050761421319796
+        },
+        {
+          "action_baseline_accuracy": 0.22081218274111675,
+          "assistance_ancestry": [
+            "SUPPLIED_RAW_OBSERVATION_BOUNDARIES",
+            "SUPPLIED_OPAQUE_ACTION_TOKENS",
+            "SUPPLIED_OPAQUE_EFFECT_TOKENS",
+            "SUPPLIED_HISTORY_WINDOW_MAX_LAG_0",
+            "SUPPLIED_SUPPORT_CEILING_3",
+            "SUPPLIED_TOP_SUPPORTS_PER_ORDER_16",
+            "EXACT_OBSERVED_EFFECT_DISCORDANCE_EDGES",
+            "BOUNDED_CONFLICT_COVERAGE_RANKING",
+            "SMALLEST_PREDICTIVELY_VALIDATED_SUPPORT_ORDER",
+            "UNTOUCHED_PRESSURE_AND_NOMINATION_VALIDATION",
+            "NO_EFFECT_DISTANCE_METRIC",
+            "NO_NOISE_RATE_MODEL"
+          ],
+          "atoms": [
+            "L0:P2"
+          ],
+          "candidate_id": "robust-constructor-cand-28bfc12e2101fe959647",
+          "evaluated_support_count": 3,
+          "lift": -0.02538071065989847,
+          "min_scope_accuracy": 0.16243654822335024,
+          "observed_conflict_coverage": 0.866,
+          "pressure_accuracy": 0.1919191919191919,
+          "search_trace": [
+            {
+              "atom_count": 3,
+              "budget_exhausted": false,
+              "candidates_survived": 3,
+              "combinations_evaluated": 3,
+              "conflict_edge_count": 5000,
+              "lag_depth": 0,
+              "support_order": 1,
+              "top_coverage": 0.961
+            }
+          ],
+          "train_accuracy": 0.3083038869257951,
+          "validation_accuracy": 0.19543147208121828
+        }
+      ],
+      "native_candidates": [],
+      "pressure_rows": 396,
+      "train_rows": 1132,
+      "validation_rows": 788
+    }
+  },
+  "data_boundary": "SAME_OBSERVED_ONLY_R2_DATA_AND_TOKENIZATION_AS_PASS10",
+  "disposition": "ROBUST_CONSTRUCTOR_SIGNAL_INSUFFICIENT",
+  "hidden_regime_labels_used": false,
+  "material_lift_reference": 0.08,
+  "native_config": {
+    "combination_budget": 50000,
+    "max_candidates": 8,
+    "max_conflict_edges": 5000,
+    "max_lag_ceiling": 0,
+    "max_support_ceiling": 3,
+    "min_lift_over_action_baseline": 0.25,
+    "min_scope_accuracy": 0.85,
+    "min_train_support": 100,
+    "min_validation_accuracy": 0.9,
+    "top_supports_per_order": 16
+  },
+  "nonclaims": [
+    "NO_CANDIDATE_ADMISSION",
+    "NO_PROJECTION_AUTHORITY",
+    "NO_SEMANTIC_REGIME_IDENTITY",
+    "NO_MAINDEV_MUTATION"
+  ],
+  "pressure_seeds": [
+    206,
+    207
+  ],
+  "schema": "microseed.ms1538.pass11.r2-robust-constructor-quarry.v1",
+  "training_seeds": [
+    200,
+    201,
+    202,
+    203,
+    204,
+    205
+  ],
+  "validation_seeds": [
+    208,
+    209,
+    210,
+    211
+  ]
+}

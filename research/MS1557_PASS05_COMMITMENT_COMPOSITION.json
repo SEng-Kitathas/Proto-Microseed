@@ -1,0 +1,141 @@
+{
+  "all_checks_pass": true,
+  "campaign": "MS1553-1577_DEVELOPMENTAL_CONSEQUENCE_EVIDENCE_ADEQUACY",
+  "checks": {
+    "ancestry_preserved": true,
+    "effect_no_still_refuses": true,
+    "effect_unknown_stays_unknown": true,
+    "no_adequacy_refuses_use": true,
+    "no_execution_authority_created": true,
+    "unknown_adequacy_blocks_yes": true,
+    "yes_requires_both_yes": true
+  },
+  "discriminator": "IF_A_QUERY_LOCAL_EVIDENCE_ADEQUACY_STANCE_EXISTS_CAN_EXISTING_RELATIONAL_COMMITMENT_COMPOSITION_CONSUME_IT_WITH_CURRENT_EFFECT_LICENSING_WITHOUT_A_NEW_EXECUTIVE_OR_ACTION_GATE",
+  "main_dev_mutation": "NONE",
+  "matrix": {
+    "effect_no__adequacy_yes": {
+      "applicability": "YES",
+      "binding": "YES",
+      "commitment": "NO",
+      "commitment_id": "COMPOSITE-NO-YES",
+      "premise_ids": [
+        "EFFECT",
+        "ADEQUACY"
+      ],
+      "qualifiers": [
+        [
+          "authority_gain",
+          "NONE"
+        ],
+        [
+          "composition",
+          "CONJUNCTIVE_PREMISE_LICENSE_ONLY"
+        ]
+      ],
+      "reason": "REQUIRED_USE_PREMISE_REFUSED",
+      "target_id": "capability:REST:query:ACT:use"
+    },
+    "effect_unknown__adequacy_yes": {
+      "applicability": "YES",
+      "binding": "YES",
+      "commitment": "UNKNOWN",
+      "commitment_id": "COMPOSITE-UNKNOWN-YES",
+      "premise_ids": [
+        "EFFECT",
+        "ADEQUACY"
+      ],
+      "qualifiers": [
+        [
+          "authority_gain",
+          "NONE"
+        ],
+        [
+          "composition",
+          "CONJUNCTIVE_PREMISE_LICENSE_ONLY"
+        ]
+      ],
+      "reason": "REQUIRED_USE_PREMISE_UNRESOLVED",
+      "target_id": "capability:REST:query:ACT:use"
+    },
+    "effect_yes__adequacy_no": {
+      "applicability": "YES",
+      "binding": "YES",
+      "commitment": "NO",
+      "commitment_id": "COMPOSITE-YES-NO",
+      "premise_ids": [
+        "EFFECT",
+        "ADEQUACY"
+      ],
+      "qualifiers": [
+        [
+          "authority_gain",
+          "NONE"
+        ],
+        [
+          "composition",
+          "CONJUNCTIVE_PREMISE_LICENSE_ONLY"
+        ]
+      ],
+      "reason": "REQUIRED_USE_PREMISE_REFUSED",
+      "target_id": "capability:REST:query:ACT:use"
+    },
+    "effect_yes__adequacy_unknown": {
+      "applicability": "YES",
+      "binding": "YES",
+      "commitment": "UNKNOWN",
+      "commitment_id": "COMPOSITE-YES-UNKNOWN",
+      "premise_ids": [
+        "EFFECT",
+        "ADEQUACY"
+      ],
+      "qualifiers": [
+        [
+          "authority_gain",
+          "NONE"
+        ],
+        [
+          "composition",
+          "CONJUNCTIVE_PREMISE_LICENSE_ONLY"
+        ]
+      ],
+      "reason": "REQUIRED_USE_PREMISE_UNRESOLVED",
+      "target_id": "capability:REST:query:ACT:use"
+    },
+    "effect_yes__adequacy_yes": {
+      "applicability": "YES",
+      "binding": "YES",
+      "commitment": "YES",
+      "commitment_id": "COMPOSITE-YES-YES",
+      "premise_ids": [
+        "EFFECT",
+        "ADEQUACY"
+      ],
+      "qualifiers": [
+        [
+          "authority_gain",
+          "NONE"
+        ],
+        [
+          "composition",
+          "CONJUNCTIVE_PREMISE_LICENSE_ONLY"
+        ]
+      ],
+      "reason": "REQUIRED_USE_PREMISE_ALL_LICENSED",
+      "target_id": "capability:REST:query:ACT:use"
+    }
+  },
+  "ms": 1557,
+  "new_primitive_earned": false,
+  "nonclaims": [
+    "NO_ADEQUACY_STANCE_DERIVATION_EARNED",
+    "NO_NEW_COMMITMENT_VALUE",
+    "NO_EXECUTIVE",
+    "NO_ACTION_MANAGER",
+    "NO_PAL_IMPORT"
+  ],
+  "pass": 5,
+  "phase": "COMPOSITION_FIRST_BEHAVIORAL_GATE",
+  "schema": "microseed.ms1557.pass05.commitment-composition.v1",
+  "specific_mechanism_earned": false,
+  "surviving_localization": "EXISTING_CONJUNCTIVE_COMMITMENT_ALGEBRA_ALREADY_EXPRESSES_EFFECT_USE_REQUIRES_EFFECT_PREMISE_AND_EVIDENCE_ADEQUACY_PREMISE__UNKNOWN_ADEQUACY_NATURALLY_ABSTAINS_AND_NO_NEW_AUTHORITY_IS_CREATED__MISSING_SEAM_REDUCES_TO_LAWFUL_ADEQUACY_STANCE_PRODUCTION"
+}

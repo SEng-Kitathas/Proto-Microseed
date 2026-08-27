@@ -1,0 +1,24 @@
+{
+  "after_negative_control_stale": {
+    "authority": "NONE",
+    "reason": "STALE",
+    "status": "UNKNOWN_INCOMPLETE"
+  },
+  "authority": "RESEARCH_ONLY",
+  "before": {
+    "authority": "DERIVED_READ_ONLY",
+    "capability_id": "CAUSAL-USE-BASIS",
+    "status": "CAPABILITY_RESULT",
+    "value": {
+      "claim": "BOUNDED_CAUSAL_USE_ONLY",
+      "truth_authority": "NONE"
+    }
+  },
+  "boundary": "QUALIFICATION_OF_THE_BASIS_REMAINS_THE_EPISTEMIC_PROBLEM",
+  "pass": "MS1609_PASS07",
+  "result": "EXISTING_CAPABILITY_DEPENDENCY_GRAPH_CAN_CARRY_BOUNDED_CAUSAL_USE_BASIS_AND_TRANSITIVE_CURRENTNESS__NO_CAUSAL_REGISTRY_NEEDED",
+  "stale_closure": [
+    "CAUSAL-USE-BASIS",
+    "NEGATIVE-CONTROL-ROUTE"
+  ]
+}

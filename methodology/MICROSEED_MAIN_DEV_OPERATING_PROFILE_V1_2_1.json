@@ -1,0 +1,43 @@
+{
+  "core_shape_unchanged": true,
+  "current_integration": {
+    "architecture_change": "NONE",
+    "canonical_entity_version": "v1.2",
+    "integration_terminal_ms": 1102,
+    "methodology_delta": "CAUSAL_IDENTIFIABILITY_PRESSURE_GRAMMAR_V1_0",
+    "ms1103_started": false,
+    "research_terminal_ms": 1102,
+    "selected_frontier": "ATTN-MS1102-DISTRIBUTED-TEMPORAL-COMPETENCE-AND-JOINT-EPISODE-GROUNDING__REACTIVATES_TEMPORAL_EPISODE_ABSTRACTION_AND_GENERAL_MULTI_AGENT_PLANNING",
+    "selected_frontier_status": "UNCHANGED_BUT_EXPERIMENTAL_ENVELOPE_SHARPENED"
+  },
+  "donor_reconciliation": "microseed.cross-project-donor-reconciliation.through-ms1102.v1",
+  "entity_architecture_changed": false,
+  "inherits": "microseed.maindev-operating-profile.v1.2",
+  "language_policy": {
+    "active_phase": "PRELINGUAL",
+    "cognitive_substrate": "DEFERRED",
+    "rule": "developer methodology labels may classify evidence regimes; language may not provide actor, episode, causal-law, goal, commitment, or semantic boundary answers to Microseed"
+  },
+  "method_change_kind": "ADDITIVE_CAMPAIGN_PRESSURE_AND_REPORTING_GRAMMAR",
+  "parent_profile_sha256": "85d8aefb7f4ab40090d96fede7c031693700ea9b545171512d42d92f5e2f2ddb",
+  "pressure_grammar": "microseed.method.causal-identifiability-pressure-grammar.v1.0",
+  "refinements_from_cross_project_reconciliation_through_ms1102": {
+    "ACTION_LIMITED_CASE_SHOULD_SURFACE_MISSING_DISCRIMINATING_CAPABILITY": true,
+    "ACTION_LIMITED_UNKNOWN_NE_STRUCTURAL_NONIDENTIFIABILITY": true,
+    "ACTIVE_PROBE_REDUCES_UNCERTAINTY_NE_TRUTH_AUTHORITY": true,
+    "AMBIGUOUS_UNDER_CURRENT_EVIDENCE_NE_FUNDAMENTALLY_NON_IDENTIFIABLE": true,
+    "CURRENTNESS_SWEEP_DISTINGUISHES_NUISANCE_LAW_ACTION_RELATION_DISCRIMINATOR_CHANGES": true,
+    "DEFERRED_DONOR_DOES_NOT_REGAIN_AUTHORITY_FROM_HISTORICAL_LIVE_LABEL": true,
+    "DISCRIMINATING_INTERVENTION_EXISTS_IN_WORLD_NE_CURRENT_PHENOTYPE_ACCESS": true,
+    "IDENTIFIABILITY_CLASS_MUST_BE_REPORTED_FOR_LOAD_BEARING_UNKNOWN": true,
+    "INTERVENTION_ACCESS_IS_PHENOTYPE_RELATIVE_AND_CURRENTNESS_SENSITIVE": true,
+    "LEARNED_TOPOLOGY_CAN_GUIDE_SEARCH_BUT_CANNOT_DEFINE_SEARCH_LANGUAGE": true,
+    "NO_ENTITY_ARCHITECTURE_PROMOTION_FROM_DONOR_RECONCILIATION": true,
+    "OBSERVATIONAL_NUISANCE_ENTROPY_NE_CAUSAL_AMBIGUITY_IDENTIFIABILITY": true,
+    "SAME_CAUSAL_LAW_DIFFERENT_SURFACE_ATTACK_REQUIRED_WHEN_RELEVANT": true,
+    "SIMILAR_SURFACE_DIFFERENT_CAUSAL_LAW_ATTACK_REQUIRED_WHEN_RELEVANT": true,
+    "STRUCTURAL_NONIDENTIFIABILITY_IS_BOUND_TO_WORLD_ACTION_ENVELOPE": true,
+    "SURFACE_LAW_CORRESPONDENCE_ATTACKS_SEPARATE_FROM_WITHIN_WORLD_IDENTIFIABILITY_MATRIX": true
+  },
+  "schema": "microseed.maindev-operating-profile.v1.2.1"
+}

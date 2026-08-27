@@ -1,0 +1,44 @@
+{
+  "group": 4,
+  "passed": 6,
+  "total": 6,
+  "all_pass": true,
+  "results": [
+    {
+      "script": "tests/embodiment/replay_ms1078_1102_integration_scars.py",
+      "returncode": 0,
+      "pass": true,
+      "stdout_tail": "or\": \"PAIRWISE_RESEARCH_MECHANISM_NOT_ENTITY_AUTHORITY__HIGHER_ORDER_GENERALIZATION_UNRESOLVED\",\n    \"topology_identity_authority\": \"NONE\",\n    \"transitive_capability_currentness\": \"INTEGRATED_FROM_MS841_843\",\n    \"value_currentness\": \"FIRST_CLASS_EPOCH_BOUND_CONSTITUTIONAL_DEPENDENCY_INTEGRATED_FROM_MS966_968\",\n    \"value_variable_count\": 0\n  }\n}\n"
+    },
+    {
+      "script": "tests/embodiment/replay_ms1178_1202_integration_scars.py",
+      "returncode": 0,
+      "pass": true,
+      "stdout_tail": "RESEARCH_MECHANISM_NOT_ENTITY_AUTHORITY__HIGHER_ORDER_GENERALIZATION_UNRESOLVED\",\n    \"topology_identity_authority\": \"NONE\",\n    \"transitive_capability_currentness\": \"INTEGRATED_FROM_MS841_843\",\n    \"value_currentness\": \"FIRST_CLASS_EPOCH_BOUND_CONSTITUTIONAL_DEPENDENCY_INTEGRATED_FROM_MS966_968\",\n    \"value_variable_count\": 0\n  },\n  \"total\": 10\n}\n"
+    },
+    {
+      "script": "tests/embodiment/replay_ms1278_1302_integration_scars.py",
+      "returncode": 0,
+      "pass": true,
+      "stdout_tail": "d\": true,\n    \"reactivation_preserves_no_regime_identity_ancestry\": true,\n    \"recurrence_and_reactivation_survive_restart\": true,\n    \"recurrence_has_no_regime_or_reactivation_authority\": true,\n    \"same_support_wrong_mapping_not_recurrence\": true\n  },\n  \"passed\": 16,\n  \"schema\": \"microseed.ms1278-1302.integration-scar-replay.v1\",\n  \"total\": 16\n}\n"
+    },
+    {
+      "script": "tests/embodiment/replay_ms1378_1402_integration_scars.py",
+      "returncode": 0,
+      "pass": true,
+      "stdout_tail": "  \"duplicate_outcome_rejected\": true,\n    \"wrong_model_preserved_as_prediction_violation\": true,\n    \"wrong_model_does_not_auto_continue\": true,\n    \"ms1402_terminal_ms1403_untouched\": true,\n    \"no_general_policy_or_semantic_intention\": true,\n    \"restart_history_not_execution_access\": true\n  },\n  \"passed\": 16,\n  \"total\": 16,\n  \"all_pass\": true\n}\n"
+    },
+    {
+      "script": "tests/embodiment/replay_ms1478_1502_integration_scars.py",
+      "returncode": 0,
+      "pass": true,
+      "stdout_tail": "erparty_epochs\": true,\n    \"discovery_preserves_topology_epoch\": true,\n    \"existing_external_qualification_and_admission_path_reused\": true,\n    \"history_preserved_after_stale\": true,\n    \"no_multi_child_planner_or_self_qualification\": true,\n    \"trace_binds_existing_coordination_epoch\": true,\n    \"trace_binds_existing_topology_epoch\": true\n  }\n}\n"
+    },
+    {
+      "script": "tests/embodiment/replay_ms903_927_integration_scars.py",
+      "returncode": 0,
+      "pass": true,
+      "stdout_tail": "or\": \"PAIRWISE_RESEARCH_MECHANISM_NOT_ENTITY_AUTHORITY__HIGHER_ORDER_GENERALIZATION_UNRESOLVED\",\n    \"topology_identity_authority\": \"NONE\",\n    \"transitive_capability_currentness\": \"INTEGRATED_FROM_MS841_843\",\n    \"value_currentness\": \"FIRST_CLASS_EPOCH_BOUND_CONSTITUTIONAL_DEPENDENCY_INTEGRATED_FROM_MS966_968\",\n    \"value_variable_count\": 0\n  }\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "schema": "microseed.attention-reservoir.post-ms927-integration.v0.5",
+  "terminal_ms": 927,
+  "selected": {
+    "id": "ATTN-MS927-PERSISTENT-DEVELOPMENTAL-BIOGRAPHY-IDENTITY",
+    "reason": "MS923 showed trace persistence without episode-schema provenance/currentness reconstruction; MS924 showed identical episode multisets can encode different transition biographies. Persistent developmental identity is now attackable through concrete history/path invariants rather than abstract selfhood language."
+  },
+  "deferred": [
+    {
+      "id": "ENDOGENOUS-VALUE-GOAL-BOUNDARY",
+      "reason": "MS925-926 expose the denominator, but the successful discriminator was a supplied drive/value channel rather than endogenous value anatomy."
+    },
+    {
+      "id": "GENERAL-OVERLAP-DECONVOLUTION",
+      "reason": "Bounded active discrimination can resolve some overlap ambiguity; general decomposition remains unqualified."
+    },
+    {
+      "id": "GENERAL-EPISODE-PARTITION-SEARCH",
+      "reason": "MS912 separates identifiability from tractable global search; no general search mechanism earned."
+    },
+    {
+      "id": "GENERAL-ACTION-CORRESPONDENCE-SEARCH",
+      "reason": "Still live from MS878-902; no new scale pressure yet warrants selection."
+    },
+    {
+      "id": "NONLINEAR-SENSORIMOTOR-FRAME",
+      "reason": "Still live from MS878-902; reopen on nonlinear failure/specimen."
+    }
+  ],
+  "integration_debt_open": [
+    "GENERAL_ENDOGENOUS_EPISODE_CONSTRUCTION",
+    "PERSISTENT_DEVELOPMENTAL_BIOGRAPHY_IDENTITY",
+    "ENDOGENOUS_VALUE_GOAL_BOUNDARY",
+    "GENERAL_OVERLAP_DECONVOLUTION",
+    "GENERAL_EPISODE_PARTITION_SEARCH"
+  ],
+  "ms928_started": false,
+  "language": "DEFERRED_PRELINGUAL_COGNITION_ACTIVE"
+}

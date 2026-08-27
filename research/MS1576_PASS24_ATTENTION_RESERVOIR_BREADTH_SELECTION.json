@@ -1,0 +1,69 @@
+{
+  "campaign_pass": 24,
+  "candidates": [
+    {
+      "frontier": "RICHER_R2_SELECTOR_GRAMMAR_OR_MODEL_SEARCH",
+      "reason": "would continue a locally saturated family after learner-visible and evaluator-only relief both failed under the fixed grammar; high rabbit-hole risk",
+      "reopen": "only if later embodiment supplies a concrete missing observable relation or current constructor failure tied to an identified structure",
+      "selection_score": "LOW",
+      "state": "DEFERRED"
+    },
+    {
+      "frontier": "RELATIONAL_UNITIZATION_RUNTIME_INTEGRATION",
+      "reason": "bounded expressivity and downstream composition survived, but endogenous one-lifetime R2 transfer did not; runtime admission would outrun evidence",
+      "reopen": "cross-domain or whole-organism learner-visible recurrence where the research operator adds predictive/diagnostic value over boring baselines",
+      "selection_score": "LOW_MEDIUM",
+      "state": "DEFERRED"
+    },
+    {
+      "composition_first_quarry": [
+        "Observation.origin/lineage/currentness_basis",
+        "CapabilityContract + CapabilityRegistry currentness/dependency invalidation",
+        "QueryObligation exact-use identity and operational scope",
+        "EvidenceLedger content-bound evidence identity/source",
+        "actual probe execution and actual outcome machinery",
+        "existing UNKNOWN / epistemic deficit / active discrimination lifecycle"
+      ],
+      "frontier": "OBSERVATION_CHANNEL_GROUNDING_AND_USE_ASSURANCE",
+      "hard_nonimports": [
+        "PAL observation-channel architecture",
+        "fixed reliability estimator or confidence threshold",
+        "SensorManager/TrustManager/AssuranceManager",
+        "supplied channel independence labels as organism truth",
+        "channel IDs or agreement as independence"
+      ],
+      "reason": "whole-organism cognition depends on observations, while live Microseed Observation owns origin/lineage and age-based currentness but lacks independently qualified sensor mapping currentness, observation-class/use reliability, and bounded common-cause independence; PAL163-164 independently exposed the same mechanism pressure but is donor only",
+      "selection_score": "HIGH",
+      "state": "SELECTED"
+    },
+    {
+      "frontier": "LANGUAGE_ADMISSION_GATE",
+      "reason": "language remains downstream while observation grounding/use adequacy is still an explicit prelingual assistance-debt boundary",
+      "selection_score": "MEDIUM",
+      "state": "DEFERRED"
+    },
+    {
+      "frontier": "HOST_SUBSTRATE_CAPABILITY_CURRENTNESS",
+      "reason": "still relevant, but action capability currentness is already materially deeper than observation-channel qualification; observation is the weaker load-bearing edge",
+      "selection_score": "MEDIUM",
+      "state": "OPEN_DEFERRED"
+    }
+  ],
+  "current_campaign_local_seam": {
+    "r2_observation_channel_assurance_as_explanation_of_pass21_negative": "NOT_CAUSAL_FOR_EXACT_GRAMMAR",
+    "r2_simple_observable_selector_route": "CLOSED_LOCAL_SATURATION",
+    "relational_unitization": "DEFERRED_RESEARCH_SURVIVOR"
+  },
+  "main_dev_mutation": "NONE",
+  "milestone": "MS1576",
+  "phase": "ATTENTION_RESERVOIR_BREADTH_SELECTION",
+  "rule": "LOCAL_HELIX_SUCCESSOR_NE_GLOBAL_PORTFOLIO_SELECTION__STRIP_FOR_PARTS_BEFORE_NEW_ARCHITECTURE",
+  "selected": "ATTN-MS1577-PRELINGUAL-EMBODIED-OBSERVATION-GROUNDING-AND-CHANNEL-USE-ASSURANCE",
+  "selected_next_campaign": {
+    "anti_rabbit_rule": "start with a bounded hostile fixture containing mapping drift/bias and common-cause channels; no estimator sweeps or broad perception architecture; after each pass breadth-check whether the result changes whole-organism epistemic closure",
+    "first_discriminator": "CAN_EXISTING_MICROSEED_OBSERVATION_ORIGIN_LINEAGE_CAPABILITY_CURRENTNESS_EVIDENCE_IDENTITY_QUERY_OBLIGATION_SCOPE_AND_ACTUAL_PROBE_MACHINERY_COMPOSE_TO_DISTINGUISH_OBSERVATION_EXISTS_FROM_MAPPING_CURRENT_FROM_EVIDENCE_ADEQUATE_FOR_USE_Q_AND_TO_REFUSE_FALSE_CROSS_CHANNEL_INDEPENDENCE_WITHOUT_A_NEW_SENSOR_ASSURANCE_SUBSYSTEM",
+    "name": "PRELINGUAL_EMBODIED_OBSERVATION_GROUNDING_AND_CHANNEL_ASSURANCE",
+    "range": "MS1578-1602",
+    "status": "NOT_STARTED"
+  }
+}

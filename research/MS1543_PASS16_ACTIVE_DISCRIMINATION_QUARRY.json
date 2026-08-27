@@ -1,0 +1,16 @@
+{
+  "current_regression": "test_ms1152_integration.py + test_ms1327_integration.py PASS",
+  "disposition": "NARROWED_NEGATIVE__EXISTING_ACTIVE_DISCRIMINATION_CANNOT_BOOTSTRAP_INITIAL_SPARSE_R2_CONSEQUENCE_MODEL__NO_EXPLORATION_MANAGER__NO_MAINDEV_MUTATION",
+  "live_code_surfaces": {
+    "MS1278_MS1327_drift_intervention": "requires historical and alternative robust projection-constructor candidates before selecting a discriminating current-access probe",
+    "MS477_MS1152_HypothesisSet": "requires already supplied/live hypothesis predictors; best_probe only selects among candidate probes where live hypotheses disagree",
+    "epistemic_deficit_lifecycle": "preserves ACTION_LIMITED/PROBE_AVAILABLE/REVISIT_REQUIRED and never auto-resolves or creates a missing predictive model"
+  },
+  "nonclaims": [
+    "ACTIVE_DISCRIMINATION_NOT_USEFUL_LATER",
+    "NO_GENERAL_SAMPLE_COMPLEXITY_THEOREM",
+    "NO_NEW_PRIMITIVE_EARNED"
+  ],
+  "r2_localization": "Pass14 single-lifetime evidence fails before a usable predictive candidate/hypothesis set exists, so current active-discrimination machinery is downstream of the present bottleneck",
+  "schema": "microseed.ms1543.pass16.active-discrimination-quarry.v1"
+}

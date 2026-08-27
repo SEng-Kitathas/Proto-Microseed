@@ -1,0 +1,42 @@
+{
+  "all_checks_pass": true,
+  "api_quarry": {
+    "projection_conditioned_routing_signature": "(self, *, projection_id: 'str', task_id: 'str', action_ids: 'Iterable[str]', channel_ids: 'Iterable[str]', horizon: 'int', default_action_relations: 'Iterable[tuple[str, str]]', bucket_action_overrides: 'Iterable[tuple[str, str, str]]', source_evidence_ids: 'Iterable[str]') -> 'ProjectionConditionedRelationCandidate'",
+    "propose_counterfactual_rehearsal_signature": "(relations: 'dict[tuple[str, str], RehearsalTransitionRelation]', *, start_state_id: 'str', start_value: 'float', viable_low: 'float', viable_high: 'float', value_epoch: 'tuple[str, int]', options: 'Iterable[RecruitmentOption]', cfg: 'CounterfactualRehearsalConfig') -> 'CounterfactualRehearsalProposal | None'",
+    "rehearsal_relation_fields": [
+      "state_id",
+      "capability_id",
+      "next_state_id",
+      "value_effect",
+      "support",
+      "consistency",
+      "source_evidence_ids",
+      "capability_epoch",
+      "frame_epoch",
+      "episode_schema_epoch",
+      "topology_epoch",
+      "coordination_epoch",
+      "authority",
+      "truth_authority",
+      "semantic_state_authority"
+    ]
+  },
+  "breadth_rerank": "RECONCILE_WITH_THE_OLDER_BRAIN_LAB_MODEL_SPACE_MISSPECIFICATION_SCAR_AND_PARENT_CHILD_REPRESENTATION_GROWTH_PRESSURE__THEN_TEST_ONE_MINIMAL_BOUNDED_HYPOTHESIS_CONSTRUCTION_GRAMMAR_AGAINST_A_BORING_BASELINE_BEFORE_ANY_CODE_INTEGRATION",
+  "campaign_pass": 17,
+  "candidate_missing_capability_pressure": "BOUNDED_COUNTERFACTUAL_HYPOTHESIS_CONSTRUCTION__FORM_MORE_THAN_ONE_EVIDENCE_ANCHORED_POSSIBLE_RELATION_AND_DERIVE_WHAT_LAWFULLY_AVAILABLE_OBSERVATION_OR_INTERACTION_WOULD_DIFFER_IF_EACH_WERE_THE_CASE__WITHOUT_GRANTING_ANY_ALTERNATIVE_TRUTH_OR_REGIME_IDENTITY",
+  "checks": {
+    "counterfactual_rehearsal_has_no_live_hypothesis_conditioning_input": true,
+    "projection_conditioned_routing_requires_caller_supplied_bucket_overrides": true,
+    "projection_conditioned_routing_requires_preexisting_projection_id": true,
+    "rehearsal_relation_has_no_epistemic_hypothesis_identity": true
+  },
+  "discriminator": "CAN_EXISTING_REHEARSAL_OR_PROJECTION_CONDITIONED_ACTION_OUTCOME_RELATIONS_PREDICT_ONE_DIAGNOSTIC_PROBE_DIFFERENTLY_UNDER_EACH_LIVE_USE_ADEQUACY_ALTERNATIVE_WITHOUT_A_PREEXISTING_QUALIFIED_SELECTOR_OR_CALLER_SUPPLIED_ROUTING",
+  "localization": "EXISTING_REHEARSAL_PREDICTS_FROM_CURRENT_STATE_ACTION_RELATIONS_AND_EXISTING_PROJECTION_ROUTING_CONDITIONS_ON_AN_ALREADY_QUALIFIED_OPAQUE_SELECTOR__NEITHER_REPRESENTS_A_LIVE_EPISTEMIC_ALTERNATIVE_AS_A_COUNTERFACTUAL_MODEL_UNDER_WHICH_A_DIAGNOSTIC_PROBE_CAN_HAVE_A_DIFFERENT_PREDICTED_OUTCOME__THAT_MAPPING_REMAINS_SUPPLIED_IN_PASS7_PASS16_FIXTURES",
+  "milestone": "MS1569",
+  "non_claims": [
+    "DOES_NOT_EARN_A_GENERAL_WORLD_MODEL_GENERATOR",
+    "DOES_NOT_EARN_LATENT_STATE_IDENTITY",
+    "DOES_NOT_EARN_A_PLANNER_OR_SCHEDULER",
+    "DOES_NOT_MUTATE_MAINDEV"
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "milestone": "MS1724",
+  "pass": 22,
+  "results": [
+    {
+      "mutant": "DROP_INFORMATION_PREMISE",
+      "returncode": 1,
+      "status": "REJECTED",
+      "stderr_tail": "Traceback (most recent call last):\n  File \"<string>\", line 4, in <module>\n    m.test_information_value_collapse_between_nomination_and_effect_blocks_execution()\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/mnt/data/ms1704_work/tests/embodiment/test_ms1719_endogenous_episode_hostiles.py\", line 56, in test_information_value_collapse_between_nomination_and_effect_blocks_execution\n    assert out['status']=='NO_EXECUTION' and c==[]\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+      "stdout_tail": "",
+      "test": "test_information_value_collapse_between_nomination_and_effect_blocks_execution"
+    },
+    {
+      "mutant": "DROP_PRIORITY_PREMISE",
+      "returncode": 1,
+      "status": "REJECTED",
+      "stderr_tail": "Traceback (most recent call last):\n  File \"<string>\", line 4, in <module>\n    m.test_lower_epistemic_step_commitment_requires_priority_even_if_information_says_yes()\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/mnt/data/ms1704_work/tests/embodiment/test_ms1724_source_owner_guards.py\", line 55, in test_lower_epistemic_step_commitment_requires_priority_even_if_information_says_yes\n    assert not c.licenses_yes()\n           ^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+      "stdout_tail": "",
+      "test": "test_lower_epistemic_step_commitment_requires_priority_even_if_information_says_yes"
+    },
+    {
+      "mutant": "ALLOW_REVISIT_REOPEN",
+      "returncode": 1,
+      "status": "REJECTED",
+      "stderr_tail": "Traceback (most recent call last):\n  File \"<string>\", line 4, in <module>\n    m.test_lower_epistemic_step_commitment_cannot_reopen_revisit_required_deficit()\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/mnt/data/ms1704_work/tests/embodiment/test_ms1724_source_owner_guards.py\", line 28, in test_lower_epistemic_step_commitment_cannot_reopen_revisit_required_deficit\n    assert c.commitment==TernaryCommitment.UNKNOWN\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+      "stdout_tail": "",
+      "test": "test_lower_epistemic_step_commitment_cannot_reopen_revisit_required_deficit"
+    },
+    {
+      "mutant": "ALLOW_VALUE_SMUGGLE_STATE_ONLY",
+      "returncode": 1,
+      "status": "REJECTED",
+      "stderr_tail": "Traceback (most recent call last):\n  File \"<string>\", line 4, in <module>\n    m.test_value_claim_cannot_be_smuggled_into_state_only_program_observation()\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/mnt/data/ms1704_work/tests/embodiment/test_ms1719_endogenous_episode_hostiles.py\", line 48, in test_value_claim_cannot_be_smuggled_into_state_only_program_observation\n    assert m.record_bounded_action_outcome(x,obs,evidence_id='E')['reason']=='EPISTEMIC_STEP_VALUE_CLAIM_NOT_ALLOWED'\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^\nKeyError: 'reason'\n",
+      "stdout_tail": "",
+      "test": "test_value_claim_cannot_be_smuggled_into_state_only_program_observation"
+    },
+    {
+      "mutant": "ALLOW_MISSING_ACTUAL_STATE",
+      "returncode": 1,
+      "status": "REJECTED",
+      "stderr_tail": "cannot_be_filled_from_relational_prediction()\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/mnt/data/ms1704_work/tests/embodiment/test_ms1719_endogenous_episode_hostiles.py\", line 41, in test_missing_actual_state_cannot_be_filled_from_relational_prediction\n    assert m.record_bounded_action_outcome(x,obs,evidence_id='E')['reason']=='EPISTEMIC_STEP_OUTCOME_FIELDS_MISSING'\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/ms1704_work/microseed/runtime/entity.py\", line 1070, in record_bounded_action_outcome\n    next_state=str(payload[\"next_state_id\"])\n                   ~~~~~~~^^^^^^^^^^^^^^^^^\nKeyError: 'next_state_id'\n",
+      "stdout_tail": "",
+      "test": "test_missing_actual_state_cannot_be_filled_from_relational_prediction"
+    },
+    {
+      "mutant": "DROP_STATE_ONLY_MIXED_VALUE_GUARD",
+      "returncode": 1,
+      "status": "REJECTED",
+      "stderr_tail": "ork/tests/embodiment/test_ms1724_source_owner_guards.py\", line 36, in test_state_only_action_outcome_constructor_rejects_any_value_representation\n    with pytest.raises(ValueError,match='STATE_ONLY_MIXED_VALUE_REPRESENTATION'):\n         ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/pyvenv/lib/python3.13/site-packages/_pytest/raises.py\", line 710, in __exit__\n    fail(f\"DID NOT RAISE {self.expected_exceptions[0]!r}\")\n    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/pyvenv/lib/python3.13/site-packages/_pytest/outcomes.py\", line 163, in __call__\n    raise Failed(msg=reason, pytrace=pytrace)\nFailed: DID NOT RAISE <class 'ValueError'>\n",
+      "stdout_tail": "",
+      "test": "test_state_only_action_outcome_constructor_rejects_any_value_representation"
+    }
+  ],
+  "summary": "6/6 REJECTED",
+  "test_strengthening": "Owner-level guards added after first mutation run exposed shallow coverage; production mechanism unchanged. Final source-hostile result after retargeting: 6/6 rejected.",
+  "title": "AUTONOMOUS_EPISTEMIC_SOURCE_HOSTILES"
+}

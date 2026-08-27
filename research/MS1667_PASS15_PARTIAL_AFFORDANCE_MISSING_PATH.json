@@ -1,0 +1,13 @@
+{
+  "checks": {
+    "missing_component_path_returns_unknown": true,
+    "relation_can_be_nominated_from_observed_paths": true
+  },
+  "expressions": [],
+  "milestone": "MS1667",
+  "pass": 15,
+  "pass_all": true,
+  "prediction": null,
+  "scar": "RELATIONAL_KNOWLEDGE_NE_AVAILABLE_COMPONENT_AFFORDANCE",
+  "status": "UNKNOWN_NO_RELATION"
+}

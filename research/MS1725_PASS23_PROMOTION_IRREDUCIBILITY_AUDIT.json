@@ -1,0 +1,46 @@
+{
+  "architecture_disposition": "No scheduler, planner, curiosity state, experiment manager, macro executor, feasibility manager, or answer scheduler earned.",
+  "earned": [
+    "Grounded execution-time feasibility composes through ordinary DERIVED_READ_ONLY capabilities and fresh observation/currentness.",
+    "Decision-bearing priority and program-information value are pure zero-authority commitments.",
+    "Each epistemic primitive is reauthorized before EFFECT and after every actual outcome.",
+    "State-only actual outcome closes ordinary action records without inventing value semantics.",
+    "Completed bound program evidence requests REVISIT_REQUIRED without answer authority."
+  ],
+  "main_dev_promotion": "DEFERRED",
+  "milestone": "MS1725",
+  "next_discriminator": "Does existing candidate/opportunity/currentness machinery compose to instantiate a bounded EpistemicProgramTrial endogenously from a load-bearing discrimination need and a current informative executable affordance, without selection becoming execution authority?",
+  "pass": 23,
+  "promotion_blockers": [
+    "nominate_endogenous_epistemic_program_step_intent still receives an already-instantiated EpistemicProgramTrial; trial creation/activation is externally supplied research scaffold.",
+    "EpistemicDecisionBearingContext relation alternatives and feasibility-route enumeration are supplied as prepared research inputs rather than discovered/projected from a live organismal opportunity surface.",
+    "research-only relational algebra and epistemic-program carriers remain not wired into qualified whole-organism live experience discovery.",
+    "whole-organism R2 has not been rerun with this stack."
+  ],
+  "source_delta": {
+    "added": [
+      "development/epistemic_priority.py"
+    ],
+    "changed": [
+      "development/action_closure.py",
+      "development/epistemic_action.py",
+      "runtime/entity.py"
+    ],
+    "line_stats": {
+      "development/action_closure.py": {
+        "added_lines": 6,
+        "removed_lines": 1
+      },
+      "development/epistemic_action.py": {
+        "added_lines": 143,
+        "removed_lines": 4
+      },
+      "runtime/entity.py": {
+        "added_lines": 127,
+        "removed_lines": 4
+      }
+    },
+    "removed": []
+  },
+  "title": "PROMOTION_AND_IRREDUCIBILITY_AUDIT"
+}

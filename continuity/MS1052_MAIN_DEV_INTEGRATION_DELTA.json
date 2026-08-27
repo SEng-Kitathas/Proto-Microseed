@@ -1,0 +1,18 @@
+{
+  "current": "v1.0/MS1052",
+  "frontier": "ATTN-MS1052-BRANCH-RELATIVE-AGENCY-OTHER-AGENT-DISCRIMINATION__REACTIVATES_SOCIAL_OTHER_AGENT_AUDIT_AND_GRAND_P5",
+  "ms1053_started": false,
+  "not_promoted": [
+    "PERSISTENT_NUMERICAL_SELFHOOD",
+    "EXCLUSIVE_SUCCESSOR_AUTHORITY",
+    "SEMANTIC_SELF_IDENTITY",
+    "GENERAL_MERGE_IDENTITY"
+  ],
+  "parent": "v0.9/MS1027",
+  "promoted": [
+    "TYPED_BRANCH_RELATIVE_CONTINUITY_WITNESS",
+    "EXPLICIT_COPY_AMBIGUITY_CEILING"
+  ],
+  "schema": "microseed.maindev-integration-delta.ms1052.v1",
+  "trigger_campaign_sha256": "3a9eb954a12b70c8e4fdd6e5ee30a11e8bcd4595525fd797cbf4804d0f09ffb8"
+}

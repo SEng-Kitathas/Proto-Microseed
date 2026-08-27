@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "proto-microseed"
+version = "2.3.0"
+description = "Evidence-lawful Main-Dev embodiment for Proto-Microseed through MS1377 integration evidence"
+requires-python = ">=3.11"
+dependencies = []
+
+[tool.setuptools.packages.find]
+include = ["microseed*"]

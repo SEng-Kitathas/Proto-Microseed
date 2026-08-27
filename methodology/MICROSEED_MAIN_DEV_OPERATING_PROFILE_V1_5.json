@@ -1,0 +1,76 @@
+{
+  "causal_identifiability_grammar": "microseed.method.causal-identifiability-pressure-grammar.v1.0",
+  "core_shape_unchanged": true,
+  "current_integration": {
+    "canonical_entity_version": "v1.5",
+    "integration_debt_open": [
+      "ENDOGENOUS_EVIDENCE_TO_DEFICIT_RELEVANCE_BINDING",
+      "GENERAL_QUESTION_REVISIT_SCHEDULER",
+      "GENERAL_OPEN_ENDED_ACTIVE_LEARNING",
+      "GENERAL_DISCRIMINATOR_LANGUAGE",
+      "GENERAL_HIGHER_ORDER_DISCOVERY_LANGUAGE",
+      "HOST_SUBSTRATE_CAPABILITY_CURRENTNESS",
+      "QUALIFIED_COUNTERFACTUAL_REHEARSAL",
+      "ERGO_PRIVILEGED_CAUSAL_WORLD_GENERATOR",
+      "GENERAL_HIERARCHICAL_PLANNING"
+    ],
+    "integration_debt_resolved": [
+      "GENERAL_EPISTEMIC_DEFICIT_CURRENTNESS_BOUNDED_OPAQUE_PREMISE_ANCESTRY",
+      "STALE_UNKNOWN_DEVELOPMENTAL_PRESSURE_SUPPRESSION",
+      "BOUNDED_REVISIT_ELIGIBILITY_WITH_EXPLICIT_RELEVANCE_BINDING"
+    ],
+    "integration_terminal_ms": 1177,
+    "ms1178_started": false,
+    "research_terminal_ms": 1177,
+    "selected_frontier": "ATTN-MS1177-OPAQUE-EVIDENCE-TO-DEFICIT-RELEVANCE-BINDING__PRELINGUAL_REVISIT_SELECTION"
+  },
+  "epistemic_deficit_policy": {
+    "endogenous_relevance_classifier": "NOT_INTEGRATED",
+    "general_revisit_scheduler": "NOT_INTEGRATED",
+    "historical_persistence_ne_current_pressure": true,
+    "historical_unknown_not_rewritten": true,
+    "premise_drift_stales_old_deficit": true,
+    "probe_access_loss_may_reopen_action_limited_when_premises_current": true,
+    "relevance_binding": "EXPLICIT_CONTENT_BOUND_INPUT_ONLY",
+    "relevant_evidence_only_requests_revisit": true,
+    "scope": "C_ACTION_LIMITED_ONLY",
+    "semantic_question_authority": "NONE",
+    "stale_excluded_from_development_pressure": true,
+    "stale_is_not_resolved": true,
+    "truth_authority": "NONE",
+    "typed_opaque_premise_currentness": true
+  },
+  "inherits": "microseed.maindev-operating-profile.v1.4",
+  "language_policy": {
+    "active_phase": "PRELINGUAL",
+    "cognitive_substrate": "DEFERRED",
+    "rule": "developer question/relevance labels instrument the system; language may not provide relevance, missing capability semantics, hypothesis truth, goal identity, or resolution authority"
+  },
+  "method_change_kind": "ADDITIVE_SCAR_AND_INTEGRATION_GUARDS_ONLY",
+  "parent_profile_sha256": "6be3d26db305990725af336ad91f2e7b8d9db89311ae8caa4bcf27ac7b080be3",
+  "refinements_from_ms1153_1177": {
+    "COPIED_DEFICIT_HISTORY_NE_SHARED_FUTURE_CURRENTNESS": true,
+    "DURABLE_QUESTION_MEMORY_NE_AUTOMATIC_REACTIVATION": true,
+    "EVIDENCE_CHURN_NE_REVISIT_PRESSURE": true,
+    "EVIDENCE_REPLAY_NE_NEW_REVISIT_TRIGGER": true,
+    "HISTORICAL_UNKNOWN_BACKLOG_NE_CURRENT_DEVELOPMENTAL_WORK": true,
+    "HYPOTHESIS_REVISION_NE_RETROACTIVE_QUESTION_REWRITE": true,
+    "LAWFUL_DEFICIT_CURRENTNESS_NE_ENDOGENOUS_RELEVANCE_SELECTION": true,
+    "LOW_COST_NE_LAWFUL_DEVELOPMENTAL_PRESSURE": true,
+    "NEW_EVIDENCE_NE_RELEVANT_EVIDENCE": true,
+    "NUISANCE_CHANGE_NE_QUESTION_PREMISE_DRIFT": true,
+    "ONE_PREMISE_DRIFT_NE_ALL_QUESTIONS_STALE": true,
+    "PERSISTENT_DEFICIT_NE_CURRENT_DEFICIT": true,
+    "PROBE_ACCESS_DRIFT_NE_QUESTION_PREMISE_DRIFT": true,
+    "PROBE_CAPABILITY_CURRENT_NE_DISCRIMINATING_RELATION_CURRENT": true,
+    "QUESTION_DEPENDENCY_TOPOLOGY_NE_COMPLETE_RELEVANCE_LANGUAGE": true,
+    "QUESTION_KEY_NE_HYPOTHESIS_SET_CURRENTNESS": true,
+    "RELEVANT_EVIDENCE_CAN_REQUEST_REVISIT_NE_ANSWER_AUTHORITY": true,
+    "REMEMBERED_UNKNOWN_NE_CURRENT_DEVELOPMENTAL_PRESSURE": true,
+    "REVISIT_OUTCOME_NE_RETROACTIVE_DEFICIT_RESOLUTION": true,
+    "SIMILAR_SURFACE_NE_EPISTEMIC_PREMISE_CURRENTNESS": true,
+    "STALE_SUPPRESSION_NE_LIVENESS_LOSS": true,
+    "SURFACE_STATE_RETURN_NE_EPISTEMIC_HISTORY_REVERSION": true
+  },
+  "schema": "microseed.maindev-operating-profile.v1.5"
+}

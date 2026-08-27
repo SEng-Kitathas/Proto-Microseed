@@ -1,0 +1,36 @@
+{
+  "after_restart_with_different_content_same_id_epoch": {
+    "authority": "EVIDENCE_BOUND_PREDICTIVE_RELATION_ONLY",
+    "causal_theorem_authority": "NONE",
+    "empirical_currentness_witness": null,
+    "reason": null,
+    "relation_id": "ACTION-LAW-db32ee894e441ec33c6b",
+    "replacement_lineage": null,
+    "status": "CURRENT_PREDICTIVE_RELATION",
+    "truth_authority": "NONE"
+  },
+  "authority": "RESEARCH_ONLY",
+  "before_restart": {
+    "authority": "EVIDENCE_BOUND_PREDICTIVE_RELATION_ONLY",
+    "causal_theorem_authority": "NONE",
+    "empirical_currentness_witness": null,
+    "reason": null,
+    "relation_id": "ACTION-LAW-db32ee894e441ec33c6b",
+    "replacement_lineage": null,
+    "status": "CURRENT_PREDICTIVE_RELATION",
+    "truth_authority": "NONE"
+  },
+  "loaded_relation_premise_epochs": [
+    [
+      "HIST-ADMIT",
+      0
+    ]
+  ],
+  "next": "QUARRY_EXISTING_CONTENT_BOUND_SIGNATURE/HASH_PATTERNS_BEFORE_EXTENDING_PREMISE_CARRIER",
+  "pass": "MS1640_PASS13",
+  "rehydrated_basis_epoch": 0,
+  "rehydrated_basis_id": "HIST-ADMIT",
+  "rehydrated_basis_purpose": "DIFFERENT_CONTENT_MASQUERADING_AS_OLD_HISTORICAL_BASIS",
+  "result": "FALSE_GREEN__ID_PLUS_RUNTIME_EPOCH_CAN_ALIAS_DIFFERENT_ADMISSION_CONTENT_ACROSS_RESTART",
+  "scar": "PREMISE_ID_PLUS_EPHEMERAL_EPOCH != CONTENT_BOUND_HISTORICAL_ADMISSION_IDENTITY"
+}

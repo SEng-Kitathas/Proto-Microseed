@@ -1,0 +1,315 @@
+{
+  "baseline_aggregate": {
+    "FIXED_CYCLE": {
+      "catastrophic_coordinate_ticks": 356.0,
+      "mean_violation": 1.2007684556647906,
+      "resource_spend": 547.9999999999989,
+      "whole_viability": 0.028125
+    },
+    "ORACLE_EVALUATOR_CEILING": {
+      "catastrophic_coordinate_ticks": 0.0,
+      "mean_violation": 0.0026401591949031917,
+      "resource_spend": 258.0166666666666,
+      "whole_viability": 0.8979166666666667
+    },
+    "PASSIVE_NO_ACTION": {
+      "catastrophic_coordinate_ticks": 913.6666666666666,
+      "mean_violation": 2.8666598968754706,
+      "resource_spend": 0.0,
+      "whole_viability": 0.009375
+    },
+    "RANDOM": {
+      "catastrophic_coordinate_ticks": 319.3333333333333,
+      "mean_violation": 1.111250833011976,
+      "resource_spend": 541.8833333333322,
+      "whole_viability": 0.03229166666666667
+    }
+  },
+  "baseline_rows": {
+    "FIXED_CYCLE": [
+      {
+        "catastrophic_coordinate_ticks": 372,
+        "final_state": {
+          "energy": 0.0,
+          "integrity": 0.23391968706732297,
+          "thermal": 9.29450366522649
+        },
+        "mean_violation": 1.2752733074132607,
+        "missing_observations": 137,
+        "resource_spend": 547.9999999999989,
+        "seed": 100,
+        "whole_viability": 0.028125
+      },
+      {
+        "catastrophic_coordinate_ticks": 366,
+        "final_state": {
+          "energy": 0.0,
+          "integrity": 0.11878208941565974,
+          "thermal": 8.218955361140267
+        },
+        "mean_violation": 1.2398546536464412,
+        "missing_observations": 115,
+        "resource_spend": 547.9999999999989,
+        "seed": 101,
+        "whole_viability": 0.028125
+      },
+      {
+        "catastrophic_coordinate_ticks": 330,
+        "final_state": {
+          "energy": 0.0,
+          "integrity": 0.14500940780260507,
+          "thermal": 8.223110791008304
+        },
+        "mean_violation": 1.0871774059346704,
+        "missing_observations": 115,
+        "resource_spend": 547.9999999999989,
+        "seed": 102,
+        "whole_viability": 0.028125
+      }
+    ],
+    "ORACLE_EVALUATOR_CEILING": [
+      {
+        "catastrophic_coordinate_ticks": 0,
+        "final_state": {
+          "energy": 5.069289030998105,
+          "integrity": 8.48806565730809,
+          "thermal": 6.88540738895657
+        },
+        "mean_violation": 0.0032227732162124767,
+        "missing_observations": 137,
+        "resource_spend": 264.44999999999993,
+        "seed": 100,
+        "whole_viability": 0.878125
+      },
+      {
+        "catastrophic_coordinate_ticks": 0,
+        "final_state": {
+          "energy": 4.802794404216305,
+          "integrity": 8.367335549585453,
+          "thermal": 5.949527011698734
+        },
+        "mean_violation": 0.0020491718807819923,
+        "missing_observations": 115,
+        "resource_spend": 256.8499999999999,
+        "seed": 101,
+        "whole_viability": 0.90625
+      },
+      {
+        "catastrophic_coordinate_ticks": 0,
+        "final_state": {
+          "energy": 5.378132871955394,
+          "integrity": 8.563829437281345,
+          "thermal": 6.596528048986098
+        },
+        "mean_violation": 0.0026485324877151056,
+        "missing_observations": 115,
+        "resource_spend": 252.74999999999986,
+        "seed": 102,
+        "whole_viability": 0.909375
+      }
+    ],
+    "PASSIVE_NO_ACTION": [
+      {
+        "catastrophic_coordinate_ticks": 916,
+        "final_state": {
+          "energy": 0.0,
+          "integrity": 0.11075759181808938,
+          "thermal": 10.0
+        },
+        "mean_violation": 2.8715782790230806,
+        "missing_observations": 137,
+        "resource_spend": 0.0,
+        "seed": 100,
+        "whole_viability": 0.009375
+      },
+      {
+        "catastrophic_coordinate_ticks": 913,
+        "final_state": {
+          "energy": 0.0,
+          "integrity": 0.0,
+          "thermal": 9.987374324080674
+        },
+        "mean_violation": 2.8651419450408193,
+        "missing_observations": 115,
+        "resource_spend": 0.0,
+        "seed": 101,
+        "whole_viability": 0.0125
+      },
+      {
+        "catastrophic_coordinate_ticks": 912,
+        "final_state": {
+          "energy": 0.0,
+          "integrity": 0.0,
+          "thermal": 9.957233533490747
+        },
+        "mean_violation": 2.8632594665625124,
+        "missing_observations": 115,
+        "resource_spend": 0.0,
+        "seed": 102,
+        "whole_viability": 0.00625
+      }
+    ],
+    "RANDOM": [
+      {
+        "catastrophic_coordinate_ticks": 319,
+        "final_state": {
+          "energy": 0.37624852351485544,
+          "integrity": 0.6310659553309437,
+          "thermal": 5.114229569167242
+        },
+        "mean_violation": 1.0755367333651376,
+        "missing_observations": 137,
+        "resource_spend": 531.8499999999992,
+        "seed": 100,
+        "whole_viability": 0.003125
+      },
+      {
+        "catastrophic_coordinate_ticks": 271,
+        "final_state": {
+          "energy": 0.0,
+          "integrity": 0.7017560233262324,
+          "thermal": 9.088819256557311
+        },
+        "mean_violation": 1.014073615061811,
+        "missing_observations": 115,
+        "resource_spend": 554.5999999999987,
+        "seed": 101,
+        "whole_viability": 0.053125
+      },
+      {
+        "catastrophic_coordinate_ticks": 368,
+        "final_state": {
+          "energy": 0.0,
+          "integrity": 0.6317465597852034,
+          "thermal": 1.8794249599054482
+        },
+        "mean_violation": 1.2441421506089794,
+        "missing_observations": 115,
+        "resource_spend": 539.1999999999987,
+        "seed": 102,
+        "whole_viability": 0.040625
+      }
+    ]
+  },
+  "habitat_id": "HABITAT-R2-MS1528-ABSTENTION-COMPLETE-2026-08-24",
+  "microseed_aggregate": {
+    "catastrophic_coordinate_ticks": 896.0,
+    "mean_violation": 2.8120635019782014,
+    "resource_spend": 4.6499999999999995,
+    "whole_viability": 0.021875000000000002
+  },
+  "microseed_rows": [
+    {
+      "abstentions": {
+        "MISSING_CURRENT_SENSOR_COORDINATE": 118,
+        "MULTIPLE_LAWFUL_ACTIONS_NO_RANKING_AUTHORITY": 3,
+        "NO_FULLY_LICENSED_ACTION": 199
+      },
+      "action_outcome_candidate_count": 0,
+      "action_outcome_experience_rows": 0,
+      "actions": {
+        "NO_ACTION": 320
+      },
+      "candidate_nomination_ticks": 0,
+      "catastrophic_coordinate_ticks": 916,
+      "executions": 0,
+      "final_state": {
+        "energy": 0.0,
+        "integrity": 0.11075759181808938,
+        "thermal": 10.0
+      },
+      "hidden_pareto_dominated_executions": 0,
+      "main_dev_mutation": "NONE",
+      "mean_violation": 2.8715782790230806,
+      "missing_observations": 137,
+      "outcomes_recorded": 0,
+      "resource_spend": 0.0,
+      "seed": 100,
+      "supplied_random_training_assistance": true,
+      "unobserved_executed_outcomes": 0,
+      "whole_viability": 0.009375
+    },
+    {
+      "abstentions": {
+        "MISSING_CURRENT_SENSOR_COORDINATE": 106,
+        "MULTIPLE_LAWFUL_ACTIONS_NO_RANKING_AUTHORITY": 5,
+        "NO_FULLY_LICENSED_ACTION": 209
+      },
+      "action_outcome_candidate_count": 0,
+      "action_outcome_experience_rows": 0,
+      "actions": {
+        "NO_ACTION": 320
+      },
+      "candidate_nomination_ticks": 0,
+      "catastrophic_coordinate_ticks": 913,
+      "executions": 0,
+      "final_state": {
+        "energy": 0.0,
+        "integrity": 0.0,
+        "thermal": 9.987374324080674
+      },
+      "hidden_pareto_dominated_executions": 0,
+      "main_dev_mutation": "NONE",
+      "mean_violation": 2.8651419450408193,
+      "missing_observations": 115,
+      "outcomes_recorded": 0,
+      "resource_spend": 0.0,
+      "seed": 101,
+      "supplied_random_training_assistance": true,
+      "unobserved_executed_outcomes": 0,
+      "whole_viability": 0.0125
+    },
+    {
+      "abstentions": {
+        "MISSING_CURRENT_SENSOR_COORDINATE": 104,
+        "MULTIPLE_LAWFUL_ACTIONS_NO_RANKING_AUTHORITY": 5,
+        "NO_FULLY_LICENSED_ACTION": 202
+      },
+      "action_outcome_candidate_count": 0,
+      "action_outcome_experience_rows": 25,
+      "actions": {
+        "COOL": 3,
+        "HARVEST": 3,
+        "NO_ACTION": 311,
+        "REST": 3
+      },
+      "candidate_nomination_ticks": 0,
+      "catastrophic_coordinate_ticks": 859,
+      "executions": 9,
+      "final_state": {
+        "energy": 0.0,
+        "integrity": 0.0,
+        "thermal": 9.957233533490747
+      },
+      "hidden_pareto_dominated_executions": 3,
+      "main_dev_mutation": "NONE",
+      "mean_violation": 2.6994702818707053,
+      "missing_observations": 118,
+      "outcomes_recorded": 9,
+      "resource_spend": 13.95,
+      "seed": 102,
+      "supplied_random_training_assistance": true,
+      "unobserved_executed_outcomes": 0,
+      "whole_viability": 0.04375
+    }
+  ],
+  "nonclaims": [
+    "THREE_SEED_BUILD_DERIVE_ASSAY_NOT_FULL_CAMPAIGN_PROMOTION",
+    "SUPPLIED_RANDOM_PRETRAINING_IS_ASSISTANCE_DEBT",
+    "HIDDEN_STATE_USED_ONLY_FOR_EVALUATION_NOT_ORGANISM_EVIDENCE",
+    "NO_MAIN_DEV_MUTATION",
+    "NO_LANGUAGE"
+  ],
+  "schema": "microseed.ms1536.pass09.r2-whole-organism.v1",
+  "seeds": [
+    100,
+    101,
+    102
+  ],
+  "training_assistance": {
+    "competence_credit": "NONE",
+    "kind": "PRE_DRIFT_RANDOM_EXPLORATION__NO_HIDDEN_EFFECT_LABELS",
+    "per_action_value_minimum": 61,
+    "rows": 732
+  }
+}

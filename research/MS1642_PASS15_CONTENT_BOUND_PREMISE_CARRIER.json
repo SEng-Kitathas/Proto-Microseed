@@ -1,0 +1,40 @@
+{
+  "altered_content_restart": {
+    "authority": "EVIDENCE_BOUND_PREDICTIVE_RELATION_ONLY",
+    "causal_theorem_authority": "NONE",
+    "empirical_currentness_witness": null,
+    "reason": "STRUCTURAL_PREMISE_NOT_CURRENT",
+    "relation_id": "ACTION-LAW-1d612356fa49160c51c8",
+    "replacement_lineage": null,
+    "status": "STALE_PREDICTIVE_RELATION",
+    "truth_authority": "NONE"
+  },
+  "altered_content_signature": "3a7d8f97c0eda42d64f5ca9a8b94d869fc4d3ab82948fb1191578c3d92482089",
+  "authority": "RESEARCH_ONLY",
+  "before": {
+    "authority": "EVIDENCE_BOUND_PREDICTIVE_RELATION_ONLY",
+    "causal_theorem_authority": "NONE",
+    "empirical_currentness_witness": null,
+    "reason": null,
+    "relation_id": "ACTION-LAW-1d612356fa49160c51c8",
+    "replacement_lineage": null,
+    "status": "CURRENT_PREDICTIVE_RELATION",
+    "truth_authority": "NONE"
+  },
+  "next": "WIRE_SPLIT_HISTORICAL_ADMISSION_BASIS_INTO_EXISTING_ASSURED_OUTCOME_INGRESS_WITHOUT_NEW_TYPE",
+  "pass": "MS1642_PASS15",
+  "result": "CONTENT_BOUND_PREMISE_SIGNATURE_BLOCKS_RESTART_ALIAS_WHILE_ALLOWING_EXACT_CONTENT_REINCARNATION",
+  "same_content_restart": {
+    "authority": "EVIDENCE_BOUND_PREDICTIVE_RELATION_ONLY",
+    "causal_theorem_authority": "NONE",
+    "empirical_currentness_witness": null,
+    "reason": null,
+    "relation_id": "ACTION-LAW-1d612356fa49160c51c8",
+    "replacement_lineage": null,
+    "status": "CURRENT_PREDICTIVE_RELATION",
+    "truth_authority": "NONE"
+  },
+  "same_content_signature": "baa550a15369472fa4a3cc244ed5d71334c900e48b55191b05ec7491f9a2737f",
+  "scar": "PREMISE_ID_EPOCH_SIGNATURE_REQUIRED_FOR_REINCARNATION_SAFE_HISTORICAL_VALIDITY",
+  "stored_signature": "baa550a15369472fa4a3cc244ed5d71334c900e48b55191b05ec7491f9a2737f"
+}

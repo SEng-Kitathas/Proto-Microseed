@@ -1,0 +1,61 @@
+{
+  "authority": "RESEARCH_ONLY",
+  "families": [
+    {
+      "family": "TEMP_LIVE_ACCESS_LOSS_PRESERVES_HISTORY",
+      "pass": true,
+      "tail": ".                                                                        [100%]\n1 passed in 1.62s",
+      "test": "test_temporary_live_channel_loss_does_not_stale_historical_relation"
+    },
+    {
+      "family": "PROSPECTIVE_MAPPING_CHANGE_PRESERVES_OLD_HISTORY",
+      "pass": true,
+      "tail": ".                                                                        [100%]\n1 passed in 1.65s",
+      "test": "test_prospective_live_mapping_change_does_not_retroactively_stale_history"
+    },
+    {
+      "family": "RETROSPECTIVE_INVALIDATION_CREATES_NEW_EPOCH_DEBT",
+      "pass": true,
+      "tail": ".                                                                        [100%]\n1 passed in 1.62s",
+      "test": "test_retrospective_basis_failure_must_advance_epoch_and_stays_stale_after_requalification"
+    },
+    {
+      "family": "RESTART_CONTENT_ALIAS_BLOCKED",
+      "pass": true,
+      "tail": ".                                                                        [100%]\n1 passed in 1.39s",
+      "test": "test_same_id_epoch_but_changed_basis_content_stales_relation"
+    },
+    {
+      "family": "OLD_BASIS_NOT_APPLICABLE_TO_NEW_MAPPING",
+      "pass": true,
+      "tail": ".                                                                        [100%]\n1 passed in 1.23s",
+      "test": "test_old_historical_basis_cannot_admit_new_evidence_after_mapping_content_change"
+    },
+    {
+      "family": "SAME_MAPPING_CONTENT_RUNTIME_EPOCH_ALLOWED",
+      "pass": true,
+      "tail": ".                                                                        [100%]\n1 passed in 1.56s",
+      "test": "test_same_mapping_content_new_runtime_epoch_can_reuse_applicable_historical_basis"
+    },
+    {
+      "family": "CORRECT_BINDING_DOES_NOT_PROVE_TRUTH_OR_COMPLETENESS",
+      "pass": true,
+      "tail": ".                                                                        [100%]\n1 passed in 1.27s",
+      "test": "test_snapshot_binding_does_not_turn_false_but_current_mapping_into_truth"
+    }
+  ],
+  "next": "PROMOTION_AND_AUTHORSHIP_AUDIT__LIKELY_RESEARCH_SURVIVOR_ONLY_BECAUSE_GROUNDING/COMPLETENESS_REMAIN_EXTERNAL",
+  "pal169_boundary": "Content-bound/current/authorized admission still does not establish exhaustive physical truth; a correctly bound but false/incomplete basis remains possible.",
+  "pass": "MS1649_PASS22",
+  "passed": 7,
+  "result": "SEVEN_FAMILY_HISTORICAL_ADMISSION_SEMANTICS_CLEAN",
+  "surviving_model": {
+    "historical_admission_identity": "basis id + basis epoch + immutable basis content signature",
+    "live_access": "separate and non-retroactive",
+    "new_acquisition_applicability": "historical basis snapshot must match current acquisition-premise content signature",
+    "prospective_mapping_change": "old history preserved; old basis cannot admit new evidence under changed mapping",
+    "restart": "same content may reincarnate; same id+epoch with changed content may not",
+    "retrospective_falsification": "old dependent relation stale/history preserved; new epoch and fresh evidence required"
+  },
+  "total": 7
+}

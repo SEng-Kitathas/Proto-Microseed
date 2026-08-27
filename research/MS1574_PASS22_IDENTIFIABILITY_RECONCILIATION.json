@@ -1,0 +1,372 @@
+{
+  "all_checks_pass": true,
+  "breadth_next": "IF_ORACLE_BOTH_IS_STILL_NEGATIVE_CLOSE_THIS_R2_SELECTOR_ROUTE_AND_RECONCILE_THE_BOUNDED_FIXTURE_SURVIVOR_AS_EXPRESSIVITY_WITHOUT_R2_IDENTIFIABILITY__THEN_SELECT_THE_NEXT_END_GOAL_BEARING_PRELINGUAL_FRONTIER_RATHER_THAN_TUNING_R2",
+  "campaign_pass": 22,
+  "checks": {
+    "all_twelve_runs_use_repaired_learner_visible_query_boundary": true,
+    "factorized_observation_and_consequence_oracles_are_reported": true,
+    "no_hidden_surface_is_fed_back_to_microseed": true,
+    "same_fixed_selector_grammar_and_gates_on_all_surfaces": true
+  },
+  "discriminator": "IS_PASS21_NEGATIVE_CAUSED_BY_THE_LEARNER_VISIBLE_OBSERVATION_SURFACE_OR_DOES_THE_SAME_FIXED_BELOW_WITHIN_ABOVE_GRAMMAR_FAIL_EVEN_WHEN_EVALUATOR_ONLY_TRUE_STATE_AND_TRUE_ACTUAL_CONSEQUENCE_ARE_SUBSTITUTED_FOR_FORENSIC_COMPARISON",
+  "disposition": "NARROWED_NEGATIVE__SIMPLE_COARSE_SELECTOR_GRAMMAR_REMAINS_INSUFFICIENT_EVEN_UNDER_EVALUATOR_ONLY_OBSERVABILITY_RELIEF",
+  "interpretation": "THIS_PASS_DOES_NOT_QUALIFY_HIDDEN_STATE_OR_TRUE_EFFECTS_FOR_MICROSEED__IT_ONLY_ASKS_WHETHER_PAL163_164_STYLE_OBSERVATION_CHANNEL_DEBT_EXPLAINS_THE_CURRENT_PASS21_NEGATIVE_BEFORE_WE_OPEN_A_SENSOR_ASSURANCE_FRONTIER",
+  "main_dev_mutation": "NONE",
+  "method": {
+    "important_boundary": "oracle surfaces are evaluator-only causal forensics and are never organism evidence",
+    "learner_visible": "observed coarse context + observed actual effect stance",
+    "min_consistency": 0.75,
+    "min_support": 8,
+    "oracle_both": "true coarse context + true stochastic state-transition effect stance",
+    "oracle_consequence_only": "observed coarse context + true stochastic state-transition effect stance",
+    "oracle_selector_only": "true pre-state coarse context + same learner-visible observed effect stance",
+    "selector_grammar": "ONE_VALUE_BELOW_WITHIN_ABOVE",
+    "train_ticks": 70
+  },
+  "milestone": "MS1574",
+  "nonclaims": [
+    "ORACLE_BOTH_SUCCESS_WOULD_NOT_AUTHORIZE_HIDDEN_STATE_INPUT",
+    "ORACLE_BOTH_FAILURE_DOES_NOT_PROVE_RELATIONAL_HYPOTHESIS_FORMATION_IMPOSSIBLE",
+    "NO_RICHER_SELECTOR_GRAMMAR_IS_TESTED",
+    "NO_SENSOR_ASSURANCE_RUNTIME_IS_ADDED",
+    "NO_MAINDEV_MUTATION"
+  ],
+  "observation_channel_assurance_debt_is_causal_for_this_exact_grammar": false,
+  "phase": "EXPRESSIVITY_VS_R2_IDENTIFIABILITY_RECONCILIATION",
+  "runs": [
+    {
+      "query_boundary_tick": 99,
+      "seed": 107,
+      "surfaces": {
+        "LEARNER_VISIBLE": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        },
+        "ORACLE_BOTH": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        },
+        "ORACLE_CONSEQUENCE_ONLY": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        },
+        "ORACLE_SELECTOR_ONLY": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        }
+      }
+    },
+    {
+      "query_boundary_tick": 97,
+      "seed": 108,
+      "surfaces": {
+        "LEARNER_VISIBLE": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        },
+        "ORACLE_BOTH": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        },
+        "ORACLE_CONSEQUENCE_ONLY": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        },
+        "ORACLE_SELECTOR_ONLY": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        }
+      }
+    },
+    {
+      "query_boundary_tick": 99,
+      "seed": 109,
+      "surfaces": {
+        "LEARNER_VISIBLE": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        },
+        "ORACLE_BOTH": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        },
+        "ORACLE_CONSEQUENCE_ONLY": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        },
+        "ORACLE_SELECTOR_ONLY": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        }
+      }
+    },
+    {
+      "query_boundary_tick": 99,
+      "seed": 110,
+      "surfaces": {
+        "LEARNER_VISIBLE": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        },
+        "ORACLE_BOTH": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        },
+        "ORACLE_CONSEQUENCE_ONLY": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        },
+        "ORACLE_SELECTOR_ONLY": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        }
+      }
+    },
+    {
+      "query_boundary_tick": 99,
+      "seed": 111,
+      "surfaces": {
+        "LEARNER_VISIBLE": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        },
+        "ORACLE_BOTH": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        },
+        "ORACLE_CONSEQUENCE_ONLY": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        },
+        "ORACLE_SELECTOR_ONLY": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        }
+      }
+    },
+    {
+      "query_boundary_tick": 99,
+      "seed": 112,
+      "surfaces": {
+        "LEARNER_VISIBLE": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        },
+        "ORACLE_BOTH": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        },
+        "ORACLE_CONSEQUENCE_ONLY": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        },
+        "ORACLE_SELECTOR_ONLY": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        }
+      }
+    },
+    {
+      "query_boundary_tick": 97,
+      "seed": 113,
+      "surfaces": {
+        "LEARNER_VISIBLE": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        },
+        "ORACLE_BOTH": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        },
+        "ORACLE_CONSEQUENCE_ONLY": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        },
+        "ORACLE_SELECTOR_ONLY": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        }
+      }
+    },
+    {
+      "query_boundary_tick": 98,
+      "seed": 114,
+      "surfaces": {
+        "LEARNER_VISIBLE": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        },
+        "ORACLE_BOTH": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        },
+        "ORACLE_CONSEQUENCE_ONLY": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        },
+        "ORACLE_SELECTOR_ONLY": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        }
+      }
+    },
+    {
+      "query_boundary_tick": 99,
+      "seed": 115,
+      "surfaces": {
+        "LEARNER_VISIBLE": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        },
+        "ORACLE_BOTH": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        },
+        "ORACLE_CONSEQUENCE_ONLY": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        },
+        "ORACLE_SELECTOR_ONLY": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        }
+      }
+    },
+    {
+      "query_boundary_tick": 99,
+      "seed": 116,
+      "surfaces": {
+        "LEARNER_VISIBLE": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        },
+        "ORACLE_BOTH": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        },
+        "ORACLE_CONSEQUENCE_ONLY": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        },
+        "ORACLE_SELECTOR_ONLY": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        }
+      }
+    },
+    {
+      "query_boundary_tick": 99,
+      "seed": 117,
+      "surfaces": {
+        "LEARNER_VISIBLE": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        },
+        "ORACLE_BOTH": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        },
+        "ORACLE_CONSEQUENCE_ONLY": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        },
+        "ORACLE_SELECTOR_ONLY": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        }
+      }
+    },
+    {
+      "query_boundary_tick": 98,
+      "seed": 118,
+      "surfaces": {
+        "LEARNER_VISIBLE": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        },
+        "ORACLE_BOTH": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        },
+        "ORACLE_CONSEQUENCE_ONLY": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        },
+        "ORACLE_SELECTOR_ONLY": {
+          "best_lift": null,
+          "nominations": [],
+          "strong_count": 0
+        }
+      }
+    }
+  ],
+  "summary": {
+    "LEARNER_VISIBLE": {
+      "mean_lift_supported_mappings": null,
+      "seeds_with_any_mapping": 0,
+      "seeds_with_any_strong_mapping": 0
+    },
+    "ORACLE_BOTH": {
+      "mean_lift_supported_mappings": null,
+      "seeds_with_any_mapping": 0,
+      "seeds_with_any_strong_mapping": 0
+    },
+    "ORACLE_CONSEQUENCE_ONLY": {
+      "mean_lift_supported_mappings": null,
+      "seeds_with_any_mapping": 0,
+      "seeds_with_any_strong_mapping": 0
+    },
+    "ORACLE_SELECTOR_ONLY": {
+      "mean_lift_supported_mappings": null,
+      "seeds_with_any_mapping": 0,
+      "seeds_with_any_strong_mapping": 0
+    }
+  }
+}

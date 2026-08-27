@@ -1,0 +1,13 @@
+{
+  "checks": {
+    "clean_relation_available_all": true,
+    "noise_materially_reduces_exact_relation_availability": true
+  },
+  "clean_nominations": 64,
+  "disposition": "EXACT_RELATIONAL_ALGEBRA_DEPENDS_ON_ASSURED_OBSERVATION_OR_SEPARATE_STOCHASTIC_TREATMENT",
+  "milestone": "MS1671",
+  "noisy_nominations": 8,
+  "pass": 19,
+  "pass_all": true,
+  "scar": "OBSERVATION_NOISE_NE_LICENSE_TO_RELAX_STRUCTURAL_EQUALITY_BY_THRESHOLD_SWEEP"
+}

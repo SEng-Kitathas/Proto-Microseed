@@ -1,0 +1,51 @@
+{
+  "authority": "RESEARCH_ONLY",
+  "mutants": [
+    {
+      "mutant": "DROP_INGRESS_PREMISE",
+      "rejected": true,
+      "returncode": 1,
+      "stderr_tail": "",
+      "stdout_tail": "            - )\n\ntests/embodiment/test_ms1620_evidence_premise_currentness.py:58: AssertionError\n=========================== short test summary info ============================\nFAILED tests/embodiment/test_ms1620_evidence_premise_currentness.py::test_basis_epoch_reaches_candidate_and_relation - AssertionError: assert () == (('BASIS', 0),)\n  \n  Right contains one more item: ('BASIS', 0)\n  \n  Full diff:\n  + ()\n  - (\n  -     (\n  -         'BASIS',\n  -         0,\n  -     ),\n  - )\n1 failed in 2.10s\n"
+    },
+    {
+      "mutant": "BYPASS_RELATION_PREMISE_CURRENTNESS",
+      "rejected": true,
+      "returncode": 1,
+      "stderr_tail": "",
+      "stdout_tail": "ELATION\nE             ? ^^^^^^\n\ntests/embodiment/test_ms1620_evidence_premise_currentness.py:69: AssertionError\n=========================== short test summary info ============================\nFAILED tests/embodiment/test_ms1620_evidence_premise_currentness.py::test_basis_challenge_stales_downstream_relation - AssertionError: assert 'CURRENT_PREDICTIVE_RELATION' == 'STALE_PREDICTIVE_RELATION'\n  \n  - STALE_PREDICTIVE_RELATION\n  ? ^ ---\n  + CURRENT_PREDICTIVE_RELATION\n  ? ^^^^^^\n1 failed in 1.91s\n"
+    },
+    {
+      "mutant": "DROP_CANDIDATE_PREMISE",
+      "rejected": true,
+      "returncode": 1,
+      "stderr_tail": "",
+      "stdout_tail": "            - )\n\ntests/embodiment/test_ms1620_evidence_premise_currentness.py:58: AssertionError\n=========================== short test summary info ============================\nFAILED tests/embodiment/test_ms1620_evidence_premise_currentness.py::test_basis_epoch_reaches_candidate_and_relation - AssertionError: assert () == (('BASIS', 0),)\n  \n  Right contains one more item: ('BASIS', 0)\n  \n  Full diff:\n  + ()\n  - (\n  -     (\n  -         'BASIS',\n  -         0,\n  -     ),\n  - )\n1 failed in 1.95s\n"
+    },
+    {
+      "mutant": "IGNORE_HOLDOUT_PREMISE",
+      "rejected": true,
+      "returncode": 1,
+      "stderr_tail": "",
+      "stdout_tail": "       support,acc=evaluate_action_outcome_holdout(c,tuple(refs),m.evidence)\n>           assert support==0 and acc==0.0\nE           assert (12 == 0)\n\ntests/embodiment/test_ms1620_evidence_premise_currentness.py:111: AssertionError\n=========================== short test summary info ============================\nFAILED tests/embodiment/test_ms1620_evidence_premise_currentness.py::test_holdout_without_matching_evidence_premise_does_not_qualify_assured_candidate - assert (12 == 0)\n1 failed in 2.19s\n"
+    },
+    {
+      "mutant": "DROP_RELATION_PREMISE_COPY",
+      "rejected": true,
+      "returncode": 1,
+      "stderr_tail": "",
+      "stdout_tail": "            - )\n\ntests/embodiment/test_ms1620_evidence_premise_currentness.py:60: AssertionError\n=========================== short test summary info ============================\nFAILED tests/embodiment/test_ms1620_evidence_premise_currentness.py::test_basis_epoch_reaches_candidate_and_relation - AssertionError: assert () == (('BASIS', 0),)\n  \n  Right contains one more item: ('BASIS', 0)\n  \n  Full diff:\n  + ()\n  - (\n  -     (\n  -         'BASIS',\n  -         0,\n  -     ),\n  - )\n1 failed in 1.78s\n"
+    },
+    {
+      "mutant": "ALLOW_REHEARSAL_ANCESTRY_DROP",
+      "rejected": true,
+      "returncode": 1,
+      "stderr_tail": "",
+      "stdout_tail": "='S1', value_effect=0.42, support=...och=None, authority='EVIDENCE_BOUND_PREDICTIVE_RELATION_ONLY', truth_authority='NONE', semantic_state_authority='NONE') = as_rehearsal_relation()\n +    where as_rehearsal_relation = QualifiedActionOutcomePredictiveRelation(relation_id='ACTION-LAW-c09539435c508b0e5aee', candidate_id='ACTION-LAW-CAND-...', truth_authority='NONE', causal_theorem_authority='NONE', execution_authority='NONE', semantic_goal_authority='NONE').as_rehearsal_relation\n1 failed in 3.77s\n"
+    }
+  ],
+  "pass": "MS1621_PASS19",
+  "rejected": 6,
+  "result": "HOSTILE_MUTANTS_REJECTED",
+  "total": 6
+}

@@ -1,0 +1,378 @@
+{
+  "all_checks_pass": true,
+  "anti_rabbit_cull": [
+    "NO_QUANTIZATION_STEP_SWEEP",
+    "NO_TOLERANCE_SWEEP",
+    "NO_CLUSTERING_ALGORITHM_ZOO"
+  ],
+  "breadth_rerank": "STOP_OUTCOME_CLUSTER_IDENTITY_TUNING__TEST_A_QUERY_RELATIVE_FORMATION_ROUTE_THAT_PRESERVES_OBSERVED_CONSEQUENCE_DISAGREEMENT_AS_EVIDENCE_BEARING_WITHOUT_REQUIRING_STABLE_GLOBAL_EFFECT_CLUSTERS",
+  "campaign_pass": 14,
+  "checks": {
+    "existing_quantization_produces_recurrent_supported_bins": true,
+    "existing_quantization_reduces_exact_fragmentation_to_bounded_bin_counts": true,
+    "rest_zero_bin_conflates_opposing_small_effect_signs_on_at_least_one_coordinate": true
+  },
+  "discriminator": "CAN_THE_ALREADY_EARNED_DISCOVERY_QUANTIZATION_IDENTITY_RESCUE_NOISY_OBSERVED_POSSIBILITY_FORMATION_WITHOUT_A_NEW_CLUSTERING_MECHANISM_AND_WITHOUT_ERASING_THE_SMALL_OPPOSING_EFFECTS_THAT_MATTER_FOR_QUERY_RELATIVE_USE",
+  "disposition": "NARROWED_NEGATIVE_FOR_DIRECT_REUSE_AS_POSSIBILITY_IDENTITY",
+  "existing_config": {
+    "assistance_ancestry": [
+      "SUPPLIED_TRACE_BOUNDARIES",
+      "SUPPLIED_EFFECT_COORDINATES",
+      "STABLE_CAPABILITY_HANDLE_IDENTITY",
+      "FIXED_CONTIGUOUS_MOTIF_LANGUAGE_LEN_2_3",
+      "FIXED_DISCOVERY_THRESHOLDS",
+      "SINGLETON_BASELINE_ESTIMATOR",
+      "CROSS_SCOPE_RESIDUAL_HOMOGENEITY_RULE"
+    ],
+    "min_singleton_samples": 5,
+    "quantization_step": 0.5,
+    "residual_tolerance_l1": 1.1
+  },
+  "localization": "EXISTING_0_5_QUANTIZATION_SOLVES_FRAGMENTATION_BUT_CAN_COLLAPSE_SMALL_OPPOSING_EFFECTS_INTO_THE_SAME_ZERO_BUCKET__INCLUDING_REST_COORDINATES__SO_DIRECT_REUSE_AS_THE_USE_ADEQUACY_POSSIBILITY_IDENTITY_WOULD_ERASE_THE_VERY_DISAGREEMENT_THE_CAMPAIGN_NEEDS_TO_PRESERVE",
+  "main_dev_mutation": "NONE",
+  "milestone": "MS1566",
+  "pairs": {
+    "COOL::ENERGY": {
+      "bins_with_existing_min_singleton_support": [
+        [
+          -1.5,
+          12
+        ],
+        [
+          -1.0,
+          60
+        ],
+        [
+          -0.5,
+          111
+        ],
+        [
+          0.0,
+          55
+        ],
+        [
+          0.5,
+          9
+        ]
+      ],
+      "observations": 249,
+      "quantized_bin_count": 7,
+      "query_relation_preservation_rate": 0.7871485943775101,
+      "zero_bin_contains_both_signs": true,
+      "zero_bin_count": 55
+    },
+    "COOL::INTEGRITY": {
+      "bins_with_existing_min_singleton_support": [
+        [
+          -1.0,
+          5
+        ],
+        [
+          -0.5,
+          74
+        ],
+        [
+          0.0,
+          137
+        ],
+        [
+          0.5,
+          30
+        ]
+      ],
+      "observations": 249,
+      "quantized_bin_count": 5,
+      "query_relation_preservation_rate": 0.4859437751004016,
+      "zero_bin_contains_both_signs": true,
+      "zero_bin_count": 137
+    },
+    "COOL::THERMAL": {
+      "bins_with_existing_min_singleton_support": [
+        [
+          -2.0,
+          35
+        ],
+        [
+          -1.5,
+          85
+        ],
+        [
+          -1.0,
+          70
+        ],
+        [
+          -0.5,
+          23
+        ],
+        [
+          0.0,
+          17
+        ]
+      ],
+      "observations": 234,
+      "quantized_bin_count": 7,
+      "query_relation_preservation_rate": 0.9401709401709402,
+      "zero_bin_contains_both_signs": true,
+      "zero_bin_count": 17
+    },
+    "HARVEST::ENERGY": {
+      "bins_with_existing_min_singleton_support": [
+        [
+          0.0,
+          17
+        ],
+        [
+          0.5,
+          21
+        ],
+        [
+          1.0,
+          65
+        ],
+        [
+          1.5,
+          113
+        ],
+        [
+          2.0,
+          42
+        ],
+        [
+          2.5,
+          9
+        ]
+      ],
+      "observations": 269,
+      "quantized_bin_count": 7,
+      "query_relation_preservation_rate": 0.9442379182156134,
+      "zero_bin_contains_both_signs": true,
+      "zero_bin_count": 17
+    },
+    "HARVEST::INTEGRITY": {
+      "bins_with_existing_min_singleton_support": [
+        [
+          -1.0,
+          29
+        ],
+        [
+          -0.5,
+          110
+        ],
+        [
+          0.0,
+          91
+        ],
+        [
+          0.5,
+          22
+        ]
+      ],
+      "observations": 254,
+      "quantized_bin_count": 5,
+      "query_relation_preservation_rate": 0.65748031496063,
+      "zero_bin_contains_both_signs": true,
+      "zero_bin_count": 91
+    },
+    "HARVEST::THERMAL": {
+      "bins_with_existing_min_singleton_support": [
+        [
+          0.0,
+          29
+        ],
+        [
+          0.5,
+          79
+        ],
+        [
+          1.0,
+          94
+        ],
+        [
+          1.5,
+          45
+        ]
+      ],
+      "observations": 248,
+      "quantized_bin_count": 5,
+      "query_relation_preservation_rate": 0.8830645161290323,
+      "zero_bin_contains_both_signs": true,
+      "zero_bin_count": 29
+    },
+    "REPAIR::ENERGY": {
+      "bins_with_existing_min_singleton_support": [
+        [
+          -2.0,
+          5
+        ],
+        [
+          -1.5,
+          39
+        ],
+        [
+          -1.0,
+          107
+        ],
+        [
+          -0.5,
+          60
+        ],
+        [
+          0.0,
+          11
+        ]
+      ],
+      "observations": 223,
+      "quantized_bin_count": 6,
+      "query_relation_preservation_rate": 0.9551569506726457,
+      "zero_bin_contains_both_signs": true,
+      "zero_bin_count": 11
+    },
+    "REPAIR::INTEGRITY": {
+      "bins_with_existing_min_singleton_support": [
+        [
+          -0.5,
+          9
+        ],
+        [
+          0.0,
+          71
+        ],
+        [
+          0.5,
+          63
+        ],
+        [
+          1.0,
+          39
+        ],
+        [
+          1.5,
+          27
+        ]
+      ],
+      "observations": 211,
+      "quantized_bin_count": 6,
+      "query_relation_preservation_rate": 0.7393364928909952,
+      "zero_bin_contains_both_signs": true,
+      "zero_bin_count": 71
+    },
+    "REPAIR::THERMAL": {
+      "bins_with_existing_min_singleton_support": [
+        [
+          -0.5,
+          16
+        ],
+        [
+          0.0,
+          75
+        ],
+        [
+          0.5,
+          102
+        ],
+        [
+          1.0,
+          22
+        ]
+      ],
+      "observations": 215,
+      "quantized_bin_count": 4,
+      "query_relation_preservation_rate": 0.6697674418604651,
+      "zero_bin_contains_both_signs": true,
+      "zero_bin_count": 75
+    },
+    "REST::ENERGY": {
+      "bins_with_existing_min_singleton_support": [
+        [
+          -1.0,
+          7
+        ],
+        [
+          -0.5,
+          40
+        ],
+        [
+          0.0,
+          98
+        ],
+        [
+          0.5,
+          48
+        ],
+        [
+          1.0,
+          6
+        ]
+      ],
+      "observations": 199,
+      "quantized_bin_count": 5,
+      "query_relation_preservation_rate": 0.5276381909547738,
+      "zero_bin_contains_both_signs": true,
+      "zero_bin_count": 98
+    },
+    "REST::INTEGRITY": {
+      "bins_with_existing_min_singleton_support": [
+        [
+          -0.5,
+          24
+        ],
+        [
+          0.0,
+          126
+        ],
+        [
+          0.5,
+          56
+        ],
+        [
+          1.0,
+          10
+        ]
+      ],
+      "observations": 216,
+      "quantized_bin_count": 4,
+      "query_relation_preservation_rate": 0.49074074074074076,
+      "zero_bin_contains_both_signs": true,
+      "zero_bin_count": 126
+    },
+    "REST::THERMAL": {
+      "bins_with_existing_min_singleton_support": [
+        [
+          -1.0,
+          8
+        ],
+        [
+          -0.5,
+          74
+        ],
+        [
+          0.0,
+          90
+        ],
+        [
+          0.5,
+          30
+        ]
+      ],
+      "observations": 203,
+      "quantized_bin_count": 5,
+      "query_relation_preservation_rate": 0.5714285714285714,
+      "zero_bin_contains_both_signs": true,
+      "zero_bin_count": 90
+    }
+  },
+  "seeds": [
+    100,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111
+  ]
+}

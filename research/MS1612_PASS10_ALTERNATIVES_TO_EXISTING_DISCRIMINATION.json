@@ -1,0 +1,25 @@
+{
+  "after_discriminating_evidence": {
+    "disposition": "IDENTIFIED_WITHIN_CANDIDATE_SET",
+    "live": [
+      "REL-B"
+    ],
+    "next_probe": null
+  },
+  "authority": "RESEARCH_ONLY",
+  "before": {
+    "disposition": "UNRESOLVED",
+    "live": [
+      "REL-A",
+      "REL-B"
+    ],
+    "next_probe": "NEG-CONTROL-CHECK"
+  },
+  "pass": "MS1612_PASS10",
+  "result": "EXISTING_ACTIVE_DISCRIMINATION_CONSUMES_OPAQUE_RELATIONAL_ALTERNATIVES__UNEXPECTED_RESULT_IS_MODEL_SPACE_CHALLENGE_NOT_FORCED_CAUSE",
+  "unexpected_result": {
+    "disposition": "MODEL_SPACE_MISSPECIFIED_OR_CONTRADICTED",
+    "live": [],
+    "next_probe": null
+  }
+}

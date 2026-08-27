@@ -1,0 +1,39 @@
+{
+  "authority": "RESEARCH_ONLY",
+  "boundary": "TESTED_SELECTIVE_SEPARATION_DOES_NOT_PROVE_ABSENCE_OF_UNTESTED_COMMON_MODE",
+  "final": {
+    "disposition": "IDENTIFIED_WITHIN_CANDIDATE_SET",
+    "live": [
+      "SEPARATE"
+    ],
+    "next_probe": null
+  },
+  "first": {
+    "disposition": "UNRESOLVED",
+    "live": [
+      "COMMON",
+      "SEPARATE",
+      "A_ONLY",
+      "B_ONLY"
+    ],
+    "next_probe": "PERTURB_A"
+  },
+  "first_observation": [
+    "SHIFT",
+    "STABLE"
+  ],
+  "pass": "MS1590_PASS13",
+  "result": "EXISTING_ACTIVE_DISCRIMINATION_CAN_EARN_BOUNDED_FUNCTIONAL_SEPARATION_UNDER_SUPPLIED_COUPLING_HYPOTHESES",
+  "second": {
+    "disposition": "UNRESOLVED",
+    "live": [
+      "SEPARATE",
+      "A_ONLY"
+    ],
+    "next_probe": "PERTURB_B"
+  },
+  "second_observation": [
+    "STABLE",
+    "SHIFT"
+  ]
+}

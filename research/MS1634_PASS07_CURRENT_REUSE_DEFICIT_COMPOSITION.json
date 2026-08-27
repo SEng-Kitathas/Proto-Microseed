@@ -1,0 +1,73 @@
+{
+  "authority": "RESEARCH_ONLY",
+  "deficit_after_probe_loss": {
+    "assistance_ancestry": [
+      "BOUNDED_QUERY_SUPPLIED"
+    ],
+    "candidate_ids": [],
+    "deficit_id": "DEF-CURRENT-REUSE",
+    "hypothesis_digest_sha256": "4b0999465a05984fdbf91d91c371325371b2757d5757282e677ac719eabf205b",
+    "identifiability_class": "C_ACTION_LIMITED",
+    "missing_discriminator_signature_sha256": "52558a29acfe874c222745feb018b200b20be643461ae7d09705c5be7dddde54",
+    "premise_anchors": [
+      {
+        "epoch": 1,
+        "kind": "CAPABILITY_PREMISE",
+        "object_id": "LIVE-BASIS"
+      }
+    ],
+    "probe_capability_epoch": 0,
+    "probe_capability_id": "MAP-COMPAT-PROBE",
+    "probe_evidence_ids": [],
+    "question_key": "reuse:ACTION-LAW-db32ee894e441ec33c6b:new-live-basis",
+    "relevant_evidence_ids": [],
+    "semantic_question_authority": "NONE",
+    "stale_evidence_id": null,
+    "stale_reason": null,
+    "state": "ACTION_LIMITED",
+    "truth_authority": "NONE",
+    "unknown_evidence_id": "MS1634-UNKNOWN"
+  },
+  "deficit_before_probe_loss": {
+    "assistance_ancestry": [
+      "BOUNDED_QUERY_SUPPLIED"
+    ],
+    "candidate_ids": [],
+    "deficit_id": "DEF-CURRENT-REUSE",
+    "hypothesis_digest_sha256": "4b0999465a05984fdbf91d91c371325371b2757d5757282e677ac719eabf205b",
+    "identifiability_class": "C_ACTION_LIMITED",
+    "missing_discriminator_signature_sha256": "52558a29acfe874c222745feb018b200b20be643461ae7d09705c5be7dddde54",
+    "premise_anchors": [
+      {
+        "epoch": 1,
+        "kind": "CAPABILITY_PREMISE",
+        "object_id": "LIVE-BASIS"
+      }
+    ],
+    "probe_capability_epoch": 0,
+    "probe_capability_id": "MAP-COMPAT-PROBE",
+    "probe_evidence_ids": [],
+    "question_key": "reuse:ACTION-LAW-db32ee894e441ec33c6b:new-live-basis",
+    "relevant_evidence_ids": [],
+    "semantic_question_authority": "NONE",
+    "stale_evidence_id": null,
+    "stale_reason": null,
+    "state": "PROBE_AVAILABLE",
+    "truth_authority": "NONE",
+    "unknown_evidence_id": "MS1634-UNKNOWN"
+  },
+  "next": "VERIFY_NO_EXISTING_EXECUTION_OR_REHEARSAL_PATH_LAUNDERS_HISTORICAL_VALIDITY_INTO_CURRENT_USE",
+  "pass": "MS1634_PASS07",
+  "relation_historical_status": {
+    "authority": "EVIDENCE_BOUND_PREDICTIVE_RELATION_ONLY",
+    "causal_theorem_authority": "NONE",
+    "empirical_currentness_witness": null,
+    "reason": null,
+    "relation_id": "ACTION-LAW-db32ee894e441ec33c6b",
+    "replacement_lineage": null,
+    "status": "CURRENT_PREDICTIVE_RELATION",
+    "truth_authority": "NONE"
+  },
+  "result": "EXISTING_EPISTEMIC_DEFICIT_LIFECYCLE_CAN_CARRY_CURRENT_REUSE_UNKNOWN_SEPARATELY_FROM_HISTORICAL_RELATION_VALIDITY",
+  "scar": "HISTORICAL_RELATION_VALID != CURRENT_MAPPING_COMPATIBILITY_PROVED"
+}

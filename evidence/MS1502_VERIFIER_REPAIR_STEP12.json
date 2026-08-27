@@ -1,0 +1,11 @@
+{
+  "authoritative_basis": "77 inherited + 13 new = 90; MICROSEED_MAIN_DEV_OPERATING_PROFILE_V2_8_VALIDATION.json all_pass",
+  "authority_gain": "NONE",
+  "core_microseed_source_changed": false,
+  "file": "verify_ms1502_integration.py",
+  "rejected_candidate_sha256": "a3403d7f3ef84b3551dc1e07eb7c2050de904d086f7b6aa0bd26a4d673cdb0ff",
+  "repair": "expected combined v2.8 profile hostile mutants changed from stale 89 to authoritative 90; check key renamed method_90_90",
+  "schema": "microseed.ms1502.verifier-repair.v1",
+  "step": "MS1502_INTEGRATION_STEP12_VERIFIER_REPAIRED_REPLACEMENT_CANDIDATE",
+  "verification_surface_changed": true
+}

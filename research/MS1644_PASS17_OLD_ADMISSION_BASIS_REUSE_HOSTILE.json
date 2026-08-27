@@ -1,0 +1,351 @@
+{
+  "authority": "RESEARCH_ONLY",
+  "new_acquisition_with_old_hist_basis": {
+    "missing_value_ids": [],
+    "outcome": {
+      "actual_next_state_id": "S1",
+      "actual_value_effect": null,
+      "evidence_id": "E-NEW",
+      "execution_authority_gain": "NONE",
+      "execution_id": "ACTION-EXEC-5eb0b5b11e41fa871dbd",
+      "observed_value": null,
+      "outcome_id": "ACTION-OUTCOME-a5d1bf2dbda8f1f37bdd",
+      "prediction_commitment": {
+        "applicability": "YES",
+        "binding": "YES",
+        "commitment": "UNKNOWN",
+        "commitment_id": "ACTION-PREDICTION-a5d1bf2dbda8f1f37bdd",
+        "premise_ids": [
+          "MULTIVALUE-ACTION-1b50b15af8b7ebd69d51",
+          "MULTIVALUE-COORD-1eb3f79e7810998ed39f",
+          "MULTIVALUE-COORD-53ed24c40428de199313",
+          "MULTIVALUE-COORD-4ab92af88f5841f54505"
+        ],
+        "qualifiers": [
+          [
+            "evidence_id",
+            "E-NEW"
+          ],
+          [
+            "truth_authority",
+            "NONE"
+          ],
+          [
+            "semantic_goal_authority",
+            "NONE"
+          ]
+        ],
+        "reason": "MULTI_VALUE_PREDICTION_MATCH_NOT_CLAIMED",
+        "target_id": "action-execution:ACTION-EXEC-5eb0b5b11e41fa871dbd:prediction-match"
+      },
+      "qualification_authority": "NONE",
+      "requires_redeliberation": true,
+      "truth_authority": "NONE",
+      "value_id": null,
+      "value_outcomes": [
+        {
+          "actual_value_effect": 0.42,
+          "coordination_epochs": [],
+          "episode_schema_epochs": [
+            [
+              "E-ENERGY",
+              0
+            ]
+          ],
+          "frame_epochs": [
+            [
+              "F",
+              0
+            ]
+          ],
+          "learning_ancestry_status": "CURRENT",
+          "observed_value": 3.62,
+          "semantic_goal_authority": "NONE",
+          "source_trace_ids": [
+            "REST-ENERGY-0",
+            "REST-ENERGY-1",
+            "REST-ENERGY-10",
+            "REST-ENERGY-11",
+            "REST-ENERGY-12",
+            "REST-ENERGY-13",
+            "REST-ENERGY-14",
+            "REST-ENERGY-15",
+            "REST-ENERGY-16",
+            "REST-ENERGY-17",
+            "REST-ENERGY-18",
+            "REST-ENERGY-19",
+            "REST-ENERGY-2",
+            "REST-ENERGY-20",
+            "REST-ENERGY-21",
+            "REST-ENERGY-22",
+            "REST-ENERGY-23",
+            "REST-ENERGY-24",
+            "REST-ENERGY-25",
+            "REST-ENERGY-26",
+            "REST-ENERGY-27",
+            "REST-ENERGY-28",
+            "REST-ENERGY-29",
+            "REST-ENERGY-3",
+            "REST-ENERGY-30",
+            "REST-ENERGY-31",
+            "REST-ENERGY-32",
+            "REST-ENERGY-33",
+            "REST-ENERGY-34",
+            "REST-ENERGY-35",
+            "REST-ENERGY-36",
+            "REST-ENERGY-37",
+            "REST-ENERGY-38",
+            "REST-ENERGY-39",
+            "REST-ENERGY-4",
+            "REST-ENERGY-40",
+            "REST-ENERGY-41",
+            "REST-ENERGY-42",
+            "REST-ENERGY-43",
+            "REST-ENERGY-44",
+            "REST-ENERGY-45",
+            "REST-ENERGY-46",
+            "REST-ENERGY-47",
+            "REST-ENERGY-48",
+            "REST-ENERGY-49",
+            "REST-ENERGY-5",
+            "REST-ENERGY-50",
+            "REST-ENERGY-51",
+            "REST-ENERGY-52",
+            "REST-ENERGY-53",
+            "REST-ENERGY-54",
+            "REST-ENERGY-55",
+            "REST-ENERGY-56",
+            "REST-ENERGY-57",
+            "REST-ENERGY-58",
+            "REST-ENERGY-59",
+            "REST-ENERGY-6",
+            "REST-ENERGY-60",
+            "REST-ENERGY-7",
+            "REST-ENERGY-8",
+            "REST-ENERGY-9"
+          ],
+          "topology_epochs": [],
+          "truth_authority": "NONE",
+          "value_epoch": 0,
+          "value_id": "ENERGY"
+        },
+        {
+          "actual_value_effect": -0.44,
+          "coordination_epochs": [],
+          "episode_schema_epochs": [
+            [
+              "E-THERMAL",
+              0
+            ]
+          ],
+          "frame_epochs": [
+            [
+              "F",
+              0
+            ]
+          ],
+          "learning_ancestry_status": "CURRENT",
+          "observed_value": 7.16,
+          "semantic_goal_authority": "NONE",
+          "source_trace_ids": [
+            "REST-THERMAL-0",
+            "REST-THERMAL-1",
+            "REST-THERMAL-10",
+            "REST-THERMAL-11",
+            "REST-THERMAL-12",
+            "REST-THERMAL-13",
+            "REST-THERMAL-14",
+            "REST-THERMAL-15",
+            "REST-THERMAL-16",
+            "REST-THERMAL-17",
+            "REST-THERMAL-18",
+            "REST-THERMAL-19",
+            "REST-THERMAL-2",
+            "REST-THERMAL-20",
+            "REST-THERMAL-21",
+            "REST-THERMAL-22",
+            "REST-THERMAL-23",
+            "REST-THERMAL-24",
+            "REST-THERMAL-25",
+            "REST-THERMAL-26",
+            "REST-THERMAL-27",
+            "REST-THERMAL-28",
+            "REST-THERMAL-29",
+            "REST-THERMAL-3",
+            "REST-THERMAL-30",
+            "REST-THERMAL-31",
+            "REST-THERMAL-32",
+            "REST-THERMAL-33",
+            "REST-THERMAL-34",
+            "REST-THERMAL-35",
+            "REST-THERMAL-36",
+            "REST-THERMAL-37",
+            "REST-THERMAL-38",
+            "REST-THERMAL-39",
+            "REST-THERMAL-4",
+            "REST-THERMAL-40",
+            "REST-THERMAL-41",
+            "REST-THERMAL-42",
+            "REST-THERMAL-43",
+            "REST-THERMAL-44",
+            "REST-THERMAL-45",
+            "REST-THERMAL-46",
+            "REST-THERMAL-47",
+            "REST-THERMAL-48",
+            "REST-THERMAL-49",
+            "REST-THERMAL-5",
+            "REST-THERMAL-50",
+            "REST-THERMAL-51",
+            "REST-THERMAL-52",
+            "REST-THERMAL-53",
+            "REST-THERMAL-54",
+            "REST-THERMAL-55",
+            "REST-THERMAL-56",
+            "REST-THERMAL-57",
+            "REST-THERMAL-58",
+            "REST-THERMAL-59",
+            "REST-THERMAL-6",
+            "REST-THERMAL-60",
+            "REST-THERMAL-7",
+            "REST-THERMAL-8",
+            "REST-THERMAL-9"
+          ],
+          "topology_epochs": [],
+          "truth_authority": "NONE",
+          "value_epoch": 0,
+          "value_id": "THERMAL"
+        },
+        {
+          "actual_value_effect": 0.34,
+          "coordination_epochs": [],
+          "episode_schema_epochs": [
+            [
+              "E-INTEGRITY",
+              0
+            ]
+          ],
+          "frame_epochs": [
+            [
+              "F",
+              0
+            ]
+          ],
+          "learning_ancestry_status": "CURRENT",
+          "observed_value": 6.34,
+          "semantic_goal_authority": "NONE",
+          "source_trace_ids": [
+            "REST-INTEGRITY-0",
+            "REST-INTEGRITY-1",
+            "REST-INTEGRITY-10",
+            "REST-INTEGRITY-11",
+            "REST-INTEGRITY-12",
+            "REST-INTEGRITY-13",
+            "REST-INTEGRITY-14",
+            "REST-INTEGRITY-15",
+            "REST-INTEGRITY-16",
+            "REST-INTEGRITY-17",
+            "REST-INTEGRITY-18",
+            "REST-INTEGRITY-19",
+            "REST-INTEGRITY-2",
+            "REST-INTEGRITY-20",
+            "REST-INTEGRITY-21",
+            "REST-INTEGRITY-22",
+            "REST-INTEGRITY-23",
+            "REST-INTEGRITY-24",
+            "REST-INTEGRITY-25",
+            "REST-INTEGRITY-26",
+            "REST-INTEGRITY-27",
+            "REST-INTEGRITY-28",
+            "REST-INTEGRITY-29",
+            "REST-INTEGRITY-3",
+            "REST-INTEGRITY-30",
+            "REST-INTEGRITY-31",
+            "REST-INTEGRITY-32",
+            "REST-INTEGRITY-33",
+            "REST-INTEGRITY-34",
+            "REST-INTEGRITY-35",
+            "REST-INTEGRITY-36",
+            "REST-INTEGRITY-37",
+            "REST-INTEGRITY-38",
+            "REST-INTEGRITY-39",
+            "REST-INTEGRITY-4",
+            "REST-INTEGRITY-40",
+            "REST-INTEGRITY-41",
+            "REST-INTEGRITY-42",
+            "REST-INTEGRITY-43",
+            "REST-INTEGRITY-44",
+            "REST-INTEGRITY-45",
+            "REST-INTEGRITY-46",
+            "REST-INTEGRITY-47",
+            "REST-INTEGRITY-48",
+            "REST-INTEGRITY-49",
+            "REST-INTEGRITY-5",
+            "REST-INTEGRITY-50",
+            "REST-INTEGRITY-51",
+            "REST-INTEGRITY-52",
+            "REST-INTEGRITY-53",
+            "REST-INTEGRITY-54",
+            "REST-INTEGRITY-55",
+            "REST-INTEGRITY-56",
+            "REST-INTEGRITY-57",
+            "REST-INTEGRITY-58",
+            "REST-INTEGRITY-59",
+            "REST-INTEGRITY-6",
+            "REST-INTEGRITY-60",
+            "REST-INTEGRITY-7",
+            "REST-INTEGRITY-8",
+            "REST-INTEGRITY-9"
+          ],
+          "topology_epochs": [],
+          "truth_authority": "NONE",
+          "value_epoch": 0,
+          "value_id": "INTEGRITY"
+        }
+      ]
+    },
+    "requires_redeliberation": true,
+    "status": "ACTION_OUTCOME_OBSERVED",
+    "value_states": {
+      "ENERGY": {
+        "epoch": 0,
+        "status": "CURRENT",
+        "value": 3.62,
+        "value_id": "ENERGY"
+      },
+      "INTEGRITY": {
+        "epoch": 0,
+        "status": "CURRENT",
+        "value": 6.34,
+        "value_id": "INTEGRITY"
+      },
+      "THERMAL": {
+        "epoch": 0,
+        "status": "CURRENT",
+        "value": 7.16,
+        "value_id": "THERMAL"
+      }
+    }
+  },
+  "new_evidence_premise": {
+    "epochs": [
+      [
+        "HIST-ADMIT",
+        0
+      ]
+    ],
+    "signatures": [
+      [
+        "HIST-ADMIT",
+        "2bbc1c55a1711a5dd9855548e96a5567f25bc2eee513236a4f3ea3935fbcff20"
+      ]
+    ]
+  },
+  "new_live_basis_epoch": 1,
+  "new_observation_epoch": 1,
+  "next": "QUARRY_GENERIC_SNAPSHOT_BINDING_OF_ADMISSION_BASIS_TO_EXACT_ACQUISITION_PREMISES",
+  "old_hist_basis_epoch": 0,
+  "old_historical_basis_signature": "2bbc1c55a1711a5dd9855548e96a5567f25bc2eee513236a4f3ea3935fbcff20",
+  "pass": "MS1644_PASS17",
+  "result": "FALSE_GREEN__CURRENT_HISTORICAL_BASIS_CAN_BE_REUSED_FOR_NEW_ACQUISITION_AFTER_PROSPECTIVE_MAPPING_CHANGE",
+  "scar": "HISTORICAL_BASIS_VALID_FOR_OLD_EVIDENCE != HISTORICAL_BASIS_APPLICABLE_TO_NEW_ACQUISITION"
+}

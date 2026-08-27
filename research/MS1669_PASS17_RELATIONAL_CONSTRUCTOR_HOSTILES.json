@@ -1,0 +1,15 @@
+{
+  "disposition": "HOSTILE_CLEAN",
+  "hostiles": {
+    "event_replay_inflates_support": true,
+    "force_first_under_disagreement": true,
+    "ignore_counterexample": true,
+    "self_authorize_relation": true,
+    "synthesize_missing_component_path": true
+  },
+  "milestone": "MS1669",
+  "pass": 17,
+  "pass_all": true,
+  "rejected": 5,
+  "total": 5
+}

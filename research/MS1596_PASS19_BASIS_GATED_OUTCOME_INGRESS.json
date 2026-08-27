@@ -1,0 +1,10 @@
+{
+  "authority": "RESEARCH_ONLY",
+  "forged_but_current_basis": "ACTION_OUTCOME_OBSERVED",
+  "good_basis": "ACTION_OUTCOME_OBSERVED",
+  "legacy_raw_bypass": "ACTION_OUTCOME_OBSERVED",
+  "pass": "MS1596_PASS19",
+  "result": "BASIS_GATE_CAN_ENFORCE_CURRENTNESS_SCOPE_IF_USED__BUT_FALSELY_QUALIFIED_BASIS_AND_LEGACY_RAW_INGRESS_REMAIN_FALSE_GREEN_PATHS",
+  "stale_dependency": "OUTCOME_REJECTED",
+  "wrong_scope": "OUTCOME_REJECTED"
+}

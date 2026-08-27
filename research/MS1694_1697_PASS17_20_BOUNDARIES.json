@@ -1,0 +1,20 @@
+{
+  "MS1694_pass17": {
+    "disposition": "PROGRAM_TRIAL_BINDS_ACTION_CLOSURE_EXECUTION_RECORD__DOES_NOT_INDEPENDENTLY_GROUND_PHYSICAL_ACTUATOR_IDENTITY",
+    "visible_records_equal_across_hidden_actual_primitive_worlds": true
+  },
+  "MS1695_pass18": {
+    "best_probe": null,
+    "disposition": "REPEATED_BEHAVIORALLY_EQUIVALENT_MACRO_EVIDENCE_DOES_NOT_CREATE_DISCRIMINATION",
+    "hypothesis_disposition": "UNRESOLVED"
+  },
+  "MS1696_pass19": {
+    "disposition": "ONE_SEQUENCE_COUNTEREXAMPLE_REVOKES_GLOBAL_COMPOSITION_CLAIM__NO_HIDDEN_ENTITY_ASSERTED",
+    "global_candidate_after_sequence_counterexample": 0
+  },
+  "MS1697_pass20": {
+    "component_drift_blocks_cached_target": true,
+    "disposition": "SELECTED_COMPOSED_TARGET_HAS_NO_PERMANENT_AUTHORITY__REPROJECT_CURRENTNESS_AT_USE",
+    "frame_drift_blocks_cached_target": true
+  }
+}

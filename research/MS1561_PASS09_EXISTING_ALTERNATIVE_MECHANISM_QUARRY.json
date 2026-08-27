@@ -1,0 +1,28 @@
+{
+  "all_checks_pass": true,
+  "api_quarry": {
+    "assess_projection_drift_structure_signature": "(projection_id: 'str', stale_projection_epoch: 'int', historical_candidate: 'RobustProjectionConstructorCandidate', alternative_candidate: 'RobustProjectionConstructorCandidate', samples: 'Iterable[ConstructorProjectionSample]', cfg: 'ProjectionDriftStructureConfig | None' = None) -> 'ProjectionDriftStructureWitness'",
+    "nominate_drift_replacement_candidates_signature": "(relation: 'QualifiedActionOutcomePredictiveRelation', witness: 'ActionOutcomePredictiveCurrentnessWitness', experiences: 'Iterable[ActionOutcomeExperience]', *, min_support: 'int' = 8, min_consistency: 'float' = 0.78) -> 'tuple[tuple[ActionOutcomePredictiveCandidate, ActionOutcomeReplacementLink], ...]'"
+  },
+  "breadth_rerank": "ROTATE_FROM_PREDICTIVE_ALTERNATIVE_MACHINERY__TEST_WHETHER_EXISTING_EVIDENCE_BEARING_CONTRAST_CAN_FORM_A_USE_LOCAL_SAFE_VS_HARMFUL_QUESTION_DIRECTLY_FROM_OBSERVED_CURRENT_CONSEQUENCES_WITHOUT_PREDICTIVE_MODEL_MULTIPLICATION",
+  "campaign_pass": 9,
+  "checks": {
+    "action_outcome_replacement_api_requires_existing_relation_and_witness": true,
+    "action_outcome_replacement_requires_prior_drift_witness": true,
+    "projection_drift_comparison_requires_caller_supplied_alternative_candidate": true,
+    "projection_drift_comparison_requires_caller_supplied_historical_candidate": true
+  },
+  "discriminator": "CAN_EXISTING_ALTERNATIVE_PREDICTIVE_STRUCTURE_OR_REPLACEMENT_LINEAGE_CARRY_SIMULTANEOUS_CURRENT_SAFE_VS_HARMFUL_ALTERNATIVES_BEFORE_A_CURRENT_RELATION_HAS_ALREADY_BEEN_QUALIFIED_AND_CHALLENGED",
+  "localization": "EXISTING_ALTERNATIVE_AND_REPLACEMENT_MACHINERY_IS_DOWNSTREAM__ACTION_OUTCOME_REPLACEMENT_REQUIRES_AN_ALREADY_QUALIFIED_RELATION_PLUS_DRIFT_WITNESS__PROJECTION_ALTERNATIVE_COMPARISON_REQUIRES_A_CALLER_SUPPLIED_ALTERNATIVE_CONSTRUCTOR__NEITHER_BOOTSTRAPS_A_SIMULTANEOUS_CURRENT_CONSEQUENCE_HYPOTHESIS_SET_FROM_BIMODAL_EVIDENCE",
+  "milestone": "MS1561",
+  "non_claims": [
+    "DOES_NOT_PROVE_A_NEW_GENERAL_HYPOTHESIS_GENERATOR_IS_REQUIRED",
+    "DOES_NOT_LICENSE_LATENT_REGIME_IDENTITY",
+    "DOES_NOT_LICENSE_AUTOMATIC_SPLITTING_ON_ERROR",
+    "DOES_NOT_MUTATE_MAINDEV"
+  ],
+  "runtime_probe": {
+    "replacement_candidates_with_current_non_drift_witness": 0
+  },
+  "surviving_reuse": "IF_A_BOUNDED_COMPETING_CONSEQUENCE_SET_CAN_BE_LAWFULLY_NOMINATED__EXISTING_HYPOTHESISSET_ACTIVE_DISCRIMINATION_AND_EPISTEMIC_DEFICIT_LIFECYCLE_CAN_CONSUME_IT"
+}

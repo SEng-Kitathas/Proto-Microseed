@@ -1,0 +1,48 @@
+{
+  "all_pass": true,
+  "checks": {
+    "embodiment_tests": true,
+    "legacy_c_compiles": true,
+    "legacy_hash_ms175_tiny_core_v03.c": true,
+    "legacy_hash_ms225_working_state_6b.c": true,
+    "legacy_hash_ms250_intent_state.c": true,
+    "legacy_hash_ms275_micro_composer.c": true,
+    "legacy_hash_ms350_runtime_to_hsp_bridge.py": true,
+    "legacy_hash_ms450_external_observation_runtime.py": true,
+    "legacy_hash_ms451_market_runtime.py": true,
+    "legacy_hash_ms50_integrated_kernel.py": true,
+    "python_compileall": true,
+    "self_test": true
+  },
+  "legacy_c_compile": {
+    "ms175_tiny_core_v03.c": {
+      "returncode": 0,
+      "warnings": ""
+    },
+    "ms225_working_state_6b.c": {
+      "returncode": 0,
+      "warnings": ""
+    },
+    "ms250_intent_state.c": {
+      "returncode": 0,
+      "warnings": ""
+    },
+    "ms275_micro_composer.c": {
+      "returncode": 0,
+      "warnings": "/mnt/data/proto_microseed_embodiment/Proto-Microseed/microseed/runtime/legacy/ms275_micro_composer.c: In function \u2018ensure\u2019:\n/mnt/data/proto_microseed_embodiment/Proto-Microseed/microseed/runtime/legacy/ms275_micro_composer.c:6:2: warning: this \u2018if\u2019 clause does not guard... [-Wmisleading-indentation]\n    6 |  if((*have)&f)return 1; if(visiting&f)return 0; visiting|=f;\n      |  ^~\n/mnt/data/proto_microseed_embodiment/Proto-Microseed/microseed/runtime/legacy/ms275_micro_composer.c:6:25: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the \u2018if\u2019\n    6 |  if((*have)&f)return 1; if(visiting&f)return 0; visiting|=f;\n      |                         ^~"
+    }
+  },
+  "legacy_hashes": {
+    "ms175_tiny_core_v03.c": "47de0b5b0eb290d69cff8d6b295dad0cd6194aa2fa3c93a1de81c2170f04fd62",
+    "ms225_working_state_6b.c": "860d61a7f0886be49f0f1502f6b17e66d13763207634190f3e0ff4d4103f3a6f",
+    "ms250_intent_state.c": "6e15b1f60b192a8d1f8f8380898b407b7b0dd02a20fe14a74246b79548c068c9",
+    "ms275_micro_composer.c": "7de5d110e29e933a7ec382906279f30d9ef4ef80c22f988f325971e682f2f7d6",
+    "ms350_runtime_to_hsp_bridge.py": "bec94e45e9edc689c00ef959cb052d6c408b9de97d2ed63992554d78744534de",
+    "ms450_external_observation_runtime.py": "1784259c5599d075baf173435563b5df13058e597dcb2bd25b07fed83c17125f",
+    "ms451_market_runtime.py": "c88fec317227e760cd2abc7b80d4b32cc0c985461c3258084112a51a58ab3a53",
+    "ms50_integrated_kernel.py": "60726809d2df9a2ff5bea8b7ff54b5a0c8eda566dd95045a6bcf28920edad602"
+  },
+  "schema": "proto-microseed.embodiment-verification.v0.1",
+  "self_test_stdout": "{\n  \"all_pass\": true,\n  \"checks\": {\n    \"active_discrimination_selects_probe\": true,\n    \"boundary_synchrony_not_object_identity\": true,\n    \"event_frame_ambiguity_unknown\": true,\n    \"evidence_resolves\": true,\n    \"hard_stop_ms802\": true,\n    \"negative_evidence_blocks_green\": true,\n    \"persistence_not_selfhood\": true,\n    \"proposal_cannot_self_grant_effect_authority\": true\n  },\n  \"passed\": 8,\n  \"total\": 8\n}\n",
+  "tests_stdout": "passed=9 failed=0\nPASS test_composition_does_not_create_authority\nPASS test_dependency_currentness_stales_dependent\nPASS test_ms802_hard_stop\nPASS test_observation_resource_mode_and_unknown_currentness\nPASS test_persistence_is_not_selfhood\nPASS test_query_obligation_binding\nPASS test_research_operator_closure_delta\nPASS test_self_test\nPASS test_temporal_predicates_are_frame_scoped_research_only\n"
+}

@@ -1,0 +1,50 @@
+{
+  "causal_identifiability_grammar": "microseed.method.causal-identifiability-pressure-grammar.v1.0",
+  "core_shape_unchanged": true,
+  "current_integration": {
+    "canonical_entity_version": "v1.3",
+    "integration_debt_open": [
+      "GENERAL_HIGHER_ORDER_DISTRIBUTED_EPISODE_LANGUAGE",
+      "GENERAL_MULTI_AGENT_PLANNING",
+      "SEMANTIC_JOINT_GOAL_ONTOLOGY",
+      "ENDOGENOUS_DISCRIMINATOR_CAPABILITY_GROWTH",
+      "CONSTITUTIONAL_VALUE_PRIOR_ORIGIN",
+      "HOST_SUBSTRATE_CAPABILITY_CURRENTNESS",
+      "QUALIFIED_COUNTERFACTUAL_REHEARSAL"
+    ],
+    "integration_debt_resolved": [
+      "MS1117_V1_2_EPISODE_SCHEMA_LACKS_COORDINATION_ANCESTRY",
+      "MS1118_DISTRIBUTED_EPISODE_CURRENTNESS_FALSE_GREEN"
+    ],
+    "integration_terminal_ms": 1127,
+    "ms1128_started": false,
+    "research_terminal_ms": 1127,
+    "selected_frontier": "ATTN-MS1127-ACTION-LIMITED-UNKNOWN-TO-ENDOGENOUS-DISCRIMINATOR-CAPABILITY-GROWTH__CROSS_FAMILY_CAPABILITY_CLOSURE_ACTIVE_DISCRIMINATION_WHOLE_SYSTEM"
+  },
+  "inherits": "microseed.maindev-operating-profile.v1.2.1",
+  "language_policy": {
+    "active_phase": "PRELINGUAL",
+    "cognitive_substrate": "DEFERRED",
+    "rule": "developer episode/actor labels may instrument experiments; language may not provide joint-goal, episode, actor identity, causal law, commitment, or truth authority"
+  },
+  "method_change_kind": "ADDITIVE_SCAR_AND_INTEGRATION_GUARDS_ONLY",
+  "parent_profile_sha256": "82ab2d10b0ff304000da239fa0dcc2094529902206d3cf47e6506a68c2f98061",
+  "refinements_from_ms1103_1127": {
+    "CURRENT_UNKNOWN_NE_STRUCTURAL_NONIDENTIFIABILITY": true,
+    "DISCRIMINATOR_EXISTS_IN_WORLD_NE_CURRENT_PHENOTYPE_ACCESS": true,
+    "EPISODE_SCHEMA_CURRENT_NE_DISTRIBUTED_EPISODE_PREMISES_CURRENT": true,
+    "HIGH_NUISANCE_NE_CAUSAL_AMBIGUITY": true,
+    "LEARNED_TOPOLOGY_CAN_GUIDE_SEARCH_NE_DEFINES_SEARCH_LANGUAGE": true,
+    "PAIRWISE_TEMPORAL_RELATIONS_NE_GENERAL_DISTRIBUTED_EPISODE_LANGUAGE": true,
+    "PREDICTION_RESIDUAL_NE_EPISODE_BOUNDARY_AUTHORITY": true,
+    "PREDICTIVE_EQUIVALENCE_NE_UNIQUE_EPISODE_BOUNDARY": true,
+    "QUALIFICATION_TICKET_CURRENT_NE_DISTRIBUTED_EPISODE_PREMISES_CURRENT": true,
+    "RECURRENT_DISTRIBUTED_EPISODE_NE_CAPABILITY_AUTHORITY": true,
+    "SURFACE_SIMILARITY_NE_CAUSAL_LAW_CURRENTNESS": true,
+    "TEMPORAL_COHERENCE_PLUS_RECURRENCE_NE_DISTRIBUTED_COMPETENCE": true,
+    "TEMPORARY_REFUSAL_NE_DISTRIBUTED_EPISODE_DRIFT": true,
+    "action_limited_unknown_may_generate_missing_discriminator_developmental_pressure_but_not_truth": true,
+    "episode_schema_coordination_currentness_must_be_first_class_when_load_bearing": true
+  },
+  "schema": "microseed.maindev-operating-profile.v1.3"
+}

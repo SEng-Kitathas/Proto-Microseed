@@ -1,0 +1,50 @@
+{
+  "authority": "RESEARCH_ONLY",
+  "boundary": "RELATION_TOKENS_AND_NEGATIVE_CONTROL_COVERAGE_ARE_STILL_OPERATIONAL_FIXTURE_STRUCTURE",
+  "count": 2,
+  "pass": "MS1611_PASS09",
+  "proposals": [
+    {
+      "execution_authority": "NONE",
+      "proposal_id": "REL-726e94dc9c30e7cb",
+      "relation": [
+        "P",
+        "CHANGED",
+        "CHANGED"
+      ],
+      "support": 7,
+      "truth_authority": "NONE",
+      "unique_evidence_ids": [
+        "X0",
+        "X1",
+        "X2",
+        "X3",
+        "X4",
+        "X5",
+        "X6"
+      ]
+    },
+    {
+      "execution_authority": "NONE",
+      "proposal_id": "REL-239875461f8ecbf2",
+      "relation": [
+        "P",
+        "CHANGED",
+        "STABLE"
+      ],
+      "support": 8,
+      "truth_authority": "NONE",
+      "unique_evidence_ids": [
+        "C0",
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7"
+      ]
+    }
+  ],
+  "result": "DEFERRED_RELATIONAL_UNITIZATION_CAN_FORM_OPAQUE_CAUSAL_VS_EXOGENOUS_PATTERN_HANDLES_FROM_UNIQUE_EVIDENCE_WITH_ZERO_AUTHORITY"
+}

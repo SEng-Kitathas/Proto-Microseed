@@ -1,0 +1,22 @@
+{
+  "authoritative_validation": {
+    "all_pass": true,
+    "artifact": "methodology/MICROSEED_MAIN_DEV_OPERATING_PROFILE_V2_8_VALIDATION.json",
+    "combined_hostile_mutants": 90,
+    "combined_hostile_mutants_rejected": 90,
+    "inherited_parent_hostile_mutants_rejected": 77,
+    "new_hostile_mutants_rejected": 13
+  },
+  "authority_changed": false,
+  "code_changed": false,
+  "corrected_files": [
+    "MAIN_DEV_INTEGRATION_REPORT_MS1502.md",
+    "EMBODIMENT_VERIFICATION_MS1502.json"
+  ],
+  "disposition": "CORRECTED_SUMMARY_ONLY__NO_CODE_OR_BEHAVIOR_CHANGE",
+  "incorrect_summary": "89/89 operating-profile hostile mutants rejected",
+  "next_operation": "DETERMINISTIC_V2_8_CANDIDATE_PACKAGING_AND_CLEAN_EXTRACTION_REPLAY",
+  "research_disposition_changed": false,
+  "schema": "microseed.ms1502.evidence-accounting-correction.v1",
+  "step": "MS1502_INTEGRATION_STEP08_EVIDENCE_ACCOUNTING_REPAIRED"
+}

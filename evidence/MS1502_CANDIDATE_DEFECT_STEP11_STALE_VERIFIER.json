@@ -1,0 +1,18 @@
+{
+  "authority_gain": "NONE",
+  "candidate": "PROTO_MICROSEED_MAINDEV_INTEGRATION_V2_8_THROUGH_MS1502_2026-08-23_CANDIDATE.zip",
+  "candidate_embodiment_replay_already_observed": "249/249 PASS",
+  "candidate_physical_audit_already_observed": "440/440 manifest PASS; zero uncovered/cache",
+  "candidate_sha256": "a3403d7f3ef84b3551dc1e07eb7c2050de904d086f7b6aa0bd26a4d673cdb0ff",
+  "core_microseed_code_implicated": false,
+  "defect": {
+    "authoritative_actual": 90,
+    "basis": "methodology/MICROSEED_MAIN_DEV_OPERATING_PROFILE_V2_8_VALIDATION.json: 77 inherited + 13 new = 90",
+    "file": "verify_ms1502_integration.py",
+    "stale_assertion": "combined_hostile_mutants_rejected == 89"
+  },
+  "disposition": "REJECTED_FOR_SEAL__VERIFICATION_SURFACE_STALE",
+  "repair_scope": "verification script only; rebuild manifest/patch/candidate and replay from new bytes",
+  "schema": "microseed.ms1502.candidate-defect.v1",
+  "step": "MS1502_INTEGRATION_STEP11_CANDIDATE_REJECTED_STALE_VERIFIER"
+}

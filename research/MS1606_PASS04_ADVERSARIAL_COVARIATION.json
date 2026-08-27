@@ -1,0 +1,26 @@
+{
+  "authority": "RESEARCH_ONLY",
+  "boundary": "NO_OBSERVATIONAL_OR_INTERVENTIONAL_STATISTIC_CAN_BREAK_A_FIXTURE_THAT_PRESERVES_THE_SAME_VISIBLE_DISTRIBUTION_WITHOUT_AN_ORTHOGONAL_ASSUMPTION_OR_ROUTE",
+  "examples": [
+    {
+      "physical_effect_change_rate": 0.25,
+      "predicted_effect_change_rate": 0.95,
+      "selected": "PERTURB_PREDICTED"
+    },
+    {
+      "physical_effect_change_rate": 0.25,
+      "predicted_effect_change_rate": 0.95,
+      "selected": "PERTURB_PREDICTED"
+    },
+    {
+      "physical_effect_change_rate": 0.25,
+      "predicted_effect_change_rate": 0.95,
+      "selected": "PERTURB_PREDICTED"
+    }
+  ],
+  "pass": "MS1606_PASS04",
+  "result": "PERFECT_OR_ADVERSARIAL_EXOGENOUS_COVARIATION_DEFEATS_REPEATED_INTERVENTIONAL_CONTRAST",
+  "scar": "INTERVENTIONAL_REPLICATION != UNIVERSAL_CAUSAL_IDENTIFIABILITY",
+  "worlds": 64,
+  "wrong_role_selected": 64
+}

@@ -1,0 +1,75 @@
+.F..FFF.                                                                 [100%]
+=================================== FAILURES ===================================
+______ test_unrelated_topology_cannot_be_claimed_as_joint_trace_ancestry _______
+
+    def test_unrelated_topology_cannot_be_claimed_as_joint_trace_ancestry():
+        td,ms=seeded(extra=True)
+        try:
+>           with pytest.raises(ValueError, match='TRACE_TOPOLOGY_NOT_BOUND_TO_STEPS:U'):
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/hostile/test_ms1502_integration_hostile.py:117: Failed
+________ test_counterparty_drift_after_ticket_blocks_pending_candidate _________
+
+    def test_counterparty_drift_after_ticket_blocks_pending_candidate():
+        td,ms=seeded()
+        try:
+>           seed_joint(ms); c=candidate(ms); ticket=qualify(ms,c)
+                              ^^^^^^^^^^^^^
+
+tests/hostile/test_ms1502_integration_hostile.py:148: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ms = <microseed.runtime.entity.Microseed object at 0x7f9b61f91bd0>
+
+    def candidate(ms: Microseed):
+        props=ms.discover_capability_candidates()
+>       assert props
+E       assert []
+
+tests/hostile/test_ms1502_integration_hostile.py:90: AssertionError
+_ test_topology_drift_after_admission_selectively_stales_composite_not_children _
+
+    def test_topology_drift_after_admission_selectively_stales_composite_not_children():
+        td,ms=seeded()
+        try:
+>           seed_joint(ms); c=candidate(ms); admitted=ms.admit_capability_candidate(qualify(ms,c))
+                              ^^^^^^^^^^^^^
+
+tests/hostile/test_ms1502_integration_hostile.py:158: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ms = <microseed.runtime.entity.Microseed object at 0x7f9b61ec1e50>
+
+    def candidate(ms: Microseed):
+        props=ms.discover_capability_candidates()
+>       assert props
+E       assert []
+
+tests/hostile/test_ms1502_integration_hostile.py:90: AssertionError
+___ test_candidate_digest_binds_composition_ancestry_and_tamper_fails_ticket ___
+
+    def test_candidate_digest_binds_composition_ancestry_and_tamper_fails_ticket():
+        td,ms=seeded()
+        try:
+>           seed_joint(ms); c=candidate(ms); ticket=qualify(ms,c)
+                              ^^^^^^^^^^^^^
+
+tests/hostile/test_ms1502_integration_hostile.py:170: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ms = <microseed.runtime.entity.Microseed object at 0x7f9b61f91810>
+
+    def candidate(ms: Microseed):
+        props=ms.discover_capability_candidates()
+>       assert props
+E       assert []
+
+tests/hostile/test_ms1502_integration_hostile.py:90: AssertionError
+=========================== short test summary info ============================
+FAILED tests/hostile/test_ms1502_integration_hostile.py::test_unrelated_topology_cannot_be_claimed_as_joint_trace_ancestry - Failed: DID NOT RAISE <class 'ValueError'>
+FAILED tests/hostile/test_ms1502_integration_hostile.py::test_counterparty_drift_after_ticket_blocks_pending_candidate - assert []
+FAILED tests/hostile/test_ms1502_integration_hostile.py::test_topology_drift_after_admission_selectively_stales_composite_not_children - assert []
+FAILED tests/hostile/test_ms1502_integration_hostile.py::test_candidate_digest_binds_composition_ancestry_and_tamper_fails_ticket - assert []
+4 failed, 4 passed in 0.43s

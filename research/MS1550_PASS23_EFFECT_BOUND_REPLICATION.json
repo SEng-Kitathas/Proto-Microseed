@@ -1,0 +1,1120 @@
+{
+  "boundary": "EVALUATOR_SPLITS_REGIMES_ONLY_FOR_RESEARCH_REPLICATION; REGIME_IDENTITY_NOT_ORGANISM_INPUT",
+  "discriminator": "DO_QUERY_RELATIVE_EFFECT_BOUNDS_REDUCE_FALSE_GREEN_LICENSES_ACROSS_ALL_THREE_R2_REGIMES_WHEN_EVIDENCE_IS_REEARNED_WITHIN_EACH_REGIME",
+  "nonclaims": [
+    "NO_DRIFT_DETECTION_CREDIT",
+    "NO_CONFIDENCE_INTERVAL_CONSTITUTION",
+    "NO_MAINDEV_MUTATION",
+    "NO_WHOLE_ORGANISM_CREDIT",
+    "NO_PAL_ARCHITECTURE_IMPORT"
+  ],
+  "schema": "microseed.ms1550.pass23.effect-bound-replication.v1",
+  "seeds": [
+    {
+      "regimes": [
+        {
+          "modes": {
+            "INTERVAL": {
+              "decision": 24,
+              "harmful": 2,
+              "missing": 6,
+              "multiple": 0,
+              "none": 19,
+              "safe": 3,
+              "unique": 5
+            },
+            "POINT": {
+              "decision": 24,
+              "harmful": 2,
+              "missing": 6,
+              "multiple": 5,
+              "none": 17,
+              "safe": 0,
+              "unique": 2
+            }
+          },
+          "regime": 0,
+          "tick_range": [
+            0,
+            100
+          ]
+        },
+        {
+          "modes": {
+            "INTERVAL": {
+              "decision": 24,
+              "harmful": 0,
+              "missing": 6,
+              "multiple": 0,
+              "none": 24,
+              "safe": 0,
+              "unique": 0
+            },
+            "POINT": {
+              "decision": 24,
+              "harmful": 5,
+              "missing": 6,
+              "multiple": 0,
+              "none": 18,
+              "safe": 1,
+              "unique": 6
+            }
+          },
+          "regime": 1,
+          "tick_range": [
+            100,
+            200
+          ]
+        },
+        {
+          "modes": {
+            "INTERVAL": {
+              "decision": 21,
+              "harmful": 0,
+              "missing": 9,
+              "multiple": 0,
+              "none": 21,
+              "safe": 0,
+              "unique": 0
+            },
+            "POINT": {
+              "decision": 21,
+              "harmful": 0,
+              "missing": 9,
+              "multiple": 0,
+              "none": 21,
+              "safe": 0,
+              "unique": 0
+            }
+          },
+          "regime": 2,
+          "tick_range": [
+            200,
+            300
+          ]
+        }
+      ],
+      "seed": 100
+    },
+    {
+      "regimes": [
+        {
+          "modes": {
+            "INTERVAL": {
+              "decision": 19,
+              "harmful": 0,
+              "missing": 11,
+              "multiple": 0,
+              "none": 19,
+              "safe": 0,
+              "unique": 0
+            },
+            "POINT": {
+              "decision": 19,
+              "harmful": 0,
+              "missing": 11,
+              "multiple": 0,
+              "none": 19,
+              "safe": 0,
+              "unique": 0
+            }
+          },
+          "regime": 0,
+          "tick_range": [
+            0,
+            100
+          ]
+        },
+        {
+          "modes": {
+            "INTERVAL": {
+              "decision": 21,
+              "harmful": 1,
+              "missing": 9,
+              "multiple": 0,
+              "none": 17,
+              "safe": 3,
+              "unique": 4
+            },
+            "POINT": {
+              "decision": 21,
+              "harmful": 2,
+              "missing": 9,
+              "multiple": 3,
+              "none": 7,
+              "safe": 9,
+              "unique": 11
+            }
+          },
+          "regime": 1,
+          "tick_range": [
+            100,
+            200
+          ]
+        },
+        {
+          "modes": {
+            "INTERVAL": {
+              "decision": 22,
+              "harmful": 0,
+              "missing": 8,
+              "multiple": 0,
+              "none": 22,
+              "safe": 0,
+              "unique": 0
+            },
+            "POINT": {
+              "decision": 22,
+              "harmful": 0,
+              "missing": 8,
+              "multiple": 0,
+              "none": 22,
+              "safe": 0,
+              "unique": 0
+            }
+          },
+          "regime": 2,
+          "tick_range": [
+            200,
+            300
+          ]
+        }
+      ],
+      "seed": 101
+    },
+    {
+      "regimes": [
+        {
+          "modes": {
+            "INTERVAL": {
+              "decision": 21,
+              "harmful": 0,
+              "missing": 9,
+              "multiple": 0,
+              "none": 15,
+              "safe": 6,
+              "unique": 6
+            },
+            "POINT": {
+              "decision": 21,
+              "harmful": 0,
+              "missing": 9,
+              "multiple": 0,
+              "none": 15,
+              "safe": 6,
+              "unique": 6
+            }
+          },
+          "regime": 0,
+          "tick_range": [
+            0,
+            100
+          ]
+        },
+        {
+          "modes": {
+            "INTERVAL": {
+              "decision": 23,
+              "harmful": 1,
+              "missing": 7,
+              "multiple": 0,
+              "none": 22,
+              "safe": 0,
+              "unique": 1
+            },
+            "POINT": {
+              "decision": 23,
+              "harmful": 1,
+              "missing": 7,
+              "multiple": 0,
+              "none": 2,
+              "safe": 20,
+              "unique": 21
+            }
+          },
+          "regime": 1,
+          "tick_range": [
+            100,
+            200
+          ]
+        },
+        {
+          "modes": {
+            "INTERVAL": {
+              "decision": 22,
+              "harmful": 0,
+              "missing": 8,
+              "multiple": 0,
+              "none": 22,
+              "safe": 0,
+              "unique": 0
+            },
+            "POINT": {
+              "decision": 22,
+              "harmful": 0,
+              "missing": 8,
+              "multiple": 0,
+              "none": 22,
+              "safe": 0,
+              "unique": 0
+            }
+          },
+          "regime": 2,
+          "tick_range": [
+            200,
+            300
+          ]
+        }
+      ],
+      "seed": 102
+    },
+    {
+      "regimes": [
+        {
+          "modes": {
+            "INTERVAL": {
+              "decision": 21,
+              "harmful": 0,
+              "missing": 9,
+              "multiple": 0,
+              "none": 6,
+              "safe": 15,
+              "unique": 15
+            },
+            "POINT": {
+              "decision": 21,
+              "harmful": 0,
+              "missing": 9,
+              "multiple": 0,
+              "none": 6,
+              "safe": 15,
+              "unique": 15
+            }
+          },
+          "regime": 0,
+          "tick_range": [
+            0,
+            100
+          ]
+        },
+        {
+          "modes": {
+            "INTERVAL": {
+              "decision": 21,
+              "harmful": 1,
+              "missing": 9,
+              "multiple": 0,
+              "none": 6,
+              "safe": 14,
+              "unique": 15
+            },
+            "POINT": {
+              "decision": 21,
+              "harmful": 0,
+              "missing": 9,
+              "multiple": 1,
+              "none": 2,
+              "safe": 18,
+              "unique": 18
+            }
+          },
+          "regime": 1,
+          "tick_range": [
+            100,
+            200
+          ]
+        },
+        {
+          "modes": {
+            "INTERVAL": {
+              "decision": 22,
+              "harmful": 0,
+              "missing": 8,
+              "multiple": 0,
+              "none": 22,
+              "safe": 0,
+              "unique": 0
+            },
+            "POINT": {
+              "decision": 22,
+              "harmful": 0,
+              "missing": 8,
+              "multiple": 0,
+              "none": 22,
+              "safe": 0,
+              "unique": 0
+            }
+          },
+          "regime": 2,
+          "tick_range": [
+            200,
+            300
+          ]
+        }
+      ],
+      "seed": 103
+    },
+    {
+      "regimes": [
+        {
+          "modes": {
+            "INTERVAL": {
+              "decision": 16,
+              "harmful": 0,
+              "missing": 14,
+              "multiple": 0,
+              "none": 0,
+              "safe": 16,
+              "unique": 16
+            },
+            "POINT": {
+              "decision": 16,
+              "harmful": 0,
+              "missing": 14,
+              "multiple": 1,
+              "none": 0,
+              "safe": 15,
+              "unique": 15
+            }
+          },
+          "regime": 0,
+          "tick_range": [
+            0,
+            100
+          ]
+        },
+        {
+          "modes": {
+            "INTERVAL": {
+              "decision": 22,
+              "harmful": 0,
+              "missing": 8,
+              "multiple": 0,
+              "none": 0,
+              "safe": 22,
+              "unique": 22
+            },
+            "POINT": {
+              "decision": 22,
+              "harmful": 0,
+              "missing": 8,
+              "multiple": 13,
+              "none": 0,
+              "safe": 9,
+              "unique": 9
+            }
+          },
+          "regime": 1,
+          "tick_range": [
+            100,
+            200
+          ]
+        },
+        {
+          "modes": {
+            "INTERVAL": {
+              "decision": 21,
+              "harmful": 0,
+              "missing": 9,
+              "multiple": 0,
+              "none": 21,
+              "safe": 0,
+              "unique": 0
+            },
+            "POINT": {
+              "decision": 21,
+              "harmful": 0,
+              "missing": 9,
+              "multiple": 0,
+              "none": 21,
+              "safe": 0,
+              "unique": 0
+            }
+          },
+          "regime": 2,
+          "tick_range": [
+            200,
+            300
+          ]
+        }
+      ],
+      "seed": 104
+    },
+    {
+      "regimes": [
+        {
+          "modes": {
+            "INTERVAL": {
+              "decision": 15,
+              "harmful": 0,
+              "missing": 15,
+              "multiple": 0,
+              "none": 3,
+              "safe": 12,
+              "unique": 12
+            },
+            "POINT": {
+              "decision": 15,
+              "harmful": 0,
+              "missing": 15,
+              "multiple": 1,
+              "none": 3,
+              "safe": 11,
+              "unique": 11
+            }
+          },
+          "regime": 0,
+          "tick_range": [
+            0,
+            100
+          ]
+        },
+        {
+          "modes": {
+            "INTERVAL": {
+              "decision": 16,
+              "harmful": 0,
+              "missing": 14,
+              "multiple": 0,
+              "none": 11,
+              "safe": 5,
+              "unique": 5
+            },
+            "POINT": {
+              "decision": 16,
+              "harmful": 0,
+              "missing": 14,
+              "multiple": 1,
+              "none": 0,
+              "safe": 15,
+              "unique": 15
+            }
+          },
+          "regime": 1,
+          "tick_range": [
+            100,
+            200
+          ]
+        },
+        {
+          "modes": {
+            "INTERVAL": {
+              "decision": 19,
+              "harmful": 1,
+              "missing": 11,
+              "multiple": 0,
+              "none": 13,
+              "safe": 5,
+              "unique": 6
+            },
+            "POINT": {
+              "decision": 19,
+              "harmful": 2,
+              "missing": 11,
+              "multiple": 0,
+              "none": 12,
+              "safe": 5,
+              "unique": 7
+            }
+          },
+          "regime": 2,
+          "tick_range": [
+            200,
+            300
+          ]
+        }
+      ],
+      "seed": 105
+    },
+    {
+      "regimes": [
+        {
+          "modes": {
+            "INTERVAL": {
+              "decision": 16,
+              "harmful": 0,
+              "missing": 14,
+              "multiple": 0,
+              "none": 0,
+              "safe": 16,
+              "unique": 16
+            },
+            "POINT": {
+              "decision": 16,
+              "harmful": 0,
+              "missing": 14,
+              "multiple": 0,
+              "none": 0,
+              "safe": 16,
+              "unique": 16
+            }
+          },
+          "regime": 0,
+          "tick_range": [
+            0,
+            100
+          ]
+        },
+        {
+          "modes": {
+            "INTERVAL": {
+              "decision": 25,
+              "harmful": 0,
+              "missing": 5,
+              "multiple": 0,
+              "none": 18,
+              "safe": 7,
+              "unique": 7
+            },
+            "POINT": {
+              "decision": 25,
+              "harmful": 1,
+              "missing": 5,
+              "multiple": 7,
+              "none": 12,
+              "safe": 5,
+              "unique": 6
+            }
+          },
+          "regime": 1,
+          "tick_range": [
+            100,
+            200
+          ]
+        },
+        {
+          "modes": {
+            "INTERVAL": {
+              "decision": 20,
+              "harmful": 0,
+              "missing": 10,
+              "multiple": 0,
+              "none": 20,
+              "safe": 0,
+              "unique": 0
+            },
+            "POINT": {
+              "decision": 20,
+              "harmful": 0,
+              "missing": 10,
+              "multiple": 0,
+              "none": 20,
+              "safe": 0,
+              "unique": 0
+            }
+          },
+          "regime": 2,
+          "tick_range": [
+            200,
+            300
+          ]
+        }
+      ],
+      "seed": 106
+    },
+    {
+      "regimes": [
+        {
+          "modes": {
+            "INTERVAL": {
+              "decision": 18,
+              "harmful": 0,
+              "missing": 12,
+              "multiple": 0,
+              "none": 18,
+              "safe": 0,
+              "unique": 0
+            },
+            "POINT": {
+              "decision": 18,
+              "harmful": 0,
+              "missing": 12,
+              "multiple": 0,
+              "none": 18,
+              "safe": 0,
+              "unique": 0
+            }
+          },
+          "regime": 0,
+          "tick_range": [
+            0,
+            100
+          ]
+        },
+        {
+          "modes": {
+            "INTERVAL": {
+              "decision": 19,
+              "harmful": 0,
+              "missing": 11,
+              "multiple": 0,
+              "none": 16,
+              "safe": 3,
+              "unique": 3
+            },
+            "POINT": {
+              "decision": 19,
+              "harmful": 0,
+              "missing": 11,
+              "multiple": 0,
+              "none": 15,
+              "safe": 4,
+              "unique": 4
+            }
+          },
+          "regime": 1,
+          "tick_range": [
+            100,
+            200
+          ]
+        },
+        {
+          "modes": {
+            "INTERVAL": {
+              "decision": 17,
+              "harmful": 0,
+              "missing": 13,
+              "multiple": 0,
+              "none": 17,
+              "safe": 0,
+              "unique": 0
+            },
+            "POINT": {
+              "decision": 17,
+              "harmful": 0,
+              "missing": 13,
+              "multiple": 0,
+              "none": 17,
+              "safe": 0,
+              "unique": 0
+            }
+          },
+          "regime": 2,
+          "tick_range": [
+            200,
+            300
+          ]
+        }
+      ],
+      "seed": 107
+    },
+    {
+      "regimes": [
+        {
+          "modes": {
+            "INTERVAL": {
+              "decision": 22,
+              "harmful": 0,
+              "missing": 8,
+              "multiple": 0,
+              "none": 4,
+              "safe": 18,
+              "unique": 18
+            },
+            "POINT": {
+              "decision": 22,
+              "harmful": 1,
+              "missing": 8,
+              "multiple": 5,
+              "none": 0,
+              "safe": 16,
+              "unique": 17
+            }
+          },
+          "regime": 0,
+          "tick_range": [
+            0,
+            100
+          ]
+        },
+        {
+          "modes": {
+            "INTERVAL": {
+              "decision": 18,
+              "harmful": 1,
+              "missing": 12,
+              "multiple": 0,
+              "none": 13,
+              "safe": 4,
+              "unique": 5
+            },
+            "POINT": {
+              "decision": 18,
+              "harmful": 1,
+              "missing": 12,
+              "multiple": 0,
+              "none": 12,
+              "safe": 5,
+              "unique": 6
+            }
+          },
+          "regime": 1,
+          "tick_range": [
+            100,
+            200
+          ]
+        },
+        {
+          "modes": {
+            "INTERVAL": {
+              "decision": 21,
+              "harmful": 0,
+              "missing": 9,
+              "multiple": 0,
+              "none": 21,
+              "safe": 0,
+              "unique": 0
+            },
+            "POINT": {
+              "decision": 21,
+              "harmful": 0,
+              "missing": 9,
+              "multiple": 0,
+              "none": 21,
+              "safe": 0,
+              "unique": 0
+            }
+          },
+          "regime": 2,
+          "tick_range": [
+            200,
+            300
+          ]
+        }
+      ],
+      "seed": 108
+    },
+    {
+      "regimes": [
+        {
+          "modes": {
+            "INTERVAL": {
+              "decision": 18,
+              "harmful": 0,
+              "missing": 12,
+              "multiple": 0,
+              "none": 17,
+              "safe": 1,
+              "unique": 1
+            },
+            "POINT": {
+              "decision": 18,
+              "harmful": 0,
+              "missing": 12,
+              "multiple": 3,
+              "none": 0,
+              "safe": 15,
+              "unique": 15
+            }
+          },
+          "regime": 0,
+          "tick_range": [
+            0,
+            100
+          ]
+        },
+        {
+          "modes": {
+            "INTERVAL": {
+              "decision": 23,
+              "harmful": 0,
+              "missing": 7,
+              "multiple": 0,
+              "none": 16,
+              "safe": 7,
+              "unique": 7
+            },
+            "POINT": {
+              "decision": 23,
+              "harmful": 0,
+              "missing": 7,
+              "multiple": 2,
+              "none": 0,
+              "safe": 21,
+              "unique": 21
+            }
+          },
+          "regime": 1,
+          "tick_range": [
+            100,
+            200
+          ]
+        },
+        {
+          "modes": {
+            "INTERVAL": {
+              "decision": 23,
+              "harmful": 0,
+              "missing": 7,
+              "multiple": 0,
+              "none": 23,
+              "safe": 0,
+              "unique": 0
+            },
+            "POINT": {
+              "decision": 23,
+              "harmful": 0,
+              "missing": 7,
+              "multiple": 0,
+              "none": 23,
+              "safe": 0,
+              "unique": 0
+            }
+          },
+          "regime": 2,
+          "tick_range": [
+            200,
+            300
+          ]
+        }
+      ],
+      "seed": 109
+    },
+    {
+      "regimes": [
+        {
+          "modes": {
+            "INTERVAL": {
+              "decision": 21,
+              "harmful": 0,
+              "missing": 9,
+              "multiple": 2,
+              "none": 11,
+              "safe": 8,
+              "unique": 8
+            },
+            "POINT": {
+              "decision": 21,
+              "harmful": 0,
+              "missing": 9,
+              "multiple": 8,
+              "none": 2,
+              "safe": 11,
+              "unique": 11
+            }
+          },
+          "regime": 0,
+          "tick_range": [
+            0,
+            100
+          ]
+        },
+        {
+          "modes": {
+            "INTERVAL": {
+              "decision": 21,
+              "harmful": 4,
+              "missing": 9,
+              "multiple": 6,
+              "none": 4,
+              "safe": 7,
+              "unique": 11
+            },
+            "POINT": {
+              "decision": 21,
+              "harmful": 1,
+              "missing": 9,
+              "multiple": 10,
+              "none": 2,
+              "safe": 8,
+              "unique": 9
+            }
+          },
+          "regime": 1,
+          "tick_range": [
+            100,
+            200
+          ]
+        },
+        {
+          "modes": {
+            "INTERVAL": {
+              "decision": 24,
+              "harmful": 0,
+              "missing": 6,
+              "multiple": 0,
+              "none": 24,
+              "safe": 0,
+              "unique": 0
+            },
+            "POINT": {
+              "decision": 24,
+              "harmful": 0,
+              "missing": 6,
+              "multiple": 0,
+              "none": 24,
+              "safe": 0,
+              "unique": 0
+            }
+          },
+          "regime": 2,
+          "tick_range": [
+            200,
+            300
+          ]
+        }
+      ],
+      "seed": 110
+    },
+    {
+      "regimes": [
+        {
+          "modes": {
+            "INTERVAL": {
+              "decision": 19,
+              "harmful": 1,
+              "missing": 11,
+              "multiple": 0,
+              "none": 14,
+              "safe": 4,
+              "unique": 5
+            },
+            "POINT": {
+              "decision": 19,
+              "harmful": 0,
+              "missing": 11,
+              "multiple": 5,
+              "none": 14,
+              "safe": 0,
+              "unique": 0
+            }
+          },
+          "regime": 0,
+          "tick_range": [
+            0,
+            100
+          ]
+        },
+        {
+          "modes": {
+            "INTERVAL": {
+              "decision": 19,
+              "harmful": 0,
+              "missing": 11,
+              "multiple": 0,
+              "none": 15,
+              "safe": 4,
+              "unique": 4
+            },
+            "POINT": {
+              "decision": 19,
+              "harmful": 0,
+              "missing": 11,
+              "multiple": 0,
+              "none": 6,
+              "safe": 13,
+              "unique": 13
+            }
+          },
+          "regime": 1,
+          "tick_range": [
+            100,
+            200
+          ]
+        },
+        {
+          "modes": {
+            "INTERVAL": {
+              "decision": 17,
+              "harmful": 0,
+              "missing": 13,
+              "multiple": 0,
+              "none": 17,
+              "safe": 0,
+              "unique": 0
+            },
+            "POINT": {
+              "decision": 17,
+              "harmful": 0,
+              "missing": 13,
+              "multiple": 0,
+              "none": 17,
+              "safe": 0,
+              "unique": 0
+            }
+          },
+          "regime": 2,
+          "tick_range": [
+            200,
+            300
+          ]
+        }
+      ],
+      "seed": 111
+    }
+  ],
+  "summary": {
+    "0": {
+      "INTERVAL": {
+        "decision": 230,
+        "harmful": 3,
+        "harmful_rate_when_unique": 0.029411764705882353,
+        "missing": 130,
+        "multiple": 2,
+        "none": 126,
+        "safe": 99,
+        "safe_rate_when_unique": 0.9705882352941176,
+        "unique": 102
+      },
+      "POINT": {
+        "decision": 230,
+        "harmful": 3,
+        "harmful_rate_when_unique": 0.027777777777777776,
+        "missing": 130,
+        "multiple": 28,
+        "none": 94,
+        "safe": 105,
+        "safe_rate_when_unique": 0.9722222222222222,
+        "unique": 108
+      }
+    },
+    "1": {
+      "INTERVAL": {
+        "decision": 252,
+        "harmful": 8,
+        "harmful_rate_when_unique": 0.09523809523809523,
+        "missing": 108,
+        "multiple": 6,
+        "none": 162,
+        "safe": 76,
+        "safe_rate_when_unique": 0.9047619047619048,
+        "unique": 84
+      },
+      "POINT": {
+        "decision": 252,
+        "harmful": 11,
+        "harmful_rate_when_unique": 0.07913669064748201,
+        "missing": 108,
+        "multiple": 37,
+        "none": 76,
+        "safe": 128,
+        "safe_rate_when_unique": 0.920863309352518,
+        "unique": 139
+      }
+    },
+    "2": {
+      "INTERVAL": {
+        "decision": 249,
+        "harmful": 1,
+        "harmful_rate_when_unique": 0.16666666666666666,
+        "missing": 111,
+        "multiple": 0,
+        "none": 243,
+        "safe": 5,
+        "safe_rate_when_unique": 0.8333333333333334,
+        "unique": 6
+      },
+      "POINT": {
+        "decision": 249,
+        "harmful": 2,
+        "harmful_rate_when_unique": 0.2857142857142857,
+        "missing": 111,
+        "multiple": 0,
+        "none": 242,
+        "safe": 5,
+        "safe_rate_when_unique": 0.7142857142857143,
+        "unique": 7
+      }
+    }
+  }
+}

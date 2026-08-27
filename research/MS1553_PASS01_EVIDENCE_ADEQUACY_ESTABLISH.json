@@ -1,0 +1,325 @@
+{
+  "campaign": "MS1553-1577_DEVELOPMENTAL_CONSEQUENCE_EVIDENCE_ADEQUACY",
+  "cases": [
+    {
+      "case": "A_VS_B_INDEPENDENT_ROOTS_VS_SHARED_ROOT_REPETITION",
+      "evaluator_only_root_annotation": {
+        "fed_to_microseed": false,
+        "independent_fixture": [
+          "ROOT-0",
+          "ROOT-1",
+          "ROOT-2",
+          "ROOT-3",
+          "ROOT-4",
+          "ROOT-5",
+          "ROOT-6",
+          "ROOT-7"
+        ],
+        "redundant_fixture": [
+          "ROOT-SHARED",
+          "ROOT-SHARED",
+          "ROOT-SHARED",
+          "ROOT-SHARED",
+          "ROOT-SHARED",
+          "ROOT-SHARED",
+          "ROOT-SHARED",
+          "ROOT-SHARED"
+        ]
+      },
+      "finding": "CURRENT_EFFECT_PATH_COUNTS_TRACE_RECURRENCE_BUT_HAS_NO_ROOT_INDEPENDENCE_SEMANTICS",
+      "independent": {
+        "effect_witness": {
+          "assistance_ancestry": [
+            "SUPPLIED_TRACE_BOUNDARIES",
+            "SUPPLIED_EFFECT_COORDINATES",
+            "STABLE_CAPABILITY_HANDLE_IDENTITY",
+            "FIXED_CONTIGUOUS_MOTIF_LANGUAGE_LEN_2_3",
+            "FIXED_DISCOVERY_THRESHOLDS",
+            "SINGLETON_BASELINE_ESTIMATOR",
+            "CROSS_SCOPE_RESIDUAL_HOMOGENEITY_RULE"
+          ],
+          "authority": "MODEL_OUTPUT_ONLY",
+          "capability_epoch": 0,
+          "capability_id": "REST",
+          "consistency": 1.0,
+          "effect": 0.5,
+          "episode_schema_epoch": [
+            "E-ENERGY",
+            0
+          ],
+          "frame_epoch": [
+            "F",
+            0
+          ],
+          "semantic_effect_coordinate_authority": "NONE",
+          "source_trace_ids": [
+            "INDEPENDENT-TRACE-0",
+            "INDEPENDENT-TRACE-1",
+            "INDEPENDENT-TRACE-2",
+            "INDEPENDENT-TRACE-3",
+            "INDEPENDENT-TRACE-4",
+            "INDEPENDENT-TRACE-5",
+            "INDEPENDENT-TRACE-6",
+            "INDEPENDENT-TRACE-7"
+          ],
+          "status": "CURRENT_EFFECT",
+          "support": 8,
+          "truth_authority": "NONE",
+          "value_epoch": 0,
+          "value_id": "ENERGY"
+        },
+        "license_status": "UNIQUE_ACTION_LICENSE",
+        "licensed_action_ids": [
+          "REST"
+        ],
+        "overall_reason": "UNIQUE_CONJUNCTIVELY_LICENSED_ACTION"
+      },
+      "redundant": {
+        "effect_witness": {
+          "assistance_ancestry": [
+            "SUPPLIED_TRACE_BOUNDARIES",
+            "SUPPLIED_EFFECT_COORDINATES",
+            "STABLE_CAPABILITY_HANDLE_IDENTITY",
+            "FIXED_CONTIGUOUS_MOTIF_LANGUAGE_LEN_2_3",
+            "FIXED_DISCOVERY_THRESHOLDS",
+            "SINGLETON_BASELINE_ESTIMATOR",
+            "CROSS_SCOPE_RESIDUAL_HOMOGENEITY_RULE"
+          ],
+          "authority": "MODEL_OUTPUT_ONLY",
+          "capability_epoch": 0,
+          "capability_id": "REST",
+          "consistency": 1.0,
+          "effect": 0.5,
+          "episode_schema_epoch": [
+            "E-ENERGY",
+            0
+          ],
+          "frame_epoch": [
+            "F",
+            0
+          ],
+          "semantic_effect_coordinate_authority": "NONE",
+          "source_trace_ids": [
+            "REDUNDANT-TRACE-0",
+            "REDUNDANT-TRACE-1",
+            "REDUNDANT-TRACE-2",
+            "REDUNDANT-TRACE-3",
+            "REDUNDANT-TRACE-4",
+            "REDUNDANT-TRACE-5",
+            "REDUNDANT-TRACE-6",
+            "REDUNDANT-TRACE-7"
+          ],
+          "status": "CURRENT_EFFECT",
+          "support": 8,
+          "truth_authority": "NONE",
+          "value_epoch": 0,
+          "value_id": "ENERGY"
+        },
+        "license_status": "UNIQUE_ACTION_LICENSE",
+        "licensed_action_ids": [
+          "REST"
+        ],
+        "overall_reason": "UNIQUE_CONJUNCTIVELY_LICENSED_ACTION"
+      },
+      "same_license_status": true,
+      "same_visible_effect_statistics": true
+    },
+    {
+      "case": "C_SPARSE_BUT_DISCRIMINATING",
+      "deficit_state_after_bearing": "REVISIT_REQUIRED",
+      "effect_path_after": {
+        "effect_witness": null,
+        "license_status": "UNKNOWN_ACTION_SELECTION",
+        "licensed_action_ids": [],
+        "overall_reason": "NO_FULLY_LICENSED_ACTION"
+      },
+      "effect_path_before": {
+        "effect_witness": null,
+        "license_status": "UNKNOWN_ACTION_SELECTION",
+        "licensed_action_ids": [],
+        "overall_reason": "NO_FULLY_LICENSED_ACTION"
+      },
+      "epistemic_bearing": {
+        "answer_authority": "NONE",
+        "bearing": true,
+        "bearing_kind": "DISCRIMINATES_LIVE_SET",
+        "binding_id": "B-SPARSE",
+        "deficit_id": "D-SPARSE",
+        "duplicate": false,
+        "evidence_id": "E-SPARSE-DISCRIMINATING",
+        "raw_projection_discovery_authority": "NONE",
+        "semantic_question_authority": "NONE",
+        "state": "REVISIT_REQUIRED",
+        "truth_authority": "NONE",
+        "witness_id": "bearing-7e8df927f7e22ce32fe8b1c9"
+      },
+      "finding": "DISCRIMINATING_EVIDENCE_CAN_TRIGGER_REVISIT_BUT_DOES_NOT_COMPOSE_INTO_CURRENT_EFFECT_USE"
+    },
+    {
+      "case": "D_QUERY_DEPENDENT_USE",
+      "finding": "CONSEQUENCE_LICENSE_IS_NOT_QUERY_ADEQUACY_SENSITIVE_BEYOND_EXISTING_OBLIGATION_ID_SCOPE_AUTHORITY",
+      "results": {
+        "cheap_reversible": {
+          "intent_basis_kind": "MULTI_VALUE_LICENSE",
+          "licensed_action_ids": [
+            "REST"
+          ],
+          "obligation_id": "ACT",
+          "operational_scope_id": "R2",
+          "purpose_supplied_to_query": "cheap-reversible-use",
+          "reason": null,
+          "status": "ACTION_INTENT_NOMINATED"
+        },
+        "high_consequence": {
+          "intent_basis_kind": "MULTI_VALUE_LICENSE",
+          "licensed_action_ids": [
+            "REST"
+          ],
+          "obligation_id": "ACT",
+          "operational_scope_id": "R2",
+          "purpose_supplied_to_query": "irreversible-high-consequence-use",
+          "reason": null,
+          "status": "ACTION_INTENT_NOMINATED"
+        }
+      },
+      "same_operational_decision": true
+    },
+    {
+      "case": "E_STALE_OBSERVATION_ANCESTRY",
+      "deficit_after": "STALE",
+      "deficit_before": "ACTION_LIMITED",
+      "deficit_stale_reason": "PREMISE_DRIFT:CAPABILITY_PREMISE:SENSE@0:HOSTILE_OBSERVATION_PROVIDER_DRIFT",
+      "effect_after": {
+        "effect_witness": {
+          "assistance_ancestry": [
+            "SUPPLIED_TRACE_BOUNDARIES",
+            "SUPPLIED_EFFECT_COORDINATES",
+            "STABLE_CAPABILITY_HANDLE_IDENTITY",
+            "FIXED_CONTIGUOUS_MOTIF_LANGUAGE_LEN_2_3",
+            "FIXED_DISCOVERY_THRESHOLDS",
+            "SINGLETON_BASELINE_ESTIMATOR",
+            "CROSS_SCOPE_RESIDUAL_HOMOGENEITY_RULE"
+          ],
+          "authority": "MODEL_OUTPUT_ONLY",
+          "capability_epoch": 0,
+          "capability_id": "REST",
+          "consistency": 1.0,
+          "effect": 0.5,
+          "episode_schema_epoch": [
+            "E-ENERGY",
+            0
+          ],
+          "frame_epoch": [
+            "F",
+            0
+          ],
+          "semantic_effect_coordinate_authority": "NONE",
+          "source_trace_ids": [
+            "STALE-SENSOR-TRACE-0",
+            "STALE-SENSOR-TRACE-1",
+            "STALE-SENSOR-TRACE-2",
+            "STALE-SENSOR-TRACE-3",
+            "STALE-SENSOR-TRACE-4",
+            "STALE-SENSOR-TRACE-5",
+            "STALE-SENSOR-TRACE-6",
+            "STALE-SENSOR-TRACE-7"
+          ],
+          "status": "CURRENT_EFFECT",
+          "support": 8,
+          "truth_authority": "NONE",
+          "value_epoch": 0,
+          "value_id": "ENERGY"
+        },
+        "license_status": "UNIQUE_ACTION_LICENSE",
+        "licensed_action_ids": [
+          "REST"
+        ],
+        "overall_reason": "UNIQUE_CONJUNCTIVELY_LICENSED_ACTION"
+      },
+      "effect_before": {
+        "effect_witness": {
+          "assistance_ancestry": [
+            "SUPPLIED_TRACE_BOUNDARIES",
+            "SUPPLIED_EFFECT_COORDINATES",
+            "STABLE_CAPABILITY_HANDLE_IDENTITY",
+            "FIXED_CONTIGUOUS_MOTIF_LANGUAGE_LEN_2_3",
+            "FIXED_DISCOVERY_THRESHOLDS",
+            "SINGLETON_BASELINE_ESTIMATOR",
+            "CROSS_SCOPE_RESIDUAL_HOMOGENEITY_RULE"
+          ],
+          "authority": "MODEL_OUTPUT_ONLY",
+          "capability_epoch": 0,
+          "capability_id": "REST",
+          "consistency": 1.0,
+          "effect": 0.5,
+          "episode_schema_epoch": [
+            "E-ENERGY",
+            0
+          ],
+          "frame_epoch": [
+            "F",
+            0
+          ],
+          "semantic_effect_coordinate_authority": "NONE",
+          "source_trace_ids": [
+            "STALE-SENSOR-TRACE-0",
+            "STALE-SENSOR-TRACE-1",
+            "STALE-SENSOR-TRACE-2",
+            "STALE-SENSOR-TRACE-3",
+            "STALE-SENSOR-TRACE-4",
+            "STALE-SENSOR-TRACE-5",
+            "STALE-SENSOR-TRACE-6",
+            "STALE-SENSOR-TRACE-7"
+          ],
+          "status": "CURRENT_EFFECT",
+          "support": 8,
+          "truth_authority": "NONE",
+          "value_epoch": 0,
+          "value_id": "ENERGY"
+        },
+        "license_status": "UNIQUE_ACTION_LICENSE",
+        "licensed_action_ids": [
+          "REST"
+        ],
+        "overall_reason": "UNIQUE_CONJUNCTIVELY_LICENSED_ACTION"
+      },
+      "finding": "PREMISE_ANCHOR_CAN_STALE_EPISTEMIC_PRESSURE_BUT_EFFECT_WITNESS_DOES_NOT_CARRY_OBSERVATION_CAPABILITY_ANCESTRY",
+      "sensor_invalidation": [
+        "SENSE"
+      ]
+    }
+  ],
+  "discriminator": "CAN_EXISTING_MICROSEED_SURFACES_DISTINGUISH_CURRENT_CONSEQUENCE_EVIDENCE_THAT_IS_ADEQUATE_REDUNDANT_SPARSE_DISCRIMINATING_QUERY_DEPENDENT_OR_STALE_IN_ANCESTRY_WITHOUT_NEW_UNCERTAINTY_OR_PAL_ARCHITECTURE",
+  "disposition": "NARROWED_SURVIVED_ESTABLISH_PROBE__EXISTING_PARTS_PRESENT_BUT_NOT_COMPOSED_AT_CONSEQUENCE_USE_BOUNDARY__NO_MAINDEV_MUTATION",
+  "main_dev_mutation": "NONE",
+  "ms": 1553,
+  "nonclaims": [
+    "NO_EVIDENCE_ADEQUACY_ESTIMATOR_EARNED",
+    "NO_CONFIDENCE_THRESHOLD_EARNED",
+    "NO_RISK_HIERARCHY_EARNED",
+    "NO_ROOT_INDEPENDENCE_ONTOLOGY_EARNED",
+    "NO_WHOLE_ORGANISM_COMPETENCE_CREDIT"
+  ],
+  "pal_transfer": "NONE__STEP162_USED_AS_HOSTILE_DONOR_PRESSURE_ONLY",
+  "pass": 1,
+  "phase": "ESTABLISH_PROBE",
+  "primitive_earned": false,
+  "reconciliation": {
+    "already_existing_parts": [
+      "CURRENT_EFFECT_RECURRENCE_WITH_SUPPORT_AND_CONSISTENCY",
+      "QUERY_OBLIGATION_ID_SCOPE_AUTHORITY_BINDING",
+      "ACTION_LIMITED_EPISTEMIC_DEFICIT_LIFECYCLE",
+      "OPAQUE_PREMISE_CURRENTNESS_ANCHORS",
+      "BOUNDED_DISCRIMINATING_EVIDENCE_BEARING",
+      "PROBE_BINDING_AND_REVISIT_REQUIRED_STATE"
+    ],
+    "candidate_pressure": "EXISTING_EPISTEMIC_DEFICIT_AND_BEARING_MACHINERY_CAN_REPRESENT_ACTION_LIMITED_UNKNOWN_AND_DISCRIMINATING_REVISIT_PRESSURE_BUT_THE_CONSEQUENCE_USE_PATH_LACKS_THE_ANCESTRY_AND_QUERY_BINDINGS_NEEDED_TO_COMPOSE_IT",
+    "not_currently_composed_into_effect_use": [
+      "EVIDENCE_ROOT_INDEPENDENCE_OR_REDUNDANCY",
+      "SPARSE_DISCRIMINATING_BEARING_AS_EFFECT_USE_SUFFICIENCY",
+      "QUERY_RELATIVE_CONSEQUENCE_EVIDENCE_ADEQUACY",
+      "OBSERVATION_CAPABILITY_ANCESTRY_ON_CURRENT_EFFECT_WITNESSES"
+    ]
+  },
+  "schema": "microseed.ms1553.pass01.evidence-adequacy-establish.v1"
+}

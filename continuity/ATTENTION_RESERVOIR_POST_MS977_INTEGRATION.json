@@ -1,0 +1,28 @@
+{
+  "deferred": [
+    "CONSTITUTIONAL-VALUE-PRIOR-ORIGIN",
+    "DEVELOPMENTAL-IDENTITY-UNDER-STRUCTURAL-REWRITE",
+    "GENERAL-BIOGRAPHY-MERGE-SEMANTICS",
+    "GENERAL-EPISODE-PARTITION-SEARCH",
+    "GENERAL-OVERLAP-DECONVOLUTION",
+    "GENERAL-ACTION-CORRESPONDENCE-SEARCH",
+    "NONLINEAR-SENSORIMOTOR-FRAME"
+  ],
+  "integration_debt_open": [
+    "GENERAL_GOAL_FORMATION",
+    "GENERAL_CAUSAL_AUTHORSHIP_DISCOVERY",
+    "PERSISTENT_SELFHOOD_NOT_QUALIFIED"
+  ],
+  "language": "DEFERRED_PRELINGUAL_COGNITION_ACTIVE",
+  "ms978_started": false,
+  "reactivated": [
+    "GRAND-P1-PARENT-CHILD-DEVELOPMENTAL-INVERSE-CONTROL",
+    "GRAND-P5-DECENTRALIZED-CHILD-GOAL-NEGOTIATION"
+  ],
+  "schema": "microseed.attention-reservoir.post-ms977-integration.v0.7",
+  "selected": {
+    "id": "ATTN-MS977-HIERARCHICAL-COMPETENCE-GOAL-RECRUITMENT__REACTIVATES_GRAND_P1_P5",
+    "reason": "Bounded regulatory pressure now exists strongly enough to collide with the already-paid Grand P1/P5 hierarchy/autonomy/currentness discriminator; this cross-family pressure has higher portfolio value than another local value-only chain."
+  },
+  "terminal_ms": 977
+}

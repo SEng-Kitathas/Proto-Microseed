@@ -1,0 +1,11 @@
+{
+  "admitted_state": "SHADOW_QUALIFIED",
+  "authority": "RESEARCH_ONLY",
+  "generic_qualifier_checks_source_ancestry_or_circularity": false,
+  "pass": "MS1588_PASS11",
+  "qualification_evidence_source": "OBS-A",
+  "result": "GENERIC_SUPPORTIVE_EVIDENCE_QUALIFIER_CAN_FALSE_GREEN_SELF_REFERENTIAL_OBSERVATION_MAPPING_EVIDENCE",
+  "scope": "QUALIFIER_BOUNDARY_SCAR__NOT_PROOF_OF_NEW_ORGANISM_PRIMITIVE",
+  "ticket_authority": "OBSERVATION_ONLY",
+  "ticket_state": "SHADOW_QUALIFIED"
+}

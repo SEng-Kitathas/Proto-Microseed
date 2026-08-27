@@ -1,0 +1,13 @@
+{
+  "authority": "RESEARCH_ONLY",
+  "declared_independence_results": {
+    "declared_disjoint": true,
+    "different_source_shared_root": false,
+    "overlapping_multi_root": false,
+    "same_source_different_event": false,
+    "spoofed_disjoint_hidden_common": true
+  },
+  "hidden_common_case_true_independence": false,
+  "pass": "MS1589_PASS12",
+  "result": "EXISTING_ORIGIN_LINEAGE_FIELDS_CAN_BLOCK_DECLARED_OVERLAP__BUT_CANNOT_SELF_AUTHENTICATE_ROOT_TRUTH"
+}

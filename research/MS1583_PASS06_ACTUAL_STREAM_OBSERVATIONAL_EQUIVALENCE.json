@@ -1,0 +1,21 @@
+{
+  "authority": "RESEARCH_ONLY",
+  "organism_visible_records_equal": true,
+  "pass": "MS1583_PASS06",
+  "reported_interface_stream": {
+    "ENERGY": 4.6,
+    "INTEGRITY": 5.1,
+    "THERMAL": 8.3
+  },
+  "result": "SAME_STREAM_CANNOT_SELF_AUTHENTICATE_ACTUALNESS__HIDDEN_WORLDS_OBSERVATIONALLY_EQUIVALENT_AT_CURRENT_INTERFACE",
+  "world_A_hidden_truth": {
+    "ENERGY": 3.62,
+    "INTEGRITY": 6.34,
+    "THERMAL": 7.16
+  },
+  "world_B_hidden_truth": {
+    "ENERGY": 5.1,
+    "INTEGRITY": 7.4,
+    "THERMAL": 6.2
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "authority": "RESEARCH_ONLY",
+  "pass": "MS1585_PASS08",
+  "premise_bound_after_capability_invalidation": {
+    "assistance_ancestry": [],
+    "candidate_ids": [],
+    "deficit_id": "D-MAP",
+    "hypothesis_digest_sha256": "2abae091cbd12782852c4780e64ee6ed833decb71b333bead6ad852a2af875bb",
+    "identifiability_class": "C_ACTION_LIMITED",
+    "missing_discriminator_signature_sha256": "f0fb64482590678af79667bb762c823a24218b521d12938eb0bbb6132a25a1fa",
+    "premise_anchors": [
+      {
+        "epoch": 0,
+        "kind": "CAPABILITY_PREMISE",
+        "object_id": "OBS-CHAN"
+      }
+    ],
+    "probe_capability_epoch": null,
+    "probe_capability_id": null,
+    "probe_evidence_ids": [],
+    "question_key": "OBS-CHAN::MAPPING",
+    "relevant_evidence_ids": [],
+    "semantic_question_authority": "NONE",
+    "stale_evidence_id": null,
+    "stale_reason": "PREMISE_DRIFT:CAPABILITY_PREMISE:OBS-CHAN@0:OBSERVATION_MAPPING_CHALLENGED",
+    "state": "STALE",
+    "truth_authority": "NONE",
+    "unknown_evidence_id": "UNK-MAP"
+  },
+  "premise_bound_before": {
+    "assistance_ancestry": [],
+    "candidate_ids": [],
+    "deficit_id": "D-MAP",
+    "hypothesis_digest_sha256": "2abae091cbd12782852c4780e64ee6ed833decb71b333bead6ad852a2af875bb",
+    "identifiability_class": "C_ACTION_LIMITED",
+    "missing_discriminator_signature_sha256": "f0fb64482590678af79667bb762c823a24218b521d12938eb0bbb6132a25a1fa",
+    "premise_anchors": [
+      {
+        "epoch": 0,
+        "kind": "CAPABILITY_PREMISE",
+        "object_id": "OBS-CHAN"
+      }
+    ],
+    "probe_capability_epoch": null,
+    "probe_capability_id": null,
+    "probe_evidence_ids": [],
+    "question_key": "OBS-CHAN::MAPPING",
+    "relevant_evidence_ids": [],
+    "semantic_question_authority": "NONE",
+    "stale_evidence_id": null,
+    "stale_reason": null,
+    "state": "ACTION_LIMITED",
+    "truth_authority": "NONE",
+    "unknown_evidence_id": "UNK-MAP"
+  },
+  "probe_only_after_capability_invalidation": {
+    "assistance_ancestry": [],
+    "candidate_ids": [],
+    "deficit_id": "D-PROBE",
+    "hypothesis_digest_sha256": "aaa9402664f1a41f40ebbc52c9993eb66aeb366602958fdfaa283b71e64db123",
+    "identifiability_class": "C_ACTION_LIMITED",
+    "missing_discriminator_signature_sha256": "148de9c5a7a44d19e56cd9ae1a554bf67847afb0c58f6e12fa29ac7ddfca9940",
+    "premise_anchors": [],
+    "probe_capability_epoch": 0,
+    "probe_capability_id": "OBS-PROBE",
+    "probe_evidence_ids": [],
+    "question_key": "MAP",
+    "relevant_evidence_ids": [],
+    "semantic_question_authority": "NONE",
+    "stale_evidence_id": null,
+    "stale_reason": null,
+    "state": "ACTION_LIMITED",
+    "truth_authority": "NONE",
+    "unknown_evidence_id": "UNK-PROBE"
+  },
+  "probe_only_before": {
+    "assistance_ancestry": [],
+    "candidate_ids": [],
+    "deficit_id": "D-PROBE",
+    "hypothesis_digest_sha256": "aaa9402664f1a41f40ebbc52c9993eb66aeb366602958fdfaa283b71e64db123",
+    "identifiability_class": "C_ACTION_LIMITED",
+    "missing_discriminator_signature_sha256": "148de9c5a7a44d19e56cd9ae1a554bf67847afb0c58f6e12fa29ac7ddfca9940",
+    "premise_anchors": [],
+    "probe_capability_epoch": 0,
+    "probe_capability_id": "OBS-PROBE",
+    "probe_evidence_ids": [],
+    "question_key": "MAP",
+    "relevant_evidence_ids": [],
+    "semantic_question_authority": "NONE",
+    "stale_evidence_id": null,
+    "stale_reason": null,
+    "state": "PROBE_AVAILABLE",
+    "truth_authority": "NONE",
+    "unknown_evidence_id": "UNK-PROBE"
+  },
+  "result": "EXISTING_EPISTEMIC_LIFECYCLE_DISTINGUISHES_MAPPING_PREMISE_DRIFT_FROM_PROBE_ACCESS_LOSS"
+}

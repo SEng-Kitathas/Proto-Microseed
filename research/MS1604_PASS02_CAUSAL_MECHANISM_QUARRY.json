@@ -1,0 +1,23 @@
+{
+  "authority": "RESEARCH_ONLY",
+  "pass": "MS1604_PASS02",
+  "quarry": {
+    "DriftInterventionConfig": [
+      "SUPPLIED_INTERVENTION_REPEATS_31",
+      "SUPPLIED_MIN_PREDICTION_AGREEMENT_0.650000",
+      "SUPPLIED_MIN_PREDICTION_MARGIN_0.200000",
+      "SUPPLIED_MAX_PROBE_POOL_256",
+      "SUPPLIED_OPAQUE_INTERVENTION_TEMPLATES",
+      "EXACT_OPAQUE_OUTCOME_AGREEMENT_ONLY",
+      "NO_LEARNED_NOISE_RATE_MODEL",
+      "NO_SEMANTIC_DRIFT_CAUSE_ONTOLOGY",
+      "NO_GENERAL_MULTI_STEP_ACTIVE_LEARNING"
+    ],
+    "HypothesisSet": "eliminates supplied candidates from observed probe->outcome pairs; no causal relevance/independence model",
+    "action_outcome_learning": "learns actual supplied outcome labels after execution; not a validator of outcome causal provenance",
+    "capability_dependencies": "carry currentness/qualification ancestry, not causal truth authority",
+    "drift_intervention": "repeated exact outcome agreement over an already-selected discriminating probe; no exogenous-disturbance attribution"
+  },
+  "result": "NO_EXISTING_GENERAL_CAUSAL_ATTRIBUTION_OWNER__REPETITION_AND_ACTIVE_DISCRIMINATION_ARE_DOWNSTREAM_OF_CAUSAL_RELEVANCE",
+  "scar": "REPEATED_INTERVENTION_AGREEMENT != EXOGENOUS_DISTURBANCE_SEPARATION"
+}

@@ -1,0 +1,118 @@
+{
+  "all_checks_pass": false,
+  "breadth_next": "IF_NEGATIVE_RECONCILE_WITH_PASS21_IDENTIFIABILITY_AND_PARENT_CHILD_REPRESENTABLE_NOT_IDENTIFIABLE_SCARS__DO_NOT_TRY_RICHER_SELECTOR_GRAMMARS__SEPARATE_MECHANISM_EXPRESSIVITY_FROM_ENVIRONMENTAL_IDENTIFIABILITY_BEFORE_PROMOTION",
+  "campaign_pass": 21,
+  "checks": {
+    "all_twelve_runs_have_complete_current_observation": false,
+    "fixed_gates_and_grammar_used_without_sweep": true,
+    "transfer_result_is_explicitly_measured": true
+  },
+  "discriminator": "CAN_THE_PASS19_RELATIONAL_UNITIZATION_FORM_A_USEFUL_DIAGNOSTIC_MAPPING_FROM_ONE_R2_LIFETIME_USING_ONLY_ALREADY_OBSERVED_COARSE_CURRENT_VALUE_RELATIONS_AND_QUERY_RELATIVE_TARGET_STANCES__WITHOUT_SUPPLYING_A_HIDDEN_REGIME_OR_DIAGNOSTIC_MAPPING",
+  "disposition": "NARROWED_NEGATIVE__BOUNDED_RELATIONAL_UNITIZATION_DOES_NOT_RELIABLY_BOOTSTRAP_A_DIAGNOSTIC_MAPPING_FROM_CURRENT_R2_OBSERVABLE_RELATIONS_WITHIN_ONE_LIFETIME",
+  "fixed_configuration": {
+    "holdout_ticks": 30,
+    "min_consistency": 0.75,
+    "min_support": 8,
+    "no_hidden_regime": true,
+    "no_selector_conjunctions": true,
+    "no_threshold_sweep": true,
+    "seeds": [
+      107,
+      108,
+      109,
+      110,
+      111,
+      112,
+      113,
+      114,
+      115,
+      116,
+      117,
+      118
+    ],
+    "selector_grammar": "ONE_EXISTING_VALUE_RELATION_TOKEN_BELOW_WITHIN_ABOVE",
+    "ticks_per_lifetime": 100,
+    "train_ticks": 70
+  },
+  "interpretation": "A_POSITIVE_BOUNDED_FIXTURE_RESULT_DOES_NOT_AUTOMATICALLY_TRANSFER_TO_R2__THE_R2_TEST_ASKS_ONLY_WHETHER_EXISTING_COARSE_OBSERVABLE_RELATIONS_SUPPLY_ENOUGH_RECURRENT_CONDITIONAL_STRUCTURE_FOR_THE_TINY_UNITIZATION_TO_FORM_A_DIAGNOSTIC_MAPPING_WITHOUT_HIDDEN_LABELS",
+  "main_dev_mutation": "NONE",
+  "milestone": "MS1573",
+  "nonclaims": [
+    "A_NEGATIVE_DOES_NOT_DISPROVE_RELATIONAL_HYPOTHESIS_FORMATION_IN_GENERAL",
+    "A_NEGATIVE_MAY_REFLECT_R2_IDENTIFIABILITY_OR_SAMPLE_LIMITS",
+    "NO_PERMISSION_FOR_SELECTOR_GRAMMAR_EXPANSION_OR_PARAMETER_SEARCH",
+    "NO_MAINDEV_MUTATION"
+  ],
+  "phase": "R2_SINGLE_LIFETIME_ENDOGENOUS_MAPPING_TRANSFER",
+  "runs": [
+    {
+      "nominations": [],
+      "seed": 107,
+      "status": "OK"
+    },
+    {
+      "nominations": [],
+      "seed": 108,
+      "status": "INCOMPLETE_FINAL_OBSERVATION"
+    },
+    {
+      "nominations": [],
+      "seed": 109,
+      "status": "OK"
+    },
+    {
+      "nominations": [],
+      "seed": 110,
+      "status": "OK"
+    },
+    {
+      "nominations": [],
+      "seed": 111,
+      "status": "OK"
+    },
+    {
+      "nominations": [],
+      "seed": 112,
+      "status": "OK"
+    },
+    {
+      "nominations": [],
+      "seed": 113,
+      "status": "INCOMPLETE_FINAL_OBSERVATION"
+    },
+    {
+      "nominations": [],
+      "seed": 114,
+      "status": "INCOMPLETE_FINAL_OBSERVATION"
+    },
+    {
+      "nominations": [],
+      "seed": 115,
+      "status": "OK"
+    },
+    {
+      "nominations": [],
+      "seed": 116,
+      "status": "OK"
+    },
+    {
+      "nominations": [],
+      "seed": 117,
+      "status": "OK"
+    },
+    {
+      "nominations": [],
+      "seed": 118,
+      "status": "INCOMPLETE_FINAL_OBSERVATION"
+    }
+  ],
+  "summary": {
+    "complete_runs": 8,
+    "mean_holdout_lift_for_nominations_with_support_ge_3": null,
+    "seeds_with_any_discriminating_mapping": 0,
+    "seeds_with_any_positive_holdout_mapping": 0,
+    "seeds_with_any_strong_holdout_mapping": 0,
+    "total_nominated_mappings": 0,
+    "transfer_supported_by_predeclared_breadth_rule": false
+  }
+}

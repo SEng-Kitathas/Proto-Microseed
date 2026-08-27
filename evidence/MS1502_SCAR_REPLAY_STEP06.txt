@@ -1,0 +1,17 @@
+{
+  "all_pass": true,
+  "checks": {
+    "candidate_remains_proposal_only": true,
+    "coordination_ancestry_inherits_counterparties": true,
+    "coordination_drift_does_not_stale_children": true,
+    "coordination_drift_stales_composite": true,
+    "discovery_preserves_coordination_epoch": true,
+    "discovery_preserves_counterparty_epochs": true,
+    "discovery_preserves_topology_epoch": true,
+    "existing_external_qualification_and_admission_path_reused": true,
+    "history_preserved_after_stale": true,
+    "no_multi_child_planner_or_self_qualification": true,
+    "trace_binds_existing_coordination_epoch": true,
+    "trace_binds_existing_topology_epoch": true
+  }
+}

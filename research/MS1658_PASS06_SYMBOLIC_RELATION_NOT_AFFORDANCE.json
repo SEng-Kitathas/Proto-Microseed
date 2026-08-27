@@ -1,0 +1,16 @@
+{
+  "checks": {
+    "invented_symbolic_action_has_no_authority": true,
+    "invented_symbolic_action_has_no_path": true
+  },
+  "disposition": "EXISTING_CAPABILITY_BOUNDARY_ALREADY_BLOCKS_SYMBOLIC_ACTUATOR_FABRICATION",
+  "invoke_result": {
+    "authority": "NONE",
+    "status": "NO_PATH"
+  },
+  "milestone": "MS1658",
+  "pass": 6,
+  "pass_all": true,
+  "scar": "RELATIONAL_ACTION_EXPRESSION_NE_EXECUTABLE_AFFORDANCE",
+  "symbolic_action": "COMP-A-A-AS-C"
+}

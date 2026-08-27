@@ -1,0 +1,97 @@
+{
+  "campaign": "PRELINGUAL_ENDOGENOUS_EXPERIENCE_FRAME_RELATIONAL_ALGEBRA_CONSTRUCTION",
+  "candidates": [
+    {
+      "candidate_id": "COMP-05d48f84eafdd084478e",
+      "direct_action": "C",
+      "execution_authority": "NONE",
+      "first_action": "A",
+      "proposal_authority": "NONE",
+      "second_action": "A",
+      "source_evidence_ids": [
+        "0584a1221be1d1e212619fdf7ed1c20a31710c1c3a1d54ea2e43e7892578108b",
+        "6c3fd5d652a4f281b2ced8e2e10b71e6ab3c8afed8ea849eb20f3afb5e38462b"
+      ],
+      "support": 2,
+      "truth_authority": "NONE"
+    }
+  ],
+  "checks": {
+    "gauge_equivalent_under_injective_renaming": true,
+    "heldout_lift_over_equality_lookup": true,
+    "heldout_relational_accuracy_is_one": true,
+    "nonidentifiable_case_preserves_multiple_candidates": true,
+    "nonidentifiable_case_returns_unknown": true,
+    "opaque_composition_candidate_constructed": true,
+    "proposal_has_zero_truth_execution_authority": true
+  },
+  "explicitly_absent": [
+    "COORDINATE_SEMANTICS",
+    "VECTOR_VALUES",
+    "DISTANCE",
+    "DIRECTION",
+    "AXIS_LABELS",
+    "HIDDEN_STATE_LABELS",
+    "EXECUTION_AUTHORITY_FROM_CONSTRUCTOR"
+  ],
+  "fixture_assistance": [
+    "STABLE_OPAQUE_EVENT_IDENTITY",
+    "STABLE_OPAQUE_ACTION_IDENTITY",
+    "STABLE_OPAQUE_EFFECT_IDENTITY",
+    "EPISODE_ORDER_AND_ACTION_OUTCOME_BINDING"
+  ],
+  "gauge_renaming": {
+    "action_map": {
+      "A": "OPAQUE-A-2-4a6113",
+      "B": "OPAQUE-A-1-169858",
+      "C": "OPAQUE-A-0-3151fe"
+    },
+    "renamed_predictions_equivalent": true,
+    "state_map": {
+      "S0": "OPAQUE-E-1-657fa1",
+      "S1": "OPAQUE-E-2-c8165b",
+      "S2": "OPAQUE-E-3-60d38a",
+      "S3": "OPAQUE-E-0-5bea18"
+    }
+  },
+  "holdout": {
+    "exact_lookup_accuracy": 0.0,
+    "relational_composition_accuracy": 1.0,
+    "rows": [
+      [
+        "S2",
+        "C",
+        "S0"
+      ],
+      [
+        "S3",
+        "C",
+        "S1"
+      ]
+    ]
+  },
+  "interpretation": {
+    "nonclaim": "This does not prove the discovered composition is globally true, uniquely meaningful, physically complete, or executable beyond already observed actions.",
+    "pal43_pressure": "Representable relational structure must remain UNKNOWN when competing equivalence classes survive; symbolic structure cannot manufacture an actuator.",
+    "surviving_claim": "Exact recurrent endpoint equivalence can nominate an opaque action-composition relation that generalizes to held-out direct-action outcomes without coordinate semantics."
+  },
+  "milestone": "MS1653",
+  "nonidentifiable": {
+    "candidate_count": 2,
+    "candidate_paths": [
+      [
+        "A",
+        "A",
+        "C"
+      ],
+      [
+        "D",
+        "E",
+        "C"
+      ]
+    ],
+    "prediction": null,
+    "status": "UNKNOWN_COMPETING_RELATIONAL_PREDICTIONS"
+  },
+  "pass": true
+}

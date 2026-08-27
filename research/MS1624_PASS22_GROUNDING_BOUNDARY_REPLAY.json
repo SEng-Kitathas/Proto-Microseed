@@ -1,0 +1,15 @@
+{
+  "ancestry_carrier_status": "SURVIVED_RESEARCH_ONLY",
+  "authority": "RESEARCH_ONLY",
+  "causal_hostiles": {
+    "adversarial_exogenous_covariation": "WRONG_MEDIATOR_64/64",
+    "clean_bounded_intervention": "IDENTIFIABLE_WITHIN_FIXTURE",
+    "covered_negative_control": "CAN_REJECT_EXOGENOUS",
+    "disturbance_outside_control_coverage": "FALSE_GREEN",
+    "independent_nuisance_repetition": "RECOVERS_MEDIATOR_64/64",
+    "passive_ambiguity": "UNRESOLVED"
+  },
+  "pass": "MS1624_PASS22",
+  "result": "ANCESTRY_CURRENTNESS_WIRING_DOES_NOT_SOLVE_ACTUAL_WORLD_CAUSAL_GROUNDING__BOUNDARY_PRESERVED",
+  "scar": "CURRENTNESS_PROPAGATION != CAUSAL_ATTRIBUTION"
+}

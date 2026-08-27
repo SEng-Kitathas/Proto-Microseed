@@ -1,0 +1,26 @@
+{
+  "authority": "RESEARCH_ONLY",
+  "campaign": "MS1578-1602 PRELINGUAL_EMBODIED_OBSERVATION_GROUNDING_AND_CHANNEL_ASSURANCE",
+  "closed": [
+    "sensor-specific registry",
+    "channel-id independence",
+    "agreement-as-independence",
+    "confidence estimator sweep",
+    "post-exec challenge variants"
+  ],
+  "deferred": [
+    "relational unitization",
+    "stochastic observation reliability",
+    "historical observation admission"
+  ],
+  "disposition": "NARROWED_SURVIVED__OBSERVATION_USE_PLUMBING_COMPOSES_FROM_EXISTING_CAPABILITIES__ACTUAL_EVENT_GROUNDING_REMAINS_OPEN__NO_MAINDEV_PROMOTION",
+  "open": [
+    "calibration physical correctness",
+    "noncircular mapping qualification",
+    "common-cause ancestry",
+    "experience-frame construction"
+  ],
+  "pass": "MS1601_PASS24",
+  "research_bridge": "SURVIVED_RESEARCH_ONLY__DEFER_MAINDEV",
+  "selected_next": "MS1603-1627 PRELINGUAL_EXPERIENCE_FRAME_CONSTRUCTION_ACTUAL_EVENT_PROVENANCE"
+}

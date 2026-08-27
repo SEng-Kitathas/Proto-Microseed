@@ -1,0 +1,14 @@
+{
+  "schema": "microseed.ms1502.inherited-embodiment-replay.v1",
+  "surface": "tests/embodiment",
+  "runner": "pytest-native bounded shards",
+  "shards": [
+    {"shard": 1, "tests": 63, "result": "63/63 PASS"},
+    {"shard": 2, "tests": 62, "result": "62/62 PASS"},
+    {"shard": 3, "tests": 62, "result": "62/62 PASS"},
+    {"shard": 4, "tests": 62, "result": "62/62 PASS"}
+  ],
+  "total": "249/249 PASS",
+  "code_changed_during_replay": false,
+  "interpretation": "All inherited embodiment/integration propositions plus the nine MS1502 integration tests survive the lineage extension."
+}

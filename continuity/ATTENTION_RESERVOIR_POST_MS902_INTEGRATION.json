@@ -1,0 +1,38 @@
+{
+  "deferred": [
+    {
+      "id": "PERSISTENT-DEVELOPMENTAL-IDENTITY",
+      "reason": "Still load-bearing; next identity work should collide with learned episodes/biography rather than precede them by assumption."
+    },
+    {
+      "id": "GENERAL-ACTION-CORRESPONDENCE-SEARCH",
+      "reason": "MS901 shows factorial search pressure; reopen on tractability failure in a whole-enough embodiment."
+    },
+    {
+      "id": "NONLINEAR-SENSORIMOTOR-FRAME",
+      "reason": "MS892 hostile regime narrowed the linear/relational mechanism; reopen when the selected episode work requires a richer frame."
+    }
+  ],
+  "integration_debt_open": [
+    "ENDOGENOUS_EPISODE_TRACE_GROUPING",
+    "GENERAL_ACTION_CORRESPONDENCE_SEARCH",
+    "NONLINEAR_SENSORIMOTOR_FRAME",
+    "PERSISTENT_DEVELOPMENTAL_IDENTITY"
+  ],
+  "integration_debt_resolved": [
+    "MS895-FRAME-CURRENTNESS-NOT-FIRST-CLASS"
+  ],
+  "ms903_started": false,
+  "reactivated": [
+    {
+      "id": "TEMPORAL-EPISODE-ABSTRACTION",
+      "reason": "Cross-family capability-discovery evidence exposed supplied episode grouping as a load-bearing denominator."
+    }
+  ],
+  "schema": "microseed.attention-reservoir.post-integration.v0.4",
+  "selected": {
+    "id": "ATTN-MS902-ENDOGENOUS-EPISODE-TRACE-GROUPING__REACTIVATES_TEMPORAL-EPISODE-ABSTRACTION",
+    "reason": "MS898-902 shows that even after bounded action/effect-frame recovery feeds endogenous capability discovery, higher-level grouping into meaningful operational traces/episodes remains supplied. Temporal/episode abstraction is therefore a demonstrated upstream dependency, not a waterfall selection."
+  },
+  "terminal_ms": 902
+}

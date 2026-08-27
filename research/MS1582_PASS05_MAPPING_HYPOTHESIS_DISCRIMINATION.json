@@ -1,0 +1,29 @@
+{
+  "actual_probe_result_supplied_at_fixture_boundary": "+",
+  "after": {
+    "disposition": "IDENTIFIED_WITHIN_CANDIDATE_SET",
+    "live": [
+      "MAP-ID"
+    ],
+    "next_probe": null
+  },
+  "authority": "RESEARCH_ONLY",
+  "before": {
+    "disposition": "UNRESOLVED",
+    "live": [
+      "MAP-ID",
+      "MAP-FLIP"
+    ],
+    "next_probe": "PLUS"
+  },
+  "pass": "MS1582_PASS05",
+  "result": "EXISTING_ACTIVE_DISCRIMINATION_CAN_TEST_BOUNDED_MAPPING_ALTERNATIVES__BUT_REQUIRES_GROUNDED_PROBE_RESULT_AND_PREEXISTING_HYPOTHESES",
+  "zero_disagreement_case": {
+    "disposition": "UNRESOLVED",
+    "live": [
+      "COMMON-A",
+      "COMMON-B"
+    ],
+    "next_probe": null
+  }
+}

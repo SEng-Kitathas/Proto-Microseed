@@ -1,0 +1,59 @@
+{
+  "authority": "RESEARCH_ONLY",
+  "discriminator": "Can existing Microseed discrimination identify actual-event stream role while refusing passive ambiguity and exogenous co-change?",
+  "exogenous_covariation_hostile": {
+    "disposition": "IDENTIFIED_WITHIN_CANDIDATE_SET",
+    "live": [
+      "STREAM-PREDICTED-ACTUAL"
+    ],
+    "next_probe": null
+  },
+  "gauge_rename": {
+    "after": {
+      "disposition": "IDENTIFIED_WITHIN_CANDIDATE_SET",
+      "live": [
+        "A"
+      ],
+      "next_probe": null
+    },
+    "before": {
+      "disposition": "UNRESOLVED",
+      "live": [
+        "A",
+        "B"
+      ],
+      "next_probe": "POST_PREDICTION_PERTURB"
+    }
+  },
+  "lawful_causal_fixture": {
+    "after": {
+      "disposition": "IDENTIFIED_WITHIN_CANDIDATE_SET",
+      "live": [
+        "STREAM-PHYSICAL-ACTUAL"
+      ],
+      "next_probe": null
+    },
+    "probe": "POST_PREDICTION_PERTURB"
+  },
+  "multiple_or_nonunique_change": {
+    "disposition": "MODEL_SPACE_MISSPECIFIED_OR_CONTRADICTED",
+    "live": [],
+    "next_probe": null
+  },
+  "no_downstream_effect_change": {
+    "disposition": "MODEL_SPACE_MISSPECIFIED_OR_CONTRADICTED",
+    "live": [],
+    "next_probe": null
+  },
+  "pass": "MS1603_PASS01",
+  "passive": {
+    "disposition": "UNRESOLVED",
+    "live": [
+      "STREAM-PHYSICAL-ACTUAL",
+      "STREAM-PREDICTED-ACTUAL"
+    ],
+    "next_probe": "POST_PREDICTION_PERTURB"
+  },
+  "result": "NARROWED__EXISTING_DISCRIMINATION_CAN_CONSUME_A_BOUNDED_CAUSAL_CONTRAST_BUT_CANNOT_DISTINGUISH_CAUSAL_MEDIATION_FROM_EXOGENOUS_COVARIATION",
+  "scar": "INTERVENTION_EFFECT_COVARIATION != INTERVENTION_EFFECT_CAUSATION"
+}

@@ -1,0 +1,24 @@
+{
+  "authority": "RESEARCH_ONLY",
+  "discriminator": "Can existing Observation origin/lineage or EvidenceLedger ancestry gate outcome-observation admission without a new owner?",
+  "ledger_receives_origin_as_source": true,
+  "lineage_projected_into_outcome_evidence_payload": false,
+  "observation_fields": [
+    "capture_id",
+    "origin",
+    "referent",
+    "value",
+    "observed_at",
+    "acquired_at",
+    "currentness_basis",
+    "resource_mode",
+    "authority",
+    "lineage"
+  ],
+  "pass": "MS1580_PASS03",
+  "record_bounded_action_outcome_checks_authority": true,
+  "record_bounded_action_outcome_checks_referent": true,
+  "record_bounded_action_outcome_reads_lineage": false,
+  "record_bounded_action_outcome_reads_origin": true,
+  "result": "ORIGIN_IS_RECORDED_PROVENANCE_BUT_NOT_ADMISSION_AUTHORITY__LINEAGE_NOT_CONSUMED_BY_OUTCOME_PATH"
+}

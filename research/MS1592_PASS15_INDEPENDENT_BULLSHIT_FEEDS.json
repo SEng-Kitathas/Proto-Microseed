@@ -1,0 +1,30 @@
+{
+  "authority": "RESEARCH_ONLY",
+  "evaluator_hidden_origin": "BOTH_FEEDS_DERIVED_FROM_NONPHYSICAL_PREDICTION_PIPELINES",
+  "pair_relation_current": {
+    "authority": "DERIVED_READ_ONLY",
+    "capability_id": "PAIR-SEPARATE",
+    "status": "CAPABILITY_RESULT",
+    "value": "SEPARATE"
+  },
+  "pass": "MS1592_PASS15",
+  "result": "FUNCTIONAL_CHANNEL_SEPARATION_PLUS_CURRENTNESS_DOES_NOT_ESTABLISH_ACTUAL_WORLD_BINDING",
+  "selective_behavior": {
+    "A": [
+      {
+        "reading": 10
+      },
+      {
+        "reading": 11
+      }
+    ],
+    "B": [
+      {
+        "reading": 20
+      },
+      {
+        "reading": 21
+      }
+    ]
+  }
+}

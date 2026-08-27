@@ -1,0 +1,32 @@
+{
+  "after_channel_stale": {
+    "authority": "NONE",
+    "reason": "STALE",
+    "status": "UNKNOWN_INCOMPLETE"
+  },
+  "authority": "RESEARCH_ONLY",
+  "bounded_scope_use": {
+    "authority": "DERIVED_READ_ONLY",
+    "capability_id": "PAIR-SEPARATE",
+    "status": "CAPABILITY_RESULT",
+    "value": {
+      "pair": [
+        "OBS-A",
+        "OBS-B"
+      ],
+      "relation": "SEPARATE_UNDER_TESTED_INTERVENTIONS"
+    }
+  },
+  "broad_scope_use": {
+    "authority": "NONE",
+    "reason": "OPERATIONAL_SCOPE_MISMATCH",
+    "status": "UNKNOWN_INCOMPLETE"
+  },
+  "pass": "MS1591_PASS14",
+  "qualification_note": "DIRECT_SHADOW_REGISTRATION_USED_ONLY_TO_TEST_EXISTING_REPRESENTATION_AND_LIFECYCLE",
+  "result": "EXISTING_DERIVED_CAPABILITY_DEPENDENCY_QUERY_SCOPE_CAN_OWN_BOUNDED_CHANNEL_SEPARATION__NO_INDEPENDENCE_REGISTRY",
+  "stale_closure": [
+    "OBS-A",
+    "PAIR-SEPARATE"
+  ]
+}

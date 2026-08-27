@@ -1,0 +1,31 @@
+{
+  "all_pass": true,
+  "candidate": "PROTO_MICROSEED_MAINDEV_INTEGRATION_V2_8_THROUGH_MS1502_2026-08-23_CANDIDATE.zip",
+  "candidate_sha256": "a3403d7f3ef84b3551dc1e07eb7c2050de904d086f7b6aa0bd26a4d673cdb0ff",
+  "code_changed_during_replay": false,
+  "collection": 249,
+  "next": "candidate self-test + operating-profile hostile validation + direct MS1502 hostiles",
+  "runner": "pytest-native bounded shards from fresh candidate extraction",
+  "schema": "microseed.ms1502.candidate-embodiment-replay.v1",
+  "shards": [
+    {
+      "result": "63/63 PASS",
+      "shard": 1
+    },
+    {
+      "result": "62/62 PASS",
+      "shard": 2
+    },
+    {
+      "result": "62/62 PASS",
+      "shard": 3
+    },
+    {
+      "result": "62/62 PASS",
+      "shard": 4
+    }
+  ],
+  "step": "MS1502_INTEGRATION_STEP10_CANDIDATE_EMBODIMENT_GREEN",
+  "surface": "tests/embodiment",
+  "total": "249/249 PASS"
+}

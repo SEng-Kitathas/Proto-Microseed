@@ -1,0 +1,32 @@
+{
+  "after_route_stale": {
+    "authority": "NONE",
+    "reason": "STALE",
+    "status": "UNKNOWN_INCOMPLETE"
+  },
+  "authority": "RESEARCH_ONLY",
+  "boundary": "BASIS_QUALIFICATION_EVIDENCE_STILL_MUST_BE_LAWFULLY_GROUNDED",
+  "bounded_use": {
+    "authority": "DERIVED_READ_ONLY",
+    "capability_id": "OBS-USE-BASIS",
+    "status": "CAPABILITY_RESULT",
+    "value": {
+      "causal_route": "POSTEXEC-ROUTE",
+      "claim": "USABLE_WITHIN_EXACT_SCOPE_NOT_ACTUALNESS",
+      "mapping": "OBS-MAP",
+      "separation": "PAIR-SEPARATE",
+      "truth_authority": "NONE"
+    }
+  },
+  "broad_use": {
+    "authority": "NONE",
+    "reason": "OPERATIONAL_SCOPE_MISMATCH",
+    "status": "UNKNOWN_INCOMPLETE"
+  },
+  "pass": "MS1595_PASS18",
+  "result": "EXISTING_CAPABILITY_DEPENDENCY_PLUS_QUERY_SCOPE_CAN_CARRY_TRANSIENT_BOUNDED_OBSERVATION_USE_BASIS__NO_NEW_ASSURANCE_REGISTRY",
+  "stale_closure": [
+    "OBS-USE-BASIS",
+    "POSTEXEC-ROUTE"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "accepted_misbound_outcomes": [
+    "ACTION_OUTCOME_OBSERVED",
+    "ACTION_OUTCOME_OBSERVED",
+    "ACTION_OUTCOME_OBSERVED",
+    "ACTION_OUTCOME_OBSERVED",
+    "ACTION_OUTCOME_OBSERVED",
+    "ACTION_OUTCOME_OBSERVED",
+    "ACTION_OUTCOME_OBSERVED",
+    "ACTION_OUTCOME_OBSERVED"
+  ],
+  "arbitrary_origin_empty_lineage_status": "ACTION_OUTCOME_OBSERVED",
+  "authority": "RESEARCH_ONLY",
+  "discriminator": "Can current Microseed distinguish syntactically valid outcome observations from coherently misbound actual-outcome streams?",
+  "handler_calls": [
+    "REST",
+    "REST",
+    "REST",
+    "REST",
+    "REST",
+    "REST",
+    "REST",
+    "REST"
+  ],
+  "illustrative_true_post_values_not_visible_to_organism": {
+    "ENERGY": 3.62,
+    "INTEGRITY": 6.34,
+    "THERMAL": 7.16
+  },
+  "learned_rest_effects": {
+    "ENERGY": 1.4,
+    "INTEGRITY": -0.9,
+    "THERMAL": 0.7
+  },
+  "misbound_effect_labels": {
+    "ENERGY": 1.4,
+    "INTEGRITY": -0.9,
+    "THERMAL": 0.7
+  },
+  "observation_admission_checks_only": [
+    "Authority.OBSERVATION_ONLY",
+    "referent == action-execution:<execution_id>",
+    "payload shape/value premises"
+  ],
+  "pass": "MS1578_PASS01",
+  "result": "FALSE_GREEN_CONFIRMED__OUTCOME_STREAM_MAPPING_NOT_QUALIFIED"
+}

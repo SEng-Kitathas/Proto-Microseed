@@ -1,0 +1,115 @@
+{
+  "all_checks_pass": true,
+  "campaign_pass": 8,
+  "cases": {
+    "50_50": {
+      "all_observation_evidence_ids_retained_in_modal_candidate_ancestry": false,
+      "candidate_count": 0,
+      "candidates": [],
+      "minority_cluster_semantically_exposed": false,
+      "observed_clusters": {
+        "harmful_plus_0_25": 10,
+        "safe_minus_0_25": 10
+      }
+    },
+    "70_30": {
+      "all_observation_evidence_ids_retained_in_modal_candidate_ancestry": false,
+      "candidate_count": 0,
+      "candidates": [],
+      "minority_cluster_semantically_exposed": false,
+      "observed_clusters": {
+        "harmful_plus_0_25": 6,
+        "safe_minus_0_25": 14
+      }
+    },
+    "80_20": {
+      "all_observation_evidence_ids_retained_in_modal_candidate_ancestry": true,
+      "candidate_count": 1,
+      "candidates": [
+        {
+          "authority": "MODEL_OUTPUT_ONLY",
+          "candidate_id": "ACTION-LAW-CAND-958a907a34255d58cfff",
+          "candidate_sha256": "b920c367355f7e4d5ff93450b5010f11fae5ca98bf275e8a47ea5cfd4c93d727",
+          "capability_epoch": 1,
+          "capability_id": "ACT",
+          "causal_theorem_authority": "NONE",
+          "consistency": 0.8,
+          "coordination_epochs": [],
+          "episode_schema_epochs": [
+            [
+              "EPISODE",
+              1
+            ]
+          ],
+          "frame_epochs": [
+            [
+              "FRAME",
+              1
+            ]
+          ],
+          "next_state_id": "S-NEXT",
+          "qualification_authority": "NONE",
+          "semantic_goal_authority": "NONE",
+          "source_evidence_ids": [
+            "E-000",
+            "E-001",
+            "E-002",
+            "E-003",
+            "E-004",
+            "E-005",
+            "E-006",
+            "E-007",
+            "E-008",
+            "E-009",
+            "E-010",
+            "E-011",
+            "E-012",
+            "E-013",
+            "E-014",
+            "E-015",
+            "E-016",
+            "E-017",
+            "E-018",
+            "E-019"
+          ],
+          "start_state_id": "S-CURRENT",
+          "support": 20,
+          "topology_epochs": [],
+          "truth_authority": "NONE",
+          "value_effect": -0.25,
+          "value_epoch": [
+            "VALUE",
+            1
+          ]
+        }
+      ],
+      "minority_cluster_semantically_exposed": false,
+      "observed_clusters": {
+        "harmful_plus_0_25": 4,
+        "safe_minus_0_25": 16
+      }
+    }
+  },
+  "checks": {
+    "50_50_native_gate_nominates_no_candidate": true,
+    "70_30_native_gate_nominates_no_candidate": true,
+    "80_20_candidate_ancestry_still_contains_minority_evidence_ids": true,
+    "80_20_native_gate_nominates_only_dominant_mode": true,
+    "no_case_exposes_two_competing_consequence_candidates": true
+  },
+  "discriminator": "CAN_EXISTING_ACTION_OUTCOME_LEARNING_PRESERVE_OR_NOMINATE_MULTIPLE_EVIDENCE_SUPPORTED_CONSEQUENCE_ALTERNATIVES_FOR_ONE_CURRENT_ACTION_VALUE_USE_QUERY_WITHOUT_A_NEW_UNCERTAINTY_MODEL_OR_HYPOTHESIS_GENERATOR",
+  "fixed_native_gates": {
+    "effect_round_digits": 3,
+    "min_consistency": 0.78,
+    "min_support": 8
+  },
+  "localization": "CURRENT_ACTION_OUTCOME_NOMINATION_COLLAPSES_ONE_ANCESTRY_GROUP_TO_AT_MOST_ONE_MODAL_CONSEQUENCE_CANDIDATE_OR_NONE__MINORITY_CONTRADICTORY_EVIDENCE_IDS_REMAIN_IN_ANCESTRY_WHEN_A_DOMINANT_CANDIDATE_EXISTS_BUT_THEIR_ALTERNATIVE_CONSEQUENCE_SEMANTICS_ARE_NOT_PRESERVED_AS_A_COMPETING_CANDIDATE_SET",
+  "milestone": "MS1560",
+  "next_composition_first_check": "QUARRY_EXISTING_ALTERNATIVE_PREDICTIVE_STRUCTURE_AND_REPLACEMENT_LINEAGE_ONCE__TEST_WHETHER_IT_CAN_CARRY_SIMULTANEOUS_CURRENT_SAFE_VS_HARMFUL_ALTERNATIVES_BEFORE_ANY_NEW_CANDIDATE_SET_STRUCTURE_IS_ADMITTED",
+  "non_claims": [
+    "DOES_NOT_PROVE_A_NEW_HYPOTHESIS_GENERATOR_IS_REQUIRED",
+    "DOES_NOT_LICENSE_MIXTURE_MODELS_OR_LATENT_STATE",
+    "DOES_NOT_PROMOTE_PAL_PROVENANCE_OR_RELIABILITY_ARCHITECTURE",
+    "DOES_NOT_MUTATE_MAINDEV"
+  ]
+}

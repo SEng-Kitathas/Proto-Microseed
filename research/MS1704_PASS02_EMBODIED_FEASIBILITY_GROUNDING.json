@@ -1,0 +1,166 @@
+{
+  "disposition": "SURVIVED__FRESH_QUALIFIED_OBSERVATION_PLUS_EXISTING_CURRENTNESS_AND_TERNARY_FEASIBILITY_COMPOSE_INTO_BOUNDED_FEASIBILITY_NOW__NO_FEASIBILITY_REGISTRY",
+  "fresh_refusal": {
+    "commitment": {
+      "applicability": "YES",
+      "binding": "YES",
+      "commitment": "NO",
+      "commitment_id": "FEAS-b23c77c5eae5b1645d31",
+      "premise_ids": [
+        "E-FEAS-9a45754b96c7dcd16f1f",
+        "OBS-FEAS-A"
+      ],
+      "qualifiers": [
+        [
+          "native_type",
+          "FeasibilityState"
+        ],
+        [
+          "native_state",
+          "REFUSED"
+        ]
+      ],
+      "reason": "REFUSED",
+      "target_id": "capability:A:feasibility-now"
+    },
+    "state": "REFUSED"
+  },
+  "missing_fact": {
+    "commitment": {
+      "applicability": "YES",
+      "binding": "YES",
+      "commitment": "UNKNOWN",
+      "commitment_id": "FEAS-1ebcca7a79f0240b25c5",
+      "premise_ids": [
+        "E-FEAS-105e7545408594ebf196",
+        "OBS-FEAS-A"
+      ],
+      "qualifiers": [
+        [
+          "native_type",
+          "FeasibilityState"
+        ],
+        [
+          "native_state",
+          "UNKNOWN"
+        ]
+      ],
+      "reason": "UNKNOWN",
+      "target_id": "capability:A:feasibility-now"
+    },
+    "state": "UNKNOWN"
+  },
+  "observation_path_loss": {
+    "commitment": {
+      "applicability": "YES",
+      "binding": "YES",
+      "commitment": "UNKNOWN",
+      "commitment_id": "FEAS-0d67f2a51c60e3dee4d2",
+      "premise_ids": [],
+      "qualifiers": [
+        [
+          "native_type",
+          "FeasibilityState"
+        ],
+        [
+          "native_state",
+          "UNKNOWN"
+        ]
+      ],
+      "reason": "UNKNOWN",
+      "target_id": "capability:A:feasibility-now"
+    },
+    "state": "UNKNOWN"
+  },
+  "pass": "MS1704_PASS02",
+  "safe_current": {
+    "commitment": {
+      "applicability": "YES",
+      "binding": "YES",
+      "commitment": "YES",
+      "commitment_id": "FEAS-4844395931c63c603690",
+      "premise_ids": [
+        "E-FEAS-238d013a5e4601f9aade",
+        "OBS-FEAS-A"
+      ],
+      "qualifiers": [
+        [
+          "native_type",
+          "FeasibilityState"
+        ],
+        [
+          "native_state",
+          "FEASIBLE"
+        ]
+      ],
+      "reason": "FEASIBLE",
+      "target_id": "capability:A:feasibility-now"
+    },
+    "evidence": {
+      "currentness": "CURRENT",
+      "observation": {
+        "authority": "OBSERVATION_ONLY",
+        "capture_id": "FEAS-CAP-530e74fa39c19520f882",
+        "currentness_basis": "QUALIFIED_OBSERVATION_CAPABILITY_PLUS_TIME_BOUNDED_ACQUISITION",
+        "lineage": [
+          "OBSERVATION_CAPABILITY:OBS-FEAS-A@0",
+          "OBSERVATION_CAPABILITY_SIGNATURE:f988181bd71957bf059eed1c947f18048dc6a99129beb6f4d74742f41d32625b"
+        ],
+        "observed_at": "2026-08-25T11:00:00Z",
+        "origin": "CAPABILITY:OBS-FEAS-A",
+        "referent": "feasibility:A",
+        "value": {
+          "hazard_clear": true,
+          "observed_at": "2026-08-25T11:00:00Z",
+          "resource_ready": true
+        }
+      },
+      "observed_under": {
+        "capability_epoch": 0,
+        "capability_id": "OBS-FEAS-A",
+        "capability_signature": "f988181bd71957bf059eed1c947f18048dc6a99129beb6f4d74742f41d32625b",
+        "obligation_id": "Q-FEAS-A",
+        "operational_scope_id": "S-FEAS",
+        "value": {
+          "hazard_clear": true,
+          "observed_at": "2026-08-25T11:00:00Z",
+          "resource_ready": true
+        }
+      }
+    },
+    "state": "FEASIBLE"
+  },
+  "scars": [
+    "CAPABILITY_CURRENTNESS != PHYSICAL_FEASIBILITY_NOW",
+    "HISTORICAL_SUCCESS != CURRENT_FEASIBILITY",
+    "STALE_OR_INCOMPLETE_FEASIBILITY_OBSERVATION => UNKNOWN",
+    "FEASIBILITY_CURRENTNESS_CAN_BE_INHERITED_FROM_EXACT_SUPPORTING_OBSERVATION",
+    "GROUNDED_BOUNDED_FEASIBILITY != GLOBAL_SAFETY_OR_PHYSICAL_TRUTH"
+  ],
+  "stale_observation": {
+    "commitment": {
+      "applicability": "YES",
+      "binding": "YES",
+      "commitment": "UNKNOWN",
+      "commitment_id": "FEAS-662b7579759478b96fc1",
+      "premise_ids": [
+        "E-FEAS-4d4f8e33ecff0088122d",
+        "OBS-FEAS-A"
+      ],
+      "qualifiers": [
+        [
+          "native_type",
+          "FeasibilityState"
+        ],
+        [
+          "native_state",
+          "UNKNOWN"
+        ]
+      ],
+      "reason": "UNKNOWN",
+      "target_id": "capability:A:feasibility-now"
+    },
+    "currentness": "STALE",
+    "state": "UNKNOWN"
+  }
+}

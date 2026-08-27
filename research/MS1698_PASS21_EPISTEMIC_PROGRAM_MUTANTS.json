@@ -1,0 +1,17 @@
+{
+  "milestone": "MS1698",
+  "pass": 21,
+  "method": "six isolated source-mutation transactions; source restored after each; each targeted pytest node failed under its mutant and restored suite passed",
+  "mutants": {
+    "DROP_CONTROL_STATE_CONTINUITY": "REJECTED",
+    "DROP_COMPONENT_CONTENT_SIGNATURE": "REJECTED",
+    "DROP_FRAME_CURRENTNESS": "REJECTED",
+    "ALLOW_NON_EFFECT_COMPONENT": "REJECTED",
+    "COMPLETE_AFTER_ONE_STEP": "REJECTED",
+    "DROP_AUTHORITY_ESCALATION_GUARD": "REJECTED"
+  },
+  "rejected": 6,
+  "total": 6,
+  "hostile_harness_scar": "batched mutation runners timed out and once left the last mutant applied; direct authority-escalation test was added, source restored, and final hostile evidence was collected only from isolated bounded transactions",
+  "disposition": "6_OF_6_EPISTEMIC_PROGRAM_CARRIER_MUTANTS_REJECTED"
+}

@@ -1,0 +1,11 @@
+{
+  "authority": "RESEARCH_ONLY",
+  "current_gap": "ActionOutcomePredictiveCandidate/QualifiedActionOutcomePredictiveRelation carry action/frame/episode/value/topology/coordination epochs but no generic evidence-admission premise epochs.",
+  "pass": "MS1618_PASS16",
+  "required_dependency_semantics": [
+    "If actual-event binding is merely unavailable now, do not rewrite historical observation truth.",
+    "If actual-event binding qualification basis is falsified for the historical epoch, dependent learned relations must be challenged.",
+    "If mapping changes prospectively, new observations need a fresh epoch while historical evidence remains historical."
+  ],
+  "result": "DOWNSTREAM_FRAME_CORRECTION_REQUIRES_AN_ADMISSION_VALIDITY_DEPENDENCY_DISTINCT_FROM_TRANSIENT_OBSERVATION_ACCESS"
+}

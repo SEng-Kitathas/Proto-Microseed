@@ -1,0 +1,75 @@
+{
+  "schema": "microseed.maindev-integration-delta.v0.2",
+  "date": "2026-08-21",
+  "parent_embodiment": {
+    "artifact": "PROTO_MICROSEED_REUNIFIED_EMBODIMENT_V0_1_2026-08-21.zip",
+    "sha256": "1eea25559abd2f69eca7490b9309c7e849508d4545f4e5d9541c1863cb32335c"
+  },
+  "evidence_trigger": {
+    "campaign": "MICROSEED_MS828_852_CROSS_FAMILY_DEVELOPMENTAL_CAPABILITY_CLOSURE_25_PASS_CAMPAIGN_2026-08-21.zip",
+    "sha256": "d9f88ac85c5bc81c31e8af678bb188de67d095e4db2e010d0cf1d6c9cb2211dc",
+    "relevant_passes": [834, 835, 836, 837, 838, 839, 841, 842, 843, 844, 845, 851, 852]
+  },
+  "main_dev_disposition": "ENTITY_EVOLUTION_AND_METHOD_REFINEMENT",
+  "entity_changes": [
+    {
+      "change": "TRANSITIVE_CAPABILITY_CURRENTNESS",
+      "basis": "MS841 violated transitive invalidation; MS842 showed conservative execution but inconsistent metadata; MS843 showed DevelopmentRegistry already had the desired transitive semantics",
+      "promotion_ceiling": "dependency graph currentness only"
+    },
+    {
+      "change": "SYNCHRONIZED_CAPABILITY_AND_DEVELOPMENT_DEPENDENCY_REGISTRATION",
+      "basis": "MS843 identified two semantically disagreeing registry surfaces",
+      "promotion_ceiling": "registered capability contracts only"
+    },
+    {
+      "change": "PROPOSAL_ONLY_CAPABILITY_CANDIDATE_LIFECYCLE",
+      "basis": "MS834-837 separated nomination, anti-flattery transfer, contract and retrievability from authority",
+      "promotion_ceiling": "connective tissue only; no endogenous discovery algorithm"
+    },
+    {
+      "change": "EXTERNAL_CONTENT_BOUND_QUALIFICATION_TICKET_CONSUMPTION",
+      "basis": "MS838-839 demonstrated external qualification followed by reusable and second-order entity composition",
+      "promotion_ceiling": "structural externality; not cryptographic attestation and not self-certification"
+    },
+    {
+      "change": "OPAQUE_OPERATIONAL_SCOPE_ON_CAPABILITY_CONTRACT",
+      "basis": "MS844-845 showed context-local currentness and operational-regime recovery without semantic-context authority",
+      "promotion_ceiling": "representation/check only; no context ontology induction"
+    },
+    {
+      "change": "ZERO_EVIDENCE_QUALIFICATION_REJECTION",
+      "basis": "capability admission semantics require evidence-bearing qualification; absence of evidence cannot become a shadow-green path",
+      "promotion_ceiling": "qualification firewall"
+    }
+  ],
+  "explicit_non_promotions": [
+    "MS834 recurrence miner as Microseed cognition",
+    "autonomous unregistered capability discovery",
+    "autonomous capability qualification",
+    "autonomous developmental capability closure",
+    "semantic context ontology",
+    "child-goal hierarchy architecture",
+    "self-constructed action/effect frame",
+    "language cognition"
+  ],
+  "method_refinements": [
+    "LOCAL_FRONTIER != PORTFOLIO_SELECTION",
+    "integration debt is first-class Attention Reservoir state",
+    "embodiment campaigns must report capability-closure delta",
+    "whole-enough targeted ablation is periodic rather than endgame-only",
+    "cross-family collision pressure before indefinite same-family extension",
+    "research/embodiment arms hard-stop before Main-Dev promotion",
+    "post-evolution replay of originating scars",
+    "prelingual semantic-shortcut attack remains mandatory"
+  ],
+  "method_core_changed": false,
+  "post_evolution_replay": {
+    "artifact": "MS828_852_MAINDEV_REPLAY.json",
+    "all_pass": true
+  },
+  "research_terminal_ms": 852,
+  "selected_frontier": "ATTN-MS852-ENDOGENOUS-CAPABILITY-DISCOVERY-ADMISSION-BRIDGE",
+  "deferred_frontier": "ATTN-MS827-ACTION-EFFECT-FRAME-CONSTRUCTION",
+  "ms853_started": false
+}

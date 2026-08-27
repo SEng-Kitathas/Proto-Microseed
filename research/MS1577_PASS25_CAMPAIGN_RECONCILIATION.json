@@ -1,0 +1,36 @@
+{
+  "campaign": "MS1553-1577_DEVELOPMENTAL_CONSEQUENCE_EVIDENCE_ADEQUACY",
+  "campaign_pass": 25,
+  "canonical_main_dev": {
+    "mutation": "NONE",
+    "sha256": "432ad29abcf6a8b80d10ec9a08eaafb2f04e5bc1d8b4e45f2f30e80bbf3f0e94",
+    "version": "v2.9/MS1527"
+  },
+  "disposition": "NARROWED_COMPLETE__USE_ADEQUACY_DOWNSTREAM_COMPOSITION_PRESENT__RELATIONAL_UNITIZATION_RESEARCH_SURVIVOR_DEFERRED__R2_IDENTIFIABILITY_NEGATIVE__NO_MAINDEV_MUTATION",
+  "main_dev_mutation": "NONE",
+  "milestone": "MS1577",
+  "new_primitive_earned": false,
+  "phase": "RECONCILE_CULL_CHECKPOINT_STOP",
+  "replay": {
+    "combined_route_note": "an earlier combined Pass6/7/8 invocation exceeded the outer route window after Pass6 9/9 and Pass7 8/8; bounded suites are the evidence",
+    "compileall": "PASS",
+    "ms1477_ms1502_ms1527_integration": "34/34 PASS",
+    "ms1533_pass6_direct": "9/9 PASS",
+    "ms1534_pass7_direct": "8/8 PASS",
+    "ms1535_pass8_direct": "8/8 PASS",
+    "pass21_repaired": "PASS__12/12 query boundaries__0/12 mappings",
+    "pass22_identifiability": "PASS__0/12 mappings on all four learner/oracle surfaces"
+  },
+  "research_descendant_microseed_tree_sha256": "371740cc401ef2b945aec2996fcb9f06babf68556720b654ee902740fe7d0e7f",
+  "runtime_integration": false,
+  "selected_next_campaign": {
+    "anti_rabbit": "no estimator sweeps, no SensorManager/TrustManager/AssuranceManager, no channel-ID-as-independence, breadth check after each pass",
+    "first_discriminator": "CAN_EXISTING_MICROSEED_OBSERVATION_ORIGIN_LINEAGE_CAPABILITY_CURRENTNESS_EVIDENCE_IDENTITY_QUERY_OBLIGATION_SCOPE_AND_ACTUAL_PROBE_MACHINERY_COMPOSE_TO_DISTINGUISH_OBSERVATION_EXISTS_FROM_MAPPING_CURRENT_FROM_EVIDENCE_ADEQUATE_FOR_USE_Q_AND_TO_REFUSE_FALSE_CROSS_CHANNEL_INDEPENDENCE_WITHOUT_A_NEW_SENSOR_ASSURANCE_SUBSYSTEM",
+    "name": "PRELINGUAL_EMBODIED_OBSERVATION_GROUNDING_AND_CHANNEL_ASSURANCE",
+    "pal_role": "DONOR_PRESSURE_ONLY__NO_ARCHITECTURE_IMPORT",
+    "range": "MS1578-1602",
+    "status": "NOT_STARTED"
+  },
+  "status": "COMPLETE_HARD_STOP",
+  "whole_organism_competence_earned": false
+}

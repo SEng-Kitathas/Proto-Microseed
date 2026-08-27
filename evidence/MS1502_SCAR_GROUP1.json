@@ -1,0 +1,50 @@
+{
+  "group": 1,
+  "passed": 7,
+  "total": 7,
+  "all_pass": true,
+  "results": [
+    {
+      "script": "tests/embodiment/replay_ms1003_1027_integration_scars.py",
+      "returncode": 0,
+      "pass": true,
+      "stdout_tail": "ity\": \"NONE\",\n      \"invariants\": [\n        \"NO_SEMANTIC_ROLE_AUTHORITY\",\n        \"NO_IDENTITY_AUTHORITY\"\n      ],\n      \"lineage\": [\n        \"MS1003-1027\"\n      ],\n      \"purpose\": \"opaque-topology\",\n      \"qualification\": \"STALE\",\n      \"relations\": [\n        [\n          \"A\",\n          \"B\"\n        ]\n      ],\n      \"semantic_role_authority\": \"NONE\",\n      \"signature_sha256\": \"9ed7cf83475b227c23f7b02f601f27b32b001e09a5a7e8fa1bca205fe8449bb2\",\n      \"topology_id\": \"T\"\n    },\n    \"epoch\": 1\n  }\n}\n"
+    },
+    {
+      "script": "tests/embodiment/replay_ms1103_1127_integration_scars.py",
+      "returncode": 0,
+      "pass": true,
+      "stdout_tail": "r_candidate_count\": 0,\n    \"semantic_intention_authority\": \"NONE\",\n    \"supportive_disposition_gate\": \"INTEGRATED_FROM_MS862\",\n    \"topology_constructor\": \"PAIRWISE_RESEARCH_MECHANISM_NOT_ENTITY_AUTHORITY__HIGHER_ORDER_GENERALIZATION_UNRESOLVED\",\n    \"topology_identity_authority\": \"NONE\",\n    \"transitive_capability_currentness\": \"INTEGRATED_FROM_MS841_843\",\n    \"value_currentness\": \"FIRST_CLASS_EPOCH_BOUND_CONSTITUTIONAL_DEPENDENCY_INTEGRATED_FROM_MS966_968\",\n    \"value_variable_count\": 0\n  }\n}\n"
+    },
+    {
+      "script": "tests/embodiment/replay_ms1203_1227_integration_scars.py",
+      "returncode": 0,
+      "pass": true,
+      "stdout_tail": "e,\n    \"frontier_current\": true,\n    \"general_projection_discovery_absent\": true,\n    \"hard_stop\": true,\n    \"no_semantic_xor_operator\": true,\n    \"numerical_selfhood_unqualified\": true,\n    \"predictive_partition_nontrivial\": true,\n    \"prelingual\": true,\n    \"proposal_has_no_authority\": true,\n    \"replay_no_qualification_gain\": true,\n    \"self_qualification_absent\": true,\n    \"true_pair_recovered\": true\n  },\n  \"passed\": 14,\n  \"schema\": \"microseed.ms1203-1227.maindev-replay.v1\",\n  \"total\": 14\n}\n"
+    },
+    {
+      "script": "tests/embodiment/replay_ms1303_1327_integration_scars.py",
+      "returncode": 0,
+      "pass": true,
+      "stdout_tail": "ue,\n    \"historical_floor_ms1327_preserved\": true,\n    \"no_auto_model_switch\": true,\n    \"no_intervention_synthesis\": true,\n    \"no_semantic_cause_classifier\": true,\n    \"restart_history_no_access_gain\": true,\n    \"switched_law_narrows_alternative\": true,\n    \"unavailable_discriminator_is_action_limited\": true,\n    \"unpredicted_outcome_challenges_model_space\": true,\n    \"zero_disagreement_abstains\": true\n  },\n  \"failed\": 0,\n  \"passed\": 16,\n  \"schema\": \"microseed.maindev-replay.ms1303-1327.v1\"\n}\n"
+    },
+    {
+      "script": "tests/embodiment/replay_ms1403_1427_integration_scars.py",
+      "returncode": 0,
+      "pass": true,
+      "stdout_tail": "edictive_not_causal_theorem\": true,\n    \"qualified_relation_reenters_bounded_rehearsal\": true,\n    \"drift_stales_current_use_without_erasing_history\": true,\n    \"restart_preserves_history_not_current_runtime_contracts\": true,\n    \"hidden_context_mixture_abstains_without_partition\": true,\n    \"intention_decoy_rejected_by_reality\": true,\n    \"ms1427_terminal_ms1428_untouched\": true,\n    \"no_general_causal_learner_or_auto_model_switch\": true\n  },\n  \"passed\": 16,\n  \"total\": 16,\n  \"all_pass\": true\n}\n"
+    },
+    {
+      "script": "tests/embodiment/replay_ms828_852_integration_scars.py",
+      "returncode": 0,
+      "pass": true,
+      "stdout_tail": "\": \"DEFERRED_PRELINGUAL_COGNITION_ACTIVE\",\n  \"nominated_but_not_admitted\": \"NO_PATH\",\n  \"right_scope_value\": 2,\n  \"schema\": \"microseed.ms828-852-maindev-replay.v0.2\",\n  \"second_order_after_drift\": \"NO_PATH\",\n  \"second_order_plan\": [\n    \"A\",\n    \"B\",\n    \"M\",\n    \"D\",\n    \"N\"\n  ],\n  \"second_order_status\": \"COMPOSED_EPHEMERAL\",\n  \"stale_set_after_primitive_drift\": [\n    \"A\",\n    \"M\",\n    \"N\"\n  ],\n  \"unregistered_whole_before_nomination\": \"NO_PATH\",\n  \"wrong_scope\": \"OPERATIONAL_SCOPE_MISMATCH\"\n}\n"
+    },
+    {
+      "script": "tests/embodiment/replay_ms928_952_integration_scars.py",
+      "returncode": 0,
+      "pass": true,
+      "stdout_tail": "ase_integrity_verified\": true,\n    \"fork_diverged\": true,\n    \"hard_stop\": true,\n    \"identity_not_qualified\": true,\n    \"language_deferred\": true,\n    \"migration_descendant\": true,\n    \"tamper_rejected\": true\n  },\n  \"fork_relation\": \"COMMON_ANCESTRY_DIVERGED\",\n  \"identity_claim\": \"NOT_QUALIFIED\",\n  \"language\": \"DEFERRED_PRELINGUAL_COGNITION_ACTIVE\",\n  \"migration_relation\": \"DESCENDANT_CONTINUATION\",\n  \"ms978_started\": false,\n  \"persistent_selfhood\": \"NOT_QUALIFIED\",\n  \"tamper_rejected\": true\n}\n"
+    }
+  ]
+}

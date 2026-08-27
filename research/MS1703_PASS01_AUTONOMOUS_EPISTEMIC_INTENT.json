@@ -1,0 +1,51 @@
+{
+  "attention_reservoir": {
+    "open": "AUTONOMOUS_EPISTEMIC_EPISODE_INITIATION",
+    "reason": "Frozen MS1703 rule requires current feasibility before EFFECT; existing RecruitmentOption is typed model input without an independent currentness/provenance owner.",
+    "selected": "EMBODIED_FEASIBILITY_CURRENTNESS_GROUNDING"
+  },
+  "campaign": "PRELINGUAL_AUTONOMOUS_EPISTEMIC_MACRO_REALIZATION_THROUGH_ORDINARY_ACTION_LOOP",
+  "disposition": "NARROWED__RESEARCH_SINGLE_STEP_INTENT_ADAPTER_SURVIVES__EXECUTION_TIME_FEASIBILITY_CURRENTNESS_NOT_GROUNDED__ROTATE_TO_FEASIBILITY_GROUNDING",
+  "earned": [
+    "ONE_CURRENT_EPISTEMIC_PROGRAM_STEP_CAN_BE_NOMINATED_WITH_ZERO_AUTHORITY_GAIN",
+    "EXECUTE_BOUNDED_ACTION_CAN_REDERIVE_TRIAL_DEFICIT_COMPONENT_STATE_AND_TYPED_FEASIBILITY_CONTENT_BEFORE_EFFECT",
+    "REFUSED_OR_UNKNOWN_TYPED_FEASIBILITY_BLOCKS_ACTION",
+    "TRIAL_DEFICIT_COMPONENT_OR_CONTROL_STATE_DRIFT_BLOCKS_ACTION"
+  ],
+  "feasibility_currentness_audit": {
+    "carrier": "RecruitmentOption",
+    "explicit_currentness_or_provenance_fields": [],
+    "fields": [
+      "capability_id",
+      "feasibility",
+      "predicted_effect",
+      "local_cost",
+      "resource_tags",
+      "model_evidence_ids"
+    ],
+    "model_evidence_ids_are_content_ancestry_only": true,
+    "typed_FEASIBLE_can_be_resupplied_without_proving_physical_currentness": true
+  },
+  "main_dev_mutation": "NONE",
+  "milestone": "MS1703",
+  "native_intent_basis_audit": {
+    "macro_executor_added": false,
+    "native_epistemic_program_basis_before_pass": false,
+    "native_existing_bases": [
+      "SINGLE_VALUE_REHEARSAL",
+      "MULTI_VALUE_LICENSE"
+    ],
+    "planner_or_scheduler_added": false,
+    "research_only_adapter_added": true
+  },
+  "pass": 1,
+  "preserved_negative": [
+    "CALLER_SUPPLIED_FEASIBILITY_CONTENT_IS_NOT_GROUNDED_EXECUTION_TIME_FEASIBILITY",
+    "CONTENT_RECHECK_IS_NOT_PHYSICAL_CURRENTNESS_REVALIDATION",
+    "EPISTEMIC_VALUE_DOES_NOT_BYPASS_FEASIBILITY"
+  ],
+  "research_adapter_test": {
+    "result": "10/10_PASS",
+    "tail": "..........                                                               [100%]\n10 passed in 2.97s"
+  }
+}

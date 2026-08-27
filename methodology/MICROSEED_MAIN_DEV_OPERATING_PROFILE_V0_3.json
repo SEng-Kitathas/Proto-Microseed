@@ -1,0 +1,35 @@
+{
+  "schema": "microseed.maindev-operating-profile.v0.3",
+  "core_shape_unchanged": true,
+  "inherits": "microseed.maindev-operating-profile.v0.2",
+  "refinements_from_ms853_877": {
+    "PROPOSAL_GENERATOR_NE_TRUTH_ENGINE": true,
+    "PROPOSAL_EVIDENCE_NE_QUALIFICATION_EVIDENCE": true,
+    "EVIDENCE_RESOLVED_NE_EVIDENCE_SUPPORTIVE": true,
+    "pending_candidate_dependency_currentness_required_at_admission": true,
+    "deferred_frontier_may_reactivate_from_new_dependency_evidence": true,
+    "proposal_load_and_external_acceptance_economics_required": true,
+    "prelingual_trace_effect_assistance_must_remain_explicit": true
+  },
+  "language_policy": {
+    "active_phase": "PRELINGUAL",
+    "cognitive_substrate": "DEFERRED",
+    "rule": "opaque operational handles/effects may carry cognition; developer language remains instrumentation; language does not gain causal load without admission"
+  },
+  "current_integration": {
+    "research_terminal_ms": 877,
+    "selected_frontier": "ATTN-MS877-SELF-CONSTRUCTED-DISCOVERY-FRAME__REACTIVATES_ATTN-MS827-ACTION-EFFECT-FRAME-CONSTRUCTION",
+    "integration_debt_resolved": [
+      "MS862_EVIDENCE_RESOLVED_FALSE_GREEN",
+      "MS863_PROPOSAL_QUALIFICATION_EVIDENCE_BINDING_SEAM",
+      "MS865_PENDING_CANDIDATE_DEPENDENCY_DRIFT_FALSE_GREEN"
+    ],
+    "integration_debt_open": [
+      "SELF_CONSTRUCTED_TRACE_BOUNDARIES",
+      "SELF_CONSTRUCTED_EFFECT_COORDINATES",
+      "GENERAL_CAPABILITY_DISCOVERY",
+      "EXTERNAL_QUALIFICATION_BOUNDARY_REMAINS_STRUCTURAL_NOT_CRYPTOGRAPHIC"
+    ],
+    "ms878_started": false
+  }
+}

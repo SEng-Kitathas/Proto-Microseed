@@ -1,0 +1,14 @@
+{
+  "authority": "RESEARCH_ONLY",
+  "hidden_fixture": "EXOGENOUS_DISTURBANCE_OUTSIDE_NEGATIVE_CONTROL_COVERAGE",
+  "organism_visible_result": {
+    "disposition": "IDENTIFIED_WITHIN_CANDIDATE_SET",
+    "live": [
+      "CAUSAL_MEDIATION"
+    ],
+    "next_probe": null
+  },
+  "pass": "MS1608_PASS06",
+  "result": "NEGATIVE_CONTROL_FALSE_GREEN_WHEN_DISTURBANCE_LIES_OUTSIDE_TESTED_COVERAGE",
+  "scar": "NEGATIVE_CONTROL_STABILITY != UNIVERSAL_EXOGENOUS_ABSENCE"
+}

@@ -1,0 +1,22 @@
+{
+  "authority": "RESEARCH_ONLY",
+  "authorship_verdict": "NATIVE_LINEAGE_EXTENSION__GENERIC_ANCESTRY_FIELD__NO_NEW_REGISTRY_OR_MANAGER__ENTITY_REMAINS_WIRING_OWNER",
+  "diff_changed_lines": 49,
+  "file_stats": {
+    "microseed/development/action_learning.py": {
+      "bytes": 38529,
+      "lines": 756
+    },
+    "microseed/runtime/entity.py": {
+      "bytes": 246763,
+      "lines": 3859
+    }
+  },
+  "known_debt": "MS1598 basis is monolithic for historical-vs-live access semantics; therefore Main-Dev promotion deferred.",
+  "pass": "MS1625_PASS23",
+  "production_files_changed": [
+    "microseed/development/action_learning.py",
+    "microseed/runtime/entity.py"
+  ],
+  "result": "CODE_AUTHORSHIP_ACCEPTABLE_FOR_RESEARCH_DESCENDANT__NOT_MAINDEV_PROMOTION_READY"
+}

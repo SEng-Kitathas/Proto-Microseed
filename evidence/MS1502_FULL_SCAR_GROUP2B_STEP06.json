@@ -1,0 +1,47 @@
+{
+  "group": "2B",
+  "passed": 5,
+  "total": 5,
+  "results": [
+    {
+      "file": "replay_ms1353_1377_integration_scars.py",
+      "rc": 0,
+      "pass": true,
+      "seconds": 0.699,
+      "stdout_tail": "ode_not_truth_adapter\": true,\n    \"stale_is_sidecar_not_commitment\": true,\n    \"yes_no_unknown_exact_commitment_alphabet\": true\n  },\n  \"passed\": 17,\n  \"schema\": \"microseed.maindev-replay.ms1353-1377.v1\",\n  \"total\": 17\n}\n",
+      "stderr_tail": ""
+    },
+    {
+      "file": "replay_ms1378_1402_integration_scars.py",
+      "rc": 0,
+      "pass": true,
+      "seconds": 0.775,
+      "stdout_tail": "ntinue\": true,\n    \"ms1402_terminal_ms1403_untouched\": true,\n    \"no_general_policy_or_semantic_intention\": true,\n    \"restart_history_not_execution_access\": true\n  },\n  \"passed\": 16,\n  \"total\": 16,\n  \"all_pass\": true\n}\n",
+      "stderr_tail": ""
+    },
+    {
+      "file": "replay_ms1403_1427_integration_scars.py",
+      "rc": 0,
+      "pass": true,
+      "seconds": 1.712,
+      "stdout_tail": "\": true,\n    \"intention_decoy_rejected_by_reality\": true,\n    \"ms1427_terminal_ms1428_untouched\": true,\n    \"no_general_causal_learner_or_auto_model_switch\": true\n  },\n  \"passed\": 16,\n  \"total\": 16,\n  \"all_pass\": true\n}\n",
+      "stderr_tail": ""
+    },
+    {
+      "file": "replay_ms1428_1452_integration_scars.py",
+      "rc": 0,
+      "pass": true,
+      "seconds": 1.466,
+      "stdout_tail": "pability\": true,\n    \"prediction_error_not_model_switch_authority\": true,\n    \"proposal_cannot_resume_rehearsal\": true,\n    \"qualified_replacement_resumes_rehearsal\": true,\n    \"replacement_is_proposal_only\": true\n  }\n}\n",
+      "stderr_tail": ""
+    },
+    {
+      "file": "replay_ms1453_1477_integration_scars.py",
+      "rc": 0,
+      "pass": true,
+      "seconds": 0.82,
+      "stdout_tail": "ation_does_not_reactivate_global_relation\": true,\n    \"selector_qualification_is_external_and_disjoint\": true,\n    \"task_channel_horizon_scope_is_load_bearing\": true,\n    \"unqualified_selector_bucket_defers\": true\n  }\n}\n",
+      "stderr_tail": ""
+    }
+  ]
+}

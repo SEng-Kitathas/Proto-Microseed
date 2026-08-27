@@ -1,0 +1,52 @@
+{
+  "authority": "RESEARCH_ONLY",
+  "known_unfixed_boundary": "FALSE_BUT_CURRENT_MAPPING_REMAINS_ACCEPTED_BY_DESIGN_OF_THIS_BRIDGE",
+  "mutants": [
+    {
+      "mutant": "DROP_BASIS_DEPENDENCY",
+      "pytest_tail": "  +             'value_id': 'THERMAL',\n  +         },\n  +     },\n    }\n1 failed in 1.57s",
+      "rejected": true,
+      "target_test": "test_basis_must_depend_on_selected_observation_channel"
+    },
+    {
+      "mutant": "ACCEPT_ANY_BASIS_AUTHORITY",
+      "pytest_tail": "FAILED tests/embodiment/test_ms1598_observation_basis_ingress.py::test_basis_capability_must_carry_derived_read_only_authority - AssertionError: assert 'ACTION_OUTCOME_OBSERVED' == 'OUTCOME_REJECTED'\n  \n  - OUTCOME_REJECTED\n  + ACTION_OUTCOME_OBSERVED\n1 failed in 1.67s",
+      "rejected": true,
+      "target_test": "test_basis_capability_must_carry_derived_read_only_authority"
+    },
+    {
+      "mutant": "ACCEPT_ANY_OBSERVATION_AUTHORITY",
+      "pytest_tail": "FAILED tests/embodiment/test_ms1598_observation_basis_ingress.py::test_observation_capability_must_carry_observation_only_authority - AssertionError: assert 'ACTION_OUTCOME_OBSERVED' == 'OUTCOME_REJECTED'\n  \n  - OUTCOME_REJECTED\n  + ACTION_OUTCOME_OBSERVED\n1 failed in 1.35s",
+      "rejected": true,
+      "target_test": "test_observation_capability_must_carry_observation_only_authority"
+    },
+    {
+      "mutant": "DROP_OBSERVATION_LINEAGE",
+      "pytest_tail": "  - [\n  -     'OBSERVATION_CAPABILITY:OBS@0',\n  -     'OBSERVATION_USE_BASIS:BASIS@0',\n  - ]\n1 failed in 1.46s",
+      "rejected": true,
+      "target_test": "test_current_basis_and_channel_close_outcome_and_preserve_ancestry"
+    },
+    {
+      "mutant": "DROP_CURRENTNESS_BASIS_TAG",
+      "pytest_tail": "FAILED tests/embodiment/test_ms1598_observation_basis_ingress.py::test_current_basis_and_channel_close_outcome_and_preserve_ancestry - AssertionError: assert 'UNDECLARED' == 'QUALIFIED_OB...DED_USE_BASIS'\n  \n  - QUALIFIED_OBSERVATION_CAPABILITY_AND_BOUNDED_USE_BASIS\n  + UNDECLARED\n1 failed in 2.46s",
+      "rejected": true,
+      "target_test": "test_current_basis_and_channel_close_outcome_and_preserve_ancestry"
+    },
+    {
+      "mutant": "BYPASS_BASIS_CURRENTNESS",
+      "pytest_tail": "  - OBSERVATION_BASIS_NOT_CURRENT\n  ?              -- ^\n  + OBSERVATION_CAPABILITY_NOT_CURRENT\n  ?             ++++  ^^^^\n1 failed in 1.64s",
+      "rejected": true,
+      "target_test": "test_stale_channel_transitively_stales_basis_and_rejects_ingress"
+    },
+    {
+      "mutant": "BYPASS_OBSERVATION_CURRENTNESS",
+      "pytest_tail": "\nmicroseed/runtime/entity.py:852: KeyError\n=========================== short test summary info ============================\nFAILED tests/embodiment/test_ms1598_observation_basis_ingress.py::test_observation_channel_currentness_is_checked_even_if_basis_metadata_is_still_current - KeyError: 'value'\n1 failed in 1.29s",
+      "rejected": true,
+      "target_test": "test_observation_channel_currentness_is_checked_even_if_basis_metadata_is_still_current"
+    }
+  ],
+  "pass": "MS1599_PASS22",
+  "rejected_count": 7,
+  "result": "ALL_HOSTILE_MUTANTS_REJECTED",
+  "total": 7
+}

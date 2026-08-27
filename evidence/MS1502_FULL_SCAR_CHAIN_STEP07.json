@@ -1,0 +1,32 @@
+{
+  "all_pass": true,
+  "groups": [
+    {
+      "all_pass": true,
+      "group": 1,
+      "passed": 7,
+      "total": 7
+    },
+    {
+      "all_pass": true,
+      "group": 2,
+      "passed": 7,
+      "total": 7
+    },
+    {
+      "all_pass": true,
+      "group": 3,
+      "passed": 7,
+      "total": 7
+    },
+    {
+      "all_pass": true,
+      "group": 4,
+      "passed": 6,
+      "total": 6
+    }
+  ],
+  "passed": 27,
+  "schema": "microseed.ms1502.full-scar-chain.v1",
+  "total": 27
+}

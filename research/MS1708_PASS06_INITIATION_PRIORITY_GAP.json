@@ -1,0 +1,7 @@
+{
+  "current_adapter_nominates_without_any_normative_priority_premise": true,
+  "disposition": "NARROWED_NEGATIVE__ACTION_LIMITED_PLUS_CURRENT_FEASIBILITY_STILL_FALSE_NOMINATES_WITHOUT_DECISION_BEARING_NORMATIVE_PRESSURE",
+  "effect_calls": [],
+  "pass": "MS1708_PASS06",
+  "scar": "ACTION_LIMITED_UNKNOWN + FEASIBLE_ROUTE != LAWFUL_EPISTEMIC_INITIATION"
+}

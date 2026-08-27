@@ -1,0 +1,34 @@
+{
+  "authority": "RESEARCH_ONLY",
+  "basis_stale_closure": [
+    "BASIS"
+  ],
+  "candidate_fields_include_observation_basis": false,
+  "pass": "MS1616_PASS14",
+  "relation_status_after_basis_challenge": {
+    "authority": "EVIDENCE_BOUND_PREDICTIVE_RELATION_ONLY",
+    "causal_theorem_authority": "NONE",
+    "empirical_currentness_witness": null,
+    "reason": null,
+    "relation_id": "ACTION-LAW-24b32cd78de06482fcaf",
+    "replacement_lineage": null,
+    "status": "CURRENT_PREDICTIVE_RELATION",
+    "truth_authority": "NONE"
+  },
+  "relation_status_before": {
+    "authority": "EVIDENCE_BOUND_PREDICTIVE_RELATION_ONLY",
+    "causal_theorem_authority": "NONE",
+    "empirical_currentness_witness": null,
+    "reason": null,
+    "relation_id": "ACTION-LAW-24b32cd78de06482fcaf",
+    "replacement_lineage": null,
+    "status": "CURRENT_PREDICTIVE_RELATION",
+    "truth_authority": "NONE"
+  },
+  "result": "OBSERVATION_BASIS_ANCESTRY_IS_PERSISTED_IN_EVIDENCE_BUT_DROPPED_BEFORE_ACTION_OUTCOME_RELATION_CURRENTNESS__DOWNSTREAM_RELATION_REMAINS_CURRENT_AFTER_BINDING_CHALLENGE",
+  "scar": "PERSISTED_ANCESTRY != CURRENTNESS_DEPENDENCY",
+  "source_outcome_observation_lineage": [
+    "OBSERVATION_CAPABILITY:OBS@0",
+    "OBSERVATION_USE_BASIS:BASIS@0"
+  ]
+}

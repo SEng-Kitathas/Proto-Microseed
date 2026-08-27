@@ -1,0 +1,83 @@
+{
+  "all_checks_pass": true,
+  "assistance_debt": [
+    "BOUNDED_SAFE_VS_HARMFUL_HYPOTHESES_SUPPLIED",
+    "P1_TO_PROBE_CAPABILITY_MAPPING_SUPPLIED",
+    "OPAQUE_PROJECTION_AND_CONTRAST_SUPPLIED",
+    "NO_CREDIT_FOR_ENDOGENOUS_ADEQUACY_QUESTION_OR_HYPOTHESIS_FORMATION"
+  ],
+  "bearing": {
+    "answer_authority": "NONE",
+    "bearing": true,
+    "bearing_kind": "DISCRIMINATES_LIVE_SET",
+    "binding_id": "B-USE",
+    "deficit_id": "D-USE",
+    "duplicate": false,
+    "evidence_id": "E-PROBE-ACTUAL",
+    "raw_projection_discovery_authority": "NONE",
+    "semantic_question_authority": "NONE",
+    "state": "REVISIT_REQUIRED",
+    "truth_authority": "NONE",
+    "witness_id": "bearing-91c9eaa3666677a1bc4394da"
+  },
+  "campaign": "MS1553-1577_DEVELOPMENTAL_CONSEQUENCE_EVIDENCE_ADEQUACY",
+  "checks": {
+    "active_discrimination_selects_only_disagreement_probe": true,
+    "actual_probe_evidence_requests_revisit": true,
+    "bearing_has_no_answer_authority": true,
+    "bearing_is_discriminating": true,
+    "probe_binding_is_not_resolution": true,
+    "probe_executes_through_current_capability_contract": true,
+    "zero_disagreement_does_not_fake_probe": true
+  },
+  "discriminator": "GIVEN_A_CURRENT_QUERY_LOCAL_EPISTEMIC_DEFICIT_AND_BOUNDED_COMPETING_HYPOTHESES_CAN_EXISTING_ACTIVE_DISCRIMINATION_CAPABILITY_INVOCATION_PROBE_EVIDENCE_AND_BEARING_MACHINERY_REDUCE_THE_DEFICIT_WITHOUT_A_NEW_EXPLORATION_OR_EPISTEMIC_EXECUTIVE",
+  "final_deficit": {
+    "assistance_ancestry": [
+      "PASS07_SUPPLIED_BOUNDED_HYPOTHESIS_SET"
+    ],
+    "candidate_ids": [],
+    "deficit_id": "D-USE",
+    "hypothesis_digest_sha256": "ccab2a5188fe25e580789379e7662cce11ed86be4c786b34e2355aa93fa7e8cb",
+    "identifiability_class": "C_ACTION_LIMITED",
+    "missing_discriminator_signature_sha256": "0f87e30fe65f5832d52be9ff8ae5f6e56a4e8c7f4d26e00b65ddb8e2367edea9",
+    "premise_anchors": [],
+    "probe_capability_epoch": 0,
+    "probe_capability_id": "PROBE-P1",
+    "probe_evidence_ids": [
+      "E-PROBE-ACTUAL"
+    ],
+    "question_key": "use-adequacy:REST:ENERGY:Q-HIGH",
+    "relevant_evidence_ids": [
+      "E-PROBE-ACTUAL"
+    ],
+    "semantic_question_authority": "NONE",
+    "stale_evidence_id": null,
+    "stale_reason": null,
+    "state": "REVISIT_REQUIRED",
+    "truth_authority": "NONE",
+    "unknown_evidence_id": "E-USE-UNKNOWN"
+  },
+  "main_dev_mutation": "NONE",
+  "ms": 1559,
+  "new_primitive_earned": false,
+  "nonclaims": [
+    "NO_ENDOGENOUS_HYPOTHESIS_FORMATION_CREDIT",
+    "NO_PROBE_MAPPING_FORMATION_CREDIT",
+    "NO_QUERY_ADEQUACY_RESOLUTION_CREDIT",
+    "NO_PAL_IMPORT"
+  ],
+  "pass": 7,
+  "phase": "EMBODIED_DIAGNOSTIC_COMPOSITION_PROBE",
+  "probe_invocation": {
+    "authority": "DERIVED_READ_ONLY",
+    "capability_id": "PROBE-P1",
+    "status": "CAPABILITY_RESULT",
+    "value": {
+      "probe_outcome": "SAFE"
+    }
+  },
+  "remaining_open_seam": "ENDOGENOUS_FORMATION_OF_THE_BOUNDED_USE_ADEQUACY_QUESTION_CONTRAST_AND_CANDIDATE_HYPOTHESES_FROM_CURRENT_CONSEQUENCE_EVIDENCE_PLUS_USE_QUERY",
+  "schema": "microseed.ms1559.pass07.consequence-deficit-probe-loop.v1",
+  "selected_probe": "P1",
+  "surviving_localization": "EXISTING_MICROSEED_CAN_SELECT_AND_EXECUTE_A_DISCRIMINATING_PROBE_AND_RETURN_ACTUAL_EVIDENCE_TO_A_QUERY_LOCAL_DEFICIT_ONCE_THE_DEFICIT_HYPOTHESES_AND_PROBE_MAPPING_EXIST__ACTIVE_EVIDENCE_ACQUISITION_IS_NOT_THE_MISSING_PRIMITIVE"
+}

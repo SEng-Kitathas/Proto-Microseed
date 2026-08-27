@@ -1,0 +1,31 @@
+{
+  "disposition": "6_FAMILIES_ALL_EXPECTED",
+  "families": {
+    "actual_outcome_voi_collapse": {
+      "pass": 16,
+      "total": 16
+    },
+    "forged_complete_evidence": {
+      "pass": 16,
+      "total": 16
+    },
+    "lawful_two_tick": {
+      "pass": 16,
+      "total": 16
+    },
+    "nondiscriminating_abstain": {
+      "pass": 16,
+      "total": 16
+    },
+    "second_step_feasibility_loss": {
+      "pass": 16,
+      "total": 16
+    },
+    "second_step_priority_loss": {
+      "pass": 16,
+      "total": 16
+    }
+  },
+  "pass": "MS1720",
+  "worlds": 96
+}

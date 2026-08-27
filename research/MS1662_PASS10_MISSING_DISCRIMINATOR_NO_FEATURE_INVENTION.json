@@ -1,0 +1,11 @@
+{
+  "checks": {
+    "no_candidate_when_discriminator_never_enters_observation": true
+  },
+  "disposition": "IDENTIFIABILITY_LIMIT__NO_FEATURE_INVENTION",
+  "found": [],
+  "milestone": "MS1662",
+  "pass": 10,
+  "pass_all": true,
+  "scar": "FRAME_CONSTRUCTOR_CANNOT_CREATE_INFORMATION_ABSENT_FROM_ASSURED_EXPERIENCE"
+}

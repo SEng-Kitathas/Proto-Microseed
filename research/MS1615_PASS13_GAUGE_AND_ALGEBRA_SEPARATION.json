@@ -1,0 +1,30 @@
+{
+  "ambiguous_frame": {
+    "authority": "RESEARCH_ONLY",
+    "boundaries": [],
+    "reason": "MULTIPLE_LAWFUL_EVENT_FRAMES",
+    "status": "UNKNOWN_INCOMPLETE"
+  },
+  "authority": "RESEARCH_ONLY",
+  "gauge_A": {
+    "authority": "RESEARCH_ONLY",
+    "boundaries": [
+      0,
+      2
+    ],
+    "reason": "ACTION_EFFECT_STATIONARITY_WITH_SUPPLIED_EFFECT_CHANNEL",
+    "status": "NOMINATED_OPERATIONAL_FRAME"
+  },
+  "gauge_B": {
+    "authority": "RESEARCH_ONLY",
+    "boundaries": [
+      0,
+      2
+    ],
+    "reason": "ACTION_EFFECT_STATIONARITY_WITH_SUPPLIED_EFFECT_CHANNEL",
+    "status": "NOMINATED_OPERATIONAL_FRAME"
+  },
+  "gauge_boundary_equivalent": true,
+  "pass": "MS1615_PASS13",
+  "result": "EVENT_BOUNDARY_STRUCTURE_CAN_BE_GAUGE_EQUIVALENT_WHILE_AMBIGUOUS_FRAME_REMAINS_UNKNOWN__ACTUAL_STREAM_BINDING_DOES_NOT_SOLVE_ALGEBRA_CONSTRUCTION"
+}

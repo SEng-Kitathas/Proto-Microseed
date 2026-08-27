@@ -1,0 +1,26 @@
+{
+  "live_replay": {
+    "compileall": "PASS",
+    "ms1477": "11/11 PASS",
+    "ms1502": "9/9 PASS",
+    "ms1527": "14/14 PASS",
+    "ms1533": "9/9 PASS",
+    "ms1534": "8/8 PASS",
+    "ms1535": "8/8 PASS",
+    "ms1598_observation_ingress": "9/9 PASS",
+    "ms1620_premise_currentness": "6/6 PASS",
+    "ms1643_historical_admission": "13/13 PASS",
+    "ms1673_relational_algebra": "12/12 PASS",
+    "ms1674_hostile_mutants": "6/6 REJECTED"
+  },
+  "milestone": "MS1677",
+  "new_research_claim": false,
+  "next_campaign_started": false,
+  "operation": "CAMPAIGN_CLOSE_SEAL_ONLY",
+  "pass": 25,
+  "research_source_tree_sha256": "900106217cd560f4ebea066612bd2d923e0fca28f8b7ae1ee7d83afd80dbf6a8",
+  "route_nonresults": [
+    "combined historical/premise/ingress pytest timed out after visible progress; evidentiary_use=NONE",
+    "combined regression wrappers from Pass23 timed out after visible progress; evidentiary_use=NONE"
+  ]
+}

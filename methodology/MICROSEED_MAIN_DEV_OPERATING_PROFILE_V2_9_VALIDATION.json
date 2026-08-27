@@ -1,0 +1,13 @@
+{
+  "all_pass": true,
+  "baseline_errors": [],
+  "baseline_pass": true,
+  "combined_hostile_mutants": 111,
+  "combined_hostile_mutants_rejected": 111,
+  "escaped": [],
+  "inherited_parent_hostile_mutants": 90,
+  "inherited_parent_hostile_mutants_rejected": 90,
+  "new_hostile_mutants": 21,
+  "new_hostile_mutants_rejected": 21,
+  "schema": "microseed.maindev-operating-profile-validation.v2.9"
+}

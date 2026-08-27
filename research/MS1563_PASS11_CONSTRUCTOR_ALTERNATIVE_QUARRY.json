@@ -1,0 +1,37 @@
+{
+  "all_checks_pass": true,
+  "breadth_rerank": "REPRESENTATION_AND_PREDICTIVE_CONSTRUCTOR_ROUTE_SATURATED_FOR_THIS_SLICE__NEXT_TEST_THE_MINIMAL_NONPREDICTIVE_OPERATION__WHETHER_RECURRENT_ACTUAL_OUTCOME_CLUSTERS_CAN_BE_PRESERVED_AS_OPAQUE_EVIDENCE_BOUND_POSSIBILITY_CANDIDATES_AND_CLASSIFIED_RELATIVE_TO_THE_CURRENT_VALUE_USE_AT_QUERY_TIME",
+  "campaign_pass": 11,
+  "checks": {
+    "ordinary_constructor_preprocessing_does_not_emit_harmful_alternative_handle": true,
+    "ordinary_constructor_semantic_preprocessing_collapses_same_state_action_to_one_mode": true,
+    "robust_constructor_finds_no_discriminating_feature_mask_when_opposing_outcomes_share_identical_observation": true
+  },
+  "discriminator": "CAN_EXISTING_DEVELOPMENTAL_CONSTRUCTOR_OR_ROBUST_CONSTRUCTOR_NOMINATE_RECURRING_ACTUAL_OUTCOME_ALTERNATIVES_AS_EVIDENCE_BOUND_OPAQUE_CANDIDATE_HANDLES_WHEN_THERE_IS_NO_OBSERVABLE_CONTEXT_THAT_PREDICTS_WHICH_OUTCOME_WILL_OCCUR",
+  "fixture": {
+    "harmful_outcomes": 4,
+    "note": "No gates were modified in this semantic audit. The prior zero-gate probe hit an invalid empty-support research configuration and is retained as a harness scar, not evidence.",
+    "safe_outcomes": 16,
+    "same_action": "ACT",
+    "same_observable_state": true
+  },
+  "harness_scar": "DO_NOT_ZERO_ALL_CONSTRUCTOR_QUALITY_GATES_TO_PROBE_SEMANTIC_EXPRESSIVITY__THAT_CAN_FORCE_AN_INVALID_EMPTY_SUPPORT_PATH__AUDIT_THE_PRESEARCH_SEMANTICS_DIRECTLY",
+  "localization": "EXISTING_CONSTRUCTOR_FAMILY_IS_PREDICTIVE_PARTITION_FORMATION__ORDINARY_CONSTRUCTION_REDUCES_IDENTICAL_STATE_ACTION_OUTCOMES_TO_A_MODE_BEFORE_SEARCH__ROBUST_CONSTRUCTION_SEARCHES_FOR_OBSERVABLE_FEATURES_THAT_SEPARATE_DISCORDANT_OUTCOMES_AND_HAS_NO_EDGE_WHEN_NONE_EXIST__NEITHER_PRESERVES_THE_RECURRING_OUTCOMES_THEMSELVES_AS_SIMULTANEOUS_CURRENT_POSSIBILITY_CANDIDATES",
+  "milestone": "MS1563",
+  "non_claims": [
+    "DOES_NOT_LICENSE_HIDDEN_STATE_OR_MIXTURE_IDENTITY",
+    "DOES_NOT_REQUIRE_PREDICTING_WHICH_ALTERNATIVE_WILL_OCCUR",
+    "DOES_NOT_LICENSE_GENERAL_HYPOTHESIS_GENERATION",
+    "DOES_NOT_MUTATE_MAINDEV"
+  ],
+  "ordinary_modal_states": [
+    [
+      "ACT",
+      [
+        "SAME-OBS"
+      ],
+      "SAFE-OUTCOME"
+    ]
+  ],
+  "robust_exact_conflict_masks": []
+}

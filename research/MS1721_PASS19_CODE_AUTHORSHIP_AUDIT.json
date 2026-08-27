@@ -1,0 +1,11 @@
+{
+  "added": [
+    "microseed/development/epistemic_priority.py"
+  ],
+  "changed": [
+    "microseed/development/action_closure.py",
+    "microseed/development/epistemic_action.py",
+    "microseed/runtime/entity.py"
+  ],
+  "removed": []
+}

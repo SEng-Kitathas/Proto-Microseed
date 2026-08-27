@@ -1,0 +1,25 @@
+{
+  "authority": "RESEARCH_ONLY",
+  "evidence_premise_epochs": [
+    [
+      "HIST-ADMIT",
+      0
+    ]
+  ],
+  "next": "ATTACK_RETROSPECTIVE_FALSIFICATION_SEMANTICS__STALE_VS_CHALLENGED_AND_HISTORY_PRESERVATION",
+  "note": "current relation object has predictive authority only; premise-bearing relation refuses rehearsal conversion",
+  "pass": "MS1635_PASS08",
+  "rehearsal_conversion": null,
+  "relation_status": {
+    "authority": "EVIDENCE_BOUND_PREDICTIVE_RELATION_ONLY",
+    "causal_theorem_authority": "NONE",
+    "empirical_currentness_witness": null,
+    "reason": null,
+    "relation_id": "ACTION-LAW-db32ee894e441ec33c6b",
+    "replacement_lineage": null,
+    "status": "CURRENT_PREDICTIVE_RELATION",
+    "truth_authority": "NONE"
+  },
+  "result": "HISTORICAL_ADMISSION_VALIDITY_DOES_NOT_CURRENTLY_LAUNDER_INTO_REHEARSAL_OR_EXECUTION_AUTHORITY",
+  "scar": "HISTORICAL_VALIDITY != CURRENT_USE_LICENSE"
+}

@@ -1,0 +1,97 @@
+{
+  "MS1686_pass09": {
+    "disposition": "HARNESS_ASSISTED_ORDINARY_CONTROL_REALIZES_COMPOSED_AFFORDANCE_AND_CARRIER_BINDS_ACTUAL_STEP_RECORDS",
+    "physical_calls": [
+      "A",
+      "B"
+    ],
+    "step_proposal_ids": [
+      "REHEARSAL-87053a63e7d305a979b9",
+      "REHEARSAL-11aeae43e364086aef5a"
+    ],
+    "trial_status": "COMPLETE"
+  },
+  "MS1687_pass10": {
+    "disposition": "MANDATORY_REDELIBERATION_PRESERVED__PROGRAM_CONTINUITY_DOES_NOT_OVERRIDE_CLOSED_LOOP_CONTROL",
+    "first_step_actual_state": "S1",
+    "second_rehearsal_start": "S1"
+  },
+  "MS1688_pass11": {
+    "disposition": "EXECUTION_RECEIPT_ALONE_CANNOT_ADVANCE_EPISTEMIC_PROGRAM__ACTUAL_OUTCOME_REQUIRED",
+    "execution_without_outcome_step_count": 0
+  },
+  "MS1689_pass12": {
+    "component_epoch_ancestry": [
+      [
+        "A",
+        0
+      ],
+      [
+        "B",
+        0
+      ]
+    ],
+    "disposition": "PROGRAM_STEP_BINDING_RECHECKS_COMPONENT_CURRENTNESS_EACH_ADVANCE"
+  },
+  "MS1690_pass13": {
+    "disposition": "PROGRAM_STEP_BINDING_RECHECKS_RELATIONAL_FRAME_EPOCH_EACH_ADVANCE",
+    "frame_epochs": [
+      [
+        "F",
+        0
+      ]
+    ]
+  },
+  "MS1691_pass14": {
+    "control_state_chain": [
+      [
+        0,
+        "S1",
+        "EO1"
+      ],
+      [
+        1,
+        "S2",
+        "EO2"
+      ]
+    ],
+    "disposition": "PROGRAM_CONTINUITY_BOUND_TO_ACTUAL_OUTCOME_STATE_EVIDENCE_NOT_HARNESS_STEP_COUNTER"
+  },
+  "MS1692_pass15": {
+    "disposition": "CLEAN_MACRO_RESULT_CAN_RESOLVE_BOUNDED_LIVE_ALTERNATIVES_ONLY",
+    "hypothesis_disposition": "IDENTIFIED_WITHIN_CANDIDATE_SET",
+    "survivor": "H1"
+  },
+  "MS1693_pass16": {
+    "disposition": "UNEXPECTED_MACRO_RESULT_CHALLENGES_MODEL_SPACE__NO_FORCED_HIDDEN_CAUSE",
+    "unexpected_result": "MODEL_SPACE_MISSPECIFIED_OR_CONTRADICTED"
+  },
+  "authority_boundary": {
+    "physical_actuator_identity": "NONE",
+    "trial_execution_gain": "NONE",
+    "trial_truth": "NONE"
+  },
+  "deficit_after_program_evidence": {
+    "assistance_ancestry": [],
+    "candidate_ids": [],
+    "deficit_id": "D",
+    "hypothesis_digest_sha256": "12b91e62802fc5180d576aff4a2bcf7590c7d861eff66cd30f872ac952aaafac",
+    "identifiability_class": "C_ACTION_LIMITED",
+    "missing_discriminator_signature_sha256": "647fcefd96ba10dc5fbf96e12bb6e094732615597b203042044855dcf4e807ec",
+    "premise_anchors": [],
+    "probe_capability_epoch": null,
+    "probe_capability_id": null,
+    "probe_evidence_ids": [],
+    "question_key": "opaque-macro",
+    "relevant_evidence_ids": [
+      "E-PROGRAM"
+    ],
+    "semantic_question_authority": "NONE",
+    "stale_evidence_id": null,
+    "stale_reason": null,
+    "state": "REVISIT_REQUIRED",
+    "truth_authority": "NONE",
+    "unknown_evidence_id": "E-UNK"
+  },
+  "remaining_assistance": "ACTION_SELECTION_STILL_OWNED_BY_REGULATORY_REHEARSAL_AND_CALLER_SUPPLIED_FEASIBILITY__NOT_AUTONOMOUS_EPISTEMIC_REALIZATION"
+}

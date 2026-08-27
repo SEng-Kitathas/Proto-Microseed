@@ -1,0 +1,19 @@
+{
+  "milestone": "MS1675",
+  "pass": 23,
+  "bounded_regression": {
+    "compileall": "PASS",
+    "ms1673_relational_algebra": "12/12 PASS",
+    "ms1643_historical_admission": "13/13 PASS",
+    "ms1620_evidence_premise_currentness": "6/6 PASS",
+    "ms1598_observation_basis_ingress": "9/9 PASS",
+    "ms1533_ms1534_ms1535": "25/25 PASS",
+    "ms1477_ms1502_ms1527": "34/34 PASS"
+  },
+  "combined_route": {
+    "status": "TIMEOUT_ROUTE_NONRESULT",
+    "evidentiary_use": "NONE",
+    "note": "Combined wrapper exceeded outer execution window after visible progress; constituent bounded suites are the proposition evidence."
+  },
+  "main_dev_promotion": false
+}

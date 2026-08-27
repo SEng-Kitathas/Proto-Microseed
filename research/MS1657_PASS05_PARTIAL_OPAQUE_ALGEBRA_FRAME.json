@@ -1,0 +1,339 @@
+{
+  "checks": {
+    "composition_relation_discovered": true,
+    "heldout_composed_action_predicted": true,
+    "identity_relation_discovered": true,
+    "inverse_pair_discovered": true,
+    "no_truth_execution_authority": true
+  },
+  "composition_relations": [
+    {
+      "counterexample_origin_signatures": [],
+      "direct_action": "A",
+      "execution_authority": "NONE",
+      "first_action": "A",
+      "negative_support": 0,
+      "positive_support": 8,
+      "proposal_authority": "NONE",
+      "relation_id": "COMP-af85efb6c05ab18f3d09",
+      "scope_authority": "NONE",
+      "second_action": "A",
+      "support_origin_signatures": [
+        "14befabba16d37035a956b4146ecfb66ff973c44809957d4e8c7f0e7fccdd784",
+        "2c40560c6dd15ff67db3bd4903ef3df890a4b6e056da56aa3756e0e242f2eaa8",
+        "3e17211d112d9fede175fe868f4794ff59b0a7b939a834297246423d9b793313",
+        "634568954b9b69c08abb40123da0258320d1cd0ee95bb9d080e36d71503a32b7",
+        "bb70b62ff099f8d4f9191a28187de8c01fb7a4d95ac0c2baaefef856b0c3af4a",
+        "cca8b97370ce3f90046e3ada9b777f735847d997bfe4ed4c022fe84166f80bb1",
+        "dbd838ce4586b2e2f896b037c048cecc6c31d9ac8386c1e533a7e88172e3a87b",
+        "e3ec73c952c9c7f5c46b85c3b6d71c98daacf09c833dd04ccc350fd3f59f7752"
+      ],
+      "truth_authority": "NONE"
+    },
+    {
+      "counterexample_origin_signatures": [],
+      "direct_action": "A",
+      "execution_authority": "NONE",
+      "first_action": "B",
+      "negative_support": 0,
+      "positive_support": 8,
+      "proposal_authority": "NONE",
+      "relation_id": "COMP-62964788f5fa4ae1f5d3",
+      "scope_authority": "NONE",
+      "second_action": "C",
+      "support_origin_signatures": [
+        "126b513d9b5715725088bde0555af38d148bcfb513246fc09cdf4f4d3c2c6767",
+        "3b12bc341a2d80847111879f138bc6050fe3190dc788bfec41ce8551f7340f38",
+        "5b2230ae95bca49ec2587164d81508dfaffb7b7c6416e22cc754c2dbee7deec5",
+        "650dfb040a7e534abf9e3b680055d8f43ed863444a2f3346d88e461e94d2a939",
+        "939ad1ad1be060aca63e3fc1ec42a410478947d5568f04c1150a1c3fa4141cc4",
+        "b879c4afaaac2d13548b1e25e88cb40e181ed76c50aa858c321df8e210387b22",
+        "bf9bd7955fe8e8d41dbed51f4401a3ce26b1fce094255b305b850016d0ffa5cf",
+        "fb6337de8da92d3db9ab105f3c8e57e87bbd1d415ac67d0fe01c16a0dfbf119a"
+      ],
+      "truth_authority": "NONE"
+    },
+    {
+      "counterexample_origin_signatures": [],
+      "direct_action": "A",
+      "execution_authority": "NONE",
+      "first_action": "C",
+      "negative_support": 0,
+      "positive_support": 8,
+      "proposal_authority": "NONE",
+      "relation_id": "COMP-6073f5b3dcd30b43f31a",
+      "scope_authority": "NONE",
+      "second_action": "B",
+      "support_origin_signatures": [
+        "14159355fc46573bcfc74207e1a4eb9109d431eabcff3b4e013559ce64bfd9ba",
+        "198bea3ca09cc4c3335226cf02ba112501ca5cbf090a8747cba97133f14debfd",
+        "7383b686b4b969050ceff3f901ff0ab4e058b431228db073aaeee28465523a77",
+        "848c78f0aa3d6a7c1146caaefb25468f0cdedc265079a3f006f50dacdad86c36",
+        "aa86d6ced78742a0133789e528644ea093adde218bab353ac6fe2406f236ee52",
+        "abf1fc3443a0b677f4e032cd190c64cdf84a583e9b1cae4df1025fea02c289e5",
+        "b8248a075d4bc20a3eeb98e6a7b347f5625f62bf496a391cecbf964ec8757194",
+        "c7fbf8578899dfed670e02c2588a25a0fe85b8a3da9b47455fb8abde3afd0e24"
+      ],
+      "truth_authority": "NONE"
+    },
+    {
+      "counterexample_origin_signatures": [],
+      "direct_action": "B",
+      "execution_authority": "NONE",
+      "first_action": "A",
+      "negative_support": 0,
+      "positive_support": 8,
+      "proposal_authority": "NONE",
+      "relation_id": "COMP-9b4f3ee055c657482a91",
+      "scope_authority": "NONE",
+      "second_action": "B",
+      "support_origin_signatures": [
+        "0b018b0a346325228fe72177bfab90b4d87a03ac5e22916636ab7fe0b48f3c20",
+        "3c68aeba9d346ee2bff82e467752af11679ee663cd763d9d1ae1f531a1fb2629",
+        "470e2456ca765863b682d3c9c5a12734af6a8d05932f261ba713d208915dc6fb",
+        "51e28583003fbc11ea1421db6b7addd24d0d7e09baa1aa4c23903843f71f1cfb",
+        "54bef8067e78b17ad07af25468337101057511f92e51b41e5806db2816637587",
+        "782f8b2b432319ae654ba0ccfd3b71a657737bdd38e76436addf00898b3d9693",
+        "8c27e888356f6f28299841d470fbaf656efb4c315205480739ae4c0f50e05b68",
+        "b2e7be1aa4c5e70152e67d01c9a76142dc2ad55830e23a7b050b4a028da2dfc4"
+      ],
+      "truth_authority": "NONE"
+    },
+    {
+      "counterexample_origin_signatures": [],
+      "direct_action": "B",
+      "execution_authority": "NONE",
+      "first_action": "B",
+      "negative_support": 0,
+      "positive_support": 8,
+      "proposal_authority": "NONE",
+      "relation_id": "COMP-c357cd9ff82ef1627304",
+      "scope_authority": "NONE",
+      "second_action": "A",
+      "support_origin_signatures": [
+        "049ace8aa765478135f04ebf3d1a1876ab6e7c7f8357dea391a7469ba336515b",
+        "208c4c47410eb4342b6479aa9652fc58d8762ebeb78fc5768edfa9d62093e840",
+        "430a69249cd6305ce91a3a28f13921faa3297306bc08b362dd5f573b8a4ca771",
+        "4a0ee5754cc7c9fa02ef8e383620229a21470370aaa62a7b032ed911a866743e",
+        "7e14bdffbcdbbbbe810667b52d9765d60ea0209dc08e71d37e070388c9afa4ed",
+        "b92f27cf066a4c676fcf068cb7d3108e0ceee706c47a9c5f8e847f9b68f5a8b5",
+        "d1d15f234105350e745c2cc4926ed280b49ae3067ab385ad7c9497d09e8ab172",
+        "d868f6e52916a30b2798a5b85305be91801e09c4b4f029580d630d34aa78777b"
+      ],
+      "truth_authority": "NONE"
+    },
+    {
+      "counterexample_origin_signatures": [],
+      "direct_action": "C",
+      "execution_authority": "NONE",
+      "first_action": "A",
+      "negative_support": 0,
+      "positive_support": 8,
+      "proposal_authority": "NONE",
+      "relation_id": "COMP-d2e9252f0b1844e7f5da",
+      "scope_authority": "NONE",
+      "second_action": "C",
+      "support_origin_signatures": [
+        "0be2bc97c9f9a053ba9650c34b9fd0ac6eb93d79aa9f4725798a967bdd10baad",
+        "2eb840325e1d7281c1b063eedb734ff267c1f8794d025b93b55220fa6e14da62",
+        "3fe8ef63e927e01c5347742eefb197bfb40fd9bea7e25d4f80c62a091f5b3ef3",
+        "781ebb8643cf3a04efd31fcbd3aa6ac5f82ed1672c7bb110e1136ea2bf8a94a1",
+        "9a5cefbdb9df3c26376897f6eacbc4e51c9543bfe4d66a926d45d6a58c70a313",
+        "a84cffa4ef4df7cc7fa30af0f47362c032ea6104be2acde0d8b370657ce2f3e9",
+        "dc3b84964c893923974ca94f6007443b712b4f03a33132adbfb6e2214ee3aecf",
+        "e8ed6fb633c7a5511d781a92e6f0daa020c0130c537b5f76222263c135eb1604"
+      ],
+      "truth_authority": "NONE"
+    },
+    {
+      "counterexample_origin_signatures": [],
+      "direct_action": "C",
+      "execution_authority": "NONE",
+      "first_action": "B",
+      "negative_support": 0,
+      "positive_support": 4,
+      "proposal_authority": "NONE",
+      "relation_id": "COMP-853968e21e4df40e1cc4",
+      "scope_authority": "NONE",
+      "second_action": "I",
+      "support_origin_signatures": [
+        "00756dff8538acee2d08ac6efd1a6b0311c12b8b070c13286eaa962ca0923860",
+        "0fc9ea1afe8ef3713530f48ea05f49f673270e52eacf7deadb734da37263d417",
+        "281b281029196dec3f7c98cd7c339443ff17bb6627e13a5e47e4862a92993a19",
+        "affb6c1d58e3fc15ec1a3d0274f708f821f322af267e341ada3fa0cebaac4cfe"
+      ],
+      "truth_authority": "NONE"
+    },
+    {
+      "counterexample_origin_signatures": [],
+      "direct_action": "C",
+      "execution_authority": "NONE",
+      "first_action": "C",
+      "negative_support": 0,
+      "positive_support": 8,
+      "proposal_authority": "NONE",
+      "relation_id": "COMP-8cc7c68d4048d31e58c2",
+      "scope_authority": "NONE",
+      "second_action": "A",
+      "support_origin_signatures": [
+        "0d9568b66e4737ba16e23ac2f892002e87f426ccb0b93b2bba5d0fb6b283078f",
+        "27391daaa201140450cfe79e767741af871cb09ae254446a3aaddcc25f3a0627",
+        "33e3f576ef4a20669f3a12fe580237e73dbd90db163bdcc2b54e3ae4d718a024",
+        "3a36b3f256ab10bac4c3a62c2d0b85860381473fc7006c5785b1b68bd4c42d49",
+        "97f4a715c8f488e22cd85447b83cf7a0c0e102d2c476b6542afe604a0d67ad29",
+        "cd739f212c2935f151efbe2baa22518982ef2cecad7fa68fcf451de1f5a793a3",
+        "db03bafc6666efdbde78b31067195f194e54386b736f75958fdfce56f7fad355",
+        "dca8d603e9c53614658baf0b91431afe1140dc6710500fb323acce9197088543"
+      ],
+      "truth_authority": "NONE"
+    },
+    {
+      "counterexample_origin_signatures": [],
+      "direct_action": "C",
+      "execution_authority": "NONE",
+      "first_action": "I",
+      "negative_support": 0,
+      "positive_support": 4,
+      "proposal_authority": "NONE",
+      "relation_id": "COMP-bd9327772661c4e0b346",
+      "scope_authority": "NONE",
+      "second_action": "B",
+      "support_origin_signatures": [
+        "49c90defbb5e9dcd0cb437c7170ba113133c6d20cba7a6104069d9ff26bd647a",
+        "61d830c1412bb67e125023f45ba91b98ef009c75c976eeaf70330c2d7cfbee1b",
+        "ae9dc878b4041986a7943aa055a944f9570b01410f0b95aebd63c2ceb0e5755d",
+        "b21b70685b84b7e8ac7a658b8096d3386a7343f9fd1b575af17f3ef41138ebe3"
+      ],
+      "truth_authority": "NONE"
+    },
+    {
+      "counterexample_origin_signatures": [],
+      "direct_action": "I",
+      "execution_authority": "NONE",
+      "first_action": "A",
+      "negative_support": 0,
+      "positive_support": 4,
+      "proposal_authority": "NONE",
+      "relation_id": "COMP-8a1bf18a5c0c74a312dc",
+      "scope_authority": "NONE",
+      "second_action": "I",
+      "support_origin_signatures": [
+        "0c8165618456236db2c6309255ee74a5047b134dc22f311ba9c6f743d03ed734",
+        "37b6bbf5f46b9e181e0c14a540627ba6ed8dd55f14429f27fc67d6be40e1b47e",
+        "af9849ababff30b38330d676dcef7cb1c355794f6bcb804bbb24b70c7c292eb0",
+        "e4c2e679b630c8d624edccf40e6d12c1b34ee6a0b10cfe9aba306cd5e33d424a"
+      ],
+      "truth_authority": "NONE"
+    },
+    {
+      "counterexample_origin_signatures": [],
+      "direct_action": "I",
+      "execution_authority": "NONE",
+      "first_action": "C",
+      "negative_support": 0,
+      "positive_support": 4,
+      "proposal_authority": "NONE",
+      "relation_id": "COMP-03d613b51409853676dd",
+      "scope_authority": "NONE",
+      "second_action": "C",
+      "support_origin_signatures": [
+        "10fa82f514d4ce5c237f3f92f683f3f4851c5e635979cc1befdf0b1d86521ce0",
+        "5836cf4ad5b17de0f4f1f5692bf61ff504a3e325a46c0f4d214223cea5e921ed",
+        "ab0735cb57eb44e5815ed8ba2ce056874180cf74cf8c30b3b1b622f54476ecbf",
+        "feffbe1f8d9827168c4368d2dbd74c8ade9464d53a07a21fbfed04117d9c17cc"
+      ],
+      "truth_authority": "NONE"
+    },
+    {
+      "counterexample_origin_signatures": [],
+      "direct_action": "I",
+      "execution_authority": "NONE",
+      "first_action": "I",
+      "negative_support": 0,
+      "positive_support": 4,
+      "proposal_authority": "NONE",
+      "relation_id": "COMP-cdb116237c18b830fe61",
+      "scope_authority": "NONE",
+      "second_action": "A",
+      "support_origin_signatures": [
+        "2f2e34f3f6fe4406fd43c67fe4be898e5e0423e23e01219bf08628da70cefb40",
+        "80e95f69e1fa95024e2539a81f85f333408689e45f7ed8d848d21be2e752087f",
+        "9ea055494fba0725934b340187813df990c1ee14bec233f05b7f162e5413c9f3",
+        "d1f6ab38fc93b56a2926c64c72dc2aef0bd883d545f46712f9493697f70358fc"
+      ],
+      "truth_authority": "NONE"
+    }
+  ],
+  "disposition": "SURVIVED_PARTIAL_OPAQUE_RELATIONAL_ALGEBRA",
+  "holdout_predictions": [
+    [
+      "E0",
+      "E3",
+      "YES_RELATIONAL_CONSENSUS",
+      "E3",
+      true
+    ],
+    [
+      "E5",
+      "E7",
+      "YES_RELATIONAL_CONSENSUS",
+      "E7",
+      true
+    ],
+    [
+      "E3",
+      "E1",
+      "YES_RELATIONAL_CONSENSUS",
+      "E1",
+      true
+    ],
+    [
+      "E7",
+      "E4",
+      "YES_RELATIONAL_CONSENSUS",
+      "E4",
+      true
+    ]
+  ],
+  "identity_relations": [
+    {
+      "action": "A",
+      "negative_support": 0,
+      "positive_support": 8,
+      "proposal_authority": "NONE"
+    }
+  ],
+  "inverse_relations": [
+    {
+      "first_action": "A",
+      "negative_support": 0,
+      "positive_support": 8,
+      "proposal_authority": "NONE",
+      "second_action": "A"
+    },
+    {
+      "first_action": "B",
+      "negative_support": 0,
+      "positive_support": 8,
+      "proposal_authority": "NONE",
+      "second_action": "C"
+    },
+    {
+      "first_action": "C",
+      "negative_support": 0,
+      "positive_support": 8,
+      "proposal_authority": "NONE",
+      "second_action": "B"
+    }
+  ],
+  "milestone": "MS1657",
+  "nonclaim": "Observed identity/inverse/composition topology does not imply a group, global closure, external coordinate meaning, or unobserved executable actions.",
+  "opaque_action_handles": {
+    "composed": "I",
+    "forward": "C",
+    "identity": "A",
+    "inverse": "B"
+  },
+  "pass": 5,
+  "pass_all": true
+}

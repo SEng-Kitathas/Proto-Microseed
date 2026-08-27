@@ -1,0 +1,20 @@
+{
+  "pass": "MS1648_PASS21",
+  "compileall": "PASS",
+  "bounded_suites": {
+    "MS1643_historical_admission_ingress": "13/13 PASS",
+    "MS1620_evidence_premise_currentness": "6/6 PASS",
+    "MS1598_observation_basis_ingress": "9/9 PASS",
+    "MS1533_multi_pressure_bridge": "9/9 PASS",
+    "MS1534_multi_pressure_effect_boundary": "8/8 PASS",
+    "MS1535_multi_pressure_outcome_closure": "8/8 PASS",
+    "MS1477_integration": "11/11 PASS",
+    "MS1502_integration": "9/9 PASS",
+    "MS1527_integration": "14/14 PASS"
+  },
+  "late_lineage_total": "34/34 PASS",
+  "combined_route_nonresult": "A combined compile+pytest invocation exceeded the outer route window after visible progress; no proposition evidence is taken from that route.",
+  "result": "REGRESSION_CLEAN_ON_BOUNDED_PROPOSITIONS",
+  "authority": "RESEARCH_ONLY",
+  "next": "BREADTH_RECONCILIATION_ACROSS_HISTORICAL_VALIDITY_LIVE_ACCESS_RESTART_ALIAS_FRESH_DEBT_AND_FALSE_COMPLETENESS_BOUNDARIES"
+}

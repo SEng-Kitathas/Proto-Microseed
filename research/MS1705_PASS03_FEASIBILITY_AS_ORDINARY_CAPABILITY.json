@@ -1,0 +1,23 @@
+{
+  "boundary": "CURRENT_QUALIFIED_FEASIBILITY_CAPABILITY_CAN_STILL_BE_PHYSICALLY_WRONG_IF_ITS_GROUNDING_BASIS_IS_FALSELY_QUALIFIED",
+  "cases": {
+    "dependency_loss": "UNKNOWN_INCOMPLETE",
+    "fresh_block": "REFUSED",
+    "incomplete": "UNKNOWN",
+    "safe": "FEASIBLE",
+    "stale_observation": "UNKNOWN",
+    "wrong_scope": "UNKNOWN_INCOMPLETE"
+  },
+  "disposition": "SURVIVED__ORDINARY_DERIVED_READ_ONLY_CAPABILITY_CAN_OWN_BOUNDED_FEASIBILITY_NOW_WITH_TRANSITIVE_CURRENTNESS__NO_FEASIBILITY_MANAGER",
+  "feasibility_capability": {
+    "authority": "DERIVED_READ_ONLY",
+    "dependencies": [
+      "A",
+      "OBS-FEAS-A"
+    ],
+    "epoch": 0,
+    "id": "FEAS-A",
+    "signature": "76346da4e8930cd93f23157ff34dfc1eb2a45ee29e45b760bec9076b12370e2f"
+  },
+  "pass": "MS1705_PASS03"
+}

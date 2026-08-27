@@ -1,0 +1,22 @@
+{
+  "entity": "Proto-Microseed v1.2",
+  "frontier": "ATTN-MS1102-DISTRIBUTED-TEMPORAL-COMPETENCE-AND-JOINT-EPISODE-GROUNDING__REACTIVATES_TEMPORAL_EPISODE_ABSTRACTION_AND_GENERAL_MULTI_AGENT_PLANNING",
+  "integration_terminal_ms": 1102,
+  "ms1103_started": false,
+  "not_promoted": [
+    "AUTONOMOUS_COORDINATION_LEARNER",
+    "SEMANTIC_COMMITMENT",
+    "INTENTION_ATTRIBUTION",
+    "PROMISE_ONTOLOGY",
+    "GENERAL_MULTI_AGENT_PLANNING"
+  ],
+  "parent_integration_terminal_ms": 1077,
+  "promoted": [
+    "OPERATIONAL_COORDINATION_CONTRACT",
+    "RELATION_SPECIFIC_COORDINATION_CURRENTNESS",
+    "CAPABILITY_COORDINATION_EPOCH_DEPENDENCY",
+    "CANDIDATE_COORDINATION_EPOCH_RECHECK"
+  ],
+  "research_terminal_ms": 1102,
+  "schema": "microseed.maindev-integration-delta.ms1102.v1.2"
+}

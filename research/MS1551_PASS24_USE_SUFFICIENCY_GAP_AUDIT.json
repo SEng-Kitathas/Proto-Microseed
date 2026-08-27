@@ -1,0 +1,75 @@
+{
+  "discriminator": "DOES_LIVE_MICROSEED_ALREADY_HAVE_AN_OWNER_FOR_QUERY_RELATIVE_CONSEQUENCE_EVIDENCE_SUFFICIENCY_OR_WOULD_PROMOTING_PASS22_REQUIRE_A_NEW_DISTINCTION",
+  "disposition": "NARROWED_SURVIVED_DISTINCTION_PRESSURE__NO_CURRENT_OWNER__SPECIFIC_ESTIMATOR_AND_USE_CONTRACT_UNRESOLVED__NO_MAINDEV_MUTATION",
+  "evidence_reconciliation": {
+    "pass21": "some control-relevant effects, especially REST, are not sign-identifiable within one R2 regime under current learner-visible noise/opportunity",
+    "pass22": "one supplied interval scheme reduced false-green licenses in one bounded assay while preserving some action",
+    "pass23": "that exact interval scheme did not provide a uniform advantage across all drift regimes; estimator/threshold mechanism not promoted",
+    "witness_predicate_lineage": "historically earned for exact witness-for-query-obligation correspondence, not for statistical assurance or risk tolerance; do not repurpose silently"
+  },
+  "live_code": {
+    "CapabilityContract_fields": [
+      "capability_id",
+      "purpose",
+      "boundary",
+      "interface",
+      "invariants",
+      "hazards",
+      "authority",
+      "lineage",
+      "currentness",
+      "resources",
+      "dependencies",
+      "query_obligation_id",
+      "witness_predicate",
+      "qualification",
+      "handler",
+      "assistance_ancestry",
+      "operational_scope_id"
+    ],
+    "QueryObligation_fields": [
+      "obligation_id",
+      "purpose",
+      "required_authority",
+      "witness_predicate",
+      "operational_scope_id"
+    ],
+    "derived_effect_witness_keys": [
+      "assistance_ancestry",
+      "authority",
+      "capability_epoch",
+      "capability_id",
+      "consistency",
+      "effect",
+      "episode_schema_epoch",
+      "frame_epoch",
+      "semantic_effect_coordinate_authority",
+      "source_trace_ids",
+      "status",
+      "support",
+      "truth_authority",
+      "value_epoch",
+      "value_id"
+    ],
+    "effect_witness_has_explicit_uncertainty_or_reliability": false,
+    "file_sha256": {
+      "microseed/development/action_licensing.py": "3c7854c12b9601bfa59d249938e8cb09fc07d009b27aad490d60c412a08e7edc",
+      "microseed/development/discovery.py": "220f68400695c74e5730becd520e17898481bd4368f84ee4eaf6724e75b3726d",
+      "microseed/runtime/entity.py": "5954fd661724a5ff6e7423c11d443028eec568e0b85ebf59352736bb796fc2e2",
+      "microseed/runtime/types.py": "c0e4704334bbfab447d2a449956503b90de92c91aa7ab42f570e217635715997"
+    },
+    "query_obligation_has_explicit_use_sufficiency_dimension": false,
+    "witness_predicate_literal_occurrences_in_types_plus_entity": 2
+  },
+  "main_dev_mutation": "NONE",
+  "nonclaims": [
+    "NO_CONFIDENCE_INTERVAL_STANDARD",
+    "NO_RISK_TOLERANCE_FIELD_EARNED",
+    "NO_PAL_ARCHITECTURE_IMPORT",
+    "NO_WITNESS_PREDICATE_REPURPOSING",
+    "NO_WHOLE_ORGANISM_CREDIT"
+  ],
+  "primitive_earned": false,
+  "schema": "microseed.ms1551.pass24.use-sufficiency-gap-audit.v1",
+  "surviving_candidate_law": "CURRENT_EFFECT_EVIDENCE != EFFECT_EVIDENCE_SUFFICIENT_FOR_THIS_CONSEQUENTIAL_USE"
+}

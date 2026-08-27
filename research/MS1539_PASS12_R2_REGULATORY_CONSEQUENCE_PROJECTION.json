@@ -1,0 +1,337 @@
+{
+  "channels": {
+    "ENERGY": {
+      "best_revealed_simple": [
+        {
+          "action_baseline_accuracy": 0.5992414664981036,
+          "assistance_ancestry": [
+            "SUPPLIED_RAW_OBSERVATION_BOUNDARIES",
+            "SUPPLIED_OPAQUE_ACTION_TOKENS",
+            "SUPPLIED_OPAQUE_EFFECT_TOKENS",
+            "FIXED_SUBSET_GRAMMAR_MAX_2",
+            "PREDICTIVE_EQUIVALENCE_COMPRESSION",
+            "FIXED_DISCOVERY_THRESHOLDS"
+          ],
+          "bucket_count": 6,
+          "candidate_id": "proj-cand-12e690801e1e96266c36",
+          "input_positions": [
+            0
+          ],
+          "lift": 0.22250316055625796,
+          "min_scope_accuracy": 0.7804878048780488,
+          "validation_accuracy": 0.8217446270543616
+        },
+        {
+          "action_baseline_accuracy": 0.5992414664981036,
+          "assistance_ancestry": [
+            "SUPPLIED_RAW_OBSERVATION_BOUNDARIES",
+            "SUPPLIED_OPAQUE_ACTION_TOKENS",
+            "SUPPLIED_OPAQUE_EFFECT_TOKENS",
+            "FIXED_SUBSET_GRAMMAR_MAX_2",
+            "PREDICTIVE_EQUIVALENCE_COMPRESSION",
+            "FIXED_DISCOVERY_THRESHOLDS"
+          ],
+          "bucket_count": 6,
+          "candidate_id": "proj-cand-d8c5c3e39d9ef017ee48",
+          "input_positions": [
+            1
+          ],
+          "lift": 0.012642225031605614,
+          "min_scope_accuracy": 0.5309278350515464,
+          "validation_accuracy": 0.6118836915297092
+        },
+        {
+          "action_baseline_accuracy": 0.5992414664981036,
+          "assistance_ancestry": [
+            "SUPPLIED_RAW_OBSERVATION_BOUNDARIES",
+            "SUPPLIED_OPAQUE_ACTION_TOKENS",
+            "SUPPLIED_OPAQUE_EFFECT_TOKENS",
+            "FIXED_SUBSET_GRAMMAR_MAX_2",
+            "PREDICTIVE_EQUIVALENCE_COMPRESSION",
+            "FIXED_DISCOVERY_THRESHOLDS"
+          ],
+          "bucket_count": 11,
+          "candidate_id": "proj-cand-0463f443f3ca6e5537f9",
+          "input_positions": [
+            2
+          ],
+          "lift": -0.013906447534766109,
+          "min_scope_accuracy": 0.5555555555555556,
+          "validation_accuracy": 0.5853350189633375
+        }
+      ],
+      "pressure_rows": 410,
+      "robust_candidates": [
+        {
+          "action_baseline_accuracy": 0.5992414664981036,
+          "assistance_ancestry": [
+            "SUPPLIED_RAW_OBSERVATION_BOUNDARIES",
+            "SUPPLIED_OPAQUE_ACTION_TOKENS",
+            "SUPPLIED_OPAQUE_EFFECT_TOKENS",
+            "SUPPLIED_HISTORY_WINDOW_MAX_LAG_0",
+            "SUPPLIED_SUPPORT_CEILING_3",
+            "SUPPLIED_TOP_SUPPORTS_PER_ORDER_16",
+            "EXACT_OBSERVED_EFFECT_DISCORDANCE_EDGES",
+            "BOUNDED_CONFLICT_COVERAGE_RANKING",
+            "SMALLEST_PREDICTIVELY_VALIDATED_SUPPORT_ORDER",
+            "UNTOUCHED_PRESSURE_AND_NOMINATION_VALIDATION",
+            "NO_EFFECT_DISTANCE_METRIC",
+            "NO_NOISE_RATE_MODEL"
+          ],
+          "atoms": [
+            "L0:P0"
+          ],
+          "candidate_id": "robust-constructor-cand-3acaa0f206bb866bf56a",
+          "lift": 0.21997471554993686,
+          "min_scope_accuracy": 0.7804878048780488,
+          "observed_conflict_coverage": 0.9264,
+          "pressure_accuracy": 0.7853658536585366,
+          "validation_accuracy": 0.8192161820480405
+        }
+      ],
+      "simple_candidates": [
+        {
+          "action_baseline_accuracy": 0.5992414664981036,
+          "assistance_ancestry": [
+            "SUPPLIED_RAW_OBSERVATION_BOUNDARIES",
+            "SUPPLIED_OPAQUE_ACTION_TOKENS",
+            "SUPPLIED_OPAQUE_EFFECT_TOKENS",
+            "FIXED_SUBSET_GRAMMAR_MAX_2",
+            "PREDICTIVE_EQUIVALENCE_COMPRESSION",
+            "FIXED_DISCOVERY_THRESHOLDS"
+          ],
+          "bucket_count": 6,
+          "candidate_id": "proj-cand-12e690801e1e96266c36",
+          "input_positions": [
+            0
+          ],
+          "lift": 0.22250316055625796,
+          "min_scope_accuracy": 0.7804878048780488,
+          "validation_accuracy": 0.8217446270543616
+        }
+      ],
+      "train_rows": 1135,
+      "validation_rows": 791
+    },
+    "INTEGRITY": {
+      "best_revealed_simple": [
+        {
+          "action_baseline_accuracy": 0.592686002522068,
+          "assistance_ancestry": [
+            "SUPPLIED_RAW_OBSERVATION_BOUNDARIES",
+            "SUPPLIED_OPAQUE_ACTION_TOKENS",
+            "SUPPLIED_OPAQUE_EFFECT_TOKENS",
+            "FIXED_SUBSET_GRAMMAR_MAX_2",
+            "PREDICTIVE_EQUIVALENCE_COMPRESSION",
+            "FIXED_DISCOVERY_THRESHOLDS"
+          ],
+          "bucket_count": 8,
+          "candidate_id": "proj-cand-4891cd140ee10a5c4d0f",
+          "input_positions": [
+            2
+          ],
+          "lift": 0.11475409836065575,
+          "min_scope_accuracy": 0.6934673366834171,
+          "validation_accuracy": 0.7074401008827238
+        },
+        {
+          "action_baseline_accuracy": 0.592686002522068,
+          "assistance_ancestry": [
+            "SUPPLIED_RAW_OBSERVATION_BOUNDARIES",
+            "SUPPLIED_OPAQUE_ACTION_TOKENS",
+            "SUPPLIED_OPAQUE_EFFECT_TOKENS",
+            "FIXED_SUBSET_GRAMMAR_MAX_2",
+            "PREDICTIVE_EQUIVALENCE_COMPRESSION",
+            "FIXED_DISCOVERY_THRESHOLDS"
+          ],
+          "bucket_count": 7,
+          "candidate_id": "proj-cand-215fdb91e3f0ae068d23",
+          "input_positions": [
+            0
+          ],
+          "lift": -0.027742749054224358,
+          "min_scope_accuracy": 0.47804878048780486,
+          "validation_accuracy": 0.5649432534678437
+        },
+        {
+          "action_baseline_accuracy": 0.592686002522068,
+          "assistance_ancestry": [
+            "SUPPLIED_RAW_OBSERVATION_BOUNDARIES",
+            "SUPPLIED_OPAQUE_ACTION_TOKENS",
+            "SUPPLIED_OPAQUE_EFFECT_TOKENS",
+            "FIXED_SUBSET_GRAMMAR_MAX_2",
+            "PREDICTIVE_EQUIVALENCE_COMPRESSION",
+            "FIXED_DISCOVERY_THRESHOLDS"
+          ],
+          "bucket_count": 8,
+          "candidate_id": "proj-cand-f1b3a0131b3d2ed76c27",
+          "input_positions": [
+            1
+          ],
+          "lift": -0.046658259773013855,
+          "min_scope_accuracy": 0.5025125628140703,
+          "validation_accuracy": 0.5460277427490542
+        }
+      ],
+      "pressure_rows": 393,
+      "robust_candidates": [],
+      "simple_candidates": [],
+      "train_rows": 1109,
+      "validation_rows": 793
+    },
+    "THERMAL": {
+      "best_revealed_simple": [
+        {
+          "action_baseline_accuracy": 0.6154822335025381,
+          "assistance_ancestry": [
+            "SUPPLIED_RAW_OBSERVATION_BOUNDARIES",
+            "SUPPLIED_OPAQUE_ACTION_TOKENS",
+            "SUPPLIED_OPAQUE_EFFECT_TOKENS",
+            "FIXED_SUBSET_GRAMMAR_MAX_2",
+            "PREDICTIVE_EQUIVALENCE_COMPRESSION",
+            "FIXED_DISCOVERY_THRESHOLDS"
+          ],
+          "bucket_count": 7,
+          "candidate_id": "proj-cand-61534981a71a1084422c",
+          "input_positions": [
+            1
+          ],
+          "lift": 0.20050761421319796,
+          "min_scope_accuracy": 0.7961165048543689,
+          "validation_accuracy": 0.815989847715736
+        },
+        {
+          "action_baseline_accuracy": 0.6154822335025381,
+          "assistance_ancestry": [
+            "SUPPLIED_RAW_OBSERVATION_BOUNDARIES",
+            "SUPPLIED_OPAQUE_ACTION_TOKENS",
+            "SUPPLIED_OPAQUE_EFFECT_TOKENS",
+            "FIXED_SUBSET_GRAMMAR_MAX_2",
+            "PREDICTIVE_EQUIVALENCE_COMPRESSION",
+            "FIXED_DISCOVERY_THRESHOLDS"
+          ],
+          "bucket_count": 7,
+          "candidate_id": "proj-cand-140b29d8641b40b4bd8d",
+          "input_positions": [
+            0
+          ],
+          "lift": -0.017766497461928932,
+          "min_scope_accuracy": 0.5641025641025641,
+          "validation_accuracy": 0.5977157360406091
+        },
+        {
+          "action_baseline_accuracy": 0.6154822335025381,
+          "assistance_ancestry": [
+            "SUPPLIED_RAW_OBSERVATION_BOUNDARIES",
+            "SUPPLIED_OPAQUE_ACTION_TOKENS",
+            "SUPPLIED_OPAQUE_EFFECT_TOKENS",
+            "FIXED_SUBSET_GRAMMAR_MAX_2",
+            "PREDICTIVE_EQUIVALENCE_COMPRESSION",
+            "FIXED_DISCOVERY_THRESHOLDS"
+          ],
+          "bucket_count": 9,
+          "candidate_id": "proj-cand-59fbd2ed054b7b74a8d1",
+          "input_positions": [
+            2
+          ],
+          "lift": -0.03807106598984766,
+          "min_scope_accuracy": 0.5435897435897435,
+          "validation_accuracy": 0.5774111675126904
+        }
+      ],
+      "pressure_rows": 396,
+      "robust_candidates": [
+        {
+          "action_baseline_accuracy": 0.6154822335025381,
+          "assistance_ancestry": [
+            "SUPPLIED_RAW_OBSERVATION_BOUNDARIES",
+            "SUPPLIED_OPAQUE_ACTION_TOKENS",
+            "SUPPLIED_OPAQUE_EFFECT_TOKENS",
+            "SUPPLIED_HISTORY_WINDOW_MAX_LAG_0",
+            "SUPPLIED_SUPPORT_CEILING_3",
+            "SUPPLIED_TOP_SUPPORTS_PER_ORDER_16",
+            "EXACT_OBSERVED_EFFECT_DISCORDANCE_EDGES",
+            "BOUNDED_CONFLICT_COVERAGE_RANKING",
+            "SMALLEST_PREDICTIVELY_VALIDATED_SUPPORT_ORDER",
+            "UNTOUCHED_PRESSURE_AND_NOMINATION_VALIDATION",
+            "NO_EFFECT_DISTANCE_METRIC",
+            "NO_NOISE_RATE_MODEL"
+          ],
+          "atoms": [
+            "L0:P1"
+          ],
+          "candidate_id": "robust-constructor-cand-f580fd773b8a094af560",
+          "lift": 0.2182741116751269,
+          "min_scope_accuracy": 0.8009708737864077,
+          "observed_conflict_coverage": 0.995,
+          "pressure_accuracy": 0.851010101010101,
+          "validation_accuracy": 0.833756345177665
+        }
+      ],
+      "simple_candidates": [
+        {
+          "action_baseline_accuracy": 0.6154822335025381,
+          "assistance_ancestry": [
+            "SUPPLIED_RAW_OBSERVATION_BOUNDARIES",
+            "SUPPLIED_OPAQUE_ACTION_TOKENS",
+            "SUPPLIED_OPAQUE_EFFECT_TOKENS",
+            "FIXED_SUBSET_GRAMMAR_MAX_2",
+            "PREDICTIVE_EQUIVALENCE_COMPRESSION",
+            "FIXED_DISCOVERY_THRESHOLDS"
+          ],
+          "bucket_count": 7,
+          "candidate_id": "proj-cand-61534981a71a1084422c",
+          "input_positions": [
+            1
+          ],
+          "lift": 0.20050761421319796,
+          "min_scope_accuracy": 0.7961165048543689,
+          "validation_accuracy": 0.815989847715736
+        }
+      ],
+      "train_rows": 1132,
+      "validation_rows": 788
+    }
+  },
+  "channels_with_candidate_under_supplied_research_gates": [
+    "ENERGY",
+    "THERMAL"
+  ],
+  "data_boundary": "NOISY_R2_PREACTION_SENSOR_TOKENS_PLUS_OBSERVED_POSTACTION_VALUE__NO_HIDDEN_STATE",
+  "disposition": "DECISION_RELEVANT_REGULATORY_TARGET_RECOVERS_MATERIAL_OBSERVABLE_SIGNAL",
+  "hidden_regime_labels_used": false,
+  "nonclaims": [
+    "NO_PROJECTION_ADMISSION",
+    "NO_ROUTING_QUALIFICATION",
+    "NO_MAINDEV_MUTATION",
+    "NO_WHOLE_ORGANISM_COMPETENCE_CREDIT",
+    "NO_SEMANTIC_REGIME_AUTHORITY",
+    "NO_GENERAL_CLAIM_THAT_EXACT_EFFECT_MAGNITUDE_IS_USELESS"
+  ],
+  "robust_constructor_config": {
+    "combination_budget": 50000,
+    "max_candidates": 8,
+    "max_conflict_edges": 5000,
+    "max_lag_ceiling": 0,
+    "max_support_ceiling": 3,
+    "min_lift_over_action_baseline": 0.08,
+    "min_scope_accuracy": 0.62,
+    "min_train_support": 100,
+    "min_validation_accuracy": 0.72,
+    "top_supports_per_order": 16
+  },
+  "same_raw_tokenization_as_pass10": true,
+  "schema": "microseed.ms1539.pass12.r2-regulatory-consequence-projection.v1",
+  "semantic_value_priority_added": false,
+  "simple_projection_config": {
+    "complexity_penalty": 0.008,
+    "max_candidates": 12,
+    "max_subset": 2,
+    "min_key_action_support": 3,
+    "min_lift_over_action_baseline": 0.08,
+    "min_scope_accuracy": 0.62,
+    "min_train_support": 20,
+    "min_validation_accuracy": 0.72
+  },
+  "target_relation": "EXISTING_REGULATORY_PRESSURE_CONSEQUENCE_STANCE__YES_LOWER_OR_PRESERVE__NO_WORSEN_OR_CREATE__UNKNOWN_EQUAL_PRESSURE"
+}

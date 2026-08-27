@@ -1,0 +1,145 @@
+{
+  "behavioral_equivalence": {
+    "cheap_query": {
+      "intent_basis_kind": "MULTI_VALUE_LICENSE",
+      "license_status": "UNIQUE_ACTION_LICENSE",
+      "licensed_action_ids": [
+        "REST"
+      ],
+      "obligation_id": "ACT",
+      "operational_scope_id": "R2",
+      "reason": null,
+      "status": "ACTION_INTENT_NOMINATED",
+      "supplied_purpose": "cheap-reversible",
+      "supplied_witness_predicate": "EXACT_WITNESS_FOR_CHEAP_QUERY"
+    },
+    "high_consequence_query": {
+      "intent_basis_kind": "MULTI_VALUE_LICENSE",
+      "license_status": "UNIQUE_ACTION_LICENSE",
+      "licensed_action_ids": [
+        "REST"
+      ],
+      "obligation_id": "ACT",
+      "operational_scope_id": "R2",
+      "reason": null,
+      "status": "ACTION_INTENT_NOMINATED",
+      "supplied_purpose": "high-consequence",
+      "supplied_witness_predicate": "EXACT_WITNESS_FOR_HIGH_CONSEQUENCE_QUERY"
+    },
+    "same_operational_decision_despite_different_purpose_and_witness_predicate": true
+  },
+  "campaign": "MS1553-1577_DEVELOPMENTAL_CONSEQUENCE_EVIDENCE_ADEQUACY",
+  "discriminator": "DOES_LIVE_MICROSEED_ALREADY_CONTAIN_A_LAWFUL_QUERY_LOCAL_OWNER_OR_TRIGGER_FOR_CURRENT_BUT_USE_INSUFFICIENT_CONSEQUENCE_EVIDENCE",
+  "file_sha256": {
+    "microseed/development/action_licensing.py": "3c7854c12b9601bfa59d249938e8cb09fc07d009b27aad490d60c412a08e7edc",
+    "microseed/development/discovery.py": "220f68400695c74e5730becd520e17898481bd4368f84ee4eaf6724e75b3726d",
+    "microseed/runtime/capabilities.py": "0a288d29a430f30c8fbb6453e276312d6dc6aadebcce895f3a0b69b8584595b9",
+    "microseed/runtime/entity.py": "5954fd661724a5ff6e7423c11d443028eec568e0b85ebf59352736bb796fc2e2",
+    "microseed/runtime/types.py": "c0e4704334bbfab447d2a449956503b90de92c91aa7ab42f570e217635715997"
+  },
+  "irreducibility_verdict": "NO_EXISTING_LIVE_FIELD_OR_BEHAVIORAL_GATE_EXPRESSES_QUERY_LOCAL_CONSEQUENCE_EVIDENCE_ADEQUACY__EXISTING_EPISTEMIC_DEFICIT_LIFECYCLE_CAN_CARRY_THE_UNKNOWN_AFTER_NOMINATION__THE_SMALLEST_OPEN_SEAM_IS_A_LAWFUL_RECOGNITION_ADMISSION_RELATION_BETWEEN_CURRENT_EVIDENCE_BASIS_AND_USE_QUERY",
+  "lineage_constraints": {
+    "obligation_id": "QUERY_BINDING_IDENTITY__NOT_EVIDENCE_ADEQUACY",
+    "operational_scope_id": "OPAQUE_OPERATIONAL_LOCALITY__NOT_USE_ASSURANCE",
+    "purpose": "DESCRIPTIVE_STRING__NO_CURRENT_RUNTIME_SEMANTICS",
+    "required_authority": "AUTHORITY_CLASS_REQUIREMENT__NOT_EVIDENCE_STRENGTH",
+    "witness_predicate": "RESERVED_BY_EARLIER_LINEAGE_FOR_EXACT_WITNESS_TO_QUERY_PROPOSITION_CORRESPONDENCE__NOT_AVAILABLE_FOR_SILENT_RISK_OR_ASSURANCE_REPURPOSING"
+  },
+  "live_schema": {
+    "CapabilityContract_fields": [
+      "capability_id",
+      "purpose",
+      "boundary",
+      "interface",
+      "invariants",
+      "hazards",
+      "authority",
+      "lineage",
+      "currentness",
+      "resources",
+      "dependencies",
+      "query_obligation_id",
+      "witness_predicate",
+      "qualification",
+      "handler",
+      "assistance_ancestry",
+      "operational_scope_id"
+    ],
+    "EpistemicDeficitRecord_fields": [
+      "deficit_id",
+      "question_key",
+      "hypothesis_digest_sha256",
+      "unknown_evidence_id",
+      "missing_discriminator_signature_sha256",
+      "identifiability_class",
+      "state",
+      "probe_capability_id",
+      "probe_capability_epoch",
+      "candidate_ids",
+      "probe_evidence_ids",
+      "relevant_evidence_ids",
+      "premise_anchors",
+      "stale_reason",
+      "stale_evidence_id",
+      "assistance_ancestry",
+      "truth_authority",
+      "semantic_question_authority"
+    ],
+    "QueryObligation_fields": [
+      "obligation_id",
+      "purpose",
+      "required_authority",
+      "witness_predicate",
+      "operational_scope_id"
+    ],
+    "current_query_gates_observed_in_source": [
+      "required_authority",
+      "obligation_id",
+      "operational_scope_id"
+    ],
+    "effect_evidence_descriptors_observed": [
+      "effect",
+      "support",
+      "consistency",
+      "source_trace_ids",
+      "authority"
+    ],
+    "effect_witness_fields": [
+      "assistance_ancestry",
+      "authority",
+      "capability_epoch",
+      "capability_id",
+      "consistency",
+      "effect",
+      "episode_schema_epoch",
+      "frame_epoch",
+      "semantic_effect_coordinate_authority",
+      "source_trace_ids",
+      "status",
+      "support",
+      "truth_authority",
+      "value_epoch",
+      "value_id"
+    ],
+    "witness_predicate_occurrences": {
+      "microseed/development/action_licensing.py": 0,
+      "microseed/runtime/capabilities.py": 0,
+      "microseed/runtime/entity.py": 0,
+      "microseed/runtime/types.py": 2
+    }
+  },
+  "main_dev_mutation": "NONE",
+  "ms": 1555,
+  "new_primitive_earned": false,
+  "nonclaims": [
+    "NO_RISK_SCORE_FIELD_EARNED",
+    "NO_CONFIDENCE_FIELD_EARNED",
+    "NO_WITNESS_PREDICATE_REPURPOSING",
+    "NO_QUERY_PURPOSE_SEMANTICS_PROMOTED",
+    "NO_PAL_CONTRACT_IMPORT"
+  ],
+  "pass": 3,
+  "phase": "HOSTILE_IRREDUCIBILITY_AUDIT",
+  "schema": "microseed.ms1555.pass03.recognition-irreducibility-audit.v1",
+  "specific_mechanism_earned": false
+}

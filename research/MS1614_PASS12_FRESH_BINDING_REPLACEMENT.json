@@ -1,0 +1,13 @@
+{
+  "authority": "RESEARCH_ONLY",
+  "new_binding": "SHADOW_QUALIFIED",
+  "new_relation": "SHADOW_QUALIFIED",
+  "old_binding": "STALE",
+  "old_relation": "STALE",
+  "pass": "MS1614_PASS12",
+  "result": "EXISTING_DEPENDENCY_CURRENTNESS_SUPPORTS_FRAME_CORRECTION_WITH_HISTORY_PRESERVED_WHEN_FRESH_BINDING_IS_SEPARATELY_QUALIFIED",
+  "stale_closure": [
+    "BIND-OLD",
+    "LEARNED-REL-OLD"
+  ]
+}

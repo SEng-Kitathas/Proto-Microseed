@@ -1,0 +1,47 @@
+{
+  "MS1683_pass06": {
+    "composition_authority": "NONE",
+    "disposition": "EXISTING_RECRUITMENT_ENFORCES_CALLER_SUPPLIED_TYPED_FEASIBILITY_AND_RESOURCE_CONFLICTS__DOES_NOT_GRANT_EFFECT_AUTHORITY",
+    "recruitment_plan": [
+      "A",
+      "B"
+    ],
+    "refused_component_rejected": true,
+    "resource_conflict_rejected": true
+  },
+  "MS1684_pass07": {
+    "disposition": "EXISTING_TERNARY_COMMITMENT_ALGEBRA_CAN_CONJOIN_DISCRIMINATION_FEASIBILITY_AND_CURRENT_QUALIFICATION_WITH_ZERO_AUTHORITY_GAIN",
+    "joint_epistemic_feasibility_commitment": {
+      "applicability": "YES",
+      "binding": "YES",
+      "commitment": "YES",
+      "commitment_id": "JOINT",
+      "premise_ids": [
+        "DISC",
+        "FEAS",
+        "QA",
+        "QB"
+      ],
+      "qualifiers": [
+        [
+          "authority_gain",
+          "NONE"
+        ],
+        [
+          "composition",
+          "CONJUNCTIVE_PREMISE_LICENSE_ONLY"
+        ]
+      ],
+      "reason": "EPISTEMIC_PROGRAM_ALL_LICENSED",
+      "target_id": "macro:AB"
+    }
+  },
+  "MS1685_pass08": {
+    "assistance_debt": "FEASIBILITY_STATE_REMAINS_CALLER_SUPPLIED_AT_THIS_BOUNDARY",
+    "disposition": "NO_EXISTING_ACTION_INTENT_BRIDGE_CONSUMES_EPISTEMIC_PROGRAM_COMMITMENT__EXECUTION_REMAINS_BLOCKED_WITHOUT_NEW_NARROW_WIRING",
+    "recognized_action_intent_basis_kinds": [
+      "MULTI_VALUE_LICENSE",
+      "SINGLE_VALUE_REHEARSAL"
+    ]
+  }
+}

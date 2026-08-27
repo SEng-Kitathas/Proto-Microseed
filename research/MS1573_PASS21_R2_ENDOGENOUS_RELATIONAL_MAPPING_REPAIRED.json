@@ -1,0 +1,232 @@
+{
+  "all_checks_pass": true,
+  "breadth_next": "IF_NEGATIVE_RECONCILE_MECHANISM_EXPRESSIVITY_WITH_R2_IDENTIFIABILITY_AND_THE_OPEN_OBSERVATION_CHANNEL_ASSURANCE_DEBT__DO_NOT_TRY_RICHER_SELECTOR_GRAMMARS_OR_SENSOR_ASSURANCE_AS_A_DETOUR_UNLESS_THE_PROPOSITION_DEPENDS_ON_IT",
+  "campaign_pass": 21,
+  "checks": {
+    "all_query_boundaries_preserve_independent_holdout_after_tick_70": true,
+    "all_twelve_runs_resolve_a_learner_visible_complete_query_boundary": true,
+    "evidence_is_truncated_at_each_query_boundary": true,
+    "fixed_gates_and_grammar_used_without_sweep": true,
+    "transfer_result_is_explicitly_measured": true
+  },
+  "discriminator": "CAN_THE_PASS19_RELATIONAL_UNITIZATION_FORM_A_USEFUL_DIAGNOSTIC_MAPPING_FROM_ONE_R2_LIFETIME_USING_ONLY_ALREADY_OBSERVED_COARSE_CURRENT_VALUE_RELATIONS_AND_QUERY_RELATIVE_TARGET_STANCES__WITHOUT_SUPPLYING_A_HIDDEN_REGIME_OR_DIAGNOSTIC_MAPPING",
+  "disposition": "NARROWED_NEGATIVE__BOUNDED_RELATIONAL_UNITIZATION_DOES_NOT_RELIABLY_BOOTSTRAP_A_DIAGNOSTIC_MAPPING_FROM_CURRENT_R2_OBSERVABLE_RELATIONS_WITHIN_ONE_LIFETIME",
+  "fixed_configuration": {
+    "holdout_end": "LATEST_COMPLETE_LEARNER_VISIBLE_QUERY_BOUNDARY",
+    "min_consistency": 0.75,
+    "min_support": 8,
+    "no_hidden_regime": true,
+    "no_selector_conjunctions": true,
+    "no_threshold_sweep": true,
+    "seeds": [
+      107,
+      108,
+      109,
+      110,
+      111,
+      112,
+      113,
+      114,
+      115,
+      116,
+      117,
+      118
+    ],
+    "selector_grammar": "ONE_EXISTING_VALUE_RELATION_TOKEN_BELOW_WITHIN_ABOVE",
+    "ticks_per_lifetime": 100,
+    "train_ticks": 70
+  },
+  "harness_repair": {
+    "not_changed": [
+      "R2_HABITAT",
+      "R2_MISSINGNESS_OR_NOISE",
+      "SELECTOR_GRAMMAR",
+      "MIN_SUPPORT_8",
+      "MIN_CONSISTENCY_0_75",
+      "TRAIN_BOUNDARY_TICK_70",
+      "NO_HIDDEN_REGIME"
+    ],
+    "original_nonresult": "FINAL_TICK_COMPLETE_OBSERVATION_WAS_REQUIRED",
+    "repair": "ASK_THE_QUERY_AT_THE_LATEST_LEARNER_VISIBLE_COMPLETE_POST_OBSERVATION_AND_TRUNCATE_ALL_DEVELOPMENTAL_EVIDENCE_AT_THAT_BOUNDARY"
+  },
+  "interpretation": "THE_FINAL_TICK_MISSINGNESS_CONFOUND_IS_REMOVED_WITHOUT_IMPUTATION_OR_HIDDEN_STATE__THE_REPAIRED_R2_TEST_NOW_MEASURES_ONLY_WHETHER_EXISTING_COARSE_LEARNER_VISIBLE_RELATIONS_SUPPLY_ENOUGH_RECURRENT_CONDITIONAL_STRUCTURE_FOR_THE_TINY_UNITIZATION_TO_FORM_A_DIAGNOSTIC_MAPPING",
+  "main_dev_mutation": "NONE",
+  "milestone": "MS1573",
+  "nonclaims": [
+    "A_NEGATIVE_DOES_NOT_DISPROVE_RELATIONAL_HYPOTHESIS_FORMATION_IN_GENERAL",
+    "A_NEGATIVE_MAY_REFLECT_R2_IDENTIFIABILITY_OR_SAMPLE_LIMITS",
+    "NO_PERMISSION_FOR_SELECTOR_GRAMMAR_EXPANSION_OR_PARAMETER_SEARCH",
+    "LEARNER_VISIBLE_DOES_NOT_MEAN_EPISTEMICALLY_QUALIFIED_OBSERVATION_CHANNEL",
+    "NO_MAINDEV_MUTATION"
+  ],
+  "phase": "R2_SINGLE_LIFETIME_ENDOGENOUS_MAPPING_TRANSFER__HARNESS_REPAIR",
+  "runs": [
+    {
+      "available_holdout_ticks": 30,
+      "nominations": [],
+      "query_boundary_tick": 99,
+      "query_observation": {
+        "ENERGY": 1.66140694732635,
+        "INTEGRITY": 7.9027217113130614,
+        "THERMAL": 1.9419739762468926
+      },
+      "seed": 107,
+      "status": "OK"
+    },
+    {
+      "available_holdout_ticks": 28,
+      "nominations": [],
+      "query_boundary_tick": 97,
+      "query_observation": {
+        "ENERGY": 2.1228572587700656,
+        "INTEGRITY": 8.362082217021085,
+        "THERMAL": 1.1230522734902726
+      },
+      "seed": 108,
+      "status": "OK"
+    },
+    {
+      "available_holdout_ticks": 30,
+      "nominations": [],
+      "query_boundary_tick": 99,
+      "query_observation": {
+        "ENERGY": 7.450892841730621,
+        "INTEGRITY": 9.575433528421653,
+        "THERMAL": 6.03757000059713
+      },
+      "seed": 109,
+      "status": "OK"
+    },
+    {
+      "available_holdout_ticks": 30,
+      "nominations": [],
+      "query_boundary_tick": 99,
+      "query_observation": {
+        "ENERGY": 1.9183778240399145,
+        "INTEGRITY": 9.956943152686229,
+        "THERMAL": 2.190977965905701
+      },
+      "seed": 110,
+      "status": "OK"
+    },
+    {
+      "available_holdout_ticks": 30,
+      "nominations": [],
+      "query_boundary_tick": 99,
+      "query_observation": {
+        "ENERGY": 8.060187081889875,
+        "INTEGRITY": 8.545459429548545,
+        "THERMAL": 5.316490201044819
+      },
+      "seed": 111,
+      "status": "OK"
+    },
+    {
+      "available_holdout_ticks": 30,
+      "nominations": [],
+      "query_boundary_tick": 99,
+      "query_observation": {
+        "ENERGY": 5.548404484526018,
+        "INTEGRITY": 9.5432153789101,
+        "THERMAL": 2.1776748271592457
+      },
+      "seed": 112,
+      "status": "OK"
+    },
+    {
+      "available_holdout_ticks": 28,
+      "nominations": [],
+      "query_boundary_tick": 97,
+      "query_observation": {
+        "ENERGY": 10.0,
+        "INTEGRITY": 9.726186226396221,
+        "THERMAL": 5.319281367193874
+      },
+      "seed": 113,
+      "status": "OK"
+    },
+    {
+      "available_holdout_ticks": 29,
+      "nominations": [],
+      "query_boundary_tick": 98,
+      "query_observation": {
+        "ENERGY": 9.664454679942098,
+        "INTEGRITY": 9.2119065090634,
+        "THERMAL": 5.8191127008156975
+      },
+      "seed": 114,
+      "status": "OK"
+    },
+    {
+      "available_holdout_ticks": 30,
+      "nominations": [],
+      "query_boundary_tick": 99,
+      "query_observation": {
+        "ENERGY": 0.6675829486616371,
+        "INTEGRITY": 8.276710243968614,
+        "THERMAL": 0.0
+      },
+      "seed": 115,
+      "status": "OK"
+    },
+    {
+      "available_holdout_ticks": 30,
+      "nominations": [],
+      "query_boundary_tick": 99,
+      "query_observation": {
+        "ENERGY": 6.7017323005122424,
+        "INTEGRITY": 10.0,
+        "THERMAL": 4.447665703465076
+      },
+      "seed": 116,
+      "status": "OK"
+    },
+    {
+      "available_holdout_ticks": 30,
+      "nominations": [],
+      "query_boundary_tick": 99,
+      "query_observation": {
+        "ENERGY": 4.125684286547215,
+        "INTEGRITY": 9.387207453871461,
+        "THERMAL": 0.9152599191383299
+      },
+      "seed": 117,
+      "status": "OK"
+    },
+    {
+      "available_holdout_ticks": 29,
+      "nominations": [],
+      "query_boundary_tick": 98,
+      "query_observation": {
+        "ENERGY": 8.982637192826356,
+        "INTEGRITY": 9.656769745377217,
+        "THERMAL": 3.1837425160362924
+      },
+      "seed": 118,
+      "status": "OK"
+    }
+  ],
+  "summary": {
+    "complete_runs": 12,
+    "mean_holdout_lift_for_nominations_with_support_ge_3": null,
+    "query_boundary_ticks": {
+      "107": 99,
+      "108": 97,
+      "109": 99,
+      "110": 99,
+      "111": 99,
+      "112": 99,
+      "113": 97,
+      "114": 98,
+      "115": 99,
+      "116": 99,
+      "117": 99,
+      "118": 98
+    },
+    "seeds_with_any_discriminating_mapping": 0,
+    "seeds_with_any_positive_holdout_mapping": 0,
+    "seeds_with_any_strong_holdout_mapping": 0,
+    "total_nominated_mappings": 0,
+    "transfer_supported_by_predeclared_breadth_rule": false
+  }
+}

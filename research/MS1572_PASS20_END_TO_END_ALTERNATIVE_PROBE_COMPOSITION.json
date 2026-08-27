@@ -1,0 +1,116 @@
+{
+  "all_checks_pass": true,
+  "assistance_debt": [
+    "EPISODE_BOUNDARY_PROBE_HANDLE_AND_TARGET_ACTION_HANDLE_REMAIN_SUPPLIED",
+    "RESEARCH_ADAPTER_NOMINATES_THE_EXISTING_EPISTEMIC_DEFICIT_FROM_RELATIONAL_ALTERNATIVES",
+    "CURRENT_EPISTEMIC_PROJECTION_HANDLE_REMAINS_SUPPLIED_AS_REQUIRED_BY_EXISTING_CONTRAST_API",
+    "RUNTIME_HAS_NO_ADMISSION_PATH_FOR_RESEARCH_GENERATED_CONTRAST_BINDINGS",
+    "NO_CREDIT_FOR_TARGET_ACTION_EXECUTION_AFTER_REVISIT"
+  ],
+  "bearing": {
+    "answer_authority": "NONE",
+    "bearing": true,
+    "bearing_kind": "DISCRIMINATES_LIVE_SET",
+    "binding_id": "B-P20",
+    "deficit_id": "D-P20",
+    "duplicate": false,
+    "evidence_id": "E-P20-PROBE-ACTUAL",
+    "raw_projection_discovery_authority": "NONE",
+    "semantic_question_authority": "NONE",
+    "state": "REVISIT_REQUIRED",
+    "truth_authority": "NONE",
+    "witness_id": "bearing-f1aa683da94a1607d5bd5567"
+  },
+  "breadth_next": "RETURN_TO_REAL_R2_EVIDENCE_AND_TEST_WHETHER_QUERY_RELATIVE_STANCE_DISAGREEMENT_PLUS_EXISTING_EPISODE_ANCESTRY_CAN_NOMINATE_USEFUL_RELATIONAL_ALTERNATIVES_WITHOUT_SUPPLYING_A_DIAGNOSTIC_MAPPING__IF_NOT_STOP_BEFORE_RUNTIME_INTEGRATION",
+  "campaign_pass": 20,
+  "candidate_ids": [
+    "REL-ALT-902424e27693965ce889",
+    "REL-ALT-12e02945539efda1083d",
+    "REL-ALT-11ef07256b3d3d184396"
+  ],
+  "checks": {
+    "actual_evidence_is_discriminating": true,
+    "actual_evidence_requests_revisit_not_resolution": true,
+    "actual_probe_reduces_candidate_set_to_one": true,
+    "bearing_has_zero_answer_authority": true,
+    "contrast_partition_is_generated_from_candidate_predictions": true,
+    "existing_active_discrimination_selects_generated_disagreement_probe": true,
+    "no_lawful_probe_pool_means_no_probe": true,
+    "probe_binding_is_not_resolution": true,
+    "probe_executes_only_through_current_qualified_capability": true,
+    "research_candidates_form_more_than_one_live_alternative": true,
+    "surviving_candidate_matches_actual_probe_result": true,
+    "surviving_target_stance_remains_model_output_not_execution_authority": true,
+    "unexpected_probe_result_challenges_model_space_instead_of_forcing_candidate": true
+  },
+  "discrimination": {
+    "disposition": "UNRESOLVED",
+    "live": [
+      "REL-ALT-902424e27693965ce889",
+      "REL-ALT-12e02945539efda1083d",
+      "REL-ALT-11ef07256b3d3d184396"
+    ],
+    "next_probe": "DIAGNOSTIC-PROBE"
+  },
+  "discriminator": "CAN_RECURRENT_RELATIONAL_ALTERNATIVE_HANDLES_FROM_ACTUAL_EVIDENCE_FEED_THE_EXISTING_EPISTEMIC_DEFICIT_ACTIVE_DISCRIMINATION_CAPABILITY_INVOCATION_EVIDENCE_BEARING_AND_REVISIT_LIFECYCLE_WITHOUT_A_NEW_RUNTIME_OWNER_OR_WITHOUT_TURNING_THE_SURVIVING_ALTERNATIVE_INTO_TRUTH_OR_EXECUTION_AUTHORITY",
+  "final_deficit": {
+    "assistance_ancestry": [
+      "PASS20_RESEARCH_ADAPTER_NOMINATED_DEFICIT_FROM_PASS19_RELATIONAL_ALTERNATIVES"
+    ],
+    "candidate_ids": [],
+    "deficit_id": "D-P20",
+    "hypothesis_digest_sha256": "f645087d335aa1adfc4b0a8515e31ae75d156bc51adacbc46c0767f51705ac52",
+    "identifiability_class": "C_ACTION_LIMITED",
+    "missing_discriminator_signature_sha256": "66687227ed727d999f57becc0cb41970bce6200063d2b97f691d426bca41d359",
+    "premise_anchors": [],
+    "probe_capability_epoch": 0,
+    "probe_capability_id": "DIAGNOSTIC-PROBE",
+    "probe_evidence_ids": [
+      "E-P20-PROBE-ACTUAL"
+    ],
+    "question_key": "use-adequacy:TARGET-ACTION:ENERGY:Q-HIGH",
+    "relevant_evidence_ids": [
+      "E-P20-PROBE-ACTUAL"
+    ],
+    "semantic_question_authority": "NONE",
+    "stale_evidence_id": null,
+    "stale_reason": null,
+    "state": "REVISIT_REQUIRED",
+    "truth_authority": "NONE",
+    "unknown_evidence_id": "E-P20-USE-UNKNOWN"
+  },
+  "generated_partition": [
+    [
+      "REL-ALT-902424e27693965ce889",
+      "2cc8f6a523bbeebf13c9e2e44c87d8739e71f8e9ded60475e6d4a9e2afedcb5d"
+    ],
+    [
+      "REL-ALT-12e02945539efda1083d",
+      "07fa0415ae370fbb1b0e9bf31485f8b54d7f5ddcc0ca96877431e6fb3589b60c"
+    ],
+    [
+      "REL-ALT-11ef07256b3d3d184396",
+      "ba14ad8b03ceb4952df2006081dd13b42ad83035415ed62cc655b7d1b2d996b4"
+    ]
+  ],
+  "localization": "THE_MINIMAL_RELATIONAL_ALTERNATIVES_COMPOSE_THROUGH_THE_EXISTING_DEFICIT_PROBE_AND_BEARING_LIFECYCLE_WITHOUT_NEW_RUNTIME_CONTROL_MACHINERY__THE_REMAINING_INTEGRATION_SEAM_IS_PROPOSAL_ADMISSION_QUESTION_PRESSURE_AND_CONTRAST_BINDING_FROM_EVIDENCE_NOT_ACTIVE_DISCRIMINATION_OR_EXECUTION",
+  "main_dev_mutation": "NONE",
+  "milestone": "MS1572",
+  "new_primitive_earned": false,
+  "phase": "END_TO_END_EXISTING_LIFECYCLE_COMPOSITION",
+  "probe_invocation": {
+    "authority": "DERIVED_READ_ONLY",
+    "capability_id": "DIAGNOSTIC-PROBE",
+    "status": "CAPABILITY_RESULT",
+    "value": {
+      "probe_outcome": "P-CENTER"
+    }
+  },
+  "surviving_candidate": {
+    "candidate_id": "REL-ALT-902424e27693965ce889",
+    "execution_authority": "NONE",
+    "probe_result": "P-CENTER",
+    "target_stance": "UNKNOWN",
+    "truth_authority": "NONE"
+  }
+}

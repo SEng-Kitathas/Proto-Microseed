@@ -1,0 +1,19 @@
+{
+  "admission_attempt": {
+    "reason": "RELATION_PREMISE_NOT_CURRENT",
+    "status": "RELATION_REJECTED"
+  },
+  "authority": "RESEARCH_ONLY",
+  "current_basis_epoch": 1,
+  "external_ticket_state": "SHADOW_QUALIFIED",
+  "next": "ATTACK_RESTART_CONTENT_ALIASING_OF_ID_PLUS_EPOCH_PREMISE",
+  "old_candidate_premises": [
+    [
+      "HIST-ADMIT",
+      0
+    ]
+  ],
+  "pass": "MS1639_PASS12",
+  "result": "OLD_CANDIDATE_CANNOT_BE_REQUALIFIED_AFTER_BASIS_EPOCH_ADVANCE_EVEN_WITH_FRESH_LOOKING_HOLDOUT",
+  "scar": "FRESH_HOLDOUT != FRESH_TRAINING_BASIS"
+}

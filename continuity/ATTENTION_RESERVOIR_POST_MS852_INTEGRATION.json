@@ -1,0 +1,44 @@
+{
+  "schema": "microseed.attention-reservoir.v0.2",
+  "research_terminal_ms": 852,
+  "entity_integration": "PROTO_MICROSEED_MAINDEV_INTEGRATION_V0_2",
+  "items": [
+    {
+      "id": "ATTN-MS852-ENDOGENOUS-CAPABILITY-DISCOVERY-ADMISSION-BRIDGE",
+      "status": "SELECTED",
+      "kind": "RESEARCH_PLUS_EMBODIMENT",
+      "reason": "v0.2 now supplies the lawful candidate/admission seam; the missing evidence is whether Microseed itself can nominate a useful unregistered whole from prelingual operational traces without self-certifying it"
+    },
+    {
+      "id": "ATTN-MS827-ACTION-EFFECT-FRAME-CONSTRUCTION",
+      "status": "DEFERRED",
+      "kind": "FACULTY_RESEARCH",
+      "reason": "still live; deferred by portfolio selection, not rejected"
+    },
+    {
+      "id": "ATTN-CONTEXT-LOCAL-CAPABILITY-REQUALIFICATION",
+      "status": "OPEN",
+      "kind": "CROSS_FAMILY",
+      "reason": "v0.2 can represent opaque operational scope but does not discover/requalify local scopes endogenously"
+    },
+    {
+      "id": "ATTN-PERSISTENT-DEVELOPMENTAL-IDENTITY",
+      "status": "OPEN",
+      "kind": "UMBRELLA_FACULTY",
+      "reason": "state/history/dependency continuity infrastructure exists; self-persistence remains unqualified"
+    },
+    {
+      "id": "ATTN-TEMPORAL-EPISODIC-ABSTRACTION",
+      "status": "OPEN",
+      "kind": "UMBRELLA_FACULTY",
+      "reason": "event/frame machinery exists but variable-duration episode/subgoal abstraction remains unresolved"
+    },
+    {
+      "id": "ATTN-ENDOGENOUS-VALUE-ANATOMY",
+      "status": "OPEN",
+      "kind": "UMBRELLA_FACULTY",
+      "reason": "prelingual goal/value organization remains supplied by task obligations"
+    }
+  ],
+  "ms853_started": false
+}

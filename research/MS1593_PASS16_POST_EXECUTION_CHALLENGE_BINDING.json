@@ -1,0 +1,9 @@
+{
+  "actual_post_execution_echo_matches": 128,
+  "authority": "RESEARCH_ONLY",
+  "boundary": "MARKER_IS_ONLY_AS_GROUNDED_AS_EXECUTION_INTERFACE_AND_ECHO_ROUTE",
+  "pass": "MS1593_PASS16",
+  "preexecution_prediction_feed_matches": 0,
+  "result": "POST_EXECUTION_UNPREDICTABLE_MARKER_CAN_REJECT_PRECOMPUTED_PREDICTION_FEED_UNDER_BOUNDED_THREAT_MODEL",
+  "worlds": 128
+}

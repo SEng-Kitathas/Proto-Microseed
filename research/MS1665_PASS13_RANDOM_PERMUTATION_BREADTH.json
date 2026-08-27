@@ -1,0 +1,525 @@
+{
+  "checks": {
+    "all_worlds_lift": true,
+    "all_worlds_perfect_or_unknown_no_wrong": true,
+    "majority_perfect": true
+  },
+  "disposition": "BREADTH_SURVIVES_RANDOM_OPAQUE_PERMUTATION_ALGEBRAS",
+  "milestone": "MS1665",
+  "pass": 13,
+  "pass_all": true,
+  "worlds": [
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166500,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166501,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166502,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166503,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166504,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166505,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166506,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166507,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166508,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166509,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166510,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166511,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166512,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166513,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166514,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166515,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166516,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166517,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166518,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166519,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166520,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166521,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166522,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166523,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166524,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166525,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166526,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166527,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166528,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166529,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166530,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166531,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166532,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166533,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166534,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166535,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166536,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166537,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166538,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166539,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166540,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166541,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166542,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166543,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166544,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166545,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166546,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166547,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166548,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166549,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166550,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166551,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166552,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166553,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166554,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166555,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166556,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166557,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166558,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166559,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166560,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166561,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166562,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "candidate_count": 1,
+      "correct": 2,
+      "hold": 2,
+      "seed": 166563,
+      "unknown": 0
+    }
+  ]
+}

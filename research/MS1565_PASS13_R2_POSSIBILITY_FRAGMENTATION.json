@@ -1,0 +1,118 @@
+{
+  "aggregate": {
+    "COOL::ENERGY": {
+      "max_largest_cluster_support": 2,
+      "mean_fragmentation_ratio": 0.9906565656565657,
+      "mean_largest_cluster_support": 1.1666666666666667,
+      "mean_observations": 19.0,
+      "median_fragmentation_ratio": 1.0
+    },
+    "COOL::INTEGRITY": {
+      "max_largest_cluster_support": 3,
+      "mean_fragmentation_ratio": 0.9673088207615063,
+      "mean_largest_cluster_support": 1.5833333333333333,
+      "mean_observations": 18.333333333333332,
+      "median_fragmentation_ratio": 0.9782608695652174
+    },
+    "COOL::THERMAL": {
+      "max_largest_cluster_support": 1,
+      "mean_fragmentation_ratio": 1.0,
+      "mean_largest_cluster_support": 1.0,
+      "mean_observations": 19.0,
+      "median_fragmentation_ratio": 1.0
+    },
+    "HARVEST::ENERGY": {
+      "max_largest_cluster_support": 2,
+      "mean_fragmentation_ratio": 0.9888084795321638,
+      "mean_largest_cluster_support": 1.25,
+      "mean_observations": 19.5,
+      "median_fragmentation_ratio": 1.0
+    },
+    "HARVEST::INTEGRITY": {
+      "max_largest_cluster_support": 4,
+      "mean_fragmentation_ratio": 0.9796418128654971,
+      "mean_largest_cluster_support": 1.4166666666666667,
+      "mean_observations": 18.75,
+      "median_fragmentation_ratio": 1.0
+    },
+    "HARVEST::THERMAL": {
+      "max_largest_cluster_support": 2,
+      "mean_fragmentation_ratio": 0.9875805152979066,
+      "mean_largest_cluster_support": 1.25,
+      "mean_observations": 20.083333333333332,
+      "median_fragmentation_ratio": 1.0
+    },
+    "REPAIR::ENERGY": {
+      "max_largest_cluster_support": 2,
+      "mean_fragmentation_ratio": 0.9781259726112667,
+      "mean_largest_cluster_support": 1.3333333333333333,
+      "mean_observations": 18.583333333333332,
+      "median_fragmentation_ratio": 1.0
+    },
+    "REPAIR::INTEGRITY": {
+      "max_largest_cluster_support": 4,
+      "mean_fragmentation_ratio": 0.9399254108464635,
+      "mean_largest_cluster_support": 2.0833333333333335,
+      "mean_observations": 18.833333333333332,
+      "median_fragmentation_ratio": 0.943939393939394
+    },
+    "REPAIR::THERMAL": {
+      "max_largest_cluster_support": 2,
+      "mean_fragmentation_ratio": 0.9851973684210527,
+      "mean_largest_cluster_support": 1.25,
+      "mean_observations": 20.083333333333332,
+      "median_fragmentation_ratio": 1.0
+    },
+    "REST::ENERGY": {
+      "max_largest_cluster_support": 2,
+      "mean_fragmentation_ratio": 0.9817878540305011,
+      "mean_largest_cluster_support": 1.3333333333333333,
+      "mean_observations": 19.833333333333332,
+      "median_fragmentation_ratio": 1.0
+    },
+    "REST::INTEGRITY": {
+      "max_largest_cluster_support": 4,
+      "mean_fragmentation_ratio": 0.9760869565217392,
+      "mean_largest_cluster_support": 1.5,
+      "mean_observations": 18.333333333333332,
+      "median_fragmentation_ratio": 1.0
+    },
+    "REST::THERMAL": {
+      "max_largest_cluster_support": 3,
+      "mean_fragmentation_ratio": 0.9927536231884058,
+      "mean_largest_cluster_support": 1.1666666666666667,
+      "mean_observations": 17.333333333333332,
+      "median_fragmentation_ratio": 1.0
+    }
+  },
+  "all_checks_pass": true,
+  "campaign_pass": 13,
+  "checks": {
+    "fixed_3dp_identity_is_highly_fragmented_in_r2": true,
+    "no_pair_builds_a_large_recurrent_exact_3dp_cluster": true
+  },
+  "discriminator": "DOES_PASS12_EXACT_ROUNDED_OBSERVED_POSSIBILITY_NOMINATION_GENERALIZE_TO_ONE_LIFETIME_OF_NOISY_CONTINUOUS_R2_EXPERIENCE_WITHOUT_TUNING_ITS_CLUSTER_IDENTITY",
+  "disposition": "REJECTED_AS_GENERAL_NOISY_POSSIBILITY_NOMINATION_MECHANISM",
+  "frozen_rule": {
+    "effect_round_digits": 3,
+    "seeds": [
+      100,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      109,
+      110,
+      111
+    ],
+    "ticks_per_lifetime": 100
+  },
+  "localization": "PASS12_DISCRETE_OUTCOME_IDENTITY_FRAGMENTs_UNDER_R2_SENSOR_PROCESS_NOISE__THE_FIXED_3DP_RULE_PRODUCES_NEAR_ONE_CANDIDATE_PER_OBSERVATION_AND_NO_ACTION_VALUE_PAIR_REACHES_EXISTING_MIN_SUPPORT_8_ON_A_SINGLE_EXACT_CLUSTER__DO_NOT_PROMOTE_EXACT_ROUNDED_OUTCOME_POSSIBILITY_IDENTITY",
+  "main_dev_mutation": "NONE",
+  "milestone": "MS1565",
+  "next_composition_first_check": "QUARRY_THE_ALREADY_EARNED_QUANTIZATION_TOLERANCE_AND_MEDIAN_RECURRENCE_MECHANISM_AS_A_CANDIDATE_IDENTITY_OPERATION_ON_OBSERVED_OUTCOME_POSSIBILITIES__ONE_FIXED_CONFIG_ONLY__NO_CLUSTERING_MODEL_ZOO"
+}

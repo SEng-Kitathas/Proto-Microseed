@@ -1,0 +1,40 @@
+{
+  "schema": "microseed.maindev-operating-profile.v0.5",
+  "core_shape_unchanged": true,
+  "inherits": "microseed.maindev-operating-profile.v0.4",
+  "refinements_from_ms903_927": {
+    "EPISODE_SCHEMA_CURRENTNESS_IS_FIRST_CLASS_DEVELOPMENTAL_ANCESTRY": true,
+    "CANDIDATE_FRAME_CURRENT_NE_EPISODE_SCHEMA_CURRENT": true,
+    "pending_candidate_episode_schema_currentness_required_at_admission": true,
+    "episode_schema_drift_transitively_invalidates_derived_capability_closure": true,
+    "BOUNDED_EPISODE_GROUPING_NE_GENERAL_EPISODE_CONSTRUCTION": true,
+    "OPERATIONAL_TRACE_NE_ENDOGENOUS_EPISODE_CONSTRUCTION": true,
+    "TRACE_PERSISTENCE_NE_EPISODE_PROVENANCE_NE_SELFHOOD": true,
+    "EPISODE_SET_NE_DEVELOPMENTAL_BIOGRAPHY": true,
+    "SENSORIMOTOR_EPISODE_NE_GOAL_RELATIVE_EPISODE": true,
+    "SUPPLIED_VALUE_SIGNAL_NE_ENDOGENOUS_VALUE_ANATOMY": true,
+    "bounded_episode_learner_remains_research_only": true,
+    "persistent_identity_frontier_selection_is_dependency_evidence_driven": true
+  },
+  "language_policy": {
+    "active_phase": "PRELINGUAL",
+    "cognitive_substrate": "DEFERRED",
+    "rule": "developer labels may instrument operational frames and episode schemas; language may not supply the action/effect, episode, referent, goal, identity, or capability semantics under test"
+  },
+  "current_integration": {
+    "research_terminal_ms": 927,
+    "selected_frontier": "ATTN-MS927-PERSISTENT-DEVELOPMENTAL-BIOGRAPHY-IDENTITY",
+    "integration_debt_resolved": [
+      "MS895_FRAME_CURRENTNESS_NOT_FIRST_CLASS",
+      "MS921_EPISODE_SCHEMA_CURRENTNESS_NOT_FIRST_CLASS"
+    ],
+    "integration_debt_open": [
+      "GENERAL_ENDOGENOUS_EPISODE_CONSTRUCTION",
+      "PERSISTENT_DEVELOPMENTAL_BIOGRAPHY_IDENTITY",
+      "ENDOGENOUS_VALUE_GOAL_BOUNDARY",
+      "GENERAL_OVERLAP_DECONVOLUTION",
+      "GENERAL_EPISODE_PARTITION_SEARCH"
+    ],
+    "ms928_started": false
+  }
+}

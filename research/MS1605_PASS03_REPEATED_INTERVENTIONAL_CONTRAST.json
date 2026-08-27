@@ -1,0 +1,52 @@
+{
+  "authority": "RESEARCH_ONLY",
+  "boundary": "INDEPENDENT_NUISANCE_IS_A_FIXTURE_ASSUMPTION_NOT_EARNED_WORLD_TRUTH",
+  "correct_role_by_repeated_contrast": 64,
+  "examples": [
+    {
+      "rates": {
+        "PERTURB_PHYSICAL": 1.0,
+        "PERTURB_PREDICTED": 0.21875
+      },
+      "seed": 160500,
+      "selected": "PERTURB_PHYSICAL"
+    },
+    {
+      "rates": {
+        "PERTURB_PHYSICAL": 1.0,
+        "PERTURB_PREDICTED": 0.1875
+      },
+      "seed": 160501,
+      "selected": "PERTURB_PHYSICAL"
+    },
+    {
+      "rates": {
+        "PERTURB_PHYSICAL": 1.0,
+        "PERTURB_PREDICTED": 0.1875
+      },
+      "seed": 160502,
+      "selected": "PERTURB_PHYSICAL"
+    },
+    {
+      "rates": {
+        "PERTURB_PHYSICAL": 1.0,
+        "PERTURB_PREDICTED": 0.1875
+      },
+      "seed": 160503,
+      "selected": "PERTURB_PHYSICAL"
+    },
+    {
+      "rates": {
+        "PERTURB_PHYSICAL": 1.0,
+        "PERTURB_PREDICTED": 0.1875
+      },
+      "seed": 160504,
+      "selected": "PERTURB_PHYSICAL"
+    }
+  ],
+  "fixed_trials_per_world": 64,
+  "independent_nuisance_probability": 0.2,
+  "pass": "MS1605_PASS03",
+  "result": "REPEATED_BALANCED_INTERVENTIONAL_CONTRAST_CAN_IDENTIFY_MEDIATOR_UNDER_INDEPENDENT_NUISANCE",
+  "worlds": 64
+}

@@ -1,0 +1,21 @@
+{
+  "schema": "microseed.attention-reservoir.post-ms952-integration.v0.6",
+  "terminal_ms": 952,
+  "selected": {
+    "id": "ATTN-MS952-ENDOGENOUS-VALUE-GOAL-ANATOMY__REACTIVATES_MS925_926",
+    "reason": "Goal-relative episode boundaries and hierarchical choice still rely on supplied value structure; causal biography continuity is now integrated narrowly enough to move laterally."
+  },
+  "deferred": [
+    "DEVELOPMENTAL-IDENTITY-UNDER-STRUCTURAL-REWRITE",
+    "GENERAL-BIOGRAPHY-MERGE-SEMANTICS",
+    "GENERAL-EPISODE-PARTITION-SEARCH",
+    "GENERAL-OVERLAP-DECONVOLUTION",
+    "NONLINEAR-SENSORIMOTOR-FRAME"
+  ],
+  "integration_debt_open": [
+    "ENDOGENOUS_VALUE_GOAL_ANATOMY",
+    "PERSISTENT_SELFHOOD_NOT_QUALIFIED"
+  ],
+  "ms953_started": false,
+  "language": "DEFERRED_PRELINGUAL_COGNITION_ACTIVE"
+}

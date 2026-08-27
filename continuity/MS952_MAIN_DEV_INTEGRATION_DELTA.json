@@ -1,0 +1,19 @@
+{
+  "schema": "microseed.maindev-integration-delta.ms952.v0.6",
+  "parent_entity": "v0.5 through MS927",
+  "research_terminal_ms": 952,
+  "integration_evidence_through_ms": 952,
+  "integrated": [
+    "CONTENT_BOUND_CAUSAL_BIOGRAPHY_LEDGER",
+    "RESTART_BIOGRAPHY_RECONSTRUCTION",
+    "TYPED_LINEAGE_RELATION_API"
+  ],
+  "not_promoted": [
+    "PERSISTENT_SELFHOOD",
+    "GENERAL_CAUSAL_PARENT_DISCOVERY",
+    "GENERAL_MERGE_POLICY",
+    "ENDOGENOUS_VALUE_ANATOMY"
+  ],
+  "frontier": "ATTN-MS952-ENDOGENOUS-VALUE-GOAL-ANATOMY__REACTIVATES_MS925_926",
+  "ms953_started": false
+}

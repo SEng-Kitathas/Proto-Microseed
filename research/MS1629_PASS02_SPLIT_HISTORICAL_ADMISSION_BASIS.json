@@ -1,0 +1,46 @@
+{
+  "authority": "RESEARCH_ONLY",
+  "cases": {
+    "PROSPECTIVE_MAPPING": {
+      "after": "CURRENT_PREDICTIVE_RELATION",
+      "before": "CURRENT_PREDICTIVE_RELATION",
+      "candidate_premises": [
+        [
+          "HIST-ADMIT",
+          0
+        ]
+      ],
+      "future_obs": "UNKNOWN_INCOMPLETE",
+      "live_basis": "UNKNOWN_INCOMPLETE"
+    },
+    "RETRO_FALSE": {
+      "after": "STALE_PREDICTIVE_RELATION",
+      "before": "CURRENT_PREDICTIVE_RELATION",
+      "candidate_premises": [
+        [
+          "HIST-ADMIT",
+          0
+        ]
+      ],
+      "future_obs": "CAPABILITY_RESULT",
+      "live_basis": "CAPABILITY_RESULT"
+    },
+    "TEMP_ACCESS": {
+      "after": "CURRENT_PREDICTIVE_RELATION",
+      "before": "CURRENT_PREDICTIVE_RELATION",
+      "candidate_premises": [
+        [
+          "HIST-ADMIT",
+          0
+        ]
+      ],
+      "future_obs": "UNKNOWN_INCOMPLETE",
+      "live_basis": "UNKNOWN_INCOMPLETE"
+    }
+  },
+  "next": "TEST_FRESH_REQUALIFICATION_DEBT_USING_EXISTING_EVIDENCE_PREMISE_GROUPING_AND_HOLDOUT_MATCHING",
+  "nonclaim": "historical admission basis is externally qualified in this fixture; grounding is not solved",
+  "pass": "MS1629_PASS02",
+  "result": "ORDINARY_CAPABILITY_SPLIT_SEPARATES_HISTORICAL_ADMISSION_VALIDITY_FROM_LIVE_OBSERVATION_ACCESS",
+  "survivor": "HISTORICAL_ADMISSION_BASIS_AS_ORDINARY_DERIVED_CAPABILITY__LIVE_USE_BASIS_SEPARATE"
+}

@@ -1,0 +1,15 @@
+{
+  "authority": "RESEARCH_ONLY",
+  "durable_outcome_count": 1,
+  "frame_epoch_after_change": 1,
+  "ledger_source": "MISBOUND",
+  "outcome_learning_ancestry": {
+    "ENERGY": "UNKNOWN_CURRENT_EFFECT_ANCESTRY",
+    "INTEGRITY": "UNKNOWN_CURRENT_EFFECT_ANCESTRY",
+    "THERMAL": "UNKNOWN_CURRENT_EFFECT_ANCESTRY"
+  },
+  "outcome_status": "ACTION_OUTCOME_OBSERVED",
+  "pass": "MS1579_PASS02",
+  "result": "FRAME_CURRENTNESS_CAN_WITHHOLD_DOWNSTREAM_LEARNING_ANCESTRY_BUT_DOES_NOT_AUTHENTICATE_OR_REJECT_OUTCOME_STREAM",
+  "scalar_learning_rows_after_stale_frame": 0
+}

@@ -1,0 +1,86 @@
+{
+  "schema": "microseed.maindev-operating-profile.v0.2",
+  "core_shape_unchanged": true,
+  "core_topology": [
+    "HSP_PROGRAM_LOOP",
+    "RESEARCH__LOOP_PLUS",
+    "PROBLEM_SPACE_EXPANSION",
+    "ADVERSARIAL_CULLING__OARR",
+    "PDVER",
+    "RESEARCH_ARM",
+    "EMBODIMENT_ARM",
+    "SHARED_EVIDENCE",
+    "SEMANTIC_HELIX",
+    "ATTENTION_RESERVOIR",
+    "RECURSE"
+  ],
+  "role_separation": {
+    "HSP": "whole R&D operating system",
+    "LOOP_PLUS": "research-arm question/evidence readiness and decision-changing investigation",
+    "OARR": "bounded adversarial evidence-transforming protocol; reusable principally for culling",
+    "PDVER": "keeps research and embodiment claims in contact with executable or otherwise consequence-bearing reality",
+    "RESEARCH_ARM": "asks what is not yet understood and qualifies mechanism claims",
+    "EMBODIMENT_ARM": "asks what survives executable coexistence, interaction, resource pressure and ablation now",
+    "SEMANTIC_HELIX": "records knowledge evolution from scars/discoveries into the next local discriminator",
+    "ATTENTION_RESERVOIR": "selects among live local, lateral, deferred, integration and reopen frontiers",
+    "MAIN_DEV": "may evolve the entity or method only after evidence-producing arms hard-stop and report"
+  },
+  "refinements_from_ms828_852": {
+    "LOCAL_FRONTIER_NE_PORTFOLIO_SELECTION": true,
+    "RESEARCH_SURVIVOR_NE_ENTITY_PROMOTION": true,
+    "INDIVIDUAL_MECHANISM_QUALIFICATION_NE_INTEGRATED_SUFFICIENCY": true,
+    "integration_debt_is_first_class_reservoir_item": true,
+    "capability_closure_delta_required_for_embodiment_campaigns": true,
+    "whole_enough_targeted_ablation_required_periodically": true,
+    "cross_family_collision_required_before_indefinite_same_family_extension": true,
+    "prelingual_semantic_shortcut_attack_required": true,
+    "research_and_embodiment_arms_cannot_self_promote": true,
+    "main_dev_integration_occurs_only_after_campaign_hard_stop": true,
+    "post_evolution_replay_of_originating_scars_required": true,
+    "assistance_ancestry_required_for_new_capability_claims": true,
+    "deferred_frontier_is_not_rejected_frontier": true
+  },
+  "embodiment_campaign_minimum_report": [
+    "coexistence_result",
+    "cross_mechanism_interactions",
+    "new_capability_closure_delta",
+    "downstream_reuse_or_explicit_none",
+    "authority_effect",
+    "currentness_and_dependency_effect",
+    "resource_economics",
+    "whole_enough_ablation",
+    "semantic_assistance_denominator",
+    "integration_debt_discovered",
+    "negative_evidence",
+    "next_discriminator"
+  ],
+  "main_dev_integration_dispositions": [
+    "NO_CHANGE",
+    "RESEARCH_ONLY",
+    "ENTITY_EVOLUTION",
+    "METHOD_REFINEMENT",
+    "DEFERRED",
+    "REJECTED"
+  ],
+  "language_policy": {
+    "cognitive_substrate": "DEFERRED",
+    "active_phase": "PRELINGUAL",
+    "rule": "developer labels may inspect mechanisms; linguistic representation may not carry the cognitive work until language earns admission"
+  },
+  "current_integration": {
+    "research_terminal_ms": 852,
+    "selected_frontier": "ATTN-MS852-ENDOGENOUS-CAPABILITY-DISCOVERY-ADMISSION-BRIDGE",
+    "deferred_frontiers": [
+      "ATTN-MS827-ACTION-EFFECT-FRAME-CONSTRUCTION"
+    ],
+    "integration_debt_resolved": [
+      "MS841_843_TRANSITIVE_CAPABILITY_CURRENTNESS_MISMATCH"
+    ],
+    "integration_debt_open": [
+      "ENDOGENOUS_UNREGISTERED_CAPABILITY_DISCOVERY",
+      "EXTERNAL_QUALIFICATION_BOUNDARY_REMAINS_NON_CRYPTOGRAPHIC",
+      "CONTEXT_LOCAL_CAPABILITY_DISCOVERY_AND_REQUALIFICATION_REMAINS_RESEARCH_ONLY"
+    ],
+    "ms853_started": false
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "after": {
+    "authority": "NONE",
+    "reason": "STALE",
+    "status": "UNKNOWN_INCOMPLETE"
+  },
+  "before": {
+    "authority": "DERIVED_READ_ONLY",
+    "capability_id": "REL-C-EQ-A-THEN-B",
+    "status": "CAPABILITY_RESULT",
+    "value": {
+      "relation": "C\u2248A\u2218B"
+    }
+  },
+  "checks": {
+    "action_change_transitively_stales_relation": true,
+    "relation_invokes_only_read_only": true,
+    "relation_never_has_effect_authority": true,
+    "stale_relation_refuses_use": true
+  },
+  "disposition": "ORDINARY_CAPABILITY_CURRENTNESS_CAN_CARRY_RELATIONAL_FRAME",
+  "milestone": "MS1668",
+  "pass": 16,
+  "pass_all": true,
+  "stale_set": [
+    "A",
+    "REL-C-EQ-A-THEN-B"
+  ]
+}

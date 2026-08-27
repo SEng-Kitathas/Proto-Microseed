@@ -1,0 +1,71 @@
+{
+  "group": "3",
+  "passed": 8,
+  "total": 8,
+  "results": [
+    {
+      "file": "replay_ms1478_1502_integration_scars.py",
+      "rc": 0,
+      "pass": true,
+      "seconds": 0.82,
+      "stdout_tail": "sed\": true,\n    \"history_preserved_after_stale\": true,\n    \"no_multi_child_planner_or_self_qualification\": true,\n    \"trace_binds_existing_coordination_epoch\": true,\n    \"trace_binds_existing_topology_epoch\": true\n  }\n}\n",
+      "stderr_tail": ""
+    },
+    {
+      "file": "replay_ms828_852_integration_scars.py",
+      "rc": 0,
+      "pass": true,
+      "seconds": 0.65,
+      "stdout_tail": ",\n  \"second_order_status\": \"COMPOSED_EPHEMERAL\",\n  \"stale_set_after_primitive_drift\": [\n    \"A\",\n    \"M\",\n    \"N\"\n  ],\n  \"unregistered_whole_before_nomination\": \"NO_PATH\",\n  \"wrong_scope\": \"OPERATIONAL_SCOPE_MISMATCH\"\n}\n",
+      "stderr_tail": ""
+    },
+    {
+      "file": "replay_ms853_877_integration_scars.py",
+      "rc": 0,
+      "pass": true,
+      "seconds": 0.946,
+      "stdout_tail": ": \"NONE\",\n    \"transitive_capability_currentness\": \"INTEGRATED_FROM_MS841_843\",\n    \"value_currentness\": \"FIRST_CLASS_EPOCH_BOUND_CONSTITUTIONAL_DEPENDENCY_INTEGRATED_FROM_MS966_968\",\n    \"value_variable_count\": 0\n  }\n}\n",
+      "stderr_tail": ""
+    },
+    {
+      "file": "replay_ms878_902_integration_scars.py",
+      "rc": 0,
+      "pass": true,
+      "seconds": 0.845,
+      "stdout_tail": ": \"NONE\",\n    \"transitive_capability_currentness\": \"INTEGRATED_FROM_MS841_843\",\n    \"value_currentness\": \"FIRST_CLASS_EPOCH_BOUND_CONSTITUTIONAL_DEPENDENCY_INTEGRATED_FROM_MS966_968\",\n    \"value_variable_count\": 0\n  }\n}\n",
+      "stderr_tail": ""
+    },
+    {
+      "file": "replay_ms903_927_integration_scars.py",
+      "rc": 0,
+      "pass": true,
+      "seconds": 0.907,
+      "stdout_tail": ": \"NONE\",\n    \"transitive_capability_currentness\": \"INTEGRATED_FROM_MS841_843\",\n    \"value_currentness\": \"FIRST_CLASS_EPOCH_BOUND_CONSTITUTIONAL_DEPENDENCY_INTEGRATED_FROM_MS966_968\",\n    \"value_variable_count\": 0\n  }\n}\n",
+      "stderr_tail": ""
+    },
+    {
+      "file": "replay_ms928_952_integration_scars.py",
+      "rc": 0,
+      "pass": true,
+      "seconds": 0.684,
+      "stdout_tail": ": \"NOT_QUALIFIED\",\n  \"language\": \"DEFERRED_PRELINGUAL_COGNITION_ACTIVE\",\n  \"migration_relation\": \"DESCENDANT_CONTINUATION\",\n  \"ms978_started\": false,\n  \"persistent_selfhood\": \"NOT_QUALIFIED\",\n  \"tamper_rejected\": true\n}\n",
+      "stderr_tail": ""
+    },
+    {
+      "file": "replay_ms953_977_integration_scars.py",
+      "rc": 0,
+      "pass": true,
+      "seconds": 0.668,
+      "stdout_tail": ": \"NONE\",\n    \"transitive_capability_currentness\": \"INTEGRATED_FROM_MS841_843\",\n    \"value_currentness\": \"FIRST_CLASS_EPOCH_BOUND_CONSTITUTIONAL_DEPENDENCY_INTEGRATED_FROM_MS966_968\",\n    \"value_variable_count\": 1\n  }\n}\n",
+      "stderr_tail": ""
+    },
+    {
+      "file": "replay_ms978_1002_integration_scars.py",
+      "rc": 0,
+      "pass": true,
+      "seconds": 0.686,
+      "stdout_tail": ": \"NONE\",\n    \"transitive_capability_currentness\": \"INTEGRATED_FROM_MS841_843\",\n    \"value_currentness\": \"FIRST_CLASS_EPOCH_BOUND_CONSTITUTIONAL_DEPENDENCY_INTEGRATED_FROM_MS966_968\",\n    \"value_variable_count\": 1\n  }\n}\n",
+      "stderr_tail": ""
+    }
+  ]
+}

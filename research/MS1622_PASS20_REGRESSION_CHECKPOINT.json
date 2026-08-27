@@ -1,0 +1,13 @@
+{
+  "authority": "RESEARCH_ONLY",
+  "pass": "MS1622_PASS20",
+  "result": "RESEARCH_ANCESTRY_CARRIER_REGRESSION_CLEAN",
+  "tests": {
+    "MS1477_MS1502_MS1527": "34/34 PASS",
+    "MS1533_multi_pressure_bridge": "9/9 PASS",
+    "MS1534_effect_boundary": "8/8 PASS",
+    "MS1535_outcome_closure": "8/8 PASS",
+    "MS1598_observation_basis_ingress": "9/9 PASS",
+    "MS1620_evidence_premise_currentness": "6/6 PASS"
+  }
+}

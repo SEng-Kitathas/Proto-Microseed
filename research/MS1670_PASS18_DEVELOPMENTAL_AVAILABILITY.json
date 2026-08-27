@@ -1,0 +1,531 @@
+{
+  "budget_per_lifetime": 40,
+  "checks": {
+    "candidate_available_in_majority": true,
+    "no_false_predictions": true,
+    "some_heldout_relational_use_in_majority": true
+  },
+  "disposition": "DEVELOPMENTALLY_AVAILABLE_UNDER_THIS_DETERMINISTIC_BUDGET",
+  "milestone": "MS1670",
+  "pass": 18,
+  "pass_all": true,
+  "summary": {
+    "candidate_worlds": 64,
+    "useful_worlds": 36,
+    "wrong_predictions": 0
+  },
+  "worlds": [
+    {
+      "candidate": true,
+      "correct": 2,
+      "eligible": 2,
+      "seed": 167000,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 1,
+      "eligible": 1,
+      "seed": 167001,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 1,
+      "eligible": 1,
+      "seed": 167002,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 0,
+      "eligible": 0,
+      "seed": 167003,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 1,
+      "eligible": 1,
+      "seed": 167004,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 0,
+      "eligible": 0,
+      "seed": 167005,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 2,
+      "eligible": 2,
+      "seed": 167006,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 2,
+      "eligible": 2,
+      "seed": 167007,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 1,
+      "eligible": 1,
+      "seed": 167008,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 1,
+      "eligible": 1,
+      "seed": 167009,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 0,
+      "eligible": 0,
+      "seed": 167010,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 2,
+      "eligible": 2,
+      "seed": 167011,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 0,
+      "eligible": 0,
+      "seed": 167012,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 1,
+      "eligible": 1,
+      "seed": 167013,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 0,
+      "eligible": 0,
+      "seed": 167014,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 1,
+      "eligible": 1,
+      "seed": 167015,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 1,
+      "eligible": 1,
+      "seed": 167016,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 1,
+      "eligible": 1,
+      "seed": 167017,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 0,
+      "eligible": 0,
+      "seed": 167018,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 1,
+      "eligible": 1,
+      "seed": 167019,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 0,
+      "eligible": 0,
+      "seed": 167020,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 2,
+      "eligible": 2,
+      "seed": 167021,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 0,
+      "eligible": 0,
+      "seed": 167022,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 0,
+      "eligible": 0,
+      "seed": 167023,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 0,
+      "eligible": 0,
+      "seed": 167024,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 0,
+      "eligible": 2,
+      "seed": 167025,
+      "unknown": 2,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 2,
+      "eligible": 2,
+      "seed": 167026,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 1,
+      "eligible": 1,
+      "seed": 167027,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 0,
+      "eligible": 0,
+      "seed": 167028,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 0,
+      "eligible": 0,
+      "seed": 167029,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 0,
+      "eligible": 0,
+      "seed": 167030,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 2,
+      "eligible": 2,
+      "seed": 167031,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 0,
+      "eligible": 0,
+      "seed": 167032,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 1,
+      "eligible": 1,
+      "seed": 167033,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 0,
+      "eligible": 0,
+      "seed": 167034,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 1,
+      "eligible": 1,
+      "seed": 167035,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 3,
+      "eligible": 3,
+      "seed": 167036,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 1,
+      "eligible": 1,
+      "seed": 167037,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 1,
+      "eligible": 1,
+      "seed": 167038,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 0,
+      "eligible": 0,
+      "seed": 167039,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 0,
+      "eligible": 0,
+      "seed": 167040,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 0,
+      "eligible": 0,
+      "seed": 167041,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 2,
+      "eligible": 2,
+      "seed": 167042,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 1,
+      "eligible": 1,
+      "seed": 167043,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 1,
+      "eligible": 1,
+      "seed": 167044,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 2,
+      "eligible": 2,
+      "seed": 167045,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 0,
+      "eligible": 0,
+      "seed": 167046,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 1,
+      "eligible": 1,
+      "seed": 167047,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 2,
+      "eligible": 2,
+      "seed": 167048,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 0,
+      "eligible": 0,
+      "seed": 167049,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 1,
+      "eligible": 1,
+      "seed": 167050,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 0,
+      "eligible": 0,
+      "seed": 167051,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 4,
+      "eligible": 4,
+      "seed": 167052,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 1,
+      "eligible": 1,
+      "seed": 167053,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 0,
+      "eligible": 0,
+      "seed": 167054,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 1,
+      "eligible": 1,
+      "seed": 167055,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 0,
+      "eligible": 0,
+      "seed": 167056,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 1,
+      "eligible": 1,
+      "seed": 167057,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 0,
+      "eligible": 0,
+      "seed": 167058,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 1,
+      "eligible": 1,
+      "seed": 167059,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 0,
+      "eligible": 0,
+      "seed": 167060,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 0,
+      "eligible": 0,
+      "seed": 167061,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 0,
+      "eligible": 0,
+      "seed": 167062,
+      "unknown": 0,
+      "wrong": 0
+    },
+    {
+      "candidate": true,
+      "correct": 1,
+      "eligible": 1,
+      "seed": 167063,
+      "unknown": 0,
+      "wrong": 0
+    }
+  ]
+}

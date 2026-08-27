@@ -1,0 +1,54 @@
+{
+  "authority": "RESEARCH_ONLY",
+  "known_deliberate_boundary": "A correctly snapshot-bound and currently qualified admission basis can still be physically false/incomplete; signature binding proves applicability/identity, not truth or completeness.",
+  "mutants": [
+    {
+      "mutant": "ALLOW_UNBOUND_HISTORICAL_BASIS",
+      "rejected": true,
+      "returncode": 1,
+      "tail": "  +             'epoch': 0,\n  +             'status': 'CURRENT',\n  +             'value': 7.16,\n  +             'value_id': 'THERMAL',\n  +         },\n  +     },\n    }\n1 failed in 1.25s",
+      "target_test": "test_split_historical_basis_requires_snapshot_bound_acquisition_premise"
+    },
+    {
+      "mutant": "BYPASS_ACQUISITION_SNAPSHOT_MATCH",
+      "rejected": true,
+      "returncode": 1,
+      "tail": "  +             'epoch': 0,\n  +             'status': 'CURRENT',\n  +             'value': 7.16,\n  +             'value_id': 'THERMAL',\n  +         },\n  +     },\n    }\n1 failed in 1.53s",
+      "target_test": "test_old_historical_basis_cannot_admit_new_evidence_after_mapping_content_change"
+    },
+    {
+      "mutant": "DROP_INGRESS_HISTORICAL_SIGNATURE",
+      "rejected": true,
+      "returncode": 1,
+      "tail": "  + []\n  - [\n  -     [\n  -         'HIST-ADMIT',\n  -         'e4e6778a2df50ee1349912c0f44840028ea56206b6168470a4aa111d9735b6fb',\n  -     ],\n  - ]\n1 failed in 1.31s",
+      "target_test": "test_split_ingress_persists_historical_basis_epoch_and_content_signature"
+    },
+    {
+      "mutant": "IGNORE_RELATION_PREMISE_SIGNATURE_CURRENTNESS",
+      "rejected": true,
+      "returncode": 1,
+      "tail": "=========================== short test summary info ============================\nFAILED tests/embodiment/test_ms1643_historical_admission_ingress.py::test_same_id_epoch_but_changed_basis_content_stales_relation - AssertionError: assert 'CURRENT_PREDICTIVE_RELATION' == 'STALE_PREDICTIVE_RELATION'\n  \n  - STALE_PREDICTIVE_RELATION\n  ? ^ ---\n  + CURRENT_PREDICTIVE_RELATION\n  ? ^^^^^^\n1 failed in 1.47s",
+      "target_test": "test_same_id_epoch_but_changed_basis_content_stales_relation"
+    },
+    {
+      "mutant": "DROP_CANDIDATE_PREMISE_SIGNATURE",
+      "rejected": true,
+      "returncode": 1,
+      "tail": ">       c=next(c for c in m.nominate_action_outcome_predictive_candidates() if c.capability_id=='REST' and c.value_epoch[0]=='ENERGY' and c.evidence_premise_signatures)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       StopIteration\n\ntests/embodiment/test_ms1643_historical_admission_ingress.py:37: StopIteration\n=========================== short test summary info ============================\nFAILED tests/embodiment/test_ms1643_historical_admission_ingress.py::test_historical_signature_reaches_candidate_and_qualified_relation - StopIteration\n1 failed in 1.53s",
+      "target_test": "test_historical_signature_reaches_candidate_and_qualified_relation"
+    },
+    {
+      "mutant": "IGNORE_HOLDOUT_PREMISE_SIGNATURE",
+      "rejected": true,
+      "returncode": 1,
+      "tail": "\ntests/embodiment/test_ms1643_historical_admission_ingress.py:151: AssertionError\n=========================== short test summary info ============================\nFAILED tests/embodiment/test_ms1643_historical_admission_ingress.py::test_holdout_without_matching_historical_signature_does_not_qualify_candidate - AssertionError: assert <Qualificatio...OW_QUALIFIED'> == <Qualificatio...D: 'REJECTED'>\n  \n  - REJECTED\n  + SHADOW_QUALIFIED\n1 failed in 1.53s",
+      "target_test": "test_holdout_without_matching_historical_signature_does_not_qualify_candidate"
+    }
+  ],
+  "next": "REGRESSION_AND_BREADTH_RECONCILIATION__DO_NOT_PROMOTE_UNLESS_HISTORICAL_VS_LIVE_SEMANTICS_REMAIN_CLEAN",
+  "pal169_scar": "AUTHORIZED_OR_INDEPENDENT_OR_CONTENT_BOUND_ADMISSION != EXHAUSTIVE_COMPLETENESS",
+  "pass": "MS1647_PASS20",
+  "rejected": 6,
+  "result": "ALL_HOSTILE_MUTANTS_REJECTED",
+  "total": 6
+}

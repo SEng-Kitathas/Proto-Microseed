@@ -1,0 +1,21 @@
+{
+  "checks": {
+    "counterexample_aware_global_relation_rejected": true,
+    "counterexamples_exist": true,
+    "positive_recurrence_false_greens_global_relation": true
+  },
+  "counterexample_aware_nominates": false,
+  "disposition": "GLOBAL_COMPOSITION_REQUIRES_COUNTEREXAMPLE_ACCOUNTING",
+  "milestone": "MS1655",
+  "negative_support": 3,
+  "pass": 3,
+  "pass_all": true,
+  "positive_only_nominates": true,
+  "positive_support": 3,
+  "scar": "POSITIVE_RELATIONAL_RECURRENCE_NE_UNIVERSAL_RELATIONAL_SCOPE",
+  "target": [
+    "C",
+    "A",
+    "B"
+  ]
+}

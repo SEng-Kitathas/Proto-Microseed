@@ -1,0 +1,13 @@
+{
+  "checks": {
+    "clean_global_relation_survives": true,
+    "observed_counterexample_blocks_global_relation": true,
+    "zero_authority": true
+  },
+  "clean_has_target": true,
+  "milestone": "MS1656",
+  "partial_has_target": false,
+  "pass": 4,
+  "pass_all": true,
+  "scar": "OBSERVED_COUNTEREXAMPLE_BLOCKS_GLOBAL_ALGEBRA__LOCAL_SCOPE_REMAINS_UNRESOLVED"
+}

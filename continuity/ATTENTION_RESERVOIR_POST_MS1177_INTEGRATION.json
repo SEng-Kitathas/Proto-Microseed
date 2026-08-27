@@ -1,0 +1,33 @@
+{
+  "constitutional_ceiling": {
+    "general_active_learning": "NOT_QUALIFIED",
+    "language": "DEFERRED_PRELINGUAL_COGNITION_ACTIVE",
+    "persistent_numerical_selfhood": "NOT_QUALIFIED",
+    "self_qualification_authority": "NONE",
+    "semantic_question_ontology": "NOT_QUALIFIED"
+  },
+  "deferred_alive": [
+    "GENERAL_OPEN_ENDED_ACTIVE_LEARNING",
+    "GENERAL_DISCRIMINATOR_LANGUAGE",
+    "GENERAL_HIGHER_ORDER_DISCOVERY_LANGUAGE",
+    "HOST_SUBSTRATE_CAPABILITY_CURRENTNESS",
+    "QUALIFIED_COUNTERFACTUAL_REHEARSAL",
+    "ERGO_PRIVILEGED_CAUSAL_WORLD_GENERATOR",
+    "GENERAL_HIERARCHICAL_PLANNING"
+  ],
+  "integration_terminal_ms": 1177,
+  "next_ms": 1178,
+  "next_started": false,
+  "research_terminal_ms": 1177,
+  "resolved_or_narrowed_by_ms1153_1177": [
+    "GENERAL_EPISTEMIC_DEFICIT_CURRENTNESS_BOUNDED_BY_OPAQUE_PREMISE_ANCESTRY",
+    "STALE_UNKNOWN_DEVELOPMENTAL_PRESSURE_SUPPRESSION",
+    "EXPLICIT_CONTENT_BOUND_REVISIT_REQUEST_WITHOUT_TRUTH_AUTHORITY"
+  ],
+  "schema": "microseed.attention-reservoir.post-ms1177-integration.v1",
+  "selected": {
+    "id": "ATTN-MS1177-OPAQUE-EVIDENCE-TO-DEFICIT-RELEVANCE-BINDING__PRELINGUAL_REVISIT_SELECTION",
+    "pressure": "Currentness can suppress/revisit a remembered deficit given supplied opaque ancestry and relevance. The next missing mechanism is how new evidence becomes lawfully recognized as bearing on an opaque unresolved deficit without importing semantic question categories or making topology the whole relevance language.",
+    "status": "SELECTED"
+  }
+}

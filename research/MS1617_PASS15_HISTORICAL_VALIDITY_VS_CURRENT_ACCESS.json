@@ -1,0 +1,22 @@
+{
+  "authority": "RESEARCH_ONLY",
+  "cases": {
+    "ACTUAL_EVENT_BINDING_DISCOVERED_FALSE": {
+      "future_observation_use": "BLOCKED_UNTIL_FRESH_BINDING",
+      "historical_outcome_validity": "CHALLENGE_REQUIRED_FOR_DEPENDENT_LEARNING",
+      "reason": "the evidence-production mapping that gave old labels their claimed referent has been falsified"
+    },
+    "CURRENT_OBSERVATION_ACCESS_LOST": {
+      "future_observation_use": "BLOCKED_OR_ACTION_LIMITED",
+      "historical_outcome_validity": "NOT_AUTOMATICALLY_REVOKED",
+      "reason": "loss of present access does not prove old admitted observations were false when acquired"
+    },
+    "OBSERVATION_MAPPING_DRIFTED_AFTER_VALID_EPOCH": {
+      "future_observation_use": "NEW_EPOCH_REQUIRED",
+      "historical_outcome_validity": "PRESERVE_HISTORY__CURRENT_REUSE_NEEDS_REQUALIFICATION_OR_TRANSLATION"
+    }
+  },
+  "pass": "MS1617_PASS15",
+  "result": "HISTORICAL_ADMISSION_VALIDITY_MUST_NOT_BE_COLLAPSED_WITH_CURRENT_SENSOR_ACCESS_OR_MAPPING_AVAILABILITY",
+  "scar": "CURRENT_CHANNEL_FAILURE != HISTORICAL_OBSERVATION_INVALIDITY"
+}

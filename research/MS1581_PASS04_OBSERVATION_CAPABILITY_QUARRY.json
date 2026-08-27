@@ -1,0 +1,32 @@
+{
+  "after_invalidation": {
+    "authority": "NONE",
+    "reason": "STALE",
+    "status": "UNKNOWN_INCOMPLETE"
+  },
+  "authority": "RESEARCH_ONLY",
+  "handler_payload_is_still_taken_as_capability_result_without_mapping_truth_check": true,
+  "matching_query_scope": {
+    "authority": "OBSERVATION_ONLY",
+    "capability_id": "OBS-OUTCOME",
+    "status": "CAPABILITY_RESULT",
+    "value": {
+      "next_state_id": "S1",
+      "observed_values": {
+        "V": 999.0
+      }
+    }
+  },
+  "pass": "MS1581_PASS04",
+  "result": "EXISTING_CAPABILITY_CURRENTNESS_QUERY_SCOPE_CAN_OWN_OBSERVATION_CHANNEL_USE__BUT_NOT_MAPPING_TRUTH",
+  "wrong_query": {
+    "authority": "NONE",
+    "reason": "QUERY_OBLIGATION_MISMATCH",
+    "status": "UNKNOWN_INCOMPLETE"
+  },
+  "wrong_scope": {
+    "authority": "NONE",
+    "reason": "OPERATIONAL_SCOPE_MISMATCH",
+    "status": "UNKNOWN_INCOMPLETE"
+  }
+}

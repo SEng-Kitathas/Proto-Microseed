@@ -1,0 +1,47 @@
+{
+  "group": "2A",
+  "passed": 5,
+  "total": 5,
+  "results": [
+    {
+      "file": "replay_ms1228_1252_integration_scars.py",
+      "rc": 0,
+      "pass": true,
+      "seconds": 1.164,
+      "stdout_tail": " \"temporal_candidate_preserves_episode_ancestry\": true,\n    \"triple_support_reached_without_exact_degree\": true,\n    \"triple_validation_exact\": true\n  },\n  \"passed\": 14,\n  \"schema\": \"microseed.ms1228-1252-integration-scar-replay.v1\",\n  \"total\": 14\n}\n",
+      "stderr_tail": ""
+    },
+    {
+      "file": "replay_ms1253_1277_integration_scars.py",
+      "rc": 0,
+      "pass": true,
+      "seconds": 3.228,
+      "stdout_tail": "orruption_becomes_operational_coordinate\": true,\n    \"support_ceiling_exhaustion_abstains\": true,\n    \"two_percent_noise_recovers_true_triple\": true\n  },\n  \"passed\": 17,\n  \"schema\": \"microseed.ms1253-1277-integration-scar-replay.v1\",\n  \"total\": 17\n}\n",
+      "stderr_tail": ""
+    },
+    {
+      "file": "replay_ms1278_1302_integration_scars.py",
+      "rc": 0,
+      "pass": true,
+      "seconds": 1.819,
+      "stdout_tail": "vation_survive_restart\": true,\n    \"recurrence_has_no_regime_or_reactivation_authority\": true,\n    \"same_support_wrong_mapping_not_recurrence\": true\n  },\n  \"passed\": 16,\n  \"schema\": \"microseed.ms1278-1302.integration-scar-replay.v1\",\n  \"total\": 16\n}\n",
+      "stderr_tail": ""
+    },
+    {
+      "file": "replay_ms1303_1327_integration_scars.py",
+      "rc": 0,
+      "pass": true,
+      "seconds": 8.302,
+      "stdout_tail": "true,\n    \"unavailable_discriminator_is_action_limited\": true,\n    \"unpredicted_outcome_challenges_model_space\": true,\n    \"zero_disagreement_abstains\": true\n  },\n  \"failed\": 0,\n  \"passed\": 16,\n  \"schema\": \"microseed.maindev-replay.ms1303-1327.v1\"\n}\n",
+      "stderr_tail": ""
+    },
+    {
+      "file": "replay_ms1328_1352_integration_scars.py",
+      "rc": 0,
+      "pass": true,
+      "seconds": 1.324,
+      "stdout_tail": "ved\": true,\n    \"restart_no_execute_or_qualify_api\": true,\n    \"ternary_interrupt_historical_ceiling_preserved\": true,\n    \"value_currentness_required\": true\n  },\n  \"failed\": 0,\n  \"passed\": 14,\n  \"schema\": \"microseed.maindev-replay.ms1328-1352.v1\"\n}\n",
+      "stderr_tail": ""
+    }
+  ]
+}

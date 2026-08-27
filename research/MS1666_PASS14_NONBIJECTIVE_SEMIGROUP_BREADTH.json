@@ -1,0 +1,397 @@
+{
+  "checks": {
+    "lift_or_lawful_unknown_all": true,
+    "no_wrong_predictions": true,
+    "useful_in_majority": true
+  },
+  "disposition": "RELATIONAL_COMPOSITION_NOT_GROUP_SPECIFIC",
+  "milestone": "MS1666",
+  "pass": 14,
+  "pass_all": true,
+  "worlds": [
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 1,
+      "hold": 2,
+      "unknown": 1
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    },
+    {
+      "baseline": 0,
+      "correct": 2,
+      "hold": 2,
+      "unknown": 0
+    }
+  ]
+}

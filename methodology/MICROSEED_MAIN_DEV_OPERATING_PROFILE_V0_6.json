@@ -1,0 +1,57 @@
+{
+  "core_shape_unchanged": true,
+  "current_integration": {
+    "integration_debt_open": [
+      "PERSISTENT_SELFHOOD_NOT_QUALIFIED",
+      "ENDOGENOUS_VALUE_GOAL_ANATOMY",
+      "DEVELOPMENTAL_IDENTITY_UNDER_STRUCTURAL_REWRITE",
+      "GENERAL_BIOGRAPHY_MERGE_SEMANTICS",
+      "GENERAL_EPISODE_PARTITION_SEARCH"
+    ],
+    "integration_debt_resolved": [
+      "MS895_FRAME_CURRENTNESS_NOT_FIRST_CLASS",
+      "MS921_EPISODE_SCHEMA_CURRENTNESS_NOT_FIRST_CLASS",
+      "MS931_DEVELOPMENT_PATH_NOT_RECONSTRUCTED",
+      "MS948_DURABLE_EVENT_LOG_NOT_CONTENT_BOUND_AS_BIOGRAPHY",
+      "MS949_NO_FIRST_CLASS_FORK_BRANCH_SEMANTICS"
+    ],
+    "ms953_started": false,
+    "research_terminal_ms": 952,
+    "selected_frontier": "ATTN-MS952-ENDOGENOUS-VALUE-GOAL-ANATOMY__REACTIVATES_MS925_926"
+  },
+  "inherits": "microseed.maindev-operating-profile.v0.5",
+  "language_policy": {
+    "active_phase": "PRELINGUAL",
+    "cognitive_substrate": "DEFERRED",
+    "rule": "developer labels may instrument biography/value research; language may not supply action/effect, episode, referent, goal, identity, or capability semantics under test"
+  },
+  "refinements_from_ms903_927": {
+    "BOUNDED_EPISODE_GROUPING_NE_GENERAL_EPISODE_CONSTRUCTION": true,
+    "CANDIDATE_FRAME_CURRENT_NE_EPISODE_SCHEMA_CURRENT": true,
+    "EPISODE_SCHEMA_CURRENTNESS_IS_FIRST_CLASS_DEVELOPMENTAL_ANCESTRY": true,
+    "EPISODE_SET_NE_DEVELOPMENTAL_BIOGRAPHY": true,
+    "OPERATIONAL_TRACE_NE_ENDOGENOUS_EPISODE_CONSTRUCTION": true,
+    "SENSORIMOTOR_EPISODE_NE_GOAL_RELATIVE_EPISODE": true,
+    "SUPPLIED_VALUE_SIGNAL_NE_ENDOGENOUS_VALUE_ANATOMY": true,
+    "TRACE_PERSISTENCE_NE_EPISODE_PROVENANCE_NE_SELFHOOD": true,
+    "bounded_episode_learner_remains_research_only": true,
+    "episode_schema_drift_transitively_invalidates_derived_capability_closure": true,
+    "pending_candidate_episode_schema_currentness_required_at_admission": true,
+    "persistent_identity_frontier_selection_is_dependency_evidence_driven": true
+  },
+  "refinements_from_ms928_952": {
+    "BIOGRAPHY_EVENT_MUST_BE_CONTENT_BOUND": true,
+    "BIOGRAPHY_INTEGRITY_NE_REFERENT_CURRENTNESS": true,
+    "CONTINUITY_WITNESS_NE_BIOGRAPHY_REPLAYABILITY": true,
+    "HASH_GRAPH_INTEGRITY_NE_DEVELOPMENTAL_CONTINUITY_SUFFICIENCY": true,
+    "HISTORICAL_BIOGRAPHY_EVENT_NE_CURRENT_CAPABILITY_WARRANT": true,
+    "MERGE_CONFLICT_NE_LICENSE_TO_CHOOSE": true,
+    "SERIAL_EVENT_ORDER_NE_CAUSAL_DEVELOPMENTAL_ORDER": true,
+    "SHARED_ANCESTRY_NE_SAME_CONTINUING_BRANCH": true,
+    "STABLE_IDENTITY_TOKEN_NE_PERSISTENT_IDENTITY": true,
+    "STATE_SNAPSHOT_NE_DEVELOPMENTAL_HISTORY": true,
+    "persistent_selfhood_remains_unqualified": true,
+    "value_goal_frontier_selection_is_cross_family_evidence_driven": true
+  },
+  "schema": "microseed.maindev-operating-profile.v0.6"
+}

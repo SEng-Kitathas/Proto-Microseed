@@ -1,0 +1,21 @@
+{
+  "after_new_mapping_live_epoch": {
+    "future_live_use": "CAPABILITY_RESULT",
+    "hist_epoch": 0,
+    "live_epoch": 1,
+    "obs_epoch": 1,
+    "relation": "CURRENT_PREDICTIVE_RELATION"
+  },
+  "authority": "RESEARCH_ONLY",
+  "before": {
+    "hist_epoch": 0,
+    "live_epoch": 0,
+    "obs_epoch": 0,
+    "relation": "CURRENT_PREDICTIVE_RELATION"
+  },
+  "next": "QUARRY_EXISTING_DEFICIT_LIFECYCLE_FOR_CURRENT_REUSE_UNDER_NEW_MAPPING_WITH_HISTORY_PRESERVED",
+  "nonclaim": "compatibility/translation of old learned relation into new observation semantics remains separately gated; current rehearsal already refuses premise-bearing relations",
+  "pass": "MS1633_PASS06",
+  "result": "PROSPECTIVE_MAPPING_CHANGE_CAN_ROTATE_LIVE_USE_EPOCH_WITHOUT_REWRITING_HISTORICAL_ADMISSION_EPOCH",
+  "scar": "NEW_LIVE_MAPPING_EPOCH != RETROSPECTIVE_INVALIDATION_OF_OLD_EVIDENCE"
+}

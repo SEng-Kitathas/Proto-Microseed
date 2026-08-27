@@ -1,0 +1,85 @@
+{
+  "all_checks_pass": true,
+  "assistance_debt": [
+    "FIXED_EFFECT_ROUND_DIGITS_3",
+    "DISCRETE_FIXTURE_DOES_NOT_ESTABLISH_GENERAL_NOISY_CLUSTERING",
+    "CANDIDATE_TYPE_EXISTS_ONLY_IN_RESEARCH_SCRIPT",
+    "NO_ENDOGENOUS_PROBE_MAPPING_EARNED"
+  ],
+  "campaign_pass": 12,
+  "candidates": [
+    {
+      "actual_next_state_id": "N",
+      "actual_value_effect": -0.25,
+      "authority": "MODEL_OUTPUT_ONLY",
+      "candidate_id": "OBS-POSS-318a61d55ad1987d3dcb",
+      "capability_id": "ACT",
+      "execution_authority": "NONE",
+      "probability_authority": "NONE",
+      "source_evidence_ids": [
+        "E-000",
+        "E-001",
+        "E-002",
+        "E-003",
+        "E-004",
+        "E-005",
+        "E-006",
+        "E-007",
+        "E-008",
+        "E-009",
+        "E-010",
+        "E-011",
+        "E-012",
+        "E-013",
+        "E-014",
+        "E-015"
+      ],
+      "start_state_id": "S",
+      "support": 16,
+      "truth_authority": "NONE",
+      "value_epoch": [
+        "V",
+        1
+      ]
+    },
+    {
+      "actual_next_state_id": "N",
+      "actual_value_effect": 0.25,
+      "authority": "MODEL_OUTPUT_ONLY",
+      "candidate_id": "OBS-POSS-f586ee4aafa53f5c0422",
+      "capability_id": "ACT",
+      "execution_authority": "NONE",
+      "probability_authority": "NONE",
+      "source_evidence_ids": [
+        "E-016",
+        "E-017",
+        "E-018",
+        "E-019"
+      ],
+      "start_state_id": "S",
+      "support": 4,
+      "truth_authority": "NONE",
+      "value_epoch": [
+        "V",
+        1
+      ]
+    }
+  ],
+  "checks": {
+    "candidate_ancestry_is_cluster_local_not_all_rows": true,
+    "candidate_identity_is_input_order_invariant": true,
+    "possibility_candidates_carry_no_truth_probability_or_execution_authority": true,
+    "same_candidates_can_receive_different_current_use_relations_without_semantic_labels_in_candidate": true,
+    "two_observed_consequence_alternatives_are_preserved": true
+  },
+  "discriminator": "DOES_THE_SMALLEST_NONPREDICTIVE_OPERATION__PRESERVE_DISTINCT_ACTUALLY_OBSERVED_CONSEQUENCES_AS_OPAQUE_EVIDENCE_BOUND_POSSIBILITY_CANDIDATES__SUPPLY_THE_MISSING_SAFE_VS_HARMFUL_USE_CONTRAST_WITHOUT_HIDDEN_STATE_PROBABILITY_OR_NEW_AUTHORITY",
+  "localization": "A_TINY_NONPREDICTIVE_POSSIBILITY_NOMINATION_OPERATION_IS_SUFFICIENT_TO_PRESERVE_THE_BIMODAL_EVIDENCE_THAT_CURRENT_PREDICTIVE_NOMINATION_LOSES__IT_CAN_REUSE_EXISTING_VALUE_GEOMETRY_FOR_QUERY_TIME_RELATION__BUT_THIS_PASS_DOES_NOT_SHOW_THAT_THE_OPERATION_GENERALIZES_TO_NOISY_CONTINUOUS_OUTCOMES_OR_CAN_FORM_A_LAWFUL_DISCRIMINATING_PROBE",
+  "main_dev_mutation": "NONE",
+  "milestone": "MS1564",
+  "next_discriminator": "ANTI_FLATTERY__TEST_THE_OPERATION_ON_NOISY_CONTINUOUS_R2_EXPERIENCE_WITHOUT_TUNING_CLUSTER_WIDTH__IF_FIXED_ROUNDING_EXPLODES_INTO_UNUSABLE_POSSIBILITIES_DO_NOT_PROMOTE_IT__QUARRY_EXISTING_QUANTIZATION_TOLERANCE_BEFORE_NEW_CLUSTERING",
+  "query_time_classifications": {
+    "OBS-POSS-318a61d55ad1987d3dcb": "LOWERS_PRESSURE",
+    "OBS-POSS-f586ee4aafa53f5c0422": "WORSENS_PRESSURE"
+  },
+  "research_only_mechanism": "GROUP_ACTUAL_ACTION_OUTCOME_EXPERIENCES_BY_EXISTING_STRUCTURAL_ANCESTRY_PLUS_ACTUAL_NEXT_STATE_AND_ROUNDED_ACTUAL_EFFECT__ONE_OPAQUE_PROPOSAL_HANDLE_PER_OBSERVED_OUTCOME_CLUSTER__CLASSIFY_RELATIVE_TO_CURRENT_VALUE_ONLY_AT_QUERY_TIME"
+}

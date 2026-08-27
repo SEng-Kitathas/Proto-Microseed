@@ -1,0 +1,41 @@
+{
+  "channels": {
+    "ENERGY": {
+      "action_only_baseline": 0.5992414664981036,
+      "global_label_baseline": 0.5537294563843237,
+      "position": 0,
+      "rows": 791,
+      "state_action_accuracy": 0.8217446270543616,
+      "state_action_increment_over_action_only": 0.22250316055625796,
+      "state_action_increment_over_state_only": 0.1542351453855879,
+      "state_only_baseline": 0.6675094816687737
+    },
+    "INTEGRITY": {
+      "action_only_baseline": 0.592686002522068,
+      "global_label_baseline": 0.592686002522068,
+      "position": 2,
+      "rows": 793,
+      "state_action_accuracy": 0.725094577553594,
+      "state_action_increment_over_action_only": 0.13240857503152592,
+      "state_action_increment_over_state_only": 0.1021437578814628,
+      "state_only_baseline": 0.6229508196721312
+    },
+    "THERMAL": {
+      "action_only_baseline": 0.6154822335025381,
+      "global_label_baseline": 0.6154822335025381,
+      "position": 1,
+      "rows": 788,
+      "state_action_accuracy": 0.8261421319796954,
+      "state_action_increment_over_action_only": 0.21065989847715738,
+      "state_action_increment_over_state_only": 0.15482233502538068,
+      "state_only_baseline": 0.6713197969543148
+    }
+  },
+  "disposition": "ACTION_SPECIFIC_SIGNAL_PRESENT",
+  "nonclaims": [
+    "NO_MODEL_ADMISSION",
+    "NO_MAINDEV_MUTATION"
+  ],
+  "question": "DOES_THE_REGULATORY_TARGET_CARRY_ACTION_SPECIFIC_CONSEQUENCE_SIGNAL_BEYOND_CURRENT_STATE",
+  "schema": "microseed.ms1539.pass12.antiflattery.state-vs-action.v1"
+}

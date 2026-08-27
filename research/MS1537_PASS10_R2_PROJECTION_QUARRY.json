@@ -1,0 +1,41 @@
+{
+  "channels": {
+    "ENERGY": {
+      "candidates": [],
+      "train_rows": 1545,
+      "validation_rows": 791
+    },
+    "INTEGRITY": {
+      "candidates": [],
+      "train_rows": 1502,
+      "validation_rows": 793
+    },
+    "THERMAL": {
+      "candidates": [],
+      "train_rows": 1528,
+      "validation_rows": 788
+    }
+  },
+  "data_boundary": "NOISY_R2_PREACTION_SENSOR_TOKENS_PLUS_OBSERVED_POST_MINUS_PRE_EFFECT_TOKEN",
+  "disposition": "PROJECTION_SIGNAL_INCOMPLETE",
+  "effect_token_quantization_step": 0.25,
+  "hidden_regime_labels_used": false,
+  "nonclaims": [
+    "NO_PROJECTION_ADMISSION",
+    "NO_ROUTING_QUALIFICATION",
+    "NO_MAINDEV_MUTATION",
+    "NO_SEMANTIC_REGIME_AUTHORITY"
+  ],
+  "projection_config": {
+    "complexity_penalty": 0.008,
+    "max_candidates": 12,
+    "max_subset": 2,
+    "min_key_action_support": 3,
+    "min_lift_over_action_baseline": 0.08,
+    "min_scope_accuracy": 0.62,
+    "min_train_support": 20,
+    "min_validation_accuracy": 0.72
+  },
+  "raw_token_quantization_step": 0.5,
+  "schema": "microseed.ms1537.pass10.r2-projection-quarry.v1"
+}

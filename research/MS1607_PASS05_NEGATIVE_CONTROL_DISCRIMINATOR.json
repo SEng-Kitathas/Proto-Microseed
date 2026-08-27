@@ -1,0 +1,25 @@
+{
+  "authority": "RESEARCH_ONLY",
+  "boundary": "CONTROL_ROUTE_GROUNDING_AND_DISTURBANCE_COVERAGE_REMAIN_UNEARNED",
+  "control_unavailable_or_unresolved": {
+    "disposition": "MODEL_SPACE_MISSPECIFIED_OR_CONTRADICTED",
+    "live": [],
+    "next_probe": null
+  },
+  "exogenous_disturbance_seen_by_negative_control": {
+    "disposition": "IDENTIFIED_WITHIN_CANDIDATE_SET",
+    "live": [
+      "EXOGENOUS_COVARIATION"
+    ],
+    "next_probe": null
+  },
+  "lawful_intervention": {
+    "disposition": "IDENTIFIED_WITHIN_CANDIDATE_SET",
+    "live": [
+      "CAUSAL_MEDIATION"
+    ],
+    "next_probe": null
+  },
+  "pass": "MS1607_PASS05",
+  "result": "ORTHOGONAL_NEGATIVE_CONTROL_CAN_SEPARATE_CAUSAL_MEDIATION_FROM_A_COVERED_EXOGENOUS_DISTURBANCE__UNKNOWN_WHEN_CONTROL_DOES_NOT_BEAR"
+}

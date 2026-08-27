@@ -1,0 +1,50 @@
+{
+  "group": 2,
+  "passed": 7,
+  "total": 7,
+  "all_pass": true,
+  "results": [
+    {
+      "script": "tests/embodiment/replay_ms1028_1052_integration_scars.py",
+      "returncode": 0,
+      "pass": true,
+      "stdout_tail": "\n    \"rewrite_relation\": \"DESCENDANT_CONTINUATION\",\n    \"rewrite_selfhood_claim\": \"NOT_QUALIFIED\",\n    \"same_graph_copy_ambiguity\": true,\n    \"same_graph_numerical_identity_authority\": \"NONE\",\n    \"same_graph_relation\": \"SAME_BIOGRAPHY_STATE\",\n    \"status_identity_claim\": \"NOT_QUALIFIED\"\n  },\n  \"schema\": \"microseed.ms1028-1052.maindev-replay.v1\"\n}\n"
+    },
+    {
+      "script": "tests/embodiment/replay_ms1128_1152_integration_scars.py",
+      "returncode": 0,
+      "pass": true,
+      "stdout_tail": "or\": \"PAIRWISE_RESEARCH_MECHANISM_NOT_ENTITY_AUTHORITY__HIGHER_ORDER_GENERALIZATION_UNRESOLVED\",\n    \"topology_identity_authority\": \"NONE\",\n    \"transitive_capability_currentness\": \"INTEGRATED_FROM_MS841_843\",\n    \"value_currentness\": \"FIRST_CLASS_EPOCH_BOUND_CONSTITUTIONAL_DEPENDENCY_INTEGRATED_FROM_MS966_968\",\n    \"value_variable_count\": 0\n  }\n}\n"
+    },
+    {
+      "script": "tests/embodiment/replay_ms1228_1252_integration_scars.py",
+      "returncode": 0,
+      "pass": true,
+      "stdout_tail": "_preserves_proposal_without_qualification_gain\": true,\n    \"support_ceiling_two_abstains\": true,\n    \"temporal_candidate_preserves_episode_ancestry\": true,\n    \"triple_support_reached_without_exact_degree\": true,\n    \"triple_validation_exact\": true\n  },\n  \"passed\": 14,\n  \"schema\": \"microseed.ms1228-1252-integration-scar-replay.v1\",\n  \"total\": 14\n}\n"
+    },
+    {
+      "script": "tests/embodiment/replay_ms1328_1352_integration_scars.py",
+      "returncode": 0,
+      "pass": true,
+      "stdout_tail": "estry\": true,\n    \"qualified_whole_enlarges_second_order_closure\": true,\n    \"refusal_unknown_preserved\": true,\n    \"restart_no_execute_or_qualify_api\": true,\n    \"ternary_interrupt_historical_ceiling_preserved\": true,\n    \"value_currentness_required\": true\n  },\n  \"failed\": 0,\n  \"passed\": 14,\n  \"schema\": \"microseed.maindev-replay.ms1328-1352.v1\"\n}\n"
+    },
+    {
+      "script": "tests/embodiment/replay_ms1428_1452_integration_scars.py",
+      "returncode": 0,
+      "pass": true,
+      "stdout_tail": "\": true,\n    \"no_general_cause_or_switch_api\": true,\n    \"old_law_history_preserved\": true,\n    \"parent_model_not_child_current_capability\": true,\n    \"prediction_error_not_model_switch_authority\": true,\n    \"proposal_cannot_resume_rehearsal\": true,\n    \"qualified_replacement_resumes_rehearsal\": true,\n    \"replacement_is_proposal_only\": true\n  }\n}\n"
+    },
+    {
+      "script": "tests/embodiment/replay_ms853_877_integration_scars.py",
+      "returncode": 0,
+      "pass": true,
+      "stdout_tail": "or\": \"PAIRWISE_RESEARCH_MECHANISM_NOT_ENTITY_AUTHORITY__HIGHER_ORDER_GENERALIZATION_UNRESOLVED\",\n    \"topology_identity_authority\": \"NONE\",\n    \"transitive_capability_currentness\": \"INTEGRATED_FROM_MS841_843\",\n    \"value_currentness\": \"FIRST_CLASS_EPOCH_BOUND_CONSTITUTIONAL_DEPENDENCY_INTEGRATED_FROM_MS966_968\",\n    \"value_variable_count\": 0\n  }\n}\n"
+    },
+    {
+      "script": "tests/embodiment/replay_ms953_977_integration_scars.py",
+      "returncode": 0,
+      "pass": true,
+      "stdout_tail": "or\": \"PAIRWISE_RESEARCH_MECHANISM_NOT_ENTITY_AUTHORITY__HIGHER_ORDER_GENERALIZATION_UNRESOLVED\",\n    \"topology_identity_authority\": \"NONE\",\n    \"transitive_capability_currentness\": \"INTEGRATED_FROM_MS841_843\",\n    \"value_currentness\": \"FIRST_CLASS_EPOCH_BOUND_CONSTITUTIONAL_DEPENDENCY_INTEGRATED_FROM_MS966_968\",\n    \"value_variable_count\": 1\n  }\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "causal_identifiability_grammar": "microseed.method.causal-identifiability-pressure-grammar.v1.0",
+  "core_shape_unchanged": true,
+  "current_integration": {
+    "canonical_entity_version": "v1.4",
+    "integration_debt_open": [
+      "GENERAL_EPISTEMIC_DEFICIT_CURRENTNESS",
+      "GENERAL_QUESTION_REVISITATION_POLICY",
+      "GENERAL_DISCRIMINATOR_SYNTHESIS",
+      "GENERAL_HIGHER_ORDER_DISCOVERY_LANGUAGE",
+      "HOST_SUBSTRATE_CAPABILITY_CURRENTNESS",
+      "QUALIFIED_COUNTERFACTUAL_REHEARSAL"
+    ],
+    "integration_debt_resolved": [
+      "MS1148_ZERO_DISAGREEMENT_FALSE_PROBE",
+      "MS1148_NO_FIRST_CLASS_ACTION_LIMITED_DEFICIT_BRIDGE"
+    ],
+    "integration_terminal_ms": 1152,
+    "ms1153_started": false,
+    "research_terminal_ms": 1152,
+    "selected_frontier": "ATTN-MS1152-EPISTEMIC-DEFICIT-CURRENTNESS-AND-QUESTION-REVISITATION__WHOLE_SYSTEM_MEMORY_ACTIVE_LEARNING"
+  },
+  "epistemic_deficit_policy": {
+    "historical_unknown_not_rewritten": true,
+    "probe_available_does_not_resolve": true,
+    "probe_evidence_only_requests_revisit": true,
+    "scope": "C_ACTION_LIMITED_ONLY",
+    "semantic_question_authority": "NONE",
+    "truth_authority": "NONE"
+  },
+  "inherits": "microseed.maindev-operating-profile.v1.3",
+  "language_policy": {
+    "active_phase": "PRELINGUAL",
+    "cognitive_substrate": "DEFERRED",
+    "rule": "developer question/probe labels instrument the system; language may not provide missing capability semantics, hypothesis truth, goal identity, or resolution authority"
+  },
+  "method_change_kind": "ADDITIVE_SCAR_AND_INTEGRATION_GUARDS_ONLY",
+  "parent_profile_sha256": "9ead78dab4a1fafb57cd39061ed51dbdd656002e34e6085e0d60a67c468166c0",
+  "refinements_from_ms1128_1152": {
+    "ACTION_LIMITED_UNKNOWN_NE_STRUCTURAL_NONIDENTIFIABILITY": true,
+    "AVAILABLE_DISCRIMINATOR_NE_NEED_FOR_DUPLICATE_GROWTH": true,
+    "CAPABILITY_GROWTH_CAN_CHANGE_IDENTIFIABILITY_WITHOUT_RETROACTIVE_TRUTH": true,
+    "DISCRIMINATOR_CAPABILITY_CURRENT_NE_DISCRIMINATING_RELATION_CURRENT": true,
+    "DISCRIMINATOR_KNOWLEDGE_NE_CURRENT_EXECUTION_ACCESS": true,
+    "DISCRIMINATOR_RECURRENCE_NE_DISCRIMINATOR_AUTHORITY": true,
+    "EPISTEMIC_DEFICIT_CAN_DRIVE_DEVELOPMENT_NE_EPISTEMIC_AUTHORITY": true,
+    "EPISTEMIC_NEED_CAN_GUIDE_SEARCH_NE_TRUTH_AUTHORITY": true,
+    "LATER_RESOLUTION_NE_RETROACTIVE_REWRITE": true,
+    "LOCAL_PRIMITIVES_CURRENT_NE_DISTRIBUTED_DISCRIMINATOR_CURRENT": true,
+    "LOW_PROBE_COST_NE_GOOD_EPISTEMIC_SCHEDULING": true,
+    "MISSING_DISCRIMINATOR_REQUIREMENT_NE_SEMANTIC_ACTION_NAME": true,
+    "PAIRWISE_DISCOVERY_LANGUAGE_NE_GENERAL_DISCRIMINATOR_LANGUAGE": true,
+    "PROBE_AVAILABLE_NE_QUESTION_RESOLVED": true,
+    "PROPOSAL_EVIDENCE_NE_QUALIFICATION_EVIDENCE": true,
+    "QUERY_OBLIGATION_NE_PERSISTENT_EPISTEMIC_DEFICIT": true,
+    "SEARCH_TOPOLOGY_NE_SEARCH_LANGUAGE": true,
+    "STRUCTURAL_NONIDENTIFIABILITY_NE_MISSING_CAPABILITY": true,
+    "TEMPORARY_PROBE_REFUSAL_NE_DISCRIMINATOR_RELATION_DRIFT": true,
+    "ZERO_DISAGREEMENT_CANDIDATE_NE_DISCRIMINATING_PROBE": true
+  },
+  "schema": "microseed.maindev-operating-profile.v1.4"
+}

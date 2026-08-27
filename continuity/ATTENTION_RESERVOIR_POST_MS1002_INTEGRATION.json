@@ -1,0 +1,27 @@
+{
+  "schema": "microseed.attention-reservoir.post-ms1002-integration.v0.8",
+  "terminal_ms": 1002,
+  "ms1003_started": false,
+  "language": "DEFERRED_PRELINGUAL_COGNITION_ACTIVE",
+  "selected": {
+    "id": "ATTN-MS1002-ENDOGENOUS-RECRUITMENT-TOPOLOGY__REACTIVATES_GRAND_P7_DEVELOPMENTAL_STRUCTURAL_GROWTH",
+    "reason": "Bounded recruitment survived, but parent/child role topology itself remained supplied and can be underdetermined by immediate effects. This reactivates the older developmental-structural-growth pressure rather than following a local hierarchy-only Helix by default."
+  },
+  "reactivated": [
+    "GRAND-P7-LIFETIME-TOPOLOGY-GENETIC-STRUCTURAL-GROWTH"
+  ],
+  "deferred": [
+    "GENERAL-HIERARCHICAL-PLANNING",
+    "GENERAL-CHILD-ROLE-IDENTITY",
+    "CONSTITUTIONAL-VALUE-PRIOR-ORIGIN",
+    "PERSISTENT-SELFHOOD",
+    "GENERAL-BIOGRAPHY-MERGE-SEMANTICS",
+    "GENERAL-EPISODE-PARTITION-SEARCH"
+  ],
+  "integration_debt_open": [
+    "ENDOGENOUS_RECRUITMENT_TOPOLOGY",
+    "GENERAL_HIERARCHICAL_PLANNING",
+    "GENERAL_CHILD_ROLE_IDENTITY",
+    "PERSISTENT_SELFHOOD_NOT_QUALIFIED"
+  ]
+}

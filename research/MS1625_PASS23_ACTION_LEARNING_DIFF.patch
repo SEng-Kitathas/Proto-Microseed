@@ -1,0 +1,120 @@
+--- /mnt/data/_ms1602_desc_fresh/microseed/development/action_learning.py	2026-08-24 08:00:00.000000000 +0000
++++ microseed/development/action_learning.py	2026-08-25 03:35:14.129795458 +0000
+@@ -36,6 +36,7 @@
+     value_epoch: tuple[str, int]
+     topology_epochs: tuple[tuple[str, int], ...] = ()
+     coordination_epochs: tuple[tuple[str, int], ...] = ()
++    evidence_premise_epochs: tuple[tuple[str, int], ...] = ()
+ 
+     def __post_init__(self) -> None:
+         if not self.execution_id:
+@@ -46,11 +47,12 @@
+         object.__setattr__(self, "episode_schema_epochs", tuple((str(a), int(b)) for a, b in self.episode_schema_epochs))
+         object.__setattr__(self, "topology_epochs", tuple((str(a), int(b)) for a, b in self.topology_epochs))
+         object.__setattr__(self, "coordination_epochs", tuple((str(a), int(b)) for a, b in self.coordination_epochs))
++        object.__setattr__(self, "evidence_premise_epochs", tuple((str(a), int(b)) for a, b in self.evidence_premise_epochs))
+         object.__setattr__(self, "value_epoch", (str(self.value_epoch[0]), int(self.value_epoch[1])))
+ 
+     def serializable(self) -> dict[str, Any]:
+         d = asdict(self)
+-        for key in ("frame_epochs", "episode_schema_epochs", "topology_epochs", "coordination_epochs"):
++        for key in ("frame_epochs", "episode_schema_epochs", "topology_epochs", "coordination_epochs", "evidence_premise_epochs"):
+             d[key] = [list(x) for x in d[key]]
+         d["value_epoch"] = list(d["value_epoch"])
+         return d
+@@ -72,6 +74,7 @@
+     value_epoch: tuple[str, int]
+     topology_epochs: tuple[tuple[str, int], ...] = ()
+     coordination_epochs: tuple[tuple[str, int], ...] = ()
++    evidence_premise_epochs: tuple[tuple[str, int], ...] = ()
+     authority: str = Authority.MODEL_OUTPUT_ONLY.value
+     truth_authority: str = "NONE"
+     causal_theorem_authority: str = "NONE"
+@@ -89,7 +92,7 @@
+ 
+     def serializable(self) -> dict[str, Any]:
+         d = asdict(self)
+-        for key in ("frame_epochs", "episode_schema_epochs", "topology_epochs", "coordination_epochs"):
++        for key in ("frame_epochs", "episode_schema_epochs", "topology_epochs", "coordination_epochs", "evidence_premise_epochs"):
+             d[key] = [list(x) for x in d[key]]
+         d["value_epoch"] = list(d["value_epoch"])
+         d["candidate_sha256"] = self.digest()
+@@ -99,7 +102,7 @@
+     def from_serializable(cls, d: dict[str, Any]) -> "ActionOutcomePredictiveCandidate":
+         x = dict(d)
+         x.pop("candidate_sha256", None)
+-        for key in ("frame_epochs", "episode_schema_epochs", "topology_epochs", "coordination_epochs"):
++        for key in ("frame_epochs", "episode_schema_epochs", "topology_epochs", "coordination_epochs", "evidence_premise_epochs"):
+             x[key] = tuple((str(a), int(b)) for a, b in x.get(key, ()))
+         x["value_epoch"] = (str(x["value_epoch"][0]), int(x["value_epoch"][1]))
+         x["source_evidence_ids"] = tuple(str(v) for v in x.get("source_evidence_ids", ()))
+@@ -139,6 +142,7 @@
+     value_epoch: tuple[str, int]
+     topology_epochs: tuple[tuple[str, int], ...] = ()
+     coordination_epochs: tuple[tuple[str, int], ...] = ()
++    evidence_premise_epochs: tuple[tuple[str, int], ...] = ()
+     authority: str = "EVIDENCE_BOUND_PREDICTIVE_RELATION_ONLY"
+     truth_authority: str = "NONE"
+     causal_theorem_authority: str = "NONE"
+@@ -147,7 +151,7 @@
+ 
+     def serializable(self) -> dict[str, Any]:
+         d = asdict(self)
+-        for key in ("frame_epochs", "episode_schema_epochs", "topology_epochs", "coordination_epochs"):
++        for key in ("frame_epochs", "episode_schema_epochs", "topology_epochs", "coordination_epochs", "evidence_premise_epochs"):
+             d[key] = [list(x) for x in d[key]]
+         d["value_epoch"] = list(d["value_epoch"])
+         return d
+@@ -155,7 +159,7 @@
+     @classmethod
+     def from_serializable(cls, d: dict[str, Any]) -> "QualifiedActionOutcomePredictiveRelation":
+         x = dict(d)
+-        for key in ("frame_epochs", "episode_schema_epochs", "topology_epochs", "coordination_epochs"):
++        for key in ("frame_epochs", "episode_schema_epochs", "topology_epochs", "coordination_epochs", "evidence_premise_epochs"):
+             x[key] = tuple((str(a), int(b)) for a, b in x.get(key, ()))
+         x["value_epoch"] = (str(x["value_epoch"][0]), int(x["value_epoch"][1]))
+         x["source_evidence_ids"] = tuple(str(v) for v in x.get("source_evidence_ids", ()))
+@@ -165,7 +169,7 @@
+     def as_rehearsal_relation(self) -> RehearsalTransitionRelation | None:
+         # Current Microseed rehearsal relation has one frame + one episode anchor per edge.
+         # More complex ancestry remains unpromoted rather than silently collapsed.
+-        if len(self.frame_epochs) != 1 or len(self.episode_schema_epochs) != 1:
++        if len(self.frame_epochs) != 1 or len(self.episode_schema_epochs) != 1 or self.evidence_premise_epochs:
+             return None
+         if len(self.topology_epochs) > 1 or len(self.coordination_epochs) > 1:
+             return None
+@@ -241,7 +245,7 @@
+     for r in rows:
+         key = (
+             r.start_state_id, r.capability_id, int(r.capability_epoch), r.frame_epochs,
+-            r.episode_schema_epochs, r.value_epoch, r.topology_epochs, r.coordination_epochs,
++            r.episode_schema_epochs, r.value_epoch, r.topology_epochs, r.coordination_epochs, r.evidence_premise_epochs,
+         )
+         groups[key].append(r)
+     out: list[ActionOutcomePredictiveCandidate] = []
+@@ -257,7 +261,7 @@
+             "start_state_id": key[0], "capability_id": key[1], "next_state_id": next_state,
+             "value_effect": float(effect), "capability_epoch": key[2], "frame_epochs": key[3],
+             "episode_schema_epochs": key[4], "value_epoch": key[5], "topology_epochs": key[6],
+-            "coordination_epochs": key[7],
++            "coordination_epochs": key[7], "evidence_premise_epochs": key[8],
+         }
+         cid = "ACTION-LAW-CAND-" + _digest(payload)[:20]
+         out.append(ActionOutcomePredictiveCandidate(
+@@ -265,7 +269,7 @@
+             value_effect=float(effect), support=len(rs), consistency=consistency,
+             source_evidence_ids=tuple(sorted(r.evidence_id for r in rs)), capability_epoch=key[2],
+             frame_epochs=key[3], episode_schema_epochs=key[4], value_epoch=key[5],
+-            topology_epochs=key[6], coordination_epochs=key[7],
++            topology_epochs=key[6], coordination_epochs=key[7], evidence_premise_epochs=key[8],
+         ))
+     return tuple(sorted(out, key=lambda c: (c.start_state_id, c.capability_id, -c.consistency, c.candidate_id)))
+ 
+@@ -297,6 +301,7 @@
+             and (str(p.get("value_epoch", ["", -1])[0]), int(p.get("value_epoch", ["", -1])[1])) == candidate.value_epoch
+             and tuple((str(a), int(b)) for a, b in p.get("topology_epochs", ())) == candidate.topology_epochs
+             and tuple((str(a), int(b)) for a, b in p.get("coordination_epochs", ())) == candidate.coordination_epochs
++            and tuple((str(a), int(b)) for a, b in p.get("evidence_premise_epochs", ())) == candidate.evidence_premise_epochs
+         ):
+             usable.append(p)
+     if not usable:

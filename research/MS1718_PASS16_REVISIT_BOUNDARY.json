@@ -1,0 +1,11 @@
+{
+  "checks": {
+    "no_epistemic_answer_method": true,
+    "no_experiment_scheduler": true,
+    "no_macro_executor": true,
+    "no_question_revisit_scheduler": true,
+    "revisit_surface_exists": true
+  },
+  "disposition": "SURVIVED_BOUNDARY__REVISIT_IS_ELIGIBILITY_NOT_ANSWER_AUTHORITY",
+  "pass": "MS1718"
+}

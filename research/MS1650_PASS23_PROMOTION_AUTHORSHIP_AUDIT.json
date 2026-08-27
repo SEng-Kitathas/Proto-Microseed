@@ -1,0 +1,38 @@
+{
+  "pass": "MS1650_PASS23",
+  "source_delta_vs_MS1627": {
+    "microseed/runtime/types.py": {"added": 28, "removed": 0},
+    "microseed/runtime/entity.py": {"added": 58, "removed": 13},
+    "microseed/development/action_learning.py": {"added": 16, "removed": 7},
+    "changed_source_files": 3,
+    "net_shape": "existing contract identity + existing ingress facade + existing action-learning ancestry/currentness path"
+  },
+  "research_source_tree_sha256": "c3fee19ecef97f80293d02ef39286513b7e091d4bf1afae7db9cd215ad0ea916",
+  "survivors": [
+    "CapabilityContract immutable content signature as identity-only/no-authority helper",
+    "generic evidence_premise_epochs + evidence_premise_signatures ancestry carrier",
+    "split live-use vs historical-admission basis on assured outcome ingress",
+    "snapshot-bound applicability of historical admission basis to exact acquisition-premise content",
+    "fresh requalification debt emerges from epoch/signature-separated evidence grouping and holdout matching"
+  ],
+  "promotion_blockers": [
+    "historical admission basis remains externally qualified; organismal grounding is not solved",
+    "correctly content-bound/current basis can still be physically false or incomplete",
+    "CapabilityContract content signature deliberately excludes runtime handler implementation; deployment/physical behavior changes require an independently current capability epoch/qualification discipline",
+    "generic external capability qualifier still does not itself implement PAL-style noncircular provenance/completeness semantics",
+    "whole-organism R2 has not been rerun with these research-only historical admission semantics"
+  ],
+  "architecture_audit": {
+    "new_manager": false,
+    "new_registry": false,
+    "new_scheduler": false,
+    "new_sensor_type": false,
+    "new_truth_authority": false,
+    "new_execution_authority": false,
+    "main_dev_promotion": false
+  },
+  "disposition": "SURVIVES_RESEARCH_LINEAGE__DEFER_MAINDEV_PROMOTION",
+  "scar": "CONTENT_BOUND_APPLICABILITY != PHYSICAL_CORRECTNESS != EXHAUSTIVE_COMPLETENESS",
+  "authority": "RESEARCH_ONLY",
+  "next": "ATTENTION_RESERVOIR_BREADTH_SELECTION_AND_CAMPAIGN_CLOSE"
+}

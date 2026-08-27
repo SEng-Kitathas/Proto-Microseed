@@ -1,0 +1,21 @@
+{
+  "authority": "RESEARCH_ONLY",
+  "changed_mapping_content": {
+    "applicable": false,
+    "reason": "ADMISSION_PREMISE_SIGNATURE_MISMATCH"
+  },
+  "next": "WIRE_THIS_AS_A_MANDATORY_CHECK_ON_SPLIT_HISTORICAL_ADMISSION_INGRESS_AND_HOSTILE_IT",
+  "nonclaim": "matching immutable premise signatures establishes basis applicability only; it does not prove the mapping or admission basis is physically correct or complete",
+  "original": {
+    "applicable": true,
+    "reason": "APPLICABLE_TO_CURRENT_ACQUISITION_PREMISES"
+  },
+  "pal169_pressure": "AUTHORIZED_OR_CONTENT_BOUND_ADMISSION != EXHAUSTIVE_TRUTH",
+  "pass": "MS1645_PASS18",
+  "result": "SNAPSHOT_BOUND_ADMISSION_APPLICABILITY_SEPARATES_RUNTIME_EPOCH_MOTION_FROM_MAPPING_CONTENT_CHANGE",
+  "same_content_new_runtime_epoch": {
+    "applicable": true,
+    "reason": "APPLICABLE_TO_CURRENT_ACQUISITION_PREMISES"
+  },
+  "scar": "HISTORICAL_ADMISSION_BASIS_VALIDITY != APPLICABILITY_TO_ARBITRARY_FUTURE_ACQUISITION_PREMISES"
+}

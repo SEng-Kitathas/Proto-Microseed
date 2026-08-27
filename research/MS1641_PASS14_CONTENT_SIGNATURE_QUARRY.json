@@ -1,0 +1,28 @@
+{
+  "authority": "RESEARCH_ONLY",
+  "candidate_delta": "add stable CapabilityContract signature payload/digest + carry premise signature beside premise epoch through existing action-learning ancestry path",
+  "capability_candidate_has_digest": true,
+  "capability_contract_content_signature_methods": [],
+  "finding": "CONTENT_BOUND_SIGNATURE_PATTERN_EXISTS_ACROSS_NEIGHBOR_CONTRACTS_AND_CAPABILITY_CANDIDATES_BUT_NOT_ON_ADMITTED_CAPABILITY_CONTRACT_OR_ACTION_RELATION_PREMISE_REFERENCE",
+  "irreducible_gap": "historical premise needs immutable content identity in addition to runtime epoch; otherwise restart aliasing survives",
+  "neighbor_contract_signature_patterns": {
+    "coordination": [
+      "signature_payload",
+      "computed_signature_sha256"
+    ],
+    "counterparty": [
+      "signature_payload",
+      "computed_signature_sha256"
+    ],
+    "topology": [
+      "signature_payload",
+      "computed_signature_sha256"
+    ]
+  },
+  "next": "IMPLEMENT_RESEARCH_ONLY_GENERIC_PREMISE_SIGNATURE_CARRIER_AND_ATTACK_RESTART_ALIAS",
+  "nonclaim": "does not ground or qualify the premise; only prevents identity aliasing",
+  "pass": "MS1641_PASS14",
+  "qualified_relation_premise_fields": [
+    "evidence_premise_epochs"
+  ]
+}

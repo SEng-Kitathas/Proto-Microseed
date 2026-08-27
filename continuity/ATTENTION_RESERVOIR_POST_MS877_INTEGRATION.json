@@ -1,0 +1,36 @@
+{
+  "deferred": [
+    {
+      "id": "PERSISTENT-DEVELOPMENTAL-IDENTITY",
+      "reason": "Still load-bearing; live lateral pressure, not selected."
+    },
+    {
+      "id": "TEMPORAL-EPISODE-ABSTRACTION",
+      "reason": "Still live lateral faculty/embodiment pressure."
+    }
+  ],
+  "integration_debt_open": [
+    "SELF_CONSTRUCTED_TRACE_BOUNDARIES",
+    "SELF_CONSTRUCTED_EFFECT_COORDINATES",
+    "GENERAL_CAPABILITY_DISCOVERY",
+    "EXTERNAL_QUALIFICATION_BOUNDARY_REMAINS_STRUCTURAL_NOT_CRYPTOGRAPHIC"
+  ],
+  "integration_debt_resolved": [
+    "MS862-EVIDENCE-RESOLVED-NE-SUPPORTIVE",
+    "MS863-PROPOSAL-QUALIFICATION-EVIDENCE-SEAM",
+    "MS865-PENDING-CANDIDATE-DEPENDENCY-DRIFT"
+  ],
+  "ms878_started": false,
+  "reactivated": [
+    {
+      "id": "ATTN-MS827-ACTION-EFFECT-FRAME-CONSTRUCTION",
+      "reason": "Cross-family capability-discovery evidence, not local-Helix inertia."
+    }
+  ],
+  "schema": "microseed.attention-reservoir.post-integration.v0.3",
+  "selected": {
+    "id": "ATTN-MS877-SELF-CONSTRUCTED-DISCOVERY-FRAME__REACTIVATES_ATTN-MS827-ACTION-EFFECT-FRAME-CONSTRUCTION",
+    "reason": "MS872/MS877 shows endogenous candidate nomination directly depends on supplied trace boundaries/effect coordinates/singleton action-effect baselines; the previously deferred MS827 frame-construction frontier is now a demonstrated upstream dependency."
+  },
+  "terminal_ms": 877
+}

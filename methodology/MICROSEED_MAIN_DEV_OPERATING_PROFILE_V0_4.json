@@ -1,0 +1,34 @@
+{
+  "schema": "microseed.maindev-operating-profile.v0.4",
+  "core_shape_unchanged": true,
+  "inherits": "microseed.maindev-operating-profile.v0.3",
+  "refinements_from_ms878_902": {
+    "FRAME_CURRENTNESS_IS_FIRST_CLASS_DEVELOPMENTAL_ANCESTRY": true,
+    "OPERATIONAL_FRAME_CURRENTNESS_NE_SURFACE_IDENTITY": true,
+    "pending_candidate_frame_currentness_required_at_admission": true,
+    "frame_drift_transitively_invalidates_derived_capability_closure": true,
+    "BOUNDED_FRAME_RECOVERY_NE_GENERAL_SENSORIMOTOR_FRAME_CONSTRUCTION": true,
+    "IDENTIFIABILITY_NE_TRACTABLE_SEARCH": true,
+    "supplied_higher_level_episode_trace_grouping_must_remain_explicit": true,
+    "temporal_episode_frontier_reactivation_is_dependency_evidence_driven": true
+  },
+  "language_policy": {
+    "active_phase": "PRELINGUAL",
+    "cognitive_substrate": "DEFERRED",
+    "rule": "developer labels may instrument operational frames; language may not supply the action/effect, episode, referent, goal, or capability semantics under test"
+  },
+  "current_integration": {
+    "research_terminal_ms": 902,
+    "selected_frontier": "ATTN-MS902-ENDOGENOUS-EPISODE-TRACE-GROUPING__REACTIVATES_TEMPORAL-EPISODE-ABSTRACTION",
+    "integration_debt_resolved": [
+      "MS895_FRAME_CURRENTNESS_NOT_FIRST_CLASS"
+    ],
+    "integration_debt_open": [
+      "ENDOGENOUS_EPISODE_TRACE_GROUPING",
+      "GENERAL_ACTION_CORRESPONDENCE_SEARCH",
+      "NONLINEAR_SENSORIMOTOR_FRAME",
+      "PERSISTENT_DEVELOPMENTAL_IDENTITY"
+    ],
+    "ms903_started": false
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "after": {
+    "disposition": "IDENTIFIED_WITHIN_CANDIDATE_SET",
+    "live": [
+      "STREAM-ACTUAL"
+    ],
+    "next_probe": null
+  },
+  "authority": "RESEARCH_ONLY",
+  "before": {
+    "disposition": "UNRESOLVED",
+    "live": [
+      "STREAM-ACTUAL",
+      "STREAM-PREDICTION_FEED"
+    ],
+    "next_probe": "ORTHOGONAL_PHYSICAL_PERTURB"
+  },
+  "boundary": "PROBE_RESULT_GROUNDING_STILL_UNRESOLVED",
+  "pass": "MS1584_PASS07",
+  "probe_result_fixture_boundary": "SHIFT",
+  "result": "ORTHOGONAL_CAUSAL_INTERVENTION_CAN_BREAK_SAME_STREAM_EQUIVALENCE__EXISTING_DISCRIMINATION_CONSUMES_IT"
+}

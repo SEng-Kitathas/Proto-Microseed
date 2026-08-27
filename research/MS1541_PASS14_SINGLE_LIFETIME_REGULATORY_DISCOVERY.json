@@ -1,0 +1,616 @@
+{
+  "channels": {
+    "ENERGY": {
+      "admitted_seed_count": 0,
+      "mean_best_lift": -0.1949973483545465,
+      "mean_best_validation_accuracy": 0.4324805068226121,
+      "mean_rows": 57.0,
+      "seeds": [
+        {
+          "admitted_candidate": false,
+          "best": {
+            "action_baseline_accuracy": 0.4444444444444444,
+            "lift": -0.2777777777777778,
+            "min_scope_accuracy": 0.16666666666666666,
+            "positions": [
+              2
+            ],
+            "validation_accuracy": 0.16666666666666666
+          },
+          "seed": 100,
+          "total_rows": 58,
+          "train_rows": 40,
+          "validation_rows": 18
+        },
+        {
+          "admitted_candidate": false,
+          "best": {
+            "action_baseline_accuracy": 0.5882352941176471,
+            "lift": -0.05882352941176472,
+            "min_scope_accuracy": 0.5294117647058824,
+            "positions": [
+              2
+            ],
+            "validation_accuracy": 0.5294117647058824
+          },
+          "seed": 101,
+          "total_rows": 56,
+          "train_rows": 39,
+          "validation_rows": 17
+        },
+        {
+          "admitted_candidate": false,
+          "best": {
+            "action_baseline_accuracy": 0.47058823529411764,
+            "lift": -0.23529411764705882,
+            "min_scope_accuracy": 0.23529411764705882,
+            "positions": [
+              2
+            ],
+            "validation_accuracy": 0.23529411764705882
+          },
+          "seed": 102,
+          "total_rows": 56,
+          "train_rows": 39,
+          "validation_rows": 17
+        },
+        {
+          "admitted_candidate": false,
+          "best": {
+            "action_baseline_accuracy": 0.42105263157894735,
+            "lift": -0.15789473684210525,
+            "min_scope_accuracy": 0.2631578947368421,
+            "positions": [
+              2
+            ],
+            "validation_accuracy": 0.2631578947368421
+          },
+          "seed": 103,
+          "total_rows": 61,
+          "train_rows": 42,
+          "validation_rows": 19
+        },
+        {
+          "admitted_candidate": false,
+          "best": {
+            "action_baseline_accuracy": 0.3888888888888889,
+            "lift": -0.22222222222222224,
+            "min_scope_accuracy": 0.16666666666666666,
+            "positions": [
+              2
+            ],
+            "validation_accuracy": 0.16666666666666666
+          },
+          "seed": 104,
+          "total_rows": 59,
+          "train_rows": 41,
+          "validation_rows": 18
+        },
+        {
+          "admitted_candidate": false,
+          "best": {
+            "action_baseline_accuracy": 0.8235294117647058,
+            "lift": -0.17647058823529405,
+            "min_scope_accuracy": 0.6470588235294118,
+            "positions": [
+              2
+            ],
+            "validation_accuracy": 0.6470588235294118
+          },
+          "seed": 105,
+          "total_rows": 56,
+          "train_rows": 39,
+          "validation_rows": 17
+        },
+        {
+          "admitted_candidate": false,
+          "best": {
+            "action_baseline_accuracy": 0.6666666666666666,
+            "lift": -0.1333333333333333,
+            "min_scope_accuracy": 0.5333333333333333,
+            "positions": [
+              2
+            ],
+            "validation_accuracy": 0.5333333333333333
+          },
+          "seed": 106,
+          "total_rows": 49,
+          "train_rows": 34,
+          "validation_rows": 15
+        },
+        {
+          "admitted_candidate": false,
+          "best": {
+            "action_baseline_accuracy": 0.9473684210526315,
+            "lift": -0.05263157894736836,
+            "min_scope_accuracy": 0.8947368421052632,
+            "positions": [
+              2
+            ],
+            "validation_accuracy": 0.8947368421052632
+          },
+          "seed": 107,
+          "total_rows": 61,
+          "train_rows": 42,
+          "validation_rows": 19
+        },
+        {
+          "admitted_candidate": false,
+          "best": {
+            "action_baseline_accuracy": 0.8333333333333334,
+            "lift": -0.4444444444444445,
+            "min_scope_accuracy": 0.3888888888888889,
+            "positions": [
+              2
+            ],
+            "validation_accuracy": 0.3888888888888889
+          },
+          "seed": 108,
+          "total_rows": 59,
+          "train_rows": 41,
+          "validation_rows": 18
+        },
+        {
+          "admitted_candidate": false,
+          "best": {
+            "action_baseline_accuracy": 0.7647058823529411,
+            "lift": -0.17647058823529405,
+            "min_scope_accuracy": 0.5882352941176471,
+            "positions": [
+              2
+            ],
+            "validation_accuracy": 0.5882352941176471
+          },
+          "seed": 109,
+          "total_rows": 56,
+          "train_rows": 39,
+          "validation_rows": 17
+        },
+        {
+          "admitted_candidate": false,
+          "best": {
+            "action_baseline_accuracy": 0.3684210526315789,
+            "lift": 0.15789473684210525,
+            "min_scope_accuracy": 0.5263157894736842,
+            "positions": [
+              2
+            ],
+            "validation_accuracy": 0.5263157894736842
+          },
+          "seed": 110,
+          "total_rows": 62,
+          "train_rows": 43,
+          "validation_rows": 19
+        },
+        {
+          "admitted_candidate": false,
+          "best": {
+            "action_baseline_accuracy": 0.8125,
+            "lift": -0.5625,
+            "min_scope_accuracy": 0.25,
+            "positions": [
+              2
+            ],
+            "validation_accuracy": 0.25
+          },
+          "seed": 111,
+          "total_rows": 51,
+          "train_rows": 35,
+          "validation_rows": 16
+        }
+      ],
+      "seeds_with_any_revealed_candidate": 12
+    },
+    "INTEGRITY": {
+      "admitted_seed_count": 0,
+      "mean_best_lift": -0.14425417096663226,
+      "mean_best_validation_accuracy": 0.4803233574131407,
+      "mean_rows": 55.333333333333336,
+      "seeds": [
+        {
+          "admitted_candidate": false,
+          "best": {
+            "action_baseline_accuracy": 0.5625,
+            "lift": -0.125,
+            "min_scope_accuracy": 0.4375,
+            "positions": [
+              2
+            ],
+            "validation_accuracy": 0.4375
+          },
+          "seed": 100,
+          "total_rows": 51,
+          "train_rows": 35,
+          "validation_rows": 16
+        },
+        {
+          "admitted_candidate": false,
+          "best": {
+            "action_baseline_accuracy": 0.6875,
+            "lift": -0.0625,
+            "min_scope_accuracy": 0.625,
+            "positions": [
+              2
+            ],
+            "validation_accuracy": 0.625
+          },
+          "seed": 101,
+          "total_rows": 53,
+          "train_rows": 37,
+          "validation_rows": 16
+        },
+        {
+          "admitted_candidate": false,
+          "best": {
+            "action_baseline_accuracy": 0.7058823529411765,
+            "lift": -0.2941176470588236,
+            "min_scope_accuracy": 0.4117647058823529,
+            "positions": [
+              2
+            ],
+            "validation_accuracy": 0.4117647058823529
+          },
+          "seed": 102,
+          "total_rows": 56,
+          "train_rows": 39,
+          "validation_rows": 17
+        },
+        {
+          "admitted_candidate": false,
+          "best": {
+            "action_baseline_accuracy": 0.7368421052631579,
+            "lift": -0.3684210526315789,
+            "min_scope_accuracy": 0.3684210526315789,
+            "positions": [
+              2
+            ],
+            "validation_accuracy": 0.3684210526315789
+          },
+          "seed": 103,
+          "total_rows": 61,
+          "train_rows": 42,
+          "validation_rows": 19
+        },
+        {
+          "admitted_candidate": false,
+          "best": {
+            "action_baseline_accuracy": 0.5882352941176471,
+            "lift": -0.05882352941176472,
+            "min_scope_accuracy": 0.5294117647058824,
+            "positions": [
+              2
+            ],
+            "validation_accuracy": 0.5294117647058824
+          },
+          "seed": 104,
+          "total_rows": 55,
+          "train_rows": 38,
+          "validation_rows": 17
+        },
+        {
+          "admitted_candidate": false,
+          "best": {
+            "action_baseline_accuracy": 0.6,
+            "lift": -0.1333333333333333,
+            "min_scope_accuracy": 0.4666666666666667,
+            "positions": [
+              2
+            ],
+            "validation_accuracy": 0.4666666666666667
+          },
+          "seed": 105,
+          "total_rows": 50,
+          "train_rows": 35,
+          "validation_rows": 15
+        },
+        {
+          "admitted_candidate": false,
+          "best": {
+            "action_baseline_accuracy": 0.6470588235294118,
+            "lift": -0.29411764705882354,
+            "min_scope_accuracy": 0.35294117647058826,
+            "positions": [
+              2
+            ],
+            "validation_accuracy": 0.35294117647058826
+          },
+          "seed": 106,
+          "total_rows": 54,
+          "train_rows": 37,
+          "validation_rows": 17
+        },
+        {
+          "admitted_candidate": false,
+          "best": {
+            "action_baseline_accuracy": 0.42105263157894735,
+            "lift": 0.05263157894736842,
+            "min_scope_accuracy": 0.47368421052631576,
+            "positions": [
+              2
+            ],
+            "validation_accuracy": 0.47368421052631576
+          },
+          "seed": 107,
+          "total_rows": 63,
+          "train_rows": 44,
+          "validation_rows": 19
+        },
+        {
+          "admitted_candidate": false,
+          "best": {
+            "action_baseline_accuracy": 0.5294117647058824,
+            "lift": 0.0,
+            "min_scope_accuracy": 0.5294117647058824,
+            "positions": [
+              2
+            ],
+            "validation_accuracy": 0.5294117647058824
+          },
+          "seed": 108,
+          "total_rows": 55,
+          "train_rows": 38,
+          "validation_rows": 17
+        },
+        {
+          "admitted_candidate": false,
+          "best": {
+            "action_baseline_accuracy": 0.8125,
+            "lift": -0.3125,
+            "min_scope_accuracy": 0.5,
+            "positions": [
+              2
+            ],
+            "validation_accuracy": 0.5
+          },
+          "seed": 109,
+          "total_rows": 53,
+          "train_rows": 37,
+          "validation_rows": 16
+        },
+        {
+          "admitted_candidate": false,
+          "best": {
+            "action_baseline_accuracy": 0.5789473684210527,
+            "lift": 0.05263157894736836,
+            "min_scope_accuracy": 0.631578947368421,
+            "positions": [
+              2
+            ],
+            "validation_accuracy": 0.631578947368421
+          },
+          "seed": 110,
+          "total_rows": 62,
+          "train_rows": 43,
+          "validation_rows": 19
+        },
+        {
+          "admitted_candidate": false,
+          "best": {
+            "action_baseline_accuracy": 0.625,
+            "lift": -0.1875,
+            "min_scope_accuracy": 0.4375,
+            "positions": [
+              2
+            ],
+            "validation_accuracy": 0.4375
+          },
+          "seed": 111,
+          "total_rows": 51,
+          "train_rows": 35,
+          "validation_rows": 16
+        }
+      ],
+      "seeds_with_any_revealed_candidate": 12
+    },
+    "THERMAL": {
+      "admitted_seed_count": 0,
+      "mean_best_lift": -0.1620510119252379,
+      "mean_best_validation_accuracy": 0.5360759947253756,
+      "mean_rows": 56.416666666666664,
+      "seeds": [
+        {
+          "admitted_candidate": false,
+          "best": {
+            "action_baseline_accuracy": 0.7647058823529411,
+            "lift": -0.17647058823529405,
+            "min_scope_accuracy": 0.5882352941176471,
+            "positions": [
+              2
+            ],
+            "validation_accuracy": 0.5882352941176471
+          },
+          "seed": 100,
+          "total_rows": 54,
+          "train_rows": 37,
+          "validation_rows": 17
+        },
+        {
+          "admitted_candidate": false,
+          "best": {
+            "action_baseline_accuracy": 0.5,
+            "lift": -0.0625,
+            "min_scope_accuracy": 0.4375,
+            "positions": [
+              2
+            ],
+            "validation_accuracy": 0.4375
+          },
+          "seed": 101,
+          "total_rows": 52,
+          "train_rows": 36,
+          "validation_rows": 16
+        },
+        {
+          "admitted_candidate": false,
+          "best": {
+            "action_baseline_accuracy": 0.7647058823529411,
+            "lift": 0.05882352941176472,
+            "min_scope_accuracy": 0.8235294117647058,
+            "positions": [
+              2
+            ],
+            "validation_accuracy": 0.8235294117647058
+          },
+          "seed": 102,
+          "total_rows": 54,
+          "train_rows": 37,
+          "validation_rows": 17
+        },
+        {
+          "admitted_candidate": false,
+          "best": {
+            "action_baseline_accuracy": 0.7,
+            "lift": -0.1499999999999999,
+            "min_scope_accuracy": 0.55,
+            "positions": [
+              2
+            ],
+            "validation_accuracy": 0.55
+          },
+          "seed": 103,
+          "total_rows": 64,
+          "train_rows": 44,
+          "validation_rows": 20
+        },
+        {
+          "admitted_candidate": false,
+          "best": {
+            "action_baseline_accuracy": 0.6875,
+            "lift": -0.25,
+            "min_scope_accuracy": 0.4375,
+            "positions": [
+              2
+            ],
+            "validation_accuracy": 0.4375
+          },
+          "seed": 104,
+          "total_rows": 53,
+          "train_rows": 37,
+          "validation_rows": 16
+        },
+        {
+          "admitted_candidate": false,
+          "best": {
+            "action_baseline_accuracy": 0.8235294117647058,
+            "lift": -0.11764705882352933,
+            "min_scope_accuracy": 0.7058823529411765,
+            "positions": [
+              2
+            ],
+            "validation_accuracy": 0.7058823529411765
+          },
+          "seed": 105,
+          "total_rows": 56,
+          "train_rows": 39,
+          "validation_rows": 17
+        },
+        {
+          "admitted_candidate": false,
+          "best": {
+            "action_baseline_accuracy": 0.7058823529411765,
+            "lift": -0.17647058823529416,
+            "min_scope_accuracy": 0.5294117647058824,
+            "positions": [
+              2
+            ],
+            "validation_accuracy": 0.5294117647058824
+          },
+          "seed": 106,
+          "total_rows": 54,
+          "train_rows": 37,
+          "validation_rows": 17
+        },
+        {
+          "admitted_candidate": false,
+          "best": {
+            "action_baseline_accuracy": 0.631578947368421,
+            "lift": -0.05263157894736836,
+            "min_scope_accuracy": 0.5789473684210527,
+            "positions": [
+              2
+            ],
+            "validation_accuracy": 0.5789473684210527
+          },
+          "seed": 107,
+          "total_rows": 61,
+          "train_rows": 42,
+          "validation_rows": 19
+        },
+        {
+          "admitted_candidate": false,
+          "best": {
+            "action_baseline_accuracy": 0.7222222222222222,
+            "lift": -0.2777777777777778,
+            "min_scope_accuracy": 0.4444444444444444,
+            "positions": [
+              2
+            ],
+            "validation_accuracy": 0.4444444444444444
+          },
+          "seed": 108,
+          "total_rows": 59,
+          "train_rows": 41,
+          "validation_rows": 18
+        },
+        {
+          "admitted_candidate": false,
+          "best": {
+            "action_baseline_accuracy": 0.8823529411764706,
+            "lift": -0.3529411764705882,
+            "min_scope_accuracy": 0.5294117647058824,
+            "positions": [
+              2
+            ],
+            "validation_accuracy": 0.5294117647058824
+          },
+          "seed": 109,
+          "total_rows": 54,
+          "train_rows": 37,
+          "validation_rows": 17
+        },
+        {
+          "admitted_candidate": false,
+          "best": {
+            "action_baseline_accuracy": 0.8421052631578947,
+            "lift": -0.21052631578947367,
+            "min_scope_accuracy": 0.631578947368421,
+            "positions": [
+              2
+            ],
+            "validation_accuracy": 0.631578947368421
+          },
+          "seed": 110,
+          "total_rows": 62,
+          "train_rows": 43,
+          "validation_rows": 19
+        },
+        {
+          "admitted_candidate": false,
+          "best": {
+            "action_baseline_accuracy": 0.35294117647058826,
+            "lift": -0.17647058823529413,
+            "min_scope_accuracy": 0.17647058823529413,
+            "positions": [
+              2
+            ],
+            "validation_accuracy": 0.17647058823529413
+          },
+          "seed": 111,
+          "total_rows": 54,
+          "train_rows": 37,
+          "validation_rows": 17
+        }
+      ],
+      "seeds_with_any_revealed_candidate": 12
+    }
+  },
+  "data_boundary": "ONE_R2_LIFETIME_PRE_DRIFT_ONLY__RANDOM_ACTIONS__NO_HIDDEN_STATE",
+  "disposition": "SINGLE_LIFETIME_DISCOVERY_INSUFFICIENT",
+  "nonclaims": [
+    "NO_WHOLE_ORGANISM_CREDIT",
+    "NO_MAINDEV_MUTATION",
+    "NO_NEW_PRIMITIVE"
+  ],
+  "schema": "microseed.ms1541.pass14.single-lifetime-regulatory-discovery.v1",
+  "split": "FIRST_70_PERCENT_NOMINATION__LAST_30_PERCENT_VALIDATION"
+}

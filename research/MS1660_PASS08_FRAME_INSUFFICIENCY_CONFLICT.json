@@ -1,0 +1,11 @@
+{
+  "checks": {
+    "conflicting_visible_key_not_collapsed_to_direct_lookup": true,
+    "no_global_AA_equals_C_relation_from_partial_positive_support": true
+  },
+  "disposition": "FRAME_INSUFFICIENT_OR_STOCHASTIC__NO_DETERMINISTIC_ALGEBRA_NOMINATED",
+  "milestone": "MS1660",
+  "pass": 8,
+  "pass_all": true,
+  "scar": "SAME_VISIBLE_START_ACTION_CONFLICT_NE_LICENSE_TO_AVERAGE_A_FRAME"
+}

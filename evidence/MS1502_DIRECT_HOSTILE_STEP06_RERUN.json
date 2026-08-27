@@ -1,0 +1,19 @@
+{
+  "all_pass": true,
+  "checks": {
+    "bound_drift_selectively_stales_composite": true,
+    "candidate_preserves_existing_epoch_families_without_authority_gain": true,
+    "coordination_inherits_counterparty_ancestry": true,
+    "no_parallel_composition_architecture": true,
+    "post_ticket_counterparty_drift_blocks_admission": true,
+    "post_ticket_topology_drift_blocks_admission": true,
+    "stale_coordination_rejected": true,
+    "stale_counterparty_rejected": true,
+    "stale_topology_rejected": true,
+    "unknown_coordination_rejected": true,
+    "unknown_counterparty_rejected": true,
+    "unknown_topology_rejected": true
+  },
+  "passed": 12,
+  "total": 12
+}

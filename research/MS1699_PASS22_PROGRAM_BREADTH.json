@@ -1,0 +1,13 @@
+{
+  "disposition": "5_FAMILY_X_64_BREADTH_PASS",
+  "families": {
+    "behaviorally_equivalent_macro_remains_unresolved": 64,
+    "frame_drift_rejected": 64,
+    "gauge_renamed_clean_program_complete": 64,
+    "stale_component_blocks_begin": 64,
+    "wrong_control_state_rejected": 64
+  },
+  "milestone": "MS1699",
+  "pass": 22,
+  "worlds": 64
+}

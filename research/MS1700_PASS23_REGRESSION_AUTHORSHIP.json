@@ -1,0 +1,17 @@
+{
+  "compileall": "PASS",
+  "disposition": "REGRESSION_AND_AUTHORSHIP_GREEN_FOR_RESEARCH_LINEAGE__NO_EXISTING_PRODUCTION_OWNER_MUTATED",
+  "existing_microseed_python_files_changed": [],
+  "late_lineage_ms1527": "14/14 PASS",
+  "milestone": "MS1700",
+  "new_module_lines": 200,
+  "new_module_sha256": "22e43161778f1e816a1d29bcfd264b1f5da950cfed16717a89816b420b787e8c",
+  "new_program_suite": "15/15 PASS",
+  "opaque_algebra_suite": "12/12 PASS",
+  "pass": 23,
+  "production_python_files_added": [
+    "development/epistemic_program.py"
+  ],
+  "slow_inherited_historical_suite_route": "HARNESS_NONRESULT_OUTER_TIMEOUT__NO_FAILURE_INFERRED",
+  "structural_noninterference": "ALL_PREEXISTING_MICROSEED_PYTHON_BYTES_IDENTICAL_TO_MS1677_SEAL"
+}

@@ -1,0 +1,12 @@
+{
+  "authority": "RESEARCH_ONLY",
+  "changed_source_files": [
+    "microseed/runtime/entity.py"
+  ],
+  "entity_diff_lines": 94,
+  "new_test_file": "tests/embodiment/test_ms1598_observation_basis_ingress.py",
+  "parent_microseed_tree_sha256": "87d8a52b48063eba2a71a0f79b48448e8ed3d2b6497c8169e9b7b11f73b949a0",
+  "pass": "MS1600_PASS23",
+  "research_microseed_tree_sha256": "7b0c481ada51eea2a01328854ee931c106a97f1cae5026fc7bff87a16e17d4a2",
+  "result": "LOCALIZED_INTEGRATION_FACADE_DELTA__NO_NEW_REGISTRY_OR_PERSISTENT_STATE"
+}

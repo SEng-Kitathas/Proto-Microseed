@@ -1,0 +1,9 @@
+{
+  "all_pass": true,
+  "baseline_errors": [],
+  "baseline_pass": true,
+  "escaped": [],
+  "hostile_mutants": 32,
+  "hostile_mutants_rejected": 32,
+  "schema": "microseed.maindev-method-validation.v1.2.1"
+}

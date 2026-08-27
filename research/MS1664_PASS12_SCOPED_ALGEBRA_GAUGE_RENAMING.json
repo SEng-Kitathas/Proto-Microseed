@@ -1,0 +1,36 @@
+{
+  "checks": {
+    "literal_labels_carry_no_required_semantics": true,
+    "renamed_constructor_found": true,
+    "renamed_scoped_algebra_equivalent": true
+  },
+  "disposition": "GAUGE_RENAMING_PRESERVES_SCOPED_RELATIONAL_FRAME",
+  "maps": {
+    "action": {
+      "A": "A-550970570",
+      "B": "A-935639990",
+      "C": "A-238361545",
+      "RELQ": "A-325327308"
+    },
+    "context": {
+      "CTX-L": "K-590603351",
+      "CTX-R": "K-888960924"
+    },
+    "relation": {
+      "REL-AA": "R-274029173",
+      "REL-BB": "R-141217294"
+    },
+    "state": {
+      "S0": "Q-803730267",
+      "S1": "Q-428911867",
+      "S2": "Q-791998505",
+      "S3": "Q-312392468",
+      "S4": "Q-14659907",
+      "S5": "Q-768509615",
+      "S6": "Q-893633065"
+    }
+  },
+  "milestone": "MS1664",
+  "pass": 12,
+  "pass_all": true
+}

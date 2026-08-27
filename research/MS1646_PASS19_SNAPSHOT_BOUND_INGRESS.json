@@ -1,0 +1,14 @@
+{
+  "authority": "RESEARCH_ONLY",
+  "next": "HOSTILE_MUTATE_SIGNATURE_BINDING_AND_PRESERVE_FALSELY_QUALIFIED_BUT_CORRECTLY_BOUND_BASIS_AS_EXPLICIT_FAILURE_BOUNDARY",
+  "nonclaim": "snapshot/signature applicability does not establish physical correctness, causal completeness, or noncircular qualification of the basis",
+  "old_acquisition": "ACTION_OUTCOME_OBSERVED",
+  "pass": "MS1646_PASS19",
+  "prospective_mapping_change_with_old_basis": {
+    "reason": "HISTORICAL_ADMISSION_BASIS_NOT_APPLICABLE_TO_CURRENT_PREMISES",
+    "status": "OUTCOME_REJECTED"
+  },
+  "result": "OLD_ADMISSION_BASIS_REUSE_BLOCKED_WITHOUT_OVERINVALIDATING_SAME_CONTENT_RUNTIME_EPOCH",
+  "same_mapping_content_new_runtime_epoch": "ACTION_OUTCOME_OBSERVED",
+  "survivor": "SNAPSHOT_BOUND_HISTORICAL_ADMISSION_APPLICABILITY_CHECK_ON_EXISTING_INGRESS"
+}

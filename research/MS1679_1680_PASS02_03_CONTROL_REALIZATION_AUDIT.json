@@ -1,0 +1,75 @@
+{
+  "MS1679_pass02": {
+    "disposition": "ORDINARY_CONTROL_IS_ONE_STEP_CLOSED_LOOP__NO_NATIVE_EPISTEMIC_PROGRAM_TRIAL_IDENTITY",
+    "first_action_only": "A",
+    "record_fields": {
+      "ActionExecutionRecord": [
+        "authority",
+        "capability_epoch",
+        "capability_id",
+        "execution_commitment_id",
+        "execution_id",
+        "execution_premise_ids",
+        "handler_result_sha256",
+        "intent_id",
+        "observation_authority",
+        "start_state_id",
+        "truth_authority"
+      ],
+      "ActionOutcomeRecord": [
+        "actual_next_state_id",
+        "actual_value_effect",
+        "evidence_id",
+        "execution_authority_gain",
+        "execution_id",
+        "observed_value",
+        "outcome_id",
+        "prediction_commitment",
+        "qualification_authority",
+        "requires_redeliberation",
+        "truth_authority",
+        "value_id",
+        "value_outcomes"
+      ],
+      "BoundedActionIntent": [
+        "action_commitment",
+        "authority",
+        "basis_kind",
+        "capability_epoch",
+        "capability_id",
+        "control_state_evidence_id",
+        "derivation_parameters",
+        "execution_authority",
+        "expected_next_state_id",
+        "expected_value_effect",
+        "intent_id",
+        "obligation_id",
+        "operational_scope_id",
+        "proposal_digest",
+        "proposal_id",
+        "required_value_epochs",
+        "semantic_intention_authority",
+        "start_state_id",
+        "truth_authority",
+        "value_epoch"
+      ]
+    },
+    "rehearsal_sequence": [
+      "A",
+      "B"
+    ],
+    "requires_redeliberation_after_first_outcome": true
+  },
+  "MS1680_pass03": {
+    "disposition": "ORDINARY_CONTROL_CAN_REALIZE_PRIMITIVES_OVER_MULTIPLE_TICKS__HARNESS_CURRENTLY_OWNS_MACRO_CONTINUITY",
+    "final_state": "S2",
+    "final_value": 2.5,
+    "first_proposal_id": "REHEARSAL-87053a63e7d305a979b9",
+    "next_discriminator": "CAN_A_TINY_PROPOSAL_ONLY_PROGRAM_TRIAL_CARRIER_BIND_EXISTING_STEP_INTENT_EXECUTION_OUTCOME_RECORDS_WITHOUT_EXECUTING_ANYTHING_ITSELF",
+    "physical_handler_calls": [
+      "A",
+      "B"
+    ],
+    "second_proposal_id": "REHEARSAL-11aeae43e364086aef5a"
+  }
+}

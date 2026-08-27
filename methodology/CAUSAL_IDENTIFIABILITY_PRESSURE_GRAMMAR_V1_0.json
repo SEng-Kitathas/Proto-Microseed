@@ -1,0 +1,89 @@
+{
+  "correspondence_attacks": {
+    "pairs": [
+      "SAME_CAUSAL_LAW__RADICALLY_CHANGED_SURFACE",
+      "SIMILAR_SURFACE__CHANGED_CAUSAL_LAW"
+    ],
+    "question": "What feature is the mechanism actually invariant to?",
+    "separate_from_within_world_matrix": true
+  },
+  "currentness_drift_sweep": [
+    "NUISANCE_CHANGES_LAW_STABLE",
+    "CAUSAL_LAW_CHANGES",
+    "ACTION_REPERTOIRE_CHANGES",
+    "RELATION_CHANGES",
+    "PREVIOUSLY_QUALIFIED_DISCRIMINATOR_DISAPPEARS"
+  ],
+  "entity_architecture_authority": "NONE",
+  "epistemic_classes": {
+    "A_ESTIMATION_LIMITED": {
+      "default_response": "GATHER_OR_IMPROVE_EVIDENCE_OR_UNKNOWN_IF_CURRENT_BUDGET_INSUFFICIENT",
+      "definition": "One causal distinction is identifiable within the current world/action frame, but present evidence is noisy, sparse, or otherwise estimation-limited.",
+      "hard_nonidentifiability_claim_allowed": false
+    },
+    "B_PASSIVELY_AMBIGUOUS": {
+      "default_response": "UNKNOWN_UNTIL_ACTIVE_DISCRIMINATION_OR_EQUIVALENT_EVIDENCE",
+      "definition": "Passive evidence supports multiple lawful hypotheses, but the current phenotype has an available discriminating intervention.",
+      "hard_nonidentifiability_claim_allowed": false
+    },
+    "C_ACTION_LIMITED": {
+      "default_response": "UNKNOWN_NOW_PLUS_MISSING_DISCRIMINATING_CAPABILITY_PRESSURE",
+      "definition": "A discriminating intervention exists in the bounded world but is unavailable to the current phenotype.",
+      "hard_nonidentifiability_claim_allowed": false
+    },
+    "D_STRUCTURALLY_NON_IDENTIFIABLE": {
+      "default_response": "UNKNOWN_WITH_HARD_EPISTEMIC_CEILING_FOR_THIS_ENVELOPE",
+      "definition": "No available evidence or intervention inside the bounded world/action frame separates the alternatives.",
+      "hard_nonidentifiability_claim_allowed": true
+    }
+  },
+  "historical_alias": "causal-entropy development ladder (decomposed)",
+  "locks": [
+    "OBSERVATIONAL_NUISANCE_ENTROPY != CAUSAL_AMBIGUITY_IDENTIFIABILITY",
+    "AMBIGUOUS_UNDER_CURRENT_EVIDENCE != FUNDAMENTALLY_NON_IDENTIFIABLE",
+    "DISCRIMINATING_INTERVENTION_EXISTS_IN_WORLD != CURRENT_PHENOTYPE_HAS_ACCESS",
+    "ACTIVE_PROBE_REDUCES_UNCERTAINTY != ACTIVE_PROBE_CONFERS_TRUTH_AUTHORITY",
+    "SURFACE_SIMILARITY != CAUSAL_LAW_SIMILARITY",
+    "SURFACE_CHANGE != CAUSAL_LAW_CHANGE",
+    "ACTION_LIMITED_UNKNOWN != STRUCTURAL_NON_IDENTIFIABILITY"
+  ],
+  "name": "Causal Identifiability Pressure Grammar",
+  "required_reporting": [
+    "observational_nuisance_level_or_regime",
+    "causal_ambiguity_class",
+    "current_phenotype_intervention_access",
+    "which_discriminator_was_available_or_missing",
+    "whether_active_probe_changed evidence state",
+    "whether UNKNOWN is budget-limited, action-limited, or structurally non-identifiable",
+    "surface-law correspondence result when applicable",
+    "currentness/drift result when applicable",
+    "negative evidence and assistance ancestry"
+  ],
+  "schema": "microseed.method.causal-identifiability-pressure-grammar.v1.0",
+  "scope": "CAMPAIGN_DESIGN_AND_REPORTING_ONLY",
+  "within_world_dimensions": {
+    "causal_ambiguity_identifiability": {
+      "not_equivalent_to": "observation noise",
+      "question": "How many causal explanations remain lawful under the available evidence?"
+    },
+    "discriminating_intervention_access": {
+      "levels": [
+        "PASSIVE_SUFFICIENT",
+        "ACTIVE_AVAILABLE",
+        "DISCRIMINATOR_EXISTS_BUT_PHENOTYPE_LACKS_ACCESS",
+        "NO_BOUNDED_DISCRIMINATOR"
+      ],
+      "question": "Does the current phenotype possess an available intervention that can separate the lawful alternatives?"
+    },
+    "observational_nuisance_entropy": {
+      "examples": [
+        "sensor noise",
+        "sparsity",
+        "irrelevant sensory entropy",
+        "sampling jitter"
+      ],
+      "not_equivalent_to": "causal ambiguity / identifiability",
+      "question": "How difficult is it to estimate what happened?"
+    }
+  }
+}
