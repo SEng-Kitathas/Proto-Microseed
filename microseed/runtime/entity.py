@@ -1345,7 +1345,32 @@ class Microseed:
         This may request revisit when the actual outcome either discriminates the live
         represented set or lies outside every represented prediction.  It never answers
         the deficit, chooses a replacement model, or grants execution/truth authority.
+
+        For a current PROBE_AVAILABLE deficit, relevance may not be laundered through an
+        arbitrary self-consistent caller-supplied model surface.  The prior trial must
+        independently satisfy the registered missing discriminator, and the newly added
+        step must resolve back to ordinary action-closure records before any revisit can
+        be requested.  Legacy pre-MS1908 deficits retain their historical structural path.
         """
+        deficit = self.epistemic_deficits.records.get(prior_trial.deficit_id)
+        if deficit is None or deficit.state == EpistemicDeficitState.STALE:
+            return {
+                "status":"PROGRAM_STEP_BEARING_UNRESOLVED",
+                "reason":"CURRENT_EPISTEMIC_DEFICIT_REQUIRED",
+                "truth_authority":"NONE","answer_authority":"NONE",
+                "model_replacement_authority":"NONE","execution_authority":"NONE",
+            }
+        satisfaction = None
+        if deficit.state == EpistemicDeficitState.PROBE_AVAILABLE:
+            satisfaction = self.derive_current_program_discriminator_satisfaction(prior_trial)
+            if not satisfaction.licenses_yes():
+                return {
+                    "status":"PROGRAM_STEP_BEARING_UNRESOLVED",
+                    "reason":satisfaction.reason,
+                    "program_discriminator_satisfaction":satisfaction.serializable(),
+                    "truth_authority":"NONE","answer_authority":"NONE",
+                    "model_replacement_authority":"NONE","execution_authority":"NONE",
+                }
         status, witness = derive_epistemic_program_step_outcome_bearing(
             prior_trial=prior_trial, advanced_trial=advanced_trial, decision_context=decision_context,
         )
@@ -1354,6 +1379,44 @@ class Microseed:
                 "status": "PROGRAM_STEP_BEARING_UNRESOLVED", "reason": status,
                 "truth_authority": "NONE", "answer_authority": "NONE",
                 "model_replacement_authority": "NONE", "execution_authority": "NONE",
+            }
+        # A bearing witness can cause a state transition to REVISIT_REQUIRED, so the newly
+        # advanced step must be physically owned by ordinary action closure.  The pure
+        # structural classifier deliberately does not own this runtime verification.
+        rec = advanced_trial.step_records[-1]
+        intent = self.action_closure.intents.get(rec.intent_id)
+        execution = self.action_closure.executions.get(rec.execution_id)
+        outcome = self.action_closure.outcomes.get(rec.outcome_id)
+        if intent is None or execution is None or outcome is None:
+            return {
+                "status":"PROGRAM_STEP_BEARING_UNRESOLVED",
+                "reason":"PROGRAM_STEP_RECORD_NOT_IN_ACTION_CLOSURE",
+                "truth_authority":"NONE","answer_authority":"NONE",
+                "model_replacement_authority":"NONE","execution_authority":"NONE",
+            }
+        if (
+            intent.proposal_id != prior_trial.trial_id
+            or execution.intent_id != intent.intent_id
+            or outcome.execution_id != execution.execution_id
+        ):
+            return {
+                "status":"PROGRAM_STEP_BEARING_UNRESOLVED",
+                "reason":"PROGRAM_STEP_RECORD_BINDING_MISMATCH",
+                "truth_authority":"NONE","answer_authority":"NONE",
+                "model_replacement_authority":"NONE","execution_authority":"NONE",
+            }
+        if (
+            execution.capability_id != rec.capability_id
+            or execution.capability_epoch != rec.capability_epoch
+            or outcome.evidence_id != rec.outcome_evidence_id
+            or outcome.actual_next_state_id != rec.actual_next_state_id
+            or self.evidence.get(rec.outcome_evidence_id) is None
+        ):
+            return {
+                "status":"PROGRAM_STEP_BEARING_UNRESOLVED",
+                "reason":"PROGRAM_STEP_RECORD_CONTENT_MISMATCH",
+                "truth_authority":"NONE","answer_authority":"NONE",
+                "model_replacement_authority":"NONE","execution_authority":"NONE",
             }
         packet = witness.serializable()
         duplicate = any(
@@ -3284,9 +3347,33 @@ class Microseed:
         return rec.serializable()
 
     def record_epistemic_probe_evidence(self, deficit_id: str, evidence_id: str) -> dict[str, Any]:
-        """Attach actual new probe evidence and request revisit; do not auto-resolve."""
+        """Attach actual legacy probe evidence and request revisit; do not auto-resolve.
+
+        Legacy MS1152 deficits predate registered discriminator content and therefore keep
+        their historical explicit probe-evidence bridge.  A modern deficit that owns a
+        current internally derived contrast may not use this unbound bridge, because an
+        arbitrary existing evidence id does not prove bearing on the exact missing
+        discriminator.  Such deficits must use a content-bearing contrast/program path.
+        """
         if self.evidence.get(evidence_id) is None:
             raise ValueError("PROBE_EVIDENCE_NOT_FOUND")
+        deficit=self.epistemic_deficits.records.get(str(deficit_id))
+        if deficit is None:
+            raise ValueError("EPISTEMIC_DEFICIT_NOT_FOUND")
+        modern_derived_contrast=any(
+            b.deficit_id==str(deficit_id)
+            and b.state=="CURRENT"
+            and b.binding_origin=="DERIVED_CURRENT_REVISED_SURFACE_CONTRAST"
+            for b in self.epistemic_contrasts.bindings.values()
+        )
+        if modern_derived_contrast:
+            return {
+                "status":"PROBE_EVIDENCE_REJECTED",
+                "reason":"CURRENT_DERIVED_DISCRIMINATOR_REQUIRES_BOUND_EVIDENCE",
+                "deficit_id":str(deficit_id),"evidence_id":str(evidence_id),
+                "truth_authority":"NONE","answer_authority":"NONE",
+                "execution_authority":"NONE","revisit_authority":"NONE",
+            }
         rec=self.epistemic_deficits.record_probe_evidence(deficit_id,evidence_id)
         packet={"deficit_id":deficit_id,"evidence_id":evidence_id,"state":rec.state.value,"truth_authority":"NONE"}
         self.path.append("EPISTEMIC_DEFICIT_PROBE_EVIDENCE",packet); self.store.append("EPISTEMIC_DEFICIT_PROBE_EVIDENCE",packet)
