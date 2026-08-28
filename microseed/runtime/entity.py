@@ -1394,6 +1394,24 @@ class Microseed:
         self.action_closure.add_intent(intent); packet=intent.serializable(); self.path.append("BOUNDED_ACTION_INTENT",packet); self.store.append("BOUNDED_ACTION_INTENT",packet)
         return {"status":"ACTION_INTENT_NOMINATED","intent":packet,"priority":priority.serializable(),"information":information.serializable(),"commitment":cmt.serializable(),"feasibility_basis":feasibility_basis,"execution_authority":"NONE","research_basis":"ENDOGENOUS_EPISTEMIC_PROGRAM_STEP"}
 
+    @staticmethod
+    def _probe_lifecycle_evidence_rechecks_required(deficit) -> bool:
+        """Keep probe evidence obligations across lifecycle state transitions.
+
+        PROBE_AVAILABLE can transition to REVISIT_REQUIRED before later consumers run.
+        The bound probe id/epoch are durable ownership markers; a momentary state label
+        must not erase discriminator-satisfaction or authenticated-observation checks.
+        Either partial marker is sufficient to keep the conservative recheck active.
+        """
+        return bool(
+            deficit is not None
+            and (
+                deficit.state == EpistemicDeficitState.PROBE_AVAILABLE
+                or deficit.probe_capability_id is not None
+                or deficit.probe_capability_epoch is not None
+            )
+        )
+
     def _authenticated_probe_program_step_observation(
         self, step_record,
     ) -> tuple[dict[str, Any] | None, dict[str, Any]]:
@@ -1438,7 +1456,7 @@ class Microseed:
                 "model_replacement_authority":"NONE","execution_authority":"NONE",
             }
         satisfaction = None
-        if deficit.state == EpistemicDeficitState.PROBE_AVAILABLE:
+        if self._probe_lifecycle_evidence_rechecks_required(deficit):
             satisfaction = self.derive_current_program_discriminator_satisfaction(prior_trial)
             if not satisfaction.licenses_yes():
                 return {
@@ -1495,7 +1513,7 @@ class Microseed:
                 "truth_authority":"NONE","answer_authority":"NONE",
                 "model_replacement_authority":"NONE","execution_authority":"NONE",
             }
-        if deficit.state==EpistemicDeficitState.PROBE_AVAILABLE:
+        if self._probe_lifecycle_evidence_rechecks_required(deficit):
             authenticated,auth_detail=self._authenticated_probe_program_step_observation(rec)
             if authenticated is None:
                 return {
@@ -1556,7 +1574,7 @@ class Microseed:
             return {"status":"PROGRAM_EVIDENCE_REJECTED","reason":"CURRENT_EPISTEMIC_DEFICIT_REQUIRED"}
         if deficit.missing_discriminator_signature_sha256 != trial.discrimination_signature_sha256:
             return {"status":"PROGRAM_EVIDENCE_REJECTED","reason":"PROGRAM_DISCRIMINATION_SIGNATURE_MISMATCH"}
-        if deficit.state==EpistemicDeficitState.PROBE_AVAILABLE:
+        if self._probe_lifecycle_evidence_rechecks_required(deficit):
             satisfaction=self.derive_current_program_discriminator_satisfaction(trial)
             if not satisfaction.licenses_yes():
                 return {"status":"PROGRAM_EVIDENCE_REJECTED","reason":satisfaction.reason,"program_discriminator_satisfaction":satisfaction.serializable()}
@@ -1568,7 +1586,7 @@ class Microseed:
                 return {"status":"PROGRAM_EVIDENCE_REJECTED","reason":"PROGRAM_STEP_RECORD_BINDING_MISMATCH"}
             if execution.capability_id!=rec.capability_id or execution.capability_epoch!=rec.capability_epoch or outcome.evidence_id!=rec.outcome_evidence_id or outcome.actual_next_state_id!=rec.actual_next_state_id:
                 return {"status":"PROGRAM_EVIDENCE_REJECTED","reason":"PROGRAM_STEP_RECORD_CONTENT_MISMATCH"}
-            if deficit.state==EpistemicDeficitState.PROBE_AVAILABLE:
+            if self._probe_lifecycle_evidence_rechecks_required(deficit):
                 authenticated,auth_detail=self._authenticated_probe_program_step_observation(rec)
                 if authenticated is None:
                     return {
