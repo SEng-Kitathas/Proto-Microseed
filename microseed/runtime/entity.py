@@ -1547,6 +1547,51 @@ class Microseed:
         self.path.append("EPISTEMIC_PROGRAM_EVIDENCE_RECORDED",packet); self.store.append("EPISTEMIC_PROGRAM_EVIDENCE_RECORDED",packet)
         return packet
 
+    def _fresh_revised_direct_probe_decision_context_for_trial(
+        self, trial: EpistemicProgramTrial,
+    ) -> tuple[EpistemicDecisionBearingContext | None, str | None, dict[str, Any] | None]:
+        """Re-derive one revised direct-probe decision surface at execution time.
+
+        This path applies only to successors whose own assistance ancestry records
+        that their missing discriminator came from a current revised surface.  It
+        never trusts a caller-cached decision context and grants no authority by
+        itself.  Generic epistemic programs return NOT_APPLICABLE and continue on
+        their existing execution path.
+        """
+        deficit=self.epistemic_deficits.records.get(trial.deficit_id)
+        if deficit is None or deficit.state!=EpistemicDeficitState.PROBE_AVAILABLE:
+            return None,"NOT_APPLICABLE",None
+        ancestry=tuple(str(x) for x in deficit.assistance_ancestry)
+        if "MISSING_DISCRIMINATOR_DERIVED_FROM_CURRENT_REVISED_SURFACE" not in ancestry:
+            return None,"NOT_APPLICABLE",None
+        predecessors=tuple(dict.fromkeys(
+            x.split("SUCCESSOR_OF:",1)[1]
+            for x in ancestry if x.startswith("SUCCESSOR_OF:") and x.split("SUCCESSOR_OF:",1)[1]
+        ))
+        if len(predecessors)!=1:
+            return None,"CURRENT_REVISED_DIRECT_PROBE_PREDECESSOR_REQUIRED",{
+                "predecessor_ids":predecessors,"deficit_id":deficit.deficit_id,
+            }
+        if len(trial.steps)!=1 or deficit.probe_capability_id!=trial.steps[0]:
+            return None,"CURRENT_REVISED_DIRECT_PROBE_TRIAL_BINDING_REQUIRED",{
+                "probe_capability_id":deficit.probe_capability_id,"trial_steps":trial.steps,
+            }
+        surface=self.derive_current_revised_surface_direct_probe_decision_surface(
+            old_deficit_id=predecessors[0],successor_deficit_id=deficit.deficit_id,
+        )
+        if surface.get("status")!="CURRENT_REVISED_DIRECT_PROBE_DECISION_SURFACE":
+            return None,"CURRENT_REVISED_DIRECT_PROBE_DECISION_SURFACE_REQUIRED_AT_EXECUTION",{
+                "decision_surface":surface,
+            }
+        if tuple(sorted(str(x) for x in surface.get("source_relation_digests",())))!=tuple(sorted(trial.source_relation_digests)):
+            return None,"CURRENT_REVISED_DIRECT_PROBE_SOURCE_ANCESTRY_DRIFT",{
+                "decision_surface":surface,
+                "trial_source_relation_digests":trial.source_relation_digests,
+            }
+        return EpistemicDecisionBearingContext(tuple(surface["relation_sets"]),()),None,{
+            "decision_surface":surface,
+        }
+
     def _fresh_action_commitment_for_intent(self, intent: BoundedActionIntent, *, obligation: QueryObligation | None = None, epistemic_step_context: EpistemicStepExecutionContext | None = None) -> tuple[RelationalCommitment | None, str, dict[str, Any] | None]:
         if intent.basis_kind=="EPISTEMIC_PROGRAM_STEP":
             if obligation is None or epistemic_step_context is None:
@@ -1580,18 +1625,24 @@ class Microseed:
                         capabilities=self.capabilities,
                     )
             priority=None; information=None
-            if epistemic_step_context.decision_context is not None:
+            execution_decision_context=epistemic_step_context.decision_context
+            fresh_probe_context,probe_context_reason,probe_context_detail=self._fresh_revised_direct_probe_decision_context_for_trial(trial)
+            if probe_context_reason!="NOT_APPLICABLE":
+                if fresh_probe_context is None:
+                    return None,probe_context_reason or "CURRENT_REVISED_DIRECT_PROBE_DECISION_SURFACE_REQUIRED_AT_EXECUTION",probe_context_detail
+                execution_decision_context=fresh_probe_context
+            if execution_decision_context is not None:
                 if priority_options is None:
                     priority_options,_priority_basis=derive_current_grounded_feasibility_surface(
                         capabilities=self.capabilities, operational_scope_id=obligation.operational_scope_id,
                     )
                 priority=derive_current_decision_bearing_commitment_from_grounded_surface(
-                    trial=trial, deficit=deficit, decision_context=epistemic_step_context.decision_context,
+                    trial=trial, deficit=deficit, decision_context=execution_decision_context,
                     feasibility_options=priority_options, capabilities=self.capabilities, values=self.values,
                     current_frame_epochs=dict(self.frames.epochs), current_episode_epochs=dict(self.episodes.epochs),
                     current_topology_epochs=dict(self.topologies.epochs), current_coordination_epochs=dict(self.coordinations.epochs),
                 )
-                information=derive_current_program_discrimination_commitment(trial=trial,decision_context=epistemic_step_context.decision_context,decision_bearing_commitment=priority)
+                information=derive_current_program_discrimination_commitment(trial=trial,decision_context=execution_decision_context,decision_bearing_commitment=priority)
             satisfaction=self.derive_current_program_discriminator_satisfaction(trial) if deficit is not None and deficit.state==EpistemicDeficitState.PROBE_AVAILABLE else None
             fresh=derive_epistemic_program_step_commitment(
                 trial=trial, deficit=deficit, feasibility=feasibility, capabilities=self.capabilities, obligation=obligation,
