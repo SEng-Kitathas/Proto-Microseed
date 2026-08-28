@@ -1394,6 +1394,26 @@ class Microseed:
         self.action_closure.add_intent(intent); packet=intent.serializable(); self.path.append("BOUNDED_ACTION_INTENT",packet); self.store.append("BOUNDED_ACTION_INTENT",packet)
         return {"status":"ACTION_INTENT_NOMINATED","intent":packet,"priority":priority.serializable(),"information":information.serializable(),"commitment":cmt.serializable(),"feasibility_basis":feasibility_basis,"execution_authority":"NONE","research_basis":"ENDOGENOUS_EPISTEMIC_PROGRAM_STEP"}
 
+    def _authenticated_probe_program_step_observation(
+        self, step_record,
+    ) -> tuple[dict[str, Any] | None, dict[str, Any]]:
+        """Require one already-owned authenticated admitted transition for a probe step.
+
+        This does not create observation authority. It consumes the existing MS1749+
+        admission receipt / ordinary execution / current observation+basis / unique
+        frame / evidence-content owner and merely binds that result back to the
+        epistemic-program step before the step may cause revisit or program evidence.
+        """
+        admitted=self.derive_admitted_opaque_transition_sample(step_record.execution_id)
+        if admitted.get("status")!="ADMITTED_OPAQUE_TRANSITION_SAMPLE":
+            return None,{
+                "reason":"AUTHENTICATED_PROGRAM_STEP_OBSERVATION_REQUIRED",
+                "observation_admission":admitted,
+            }
+        # Exact intent/execution/outcome/content binding is owned by the caller before
+        # this helper runs.  Admission owns observation authenticity/currentness only.
+        return admitted,{"reason":"CURRENT_AUTHENTICATED_PROGRAM_STEP_OBSERVATION"}
+
     def assess_epistemic_program_step_outcome_bearing(
         self, prior_trial, advanced_trial, decision_context: EpistemicDecisionBearingContext,
     ) -> dict[str, Any]:
@@ -1475,6 +1495,16 @@ class Microseed:
                 "truth_authority":"NONE","answer_authority":"NONE",
                 "model_replacement_authority":"NONE","execution_authority":"NONE",
             }
+        if deficit.state==EpistemicDeficitState.PROBE_AVAILABLE:
+            authenticated,auth_detail=self._authenticated_probe_program_step_observation(rec)
+            if authenticated is None:
+                return {
+                    "status":"PROGRAM_STEP_BEARING_UNRESOLVED",
+                    "reason":auth_detail["reason"],
+                    "observation_admission":auth_detail.get("observation_admission"),
+                    "truth_authority":"NONE","answer_authority":"NONE",
+                    "model_replacement_authority":"NONE","execution_authority":"NONE",
+                }
         packet = witness.serializable()
         duplicate = any(
             e.get("kind") == "EPISTEMIC_PROGRAM_STEP_BEARING_WITNESS"
@@ -1538,6 +1568,14 @@ class Microseed:
                 return {"status":"PROGRAM_EVIDENCE_REJECTED","reason":"PROGRAM_STEP_RECORD_BINDING_MISMATCH"}
             if execution.capability_id!=rec.capability_id or execution.capability_epoch!=rec.capability_epoch or outcome.evidence_id!=rec.outcome_evidence_id or outcome.actual_next_state_id!=rec.actual_next_state_id:
                 return {"status":"PROGRAM_EVIDENCE_REJECTED","reason":"PROGRAM_STEP_RECORD_CONTENT_MISMATCH"}
+            if deficit.state==EpistemicDeficitState.PROBE_AVAILABLE:
+                authenticated,auth_detail=self._authenticated_probe_program_step_observation(rec)
+                if authenticated is None:
+                    return {
+                        "status":"PROGRAM_EVIDENCE_REJECTED",
+                        "reason":auth_detail["reason"],
+                        "observation_admission":auth_detail.get("observation_admission"),
+                    }
         payload=completed_program_evidence_payload(trial)
         payload["relevance_authority"]="BOUNDED_PROGRAM_DISCRIMINATION_BINDING_ONLY"
         payload["answer_authority"]="NONE"
