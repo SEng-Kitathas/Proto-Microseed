@@ -22,6 +22,7 @@ class ChargeWorld:
     def apply(self,action_id):
         assert action_id=='CHARGE'; self.level=min(2,self.level+2); return {'receipt':'charged','level':self.level}
     def observe(self): return {'next_state_id':f'LEVEL-{self.level}','observed_value':2.4 if self.level>=2 else 0.0,'raw_level':self.level}
+    def observe_outcome(self): return self.observe()
     def fork(self): return deepcopy(self)
 
 
@@ -33,6 +34,7 @@ class ParityWorld:
     def apply(self,action_id):
         assert action_id=='STEP'; self.counter+=1; return {'receipt':'stepped','counter':self.counter}
     def observe(self): return {'next_state_id':'ODD' if self.counter%2 else 'EVEN','observed_value':2.4 if self.counter%2 else 0.0,'raw_counter':self.counter}
+    def observe_outcome(self): return self.observe()
     def fork(self): return deepcopy(self)
 
 

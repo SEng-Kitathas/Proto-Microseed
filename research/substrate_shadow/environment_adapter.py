@@ -21,6 +21,7 @@ class ExternalWorld(Protocol):
     def reset(self) -> None: ...
     def apply(self, action_id: str) -> dict: ...
     def observe(self) -> dict: ...
+    def observe_outcome(self) -> dict: ...
     def fork(self) -> "ExternalWorld": ...
 
 
@@ -64,7 +65,7 @@ class ShadowEnvironmentAdapter:
         for action_id in self.world.action_ids:
             def handler(_aid=action_id, **_): return self.world.apply(_aid)
             ms.register_capability(CapabilityContract(action_id,"environment-effect",{}, {"output":"opaque-effect-receipt"},("WORLD_ADAPTER_EFFECT != WORLD_MODEL","NO_SEMANTIC_GOAL_AUTHORITY"),(),Authority.EFFECT,("MS1949",),"CURRENT",{},query_obligation_id="SUBSTRATE-ACT",qualification=QualificationState.SHADOW_QUALIFIED,handler=handler,operational_scope_id=c.scope_id,assistance_ancestry=("EXTERNAL_WORLD_EFFECT_CAPABILITY",)))
-        ms.register_capability(CapabilityContract(c.observation_capability_id,"environment-observation",{}, {"output":"opaque-world-observation"},("OBSERVATION != TRUTH_AUTHORITY",),(),Authority.OBSERVATION_ONLY,("MS1949",),"CURRENT",{},query_obligation_id="SUBSTRATE-OBS-Q",qualification=QualificationState.SHADOW_QUALIFIED,handler=lambda **_:{**self.world.observe(),"value_id":c.value_id},operational_scope_id=c.scope_id))
+        ms.register_capability(CapabilityContract(c.observation_capability_id,"environment-observation",{}, {"output":"opaque-world-observation"},("OBSERVATION != TRUTH_AUTHORITY",),(),Authority.OBSERVATION_ONLY,("MS1949",),"CURRENT",{},query_obligation_id="SUBSTRATE-OBS-Q",qualification=QualificationState.SHADOW_QUALIFIED,handler=lambda **_:{**self.world.observe_outcome(),"value_id":c.value_id},operational_scope_id=c.scope_id))
         ms.register_capability(CapabilityContract(c.observation_basis_id,"bounded-observation-basis",{}, {},("NO_TRUTH_AUTHORITY",),(),Authority.DERIVED_READ_ONLY,("MS1949",),"CURRENT",{},dependencies=(c.observation_capability_id,),query_obligation_id="SUBSTRATE-BASIS-Q",qualification=QualificationState.SHADOW_QUALIFIED,handler=lambda **_:{"claim":"BOUNDED_USE_ONLY"},operational_scope_id=c.scope_id))
         fp=str(getattr(self.world,"compatibility_sha256","")).lower()
         if len(fp)!=64 or any(ch not in "0123456789abcdef" for ch in fp):
@@ -105,7 +106,7 @@ class ShadowEnvironmentAdapter:
         self.world.reset(); return self.observe_control(ms,tag)
 
     def _external_probe(self, action_id: str) -> dict:
-        probe=self.world.fork(); probe.reset(); probe.apply(action_id); return probe.observe()
+        probe=self.world.fork(); probe.reset(); probe.apply(action_id); return probe.observe_outcome()
 
     def equipped_seed_rows(self, action_id: str, n: int = 12) -> tuple[RehearsalTransitionObservation,...]:
         """Explicit external equipment: one separately generated world probe supplies a seed prediction."""
@@ -146,7 +147,7 @@ class ShadowEnvironmentAdapter:
         candidate=candidates[0]
         refs=[]
         for i in range(16):
-            probe=self.world.fork(); probe.reset(); before=probe.observe(); probe.apply(action_id); after=probe.observe()
+            probe=self.world.fork(); probe.reset(); before=probe.observe(); probe.apply(action_id); after=probe.observe_outcome()
             base={"kind":"ACTION_OUTCOME_HOLDOUT","start_state_id":candidate.start_state_id,"capability_id":candidate.capability_id,"capability_epoch":candidate.capability_epoch,"frame_epochs":[list(x) for x in candidate.frame_epochs],"episode_schema_epochs":[list(x) for x in candidate.episode_schema_epochs],"value_epoch":list(candidate.value_epoch),"topology_epochs":[list(x) for x in candidate.topology_epochs],"coordination_epochs":[list(x) for x in candidate.coordination_epochs],"evidence_premise_epochs":[list(x) for x in candidate.evidence_premise_epochs],"evidence_premise_signatures":[list(x) for x in candidate.evidence_premise_signatures]}
             refs.append(ms.append_evidence(f"HOLDOUT-{self.world.name}-{c.adapter_instance_id}-{action_id}-{i}",{**base,"actual_next_state_id":str(after["next_state_id"]),"actual_value_effect":float(after["observed_value"])-float(before["observed_value"]),"holdout_index":i},EpistemicStatus.PRESSURE_SUPPORTED,source="EXTERNAL-WORLD-HOLDOUT"))
         ticket=ExternalActionOutcomeRelationQualifier(ms.evidence,qualifier_id=f"SHADOW-WORLD-{self.world.name}").qualify(candidate,qualification_evidence=tuple(refs))
