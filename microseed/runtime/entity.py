@@ -3992,6 +3992,153 @@ class Microseed:
             "truth_authority":"NONE",
         }
 
+    def derive_admitted_raw_constructor_projection_samples(self, *, max_lag: int = 1) -> dict[str, Any]:
+        """Ephemerally reconstruct bounded temporal raw-observation constructor samples.
+
+        The current raw vector and predecessor raw vectors are joined only through
+        exact authenticated control-state/action-outcome ancestry.  Caller supplies
+        only the maximum lag bound, never raw-history content.  This method persists
+        no samples and grants no coordinate, projection, truth or qualification authority.
+        """
+        depth=int(max_lag)
+        if depth < 0 or depth > 4:
+            raise ValueError("BOUNDED_OWNED_RAW_HISTORY_LAG_REQUIRED")
+
+        receipts_by_control: dict[str,list[dict[str,Any]]]={}
+        receipt_rejections: list[tuple[str,str]]=[]
+        for row in self.evidence.list():
+            payload=row.get("payload") or {}
+            if payload.get("kind")!="BOUNDED_RAW_OBSERVATION_COORDINATES":
+                continue
+            eid=str(row.get("evidence_id"))
+            cid=str(payload.get("observation_capability_id",""))
+            cap=self.capabilities.contracts.get(cid)
+            fid=str(payload.get("frame_id",""))
+            frame=self.frames.frames.get(fid)
+            reason=None
+            if cap is None or cap.qualification not in {QualificationState.QUALIFIED,QualificationState.SHADOW_QUALIFIED}:
+                reason="RAW_OBSERVATION_CAPABILITY_NOT_CURRENT"
+            elif self.capabilities.epochs.get(cid,-1)!=int(payload.get("observation_capability_epoch",-1)):
+                reason="RAW_OBSERVATION_CAPABILITY_EPOCH_DRIFT"
+            elif cap.computed_signature_sha256()!=str(payload.get("observation_capability_signature_sha256","")):
+                reason="RAW_OBSERVATION_CAPABILITY_SIGNATURE_DRIFT"
+            elif frame is None or not self.frames.is_current(fid,int(payload.get("frame_epoch",-1))):
+                reason="RAW_OBSERVATION_FRAME_NOT_CURRENT"
+            elif frame.signature_sha256!=str(payload.get("frame_signature_sha256","")):
+                reason="RAW_OBSERVATION_FRAME_SIGNATURE_DRIFT"
+            elif cid not in self.frames.capability_dependents.get(fid,set()):
+                reason="RAW_OBSERVATION_CHANNEL_NOT_BOUND_TO_FRAME"
+            if reason is not None:
+                receipt_rejections.append((eid,reason)); continue
+            control_id=str(payload.get("control_state_evidence_id",""))
+            if not control_id:
+                receipt_rejections.append((eid,"RAW_OBSERVATION_CONTROL_STATE_EVIDENCE_REQUIRED")); continue
+            receipts_by_control.setdefault(control_id,[]).append({"evidence":row,"payload":payload})
+
+        admitted: dict[str, OpaqueTransitionSample]={}
+        transition_rejections: list[tuple[str,str]]=[]
+        for execution_id in sorted(self.action_closure.executions):
+            row=self.derive_admitted_opaque_transition_sample(execution_id)
+            if row.get("status")=="ADMITTED_OPAQUE_TRANSITION_SAMPLE":
+                admitted[execution_id]=row["sample"]
+            else:
+                transition_rejections.append((execution_id,str(row.get("reason","TRANSITION_NOT_ADMITTED"))))
+
+        outcomes_by_evidence: dict[str,list[ActionOutcomeRecord]]={}
+        for outcome in self.action_closure.outcomes.values():
+            outcomes_by_evidence.setdefault(outcome.evidence_id,[]).append(outcome)
+
+        samples: list[ConstructorProjectionSample]=[]
+        sample_rejections: list[tuple[str,str]]=[]
+        for execution_id,current in sorted(admitted.items()):
+            execution=self.action_closure.executions.get(execution_id)
+            intent=None if execution is None else self.action_closure.intents.get(execution.intent_id)
+            if intent is None:
+                sample_rejections.append((execution_id,"ACTION_INTENT_NOT_FOUND")); continue
+
+            raw_chain=[]
+            raw_evidence=[]
+            cursor_intent=intent
+            expected_start=current.start_token
+            chain_ok=True
+            for lag in range(depth+1):
+                matches=[r for r in receipts_by_control.get(cursor_intent.control_state_evidence_id,())
+                         if r["payload"].get("operational_scope_id")==intent.operational_scope_id]
+                matches=[r for r in matches
+                         if (str(r["payload"].get("frame_id")),int(r["payload"].get("frame_epoch",-1)))==(current.frame_id,current.frame_epoch)]
+                if len(matches)!=1:
+                    if lag==0:
+                        sample_rejections.append((execution_id,"EXACT_SINGLE_CURRENT_RAW_OBSERVATION_FOR_CONTROL_STATE_REQUIRED"))
+                        chain_ok=False
+                    break
+                receipt=matches[0]
+                raw_chain.append(tuple(str(x) for x in receipt["payload"].get("raw_tokens",())))
+                raw_evidence.append((receipt["evidence"]["evidence_id"],receipt["evidence"]["sha256"]))
+                if lag==depth:
+                    break
+                prior_rows=outcomes_by_evidence.get(cursor_intent.control_state_evidence_id,())
+                if len(prior_rows)!=1:
+                    break
+                prior_outcome=prior_rows[0]
+                prior_sample=admitted.get(prior_outcome.execution_id)
+                if prior_sample is None or prior_sample.end_token!=expected_start:
+                    break
+                if (prior_sample.frame_id,prior_sample.frame_epoch)!=(current.frame_id,current.frame_epoch):
+                    break
+                expected_start=prior_sample.start_token
+                prior_execution=self.action_closure.executions.get(prior_outcome.execution_id)
+                cursor_intent=None if prior_execution is None else self.action_closure.intents.get(prior_execution.intent_id)
+                if cursor_intent is None:
+                    break
+            if not chain_ok or not raw_chain:
+                continue
+
+            episode_matches=[]
+            if len(raw_chain)>1:
+                for schema_id,schema in sorted(self.episodes.schemas.items()):
+                    epoch=self.episodes.epochs.get(schema_id,-1)
+                    if self.episodes.is_current(schema_id,epoch) and (current.frame_id,current.frame_epoch) in tuple(schema.frame_epochs):
+                        episode_matches.append((schema_id,epoch))
+                if len(episode_matches)!=1:
+                    sample_rejections.append((execution_id,"EXACT_SINGLE_CURRENT_EPISODE_FOR_RAW_HISTORY_REQUIRED")); continue
+            schema_id,schema_epoch=(episode_matches[0] if episode_matches else (None,None))
+            basis={
+                "execution_id":execution_id,
+                "raw_observation_evidence":raw_evidence,
+                "raw_history":[list(x) for x in raw_chain],
+                "action_token":current.action_token,
+                "effect_token":current.end_token,
+                "frame":[current.frame_id,current.frame_epoch],
+                "episode":None if schema_id is None else [schema_id,schema_epoch],
+                "scope":intent.operational_scope_id,
+            }
+            samples.append(ConstructorProjectionSample(
+                sample_id=action_stable_id("OWNED-RAW-CONSTRUCTOR-SAMPLE-",basis),
+                raw_history=tuple(raw_chain),
+                action_token=current.action_token,
+                effect_token=current.end_token,
+                operational_scope_id=intent.operational_scope_id,
+                frame_id=current.frame_id,
+                frame_epoch=current.frame_epoch,
+                episode_schema_id=schema_id,
+                episode_schema_epoch=schema_epoch,
+            ))
+        return {
+            "status":"ADMITTED_OWNED_RAW_CONSTRUCTOR_SAMPLES" if samples else "NO_ADMITTED_OWNED_RAW_CONSTRUCTOR_SAMPLE",
+            "samples":tuple(samples),
+            "sample_count":len(samples),
+            "receipt_rejections":tuple(receipt_rejections),
+            "transition_rejections":tuple(transition_rejections),
+            "sample_rejections":tuple(sample_rejections),
+            "max_lag_requested":depth,
+            "history_basis":"AUTHENTICATED_RAW_OBSERVATION_PREDECESSOR_CHAIN",
+            "sample_persistence":"NONE",
+            "qualification_authority":"NONE",
+            "semantic_coordinate_authority":"NONE",
+            "semantic_projection_authority":"NONE",
+            "truth_authority":"NONE",
+        }
+
     def discover_epistemic_projection_candidates(
         self,
         training_samples: Iterable[ProjectionSample],
