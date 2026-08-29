@@ -3824,6 +3824,174 @@ class Microseed:
         self.path.append("EPISTEMIC_DEFICIT_REVISIT_REQUESTED",packet); self.store.append("EPISTEMIC_DEFICIT_REVISIT_REQUESTED",packet)
         return rec.serializable()
 
+    def record_bounded_raw_observation_coordinates(
+        self,
+        observation_capability_id: str,
+        observation_obligation: QueryObligation,
+        *,
+        evidence_id: str,
+        capture_id: str,
+        max_coordinates: int = 16,
+        **observation_kwargs: Any,
+    ) -> dict[str, Any]:
+        """Persist one bounded opaque raw-coordinate receipt from a current observation channel.
+
+        The operational frame owns the coordinate boundary.  This method neither names
+        coordinate semantics nor qualifies a projection.  It only preserves a bounded
+        tuple returned by an already-current OBSERVATION_ONLY capability and binds that
+        tuple to the exact current control-state evidence, capability signature and frame
+        signature so later proposal generation can re-derive owned samples.
+        """
+        limit=int(max_coordinates)
+        if limit < 1 or limit > 64:
+            raise ValueError("BOUNDED_RAW_OBSERVATION_COORDINATE_LIMIT_REQUIRED")
+        cw=self.action_closure.current_state
+        if cw is None:
+            return {"status":"RAW_OBSERVATION_REJECTED","reason":"NO_CURRENT_OPAQUE_CONTROL_STATE"}
+        contract=self.capabilities.contracts.get(observation_capability_id)
+        observed=self.capabilities.invoke(observation_capability_id,observation_obligation,**observation_kwargs)
+        if (
+            contract is None
+            or observed.get("status")!="CAPABILITY_RESULT"
+            or observed.get("authority")!=Authority.OBSERVATION_ONLY.value
+            or not isinstance(observed.get("value"),dict)
+        ):
+            return {"status":"RAW_OBSERVATION_REJECTED","reason":"OBSERVATION_CAPABILITY_NOT_CURRENT","observation":observed}
+        value=observed["value"]
+        raw=value.get("raw_tokens")
+        if not isinstance(raw,(list,tuple)) or not raw or len(raw)>limit:
+            return {"status":"RAW_OBSERVATION_REJECTED","reason":"BOUNDED_RAW_TOKENS_REQUIRED"}
+        tokens=[]
+        for item in raw:
+            if isinstance(item,(dict,list,tuple,set)):
+                return {"status":"RAW_OBSERVATION_REJECTED","reason":"RAW_TOKEN_MUST_BE_OPAQUE_SCALAR"}
+            token=str(item)
+            if not token or len(token)>256:
+                return {"status":"RAW_OBSERVATION_REJECTED","reason":"RAW_TOKEN_SIZE_INVALID"}
+            tokens.append(token)
+        current_frames=tuple(sorted(
+            fid for fid,dependents in self.frames.capability_dependents.items()
+            if observation_capability_id in dependents and self.frames.is_current(fid)
+        ))
+        if len(current_frames)!=1:
+            return {"status":"RAW_OBSERVATION_REJECTED","reason":"EXACT_SINGLE_CURRENT_OBSERVATION_FRAME_REQUIRED","frames":list(current_frames)}
+        frame_id=current_frames[0]
+        frame=self.frames.frames[frame_id]
+        frame_epoch=self.frames.epochs[frame_id]
+        payload={
+            "kind":"BOUNDED_RAW_OBSERVATION_COORDINATES",
+            "capture_id":str(capture_id),
+            "control_state_evidence_id":cw.evidence_id,
+            "control_state_id":cw.state_id,
+            "raw_tokens":tokens,
+            "coordinate_count":len(tokens),
+            "coordinate_limit":limit,
+            "observation_capability_id":observation_capability_id,
+            "observation_capability_epoch":self.capabilities.epochs[observation_capability_id],
+            "observation_capability_signature_sha256":contract.computed_signature_sha256(),
+            "operational_scope_id":contract.operational_scope_id,
+            "frame_id":frame_id,
+            "frame_epoch":frame_epoch,
+            "frame_signature_sha256":frame.signature_sha256,
+            "authority":Authority.OBSERVATION_ONLY.value,
+            "semantic_coordinate_authority":"NONE",
+            "projection_authority":"NONE",
+            "truth_authority":"NONE",
+        }
+        ref=self.append_evidence(evidence_id,payload,EpistemicStatus.PRESSURE_SUPPORTED,source=f"CAPABILITY:{observation_capability_id}")
+        packet={**payload,"evidence_id":ref.evidence_id,"evidence_sha256":ref.sha256}
+        self.path.append("BOUNDED_RAW_OBSERVATION_RECORDED",packet)
+        self.store.append("BOUNDED_RAW_OBSERVATION_RECORDED",packet)
+        return {"status":"BOUNDED_RAW_OBSERVATION_RECORDED",**packet}
+
+    def derive_admitted_projection_samples_from_owned_raw_observations(self) -> dict[str, Any]:
+        """Join current bounded raw receipts to authenticated action outcomes ephemerally."""
+        receipts_by_control: dict[str,list[dict[str,Any]]]={}
+        receipt_rejections: list[tuple[str,str]]=[]
+        for row in self.evidence.list():
+            payload=row.get("payload") or {}
+            if payload.get("kind")!="BOUNDED_RAW_OBSERVATION_COORDINATES":
+                continue
+            eid=str(row.get("evidence_id"))
+            cid=str(payload.get("observation_capability_id",""))
+            cap=self.capabilities.contracts.get(cid)
+            fid=str(payload.get("frame_id",""))
+            frame=self.frames.frames.get(fid)
+            reason=None
+            if cap is None or cap.qualification not in {QualificationState.QUALIFIED,QualificationState.SHADOW_QUALIFIED}:
+                reason="RAW_OBSERVATION_CAPABILITY_NOT_CURRENT"
+            elif self.capabilities.epochs.get(cid,-1)!=int(payload.get("observation_capability_epoch",-1)):
+                reason="RAW_OBSERVATION_CAPABILITY_EPOCH_DRIFT"
+            elif cap.computed_signature_sha256()!=str(payload.get("observation_capability_signature_sha256","")):
+                reason="RAW_OBSERVATION_CAPABILITY_SIGNATURE_DRIFT"
+            elif frame is None or not self.frames.is_current(fid,int(payload.get("frame_epoch",-1))):
+                reason="RAW_OBSERVATION_FRAME_NOT_CURRENT"
+            elif frame.signature_sha256!=str(payload.get("frame_signature_sha256","")):
+                reason="RAW_OBSERVATION_FRAME_SIGNATURE_DRIFT"
+            elif cid not in self.frames.capability_dependents.get(fid,set()):
+                reason="RAW_OBSERVATION_CHANNEL_NOT_BOUND_TO_FRAME"
+            if reason is not None:
+                receipt_rejections.append((eid,reason)); continue
+            control_id=str(payload.get("control_state_evidence_id",""))
+            if not control_id:
+                receipt_rejections.append((eid,"RAW_OBSERVATION_CONTROL_STATE_EVIDENCE_REQUIRED")); continue
+            receipts_by_control.setdefault(control_id,[]).append({"evidence":row,"payload":payload})
+
+        samples=[]
+        sample_rejections=[]
+        for execution_id in sorted(self.action_closure.executions):
+            transition=self.derive_admitted_opaque_transition_sample(execution_id)
+            if transition.get("status")!="ADMITTED_OPAQUE_TRANSITION_SAMPLE":
+                sample_rejections.append((execution_id,str(transition.get("reason","TRANSITION_NOT_ADMITTED")))); continue
+            sample=transition["sample"]
+            execution=self.action_closure.executions.get(execution_id)
+            intent=None if execution is None else self.action_closure.intents.get(execution.intent_id)
+            if intent is None:
+                sample_rejections.append((execution_id,"ACTION_INTENT_NOT_FOUND")); continue
+            matches=[]
+            for receipt in receipts_by_control.get(intent.control_state_evidence_id,()):
+                payload=receipt["payload"]
+                if payload.get("operational_scope_id")!=intent.operational_scope_id:
+                    continue
+                if (str(payload.get("frame_id")),int(payload.get("frame_epoch",-1)))!=(sample.frame_id,sample.frame_epoch):
+                    continue
+                matches.append(receipt)
+            if len(matches)!=1:
+                sample_rejections.append((execution_id,"EXACT_SINGLE_CURRENT_RAW_OBSERVATION_FOR_CONTROL_STATE_REQUIRED")); continue
+            payload=matches[0]["payload"]
+            basis={
+                "execution_id":execution_id,
+                "raw_observation_evidence_id":matches[0]["evidence"]["evidence_id"],
+                "raw_observation_sha256":matches[0]["evidence"]["sha256"],
+                "raw_tokens":payload["raw_tokens"],
+                "action_token":sample.action_token,
+                "effect_token":sample.end_token,
+                "frame":[sample.frame_id,sample.frame_epoch],
+                "scope":intent.operational_scope_id,
+            }
+            samples.append(ProjectionSample(
+                sample_id=action_stable_id("OWNED-RAW-PROJECTION-SAMPLE-",basis),
+                raw_tokens=tuple(str(x) for x in payload["raw_tokens"]),
+                action_token=sample.action_token,
+                effect_token=sample.end_token,
+                operational_scope_id=intent.operational_scope_id,
+                frame_id=sample.frame_id,
+                frame_epoch=sample.frame_epoch,
+            ))
+        return {
+            "status":"ADMITTED_OWNED_RAW_PROJECTION_SAMPLES" if samples else "NO_ADMITTED_OWNED_RAW_PROJECTION_SAMPLE",
+            "samples":tuple(samples),
+            "sample_count":len(samples),
+            "receipt_rejections":tuple(receipt_rejections),
+            "sample_rejections":tuple(sample_rejections),
+            "history_basis":"AUTHENTICATED_RAW_OBSERVATION_PLUS_ACTION_OUTCOME_JOIN",
+            "sample_persistence":"NONE",
+            "qualification_authority":"NONE",
+            "semantic_coordinate_authority":"NONE",
+            "semantic_projection_authority":"NONE",
+            "truth_authority":"NONE",
+        }
+
     def discover_epistemic_projection_candidates(
         self,
         training_samples: Iterable[ProjectionSample],
