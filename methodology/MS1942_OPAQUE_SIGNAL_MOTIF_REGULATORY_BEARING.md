@@ -1,7 +1,7 @@
 # MS1942 — Opaque Signal-Motif Regulatory Bearing
 
 Date: 2026-08-29 ET
-Status: concurrent branch preserved for MERGE/AUDIT; focused embodiment green, full integrated validation pending at time of writing
+Status: MERGED / INTEGRATED COMPATIBILITY CLOSED LOCALLY; no canonical promotion and no remote publication implied
 Parent research head at branch start: `3473834da0ce1bbc0db16a35f4b9b8e2fa551ee2`
 
 ## Branch provenance
@@ -239,3 +239,37 @@ Prewritten boundaries:
 - `PREDICTIVE_DRIFT != SEMANTIC_CONVENTION_CHANGE`;
 - `STALE_SIGNAL_MODEL != NEW_TOKEN_MEANING`;
 - `MODEL_REPLACEMENT != COORDINATION_CONTRACT_REWRITE_AUTHORITY`.
+
+
+## Post-merge subject-binding hardening / current exact release witness
+
+A final RAHL subject-resolution audit found that the MS1942 read-only effect bridge used the first source trace as the representative topology/counterparty/coordination ancestry after individually checking every trace for currentness. That was insufficient subject binding: a non-first exact source trace could remain individually current while carrying a different ancestry family.
+
+The current hardening re-resolves topology, counterparty, and coordination ancestry across **all exact source traces** and abstains on any family mismatch. Regression coverage replaces a non-first source row with an individually current row lacking the candidate's coordination ancestry and requires `UNKNOWN_INCOMPLETE` with no commitment/reference/signal authority.
+
+Preserve:
+`INDIVIDUALLY_CURRENT_SOURCE_ROWS != ONE_UNIFORM_CANDIDATE_SUBJECT`.
+
+Lineage-visible commits:
+- `6f816ddfd7967d93d9fd0ed668e94ac4e64f8533` — merge bounded prelingual signaling substrate;
+- `2da2902d9c10502a79942c6cc985ba3644605414` — harden motif subject binding across all exact source traces.
+
+Current exact source/test snapshot after the hardening:
+`23104bd89faf0a498a780aac619658dd0526a062dcfc2b18b11705ae20c73d57`.
+
+Current integrated file-backed validation:
+- durable job `job-01597019a857`;
+- transport `FILE_BACKED_STDOUT_STDERR_NO_CAPTURE_PIPES`;
+- 185/185 embodiment test files covered exactly once;
+- 701 aggregate tests PASS;
+- 0 negative leaf groups;
+- 0 terminal-unknown leaf groups;
+- compileall PASS;
+- source snapshot stable before/after at `23104bd89faf0a498a780aac619658dd0526a062dcfc2b18b11705ae20c73d57`;
+- receipt SHA-256 `9a9f6d1de7cbfcf60f6c43d00494f693d258163b22325941d0f15e7f9b1ee9d5`.
+
+Final narrow readback `job-6b69e992a9fe`: MS1942 focused file 8/8 PASS on the same source/test snapshot.
+
+The earlier captured-pipe validator `job-0498e7d2d1f0` remains an invalid harness run, not scientific evidence. Its failure mode and an orphaned prior validator tree reinforced the adopted execution scar `CHILD_PROCESS_EXIT != PIPE_EOF`; the final release witness therefore used file-backed child logs.
+
+This documentation update changes no `microseed/**/*.py` or `tests/**/*.py` bytes and therefore does not alter the exact validated organism/test subject above.
