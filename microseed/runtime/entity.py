@@ -3646,6 +3646,100 @@ class Microseed:
         result["history_depth_extension_authority"]="NONE"
         return result
 
+    def resolve_current_raw_projection_conditioned_relation(
+        self, binding_id: str, *, action_id: str, task_id: str, channel_id: str, horizon: int,
+    ) -> dict[str, Any]:
+        """Resolve one admitted raw-coordinate projection from owned current evidence.
+
+        The caller supplies no projection bucket.  The exact admitted projection is
+        matched to its still-present nominated candidate by digest; exactly one current
+        bounded raw-observation receipt must be attached to the current control-state
+        evidence; the candidate's own opaque ``project`` operation computes the bucket.
+        Existing projection-conditioned routing remains the sole owner of qualification
+        and relation currentness.  This grants no semantic, truth, model-switch, or
+        execution authority.
+        """
+        binding=self.action_outcome_learning.projection_conditioned_bindings.get(binding_id)
+        if binding is None:
+            return {"status":"DEFER_UNKNOWN","reason":"ROUTING_BINDING_NOT_FOUND","execution_authority":"NONE"}
+        if not self._projection_conditioned_binding_current(binding):
+            return {"status":"DEFER_UNKNOWN","reason":"ROUTING_BINDING_NOT_CURRENT","execution_authority":"NONE"}
+        rec=self.epistemic_projections.records.get(binding.projection_id)
+        if rec is None or not rec.current or rec.epoch!=binding.projection_epoch or rec.signature_sha256!=binding.projection_signature_sha256:
+            return {"status":"DEFER_UNKNOWN","reason":"RAW_PROJECTION_NOT_CURRENT","execution_authority":"NONE"}
+        candidates=[c for c in self.epistemic_projection_candidates.values() if c.digest()==rec.signature_sha256]
+        if len(candidates)!=1:
+            return {"status":"DEFER_UNKNOWN","reason":"CURRENT_RAW_PROJECTION_CONTENT_NOT_RECOVERABLE","execution_authority":"NONE"}
+        candidate=candidates[0]
+        for frame_id,epoch in candidate.frame_epochs:
+            if not self.frames.is_current(frame_id,epoch):
+                return {"status":"DEFER_UNKNOWN","reason":"RAW_PROJECTION_FRAME_NOT_CURRENT","execution_authority":"NONE"}
+        cw=self.action_closure.current_state
+        if cw is None:
+            return {"status":"DEFER_UNKNOWN","reason":"NO_CURRENT_OPAQUE_CONTROL_STATE","execution_authority":"NONE"}
+        matches=[]
+        receipt_rejections=[]
+        allowed_frames=set(candidate.frame_epochs)
+        for row in self.evidence.list():
+            payload=row.get("payload") or {}
+            if payload.get("kind")!="BOUNDED_RAW_OBSERVATION_COORDINATES":
+                continue
+            if str(payload.get("control_state_evidence_id",""))!=cw.evidence_id:
+                continue
+            eid=str(row.get("evidence_id"))
+            cid=str(payload.get("observation_capability_id",""))
+            cap=self.capabilities.contracts.get(cid)
+            fid=str(payload.get("frame_id",""))
+            frame=self.frames.frames.get(fid)
+            reason=None
+            if str(payload.get("control_state_id",""))!=cw.state_id:
+                reason="RAW_OBSERVATION_CONTROL_STATE_MISMATCH"
+            elif cap is None or cap.qualification not in {QualificationState.QUALIFIED,QualificationState.SHADOW_QUALIFIED}:
+                reason="RAW_OBSERVATION_CAPABILITY_NOT_CURRENT"
+            elif self.capabilities.epochs.get(cid,-1)!=int(payload.get("observation_capability_epoch",-1)):
+                reason="RAW_OBSERVATION_CAPABILITY_EPOCH_DRIFT"
+            elif cap.computed_signature_sha256()!=str(payload.get("observation_capability_signature_sha256","")):
+                reason="RAW_OBSERVATION_CAPABILITY_SIGNATURE_DRIFT"
+            elif frame is None or not self.frames.is_current(fid,int(payload.get("frame_epoch",-1))):
+                reason="RAW_OBSERVATION_FRAME_NOT_CURRENT"
+            elif frame.signature_sha256!=str(payload.get("frame_signature_sha256","")):
+                reason="RAW_OBSERVATION_FRAME_SIGNATURE_DRIFT"
+            elif cid not in self.frames.capability_dependents.get(fid,set()):
+                reason="RAW_OBSERVATION_CHANNEL_NOT_BOUND_TO_FRAME"
+            elif (fid,int(payload.get("frame_epoch",-1))) not in allowed_frames:
+                reason="RAW_OBSERVATION_OUTSIDE_PROJECTION_FRAME"
+            raw=payload.get("raw_tokens")
+            if reason is None and (not isinstance(raw,list) or not raw):
+                reason="RAW_OBSERVATION_TOKENS_NOT_RECOVERABLE"
+            if reason is not None:
+                receipt_rejections.append((eid,reason)); continue
+            matches.append((row,payload))
+        if len(matches)!=1:
+            return {
+                "status":"DEFER_UNKNOWN",
+                "reason":"EXACT_SINGLE_CURRENT_RAW_OBSERVATION_FOR_CURRENT_STATE_REQUIRED",
+                "matching_receipt_count":len(matches),
+                "receipt_rejections":tuple(receipt_rejections),
+                "execution_authority":"NONE",
+            }
+        row,payload=matches[0]
+        raw_tokens=tuple(str(x) for x in payload["raw_tokens"])
+        bucket=candidate.project(raw_tokens)
+        if bucket is None:
+            return {"status":"DEFER_UNKNOWN","reason":"CURRENT_RAW_OBSERVATION_NOT_IN_ADMITTED_PROJECTION","execution_authority":"NONE"}
+        result=dict(self.resolve_projection_conditioned_action_outcome_relation(
+            binding_id,projection_bucket_id=bucket,action_id=action_id,task_id=task_id,channel_id=channel_id,horizon=horizon,
+        ))
+        result["projection_bucket_id"]=bucket
+        result["bucket_derivation_basis"]="CURRENT_BOUNDED_RAW_OBSERVATION_PLUS_EXACT_ADMITTED_PROJECTION"
+        result["raw_observation_evidence_id"]=row["evidence_id"]
+        result["bucket_selection_authority"]="NONE"
+        result["semantic_coordinate_authority"]="NONE"
+        result["semantic_projection_authority"]="NONE"
+        result["truth_authority"]="NONE"
+        result["execution_authority"]="NONE"
+        return result
+
     def historical_reentry_projection(self) -> HistoricalReentryProjection:
         """Project durable operational-registration history without restoring authority."""
         return derive_historical_reentry_projection(self.store.events())
