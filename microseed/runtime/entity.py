@@ -3646,6 +3646,53 @@ class Microseed:
         result["history_depth_extension_authority"]="NONE"
         return result
 
+    def _current_bounded_raw_receipts_for_control_state(
+        self, *, control_state_id: str, control_state_evidence_id: str,
+        allowed_frames: set[tuple[str,int]],
+    ) -> tuple[list[tuple[dict[str,Any],dict[str,Any]]], tuple[tuple[str,str],...]]:
+        """Return current bounded raw receipts for one exact control-state witness.
+
+        This is a read-only currentness filter.  It does not arbitrate duplicate
+        receipts, select projection buckets, or grant any semantic/truth authority.
+        """
+        matches=[]
+        rejections=[]
+        for row in self.evidence.list():
+            payload=row.get("payload") or {}
+            if payload.get("kind")!="BOUNDED_RAW_OBSERVATION_COORDINATES":
+                continue
+            if str(payload.get("control_state_evidence_id",""))!=str(control_state_evidence_id):
+                continue
+            eid=str(row.get("evidence_id"))
+            cid=str(payload.get("observation_capability_id",""))
+            cap=self.capabilities.contracts.get(cid)
+            fid=str(payload.get("frame_id",""))
+            frame=self.frames.frames.get(fid)
+            reason=None
+            if str(payload.get("control_state_id",""))!=str(control_state_id):
+                reason="RAW_OBSERVATION_CONTROL_STATE_MISMATCH"
+            elif cap is None or cap.qualification not in {QualificationState.QUALIFIED,QualificationState.SHADOW_QUALIFIED}:
+                reason="RAW_OBSERVATION_CAPABILITY_NOT_CURRENT"
+            elif self.capabilities.epochs.get(cid,-1)!=int(payload.get("observation_capability_epoch",-1)):
+                reason="RAW_OBSERVATION_CAPABILITY_EPOCH_DRIFT"
+            elif cap.computed_signature_sha256()!=str(payload.get("observation_capability_signature_sha256","")):
+                reason="RAW_OBSERVATION_CAPABILITY_SIGNATURE_DRIFT"
+            elif frame is None or not self.frames.is_current(fid,int(payload.get("frame_epoch",-1))):
+                reason="RAW_OBSERVATION_FRAME_NOT_CURRENT"
+            elif frame.signature_sha256!=str(payload.get("frame_signature_sha256","")):
+                reason="RAW_OBSERVATION_FRAME_SIGNATURE_DRIFT"
+            elif cid not in self.frames.capability_dependents.get(fid,set()):
+                reason="RAW_OBSERVATION_CHANNEL_NOT_BOUND_TO_FRAME"
+            elif (fid,int(payload.get("frame_epoch",-1))) not in allowed_frames:
+                reason="RAW_OBSERVATION_OUTSIDE_PROJECTION_FRAME"
+            raw=payload.get("raw_tokens")
+            if reason is None and (not isinstance(raw,list) or not raw):
+                reason="RAW_OBSERVATION_TOKENS_NOT_RECOVERABLE"
+            if reason is not None:
+                rejections.append((eid,reason)); continue
+            matches.append((row,payload))
+        return matches,tuple(rejections)
+
     def resolve_current_raw_projection_conditioned_relation(
         self, binding_id: str, *, action_id: str, task_id: str, channel_id: str, horizon: int,
     ) -> dict[str, Any]:
@@ -3677,43 +3724,10 @@ class Microseed:
         cw=self.action_closure.current_state
         if cw is None:
             return {"status":"DEFER_UNKNOWN","reason":"NO_CURRENT_OPAQUE_CONTROL_STATE","execution_authority":"NONE"}
-        matches=[]
-        receipt_rejections=[]
-        allowed_frames=set(candidate.frame_epochs)
-        for row in self.evidence.list():
-            payload=row.get("payload") or {}
-            if payload.get("kind")!="BOUNDED_RAW_OBSERVATION_COORDINATES":
-                continue
-            if str(payload.get("control_state_evidence_id",""))!=cw.evidence_id:
-                continue
-            eid=str(row.get("evidence_id"))
-            cid=str(payload.get("observation_capability_id",""))
-            cap=self.capabilities.contracts.get(cid)
-            fid=str(payload.get("frame_id",""))
-            frame=self.frames.frames.get(fid)
-            reason=None
-            if str(payload.get("control_state_id",""))!=cw.state_id:
-                reason="RAW_OBSERVATION_CONTROL_STATE_MISMATCH"
-            elif cap is None or cap.qualification not in {QualificationState.QUALIFIED,QualificationState.SHADOW_QUALIFIED}:
-                reason="RAW_OBSERVATION_CAPABILITY_NOT_CURRENT"
-            elif self.capabilities.epochs.get(cid,-1)!=int(payload.get("observation_capability_epoch",-1)):
-                reason="RAW_OBSERVATION_CAPABILITY_EPOCH_DRIFT"
-            elif cap.computed_signature_sha256()!=str(payload.get("observation_capability_signature_sha256","")):
-                reason="RAW_OBSERVATION_CAPABILITY_SIGNATURE_DRIFT"
-            elif frame is None or not self.frames.is_current(fid,int(payload.get("frame_epoch",-1))):
-                reason="RAW_OBSERVATION_FRAME_NOT_CURRENT"
-            elif frame.signature_sha256!=str(payload.get("frame_signature_sha256","")):
-                reason="RAW_OBSERVATION_FRAME_SIGNATURE_DRIFT"
-            elif cid not in self.frames.capability_dependents.get(fid,set()):
-                reason="RAW_OBSERVATION_CHANNEL_NOT_BOUND_TO_FRAME"
-            elif (fid,int(payload.get("frame_epoch",-1))) not in allowed_frames:
-                reason="RAW_OBSERVATION_OUTSIDE_PROJECTION_FRAME"
-            raw=payload.get("raw_tokens")
-            if reason is None and (not isinstance(raw,list) or not raw):
-                reason="RAW_OBSERVATION_TOKENS_NOT_RECOVERABLE"
-            if reason is not None:
-                receipt_rejections.append((eid,reason)); continue
-            matches.append((row,payload))
+        matches,receipt_rejections=self._current_bounded_raw_receipts_for_control_state(
+            control_state_id=cw.state_id,control_state_evidence_id=cw.evidence_id,
+            allowed_frames=set(candidate.frame_epochs),
+        )
         if len(matches)!=1:
             return {
                 "status":"DEFER_UNKNOWN",
@@ -3735,6 +3749,103 @@ class Microseed:
         result["raw_observation_evidence_id"]=row["evidence_id"]
         result["bucket_selection_authority"]="NONE"
         result["semantic_coordinate_authority"]="NONE"
+        result["semantic_projection_authority"]="NONE"
+        result["truth_authority"]="NONE"
+        result["execution_authority"]="NONE"
+        return result
+
+    def resolve_current_raw_constructor_projection_conditioned_relation(
+        self, binding_id: str, *, action_id: str, task_id: str, channel_id: str, horizon: int,
+    ) -> dict[str, Any]:
+        """Resolve an admitted temporal raw constructor projection from owned current history.
+
+        Caller supplies neither raw-history content nor projection bucket.  Current
+        bounded raw receipts are walked backward only through exact admitted action
+        outcome/control-state ancestry to the constructor's required lag depth.  The
+        constructor's own opaque ``project`` computes the bucket, after which the
+        existing externally qualified routing owner resolves the relation.
+        """
+        binding=self.action_outcome_learning.projection_conditioned_bindings.get(binding_id)
+        if binding is None:
+            return {"status":"DEFER_UNKNOWN","reason":"ROUTING_BINDING_NOT_FOUND","execution_authority":"NONE"}
+        if not self._projection_conditioned_binding_current(binding):
+            return {"status":"DEFER_UNKNOWN","reason":"ROUTING_BINDING_NOT_CURRENT","execution_authority":"NONE"}
+        rec=self.epistemic_projections.records.get(binding.projection_id)
+        if rec is None or not rec.current or rec.epoch!=binding.projection_epoch or rec.signature_sha256!=binding.projection_signature_sha256:
+            return {"status":"DEFER_UNKNOWN","reason":"RAW_CONSTRUCTOR_PROJECTION_NOT_CURRENT","execution_authority":"NONE"}
+        candidates=[c for c in self.epistemic_constructor_candidates.values() if c.digest()==rec.signature_sha256]
+        if len(candidates)!=1:
+            return {"status":"DEFER_UNKNOWN","reason":"CURRENT_RAW_CONSTRUCTOR_PROJECTION_CONTENT_NOT_RECOVERABLE","execution_authority":"NONE"}
+        candidate=candidates[0]
+        for frame_id,epoch in candidate.frame_epochs:
+            if not self.frames.is_current(frame_id,epoch):
+                return {"status":"DEFER_UNKNOWN","reason":"RAW_CONSTRUCTOR_PROJECTION_FRAME_NOT_CURRENT","execution_authority":"NONE"}
+        for schema_id,epoch in candidate.episode_schema_epochs:
+            if not self.episodes.is_current(schema_id,epoch):
+                return {"status":"DEFER_UNKNOWN","reason":"RAW_CONSTRUCTOR_PROJECTION_EPISODE_NOT_CURRENT","execution_authority":"NONE"}
+        cw=self.action_closure.current_state
+        if cw is None:
+            return {"status":"DEFER_UNKNOWN","reason":"NO_CURRENT_OPAQUE_CONTROL_STATE","execution_authority":"NONE"}
+        allowed_frames=set(candidate.frame_epochs)
+        raw_history=[]
+        raw_evidence_ids=[]
+        cursor_state_id=cw.state_id
+        cursor_evidence_id=cw.evidence_id
+        for lag in range(candidate.lag_depth_used+1):
+            matches,rejections=self._current_bounded_raw_receipts_for_control_state(
+                control_state_id=cursor_state_id,control_state_evidence_id=cursor_evidence_id,
+                allowed_frames=allowed_frames,
+            )
+            if len(matches)!=1:
+                return {
+                    "status":"DEFER_UNKNOWN",
+                    "reason":"EXACT_SINGLE_CURRENT_RAW_OBSERVATION_FOR_RAW_HISTORY_REQUIRED",
+                    "lag":lag,
+                    "matching_receipt_count":len(matches),
+                    "receipt_rejections":rejections,
+                    "execution_authority":"NONE",
+                }
+            row,payload=matches[0]
+            raw_history.append(tuple(str(x) for x in payload["raw_tokens"]))
+            raw_evidence_ids.append(str(row["evidence_id"]))
+            if lag==candidate.lag_depth_used:
+                break
+            predecessor_outcomes=[o for o in self.action_closure.outcomes.values() if o.evidence_id==cursor_evidence_id]
+            if len(predecessor_outcomes)!=1:
+                return {
+                    "status":"DEFER_UNKNOWN",
+                    "reason":"RAW_HISTORY_PREDECESSOR_OUTCOME_NOT_UNIQUE",
+                    "lag":lag,
+                    "predecessor_outcome_count":len(predecessor_outcomes),
+                    "execution_authority":"NONE",
+                }
+            outcome=predecessor_outcomes[0]
+            projected=self.derive_admitted_opaque_transition_sample(outcome.execution_id)
+            if projected.get("status")!="ADMITTED_OPAQUE_TRANSITION_SAMPLE":
+                return {"status":"DEFER_UNKNOWN","reason":"RAW_HISTORY_PREDECESSOR_TRANSITION_NOT_ADMITTED","lag":lag,"execution_authority":"NONE"}
+            predecessor=projected["sample"]
+            if predecessor.end_token!=cursor_state_id or (predecessor.frame_id,predecessor.frame_epoch) not in allowed_frames:
+                return {"status":"DEFER_UNKNOWN","reason":"RAW_HISTORY_PREDECESSOR_STATE_OR_FRAME_MISMATCH","lag":lag,"execution_authority":"NONE"}
+            execution=self.action_closure.executions.get(outcome.execution_id)
+            intent=None if execution is None else self.action_closure.intents.get(execution.intent_id)
+            if intent is None:
+                return {"status":"DEFER_UNKNOWN","reason":"RAW_HISTORY_PREDECESSOR_INTENT_NOT_FOUND","lag":lag,"execution_authority":"NONE"}
+            cursor_state_id=predecessor.start_token
+            cursor_evidence_id=intent.control_state_evidence_id
+        history=tuple(raw_history)
+        bucket=candidate.project(history)
+        if bucket is None:
+            return {"status":"DEFER_UNKNOWN","reason":"CURRENT_RAW_HISTORY_NOT_IN_ADMITTED_CONSTRUCTOR_PROJECTION","execution_authority":"NONE"}
+        result=dict(self.resolve_projection_conditioned_action_outcome_relation(
+            binding_id,projection_bucket_id=bucket,action_id=action_id,task_id=task_id,channel_id=channel_id,horizon=horizon,
+        ))
+        result["projection_bucket_id"]=bucket
+        result["bucket_derivation_basis"]="CURRENT_AUTHENTICATED_RAW_HISTORY_PLUS_EXACT_ADMITTED_CONSTRUCTOR_PROJECTION"
+        result["raw_history_evidence_ids"]=tuple(raw_evidence_ids)
+        result["raw_history_lag_depth"]=candidate.lag_depth_used
+        result["bucket_selection_authority"]="NONE"
+        result["semantic_coordinate_authority"]="NONE"
+        result["semantic_temporal_relation_authority"]="NONE"
         result["semantic_projection_authority"]="NONE"
         result["truth_authority"]="NONE"
         result["execution_authority"]="NONE"
