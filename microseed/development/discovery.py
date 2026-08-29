@@ -382,6 +382,167 @@ def derive_value_bound_singleton_effects(
         }
     return result
 
+
+def derive_value_bound_candidate_motif_effect(
+    candidate_id: str,
+    motif: tuple[str, ...],
+    source_trace_ids: Iterable[str],
+    traces: dict[str, OperationalTrace],
+    current_epochs: dict[str, int],
+    requested_value_id: str,
+    episode_value_epochs: dict[tuple[str, int], tuple[tuple[str, int], ...]],
+    current_value_epochs: dict[str, int],
+    cfg: DiscoveryConfig | None = None,
+    *,
+    candidate_operational_signature: dict[str, Any] | None = None,
+    current_frame_epochs: dict[str, int] | None = None,
+    current_episode_schema_epochs: dict[str, int] | None = None,
+    current_topology_epochs: dict[str, int] | None = None,
+    current_counterparty_epochs: dict[str, int] | None = None,
+    current_coordination_epochs: dict[str, int] | None = None,
+) -> dict[str, Any]:
+    """Project one discovered motif's exact current trace ancestry onto one value.
+
+    This is a read-only bridge from an already-nominated operational motif to the
+    same scalar effect shape used by current regulatory action licensing. It does
+    not qualify/admit the candidate, select a policy, assign token meaning, claim
+    reference, or grant execution/truth authority.
+
+    The candidate's source trace IDs are part of the subject binding. Every source
+    trace must still be current and must contain the nominated contiguous motif.
+    The exact contributing occurrence count must still match the candidate's
+    recorded support when that support is available. Value interpretation is
+    allowed only through one exact current episode -> one current value binding.
+    """
+    config = cfg or DiscoveryConfig()
+    motif = tuple(str(x) for x in motif)
+    source_ids = tuple(str(x) for x in source_trace_ids)
+    sig = candidate_operational_signature or {}
+
+    def unknown(reason: str) -> dict[str, Any]:
+        return {
+            "status": "UNKNOWN_INCOMPLETE",
+            "candidate_id": str(candidate_id),
+            "value_id": str(requested_value_id),
+            "reason": reason,
+            "authority": "NONE",
+            "truth_authority": "NONE",
+            "semantic_effect_coordinate_authority": "NONE",
+            "semantic_signal_authority": "NONE",
+            "reference_authority": "NONE",
+        }
+
+    if not motif:
+        return unknown("CANDIDATE_MOTIF_REQUIRED")
+    if not source_ids:
+        return unknown("SOURCE_TRACE_IDS_REQUIRED")
+
+    occurrences: list[tuple[OperationalTrace, tuple[float, ...]]] = []
+    source_rows: list[OperationalTrace] = []
+    for trace_id in source_ids:
+        trace = traces.get(trace_id)
+        if trace is None:
+            return unknown(f"SOURCE_TRACE_MISSING:{trace_id}")
+        if not _current_trace(
+            trace,
+            current_epochs,
+            current_frame_epochs,
+            current_episode_schema_epochs,
+            current_topology_epochs,
+            current_counterparty_epochs,
+            current_coordination_epochs,
+        ):
+            return unknown(f"SOURCE_TRACE_NOT_CURRENT:{trace_id}")
+        if not trace.step_effects or any(len(v) != 1 for v in trace.step_effects):
+            return unknown("SCALAR_VALUE_EFFECT_COORDINATE_REQUIRED")
+        found = False
+        length = len(motif)
+        for start in range(len(trace.steps) - length + 1):
+            if tuple(trace.steps[start : start + length]) != motif:
+                continue
+            found = True
+            effect = _sum(trace.step_effects[start : start + length], 1)
+            occurrences.append((trace, effect))
+        if not found:
+            return unknown(f"SOURCE_TRACE_MOTIF_MISMATCH:{trace_id}")
+        source_rows.append(trace)
+
+    expected_support = sig.get("support")
+    if expected_support is not None and len(occurrences) != int(expected_support):
+        return unknown("CANDIDATE_SUPPORT_SUBJECT_MISMATCH")
+    if len(occurrences) < config.min_support:
+        return unknown("MOTIF_EFFECT_SUPPORT_INSUFFICIENT")
+
+    frame_keys = {(t.frame_id, t.frame_epoch) for t in source_rows}
+    episode_keys = {(t.episode_schema_id, t.episode_schema_epoch) for t in source_rows}
+    if len(frame_keys) != 1 or next(iter(frame_keys))[0] is None or next(iter(frame_keys))[1] is None:
+        return unknown("EXACT_SINGLE_CURRENT_FRAME_ANCESTRY_REQUIRED")
+    if len(episode_keys) != 1 or next(iter(episode_keys))[0] is None or next(iter(episode_keys))[1] is None:
+        return unknown("EXACT_SINGLE_CURRENT_EPISODE_ANCESTRY_REQUIRED")
+    frame_id, frame_epoch = next(iter(frame_keys))
+    schema_id, schema_epoch = next(iter(episode_keys))
+
+    expected_families = (
+        ("frame_epochs", ((str(frame_id), int(frame_epoch)),)),
+        ("episode_schema_epochs", ((str(schema_id), int(schema_epoch)),)),
+        ("topology_epochs", tuple(source_rows[0].topology_epochs)),
+        ("counterparty_epochs", tuple(source_rows[0].counterparty_epochs)),
+        ("coordination_epochs", tuple(source_rows[0].coordination_epochs)),
+    )
+    for key, actual in expected_families:
+        if key in sig:
+            expected = tuple((str(x[0]), int(x[1])) for x in sig.get(key, ()))
+            normalized_actual = tuple((str(x[0]), int(x[1])) for x in actual)
+            if expected != normalized_actual:
+                return unknown(f"CANDIDATE_{key.upper()}_SUBJECT_MISMATCH")
+
+    value_bindings = episode_value_epochs.get((str(schema_id), int(schema_epoch)))
+    if value_bindings is None:
+        return unknown("CURRENT_EPISODE_VALUE_BINDING_REQUIRED")
+    if len(value_bindings) != 1:
+        return unknown("EXACT_SINGLE_VALUE_BINDING_REQUIRED")
+    bound_value_id, bound_value_epoch = value_bindings[0]
+    if str(bound_value_id) != str(requested_value_id):
+        return unknown("REQUESTED_VALUE_NOT_EPISODE_BOUND")
+    if current_value_epochs.get(str(requested_value_id)) != int(bound_value_epoch):
+        return unknown("BOUND_VALUE_NOT_CURRENT")
+
+    effects = [float(effect[0]) for _, effect in occurrences]
+    center = _quantize((float(statistics.median(effects)),), config.quantization_step)[0]
+    consistency = sum(
+        abs(effect - center) <= config.residual_tolerance_l1
+        for effect in effects
+    ) / len(effects)
+    if consistency < config.min_consistency:
+        return unknown("MOTIF_EFFECT_CONSISTENCY_INSUFFICIENT")
+
+    return {
+        "status": "CURRENT_EFFECT",
+        "candidate_id": str(candidate_id),
+        "capability_id": str(candidate_id),
+        "value_id": str(requested_value_id),
+        "value_epoch": int(bound_value_epoch),
+        "effect": float(center),
+        "support": len(occurrences),
+        "consistency": float(consistency),
+        "frame_epoch": (str(frame_id), int(frame_epoch)),
+        "episode_schema_epoch": (str(schema_id), int(schema_epoch)),
+        "topology_epochs": tuple(source_rows[0].topology_epochs),
+        "counterparty_epochs": tuple(source_rows[0].counterparty_epochs),
+        "coordination_epochs": tuple(source_rows[0].coordination_epochs),
+        "source_trace_ids": source_ids,
+        "authority": "MODEL_OUTPUT_ONLY",
+        "truth_authority": "NONE",
+        "semantic_effect_coordinate_authority": "NONE",
+        "semantic_signal_authority": "NONE",
+        "reference_authority": "NONE",
+        "assistance_ancestry": (
+            "CURRENT_SINGLE_VALUE_EPISODE_BINDING",
+            "EXACT_DISCOVERED_MOTIF_SOURCE_TRACES",
+            "SUPPLIED_SCALAR_VALUE_EFFECT_COORDINATE",
+        ),
+    }
+
 def _occurrences(
     traces: list[OperationalTrace], cfg: DiscoveryConfig
 ) -> dict[tuple[str, ...], list[tuple[OperationalTrace, tuple[float, ...]]]]:

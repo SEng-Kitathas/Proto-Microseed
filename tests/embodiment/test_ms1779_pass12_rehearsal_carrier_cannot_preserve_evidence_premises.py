@@ -2,7 +2,7 @@ from microseed.development.action_learning import QualifiedActionOutcomePredicti
 from microseed.development.rehearsal import RehearsalTransitionRelation
 
 
-def test_repaired_epistemic_carrier_preserves_premises_while_durable_ordinary_rehearsal_still_refuses_lossy_conversion():
+def test_repaired_epistemic_carrier_and_ms1941_durable_rehearsal_both_preserve_premises():
     assert 'evidence_premise_epochs' in RehearsalTransitionRelation.__dataclass_fields__
     assert 'evidence_premise_signatures' in RehearsalTransitionRelation.__dataclass_fields__
 
@@ -14,10 +14,15 @@ def test_repaired_epistemic_carrier_preserves_premises_while_durable_ordinary_re
         frame_epochs=(('F',0),),episode_schema_epochs=(('EP',0),),value_epoch=('V',0),
         evidence_premise_epochs=(('OBS-BASIS',0),),evidence_premise_signatures=(('OBS-BASIS','b'*64),),
     )
-    # Ordinary durable rehearsal proposals still do not carry premise ancestry, so
-    # their historical bridge remains conservative. The new ephemeral epistemic
-    # bridge is the only lossless route.
-    assert r.as_rehearsal_relation() is None
+    # Historical MS1779 correctly refused ordinary durable conversion because
+    # the proposal carrier could not preserve premise ancestry. MS1941 later
+    # completed that carrier/currentness path; the scar survives as history,
+    # while both bridges must now preserve the same exact ancestry.
+    ordinary=r.as_rehearsal_relation()
+    assert ordinary is not None
+    assert ordinary.evidence_premise_epochs==r.evidence_premise_epochs
+    assert ordinary.evidence_premise_signatures==r.evidence_premise_signatures
+    assert ordinary.value_epoch==('V',0)
     rr=r.as_epistemic_alternative_relation()
     assert rr is not None
     assert rr.evidence_premise_epochs==r.evidence_premise_epochs

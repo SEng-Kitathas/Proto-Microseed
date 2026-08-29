@@ -86,10 +86,19 @@ def test_raw_legacy_outcomes_keep_empty_evidence_premise_ancestry():
     finally: td.cleanup()
 
 
-def test_rehearsal_conversion_refuses_to_drop_evidence_premise_ancestry():
+def test_rehearsal_conversion_preserves_evidence_premise_ancestry_after_ms1941_bridge():
     td,m,c,rid=established()
     try:
-        assert m.action_outcome_learning.relations[rid].as_rehearsal_relation() is None
+        # MS1620 originally refused ordinary conversion because the durable
+        # rehearsal proposal could not carry this ancestry. MS1941 supersedes
+        # that enforcement only after the durable proposal itself preserves and
+        # rechecks the exact premise epochs/signatures.
+        relation=m.action_outcome_learning.relations[rid]
+        rr=relation.as_rehearsal_relation()
+        assert rr is not None
+        assert rr.evidence_premise_epochs==relation.evidence_premise_epochs
+        assert rr.evidence_premise_signatures==relation.evidence_premise_signatures
+        assert rr.value_epoch==relation.value_epoch
     finally: td.cleanup()
 
 def test_holdout_without_matching_evidence_premise_does_not_qualify_assured_candidate():

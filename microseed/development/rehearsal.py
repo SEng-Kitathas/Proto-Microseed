@@ -131,6 +131,10 @@ class CounterfactualRehearsalProposal:
     value_epoch: tuple[str, int]
     topology_epochs: tuple[tuple[str, int], ...] = ()
     coordination_epochs: tuple[tuple[str, int], ...] = ()
+    # MS1941: durable ordinary rehearsal may now preserve the same modern
+    # evidence-premise ancestry already carried losslessly by MS1780 edges.
+    evidence_premise_epochs: tuple[tuple[str, int], ...] = ()
+    evidence_premise_signatures: tuple[tuple[str, str], ...] = ()
     predicted_state_path: tuple[str, ...] = ()
     predicted_step_value_effects: tuple[float, ...] = ()
     assistance_ancestry: tuple[str, ...] = ()
@@ -159,7 +163,9 @@ class CounterfactualRehearsalProposal:
         d = asdict(self)
         for key in (
             "sequence", "transition_relation_digests", "source_evidence_ids", "capability_epochs",
-            "frame_epochs", "episode_schema_epochs", "topology_epochs", "coordination_epochs", "predicted_state_path", "predicted_step_value_effects", "assistance_ancestry"
+            "frame_epochs", "episode_schema_epochs", "topology_epochs", "coordination_epochs",
+            "evidence_premise_epochs", "evidence_premise_signatures",
+            "predicted_state_path", "predicted_step_value_effects", "assistance_ancestry"
         ):
             d[key] = list(d[key])
         d["value_epoch"] = list(self.value_epoch)
@@ -182,6 +188,8 @@ class CounterfactualRehearsalProposal:
             value_epoch=(str(d["value_epoch"][0]), int(d["value_epoch"][1])),
             topology_epochs=tuple((str(a), int(b)) for a,b in d.get("topology_epochs", ())),
             coordination_epochs=tuple((str(a), int(b)) for a,b in d.get("coordination_epochs", ())),
+            evidence_premise_epochs=tuple((str(a), int(b)) for a,b in d.get("evidence_premise_epochs", ())),
+            evidence_premise_signatures=tuple((str(a), str(b)) for a,b in d.get("evidence_premise_signatures", ())),
             predicted_state_path=tuple(str(x) for x in d.get("predicted_state_path", ())),
             predicted_step_value_effects=tuple(float(x) for x in d.get("predicted_step_value_effects", ())),
             assistance_ancestry=tuple(d.get("assistance_ancestry", ())), nodes_expanded=int(d.get("nodes_expanded", 0)),
@@ -197,6 +205,12 @@ class CounterfactualRehearsalProposal:
         payload.pop("action_indicated", None)
         payload.pop("action_indication_authority", None)
         payload.pop("action_indication_rule", None)
+        # Empty MS1941 ancestry is backward-compatible: legacy proposal digests
+        # remain byte-identical to their pre-MS1941 identities.
+        if not self.evidence_premise_epochs:
+            payload.pop("evidence_premise_epochs", None)
+        if not self.evidence_premise_signatures:
+            payload.pop("evidence_premise_signatures", None)
         return hashlib.sha256(json.dumps(payload, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
 
 
@@ -305,6 +319,20 @@ def propose_counterfactual_rehearsal(
     episode_epochs = tuple(dict.fromkeys(r.episode_schema_epoch for r in rels))
     topology_epochs = tuple(dict.fromkeys(r.topology_epoch for r in rels if r.topology_epoch is not None))
     coordination_epochs = tuple(dict.fromkeys(r.coordination_epoch for r in rels if r.coordination_epoch is not None))
+    evidence_premise_epochs = tuple(dict.fromkeys(x for r in rels for x in r.evidence_premise_epochs))
+    evidence_premise_signatures = tuple(dict.fromkeys(x for r in rels for x in r.evidence_premise_signatures))
+    # One current subject cannot lawfully appear at two epochs/signatures inside
+    # one durable proposal. Fail closed rather than silently choose an ancestry.
+    epoch_by_id: dict[str, int] = {}
+    for premise_id, epoch in evidence_premise_epochs:
+        previous = epoch_by_id.setdefault(premise_id, epoch)
+        if previous != epoch:
+            raise ValueError(f"REHEARSAL_EVIDENCE_PREMISE_EPOCH_CONFLICT:{premise_id}")
+    signature_by_id: dict[str, str] = {}
+    for premise_id, signature in evidence_premise_signatures:
+        previous = signature_by_id.setdefault(premise_id, signature)
+        if previous != signature:
+            raise ValueError(f"REHEARSAL_EVIDENCE_PREMISE_SIGNATURE_CONFLICT:{premise_id}")
     assistance = tuple(dict.fromkeys(cfg.assistance_ancestry() + tuple(x for o in opts for x in o.model_evidence_ids if x.startswith("ASSISTANCE:"))))
     payload = {
         "start_state_id": start_state_id, "sequence": sequence, "final_state_id": final_state,
@@ -319,6 +347,8 @@ def propose_counterfactual_rehearsal(
         transition_relation_digests=tuple(r.digest() for r in rels), source_evidence_ids=evidence,
         capability_epochs=capability_epochs, frame_epochs=frame_epochs, episode_schema_epochs=episode_epochs,
         value_epoch=value_epoch, topology_epochs=topology_epochs, coordination_epochs=coordination_epochs,
+        evidence_premise_epochs=evidence_premise_epochs,
+        evidence_premise_signatures=evidence_premise_signatures,
         predicted_state_path=(start_state_id,) + tuple(r.next_state_id for r in rels),
         predicted_step_value_effects=tuple(float(r.value_effect) for r in rels),
         assistance_ancestry=assistance, nodes_expanded=nodes,

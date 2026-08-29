@@ -430,9 +430,10 @@ class QualifiedActionOutcomePredictiveRelation:
         return cls(**x)
 
     def as_rehearsal_relation(self) -> RehearsalTransitionRelation | None:
-        # Current Microseed rehearsal relation has one frame + one episode anchor per edge.
-        # More complex ancestry remains unpromoted rather than silently collapsed.
-        if len(self.frame_epochs) != 1 or len(self.episode_schema_epochs) != 1 or self.evidence_premise_epochs or self.evidence_premise_signatures:
+        # Ordinary rehearsal still requires the historical one-frame/one-episode
+        # edge shape, but MS1941 no longer drops modern evidence-premise ancestry:
+        # the durable proposal carrier now preserves and rechecks it explicitly.
+        if len(self.frame_epochs) != 1 or len(self.episode_schema_epochs) != 1:
             return None
         if len(self.topology_epochs) > 1 or len(self.coordination_epochs) > 1:
             return None
@@ -449,6 +450,8 @@ class QualifiedActionOutcomePredictiveRelation:
             episode_schema_epoch=self.episode_schema_epochs[0],
             topology_epoch=self.topology_epochs[0] if self.topology_epochs else None,
             coordination_epoch=self.coordination_epochs[0] if self.coordination_epochs else None,
+            evidence_premise_epochs=self.evidence_premise_epochs,
+            evidence_premise_signatures=self.evidence_premise_signatures,
             value_epoch=self.value_epoch,
         )
 

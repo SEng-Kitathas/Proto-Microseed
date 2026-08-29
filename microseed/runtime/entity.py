@@ -27,7 +27,7 @@ from ..development.capability_admission import (
 )
 from ..development.discovery import (
     OperationalTrace, DiscoveryConfig, discover_candidates,
-    derive_value_bound_singleton_effects,
+    derive_value_bound_singleton_effects, derive_value_bound_candidate_motif_effect,
 )
 from ..development.projection_discovery import (
     ProjectionSample, ProjectionDiscoveryConfig, EpistemicProjectionCandidate,
@@ -62,7 +62,7 @@ from ..development.value import (
     ValueVariableRegistry,
     residual_pressure_after_effect,
 )
-from ..development.action_licensing import compose_multi_value_action_licenses
+from ..development.action_licensing import compose_multi_value_action_licenses, project_regulatory_effect_license
 from ..development.recruitment import RecruitmentOption, RecruitmentProposal, RecruitmentRegistry
 from ..development.rehearsal import (
     RehearsalTransitionObservation, RehearsalTransitionRelation, CounterfactualRehearsalConfig, CounterfactualRehearsalProposal,
@@ -632,6 +632,16 @@ class Microseed:
         for rid, epoch in p.coordination_epochs:
             if not self.coordinations.is_current(rid, epoch):
                 return {"status":"UNKNOWN_INCOMPLETE","reason":f"REHEARSAL_COORDINATION_NOT_CURRENT:{rid}","authority":Authority.NONE.value}
+        for cid, epoch in p.evidence_premise_epochs:
+            c = self.capabilities.contracts.get(cid)
+            if c is None or c.qualification not in {QualificationState.QUALIFIED, QualificationState.SHADOW_QUALIFIED}:
+                return {"status":"UNKNOWN_INCOMPLETE","reason":f"REHEARSAL_EVIDENCE_PREMISE_NOT_CURRENT:{cid}","authority":Authority.NONE.value}
+            if self.capabilities.epochs.get(cid, -1) != epoch:
+                return {"status":"UNKNOWN_INCOMPLETE","reason":f"REHEARSAL_EVIDENCE_PREMISE_EPOCH_DRIFT:{cid}","authority":Authority.NONE.value}
+        for cid, signature in p.evidence_premise_signatures:
+            c = self.capabilities.contracts.get(cid)
+            if c is None or c.computed_signature_sha256() != signature:
+                return {"status":"UNKNOWN_INCOMPLETE","reason":f"REHEARSAL_EVIDENCE_PREMISE_SIGNATURE_DRIFT:{cid}","authority":Authority.NONE.value}
         return {
             "status":"CURRENT_REHEARSAL_PROPOSAL", "proposal_id":proposal_id, "sequence":list(p.sequence),
             "authority":p.authority, "truth_authority":p.truth_authority, "execution_authority":p.execution_authority,
@@ -4487,6 +4497,111 @@ class Microseed:
         )
         return result
 
+
+    def derive_discovered_candidate_regulatory_bearing(
+        self,
+        candidate_id: str,
+        value_id: str,
+        *,
+        config: DiscoveryConfig | None = None,
+    ) -> dict[str, Any]:
+        """Re-derive one nominated motif's current regulatory bearing, read-only.
+
+        The candidate remains proposal-only. This method does not qualify/admit it,
+        choose among multiple lawful motifs, execute anything, persist a policy,
+        or assign semantic signal/reference meaning. It binds only the candidate's
+        exact source traces to one current episode -> one current value coordinate,
+        then reuses the existing regulatory effect license projector.
+        """
+        candidate = self.capability_candidates.get(str(candidate_id))
+        if candidate is None:
+            return {
+                "status": "UNKNOWN_INCOMPLETE",
+                "reason": "CANDIDATE_NOT_FOUND",
+                "candidate_id": str(candidate_id),
+                "value_id": str(value_id),
+                "authority": Authority.NONE.value,
+                "execution_authority": Authority.NONE.value,
+                "semantic_signal_authority": "NONE",
+                "reference_authority": "NONE",
+                "selection_authority": "NONE",
+                "persistence": "NONE",
+            }
+        motif = tuple(candidate.proposed_contract.interface.get("ordered_dependency_sequence", ()))
+        episode_value_epochs = {
+            (schema_id, int(epoch)): tuple((str(vid), int(vepoch)) for vid, vepoch in schema.value_epochs)
+            for schema_id, schema in self.episodes.schemas.items()
+            if (epoch := self.episodes.epochs.get(schema_id)) is not None
+            and self.episodes.is_current(schema_id, int(epoch))
+        }
+        effect = derive_value_bound_candidate_motif_effect(
+            candidate.candidate_id,
+            motif,
+            candidate.source_trace_ids,
+            self.operational_traces,
+            dict(self.capabilities.epochs),
+            str(value_id),
+            episode_value_epochs,
+            dict(self.values.epochs),
+            config or DiscoveryConfig(),
+            candidate_operational_signature=candidate.operational_signature,
+            current_frame_epochs=dict(self.frames.epochs),
+            current_episode_schema_epochs=dict(self.episodes.epochs),
+            current_topology_epochs=dict(self.topologies.epochs),
+            current_counterparty_epochs=dict(self.counterparties.epochs),
+            current_coordination_epochs=dict(self.coordinations.epochs),
+        )
+        base = {
+            "candidate_id": candidate.candidate_id,
+            "motif": list(motif),
+            "value_id": str(value_id),
+            "effect_witness": {
+                **effect,
+                "source_trace_ids": list(effect.get("source_trace_ids", ())),
+                "assistance_ancestry": list(effect.get("assistance_ancestry", ())),
+            },
+            "authority": Authority.NONE.value,
+            "execution_authority": Authority.NONE.value,
+            "truth_authority": "NONE",
+            "semantic_signal_authority": "NONE",
+            "reference_authority": "NONE",
+            "selection_authority": "NONE",
+            "persistence": "NONE",
+        }
+        if effect.get("status") != "CURRENT_EFFECT":
+            return {
+                **base,
+                "status": "UNKNOWN_INCOMPLETE",
+                "reason": str(effect.get("reason", "CURRENT_CANDIDATE_EFFECT_UNAVAILABLE")),
+                "commitment": None,
+            }
+        pressure = self.values.pressure(str(value_id))
+        latest = self.values.latest.get(str(value_id))
+        if pressure.get("status") != "CURRENT" or latest is None:
+            return {
+                **base,
+                "status": "UNKNOWN_INCOMPLETE",
+                "reason": "CURRENT_VALUE_STATE_REQUIRED",
+                "commitment": None,
+            }
+        commitment = project_regulatory_effect_license(
+            candidate.candidate_id,
+            str(value_id),
+            current_value=float(latest[1]),
+            current_pressure=float(pressure["pressure_magnitude"]),
+            value_epoch=int(self.values.epochs[str(value_id)]),
+            contract=self.values.contracts[str(value_id)],
+            effect_row=effect,
+        )
+        return {
+            **base,
+            "status": "CURRENT_CANDIDATE_REGULATORY_BEARING",
+            "reason": commitment.reason,
+            "commitment": commitment.serializable(),
+            "regulatory_relation": str(pressure.get("relation", "UNKNOWN")),
+            "pressure_magnitude": float(pressure.get("pressure_magnitude", 0.0)),
+        }
+
     def discover_capability_candidates(
         self,
         config: DiscoveryConfig | None = None,
@@ -5629,6 +5744,9 @@ class Microseed:
             "coordination_promise_authority": "NONE",
             "coordination_identity_authority": "NONE",
             "joint_action_grounding": "BOUNDED_RESEARCH_MECHANISM_NOT_ENTITY_TRUTH_AUTHORITY__ENTITY_ACCEPTS_EXTERNALLY_QUALIFIED_COORDINATION_RELATIONS",
+            "discovered_coordination_motif_regulatory_bearing": "READ_ONLY_CURRENT_VALUE_BOUND_PROJECTION__NO_SIGNAL_POLICY_REFERENCE_MEANING_OR_EXECUTION_AUTHORITY",
+            "signal_policy_authority": "NONE",
+            "signal_reference_authority": "NONE",
             "composition_ancestry_preservation": "OPERATIONAL_TRACE_TO_DISCOVERY_TO_CAPABILITY_CANDIDATE__EXISTING_TOPOLOGY_COUNTERPARTY_COORDINATION_EPOCHS",
             "multi_child_planner_authority": "NONE",
             "composition_self_qualification_authority": "NONE",
