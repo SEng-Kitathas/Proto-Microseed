@@ -35,6 +35,7 @@ class ProjectionSample:
     operational_scope_id: str | None
     frame_id: str
     frame_epoch: int
+    source_projection_epochs: tuple[tuple[str, int, str], ...] = ()
 
     def __post_init__(self) -> None:
         if not self.sample_id or not self.raw_tokens or not self.action_token or not self.effect_token:
@@ -43,9 +44,18 @@ class ProjectionSample:
             raise ValueError("PROJECTION_SAMPLE_REQUIRES_FRAME_CURRENTNESS")
         object.__setattr__(self, "raw_tokens", tuple(str(x) for x in self.raw_tokens))
         object.__setattr__(self, "frame_epoch", int(self.frame_epoch))
+        deps=[]
+        for projection_id, epoch, signature in self.source_projection_epochs:
+            pid=str(projection_id); ep=int(epoch); sig=str(signature).lower()
+            if not pid or ep < 0 or len(sig)!=64 or any(c not in "0123456789abcdef" for c in sig):
+                raise ValueError("INVALID_SOURCE_PROJECTION_ANCESTRY")
+            deps.append((pid,ep,sig))
+        if len({x[0] for x in deps}) != len(deps):
+            raise ValueError("DUPLICATE_SOURCE_PROJECTION_ANCESTRY")
+        object.__setattr__(self, "source_projection_epochs", tuple(sorted(deps)))
 
     def serializable(self) -> dict[str, Any]:
-        return {
+        out = {
             "sample_id": self.sample_id,
             "raw_tokens": list(self.raw_tokens),
             "action_token": self.action_token,
@@ -54,6 +64,9 @@ class ProjectionSample:
             "frame_id": self.frame_id,
             "frame_epoch": self.frame_epoch,
         }
+        if self.source_projection_epochs:
+            out["source_projection_epochs"]=[list(x) for x in self.source_projection_epochs]
+        return out
 
 
 @dataclass(frozen=True)
@@ -107,6 +120,7 @@ class EpistemicProjectionCandidate:
     source_sample_ids: tuple[str, ...]
     frame_epochs: tuple[tuple[str, int], ...]
     assistance_ancestry: tuple[str, ...]
+    source_projection_epochs: tuple[tuple[str, int, str], ...] = ()
     nomination_basis: str = "BOUNDED_ACTION_CONDITIONED_PREDICTIVE_EQUIVALENCE"
     proposal_authority: str = "NONE"
     qualification_authority: str = "NONE"
@@ -124,9 +138,18 @@ class EpistemicProjectionCandidate:
             raise ValueError("PROJECTION_CANDIDATE_CANNOT_CARRY_SEMANTIC_OR_TRUTH_AUTHORITY")
         if not self.key_to_bucket or not self.bucket_action_prediction:
             raise ValueError("PROJECTION_CANDIDATE_REQUIRES_PREDICTIVE_PARTITION")
+        deps=[]
+        for projection_id, epoch, signature in self.source_projection_epochs:
+            pid=str(projection_id); ep=int(epoch); sig=str(signature).lower()
+            if not pid or ep < 0 or len(sig)!=64 or any(c not in "0123456789abcdef" for c in sig):
+                raise ValueError("INVALID_CANDIDATE_SOURCE_PROJECTION_ANCESTRY")
+            deps.append((pid,ep,sig))
+        if len({x[0] for x in deps}) != len(deps):
+            raise ValueError("DUPLICATE_CANDIDATE_SOURCE_PROJECTION_ANCESTRY")
+        object.__setattr__(self,"source_projection_epochs",tuple(sorted(deps)))
 
     def signature_payload(self) -> dict[str, Any]:
-        return {
+        out = {
             "candidate_id": self.candidate_id,
             "input_positions": list(self.input_positions),
             "key_to_bucket": [[list(k), v] for k, v in self.key_to_bucket],
@@ -148,6 +171,9 @@ class EpistemicProjectionCandidate:
             "semantic_projection_authority": self.semantic_projection_authority,
             "truth_authority": self.truth_authority,
         }
+        if self.source_projection_epochs:
+            out["source_projection_epochs"]=[list(x) for x in self.source_projection_epochs]
+        return out
 
     def digest(self) -> str:
         return sha256_bytes(canonical_json(self.signature_payload()))
@@ -175,6 +201,7 @@ class EpistemicProjectionCandidate:
             source_sample_ids=tuple(str(x) for x in d["source_sample_ids"]),
             frame_epochs=tuple((str(x[0]), int(x[1])) for x in d["frame_epochs"]),
             assistance_ancestry=tuple(str(x) for x in d.get("assistance_ancestry", ())),
+            source_projection_epochs=tuple((str(x[0]),int(x[1]),str(x[2])) for x in d.get("source_projection_epochs", ())),
             nomination_basis=str(d.get("nomination_basis", "BOUNDED_ACTION_CONDITIONED_PREDICTIVE_EQUIVALENCE")),
             proposal_authority=str(d.get("proposal_authority", "NONE")),
             qualification_authority=str(d.get("qualification_authority", "NONE")),
@@ -267,6 +294,10 @@ def _fit_candidate(
 ) -> EpistemicProjectionCandidate | None:
     if len(train) < cfg.min_train_support:
         return None
+    lineages={tuple(r.source_projection_epochs) for r in train + validation}
+    if len(lineages)!=1:
+        return None
+    source_projection_epochs=next(iter(lineages))
     action_effect: dict[tuple[tuple[str, ...], str], Counter[str]] = defaultdict(Counter)
     keys: set[tuple[str, ...]] = set()
     actions = sorted({r.action_token for r in train})
@@ -332,6 +363,8 @@ def _fit_candidate(
         "bucket_action_prediction": [list(x) for x in bap],
         "frame_epochs": [list(x) for x in frame_epochs],
     }
+    if source_projection_epochs:
+        candidate_payload["source_projection_epochs"]=[list(x) for x in source_projection_epochs]
     candidate_id = "proj-cand-" + hashlib.sha256(canonical_json(candidate_payload)).hexdigest()[:20]
     return EpistemicProjectionCandidate(
         candidate_id=candidate_id,
@@ -349,6 +382,7 @@ def _fit_candidate(
         source_sample_ids=tuple(sorted(r.sample_id for r in train)),
         frame_epochs=tuple(frame_epochs),
         assistance_ancestry=cfg.assistance_ancestry(),
+        source_projection_epochs=source_projection_epochs,
     )
 
 

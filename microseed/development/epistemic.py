@@ -251,6 +251,7 @@ class EpistemicProjectionRecord:
     qualification_evidence_ids: tuple[str, ...] = ()
     frame_epochs: tuple[tuple[str, int], ...] = ()
     episode_schema_epochs: tuple[tuple[str, int], ...] = ()
+    source_projection_epochs: tuple[tuple[str, int, str], ...] = ()
     current: bool = True
     semantic_projection_authority: str = "NONE"
     discovery_authority: str = "NONE"
@@ -279,6 +280,15 @@ class EpistemicProjectionRecord:
         self.qualification_evidence_ids = tuple(str(x) for x in self.qualification_evidence_ids)
         self.frame_epochs = tuple((str(x[0]), int(x[1])) for x in self.frame_epochs)
         self.episode_schema_epochs = tuple((str(x[0]), int(x[1])) for x in self.episode_schema_epochs)
+        deps=[]
+        for projection_id, epoch, signature in self.source_projection_epochs:
+            pid=str(projection_id); ep=int(epoch); sig=_sha256_token(str(signature),error="EPISTEMIC_SOURCE_PROJECTION_SIGNATURE_REQUIRED")
+            if not pid or ep < 0 or pid == self.projection_id:
+                raise ValueError("INVALID_EPISTEMIC_SOURCE_PROJECTION_ANCESTRY")
+            deps.append((pid,ep,sig))
+        if len({x[0] for x in deps}) != len(deps):
+            raise ValueError("DUPLICATE_EPISTEMIC_SOURCE_PROJECTION_ANCESTRY")
+        self.source_projection_epochs = tuple(sorted(deps))
         self.current = bool(self.current)
         if self.projection_origin in {
             "ENDOGENOUS_PROPOSAL_EXTERNALLY_QUALIFIED",
@@ -291,7 +301,10 @@ class EpistemicProjectionRecord:
             raise ValueError("EPISTEMIC_PROJECTION_CANNOT_CARRY_SEMANTIC_OR_DISCOVERY_AUTHORITY")
 
     def serializable(self) -> dict[str, Any]:
-        return asdict(self)
+        d=asdict(self)
+        if not self.source_projection_epochs:
+            d.pop("source_projection_epochs",None)
+        return d
 
     @classmethod
     def from_serializable(cls, d: dict[str, Any]) -> "EpistemicProjectionRecord":
@@ -300,6 +313,7 @@ class EpistemicProjectionRecord:
         x["qualification_evidence_ids"] = tuple(x.get("qualification_evidence_ids", ()))
         x["frame_epochs"] = tuple((str(a), int(b)) for a, b in x.get("frame_epochs", ()))
         x["episode_schema_epochs"] = tuple((str(a), int(b)) for a, b in x.get("episode_schema_epochs", ()))
+        x["source_projection_epochs"] = tuple((str(a),int(b),str(c)) for a,b,c in x.get("source_projection_epochs", ()))
         x["current"] = bool(x.get("current", True))
         return cls(**x)
 
@@ -313,7 +327,17 @@ class EpistemicProjectionRegistry:
     def register(self, record: EpistemicProjectionRecord) -> None:
         if record.projection_id in self.records:
             raise ValueError("DUPLICATE_EPISTEMIC_PROJECTION")
+        for source_id,source_epoch,source_signature in record.source_projection_epochs:
+            source=self.records.get(source_id)
+            if source is None or source.signature_sha256!=source_signature or not self.is_current(source_id,source_epoch):
+                raise ValueError("EPISTEMIC_SOURCE_PROJECTION_NOT_CURRENT")
         self.records[record.projection_id] = record
+
+    def _require_current_source_ancestry(self, record: EpistemicProjectionRecord) -> None:
+        for source_id,source_epoch,source_signature in record.source_projection_epochs:
+            source=self.records.get(source_id)
+            if source is None or source.signature_sha256!=source_signature or not self.is_current(source_id,source_epoch):
+                raise ValueError("EPISTEMIC_SOURCE_PROJECTION_NOT_CURRENT")
 
     def change(
         self,
@@ -324,6 +348,8 @@ class EpistemicProjectionRegistry:
         if projection_id not in self.records:
             raise ValueError("UNKNOWN_EPISTEMIC_PROJECTION")
         old = self.records[projection_id]
+        self._require_current_source_ancestry(old)
+        self._invalidate_dependents(projection_id, old.epoch, old.signature_sha256)
         rec = EpistemicProjectionRecord(
             projection_id=projection_id,
             signature_sha256=new_signature_sha256,
@@ -334,6 +360,7 @@ class EpistemicProjectionRegistry:
             qualification_evidence_ids=old.qualification_evidence_ids,
             frame_epochs=old.frame_epochs,
             episode_schema_epochs=old.episode_schema_epochs,
+            source_projection_epochs=old.source_projection_epochs,
             current=True,
         )
         self.records[projection_id] = rec
@@ -354,6 +381,7 @@ class EpistemicProjectionRegistry:
         old = self.records[projection_id]
         if old.current:
             raise ValueError("CURRENT_EPISTEMIC_PROJECTION_CANNOT_REACTIVATE")
+        self._require_current_source_ancestry(old)
         qids = tuple(str(x) for x in qualification_evidence_ids)
         if not qids:
             raise ValueError("EPISTEMIC_PROJECTION_REACTIVATION_REQUIRES_REQUALIFICATION_EVIDENCE")
@@ -362,7 +390,8 @@ class EpistemicProjectionRegistry:
             assistance_ancestry=tuple(old.assistance_ancestry) + tuple(str(x) for x in assistance_ancestry),
             projection_origin=old.projection_origin, proposal_candidate_sha256=old.proposal_candidate_sha256,
             qualification_evidence_ids=tuple(old.qualification_evidence_ids) + qids,
-            frame_epochs=old.frame_epochs, episode_schema_epochs=old.episode_schema_epochs, current=True,
+            frame_epochs=old.frame_epochs, episode_schema_epochs=old.episode_schema_epochs,
+            source_projection_epochs=old.source_projection_epochs, current=True,
         )
         self.records[projection_id] = rec
         return rec
@@ -373,15 +402,27 @@ class EpistemicProjectionRegistry:
         old = self.records[projection_id]
         if not old.current:
             return old
+        self._invalidate_dependents(projection_id, old.epoch, old.signature_sha256)
         rec = EpistemicProjectionRecord(
             projection_id=old.projection_id, signature_sha256=old.signature_sha256, epoch=old.epoch + 1,
             assistance_ancestry=old.assistance_ancestry, projection_origin=old.projection_origin,
             proposal_candidate_sha256=old.proposal_candidate_sha256,
             qualification_evidence_ids=old.qualification_evidence_ids,
-            frame_epochs=old.frame_epochs, episode_schema_epochs=old.episode_schema_epochs, current=False,
+            frame_epochs=old.frame_epochs, episode_schema_epochs=old.episode_schema_epochs,
+            source_projection_epochs=old.source_projection_epochs, current=False,
         )
         self.records[projection_id] = rec
         return rec
+
+    def _invalidate_dependents(self, source_projection_id: str, source_epoch: int, source_signature: str) -> tuple[str, ...]:
+        changed=[]
+        for pid,rec in list(sorted(self.records.items())):
+            if not rec.current or pid==source_projection_id:
+                continue
+            if (str(source_projection_id),int(source_epoch),str(source_signature)) in rec.source_projection_epochs:
+                self.invalidate(pid)
+                changed.append(pid)
+        return tuple(changed)
 
     def invalidate_dependency(self, kind: str, object_id: str) -> tuple[str, ...]:
         changed=[]
@@ -389,14 +430,31 @@ class EpistemicProjectionRegistry:
         for pid, rec in sorted(self.records.items()):
             if not rec.current:
                 continue
-            deps = rec.frame_epochs if k == "FRAME" else rec.episode_schema_epochs if k == "EPISODE" else ()
+            if k == "PROJECTION":
+                deps=tuple((dep_id,dep_epoch) for dep_id,dep_epoch,_ in rec.source_projection_epochs)
+            else:
+                deps = rec.frame_epochs if k == "FRAME" else rec.episode_schema_epochs if k == "EPISODE" else ()
             if any(dep_id == str(object_id) for dep_id, _ in deps):
                 self.invalidate(pid); changed.append(pid)
         return tuple(changed)
 
     def is_current(self, projection_id: str, epoch: int) -> bool:
-        r = self.records.get(projection_id)
-        return bool(r is not None and r.current and r.epoch == int(epoch))
+        return self._is_current_recursive(str(projection_id),int(epoch),set())
+
+    def _is_current_recursive(self, projection_id: str, epoch: int, seen: set[str]) -> bool:
+        if projection_id in seen:
+            return False
+        r=self.records.get(projection_id)
+        if r is None or not r.current or r.epoch!=int(epoch):
+            return False
+        next_seen=set(seen); next_seen.add(projection_id)
+        for source_id,source_epoch,source_signature in r.source_projection_epochs:
+            source=self.records.get(source_id)
+            if source is None or source.signature_sha256!=source_signature:
+                return False
+            if not self._is_current_recursive(source_id,source_epoch,next_seen):
+                return False
+        return True
 
     def snapshot(self) -> dict[str, dict[str, Any]]:
         return {k: v.serializable() for k, v in sorted(self.records.items())}

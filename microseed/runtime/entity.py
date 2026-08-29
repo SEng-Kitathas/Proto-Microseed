@@ -4197,6 +4197,133 @@ class Microseed:
             "truth_authority":"NONE",
         }
 
+    def derive_admitted_projection_samples_from_owned_projection_buckets(
+        self, *, max_source_projections: int = 8,
+    ) -> dict[str, Any]:
+        """Ephemerally compose compatible current learned raw-projection buckets.
+
+        Base rows come only from the existing owned raw-receipt/action-outcome join.
+        Source projections are collected automatically from current admitted raw
+        projections whose exact nominated candidate content remains available, whose
+        frame ancestry is current, and which project every base raw row.  Projection
+        IDs define a deterministic opaque coordinate order.  The caller supplies only
+        a bounded source-count ceiling, never per-sample buckets or semantic labels.
+        """
+        limit=int(max_source_projections)
+        if limit < 1 or limit > 16:
+            raise ValueError("BOUNDED_SOURCE_PROJECTION_COUNT_REQUIRED")
+        base=self.derive_admitted_projection_samples_from_owned_raw_observations()
+        base_samples=tuple(base.get("samples",()))
+        if not base_samples:
+            return {
+                "status":"NO_ADMITTED_OWNED_PROJECTION_BUCKET_SAMPLE",
+                "reason":"NO_OWNED_RAW_BASE_SAMPLES",
+                "samples":(),
+                "source_projection_ids":(),
+                "source_projection_count":0,
+                "sample_persistence":"NONE",
+                "semantic_symbol_authority":"NONE",
+                "semantic_composition_authority":"NONE",
+                "truth_authority":"NONE",
+            }
+        compatible=[]
+        source_rejections=[]
+        for projection_id,rec in sorted(self.epistemic_projections.records.items()):
+            if not self.epistemic_projections.is_current(projection_id,rec.epoch):
+                continue
+            candidates=[c for c in self.epistemic_projection_candidates.values() if c.digest()==rec.signature_sha256]
+            if len(candidates)!=1:
+                source_rejections.append((projection_id,"SOURCE_PROJECTION_CONTENT_NOT_EXACTLY_RECOVERABLE")); continue
+            candidate=candidates[0]
+            if any(not self.frames.is_current(fid,ep) for fid,ep in candidate.frame_epochs):
+                source_rejections.append((projection_id,"SOURCE_PROJECTION_FRAME_NOT_CURRENT")); continue
+            buckets=[]
+            reason=None
+            allowed_frames=set(candidate.frame_epochs)
+            for sample in base_samples:
+                if (sample.frame_id,sample.frame_epoch) not in allowed_frames:
+                    reason="SOURCE_PROJECTION_FRAME_INCOMPATIBLE_WITH_BASE_SAMPLE"; break
+                bucket=candidate.project(sample.raw_tokens)
+                if bucket is None:
+                    reason="SOURCE_PROJECTION_DOES_NOT_COVER_ALL_BASE_SAMPLES"; break
+                buckets.append(str(bucket))
+            if reason is not None:
+                source_rejections.append((projection_id,reason)); continue
+            compatible.append((projection_id,candidate,tuple(buckets)))
+        if not compatible:
+            return {
+                "status":"NO_ADMITTED_OWNED_PROJECTION_BUCKET_SAMPLE",
+                "reason":"NO_COMPATIBLE_CURRENT_SOURCE_PROJECTION",
+                "samples":(),
+                "source_projection_ids":(),
+                "source_projection_count":0,
+                "source_rejections":tuple(source_rejections),
+                "sample_persistence":"NONE",
+                "semantic_symbol_authority":"NONE",
+                "semantic_composition_authority":"NONE",
+                "truth_authority":"NONE",
+            }
+        if len(compatible)>limit:
+            return {
+                "status":"DEFER_UNKNOWN",
+                "reason":"COMPATIBLE_SOURCE_PROJECTION_COUNT_EXCEEDS_BOUND",
+                "compatible_source_projection_count":len(compatible),
+                "max_source_projections":limit,
+                "source_projection_ids":tuple(x[0] for x in compatible),
+                "samples":(),
+                "sample_persistence":"NONE",
+                "semantic_symbol_authority":"NONE",
+                "semantic_composition_authority":"NONE",
+                "truth_authority":"NONE",
+            }
+        out=[]
+        source_ids=tuple(x[0] for x in compatible)
+        source_digests=tuple(x[1].digest() for x in compatible)
+        source_projection_epochs=tuple(
+            (projection_id,self.epistemic_projections.records[projection_id].epoch,self.epistemic_projections.records[projection_id].signature_sha256)
+            for projection_id in source_ids
+        )
+        for idx,base_sample in enumerate(base_samples):
+            bucket_vector=tuple(x[2][idx] for x in compatible)
+            basis={
+                "base_sample_id":base_sample.sample_id,
+                "source_projection_ids":list(source_ids),
+                "source_projection_sha256":list(source_digests),
+                "bucket_vector":list(bucket_vector),
+                "action_token":base_sample.action_token,
+                "effect_token":base_sample.effect_token,
+                "frame":[base_sample.frame_id,base_sample.frame_epoch],
+                "scope":base_sample.operational_scope_id,
+            }
+            out.append(ProjectionSample(
+                sample_id=action_stable_id("OWNED-PROJECTION-BUCKET-SAMPLE-",basis),
+                raw_tokens=bucket_vector,
+                action_token=base_sample.action_token,
+                effect_token=base_sample.effect_token,
+                operational_scope_id=base_sample.operational_scope_id,
+                frame_id=base_sample.frame_id,
+                frame_epoch=base_sample.frame_epoch,
+                source_projection_epochs=source_projection_epochs,
+            ))
+        return {
+            "status":"ADMITTED_OWNED_PROJECTION_BUCKET_SAMPLES",
+            "samples":tuple(out),
+            "sample_count":len(out),
+            "source_projection_ids":source_ids,
+            "source_projection_sha256":source_digests,
+            "source_projection_epochs":source_projection_epochs,
+            "source_projection_count":len(compatible),
+            "source_rejections":tuple(source_rejections),
+            "composition_basis":"CURRENT_EXACT_ADMITTED_RAW_PROJECTIONS_OVER_OWNED_RAW_ACTION_OUTCOME_SAMPLES",
+            "coordinate_order_basis":"LEXICOGRAPHIC_PROJECTION_ID",
+            "source_selection_authority":"COMPATIBLE_CURRENT_SET_WITH_SUPPLIED_COUNT_CEILING_ONLY",
+            "sample_persistence":"NONE",
+            "qualification_authority":"NONE",
+            "semantic_symbol_authority":"NONE",
+            "semantic_composition_authority":"NONE",
+            "truth_authority":"NONE",
+        }
+
     def derive_admitted_raw_constructor_projection_samples(self, *, max_lag: int = 1) -> dict[str, Any]:
         """Ephemerally reconstruct bounded temporal raw-observation constructor samples.
 
@@ -4418,6 +4545,7 @@ class Microseed:
             proposal_candidate_sha256=candidate.digest(),
             qualification_evidence_ids=qids,
             frame_epochs=tuple(candidate.frame_epochs),
+            source_projection_epochs=tuple(candidate.source_projection_epochs),
         )
         self.epistemic_projections.register(rec)
         packet = rec.serializable()
