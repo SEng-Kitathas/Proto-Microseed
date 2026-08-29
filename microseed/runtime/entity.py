@@ -2844,6 +2844,69 @@ class Microseed:
         self.store.append("EPISTEMIC_REVISED_SURFACE_SUCCESSOR_DEFICIT_RECORDED",packet)
         return rec
 
+    def admit_one_step_visible_history_refinement_projection(
+        self, ticket: ProjectionQualificationTicket, *, projection_id: str | None = None,
+    ) -> EpistemicProjectionRecord:
+        """Admit one current history-derived refinement through the existing projection owner.
+
+        The candidate is re-derived from current owned admitted history at admission
+        time.  The external ticket may identify an exact candidate by id+digest, but
+        the caller cannot supply the refinement content or choose semantic meaning.
+        Admission creates only an opaque current projection handle.  It grants no
+        hidden-state, truth, causal, execution, semantic-category, or deeper-history
+        authority and does not create or transition an epistemic deficit.
+        """
+        surface=self.derive_admitted_one_step_visible_history_refinements()
+        current=tuple(surface.get("refinements",()))
+        matches=tuple(
+            c for c in current
+            if c.candidate_id==ticket.candidate_id and c.digest()==ticket.candidate_sha256
+        )
+        if not matches:
+            raise ValueError("CURRENT_HISTORY_REFINEMENT_FOR_TICKET_NOT_FOUND")
+        if len(matches)!=1:
+            raise ValueError("CURRENT_HISTORY_REFINEMENT_FOR_TICKET_AMBIGUOUS")
+        candidate=matches[0]
+        ok,reason=validate_external_projection_ticket(candidate,ticket,self.evidence)
+        if not ok:
+            raise ValueError(f"INVALID_EXTERNAL_HISTORY_REFINEMENT_QUALIFICATION:{reason}")
+        frame_id,frame_epoch=candidate.frame_epoch
+        if not self.frames.is_current(frame_id,frame_epoch):
+            raise ValueError("HISTORY_REFINEMENT_FRAME_DRIFT_AFTER_NOMINATION")
+        pid=projection_id or ("proj-history-refinement-"+candidate.digest()[:20])
+        if pid in self.epistemic_projections.records:
+            raise ValueError("DUPLICATE_EPISTEMIC_PROJECTION")
+        qids=tuple(x.evidence_id for x in ticket.qualification_evidence)
+        rec=EpistemicProjectionRecord(
+            projection_id=pid,signature_sha256=candidate.digest(),epoch=0,
+            assistance_ancestry=(
+                "ONE_STEP_VISIBLE_HISTORY_REFINEMENT",
+                f"EXTERNAL_PROJECTION_QUALIFIER:{ticket.qualifier_id}",
+                f"CANDIDATE_SHA256:{ticket.candidate_sha256}",
+                "QUALIFICATION_EVIDENCE:"+",".join(qids),
+                "NO_DEFICIT_OR_SEMANTIC_CATEGORY_AUTHORITY",
+            ),
+            projection_origin="ENDOGENOUS_PROPOSAL_EXTERNALLY_QUALIFIED",
+            proposal_candidate_sha256=candidate.digest(),qualification_evidence_ids=qids,
+            frame_epochs=(candidate.frame_epoch,),
+        )
+        self.epistemic_projections.register(rec)
+        packet=rec.serializable()
+        self.path.append("EPISTEMIC_PROJECTION_REGISTERED",packet)
+        self.store.append("EPISTEMIC_PROJECTION_REGISTERED",packet)
+        admitted={
+            "candidate_id":candidate.candidate_id,"candidate_sha256":candidate.digest(),
+            "projection_id":pid,"qualifier_id":ticket.qualifier_id,
+            "qualification":ticket.state.value,"qualification_evidence_ids":list(qids),
+            "context_basis":candidate.context_basis,
+            "truth_authority":"NONE","hidden_state_authority":"NONE",
+            "causal_explanation_authority":"NONE","history_depth_extension_authority":"NONE",
+            "semantic_category_authority":"NONE","execution_authority":"NONE",
+        }
+        self.path.append("ONE_STEP_VISIBLE_HISTORY_REFINEMENT_PROJECTION_ADMITTED",admitted)
+        self.store.append("ONE_STEP_VISIBLE_HISTORY_REFINEMENT_PROJECTION_ADMITTED",admitted)
+        return rec
+
     def derive_revisit_one_step_visible_history_refinement(self, deficit_id: str) -> dict[str, Any]:
         """Bind one-step refinement to the exact admitted MODEL_SPACE_CHALLENGE for a revisit.
 
