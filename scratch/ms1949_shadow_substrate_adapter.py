@@ -10,7 +10,7 @@ from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 
 from microseed import Microseed
-from research.substrate_shadow.environment_adapter import ShadowEnvironmentAdapter
+from research.substrate_shadow.environment_adapter import ShadowEnvironmentAdapter, ForkedWorldQualificationSource
 from tests.embodiment.test_ms1941_learned_signal_response_reentry import _close
 
 
@@ -40,7 +40,7 @@ class ParityWorld:
 
 def run_world(world):
     td=tempfile.TemporaryDirectory(prefix=f'ms1949-{world.name.lower()}-'); root=Path(td.name)
-    ms=Microseed(root); adapter=ShadowEnvironmentAdapter(world)
+    ms=Microseed(root); adapter=ShadowEnvironmentAdapter(world,qualification_source=ForkedWorldQualificationSource(world,provider_id=f"QUAL-{world.name}"))
     try:
         adapter.attach(ms)
         action=world.action_ids[0]

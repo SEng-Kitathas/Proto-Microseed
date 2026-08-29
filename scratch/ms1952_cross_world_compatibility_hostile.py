@@ -9,7 +9,7 @@ from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 
 from microseed import Microseed
-from research.substrate_shadow.environment_adapter import ShadowEnvironmentAdapter, AdapterConfig
+from research.substrate_shadow.environment_adapter import ShadowEnvironmentAdapter, AdapterConfig, ForkedWorldQualificationSource
 from scratch.ms1949_shadow_substrate_adapter import ChargeWorld
 from tests.embodiment.test_ms1941_learned_signal_response_reentry import _close
 
@@ -33,7 +33,7 @@ class DriftedChargeWorld(ChargeWorld):
 
 def run_hostile():
     td=tempfile.TemporaryDirectory(prefix='ms1952-cross-world-'); root=Path(td.name)
-    original=Microseed(root); a1=ShadowEnvironmentAdapter(ChargeWorld(),AdapterConfig(adapter_instance_id='ORIGINAL'))
+    original=Microseed(root); original_world=ChargeWorld(); a1=ShadowEnvironmentAdapter(original_world,AdapterConfig(adapter_instance_id='ORIGINAL'),qualification_source=ForkedWorldQualificationSource(original_world,provider_id='QUAL-ORIGINAL'))
     try:
         a1.attach(original)
         relation_id,_=a1.train_actual_history(original,'CHARGE')

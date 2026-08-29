@@ -9,14 +9,14 @@ from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 
 from microseed import Microseed
-from research.substrate_shadow.environment_adapter import ShadowEnvironmentAdapter, AdapterConfig
+from research.substrate_shadow.environment_adapter import ShadowEnvironmentAdapter, AdapterConfig, ForkedWorldQualificationSource
 from scratch.ms1949_shadow_substrate_adapter import ChargeWorld
 from tests.embodiment.test_ms1941_learned_signal_response_reentry import _close
 
 
 def run_restart():
     td=tempfile.TemporaryDirectory(prefix='ms1950-restart-'); root=Path(td.name)
-    world1=ChargeWorld(); a1=ShadowEnvironmentAdapter(world1,AdapterConfig(adapter_instance_id="BOOT-1")); m1=Microseed(root)
+    world1=ChargeWorld(); a1=ShadowEnvironmentAdapter(world1,AdapterConfig(adapter_instance_id="BOOT-1"),qualification_source=ForkedWorldQualificationSource(world1,provider_id="QUAL-BOOT-1")); m1=Microseed(root)
     try:
         a1.attach(m1)
         relation_id,_=a1.train_actual_history(m1,'CHARGE')

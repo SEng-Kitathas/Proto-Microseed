@@ -25,6 +25,30 @@ class ExternalWorld(Protocol):
     def fork(self) -> "ExternalWorld": ...
 
 
+class QualificationSource(Protocol):
+    """Separate external role that supplies holdout outcomes; independence is not implied."""
+    provider_id: str
+    compatibility_sha256: str
+    def sample(self, action_id: str) -> tuple[dict, dict]: ...
+
+
+class ForkedWorldQualificationSource:
+    """Shadow qualification role backed by fresh external world instances.
+
+    This creates structural role separation from the live adapter. It does not prove
+    source independence merely because a different object/provider role is used.
+    """
+    def __init__(self, prototype: ExternalWorld, *, provider_id: str):
+        self.prototype=prototype
+        self.provider_id=str(provider_id)
+        self.compatibility_sha256=str(prototype.compatibility_sha256).lower()
+        if not self.provider_id:
+            raise ValueError("EMPTY_QUALIFICATION_PROVIDER_ID")
+    def sample(self, action_id: str) -> tuple[dict, dict]:
+        probe=self.prototype.fork(); probe.reset(); before=probe.observe(); probe.apply(action_id); after=probe.observe_outcome()
+        return before,after
+
+
 @dataclass(frozen=True)
 class AdapterConfig:
     adapter_instance_id: str = "ADAPTER-0"
@@ -41,9 +65,10 @@ class AdapterConfig:
 
 class ShadowEnvironmentAdapter:
     """External shadow adapter for reality pressure; grants no organism authority by itself."""
-    def __init__(self, world: ExternalWorld, config: AdapterConfig | None = None):
+    def __init__(self, world: ExternalWorld, config: AdapterConfig | None = None, *, qualification_source: QualificationSource | None = None):
         self.world = world
         self.config = config or AdapterConfig()
+        self.qualification_source = qualification_source
 
     def act_obligation(self) -> QueryObligation:
         return QueryObligation("SUBSTRATE-ACT", "opaque environment effect", Authority.EFFECT, operational_scope_id=self.config.scope_id)
@@ -132,7 +157,15 @@ class ShadowEnvironmentAdapter:
         )
 
     def train_actual_history(self, ms: Microseed, action_id: str, n: int = 12) -> tuple[str, dict]:
-        c=self.config; rows=self.equipped_seed_rows(action_id,n)
+        c=self.config
+        source=self.qualification_source
+        if source is None:
+            raise ValueError("EXTERNAL_QUALIFICATION_SOURCE_REQUIRED")
+        source_fp=str(source.compatibility_sha256).lower()
+        world_fp=str(self.world.compatibility_sha256).lower()
+        if source_fp!=world_fp:
+            raise ValueError("QUALIFICATION_SOURCE_ENVIRONMENT_COMPATIBILITY_MISMATCH")
+        rows=self.equipped_seed_rows(action_id,n)
         start=self.world.fork(); start.reset(); start_obs=start.observe()
         p=ms.nominate_counterfactual_rehearsal(rows,(self.option(action_id),),start_state_id=str(start_obs["next_state_id"]),value_id=c.value_id)
         if p is None: raise AssertionError("equipped seed proposal unavailable")
@@ -147,10 +180,10 @@ class ShadowEnvironmentAdapter:
         candidate=candidates[0]
         refs=[]
         for i in range(16):
-            probe=self.world.fork(); probe.reset(); before=probe.observe(); probe.apply(action_id); after=probe.observe_outcome()
+            before,after=source.sample(action_id)
             base={"kind":"ACTION_OUTCOME_HOLDOUT","start_state_id":candidate.start_state_id,"capability_id":candidate.capability_id,"capability_epoch":candidate.capability_epoch,"frame_epochs":[list(x) for x in candidate.frame_epochs],"episode_schema_epochs":[list(x) for x in candidate.episode_schema_epochs],"value_epoch":list(candidate.value_epoch),"topology_epochs":[list(x) for x in candidate.topology_epochs],"coordination_epochs":[list(x) for x in candidate.coordination_epochs],"evidence_premise_epochs":[list(x) for x in candidate.evidence_premise_epochs],"evidence_premise_signatures":[list(x) for x in candidate.evidence_premise_signatures]}
-            refs.append(ms.append_evidence(f"HOLDOUT-{self.world.name}-{c.adapter_instance_id}-{action_id}-{i}",{**base,"actual_next_state_id":str(after["next_state_id"]),"actual_value_effect":float(after["observed_value"])-float(before["observed_value"]),"holdout_index":i},EpistemicStatus.PRESSURE_SUPPORTED,source="EXTERNAL-WORLD-HOLDOUT"))
-        ticket=ExternalActionOutcomeRelationQualifier(ms.evidence,qualifier_id=f"SHADOW-WORLD-{self.world.name}").qualify(candidate,qualification_evidence=tuple(refs))
+            refs.append(ms.append_evidence(f"HOLDOUT-{source.provider_id}-{c.adapter_instance_id}-{action_id}-{i}",{**base,"actual_next_state_id":str(after["next_state_id"]),"actual_value_effect":float(after["observed_value"])-float(before["observed_value"]),"holdout_index":i,"qualification_provider_id":source.provider_id,"qualification_provider_compatibility_sha256":source_fp},EpistemicStatus.PRESSURE_SUPPORTED,source=f"EXTERNAL-QUALIFICATION:{source.provider_id}"))
+        ticket=ExternalActionOutcomeRelationQualifier(ms.evidence,qualifier_id=f"SHADOW-QUALIFIER-{source.provider_id}").qualify(candidate,qualification_evidence=tuple(refs))
         q=ms.qualify_action_outcome_predictive_relation(ticket); assert q["status"]=="CURRENT_PREDICTIVE_RELATION"
         return q["relation"]["relation_id"], candidate.serializable()
 

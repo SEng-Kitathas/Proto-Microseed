@@ -8,7 +8,7 @@ from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 
 from microseed import Microseed
-from research.substrate_shadow.environment_adapter import ShadowEnvironmentAdapter, AdapterConfig
+from research.substrate_shadow.environment_adapter import ShadowEnvironmentAdapter, AdapterConfig, ForkedWorldQualificationSource
 from scratch.ms1949_shadow_substrate_adapter import ChargeWorld
 from tests.embodiment.test_ms1941_learned_signal_response_reentry import _close
 
@@ -25,7 +25,7 @@ def record_one(ms,adapter,proposal_id,tag):
 
 def run_lifetime(sessions=3,executions_per_session=3):
     td=tempfile.TemporaryDirectory(prefix='ms1951-lifetime-'); root=Path(td.name)
-    m=Microseed(root); a=ShadowEnvironmentAdapter(ChargeWorld(),AdapterConfig(adapter_instance_id='BOOT-0'))
+    m=Microseed(root); boot_world=ChargeWorld(); a=ShadowEnvironmentAdapter(boot_world,AdapterConfig(adapter_instance_id='BOOT-0'),qualification_source=ForkedWorldQualificationSource(boot_world,provider_id='QUAL-BOOT-0'))
     try:
         a.attach(m); relation_id,_=a.train_actual_history(m,'CHARGE'); p=a.zero_row_rehearsal(m,'CHARGE'); assert p
         proposal_id=p.proposal_id

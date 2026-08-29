@@ -10,7 +10,7 @@ from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 
 from microseed import Microseed
-from research.substrate_shadow.environment_adapter import ShadowEnvironmentAdapter, AdapterConfig
+from research.substrate_shadow.environment_adapter import ShadowEnvironmentAdapter, AdapterConfig, ForkedWorldQualificationSource
 from tests.embodiment.test_ms1941_learned_signal_response_reentry import _close
 
 
@@ -71,7 +71,7 @@ def run_hostile():
 
 
 def run_delayed_reality():
-    td=tempfile.TemporaryDirectory(prefix='ms1953-delayed-reality-'); ms=Microseed(Path(td.name)); world=DelayedChargeWorld(); adapter=ShadowEnvironmentAdapter(world,AdapterConfig(adapter_instance_id='DELAYED-REAL'))
+    td=tempfile.TemporaryDirectory(prefix='ms1953-delayed-reality-'); ms=Microseed(Path(td.name)); world=DelayedChargeWorld(); adapter=ShadowEnvironmentAdapter(world,AdapterConfig(adapter_instance_id='DELAYED-REAL'),qualification_source=ForkedWorldQualificationSource(world,provider_id='QUAL-DELAYED'))
     try:
         adapter.attach(ms)
         relation_id,candidate=adapter.train_actual_history(ms,'CHARGE-DELAYED')
