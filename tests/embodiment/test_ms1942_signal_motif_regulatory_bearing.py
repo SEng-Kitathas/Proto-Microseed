@@ -299,6 +299,31 @@ def test_multi_value_episode_abstains_instead_of_inventing_signal_referent():
         _close(td, m)
 
 
+def test_candidate_subject_binding_rejects_nonfirst_source_trace_ancestry_drift_even_when_trace_is_individually_current():
+    td, m = _seed()
+    try:
+        m.observe_value_state(VALUE, 3.0)
+        c = _candidates(m)[(EMIT_A, RESP_A)]
+        # Replace a non-first exact source row with a trace that is still current
+        # but no longer carries the candidate's coordination ancestry. The
+        # candidate subject must be re-resolved across every source trace.
+        trace_id = c.source_trace_ids[-1]
+        original = m.operational_traces[trace_id]
+        m.operational_traces[trace_id] = replace(
+            original,
+            coordination_ids=(),
+            coordination_epochs=(),
+        )
+        row = m.derive_discovered_candidate_regulatory_bearing(c.candidate_id, VALUE)
+        assert row["status"] == "UNKNOWN_INCOMPLETE"
+        assert row["reason"] == "SOURCE_TRACE_COORDINATION_EPOCHS_SUBJECT_MISMATCH"
+        assert row["commitment"] is None
+        assert row["semantic_signal_authority"] == "NONE"
+        assert row["reference_authority"] == "NONE"
+    finally:
+        _close(td, m)
+
+
 def test_candidate_subject_binding_rejects_missing_source_trace_instead_of_recomputing_some_other_subject():
     td, m = _seed()
     try:

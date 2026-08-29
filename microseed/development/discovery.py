@@ -482,12 +482,23 @@ def derive_value_bound_candidate_motif_effect(
     frame_id, frame_epoch = next(iter(frame_keys))
     schema_id, schema_epoch = next(iter(episode_keys))
 
+    # Re-resolve the candidate subject from *all* exact source traces, not just
+    # one representative row. Discovery originally requires these ancestry
+    # families to be uniform, but a later trace replacement must not silently
+    # change the subject while remaining individually current.
+    uniform_families: dict[str, tuple[tuple[str, int], ...]] = {}
+    for key in ("topology_epochs", "counterparty_epochs", "coordination_epochs"):
+        values = {tuple(getattr(trace, key)) for trace in source_rows}
+        if len(values) != 1:
+            return unknown(f"SOURCE_TRACE_{key.upper()}_SUBJECT_MISMATCH")
+        uniform_families[key] = next(iter(values))
+
     expected_families = (
         ("frame_epochs", ((str(frame_id), int(frame_epoch)),)),
         ("episode_schema_epochs", ((str(schema_id), int(schema_epoch)),)),
-        ("topology_epochs", tuple(source_rows[0].topology_epochs)),
-        ("counterparty_epochs", tuple(source_rows[0].counterparty_epochs)),
-        ("coordination_epochs", tuple(source_rows[0].coordination_epochs)),
+        ("topology_epochs", uniform_families["topology_epochs"]),
+        ("counterparty_epochs", uniform_families["counterparty_epochs"]),
+        ("coordination_epochs", uniform_families["coordination_epochs"]),
     )
     for key, actual in expected_families:
         if key in sig:
