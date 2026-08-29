@@ -2073,6 +2073,101 @@ class Microseed:
             "evidence_independence_authority":"NONE",
         }
 
+    def derive_admitted_constructor_projection_samples(self, *, max_lag: int = 2) -> dict[str, Any]:
+        """Ephemerally reconstruct bounded visible-history constructor samples from owned history.
+
+        History is followed only through exact control-state evidence links between
+        authenticated admitted action/outcome transitions.  The method does not accept
+        caller-supplied history tokens, persist samples, discover a constructor, qualify
+        anything, or extend semantic/history authority.  Temporal samples require one
+        unique current EpisodeSchema whose exact current frame ancestry contains the
+        transition frame.
+        """
+        depth=int(max_lag)
+        if depth < 0 or depth > 4:
+            raise ValueError("BOUNDED_OWNED_HISTORY_LAG_REQUIRED")
+        admitted: dict[str, OpaqueTransitionSample] = {}
+        rejected: list[tuple[str,str]] = []
+        for execution_id in sorted(self.action_closure.executions):
+            row=self.derive_admitted_opaque_transition_sample(execution_id)
+            if row.get("status")=="ADMITTED_OPAQUE_TRANSITION_SAMPLE":
+                admitted[execution_id]=row["sample"]
+            else:
+                rejected.append((execution_id,str(row.get("reason","ABSTAIN"))))
+        outcomes_by_evidence: dict[str,list[ActionOutcomeRecord]] = {}
+        for outcome in self.action_closure.outcomes.values():
+            outcomes_by_evidence.setdefault(outcome.evidence_id,[]).append(outcome)
+        samples: list[ConstructorProjectionSample] = []
+        sample_rejections: list[tuple[str,str]] = []
+        for execution_id,current in sorted(admitted.items()):
+            execution=self.action_closure.executions.get(execution_id)
+            intent=None if execution is None else self.action_closure.intents.get(execution.intent_id)
+            if intent is None:
+                sample_rejections.append((execution_id,"ACTION_INTENT_NOT_FOUND")); continue
+            chain=[current]
+            cursor_intent=intent
+            for _lag in range(depth):
+                prior_rows=outcomes_by_evidence.get(cursor_intent.control_state_evidence_id,())
+                if len(prior_rows)!=1:
+                    break
+                prior_outcome=prior_rows[0]
+                prior_sample=admitted.get(prior_outcome.execution_id)
+                if prior_sample is None or prior_sample.end_token!=chain[-1].start_token:
+                    break
+                if (prior_sample.frame_id,prior_sample.frame_epoch)!=(current.frame_id,current.frame_epoch):
+                    break
+                chain.append(prior_sample)
+                prior_execution=self.action_closure.executions.get(prior_outcome.execution_id)
+                cursor_intent=None if prior_execution is None else self.action_closure.intents.get(prior_execution.intent_id)
+                if cursor_intent is None:
+                    break
+            episode_matches=[]
+            for schema_id,schema in sorted(self.episodes.schemas.items()):
+                epoch=self.episodes.epochs.get(schema_id,-1)
+                if not self.episodes.is_current(schema_id,epoch):
+                    continue
+                if (current.frame_id,current.frame_epoch) in tuple(schema.frame_epochs):
+                    episode_matches.append((schema_id,epoch))
+            if len(chain)>1 and len(episode_matches)!=1:
+                sample_rejections.append((execution_id,"EXACT_SINGLE_CURRENT_EPISODE_FOR_HISTORY_REQUIRED")); continue
+            schema_id,schema_epoch=(episode_matches[0] if episode_matches else (None,None))
+            raw_history=tuple((row.start_token,) for row in chain)
+            basis={
+                "execution_id":execution_id,
+                "source_transition_sample_ids":[row.sample_id for row in chain],
+                "raw_history":[list(x) for x in raw_history],
+                "action_token":current.action_token,
+                "effect_token":current.end_token,
+                "frame":[current.frame_id,current.frame_epoch],
+                "episode":None if schema_id is None else [schema_id,schema_epoch],
+            }
+            sample=ConstructorProjectionSample(
+                sample_id=action_stable_id("OWNED-CONSTRUCTOR-SAMPLE-",basis),
+                raw_history=raw_history,
+                action_token=current.action_token,
+                effect_token=current.end_token,
+                operational_scope_id=intent.operational_scope_id,
+                frame_id=current.frame_id,
+                frame_epoch=current.frame_epoch,
+                episode_schema_id=schema_id,
+                episode_schema_epoch=schema_epoch,
+            )
+            samples.append(sample)
+        return {
+            "status":"ADMITTED_OWNED_CONSTRUCTOR_SAMPLES" if samples else "NO_ADMITTED_OWNED_CONSTRUCTOR_SAMPLE",
+            "samples":tuple(samples),
+            "sample_count":len(samples),
+            "transition_rejections":tuple(rejected),
+            "sample_rejections":tuple(sample_rejections),
+            "max_lag_requested":depth,
+            "history_basis":"AUTHENTICATED_CONTROL_STATE_PREDECESSOR_CHAIN",
+            "sample_persistence":"NONE",
+            "qualification_authority":"NONE",
+            "truth_authority":"NONE",
+            "semantic_projection_authority":"NONE",
+            "history_depth_semantic_authority":"NONE",
+        }
+
     def derive_admitted_one_step_visible_history_refinements(self) -> dict[str, Any]:
         """Ephemerally derive previous-visible-state refinement from owned admitted history.
 
