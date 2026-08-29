@@ -1,0 +1,421 @@
+{
+  "schema": "pcmmad.ms1934.fault-localization.v1",
+  "classification": "NON_NOVELTY_ARCHITECTURE_FACTOR_EXPERIMENT",
+  "discriminator": "EXPLICIT_TYPED_PREMISE_LINEAGE -> FAULT_LOCALIZATION_DIAGNOSTIC_PRECISION",
+  "sealed_repo_head": "6b0f012980a625143ea7137be848d6f13b57325b",
+  "organism_worktree_clean": true,
+  "fixture": {
+    "branches": 8,
+    "capability_chain_depth": 3,
+    "total_capabilities": 24,
+    "premise_universe_counts": {
+      "COUNTERPARTY": 1,
+      "COORDINATION": 8,
+      "CAPABILITY": 24
+    },
+    "typed_dependency_edge_count": 32,
+    "fault_budget_per_scenario": 1
+  },
+  "baselines": {
+    "GLOBAL_DECISION_REASON_VECTOR_BASELINE": {
+      "state": "final per-capability CURRENT/STALE vector plus generic changed-premise type; no premise identity-to-context ancestry graph",
+      "scope_claim": "SPECIFIC_NAMED_BASELINE_ONLY"
+    },
+    "CENTRALIZED_TYPED_DEPENDENCY_TRACE_BASELINE": {
+      "state": "same final vector plus equivalent typed origin event identity/reason lineage and explicit dependency edges",
+      "purpose": "fairness control distinguishing trace-information value from physical owner distribution",
+      "scope_claim": "SPECIFIC_NAMED_BASELINE_ONLY"
+    }
+  },
+  "scenarios": [
+    {
+      "name": "coordination_specific_fault",
+      "fault_kind": "COORDINATION",
+      "true_root": [
+        "COORDINATION",
+        "R3"
+      ],
+      "returned_stale_ids": [
+        "B3-0",
+        "B3-1",
+        "B3-2"
+      ],
+      "final_stale_capability_ids": [
+        "B3-0",
+        "B3-1",
+        "B3-2"
+      ],
+      "final_stale_capability_count": 3,
+      "decision_vector_sha256": "be48a14cbb15844341beb583c7d81c617bfafe0ccb412763311737aa638fd6fc",
+      "microseed": {
+        "candidate_roots": [
+          [
+            "COORDINATION",
+            "R3"
+          ]
+        ],
+        "candidate_root_count": 1,
+        "contains_true_root": true,
+        "unique_true_root": true,
+        "false_positive_candidate_count": 0,
+        "diagnostic_event_count": 2,
+        "diagnostic_payload_bytes": 979
+      },
+      "global_decision_reason_vector_baseline": {
+        "candidate_roots": [
+          [
+            "COORDINATION",
+            "R0"
+          ],
+          [
+            "COORDINATION",
+            "R1"
+          ],
+          [
+            "COORDINATION",
+            "R2"
+          ],
+          [
+            "COORDINATION",
+            "R3"
+          ],
+          [
+            "COORDINATION",
+            "R4"
+          ],
+          [
+            "COORDINATION",
+            "R5"
+          ],
+          [
+            "COORDINATION",
+            "R6"
+          ],
+          [
+            "COORDINATION",
+            "R7"
+          ]
+        ],
+        "candidate_root_count": 8,
+        "contains_true_root": true,
+        "unique_true_root": false,
+        "false_positive_candidate_count": 7,
+        "diagnostic_record_count": 25,
+        "diagnostic_payload_bytes": 467,
+        "dependency_edge_state_count": 0
+      },
+      "centralized_typed_dependency_trace_baseline": {
+        "candidate_roots": [
+          [
+            "COORDINATION",
+            "R3"
+          ]
+        ],
+        "candidate_root_count": 1,
+        "contains_true_root": true,
+        "unique_true_root": true,
+        "false_positive_candidate_count": 0,
+        "diagnostic_record_count": 25,
+        "diagnostic_payload_bytes": 1161,
+        "dependency_edge_state_count": 32
+      },
+      "typed_trace_matches_microseed_candidates": true,
+      "microseed_event_kinds": [
+        "OPERATIONAL_COORDINATION_INVALIDATED",
+        "CAPABILITY_INVALIDATED"
+      ]
+    },
+    {
+      "name": "root_capability_fault",
+      "fault_kind": "CAPABILITY",
+      "true_root": [
+        "CAPABILITY",
+        "B3-0"
+      ],
+      "returned_stale_ids": [
+        "B3-0",
+        "B3-1",
+        "B3-2"
+      ],
+      "final_stale_capability_ids": [
+        "B3-0",
+        "B3-1",
+        "B3-2"
+      ],
+      "final_stale_capability_count": 3,
+      "decision_vector_sha256": "be48a14cbb15844341beb583c7d81c617bfafe0ccb412763311737aa638fd6fc",
+      "microseed": {
+        "candidate_roots": [
+          [
+            "CAPABILITY",
+            "B3-0"
+          ]
+        ],
+        "candidate_root_count": 1,
+        "contains_true_root": true,
+        "unique_true_root": true,
+        "false_positive_candidate_count": 0,
+        "diagnostic_event_count": 1,
+        "diagnostic_payload_bytes": 764
+      },
+      "global_decision_reason_vector_baseline": {
+        "candidate_roots": [
+          [
+            "CAPABILITY",
+            "B3-0"
+          ],
+          [
+            "CAPABILITY",
+            "B3-1"
+          ],
+          [
+            "CAPABILITY",
+            "B3-2"
+          ]
+        ],
+        "candidate_root_count": 3,
+        "contains_true_root": true,
+        "unique_true_root": false,
+        "false_positive_candidate_count": 2,
+        "diagnostic_record_count": 25,
+        "diagnostic_payload_bytes": 465,
+        "dependency_edge_state_count": 0
+      },
+      "centralized_typed_dependency_trace_baseline": {
+        "candidate_roots": [
+          [
+            "CAPABILITY",
+            "B3-0"
+          ]
+        ],
+        "candidate_root_count": 1,
+        "contains_true_root": true,
+        "unique_true_root": true,
+        "false_positive_candidate_count": 0,
+        "diagnostic_record_count": 25,
+        "diagnostic_payload_bytes": 1264,
+        "dependency_edge_state_count": 32
+      },
+      "typed_trace_matches_microseed_candidates": true,
+      "microseed_event_kinds": [
+        "CAPABILITY_INVALIDATED"
+      ]
+    },
+    {
+      "name": "leaf_capability_fault",
+      "fault_kind": "CAPABILITY",
+      "true_root": [
+        "CAPABILITY",
+        "B3-2"
+      ],
+      "returned_stale_ids": [
+        "B3-2"
+      ],
+      "final_stale_capability_ids": [
+        "B3-2"
+      ],
+      "final_stale_capability_count": 1,
+      "decision_vector_sha256": "3501d527d9c833120d5dc865f71d02cbbf17fd7de2d6ecc5f45e4a23ac2fe74b",
+      "microseed": {
+        "candidate_roots": [
+          [
+            "CAPABILITY",
+            "B3-2"
+          ]
+        ],
+        "candidate_root_count": 1,
+        "contains_true_root": true,
+        "unique_true_root": true,
+        "false_positive_candidate_count": 0,
+        "diagnostic_event_count": 1,
+        "diagnostic_payload_bytes": 740
+      },
+      "global_decision_reason_vector_baseline": {
+        "candidate_roots": [
+          [
+            "CAPABILITY",
+            "B3-2"
+          ]
+        ],
+        "candidate_root_count": 1,
+        "contains_true_root": true,
+        "unique_true_root": true,
+        "false_positive_candidate_count": 0,
+        "diagnostic_record_count": 25,
+        "diagnostic_payload_bytes": 469,
+        "dependency_edge_state_count": 0
+      },
+      "centralized_typed_dependency_trace_baseline": {
+        "candidate_roots": [
+          [
+            "CAPABILITY",
+            "B3-2"
+          ]
+        ],
+        "candidate_root_count": 1,
+        "contains_true_root": true,
+        "unique_true_root": true,
+        "false_positive_candidate_count": 0,
+        "diagnostic_record_count": 25,
+        "diagnostic_payload_bytes": 1240,
+        "dependency_edge_state_count": 32
+      },
+      "typed_trace_matches_microseed_candidates": true,
+      "microseed_event_kinds": [
+        "CAPABILITY_INVALIDATED"
+      ]
+    },
+    {
+      "name": "shared_counterparty_fault",
+      "fault_kind": "COUNTERPARTY",
+      "true_root": [
+        "COUNTERPARTY",
+        "CP0"
+      ],
+      "returned_stale_ids": [
+        "B0-0",
+        "B0-1",
+        "B0-2",
+        "B1-0",
+        "B1-1",
+        "B1-2",
+        "B2-0",
+        "B2-1",
+        "B2-2",
+        "B3-0",
+        "B3-1",
+        "B3-2",
+        "B4-0",
+        "B4-1",
+        "B4-2",
+        "B5-0",
+        "B5-1",
+        "B5-2",
+        "B6-0",
+        "B6-1",
+        "B6-2",
+        "B7-0",
+        "B7-1",
+        "B7-2"
+      ],
+      "final_stale_capability_ids": [
+        "B0-0",
+        "B0-1",
+        "B0-2",
+        "B1-0",
+        "B1-1",
+        "B1-2",
+        "B2-0",
+        "B2-1",
+        "B2-2",
+        "B3-0",
+        "B3-1",
+        "B3-2",
+        "B4-0",
+        "B4-1",
+        "B4-2",
+        "B5-0",
+        "B5-1",
+        "B5-2",
+        "B6-0",
+        "B6-1",
+        "B6-2",
+        "B7-0",
+        "B7-1",
+        "B7-2"
+      ],
+      "final_stale_capability_count": 24,
+      "decision_vector_sha256": "1ade0345d7ff16504cb7344db662347fa8610ac2525d98582f7fe1bf48fa9ed1",
+      "microseed": {
+        "candidate_roots": [
+          [
+            "COUNTERPARTY",
+            "CP0"
+          ]
+        ],
+        "candidate_root_count": 1,
+        "contains_true_root": true,
+        "unique_true_root": true,
+        "false_positive_candidate_count": 0,
+        "diagnostic_event_count": 17,
+        "diagnostic_payload_bytes": 5150
+      },
+      "global_decision_reason_vector_baseline": {
+        "candidate_roots": [
+          [
+            "COUNTERPARTY",
+            "CP0"
+          ]
+        ],
+        "candidate_root_count": 1,
+        "contains_true_root": true,
+        "unique_true_root": true,
+        "false_positive_candidate_count": 0,
+        "diagnostic_record_count": 25,
+        "diagnostic_payload_bytes": 425,
+        "dependency_edge_state_count": 0
+      },
+      "centralized_typed_dependency_trace_baseline": {
+        "candidate_roots": [
+          [
+            "COUNTERPARTY",
+            "CP0"
+          ]
+        ],
+        "candidate_root_count": 1,
+        "contains_true_root": true,
+        "unique_true_root": true,
+        "false_positive_candidate_count": 0,
+        "diagnostic_record_count": 25,
+        "diagnostic_payload_bytes": 1114,
+        "dependency_edge_state_count": 32
+      },
+      "typed_trace_matches_microseed_candidates": true,
+      "microseed_event_kinds": [
+        "OPERATIONAL_COUNTERPARTY_INVALIDATED",
+        "OPERATIONAL_COORDINATION_INVALIDATED",
+        "OPERATIONAL_COORDINATION_INVALIDATED",
+        "OPERATIONAL_COORDINATION_INVALIDATED",
+        "OPERATIONAL_COORDINATION_INVALIDATED",
+        "OPERATIONAL_COORDINATION_INVALIDATED",
+        "OPERATIONAL_COORDINATION_INVALIDATED",
+        "OPERATIONAL_COORDINATION_INVALIDATED",
+        "OPERATIONAL_COORDINATION_INVALIDATED",
+        "CAPABILITY_INVALIDATED",
+        "CAPABILITY_INVALIDATED",
+        "CAPABILITY_INVALIDATED",
+        "CAPABILITY_INVALIDATED",
+        "CAPABILITY_INVALIDATED",
+        "CAPABILITY_INVALIDATED",
+        "CAPABILITY_INVALIDATED",
+        "CAPABILITY_INVALIDATED"
+      ]
+    }
+  ],
+  "checks": {
+    "sealed_head_ms1924": true,
+    "organism_worktree_clean": true,
+    "microseed_unique_localization_all_scenarios": true,
+    "typed_central_unique_localization_all_scenarios": true,
+    "typed_central_matches_microseed_candidates_all_scenarios": true,
+    "flat_coordination_baseline_has_eight_candidates": true,
+    "flat_root_capability_baseline_narrows_to_stale_branch": true,
+    "flat_leaf_capability_baseline_is_unique": true,
+    "flat_shared_counterparty_baseline_is_unique_in_single_counterparty_fixture": true,
+    "flat_baseline_worse_in_at_least_two_scenarios": true,
+    "decision_semantics_identical_by_construction": true,
+    "typed_baseline_explicitly_carries_dependency_state": true
+  },
+  "passed": 12,
+  "total": 12,
+  "all_pass": true,
+  "interpretation": {
+    "flat_baseline_result": "Explicit typed origin/ancestry can reduce candidate fault sets relative to a flat reason vector.",
+    "fairness_control_result": "A centralized baseline given equivalent typed trace information matches Microseed localization exactly in this fixture.",
+    "earned_statement": "DIAGNOSTIC_PRECISION_FOLLOWS_EXPLICIT_TYPED_TRACE_INFORMATION_UNDER_THIS_FIXTURE",
+    "rejected_overclaim": "PHYSICAL_DISTRIBUTION_OF_AUTHORITY_OWNERS_CAUSES_UNIQUE_DIAGNOSTIC_PRECISION"
+  },
+  "started_at_epoch": 1787974710.2827666,
+  "duration_seconds": 0.450304,
+  "authority": "ENGINEERING_MEASUREMENT_ONLY_NO_NOVELTY_OR_CANONICAL_PROMOTION"
+}

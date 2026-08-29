@@ -1,0 +1,1217 @@
+{
+  "schema": "microseed.ms1939.proposal-action-indication-release.v2",
+  "classification": "PASS",
+  "completion_marker": "COMPLETE",
+  "authority": "SEALED_RESEARCH_DESCENDANT_RELEASE__NO_CANONICAL_MAIN_DEV_PROMOTION__NO_NOVELTY_CLAIM",
+  "parent_git_head": "6b0f012980a625143ea7137be848d6f13b57325b",
+  "source_snapshot_sha256": "0b58df92d72dedf4856ee3b6b209af3991c4e0192595d120dd38139bd0f92528",
+  "source_snapshot_stable": true,
+  "source_test_python_file_count": 274,
+  "change": {
+    "scar": "PROPOSAL_RETURNED != ACTION_INDICATED",
+    "reproduced_zero_pressure_ambiguity": true,
+    "rejected_first_repair": "ZERO_PRESSURE_RETURN_NONE rejected as overbroad because it broke legitimate MS1477/MS1782 model-only relation reentry",
+    "final_repair": "proposal/status serialization explicitly expose action_indicated=false and action_indication_authority=NONE; derive_bounded_action_commitment remains the separate current action-indication surface",
+    "proposal_digest_identity_preserved": true
+  },
+  "focused_validation": {
+    "job_id": "job-062a4bd046d4",
+    "passed_count": 42,
+    "status": "PASS"
+  },
+  "compatibility_coverage": {
+    "test_file_count": 183,
+    "declared_test_function_count": 686,
+    "covered_declared_test_function_count": 686,
+    "declared_function_coverage_exact": true,
+    "pytest_collected_item_count": 691,
+    "durable_pass_receipt_count": 124,
+    "receipt_trees": [
+      "reports/ms1939_zero_pressure_full_suite",
+      "reports/ms1939_release_validation",
+      "reports/ms1939_residual_leaf_closure"
+    ],
+    "contributing_receipts": [
+      {
+        "path": "reports/ms1939_zero_pressure_full_suite/s00/receipt.json",
+        "sha256": "f0f6b9595df467c3e674d5d41c6e1abc8dfdb53b129bc547a9a996d59af91612",
+        "tree": "ms1939_zero_pressure_full_suite",
+        "group_id": "s00",
+        "covered_function_nodes": 24,
+        "new_function_nodes_contributed": 24,
+        "reported_passed_count": 24
+      },
+      {
+        "path": "reports/ms1939_zero_pressure_full_suite/s01/receipt.json",
+        "sha256": "2fa7db1c1e882e1ec86479462de1feb43123bc996d5851b8b1fb522441f0e1af",
+        "tree": "ms1939_zero_pressure_full_suite",
+        "group_id": "s01",
+        "covered_function_nodes": 25,
+        "new_function_nodes_contributed": 25,
+        "reported_passed_count": 25
+      },
+      {
+        "path": "reports/ms1939_zero_pressure_full_suite/s02/receipt.json",
+        "sha256": "3784210e7aef1c99ec25bbb1e12033732eb1ae81e6cc42b500628d722d70e005",
+        "tree": "ms1939_zero_pressure_full_suite",
+        "group_id": "s02",
+        "covered_function_nodes": 24,
+        "new_function_nodes_contributed": 24,
+        "reported_passed_count": 24
+      },
+      {
+        "path": "reports/ms1939_zero_pressure_full_suite/s03/receipt.json",
+        "sha256": "be09d9a7665fb169e4afc95d1f370ce836bbb5aa69ba4762367feb0ac04c82bc",
+        "tree": "ms1939_zero_pressure_full_suite",
+        "group_id": "s03",
+        "covered_function_nodes": 16,
+        "new_function_nodes_contributed": 16,
+        "reported_passed_count": 16
+      },
+      {
+        "path": "reports/ms1939_zero_pressure_full_suite/s04/receipt.json",
+        "sha256": "2363b564c5ef594ed221c6c83ea06aa255f09c5d4664a1ae9ce1376326e38a4f",
+        "tree": "ms1939_zero_pressure_full_suite",
+        "group_id": "s04",
+        "covered_function_nodes": 13,
+        "new_function_nodes_contributed": 13,
+        "reported_passed_count": 13
+      },
+      {
+        "path": "reports/ms1939_zero_pressure_full_suite/s05/receipt.json",
+        "sha256": "d6d987d529fef178dfffb7e397b994ce240c87b7e9e3e99c1ea7f0536b9361a9",
+        "tree": "ms1939_zero_pressure_full_suite",
+        "group_id": "s05",
+        "covered_function_nodes": 14,
+        "new_function_nodes_contributed": 14,
+        "reported_passed_count": 14
+      },
+      {
+        "path": "reports/ms1939_zero_pressure_full_suite/s06/receipt.json",
+        "sha256": "b2f3328678bee210ce1925bce2c367d63d661260f925a330e484888473c64ded",
+        "tree": "ms1939_zero_pressure_full_suite",
+        "group_id": "s06",
+        "covered_function_nodes": 14,
+        "new_function_nodes_contributed": 14,
+        "reported_passed_count": 14
+      },
+      {
+        "path": "reports/ms1939_zero_pressure_full_suite/s07/receipt.json",
+        "sha256": "2dadfe8cb3dd4bfa0a4cc2772ff4bd49e430f4fd5db55403a7a029b05c691fab",
+        "tree": "ms1939_zero_pressure_full_suite",
+        "group_id": "s07",
+        "covered_function_nodes": 23,
+        "new_function_nodes_contributed": 23,
+        "reported_passed_count": 24
+      },
+      {
+        "path": "reports/ms1939_zero_pressure_full_suite/s08/receipt.json",
+        "sha256": "71eb26fd6e962937279a8516dede54fee903e0e1ab27976014eaf359b52ff647",
+        "tree": "ms1939_zero_pressure_full_suite",
+        "group_id": "s08",
+        "covered_function_nodes": 21,
+        "new_function_nodes_contributed": 21,
+        "reported_passed_count": 21
+      },
+      {
+        "path": "reports/ms1939_zero_pressure_full_suite/s09/receipt.json",
+        "sha256": "652914ce31dd9575994888d8ebe2ec9e47318c793c6a40f1f0058c8226efc09e",
+        "tree": "ms1939_zero_pressure_full_suite",
+        "group_id": "s09",
+        "covered_function_nodes": 16,
+        "new_function_nodes_contributed": 16,
+        "reported_passed_count": 16
+      },
+      {
+        "path": "reports/ms1939_zero_pressure_full_suite/s12/receipt.json",
+        "sha256": "f2e4eb6eaddfe973c64c913599f350f220d2e0a2a48705b0c8c998d106069a73",
+        "tree": "ms1939_zero_pressure_full_suite",
+        "group_id": "s12",
+        "covered_function_nodes": 19,
+        "new_function_nodes_contributed": 19,
+        "reported_passed_count": 19
+      },
+      {
+        "path": "reports/ms1939_zero_pressure_full_suite/s15/receipt.json",
+        "sha256": "49375b1780ce19d2c23b7651eb8d22cc51241f5a6445e14b5a2753d335a6f19f",
+        "tree": "ms1939_zero_pressure_full_suite",
+        "group_id": "s15",
+        "covered_function_nodes": 17,
+        "new_function_nodes_contributed": 17,
+        "reported_passed_count": 17
+      },
+      {
+        "path": "reports/ms1939_zero_pressure_full_suite/s16/receipt.json",
+        "sha256": "c979d8b85514075bc7d82cfed934fe37f683c9e352318ee47b7dcb7f785abf0f",
+        "tree": "ms1939_zero_pressure_full_suite",
+        "group_id": "s16",
+        "covered_function_nodes": 18,
+        "new_function_nodes_contributed": 18,
+        "reported_passed_count": 18
+      },
+      {
+        "path": "reports/ms1939_zero_pressure_full_suite/s21/receipt.json",
+        "sha256": "91af97cbd3af46b169040cffc16ec7547d8e1a47c8eeb185687af06e611043d0",
+        "tree": "ms1939_zero_pressure_full_suite",
+        "group_id": "s21",
+        "covered_function_nodes": 22,
+        "new_function_nodes_contributed": 22,
+        "reported_passed_count": 22
+      },
+      {
+        "path": "reports/ms1939_zero_pressure_full_suite/s29/receipt.json",
+        "sha256": "987978ddef74af6e163036882cf39796452a9da3daff0a3e93e7f981f3896413",
+        "tree": "ms1939_zero_pressure_full_suite",
+        "group_id": "s29",
+        "covered_function_nodes": 20,
+        "new_function_nodes_contributed": 20,
+        "reported_passed_count": 20
+      },
+      {
+        "path": "reports/ms1939_release_validation/fast-00/receipt.json",
+        "sha256": "db65761c6992f29d21815aae9c9abed7150c9d7d4fdc6e2c4d4ed97a6e80be2f",
+        "tree": "ms1939_release_validation",
+        "group_id": "fast-00",
+        "covered_function_nodes": 24,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 24
+      },
+      {
+        "path": "reports/ms1939_release_validation/fast-01/receipt.json",
+        "sha256": "b3ec4efd6b0a8cc2ae8225ec6de6f04cda2b9e5db9cac205df3a1844339c625b",
+        "tree": "ms1939_release_validation",
+        "group_id": "fast-01",
+        "covered_function_nodes": 25,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 25
+      },
+      {
+        "path": "reports/ms1939_release_validation/fast-02/receipt.json",
+        "sha256": "6cf4d4c76a5f20e8ba615e06113f634c4b04cdcd62fc247cc597ed13c03cc48b",
+        "tree": "ms1939_release_validation",
+        "group_id": "fast-02",
+        "covered_function_nodes": 24,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 24
+      },
+      {
+        "path": "reports/ms1939_release_validation/fast-03/receipt.json",
+        "sha256": "fb9e19e6dfee8fc1b4319764bcc8ace8ea32115851f5247c51561b5cc5b3421a",
+        "tree": "ms1939_release_validation",
+        "group_id": "fast-03",
+        "covered_function_nodes": 16,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 16
+      },
+      {
+        "path": "reports/ms1939_release_validation/fast-04/receipt.json",
+        "sha256": "b173c5ea46e2bbaad8d9f4cad387726397bfb94fbcfe1f6b324669ee379c536b",
+        "tree": "ms1939_release_validation",
+        "group_id": "fast-04",
+        "covered_function_nodes": 13,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 13
+      },
+      {
+        "path": "reports/ms1939_release_validation/fast-05/receipt.json",
+        "sha256": "1ddd22ad6102dd97fbd2651708611a751afa9e9e721c08369b2b74ec8fd73caf",
+        "tree": "ms1939_release_validation",
+        "group_id": "fast-05",
+        "covered_function_nodes": 14,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 14
+      },
+      {
+        "path": "reports/ms1939_release_validation/fast-06/receipt.json",
+        "sha256": "fec249c2a53eb52635aa87b8d994b66e7b341c04e409e3288c28800d6c7a9d3a",
+        "tree": "ms1939_release_validation",
+        "group_id": "fast-06",
+        "covered_function_nodes": 14,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 14
+      },
+      {
+        "path": "reports/ms1939_release_validation/fast-07/receipt.json",
+        "sha256": "ea191d8b44d1b2f103529f380d55ed5fa28b5a592fb93ce7fbb850ff65679bb0",
+        "tree": "ms1939_release_validation",
+        "group_id": "fast-07",
+        "covered_function_nodes": 23,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 24
+      },
+      {
+        "path": "reports/ms1939_release_validation/fast-08/receipt.json",
+        "sha256": "3594150ef4ed8e60c45dfcc33454b402f71f5512f25d371ce8087bf26192c11d",
+        "tree": "ms1939_release_validation",
+        "group_id": "fast-08",
+        "covered_function_nodes": 21,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 21
+      },
+      {
+        "path": "reports/ms1939_release_validation/fast-09/receipt.json",
+        "sha256": "0d85d348b365ee8730d9e47170c5deebe18f7efcbacb12d9f21749e641fa517c",
+        "tree": "ms1939_release_validation",
+        "group_id": "fast-09",
+        "covered_function_nodes": 16,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 16
+      },
+      {
+        "path": "reports/ms1939_release_validation/fast-10aa/receipt.json",
+        "sha256": "2ffe955c4c0f277b40ed5777be4291f2b90c9889deac536986de36ec04cf9a4f",
+        "tree": "ms1939_release_validation",
+        "group_id": "fast-10aa",
+        "covered_function_nodes": 14,
+        "new_function_nodes_contributed": 14,
+        "reported_passed_count": 14
+      },
+      {
+        "path": "reports/ms1939_release_validation/fast-10ab/receipt.json",
+        "sha256": "f9a5bd2f584b0ba45811bdbcdb590ee1fe44a43d624a2aabefb05bd5b6659c14",
+        "tree": "ms1939_release_validation",
+        "group_id": "fast-10ab",
+        "covered_function_nodes": 1,
+        "new_function_nodes_contributed": 1,
+        "reported_passed_count": 1
+      },
+      {
+        "path": "reports/ms1939_release_validation/fast-10b/receipt.json",
+        "sha256": "7fd7ec01498331a5e53ba875718c7c6452040988cc38cff99983ec04f8a9ad91",
+        "tree": "ms1939_release_validation",
+        "group_id": "fast-10b",
+        "covered_function_nodes": 2,
+        "new_function_nodes_contributed": 2,
+        "reported_passed_count": 2
+      },
+      {
+        "path": "reports/ms1939_release_validation/fast-11/receipt.json",
+        "sha256": "ca14c81d3ec160001b026bcf32d8949c348f098e0e78ea90f4813ad652fbb611",
+        "tree": "ms1939_release_validation",
+        "group_id": "fast-11",
+        "covered_function_nodes": 19,
+        "new_function_nodes_contributed": 19,
+        "reported_passed_count": 23
+      },
+      {
+        "path": "reports/ms1939_release_validation/fast-12/receipt.json",
+        "sha256": "8dc46681d892035cb820ae02e9fbdf1cf1ad1a9227c802037798624d861c0a84",
+        "tree": "ms1939_release_validation",
+        "group_id": "fast-12",
+        "covered_function_nodes": 19,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 19
+      },
+      {
+        "path": "reports/ms1939_release_validation/fast-13/receipt.json",
+        "sha256": "3f5f59a2c4debf7ec2aeff81bc0f272dc7a813c6a0103465a47ea2f5e8d53d1c",
+        "tree": "ms1939_release_validation",
+        "group_id": "fast-13",
+        "covered_function_nodes": 23,
+        "new_function_nodes_contributed": 23,
+        "reported_passed_count": 23
+      },
+      {
+        "path": "reports/ms1939_release_validation/fast-14/receipt.json",
+        "sha256": "b6d2e1c75f57b333e18fc361a3c8c3ad0cae0f7be2e083154875a0db3e52ab75",
+        "tree": "ms1939_release_validation",
+        "group_id": "fast-14",
+        "covered_function_nodes": 22,
+        "new_function_nodes_contributed": 22,
+        "reported_passed_count": 22
+      },
+      {
+        "path": "reports/ms1939_release_validation/fast-15/receipt.json",
+        "sha256": "58ff84ace0958489a26b02a6049938d2c02d4952b3d66048b9fc81af4f277293",
+        "tree": "ms1939_release_validation",
+        "group_id": "fast-15",
+        "covered_function_nodes": 17,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 17
+      },
+      {
+        "path": "reports/ms1939_release_validation/fast-16/receipt.json",
+        "sha256": "8adde75333d23b078a8cc6c1ae5c194f2a3b8da97ced65e7869a5c1dc6ee99f5",
+        "tree": "ms1939_release_validation",
+        "group_id": "fast-16",
+        "covered_function_nodes": 18,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 18
+      },
+      {
+        "path": "reports/ms1939_release_validation/fast-17/receipt.json",
+        "sha256": "bfb98439415223bf26336570548fae9293fc3e398fd6d864dbb908306d355677",
+        "tree": "ms1939_release_validation",
+        "group_id": "fast-17",
+        "covered_function_nodes": 18,
+        "new_function_nodes_contributed": 18,
+        "reported_passed_count": 18
+      },
+      {
+        "path": "reports/ms1939_release_validation/fast-18/receipt.json",
+        "sha256": "9ff38a69738e7038cde51e156fd045074caa1eb8c57c2fa70beebf3174c80c7d",
+        "tree": "ms1939_release_validation",
+        "group_id": "fast-18",
+        "covered_function_nodes": 16,
+        "new_function_nodes_contributed": 16,
+        "reported_passed_count": 16
+      },
+      {
+        "path": "reports/ms1939_release_validation/fast-19aa/receipt.json",
+        "sha256": "52245c1ef453b6b09e8ea62becf0f3ed3802067fcd9db50057a7482ada876b97",
+        "tree": "ms1939_release_validation",
+        "group_id": "fast-19aa",
+        "covered_function_nodes": 13,
+        "new_function_nodes_contributed": 13,
+        "reported_passed_count": 13
+      },
+      {
+        "path": "reports/ms1939_release_validation/fast-19ab/receipt.json",
+        "sha256": "89b0ecb0a7951438119b35f09381f974d9c14ed6d5f94ac897a2ed4fa71d3709",
+        "tree": "ms1939_release_validation",
+        "group_id": "fast-19ab",
+        "covered_function_nodes": 2,
+        "new_function_nodes_contributed": 2,
+        "reported_passed_count": 2
+      },
+      {
+        "path": "reports/ms1939_release_validation/fast-19b/receipt.json",
+        "sha256": "2d61d9a84072c8e7b03d8a6efdd1ff062179894f50c0240d3685b5304a72113d",
+        "tree": "ms1939_release_validation",
+        "group_id": "fast-19b",
+        "covered_function_nodes": 6,
+        "new_function_nodes_contributed": 6,
+        "reported_passed_count": 6
+      },
+      {
+        "path": "reports/ms1939_release_validation/fast-20/receipt.json",
+        "sha256": "c51d5cda51a4e582afec766b0155aaa471bf50f0e252d3e070968a7f4e4d83c3",
+        "tree": "ms1939_release_validation",
+        "group_id": "fast-20",
+        "covered_function_nodes": 24,
+        "new_function_nodes_contributed": 24,
+        "reported_passed_count": 24
+      },
+      {
+        "path": "reports/ms1939_release_validation/fast-21/receipt.json",
+        "sha256": "c23166d7318db3c6f5b4bce27d4ba89def4f9dcdb6ae7a7613aac52918df4664",
+        "tree": "ms1939_release_validation",
+        "group_id": "fast-21",
+        "covered_function_nodes": 22,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 22
+      },
+      {
+        "path": "reports/ms1939_release_validation/fast-22/receipt.json",
+        "sha256": "c182ead03539ecf9589f370c6450679faa6067bd229c580242837451bd7e9758",
+        "tree": "ms1939_release_validation",
+        "group_id": "fast-22",
+        "covered_function_nodes": 27,
+        "new_function_nodes_contributed": 27,
+        "reported_passed_count": 27
+      },
+      {
+        "path": "reports/ms1939_release_validation/fast-23/receipt.json",
+        "sha256": "68edc537ce723852d8b7b595d8ceaeed2b1966161b82546dbaef1f9d80503816",
+        "tree": "ms1939_release_validation",
+        "group_id": "fast-23",
+        "covered_function_nodes": 9,
+        "new_function_nodes_contributed": 9,
+        "reported_passed_count": 9
+      },
+      {
+        "path": "reports/ms1939_release_validation/fast-24/receipt.json",
+        "sha256": "b2111ac90b9d86f6212e672734e7aebe61194be4a084ac5a0241c693f70626b1",
+        "tree": "ms1939_release_validation",
+        "group_id": "fast-24",
+        "covered_function_nodes": 9,
+        "new_function_nodes_contributed": 9,
+        "reported_passed_count": 9
+      },
+      {
+        "path": "reports/ms1939_release_validation/fast-25/receipt.json",
+        "sha256": "56f3bf5accd7492925da12af0023010d1d6cbe7029b8185ed82f375c2c2a917f",
+        "tree": "ms1939_release_validation",
+        "group_id": "fast-25",
+        "covered_function_nodes": 9,
+        "new_function_nodes_contributed": 9,
+        "reported_passed_count": 9
+      },
+      {
+        "path": "reports/ms1939_release_validation/fast-26/receipt.json",
+        "sha256": "1c186dfe67d27502dd35e4f2a6de8038f38c886bdbc8903c539e44f25f028aea",
+        "tree": "ms1939_release_validation",
+        "group_id": "fast-26",
+        "covered_function_nodes": 6,
+        "new_function_nodes_contributed": 6,
+        "reported_passed_count": 6
+      },
+      {
+        "path": "reports/ms1939_release_validation/fast-27aaa/receipt.json",
+        "sha256": "0b69197bce137d805844dd9396c71738e52c334a500b863d0c34e50d281e512b",
+        "tree": "ms1939_release_validation",
+        "group_id": "fast-27aaa",
+        "covered_function_nodes": 6,
+        "new_function_nodes_contributed": 6,
+        "reported_passed_count": 6
+      },
+      {
+        "path": "reports/ms1939_release_validation/fast-27aab/receipt.json",
+        "sha256": "865171cc2c55c05748899353e58992843f63fe91d567be9c7a4b2d3983459c8a",
+        "tree": "ms1939_release_validation",
+        "group_id": "fast-27aab",
+        "covered_function_nodes": 1,
+        "new_function_nodes_contributed": 1,
+        "reported_passed_count": 1
+      },
+      {
+        "path": "reports/ms1939_release_validation/fast-27ab/receipt.json",
+        "sha256": "605db919d260447dc807760493aec697e5c5f15cf8f5a679376fa993d163eed8",
+        "tree": "ms1939_release_validation",
+        "group_id": "fast-27ab",
+        "covered_function_nodes": 2,
+        "new_function_nodes_contributed": 2,
+        "reported_passed_count": 2
+      },
+      {
+        "path": "reports/ms1939_release_validation/fast-27b/receipt.json",
+        "sha256": "f12978477c30f54d0437d23566d340a1e0e440f37e5c8d2b5d3b17ff551e487f",
+        "tree": "ms1939_release_validation",
+        "group_id": "fast-27b",
+        "covered_function_nodes": 5,
+        "new_function_nodes_contributed": 5,
+        "reported_passed_count": 5
+      },
+      {
+        "path": "reports/ms1939_release_validation/fast-28/receipt.json",
+        "sha256": "c8107f055e08cd5319b2cda2964fef45587526dc04faeac06d761fce9eedb00b",
+        "tree": "ms1939_release_validation",
+        "group_id": "fast-28",
+        "covered_function_nodes": 8,
+        "new_function_nodes_contributed": 8,
+        "reported_passed_count": 8
+      },
+      {
+        "path": "reports/ms1939_release_validation/fast-29/receipt.json",
+        "sha256": "39678c2a3e2fdd83edfb0ae1f66b686dbc669854e47ffc4682f18da0fc6aae65",
+        "tree": "ms1939_release_validation",
+        "group_id": "fast-29",
+        "covered_function_nodes": 20,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 20
+      },
+      {
+        "path": "reports/ms1939_release_validation/fast-30/receipt.json",
+        "sha256": "618deccf33933d41ad3239d56b8c43eef8a994fffafaee3dbafc8a4e611a2d86",
+        "tree": "ms1939_release_validation",
+        "group_id": "fast-30",
+        "covered_function_nodes": 21,
+        "new_function_nodes_contributed": 21,
+        "reported_passed_count": 21
+      },
+      {
+        "path": "reports/ms1939_release_validation/fast-31/receipt.json",
+        "sha256": "a6779899c130cb01c37914e34eb12702fde427541cb6eacfa74331aa6590c457",
+        "tree": "ms1939_release_validation",
+        "group_id": "fast-31",
+        "covered_function_nodes": 16,
+        "new_function_nodes_contributed": 16,
+        "reported_passed_count": 16
+      },
+      {
+        "path": "reports/ms1939_release_validation/fast-32/receipt.json",
+        "sha256": "be48a62f2c63cd5c8650cf330bde8aaffec867eb0a40fa4b391b166cd0296bbb",
+        "tree": "ms1939_release_validation",
+        "group_id": "fast-32",
+        "covered_function_nodes": 19,
+        "new_function_nodes_contributed": 19,
+        "reported_passed_count": 19
+      },
+      {
+        "path": "reports/ms1939_release_validation/fast-33/receipt.json",
+        "sha256": "c4c5f05034b8a28e9c0e8fc8282f865055f13cbb93387bfb34b49a80755bffe4",
+        "tree": "ms1939_release_validation",
+        "group_id": "fast-33",
+        "covered_function_nodes": 17,
+        "new_function_nodes_contributed": 17,
+        "reported_passed_count": 17
+      },
+      {
+        "path": "reports/ms1939_release_validation/fast-34/receipt.json",
+        "sha256": "30e8f7eb17fbe4789f21a0250b29c641da4b18640669b734301116337638dbc2",
+        "tree": "ms1939_release_validation",
+        "group_id": "fast-34",
+        "covered_function_nodes": 16,
+        "new_function_nodes_contributed": 16,
+        "reported_passed_count": 16
+      },
+      {
+        "path": "reports/ms1939_release_validation/fast-35/receipt.json",
+        "sha256": "e26392da12f67e19d01f07cbde4096ca8d7eba2964f877b944875fc05c4875f8",
+        "tree": "ms1939_release_validation",
+        "group_id": "fast-35",
+        "covered_function_nodes": 15,
+        "new_function_nodes_contributed": 15,
+        "reported_passed_count": 15
+      },
+      {
+        "path": "reports/ms1939_release_validation/slow-test_ms1533_multi_pressure_bridge-00/receipt.json",
+        "sha256": "fb4882e5823c137283aa27bd2ff6ad42e559b8185a86776fac66468bdafff6a2",
+        "tree": "ms1939_release_validation",
+        "group_id": "slow-test_ms1533_multi_pressure_bridge-00",
+        "covered_function_nodes": 2,
+        "new_function_nodes_contributed": 2,
+        "reported_passed_count": 2
+      },
+      {
+        "path": "reports/ms1939_release_validation/slow-test_ms1533_multi_pressure_bridge-01/receipt.json",
+        "sha256": "baff992a24e989fe48e5f95dcbb29969022d6699ba3bb1c9410dee4fe55fb004",
+        "tree": "ms1939_release_validation",
+        "group_id": "slow-test_ms1533_multi_pressure_bridge-01",
+        "covered_function_nodes": 2,
+        "new_function_nodes_contributed": 2,
+        "reported_passed_count": 2
+      },
+      {
+        "path": "reports/ms1939_release_validation/slow-test_ms1533_multi_pressure_bridge-02/receipt.json",
+        "sha256": "ff8d300a627be0d14e5b614749cf88eefa8170a0fe605d61f5d0cfaccde84f6d",
+        "tree": "ms1939_release_validation",
+        "group_id": "slow-test_ms1533_multi_pressure_bridge-02",
+        "covered_function_nodes": 2,
+        "new_function_nodes_contributed": 2,
+        "reported_passed_count": 2
+      },
+      {
+        "path": "reports/ms1939_release_validation/slow-test_ms1533_multi_pressure_bridge-03/receipt.json",
+        "sha256": "9795f1f6c67984e86abbb0623a235575e0cdb3ae1e4ea70d1b9799b1971623e0",
+        "tree": "ms1939_release_validation",
+        "group_id": "slow-test_ms1533_multi_pressure_bridge-03",
+        "covered_function_nodes": 2,
+        "new_function_nodes_contributed": 2,
+        "reported_passed_count": 2
+      },
+      {
+        "path": "reports/ms1939_release_validation/slow-test_ms1533_multi_pressure_bridge-04/receipt.json",
+        "sha256": "140b3fa1a7e96c186c854fc13f298a729b81b5b5a19747a8482273a64f5e3a57",
+        "tree": "ms1939_release_validation",
+        "group_id": "slow-test_ms1533_multi_pressure_bridge-04",
+        "covered_function_nodes": 1,
+        "new_function_nodes_contributed": 1,
+        "reported_passed_count": 1
+      },
+      {
+        "path": "reports/ms1939_release_validation/slow-test_ms1534_multi_pressure_effect_boundary-00/receipt.json",
+        "sha256": "0cf79eb1fbbcaaffe9690ba2fde07777bd7463064bb6f333784787212b05bd63",
+        "tree": "ms1939_release_validation",
+        "group_id": "slow-test_ms1534_multi_pressure_effect_boundary-00",
+        "covered_function_nodes": 2,
+        "new_function_nodes_contributed": 2,
+        "reported_passed_count": 2
+      },
+      {
+        "path": "reports/ms1939_release_validation/slow-test_ms1534_multi_pressure_effect_boundary-01/receipt.json",
+        "sha256": "22f2c2a9bf05a89b45e6d111530506579c4922cb4a588b82530482051da45df0",
+        "tree": "ms1939_release_validation",
+        "group_id": "slow-test_ms1534_multi_pressure_effect_boundary-01",
+        "covered_function_nodes": 2,
+        "new_function_nodes_contributed": 2,
+        "reported_passed_count": 2
+      },
+      {
+        "path": "reports/ms1939_release_validation/slow-test_ms1534_multi_pressure_effect_boundary-02/receipt.json",
+        "sha256": "6f1eda66895120fa61ab86f70ac8cb5f6efa2193cfbed4bf1d74ad38057d7bb6",
+        "tree": "ms1939_release_validation",
+        "group_id": "slow-test_ms1534_multi_pressure_effect_boundary-02",
+        "covered_function_nodes": 2,
+        "new_function_nodes_contributed": 2,
+        "reported_passed_count": 2
+      },
+      {
+        "path": "reports/ms1939_release_validation/slow-test_ms1534_multi_pressure_effect_boundary-03/receipt.json",
+        "sha256": "ec122670f4c3508ebbb1ac6c90e0acd5d2e44c1fe676fd038599c943b1dc3c93",
+        "tree": "ms1939_release_validation",
+        "group_id": "slow-test_ms1534_multi_pressure_effect_boundary-03",
+        "covered_function_nodes": 2,
+        "new_function_nodes_contributed": 2,
+        "reported_passed_count": 2
+      },
+      {
+        "path": "reports/ms1939_release_validation/slow-test_ms1535_multi_pressure_outcome_closure-00/receipt.json",
+        "sha256": "c10be86bebe63027f21449eed54bd44e378bef203366bb21e0a9bb548365252c",
+        "tree": "ms1939_release_validation",
+        "group_id": "slow-test_ms1535_multi_pressure_outcome_closure-00",
+        "covered_function_nodes": 2,
+        "new_function_nodes_contributed": 2,
+        "reported_passed_count": 2
+      },
+      {
+        "path": "reports/ms1939_release_validation/slow-test_ms1535_multi_pressure_outcome_closure-01/receipt.json",
+        "sha256": "56d40419b791a676a37063fcee8004d7b260dd4b242bf2a241d95424435220fb",
+        "tree": "ms1939_release_validation",
+        "group_id": "slow-test_ms1535_multi_pressure_outcome_closure-01",
+        "covered_function_nodes": 2,
+        "new_function_nodes_contributed": 2,
+        "reported_passed_count": 2
+      },
+      {
+        "path": "reports/ms1939_release_validation/slow-test_ms1535_multi_pressure_outcome_closure-02/receipt.json",
+        "sha256": "3d3aea244929eb3605b49fb4f9a53ea2b804673dacc2a888fdfd04e60d2c7b60",
+        "tree": "ms1939_release_validation",
+        "group_id": "slow-test_ms1535_multi_pressure_outcome_closure-02",
+        "covered_function_nodes": 2,
+        "new_function_nodes_contributed": 2,
+        "reported_passed_count": 2
+      },
+      {
+        "path": "reports/ms1939_release_validation/slow-test_ms1535_multi_pressure_outcome_closure-03/receipt.json",
+        "sha256": "2205dbd0b78594f17c50b7c4719f62c4f595955e95931fadce4202808cc38193",
+        "tree": "ms1939_release_validation",
+        "group_id": "slow-test_ms1535_multi_pressure_outcome_closure-03",
+        "covered_function_nodes": 2,
+        "new_function_nodes_contributed": 2,
+        "reported_passed_count": 2
+      },
+      {
+        "path": "reports/ms1939_release_validation/slow-test_ms1598_observation_basis_ingress-00/receipt.json",
+        "sha256": "1405f6bcd17d1b810ae9e4ea1bfe19307174bf6e6f8a1de672447c17595d771a",
+        "tree": "ms1939_release_validation",
+        "group_id": "slow-test_ms1598_observation_basis_ingress-00",
+        "covered_function_nodes": 2,
+        "new_function_nodes_contributed": 2,
+        "reported_passed_count": 2
+      },
+      {
+        "path": "reports/ms1939_release_validation/slow-test_ms1598_observation_basis_ingress-01/receipt.json",
+        "sha256": "6b0f9536b9ef6084bd651a0565f18eb071523361bad5ba669f2192a27bad1f28",
+        "tree": "ms1939_release_validation",
+        "group_id": "slow-test_ms1598_observation_basis_ingress-01",
+        "covered_function_nodes": 2,
+        "new_function_nodes_contributed": 2,
+        "reported_passed_count": 2
+      },
+      {
+        "path": "reports/ms1939_release_validation/slow-test_ms1598_observation_basis_ingress-02/receipt.json",
+        "sha256": "fe66359fb637b2afc435956f88af64ca8067093090b052cafaa9e8fbb3f60304",
+        "tree": "ms1939_release_validation",
+        "group_id": "slow-test_ms1598_observation_basis_ingress-02",
+        "covered_function_nodes": 2,
+        "new_function_nodes_contributed": 2,
+        "reported_passed_count": 2
+      },
+      {
+        "path": "reports/ms1939_release_validation/slow-test_ms1598_observation_basis_ingress-03/receipt.json",
+        "sha256": "2ac270d4ac04ed25e48715ad54bc1c43d74e82a63f4f3138ff6dc30156d8f32b",
+        "tree": "ms1939_release_validation",
+        "group_id": "slow-test_ms1598_observation_basis_ingress-03",
+        "covered_function_nodes": 2,
+        "new_function_nodes_contributed": 2,
+        "reported_passed_count": 2
+      },
+      {
+        "path": "reports/ms1939_release_validation/slow-test_ms1598_observation_basis_ingress-04/receipt.json",
+        "sha256": "b254e39fdf3088eb78a2fce27c811299ed720894165caa6ce91a8ee59b2ca119",
+        "tree": "ms1939_release_validation",
+        "group_id": "slow-test_ms1598_observation_basis_ingress-04",
+        "covered_function_nodes": 1,
+        "new_function_nodes_contributed": 1,
+        "reported_passed_count": 1
+      },
+      {
+        "path": "reports/ms1939_release_validation/slow-test_ms1643_historical_admission_ingress-00/receipt.json",
+        "sha256": "71222583a30eb96b3eccc8e816a27c48dc021dcc6226ed4a2eb7fdd14ea857f6",
+        "tree": "ms1939_release_validation",
+        "group_id": "slow-test_ms1643_historical_admission_ingress-00",
+        "covered_function_nodes": 2,
+        "new_function_nodes_contributed": 2,
+        "reported_passed_count": 2
+      },
+      {
+        "path": "reports/ms1939_release_validation/slow-test_ms1643_historical_admission_ingress-01/receipt.json",
+        "sha256": "22dd1570aafd76633cc9ca8ea3a6dd39b4c705004caafd439b939236306451b6",
+        "tree": "ms1939_release_validation",
+        "group_id": "slow-test_ms1643_historical_admission_ingress-01",
+        "covered_function_nodes": 2,
+        "new_function_nodes_contributed": 2,
+        "reported_passed_count": 2
+      },
+      {
+        "path": "reports/ms1939_release_validation/slow-test_ms1643_historical_admission_ingress-02/receipt.json",
+        "sha256": "ece37b3d6abfc2b0b1b703508d05785e7c47020cf8a65f6634845dd95f9a7eb2",
+        "tree": "ms1939_release_validation",
+        "group_id": "slow-test_ms1643_historical_admission_ingress-02",
+        "covered_function_nodes": 2,
+        "new_function_nodes_contributed": 2,
+        "reported_passed_count": 2
+      },
+      {
+        "path": "reports/ms1939_release_validation/slow-test_ms1643_historical_admission_ingress-03/receipt.json",
+        "sha256": "72b33e0a47b21ecdf81d17f594f1dc7f358892c6815907af87dab4e3926f92d8",
+        "tree": "ms1939_release_validation",
+        "group_id": "slow-test_ms1643_historical_admission_ingress-03",
+        "covered_function_nodes": 2,
+        "new_function_nodes_contributed": 2,
+        "reported_passed_count": 2
+      },
+      {
+        "path": "reports/ms1939_release_validation/slow-test_ms1643_historical_admission_ingress-04/receipt.json",
+        "sha256": "936659321d783cc08dafd419255f4b3aadc51c0e12a84f3575f14df140b57e0c",
+        "tree": "ms1939_release_validation",
+        "group_id": "slow-test_ms1643_historical_admission_ingress-04",
+        "covered_function_nodes": 2,
+        "new_function_nodes_contributed": 2,
+        "reported_passed_count": 2
+      },
+      {
+        "path": "reports/ms1939_release_validation/slow-test_ms1643_historical_admission_ingress-05/receipt.json",
+        "sha256": "642f75cc49ac9a94d564439c84832f5f87739017e1aed15b9490ffb1b16c20a3",
+        "tree": "ms1939_release_validation",
+        "group_id": "slow-test_ms1643_historical_admission_ingress-05",
+        "covered_function_nodes": 2,
+        "new_function_nodes_contributed": 2,
+        "reported_passed_count": 2
+      },
+      {
+        "path": "reports/ms1939_release_validation/slow-test_ms1643_historical_admission_ingress-06/receipt.json",
+        "sha256": "3da2c80f2d6526bac8f2e447eccb52eafe014f53ff243cd1ec4de156d8f90507",
+        "tree": "ms1939_release_validation",
+        "group_id": "slow-test_ms1643_historical_admission_ingress-06",
+        "covered_function_nodes": 1,
+        "new_function_nodes_contributed": 1,
+        "reported_passed_count": 1
+      },
+      {
+        "path": "reports/ms1939_release_validation/slow-test_ms1763_pass16_content_bound_sample_currentness-00/receipt.json",
+        "sha256": "e799777741901eb6f5952a059c7cb5ba855bd061769833b8a562775447a7e3de",
+        "tree": "ms1939_release_validation",
+        "group_id": "slow-test_ms1763_pass16_content_bound_sample_currentness-00",
+        "covered_function_nodes": 2,
+        "new_function_nodes_contributed": 2,
+        "reported_passed_count": 2
+      },
+      {
+        "path": "reports/ms1939_release_validation/slow-test_ms1763_pass16_content_bound_sample_currentness-01/receipt.json",
+        "sha256": "dbde41b0a60f187c7e826ac73559cfbd9516f63988d4eab90cc75229830b2d31",
+        "tree": "ms1939_release_validation",
+        "group_id": "slow-test_ms1763_pass16_content_bound_sample_currentness-01",
+        "covered_function_nodes": 1,
+        "new_function_nodes_contributed": 1,
+        "reported_passed_count": 1
+      },
+      {
+        "path": "reports/ms1939_release_validation/slow-test_ms1764_pass17_external_alternative_model_boundary-00/receipt.json",
+        "sha256": "91e5bbf70110039fd5883756f158a2bbcccfd8921f2a12bcf2eac55974620e48",
+        "tree": "ms1939_release_validation",
+        "group_id": "slow-test_ms1764_pass17_external_alternative_model_boundary-00",
+        "covered_function_nodes": 1,
+        "new_function_nodes_contributed": 1,
+        "reported_passed_count": 1
+      },
+      {
+        "path": "reports/ms1939_release_validation/slow-test_ms1765_pass18_no_candidate_is_not_closure-00/receipt.json",
+        "sha256": "1c8a930631475313158a454629e9e2af0721716ccb58c75b885ddd3eec910557",
+        "tree": "ms1939_release_validation",
+        "group_id": "slow-test_ms1765_pass18_no_candidate_is_not_closure-00",
+        "covered_function_nodes": 1,
+        "new_function_nodes_contributed": 1,
+        "reported_passed_count": 1
+      },
+      {
+        "path": "reports/ms1939_release_validation/slow-test_ms1768_pass01_flat_relation_owner_not_model_set-00/receipt.json",
+        "sha256": "a3821f2277a27097358fb64cf5415f2cc1d175198617f265ad655fc22c53a490",
+        "tree": "ms1939_release_validation",
+        "group_id": "slow-test_ms1768_pass01_flat_relation_owner_not_model_set-00",
+        "covered_function_nodes": 1,
+        "new_function_nodes_contributed": 1,
+        "reported_passed_count": 1
+      },
+      {
+        "path": "reports/ms1939_release_validation/slow-test_ms1770_pass03_projection_routing_not_live_model_set-00/receipt.json",
+        "sha256": "61975a6fcc2854726eeb81611e0fede38df8123b357f8173499654312cf1131b",
+        "tree": "ms1939_release_validation",
+        "group_id": "slow-test_ms1770_pass03_projection_routing_not_live_model_set-00",
+        "covered_function_nodes": 1,
+        "new_function_nodes_contributed": 1,
+        "reported_passed_count": 1
+      },
+      {
+        "path": "reports/ms1939_residual_leaf_closure/test_ms1533_multi_pressure_bridge-00/receipt.json",
+        "sha256": "a2c45625b5e4e1c7154c1737dc1bc145638e6ec79024de3356d1b0c6b5e92c1d",
+        "tree": "ms1939_residual_leaf_closure",
+        "group_id": "test_ms1533_multi_pressure_bridge-00",
+        "covered_function_nodes": 2,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 2
+      },
+      {
+        "path": "reports/ms1939_residual_leaf_closure/test_ms1533_multi_pressure_bridge-01a/receipt.json",
+        "sha256": "3e94dd1c1dde493565406575153d988a009a246cd55d183736b59f2a8253536b",
+        "tree": "ms1939_residual_leaf_closure",
+        "group_id": "test_ms1533_multi_pressure_bridge-01a",
+        "covered_function_nodes": 1,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 1
+      },
+      {
+        "path": "reports/ms1939_residual_leaf_closure/test_ms1533_multi_pressure_bridge-01b/receipt.json",
+        "sha256": "5d7a85f3f290e2a1298bc381e8173ffc784a42b3f449ae7dc8813858e211a13c",
+        "tree": "ms1939_residual_leaf_closure",
+        "group_id": "test_ms1533_multi_pressure_bridge-01b",
+        "covered_function_nodes": 1,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 1
+      },
+      {
+        "path": "reports/ms1939_residual_leaf_closure/test_ms1533_multi_pressure_bridge-02a/receipt.json",
+        "sha256": "93e3bd4ed6218f26dc2cf7119d14ae38091c84aada26b6018ad662ed14e6ddd5",
+        "tree": "ms1939_residual_leaf_closure",
+        "group_id": "test_ms1533_multi_pressure_bridge-02a",
+        "covered_function_nodes": 1,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 1
+      },
+      {
+        "path": "reports/ms1939_residual_leaf_closure/test_ms1533_multi_pressure_bridge-02b/receipt.json",
+        "sha256": "45026101ee0025a9b3d6ca2c398d15977e1aa838ab0196ebfa028da8cd83f2d2",
+        "tree": "ms1939_residual_leaf_closure",
+        "group_id": "test_ms1533_multi_pressure_bridge-02b",
+        "covered_function_nodes": 1,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 1
+      },
+      {
+        "path": "reports/ms1939_residual_leaf_closure/test_ms1533_multi_pressure_bridge-03a/receipt.json",
+        "sha256": "2e901d3ab81250db3e94bd908256cfa3421c34bdfb890de439ad1e7a77b0c2cc",
+        "tree": "ms1939_residual_leaf_closure",
+        "group_id": "test_ms1533_multi_pressure_bridge-03a",
+        "covered_function_nodes": 1,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 1
+      },
+      {
+        "path": "reports/ms1939_residual_leaf_closure/test_ms1533_multi_pressure_bridge-03b/receipt.json",
+        "sha256": "4ced8a536778c7fe48383129e8817f79b36f094dc973ae8cd13924ab73e8f6fb",
+        "tree": "ms1939_residual_leaf_closure",
+        "group_id": "test_ms1533_multi_pressure_bridge-03b",
+        "covered_function_nodes": 1,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 1
+      },
+      {
+        "path": "reports/ms1939_residual_leaf_closure/test_ms1533_multi_pressure_bridge-04/receipt.json",
+        "sha256": "ef1fe90fd7efad787a30ae5a2225e5f1d8af6e1183a789efbe2f6b4577bbda3e",
+        "tree": "ms1939_residual_leaf_closure",
+        "group_id": "test_ms1533_multi_pressure_bridge-04",
+        "covered_function_nodes": 1,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 1
+      },
+      {
+        "path": "reports/ms1939_residual_leaf_closure/test_ms1534_multi_pressure_effect_boundary-00a/receipt.json",
+        "sha256": "7cf7b6f6d9399a1b68cc4de098c37ba7976bbdd39cfe7411723204a9e08abc37",
+        "tree": "ms1939_residual_leaf_closure",
+        "group_id": "test_ms1534_multi_pressure_effect_boundary-00a",
+        "covered_function_nodes": 1,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 1
+      },
+      {
+        "path": "reports/ms1939_residual_leaf_closure/test_ms1534_multi_pressure_effect_boundary-00b/receipt.json",
+        "sha256": "d69787e96e929c14bdb6a904bffec35f012f83813283d41c335debb873000871",
+        "tree": "ms1939_residual_leaf_closure",
+        "group_id": "test_ms1534_multi_pressure_effect_boundary-00b",
+        "covered_function_nodes": 1,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 1
+      },
+      {
+        "path": "reports/ms1939_residual_leaf_closure/test_ms1534_multi_pressure_effect_boundary-01/receipt.json",
+        "sha256": "3a3d2f7e90581364f022bb4794a2d9120ff0acc17246e24f35c21e3208a07819",
+        "tree": "ms1939_residual_leaf_closure",
+        "group_id": "test_ms1534_multi_pressure_effect_boundary-01",
+        "covered_function_nodes": 2,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 2
+      },
+      {
+        "path": "reports/ms1939_residual_leaf_closure/test_ms1534_multi_pressure_effect_boundary-02/receipt.json",
+        "sha256": "4212192e0f21cbe2dbf4a83eff1072419c165081aaec3c02ed0a873594261a89",
+        "tree": "ms1939_residual_leaf_closure",
+        "group_id": "test_ms1534_multi_pressure_effect_boundary-02",
+        "covered_function_nodes": 2,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 2
+      },
+      {
+        "path": "reports/ms1939_residual_leaf_closure/test_ms1534_multi_pressure_effect_boundary-03/receipt.json",
+        "sha256": "b5f4d4898dd2625ed801caa97e0dd82b97aac06d95c86147f02833c204528cfa",
+        "tree": "ms1939_residual_leaf_closure",
+        "group_id": "test_ms1534_multi_pressure_effect_boundary-03",
+        "covered_function_nodes": 2,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 2
+      },
+      {
+        "path": "reports/ms1939_residual_leaf_closure/test_ms1535_multi_pressure_outcome_closure-00/receipt.json",
+        "sha256": "41d6f774f6bab8a2a3d8af31788283c6f0f5df139fddfce8c6d07b9f851b90ee",
+        "tree": "ms1939_residual_leaf_closure",
+        "group_id": "test_ms1535_multi_pressure_outcome_closure-00",
+        "covered_function_nodes": 2,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 2
+      },
+      {
+        "path": "reports/ms1939_residual_leaf_closure/test_ms1535_multi_pressure_outcome_closure-01/receipt.json",
+        "sha256": "61e2ffbd2b38cd315b2f8d03c35ef16458ad2d2ff557d2f2b31f2e6a3ea4eb62",
+        "tree": "ms1939_residual_leaf_closure",
+        "group_id": "test_ms1535_multi_pressure_outcome_closure-01",
+        "covered_function_nodes": 2,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 2
+      },
+      {
+        "path": "reports/ms1939_residual_leaf_closure/test_ms1535_multi_pressure_outcome_closure-02/receipt.json",
+        "sha256": "f4c772de445a24cf4a0047bfc2c9d159f08692968e6554e07557592460867883",
+        "tree": "ms1939_residual_leaf_closure",
+        "group_id": "test_ms1535_multi_pressure_outcome_closure-02",
+        "covered_function_nodes": 2,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 2
+      },
+      {
+        "path": "reports/ms1939_residual_leaf_closure/test_ms1535_multi_pressure_outcome_closure-03/receipt.json",
+        "sha256": "badfbf26d4a0ed2369053437bea74fe1bb0e5ca138d0236f438483f9746a3ade",
+        "tree": "ms1939_residual_leaf_closure",
+        "group_id": "test_ms1535_multi_pressure_outcome_closure-03",
+        "covered_function_nodes": 2,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 2
+      },
+      {
+        "path": "reports/ms1939_residual_leaf_closure/test_ms1598_observation_basis_ingress-00/receipt.json",
+        "sha256": "dbfc5b0d8dabfe0078abb59d9415ab2181372a6a4c95c07ef5c4cb478110c2e0",
+        "tree": "ms1939_residual_leaf_closure",
+        "group_id": "test_ms1598_observation_basis_ingress-00",
+        "covered_function_nodes": 2,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 2
+      },
+      {
+        "path": "reports/ms1939_residual_leaf_closure/test_ms1598_observation_basis_ingress-01/receipt.json",
+        "sha256": "70fa6f7813bb91636de393df917877290aa4aee78ce393a7f09cf948212c2363",
+        "tree": "ms1939_residual_leaf_closure",
+        "group_id": "test_ms1598_observation_basis_ingress-01",
+        "covered_function_nodes": 2,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 2
+      },
+      {
+        "path": "reports/ms1939_residual_leaf_closure/test_ms1598_observation_basis_ingress-02/receipt.json",
+        "sha256": "9f145fcc0329b483ff3bb4d85df6cf81bae06c5208f28c69ee3066d2f094ac84",
+        "tree": "ms1939_residual_leaf_closure",
+        "group_id": "test_ms1598_observation_basis_ingress-02",
+        "covered_function_nodes": 2,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 2
+      },
+      {
+        "path": "reports/ms1939_residual_leaf_closure/test_ms1598_observation_basis_ingress-03/receipt.json",
+        "sha256": "b1703cad618c588995d3c2c5a79b3f85c5fcdece7fc134c40ed8e06b9d1bb41a",
+        "tree": "ms1939_residual_leaf_closure",
+        "group_id": "test_ms1598_observation_basis_ingress-03",
+        "covered_function_nodes": 2,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 2
+      },
+      {
+        "path": "reports/ms1939_residual_leaf_closure/test_ms1598_observation_basis_ingress-04/receipt.json",
+        "sha256": "97e20a9412f5967ba39a32ce2218993f651ff0be2e7aefad4c9188ecd8ab3d82",
+        "tree": "ms1939_residual_leaf_closure",
+        "group_id": "test_ms1598_observation_basis_ingress-04",
+        "covered_function_nodes": 1,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 1
+      },
+      {
+        "path": "reports/ms1939_residual_leaf_closure/test_ms1643_historical_admission_ingress-00/receipt.json",
+        "sha256": "745a7e9323e48a113830de451962bbff61ac52ea8ebebf42ec9516f950d70374",
+        "tree": "ms1939_residual_leaf_closure",
+        "group_id": "test_ms1643_historical_admission_ingress-00",
+        "covered_function_nodes": 2,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 2
+      },
+      {
+        "path": "reports/ms1939_residual_leaf_closure/test_ms1643_historical_admission_ingress-01/receipt.json",
+        "sha256": "5c1f58e699a1ad6bd47e602579a151dae0847a325b0623cd26fc45f4b45dd0c0",
+        "tree": "ms1939_residual_leaf_closure",
+        "group_id": "test_ms1643_historical_admission_ingress-01",
+        "covered_function_nodes": 2,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 2
+      },
+      {
+        "path": "reports/ms1939_residual_leaf_closure/test_ms1643_historical_admission_ingress-02/receipt.json",
+        "sha256": "397e8ebaca06bf0042683518a36d4f373a3590f5c59dd15c31319148c96a0066",
+        "tree": "ms1939_residual_leaf_closure",
+        "group_id": "test_ms1643_historical_admission_ingress-02",
+        "covered_function_nodes": 2,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 2
+      },
+      {
+        "path": "reports/ms1939_residual_leaf_closure/test_ms1643_historical_admission_ingress-03/receipt.json",
+        "sha256": "0d32e980da89015a4281ff8a25a8ee3a06348ff06f28e3af3a191b9215ec1510",
+        "tree": "ms1939_residual_leaf_closure",
+        "group_id": "test_ms1643_historical_admission_ingress-03",
+        "covered_function_nodes": 2,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 2
+      },
+      {
+        "path": "reports/ms1939_residual_leaf_closure/test_ms1643_historical_admission_ingress-04/receipt.json",
+        "sha256": "9b86454a6c2ba402c201616465f25b8df00f8a547da6e8739978e67de97b76fd",
+        "tree": "ms1939_residual_leaf_closure",
+        "group_id": "test_ms1643_historical_admission_ingress-04",
+        "covered_function_nodes": 2,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 2
+      },
+      {
+        "path": "reports/ms1939_residual_leaf_closure/test_ms1643_historical_admission_ingress-05/receipt.json",
+        "sha256": "f2552ff5ad80d819a0d3fcdfa93705a6ade0f59e0a9b880cbf893223a75be11d",
+        "tree": "ms1939_residual_leaf_closure",
+        "group_id": "test_ms1643_historical_admission_ingress-05",
+        "covered_function_nodes": 2,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 2
+      },
+      {
+        "path": "reports/ms1939_residual_leaf_closure/test_ms1643_historical_admission_ingress-06/receipt.json",
+        "sha256": "9dba5ff1b28432fb69d5abb59226281c6027bd118855f004c02fd8b3a8916ec1",
+        "tree": "ms1939_residual_leaf_closure",
+        "group_id": "test_ms1643_historical_admission_ingress-06",
+        "covered_function_nodes": 1,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 1
+      },
+      {
+        "path": "reports/ms1939_residual_leaf_closure/test_ms1763_pass16_content_bound_sample_currentness-00/receipt.json",
+        "sha256": "c5e7e9c036be6c909bb1de537511bef42543a673215232f2eb1970c6765acebe",
+        "tree": "ms1939_residual_leaf_closure",
+        "group_id": "test_ms1763_pass16_content_bound_sample_currentness-00",
+        "covered_function_nodes": 2,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 2
+      },
+      {
+        "path": "reports/ms1939_residual_leaf_closure/test_ms1763_pass16_content_bound_sample_currentness-01/receipt.json",
+        "sha256": "fa2f98d1db48b24abe3d7ad315a72266cc691a554a7c8e06bf7de8d9c8be337f",
+        "tree": "ms1939_residual_leaf_closure",
+        "group_id": "test_ms1763_pass16_content_bound_sample_currentness-01",
+        "covered_function_nodes": 1,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 1
+      },
+      {
+        "path": "reports/ms1939_residual_leaf_closure/test_ms1764_pass17_external_alternative_model_boundary-00/receipt.json",
+        "sha256": "312e988d4d193877dfd541ae1cd8f2450c8cb2810c684e9ecd33f2252979147c",
+        "tree": "ms1939_residual_leaf_closure",
+        "group_id": "test_ms1764_pass17_external_alternative_model_boundary-00",
+        "covered_function_nodes": 1,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 1
+      },
+      {
+        "path": "reports/ms1939_residual_leaf_closure/test_ms1765_pass18_no_candidate_is_not_closure-00/receipt.json",
+        "sha256": "614dbbe8ebaab0983cfd376371f8e858ead91e506354538c6002e9522ec2f00b",
+        "tree": "ms1939_residual_leaf_closure",
+        "group_id": "test_ms1765_pass18_no_candidate_is_not_closure-00",
+        "covered_function_nodes": 1,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 1
+      },
+      {
+        "path": "reports/ms1939_residual_leaf_closure/test_ms1768_pass01_flat_relation_owner_not_model_set-00/receipt.json",
+        "sha256": "2704abdd874a607a1749b998f9403106025318f5d50f0e319608e2cd10d8eb24",
+        "tree": "ms1939_residual_leaf_closure",
+        "group_id": "test_ms1768_pass01_flat_relation_owner_not_model_set-00",
+        "covered_function_nodes": 1,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 1
+      },
+      {
+        "path": "reports/ms1939_residual_leaf_closure/test_ms1770_pass03_projection_routing_not_live_model_set-00/receipt.json",
+        "sha256": "0937e438a5c86cdc27bf1273b9e070c9f40d194f1dee6a3fe09cf87294c0554d",
+        "tree": "ms1939_residual_leaf_closure",
+        "group_id": "test_ms1770_pass03_projection_routing_not_live_model_set-00",
+        "covered_function_nodes": 1,
+        "new_function_nodes_contributed": 0,
+        "reported_passed_count": 1
+      }
+    ],
+    "negative_assertion_groups_admitted": [],
+    "terminal_unknown_groups_admitted": []
+  },
+  "residual_leaf_closure": {
+    "job_id": "job-aeda09de298d",
+    "receipt_path": "reports/ms1939_residual_leaf_closure/aggregate_receipt.json",
+    "receipt_sha256": "b4c8358bc51bc9b61bd6675f0cfbd29db86b39c6162a2ab94b8f040d7f7ab403",
+    "file_count": 10,
+    "test_node_count": 54,
+    "passed_count": 54,
+    "source_stable": true,
+    "coverage_ok": true,
+    "negative_groups": [],
+    "terminal_unknown_groups": []
+  },
+  "self_test": {
+    "all_pass": true,
+    "passed": 81,
+    "total": 81
+  },
+  "compileall": {
+    "pass": true,
+    "exit_code": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "collection": {
+    "pass": true,
+    "exit_code": 0,
+    "collected_items": 691,
+    "stdout_sha256": "e2f9c2339806b522b59b6ccfb805cce15dfe9a1d2364a8cbdedfac418933ddbf",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "invalid_or_nonaggregate_runs": [
+    {
+      "job_id": "job-2ce1e88f37b1",
+      "reason": "wrong PATH python lacked pytest"
+    },
+    {
+      "job_id": "job-e05496be7000",
+      "reason": "direct pytest exposed known Windows SQLite temp cleanup WinError 32; semantic assertions not used as release evidence"
+    },
+    {
+      "job_id": "job-9b98e9395de0",
+      "reason": "first blanket zero-pressure repair produced real MS1477/MS1782 compatibility negatives and was rejected"
+    },
+    {
+      "job_id": "job-90749375f58c",
+      "reason": "corrected-source parent orchestrator hit outer timeout; only its completed PASS group receipts are admitted"
+    },
+    {
+      "job_id": "job-0ef66b8ef3ae",
+      "reason": "release validator v1 had bad re-striping and incomplete coverage; completed PASS group receipts remain constituent evidence"
+    },
+    {
+      "job_id": "job-410c3251d7ab",
+      "reason": "release validator v2 hit harness path race; completed PASS group receipts remain constituent evidence"
+    }
+  ],
+  "earned_laws": [
+    "PROPOSAL_RETURNED != ACTION_INDICATED",
+    "MODEL_ONLY_COUNTERFACTUAL_REHEARSAL MAY EXIST WITHOUT CURRENT_REGULATORY_ACTION_INDICATION",
+    "CURRENT_ACTION_INDICATION_REQUIRES_SEPARATE_CURRENT_BOUNDED_ACTION_COMMITMENT"
+  ],
+  "novelty_posture": "UNKNOWN / NOT_ENTITLED_TO_CLAIM"
+}

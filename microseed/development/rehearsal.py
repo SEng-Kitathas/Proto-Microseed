@@ -141,6 +141,20 @@ class CounterfactualRehearsalProposal:
     execution_authority: str = "NONE"
     qualification_authority: str = "NONE"
 
+    @property
+    def action_indicated(self) -> bool:
+        """A rehearsal proposal is never, by itself, an action indication.
+
+        Action indication is derived separately from current regulatory pressure,
+        current opaque control state, and the proposal's currently reprojected
+        effect via ``derive_bounded_action_commitment``.
+        """
+        return False
+
+    @property
+    def action_indication_authority(self) -> str:
+        return "NONE"
+
     def serializable(self) -> dict:
         d = asdict(self)
         for key in (
@@ -149,6 +163,9 @@ class CounterfactualRehearsalProposal:
         ):
             d[key] = list(d[key])
         d["value_epoch"] = list(self.value_epoch)
+        d["action_indicated"] = self.action_indicated
+        d["action_indication_authority"] = self.action_indication_authority
+        d["action_indication_rule"] = "PROPOSAL_RETURNED != ACTION_INDICATED__DERIVE_BOUNDED_ACTION_COMMITMENT_REQUIRED"
         return d
 
     @classmethod
@@ -175,6 +192,11 @@ class CounterfactualRehearsalProposal:
 
     def digest(self) -> str:
         payload = self.serializable().copy(); payload.pop("proposal_id", None)
+        # Proposal/action-indication separation is presentation doctrine, not a
+        # rewrite of the earned proposal identity or historical digest lineage.
+        payload.pop("action_indicated", None)
+        payload.pop("action_indication_authority", None)
+        payload.pop("action_indication_rule", None)
         return hashlib.sha256(json.dumps(payload, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
 
 

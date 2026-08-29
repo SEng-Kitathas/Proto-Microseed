@@ -1,0 +1,461 @@
+{
+  "schema": "pcmmad.ms1936.causal-invalidation-certificate.v1",
+  "classification": "NON_NOVELTY_TRACE_EFFICIENCY_EXPERIMENT",
+  "discriminator": "FULL_CAUSAL_INVALIDATION_TRACE != MINIMUM_ROOT_AND_CLOSURE_CERTIFICATE",
+  "sealed_repo_head": "6b0f012980a625143ea7137be848d6f13b57325b",
+  "organism_worktree_clean": true,
+  "static_bindings": {
+    "inventory": {
+      "capabilities": [
+        "B0-0",
+        "B0-1",
+        "B0-2",
+        "B1-0",
+        "B1-1",
+        "B1-2",
+        "B2-0",
+        "B2-1",
+        "B2-2",
+        "B3-0",
+        "B3-1",
+        "B3-2",
+        "B4-0",
+        "B4-1",
+        "B4-2",
+        "B5-0",
+        "B5-1",
+        "B5-2",
+        "B6-0",
+        "B6-1",
+        "B6-2",
+        "B7-0",
+        "B7-1",
+        "B7-2"
+      ],
+      "coordinations": [
+        "R0",
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7"
+      ],
+      "counterparties": [
+        "CP0"
+      ]
+    },
+    "inventory_sha256": "5353c14c72624c9a054699010972640f373dfa4e7a109baf27ed3a18760e5328",
+    "dependency_edges": [
+      [
+        "CP0",
+        "R0"
+      ],
+      [
+        "R0",
+        "B0-0"
+      ],
+      [
+        "B0-0",
+        "B0-1"
+      ],
+      [
+        "B0-1",
+        "B0-2"
+      ],
+      [
+        "CP0",
+        "R1"
+      ],
+      [
+        "R1",
+        "B1-0"
+      ],
+      [
+        "B1-0",
+        "B1-1"
+      ],
+      [
+        "B1-1",
+        "B1-2"
+      ],
+      [
+        "CP0",
+        "R2"
+      ],
+      [
+        "R2",
+        "B2-0"
+      ],
+      [
+        "B2-0",
+        "B2-1"
+      ],
+      [
+        "B2-1",
+        "B2-2"
+      ],
+      [
+        "CP0",
+        "R3"
+      ],
+      [
+        "R3",
+        "B3-0"
+      ],
+      [
+        "B3-0",
+        "B3-1"
+      ],
+      [
+        "B3-1",
+        "B3-2"
+      ],
+      [
+        "CP0",
+        "R4"
+      ],
+      [
+        "R4",
+        "B4-0"
+      ],
+      [
+        "B4-0",
+        "B4-1"
+      ],
+      [
+        "B4-1",
+        "B4-2"
+      ],
+      [
+        "CP0",
+        "R5"
+      ],
+      [
+        "R5",
+        "B5-0"
+      ],
+      [
+        "B5-0",
+        "B5-1"
+      ],
+      [
+        "B5-1",
+        "B5-2"
+      ],
+      [
+        "CP0",
+        "R6"
+      ],
+      [
+        "R6",
+        "B6-0"
+      ],
+      [
+        "B6-0",
+        "B6-1"
+      ],
+      [
+        "B6-1",
+        "B6-2"
+      ],
+      [
+        "CP0",
+        "R7"
+      ],
+      [
+        "R7",
+        "B7-0"
+      ],
+      [
+        "B7-0",
+        "B7-1"
+      ],
+      [
+        "B7-1",
+        "B7-2"
+      ]
+    ],
+    "dependency_graph_sha256": "f7f75c219e46f1a8282506066aff0b676e0fc1ae098884154e7a2b291186890f"
+  },
+  "certificate_schema": {
+    "v": "certificate version",
+    "g": "dependency graph SHA-256",
+    "i": "inventory/order manifest SHA-256",
+    "t": "full relevant event-trace SHA-256",
+    "r": "opaque originating reason SHA-256",
+    "o": "[origin premise type, origin ID, origin epoch-or-null]",
+    "c": "hex bitmap over ordered capability inventory",
+    "q": "hex bitmap over ordered coordination inventory",
+    "p": "hex bitmap over ordered counterparty inventory",
+    "n": "relevant invalidation event count"
+  },
+  "authority_boundary": {
+    "certificate_role": "READ_ONLY_COMPACT_PROJECTION_AND_BINDING_SURFACE",
+    "canonical_event_stream_role": "REMAINS_FULL_AUDIT_RECOVERY_AUTHORITY",
+    "replacement_claim": "NONE"
+  },
+  "scenarios": [
+    {
+      "name": "coordination_specific_fault",
+      "origin": [
+        "COORDINATION",
+        "R3",
+        1
+      ],
+      "event_count": 2,
+      "stale_capability_ids": [
+        "B3-0",
+        "B3-1",
+        "B3-2"
+      ],
+      "stale_relation_ids": [
+        "R3"
+      ],
+      "stale_counterparty_ids": [],
+      "full_projection_bytes": 979,
+      "certificate_bytes": 355,
+      "compression_ratio_full_over_certificate": 2.7577,
+      "bytes_saved": 624,
+      "certificate": {
+        "v": 1,
+        "g": "f7f75c219e46f1a8282506066aff0b676e0fc1ae098884154e7a2b291186890f",
+        "i": "5353c14c72624c9a054699010972640f373dfa4e7a109baf27ed3a18760e5328",
+        "t": "8ef77c2f5077a1ac0d2dcf0746af2729ad36c2f292f66facbcf9f13fc72cd2a0",
+        "r": "e9c6259bcde302e65e25e10d5bfe45c9451f9e84c76ffeebf461d999bd7349a1",
+        "o": [
+          "COORDINATION",
+          "R3",
+          1
+        ],
+        "c": "000e00",
+        "q": "08",
+        "p": "0",
+        "n": 2
+      },
+      "certificate_sha256": "3d136ff7ccf8d33b1692997f7e5d2e6f04fbf06fe0c01bbe54d09f351382b75f",
+      "checks": {
+        "origin_exact": true,
+        "stale_capability_closure_exact": true,
+        "stale_relation_closure_exact": true,
+        "stale_counterparty_closure_exact": true,
+        "event_count_exact": true,
+        "graph_binding_exact": true,
+        "inventory_binding_exact": true,
+        "trace_binding_exact": true,
+        "reason_binding_exact": true,
+        "certificate_deterministic": true,
+        "certificate_smaller_than_full_projection": true
+      }
+    },
+    {
+      "name": "root_capability_fault",
+      "origin": [
+        "CAPABILITY",
+        "B3-0",
+        null
+      ],
+      "event_count": 1,
+      "stale_capability_ids": [
+        "B3-0",
+        "B3-1",
+        "B3-2"
+      ],
+      "stale_relation_ids": [],
+      "stale_counterparty_ids": [],
+      "full_projection_bytes": 764,
+      "certificate_bytes": 358,
+      "compression_ratio_full_over_certificate": 2.1341,
+      "bytes_saved": 406,
+      "certificate": {
+        "v": 1,
+        "g": "f7f75c219e46f1a8282506066aff0b676e0fc1ae098884154e7a2b291186890f",
+        "i": "5353c14c72624c9a054699010972640f373dfa4e7a109baf27ed3a18760e5328",
+        "t": "77792e25c1c1e871c993c539f3b20eec094afbe1e4aa81f3dccc2f7fbe093e7e",
+        "r": "e9c6259bcde302e65e25e10d5bfe45c9451f9e84c76ffeebf461d999bd7349a1",
+        "o": [
+          "CAPABILITY",
+          "B3-0",
+          null
+        ],
+        "c": "000e00",
+        "q": "00",
+        "p": "0",
+        "n": 1
+      },
+      "certificate_sha256": "da5e74cb3dc5a2bffad5cf0ebe14daec38ecedb8731cce137891228760b3fefd",
+      "checks": {
+        "origin_exact": true,
+        "stale_capability_closure_exact": true,
+        "stale_relation_closure_exact": true,
+        "stale_counterparty_closure_exact": true,
+        "event_count_exact": true,
+        "graph_binding_exact": true,
+        "inventory_binding_exact": true,
+        "trace_binding_exact": true,
+        "reason_binding_exact": true,
+        "certificate_deterministic": true,
+        "certificate_smaller_than_full_projection": true
+      }
+    },
+    {
+      "name": "leaf_capability_fault",
+      "origin": [
+        "CAPABILITY",
+        "B3-2",
+        null
+      ],
+      "event_count": 1,
+      "stale_capability_ids": [
+        "B3-2"
+      ],
+      "stale_relation_ids": [],
+      "stale_counterparty_ids": [],
+      "full_projection_bytes": 740,
+      "certificate_bytes": 358,
+      "compression_ratio_full_over_certificate": 2.067,
+      "bytes_saved": 382,
+      "certificate": {
+        "v": 1,
+        "g": "f7f75c219e46f1a8282506066aff0b676e0fc1ae098884154e7a2b291186890f",
+        "i": "5353c14c72624c9a054699010972640f373dfa4e7a109baf27ed3a18760e5328",
+        "t": "58b216c1d48037981c4c8f924e6395b8784e7a9109372cfeb361bb7b8fc28ce2",
+        "r": "e9c6259bcde302e65e25e10d5bfe45c9451f9e84c76ffeebf461d999bd7349a1",
+        "o": [
+          "CAPABILITY",
+          "B3-2",
+          null
+        ],
+        "c": "000800",
+        "q": "00",
+        "p": "0",
+        "n": 1
+      },
+      "certificate_sha256": "9e03ac0c9870edc5cab4da738be480fe0e28fa7e11d4de4b8c675ebb43d33e2f",
+      "checks": {
+        "origin_exact": true,
+        "stale_capability_closure_exact": true,
+        "stale_relation_closure_exact": true,
+        "stale_counterparty_closure_exact": true,
+        "event_count_exact": true,
+        "graph_binding_exact": true,
+        "inventory_binding_exact": true,
+        "trace_binding_exact": true,
+        "reason_binding_exact": true,
+        "certificate_deterministic": true,
+        "certificate_smaller_than_full_projection": true
+      }
+    },
+    {
+      "name": "shared_counterparty_fault",
+      "origin": [
+        "COUNTERPARTY",
+        "CP0",
+        1
+      ],
+      "event_count": 17,
+      "stale_capability_ids": [
+        "B0-0",
+        "B0-1",
+        "B0-2",
+        "B1-0",
+        "B1-1",
+        "B1-2",
+        "B2-0",
+        "B2-1",
+        "B2-2",
+        "B3-0",
+        "B3-1",
+        "B3-2",
+        "B4-0",
+        "B4-1",
+        "B4-2",
+        "B5-0",
+        "B5-1",
+        "B5-2",
+        "B6-0",
+        "B6-1",
+        "B6-2",
+        "B7-0",
+        "B7-1",
+        "B7-2"
+      ],
+      "stale_relation_ids": [
+        "R0",
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7"
+      ],
+      "stale_counterparty_ids": [
+        "CP0"
+      ],
+      "full_projection_bytes": 5150,
+      "certificate_bytes": 357,
+      "compression_ratio_full_over_certificate": 14.4258,
+      "bytes_saved": 4793,
+      "certificate": {
+        "v": 1,
+        "g": "f7f75c219e46f1a8282506066aff0b676e0fc1ae098884154e7a2b291186890f",
+        "i": "5353c14c72624c9a054699010972640f373dfa4e7a109baf27ed3a18760e5328",
+        "t": "b9552587020bcbbb86653c0bc0d28d6fe5f89b75aa2af9c32ccd20f7917d7e21",
+        "r": "e9c6259bcde302e65e25e10d5bfe45c9451f9e84c76ffeebf461d999bd7349a1",
+        "o": [
+          "COUNTERPARTY",
+          "CP0",
+          1
+        ],
+        "c": "ffffff",
+        "q": "ff",
+        "p": "1",
+        "n": 17
+      },
+      "certificate_sha256": "877cb8a6f9a0debe2718e425bb110dc25af82ba107dc890a9068106ab3a169ea",
+      "checks": {
+        "origin_exact": true,
+        "stale_capability_closure_exact": true,
+        "stale_relation_closure_exact": true,
+        "stale_counterparty_closure_exact": true,
+        "event_count_exact": true,
+        "graph_binding_exact": true,
+        "inventory_binding_exact": true,
+        "trace_binding_exact": true,
+        "reason_binding_exact": true,
+        "certificate_deterministic": true,
+        "certificate_smaller_than_full_projection": true
+      }
+    }
+  ],
+  "summary": {
+    "min_compression_ratio": 2.067,
+    "max_compression_ratio": 14.4258,
+    "mean_compression_ratio": 5.3461,
+    "total_full_projection_bytes": 7633,
+    "total_certificate_bytes": 1428,
+    "total_bytes_saved": 6205
+  },
+  "checks": {
+    "sealed_head_ms1924": true,
+    "organism_worktree_clean": true,
+    "all_certificate_semantic_and_binding_checks_pass": true,
+    "all_certificates_smaller_than_full_projection": true,
+    "all_compression_ratios_above_one": true,
+    "shared_broad_trace_has_largest_absolute_byte_saving": true,
+    "certificates_bind_full_trace_not_replace_it": true
+  },
+  "passed": 7,
+  "total": 7,
+  "all_pass": true,
+  "interpretation": {
+    "earned_statement": "HASH_BOUND_CAUSAL_CERTIFICATE_CAN_PRESERVE_ROOT_AND_FINAL_CLOSURE_WITH_LOWER_DIAGNOSTIC_PAYLOAD_UNDER_THIS_FIXTURE",
+    "non_replacement_statement": "COMPACT_CERTIFICATE != FULL_EVENT_STREAM_FOR_AUDIT_OR_RECOVERY",
+    "next_question": "Whether the projection can generalize across dynamic inventories/topologies without fragile external ordering assumptions."
+  },
+  "started_at_epoch": 1787974711.347556,
+  "duration_seconds": 0.42453,
+  "authority": "ENGINEERING_MEASUREMENT_ONLY_NO_NOVELTY_OR_CANONICAL_PROMOTION"
+}

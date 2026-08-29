@@ -1,0 +1,462 @@
+{
+  "schema": "pcmmad.ms1938.graph-canonicalization-lifecycle.v1",
+  "classification": "NON_NOVELTY_TRACE_MANIFEST_LIFECYCLE_EXPERIMENT",
+  "discriminator": "SEMANTIC_GRAPH_IDENTITY != SERIALIZATION_EDGE_ORDER",
+  "sealed_repo_head": "6b0f012980a625143ea7137be848d6f13b57325b",
+  "organism_worktree_clean": true,
+  "canonicalization_contract": {
+    "graph": "validate 2-endpoint non-self duplicate-free edges; normalize endpoints to strings; lexicographically sort edge tuples before hash",
+    "inventory": "DO NOT sort; ordered identity remains semantic because bitmap positions depend on it",
+    "certificate_v2": "g binds canonical graph-set hash; i remains ordered inventory hash"
+  },
+  "base_order_pressure": {
+    "raw_base_sha256": "f7f75c219e46f1a8282506066aff0b676e0fc1ae098884154e7a2b291186890f",
+    "raw_reversed_sha256": "fc61b2d6c19b47f1c2783ff6c973c4a87c89ea5a9c0a691694615679c7cea77d",
+    "raw_shuffled_sha256": "15b7da17b79e9a4e7dd42c1cfa9263af79b073db65d6e100b02cd6bb84c87c91",
+    "canonical_base_sha256": "129d3067c8b2423df3406bebe109e62803f5ba4a266291aa7a301e48804008c3",
+    "canonical_reversed_sha256": "129d3067c8b2423df3406bebe109e62803f5ba4a266291aa7a301e48804008c3",
+    "canonical_shuffled_sha256": "129d3067c8b2423df3406bebe109e62803f5ba4a266291aa7a301e48804008c3",
+    "canonical_topology_drift_sha256": "d9dfd93dc9abe48da73c41eca87b00e670b650cffe6ed12b6b55a54632ea2f07",
+    "duplicate_graph_rejected": true,
+    "duplicate_graph_error": "DUPLICATE_EDGE_NOT_ALLOWED",
+    "ordered_inventory_base_sha256": "5353c14c72624c9a054699010972640f373dfa4e7a109baf27ed3a18760e5328",
+    "ordered_inventory_reversed_sha256": "16a0d58859bd8e62d67fb077ec59a674a861d23d69d9aec76127aa8b170ab928"
+  },
+  "dynamic_history": {
+    "branch_versions": [
+      8,
+      19
+    ],
+    "semantic_version_count": 12,
+    "graph_serialization_orderings_observed_per_version": 6,
+    "raw_distinct_graph_hash_count": 72,
+    "canonical_distinct_graph_hash_count": 12,
+    "versions": [
+      {
+        "branches": 8,
+        "capabilities": 24,
+        "inventory_sha256": "5353c14c72624c9a054699010972640f373dfa4e7a109baf27ed3a18760e5328",
+        "canonical_graph_sha256": "129d3067c8b2423df3406bebe109e62803f5ba4a266291aa7a301e48804008c3",
+        "raw_order_hash_count": 6,
+        "all_raw_orders_canonicalize_to_one": true,
+        "narrow_fault": {
+          "name": "coordination_specific_fault",
+          "full_projection_bytes": 979,
+          "certificate_bytes": 355,
+          "certificate_sha256": "2fef5b3a5e52db5bc0c7611797c1c79a0715500c54619664ff3064db0719b652",
+          "event_count": 2,
+          "origin": [
+            "COORDINATION",
+            "R3",
+            1
+          ]
+        },
+        "broad_fault": {
+          "name": "shared_counterparty_fault",
+          "full_projection_bytes": 5150,
+          "certificate_bytes": 357,
+          "certificate_sha256": "f7074d49dbdd1b8efd7614ff9a03b81350c49778eb0deda0435af08663defbd0",
+          "event_count": 17,
+          "origin": [
+            "COUNTERPARTY",
+            "CP0",
+            1
+          ]
+        }
+      },
+      {
+        "branches": 9,
+        "capabilities": 27,
+        "inventory_sha256": "6908acd781525e42e2d94c36f201351105f46edb53fd414b294e84c454cf0ad5",
+        "canonical_graph_sha256": "db937fb0fe8875c47ea2fedc72315c4ddaa8961c1476cdfbf51ee7e2d194cbaa",
+        "raw_order_hash_count": 6,
+        "all_raw_orders_canonicalize_to_one": true,
+        "narrow_fault": {
+          "name": "coordination_specific_fault",
+          "full_projection_bytes": 1030,
+          "certificate_bytes": 357,
+          "certificate_sha256": "41465db345979f93cdf9c5c45bb4aedc245ef5472826ab23f5c8ac892bac8273",
+          "event_count": 2,
+          "origin": [
+            "COORDINATION",
+            "R3",
+            1
+          ]
+        },
+        "broad_fault": {
+          "name": "shared_counterparty_fault",
+          "full_projection_bytes": 5762,
+          "certificate_bytes": 359,
+          "certificate_sha256": "48d4d6aa0db87c789e478f07533538df91907a3e788e2b29c2f94587299570ea",
+          "event_count": 19,
+          "origin": [
+            "COUNTERPARTY",
+            "CP0",
+            1
+          ]
+        }
+      },
+      {
+        "branches": 10,
+        "capabilities": 30,
+        "inventory_sha256": "ca4694b367e92092953cdb7b3451e78eb647301fdbcd6e82d2813a072879ce92",
+        "canonical_graph_sha256": "7d69cabd0e8b9c8ce1f0bde562d73560034e3e27d957f281208d8e684ac397e7",
+        "raw_order_hash_count": 6,
+        "all_raw_orders_canonicalize_to_one": true,
+        "narrow_fault": {
+          "name": "coordination_specific_fault",
+          "full_projection_bytes": 1081,
+          "certificate_bytes": 358,
+          "certificate_sha256": "a0be71202648aa83f0c9db2f0fd554a0dc71674cfda596438536f14048bcb4fa",
+          "event_count": 2,
+          "origin": [
+            "COORDINATION",
+            "R3",
+            1
+          ]
+        },
+        "broad_fault": {
+          "name": "shared_counterparty_fault",
+          "full_projection_bytes": 6374,
+          "certificate_bytes": 360,
+          "certificate_sha256": "888078e7f7e847eb9e439be86fa6317db8fe9ccb5fb5b4aceabb68f267776436",
+          "event_count": 21,
+          "origin": [
+            "COUNTERPARTY",
+            "CP0",
+            1
+          ]
+        }
+      },
+      {
+        "branches": 11,
+        "capabilities": 33,
+        "inventory_sha256": "0f72d391ea77532597a295422d91635292c8116372c851ca12850df291313b37",
+        "canonical_graph_sha256": "465aabaf7353d05aeb00dd8d7b68f722992668682d7e7c670c6a91d7c250e7e5",
+        "raw_order_hash_count": 6,
+        "all_raw_orders_canonicalize_to_one": true,
+        "narrow_fault": {
+          "name": "coordination_specific_fault",
+          "full_projection_bytes": 1135,
+          "certificate_bytes": 359,
+          "certificate_sha256": "a7c323dc99ba199da83be460dc45002db728556190b36a78d4fcc8356b24d12d",
+          "event_count": 2,
+          "origin": [
+            "COORDINATION",
+            "R3",
+            1
+          ]
+        },
+        "broad_fault": {
+          "name": "shared_counterparty_fault",
+          "full_projection_bytes": 6996,
+          "certificate_bytes": 361,
+          "certificate_sha256": "5cea3df3f10adc3850e399a994d4c3b17ec935cf7c5085b164533985de588886",
+          "event_count": 23,
+          "origin": [
+            "COUNTERPARTY",
+            "CP0",
+            1
+          ]
+        }
+      },
+      {
+        "branches": 12,
+        "capabilities": 36,
+        "inventory_sha256": "fb6804da7b9812c03de1d5e328b859ea9261ca53b88dadfa954f3b0c82661a8b",
+        "canonical_graph_sha256": "aed0c8cce4b5860a4bdf33a86ce2cae48c1f12275faadd0918fb70654af37999",
+        "raw_order_hash_count": 6,
+        "all_raw_orders_canonicalize_to_one": true,
+        "narrow_fault": {
+          "name": "coordination_specific_fault",
+          "full_projection_bytes": 1189,
+          "certificate_bytes": 359,
+          "certificate_sha256": "7af3e25d9cb61061af7993b43a3fb3042c0a05568eb71c21c19e185dd5a7be81",
+          "event_count": 2,
+          "origin": [
+            "COORDINATION",
+            "R3",
+            1
+          ]
+        },
+        "broad_fault": {
+          "name": "shared_counterparty_fault",
+          "full_projection_bytes": 7618,
+          "certificate_bytes": 361,
+          "certificate_sha256": "5f0d3696f170a2057b0010508984700f8433f6f73bbaf4edb37a26b3636d017d",
+          "event_count": 25,
+          "origin": [
+            "COUNTERPARTY",
+            "CP0",
+            1
+          ]
+        }
+      },
+      {
+        "branches": 13,
+        "capabilities": 39,
+        "inventory_sha256": "f0b71eef52888f772c36d5105b335a56bfbca18efdd564f1c18d7623c7891379",
+        "canonical_graph_sha256": "39c8534c2a3ea2d773687a4bcbc42af47d29c73a78e96f8dea2bfff21418e839",
+        "raw_order_hash_count": 6,
+        "all_raw_orders_canonicalize_to_one": true,
+        "narrow_fault": {
+          "name": "coordination_specific_fault",
+          "full_projection_bytes": 1243,
+          "certificate_bytes": 361,
+          "certificate_sha256": "123aa5215dcb3ed104d653196fbdc9b8751b1411f5134b00b4efa2750fe98420",
+          "event_count": 2,
+          "origin": [
+            "COORDINATION",
+            "R3",
+            1
+          ]
+        },
+        "broad_fault": {
+          "name": "shared_counterparty_fault",
+          "full_projection_bytes": 8240,
+          "certificate_bytes": 363,
+          "certificate_sha256": "4d57c8fffcbe92fd20f97f030c3c984334080f4627d57cdb46eefbaa5991d586",
+          "event_count": 27,
+          "origin": [
+            "COUNTERPARTY",
+            "CP0",
+            1
+          ]
+        }
+      },
+      {
+        "branches": 14,
+        "capabilities": 42,
+        "inventory_sha256": "8d39eb49340d280cf75487f778717c3e3d7c8216e30f3e8157770433d8bccc41",
+        "canonical_graph_sha256": "746ae46ab056d898dca45e52706132fe44ab8c87db6b4bf6074fa05a5f850aae",
+        "raw_order_hash_count": 6,
+        "all_raw_orders_canonicalize_to_one": true,
+        "narrow_fault": {
+          "name": "coordination_specific_fault",
+          "full_projection_bytes": 1297,
+          "certificate_bytes": 362,
+          "certificate_sha256": "dd40214325a533c42c7b46386a7e60927014a5021f521939fc916bc3d39d5cc4",
+          "event_count": 2,
+          "origin": [
+            "COORDINATION",
+            "R3",
+            1
+          ]
+        },
+        "broad_fault": {
+          "name": "shared_counterparty_fault",
+          "full_projection_bytes": 8862,
+          "certificate_bytes": 364,
+          "certificate_sha256": "c3295eb759351ca73b53f4726364ee12c147a8a561a127c12f730fb7093d7376",
+          "event_count": 29,
+          "origin": [
+            "COUNTERPARTY",
+            "CP0",
+            1
+          ]
+        }
+      },
+      {
+        "branches": 15,
+        "capabilities": 45,
+        "inventory_sha256": "4f68b4bfa227714e1bcc9d659bbb331a5b4dc25b49c79fd933431652ced150a5",
+        "canonical_graph_sha256": "df94e8a032bf912e4a7a42fcbd942ca7423b7723202c234c2ce5be3e5ebacca4",
+        "raw_order_hash_count": 6,
+        "all_raw_orders_canonicalize_to_one": true,
+        "narrow_fault": {
+          "name": "coordination_specific_fault",
+          "full_projection_bytes": 1351,
+          "certificate_bytes": 363,
+          "certificate_sha256": "f606c19a4d9c126b0313ecfd4ed51d2f6685e05b36f9437befddd37a52877af6",
+          "event_count": 2,
+          "origin": [
+            "COORDINATION",
+            "R3",
+            1
+          ]
+        },
+        "broad_fault": {
+          "name": "shared_counterparty_fault",
+          "full_projection_bytes": 9484,
+          "certificate_bytes": 365,
+          "certificate_sha256": "a92eadfe01c0aad945609c1d4f7b3dd5a39a8bdacf84501741a5d0884ab55ce2",
+          "event_count": 31,
+          "origin": [
+            "COUNTERPARTY",
+            "CP0",
+            1
+          ]
+        }
+      },
+      {
+        "branches": 16,
+        "capabilities": 48,
+        "inventory_sha256": "ba910efee203ef792d3adfc20b69371d220ad8b977641c56f12e8c86033e3050",
+        "canonical_graph_sha256": "65b1f8b437c2d6c58b0ad2209709244cfe12941b9dce0554e2778e51f0c8d470",
+        "raw_order_hash_count": 6,
+        "all_raw_orders_canonicalize_to_one": true,
+        "narrow_fault": {
+          "name": "coordination_specific_fault",
+          "full_projection_bytes": 1405,
+          "certificate_bytes": 363,
+          "certificate_sha256": "b4a8b9cbb4c126fe94359afa86ab60219ec26bc3e6558e0de458e9fc354260e8",
+          "event_count": 2,
+          "origin": [
+            "COORDINATION",
+            "R3",
+            1
+          ]
+        },
+        "broad_fault": {
+          "name": "shared_counterparty_fault",
+          "full_projection_bytes": 10106,
+          "certificate_bytes": 365,
+          "certificate_sha256": "e61e78568ad0eb40cf85e38652b7f8ef42bbcaa7537490de3ba1603f510edcfa",
+          "event_count": 33,
+          "origin": [
+            "COUNTERPARTY",
+            "CP0",
+            1
+          ]
+        }
+      },
+      {
+        "branches": 17,
+        "capabilities": 51,
+        "inventory_sha256": "8cf6f25a837c5986ec8ec89f9bc22e7e3af2a09ed0af370c2f569ff270665b30",
+        "canonical_graph_sha256": "028ce044aee03190677efccba31b624ba032c442579b910e8f9dfa3410c2a3f2",
+        "raw_order_hash_count": 6,
+        "all_raw_orders_canonicalize_to_one": true,
+        "narrow_fault": {
+          "name": "coordination_specific_fault",
+          "full_projection_bytes": 1459,
+          "certificate_bytes": 365,
+          "certificate_sha256": "fa379fd1a74c3633f08889c3b390c853a40f41864661e2887ffb69513a9f710b",
+          "event_count": 2,
+          "origin": [
+            "COORDINATION",
+            "R3",
+            1
+          ]
+        },
+        "broad_fault": {
+          "name": "shared_counterparty_fault",
+          "full_projection_bytes": 10734,
+          "certificate_bytes": 367,
+          "certificate_sha256": "d7f84f94c1f245982a89afd8d29076e001b09613b58a8370ea1073160166ec95",
+          "event_count": 35,
+          "origin": [
+            "COUNTERPARTY",
+            "CP0",
+            1
+          ]
+        }
+      },
+      {
+        "branches": 18,
+        "capabilities": 54,
+        "inventory_sha256": "893d3569258aa2354bdf0986507d9cee95d51c660f3aa947fa365a7b589d9558",
+        "canonical_graph_sha256": "da0118a6972caa10556ce72331ec784a6124616fee6ae036576519e383485507",
+        "raw_order_hash_count": 6,
+        "all_raw_orders_canonicalize_to_one": true,
+        "narrow_fault": {
+          "name": "coordination_specific_fault",
+          "full_projection_bytes": 1513,
+          "certificate_bytes": 366,
+          "certificate_sha256": "6dc643d31fd3201998436399160e4d6c5accc695fecebc19fdcc55d08eaeb5c6",
+          "event_count": 2,
+          "origin": [
+            "COORDINATION",
+            "R3",
+            1
+          ]
+        },
+        "broad_fault": {
+          "name": "shared_counterparty_fault",
+          "full_projection_bytes": 11362,
+          "certificate_bytes": 368,
+          "certificate_sha256": "e2efd08cf4b7f9e12612b55c0cc6e993539a00d1099e089349771028b235f9cc",
+          "event_count": 37,
+          "origin": [
+            "COUNTERPARTY",
+            "CP0",
+            1
+          ]
+        }
+      },
+      {
+        "branches": 19,
+        "capabilities": 57,
+        "inventory_sha256": "85b95c4aaf85e2f3995c9ef20b3c820e92a05750ac679056b53b7225ff77288c",
+        "canonical_graph_sha256": "24070005fde7dc082c2460d8a2a67e9162519e54e8da0c66ba79f0ddaa02e4fb",
+        "raw_order_hash_count": 6,
+        "all_raw_orders_canonicalize_to_one": true,
+        "narrow_fault": {
+          "name": "coordination_specific_fault",
+          "full_projection_bytes": 1567,
+          "certificate_bytes": 367,
+          "certificate_sha256": "1f2383d596ac66db768257541c517bd931611d4892de64760dc741cbd7b0176f",
+          "event_count": 2,
+          "origin": [
+            "COORDINATION",
+            "R3",
+            1
+          ]
+        },
+        "broad_fault": {
+          "name": "shared_counterparty_fault",
+          "full_projection_bytes": 11990,
+          "certificate_bytes": 369,
+          "certificate_sha256": "44f54c5b6634feb2ee18f3b7bffb6ecae1a429cccdcd1c0b811c95da8d62cd1b",
+          "event_count": 39,
+          "origin": [
+            "COUNTERPARTY",
+            "CP0",
+            1
+          ]
+        }
+      }
+    ]
+  },
+  "lifecycle_size": {
+    "raw_order_churn_graph_archive_bytes": 59310,
+    "canonical_graph_archive_bytes": 9885,
+    "inventory_archive_bytes": 5124,
+    "raw_graph_plus_inventory_archive_bytes": 64434,
+    "canonical_graph_plus_inventory_archive_bytes": 15009,
+    "full_projection_bytes_24_fault_runs": 117927,
+    "certificate_bytes_24_fault_runs": 8694,
+    "certificates_plus_all_canonical_version_manifests_bytes": 23703,
+    "bytes_saved_vs_full_projections_even_with_all_version_manifests": 94224,
+    "compression_ratio_full_over_certs_plus_manifests": 4.9752,
+    "raw_order_churn_to_canonical_graph_archive_ratio": 6.0
+  },
+  "checks": {
+    "sealed_head_ms1924": true,
+    "organism_worktree_clean": true,
+    "raw_graph_hash_changes_under_reversal": true,
+    "raw_graph_hash_changes_under_shuffle": true,
+    "canonical_graph_hash_ignores_edge_order": true,
+    "real_topology_drift_changes_canonical_hash": true,
+    "duplicate_edge_manifest_rejected": true,
+    "ordered_inventory_hash_changes_under_reorder": true,
+    "one_canonical_graph_hash_per_semantic_version": true,
+    "raw_serialization_creates_all_spurious_variant_hashes": true,
+    "canonical_archive_avoids_raw_order_churn": true,
+    "certificates_plus_canonical_manifests_smaller_than_full_projections": true,
+    "each_dynamic_version_has_compact_certificate_advantage": true
+  },
+  "passed": 13,
+  "total": 13,
+  "all_pass": true,
+  "interpretation": {
+    "earned_statement": "CANONICAL_EDGE_SET_HASH_REMOVES_SERIALIZATION_ORDER_CHURN_WHILE_PRESERVING_REAL_TOPOLOGY_DRIFT_DETECTION",
+    "inventory_statement": "BITMAP_INVENTORY_ORDER_REMAINS_SEMANTIC_AND_MUST_STAY_STRICTLY_BOUND",
+    "lifecycle_statement": "COMPACT_CERTIFICATE_ADVANTAGE_SURVIVES_MULTI_VERSION_MANIFEST_COST_UNDER_THIS_HISTORY",
+    "important_scar": "CANONICALIZE_ONLY_SEMANTICALLY_UNORDERED_STRUCTURE_NOT_POSITION_BEARING_INVENTORIES",
+    "next_question": "Whether certificate/manifests should remain experiment-only or justify a project-control implementation for compact server-side readback; no organism adoption is implied."
+  },
+  "started_at_epoch": 1787974712.8312323,
+  "duration_seconds": 4.160598,
+  "authority": "ENGINEERING_MEASUREMENT_ONLY_NO_NOVELTY_OR_CANONICAL_PROMOTION"
+}

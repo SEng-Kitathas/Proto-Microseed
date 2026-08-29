@@ -1,0 +1,384 @@
+{
+  "schema": "pcmmad.ms1937.dynamic-manifest-certificate.v1",
+  "classification": "NON_NOVELTY_TRACE_PORTABILITY_EXPERIMENT",
+  "discriminator": "BITMAP_CERTIFICATE_DECODE_REQUIRES_EXACT_CONTENT_ADDRESSED_INVENTORY_AND_GRAPH_MANIFESTS",
+  "sealed_repo_head": "6b0f012980a625143ea7137be848d6f13b57325b",
+  "organism_worktree_clean": true,
+  "v1": {
+    "inventory_sha256": "5353c14c72624c9a054699010972640f373dfa4e7a109baf27ed3a18760e5328",
+    "graph_sha256": "f7f75c219e46f1a8282506066aff0b676e0fc1ae098884154e7a2b291186890f",
+    "combined_manifest_bytes": 765
+  },
+  "v2_append_growth": {
+    "inventory_sha256": "6908acd781525e42e2d94c36f201351105f46edb53fd414b294e84c454cf0ad5",
+    "graph_sha256": "39084b6c5f11d5d3534385930175f3ebb66907ea05af1808e9ca7094f2e77342",
+    "new_coordination": "R8",
+    "new_capabilities": [
+      "B8-0",
+      "B8-1",
+      "B8-2"
+    ]
+  },
+  "drift_cases": {
+    "reordered_inventory_sha256": "16a0d58859bd8e62d67fb077ec59a674a861d23d69d9aec76127aa8b170ab928",
+    "topology_only_drift_graph_sha256": "56fe82ee371795ff8155b88b26142594e9f4a4954277966aa189be26699da89e"
+  },
+  "verification_rows": [
+    {
+      "name": "coordination_specific_fault",
+      "certificate_sha256": "cf33488276d8eb5101f110effe93ef999b6e45384a1804f631a47c47338991ab",
+      "exact_v1_verification": {
+        "status": "VERIFIED",
+        "reason": "EXACT_REFERENCED_MANIFESTS",
+        "decoded": {
+          "origin": [
+            "COORDINATION",
+            "R3",
+            1
+          ],
+          "stale_capabilities": [
+            "B3-0",
+            "B3-1",
+            "B3-2"
+          ],
+          "stale_relations": [
+            "R3"
+          ],
+          "stale_counterparties": [],
+          "event_count": 2
+        }
+      },
+      "appended_v2_current_manifest_verification": {
+        "status": "REJECTED",
+        "reason": "INVENTORY_MANIFEST_BINDING_MISMATCH",
+        "expected_inventory_sha256": "5353c14c72624c9a054699010972640f373dfa4e7a109baf27ed3a18760e5328",
+        "supplied_inventory_sha256": "6908acd781525e42e2d94c36f201351105f46edb53fd414b294e84c454cf0ad5"
+      },
+      "reordered_inventory_verification": {
+        "status": "REJECTED",
+        "reason": "INVENTORY_MANIFEST_BINDING_MISMATCH",
+        "expected_inventory_sha256": "5353c14c72624c9a054699010972640f373dfa4e7a109baf27ed3a18760e5328",
+        "supplied_inventory_sha256": "16a0d58859bd8e62d67fb077ec59a674a861d23d69d9aec76127aa8b170ab928"
+      },
+      "topology_only_drift_verification": {
+        "status": "REJECTED",
+        "reason": "DEPENDENCY_GRAPH_BINDING_MISMATCH",
+        "expected_graph_sha256": "f7f75c219e46f1a8282506066aff0b676e0fc1ae098884154e7a2b291186890f",
+        "supplied_graph_sha256": "56fe82ee371795ff8155b88b26142594e9f4a4954277966aa189be26699da89e"
+      },
+      "current_v2_registry_without_v1_archive": {
+        "status": "ABSTAIN",
+        "reason": "REFERENCED_INVENTORY_MANIFEST_NOT_AVAILABLE"
+      },
+      "archived_v1_registry_after_v2_current": {
+        "status": "VERIFIED",
+        "reason": "EXACT_REFERENCED_MANIFESTS",
+        "decoded": {
+          "origin": [
+            "COORDINATION",
+            "R3",
+            1
+          ],
+          "stale_capabilities": [
+            "B3-0",
+            "B3-1",
+            "B3-2"
+          ],
+          "stale_relations": [
+            "R3"
+          ],
+          "stale_counterparties": [],
+          "event_count": 2
+        }
+      },
+      "naive_v2_decode_happens_to_match_old_closure": true
+    },
+    {
+      "name": "root_capability_fault",
+      "certificate_sha256": "f2e8e86ade315cc3dea6ac6b75f4034cc6f22d4cfa89587a0a5fe2291a86edb3",
+      "exact_v1_verification": {
+        "status": "VERIFIED",
+        "reason": "EXACT_REFERENCED_MANIFESTS",
+        "decoded": {
+          "origin": [
+            "CAPABILITY",
+            "B3-0",
+            null
+          ],
+          "stale_capabilities": [
+            "B3-0",
+            "B3-1",
+            "B3-2"
+          ],
+          "stale_relations": [],
+          "stale_counterparties": [],
+          "event_count": 1
+        }
+      },
+      "appended_v2_current_manifest_verification": {
+        "status": "REJECTED",
+        "reason": "INVENTORY_MANIFEST_BINDING_MISMATCH",
+        "expected_inventory_sha256": "5353c14c72624c9a054699010972640f373dfa4e7a109baf27ed3a18760e5328",
+        "supplied_inventory_sha256": "6908acd781525e42e2d94c36f201351105f46edb53fd414b294e84c454cf0ad5"
+      },
+      "reordered_inventory_verification": {
+        "status": "REJECTED",
+        "reason": "INVENTORY_MANIFEST_BINDING_MISMATCH",
+        "expected_inventory_sha256": "5353c14c72624c9a054699010972640f373dfa4e7a109baf27ed3a18760e5328",
+        "supplied_inventory_sha256": "16a0d58859bd8e62d67fb077ec59a674a861d23d69d9aec76127aa8b170ab928"
+      },
+      "topology_only_drift_verification": {
+        "status": "REJECTED",
+        "reason": "DEPENDENCY_GRAPH_BINDING_MISMATCH",
+        "expected_graph_sha256": "f7f75c219e46f1a8282506066aff0b676e0fc1ae098884154e7a2b291186890f",
+        "supplied_graph_sha256": "56fe82ee371795ff8155b88b26142594e9f4a4954277966aa189be26699da89e"
+      },
+      "current_v2_registry_without_v1_archive": {
+        "status": "ABSTAIN",
+        "reason": "REFERENCED_INVENTORY_MANIFEST_NOT_AVAILABLE"
+      },
+      "archived_v1_registry_after_v2_current": {
+        "status": "VERIFIED",
+        "reason": "EXACT_REFERENCED_MANIFESTS",
+        "decoded": {
+          "origin": [
+            "CAPABILITY",
+            "B3-0",
+            null
+          ],
+          "stale_capabilities": [
+            "B3-0",
+            "B3-1",
+            "B3-2"
+          ],
+          "stale_relations": [],
+          "stale_counterparties": [],
+          "event_count": 1
+        }
+      },
+      "naive_v2_decode_happens_to_match_old_closure": true
+    },
+    {
+      "name": "leaf_capability_fault",
+      "certificate_sha256": "8f67f05573a094403164ad307937f51e028e41dcf485998c38b87d2187e4b3f5",
+      "exact_v1_verification": {
+        "status": "VERIFIED",
+        "reason": "EXACT_REFERENCED_MANIFESTS",
+        "decoded": {
+          "origin": [
+            "CAPABILITY",
+            "B3-2",
+            null
+          ],
+          "stale_capabilities": [
+            "B3-2"
+          ],
+          "stale_relations": [],
+          "stale_counterparties": [],
+          "event_count": 1
+        }
+      },
+      "appended_v2_current_manifest_verification": {
+        "status": "REJECTED",
+        "reason": "INVENTORY_MANIFEST_BINDING_MISMATCH",
+        "expected_inventory_sha256": "5353c14c72624c9a054699010972640f373dfa4e7a109baf27ed3a18760e5328",
+        "supplied_inventory_sha256": "6908acd781525e42e2d94c36f201351105f46edb53fd414b294e84c454cf0ad5"
+      },
+      "reordered_inventory_verification": {
+        "status": "REJECTED",
+        "reason": "INVENTORY_MANIFEST_BINDING_MISMATCH",
+        "expected_inventory_sha256": "5353c14c72624c9a054699010972640f373dfa4e7a109baf27ed3a18760e5328",
+        "supplied_inventory_sha256": "16a0d58859bd8e62d67fb077ec59a674a861d23d69d9aec76127aa8b170ab928"
+      },
+      "topology_only_drift_verification": {
+        "status": "REJECTED",
+        "reason": "DEPENDENCY_GRAPH_BINDING_MISMATCH",
+        "expected_graph_sha256": "f7f75c219e46f1a8282506066aff0b676e0fc1ae098884154e7a2b291186890f",
+        "supplied_graph_sha256": "56fe82ee371795ff8155b88b26142594e9f4a4954277966aa189be26699da89e"
+      },
+      "current_v2_registry_without_v1_archive": {
+        "status": "ABSTAIN",
+        "reason": "REFERENCED_INVENTORY_MANIFEST_NOT_AVAILABLE"
+      },
+      "archived_v1_registry_after_v2_current": {
+        "status": "VERIFIED",
+        "reason": "EXACT_REFERENCED_MANIFESTS",
+        "decoded": {
+          "origin": [
+            "CAPABILITY",
+            "B3-2",
+            null
+          ],
+          "stale_capabilities": [
+            "B3-2"
+          ],
+          "stale_relations": [],
+          "stale_counterparties": [],
+          "event_count": 1
+        }
+      },
+      "naive_v2_decode_happens_to_match_old_closure": true
+    },
+    {
+      "name": "shared_counterparty_fault",
+      "certificate_sha256": "eaa30ebeaaccad5347deee625ac10a1604cd14dd8bab24b504a1cf975c054872",
+      "exact_v1_verification": {
+        "status": "VERIFIED",
+        "reason": "EXACT_REFERENCED_MANIFESTS",
+        "decoded": {
+          "origin": [
+            "COUNTERPARTY",
+            "CP0",
+            1
+          ],
+          "stale_capabilities": [
+            "B0-0",
+            "B0-1",
+            "B0-2",
+            "B1-0",
+            "B1-1",
+            "B1-2",
+            "B2-0",
+            "B2-1",
+            "B2-2",
+            "B3-0",
+            "B3-1",
+            "B3-2",
+            "B4-0",
+            "B4-1",
+            "B4-2",
+            "B5-0",
+            "B5-1",
+            "B5-2",
+            "B6-0",
+            "B6-1",
+            "B6-2",
+            "B7-0",
+            "B7-1",
+            "B7-2"
+          ],
+          "stale_relations": [
+            "R0",
+            "R1",
+            "R2",
+            "R3",
+            "R4",
+            "R5",
+            "R6",
+            "R7"
+          ],
+          "stale_counterparties": [
+            "CP0"
+          ],
+          "event_count": 17
+        }
+      },
+      "appended_v2_current_manifest_verification": {
+        "status": "REJECTED",
+        "reason": "INVENTORY_MANIFEST_BINDING_MISMATCH",
+        "expected_inventory_sha256": "5353c14c72624c9a054699010972640f373dfa4e7a109baf27ed3a18760e5328",
+        "supplied_inventory_sha256": "6908acd781525e42e2d94c36f201351105f46edb53fd414b294e84c454cf0ad5"
+      },
+      "reordered_inventory_verification": {
+        "status": "REJECTED",
+        "reason": "INVENTORY_MANIFEST_BINDING_MISMATCH",
+        "expected_inventory_sha256": "5353c14c72624c9a054699010972640f373dfa4e7a109baf27ed3a18760e5328",
+        "supplied_inventory_sha256": "16a0d58859bd8e62d67fb077ec59a674a861d23d69d9aec76127aa8b170ab928"
+      },
+      "topology_only_drift_verification": {
+        "status": "REJECTED",
+        "reason": "DEPENDENCY_GRAPH_BINDING_MISMATCH",
+        "expected_graph_sha256": "f7f75c219e46f1a8282506066aff0b676e0fc1ae098884154e7a2b291186890f",
+        "supplied_graph_sha256": "56fe82ee371795ff8155b88b26142594e9f4a4954277966aa189be26699da89e"
+      },
+      "current_v2_registry_without_v1_archive": {
+        "status": "ABSTAIN",
+        "reason": "REFERENCED_INVENTORY_MANIFEST_NOT_AVAILABLE"
+      },
+      "archived_v1_registry_after_v2_current": {
+        "status": "VERIFIED",
+        "reason": "EXACT_REFERENCED_MANIFESTS",
+        "decoded": {
+          "origin": [
+            "COUNTERPARTY",
+            "CP0",
+            1
+          ],
+          "stale_capabilities": [
+            "B0-0",
+            "B0-1",
+            "B0-2",
+            "B1-0",
+            "B1-1",
+            "B1-2",
+            "B2-0",
+            "B2-1",
+            "B2-2",
+            "B3-0",
+            "B3-1",
+            "B3-2",
+            "B4-0",
+            "B4-1",
+            "B4-2",
+            "B5-0",
+            "B5-1",
+            "B5-2",
+            "B6-0",
+            "B6-1",
+            "B6-2",
+            "B7-0",
+            "B7-1",
+            "B7-2"
+          ],
+          "stale_relations": [
+            "R0",
+            "R1",
+            "R2",
+            "R3",
+            "R4",
+            "R5",
+            "R6",
+            "R7"
+          ],
+          "stale_counterparties": [
+            "CP0"
+          ],
+          "event_count": 17
+        }
+      },
+      "naive_v2_decode_happens_to_match_old_closure": true
+    }
+  ],
+  "amortized_size": {
+    "full_projection_bytes_four_scenarios": 7633,
+    "certificates_bytes_four_scenarios": 1428,
+    "one_v1_inventory_plus_graph_manifest_bytes": 765,
+    "certificates_plus_shared_v1_manifest_bytes": 2193,
+    "bytes_saved_vs_full_even_including_one_manifest": 5440,
+    "compression_ratio_full_over_certificates_plus_manifest": 3.4806
+  },
+  "checks": {
+    "sealed_head_ms1924": true,
+    "organism_worktree_clean": true,
+    "exact_v1_manifest_verifies_all": true,
+    "append_growth_current_manifest_rejected_all": true,
+    "reordered_inventory_rejected_all": true,
+    "topology_only_drift_rejected_all": true,
+    "current_only_registry_without_archive_abstains_all": true,
+    "archived_v1_registry_recovers_all": true,
+    "append_growth_can_look_naively_compatible_but_is_still_rejected": true,
+    "certificate_plus_one_shared_manifest_smaller_than_full_projections": true
+  },
+  "passed": 10,
+  "total": 10,
+  "all_pass": true,
+  "interpretation": {
+    "earned_statement": "CONTENT_ADDRESSED_MANIFEST_BINDING_PREVENTS_SILENT_CERTIFICATE_MISDECODE_ACROSS_INVENTORY_OR_TOPOLOGY_DRIFT_UNDER_THIS_FIXTURE",
+    "recovery_statement": "OLD_CERTIFICATE_DECODE_REQUIRES_EXACT_REFERENCED_ARCHIVED_MANIFEST",
+    "important_scar": "APPEND_ONLY_INVENTORY_GROWTH_CAN_PRESERVE_OLD_BITMAP_POSITIONS_AND_LOOK_PLAUSIBLE_BUT_MUST_STILL_FAIL_CURRENT_MANIFEST_BINDING",
+    "next_question": "Canonicalize semantically unordered graph representations and measure manifest/certificate lifecycle costs under longer dynamic histories."
+  },
+  "started_at_epoch": 1787974712.0823252,
+  "duration_seconds": 0.432186,
+  "authority": "ENGINEERING_MEASUREMENT_ONLY_NO_NOVELTY_OR_CANONICAL_PROMOTION"
+}

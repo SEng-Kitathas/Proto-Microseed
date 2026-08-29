@@ -1,0 +1,256 @@
+{
+  "schema": "pcmmad.ms1935.authority-coupling.v1",
+  "classification": "NON_NOVELTY_ARCHITECTURE_FACTOR_EXPERIMENT",
+  "discriminator": "INDEPENDENT_TYPED_PREMISE_FACTORIZATION -> UNSAFE_AUTHORITY_FAULT_CONTAINMENT",
+  "sealed_repo_head": "6b0f012980a625143ea7137be848d6f13b57325b",
+  "organism_worktree_clean": true,
+  "microseed_gate_source": {
+    "path": "microseed/runtime/commitment.py",
+    "sha256": "aced0107fd17d391e6c01d3416ac9f4f06699754c5baf84f4ffcc66cbb490701",
+    "semantic_rule": "NO vetoes; YES only if every required premise licenses YES; otherwise UNKNOWN",
+    "program_step_axes_grounding": [
+      "NEED",
+      "PRIORITY",
+      "INFORMATION",
+      "FEASIBILITY",
+      "ROUTE"
+    ]
+  },
+  "fixture": {
+    "premise_axes": [
+      "NEED",
+      "PRIORITY",
+      "INFORMATION",
+      "FEASIBILITY",
+      "ROUTE"
+    ],
+    "case_count": 45,
+    "correct_stance_counts": {
+      "YES": 5,
+      "NO": 30,
+      "UNKNOWN": 10
+    },
+    "single_fault_budget_per_run": 1,
+    "case_construction": {
+      "all_yes": 5,
+      "sole_no_per_axis": 4,
+      "sole_unknown_per_axis": 2,
+      "double_no_pair_cases": 10
+    }
+  },
+  "architectures": {
+    "MICROSEED_TYPED_PREMISE_GATE": "Actual conjoin_required_commitments semantics; one independently addressable premise evaluator is mutated per run.",
+    "CENTRALIZED_TYPED_SUBMODULE_BASELINE": "One central manager containing the same five independently addressable typed premise evaluators and the same conjunction semantics.",
+    "CENTRAL_SHARED_PREMISE_EVALUATOR_BASELINE": "All five premise types route through one shared evaluator function; the single injected fault makes that shared evaluator return YES for every premise."
+  },
+  "typed_site_mutations": [
+    {
+      "mutated_premise_axis": "NEED",
+      "mutation": "ONE_PREMISE_EVALUATOR_STUCK_YES",
+      "case_count": 45,
+      "microseed_false_authorizations": 6,
+      "centralized_typed_false_authorizations": 6,
+      "microseed_false_refusals_or_abstentions": 0,
+      "centralized_typed_false_refusals_or_abstentions": 0,
+      "microseed_wrong_case_ids": [
+        "ONLY_NEED_NO_0",
+        "ONLY_NEED_NO_1",
+        "ONLY_NEED_NO_2",
+        "ONLY_NEED_NO_3",
+        "ONLY_NEED_UNKNOWN_0",
+        "ONLY_NEED_UNKNOWN_1"
+      ],
+      "centralized_typed_wrong_case_ids": [
+        "ONLY_NEED_NO_0",
+        "ONLY_NEED_NO_1",
+        "ONLY_NEED_NO_2",
+        "ONLY_NEED_NO_3",
+        "ONLY_NEED_UNKNOWN_0",
+        "ONLY_NEED_UNKNOWN_1"
+      ],
+      "typed_central_matches_microseed_every_case": true,
+      "double_no_cases_remain_blocked_under_single_typed_fault": true
+    },
+    {
+      "mutated_premise_axis": "PRIORITY",
+      "mutation": "ONE_PREMISE_EVALUATOR_STUCK_YES",
+      "case_count": 45,
+      "microseed_false_authorizations": 6,
+      "centralized_typed_false_authorizations": 6,
+      "microseed_false_refusals_or_abstentions": 0,
+      "centralized_typed_false_refusals_or_abstentions": 0,
+      "microseed_wrong_case_ids": [
+        "ONLY_PRIORITY_NO_0",
+        "ONLY_PRIORITY_NO_1",
+        "ONLY_PRIORITY_NO_2",
+        "ONLY_PRIORITY_NO_3",
+        "ONLY_PRIORITY_UNKNOWN_0",
+        "ONLY_PRIORITY_UNKNOWN_1"
+      ],
+      "centralized_typed_wrong_case_ids": [
+        "ONLY_PRIORITY_NO_0",
+        "ONLY_PRIORITY_NO_1",
+        "ONLY_PRIORITY_NO_2",
+        "ONLY_PRIORITY_NO_3",
+        "ONLY_PRIORITY_UNKNOWN_0",
+        "ONLY_PRIORITY_UNKNOWN_1"
+      ],
+      "typed_central_matches_microseed_every_case": true,
+      "double_no_cases_remain_blocked_under_single_typed_fault": true
+    },
+    {
+      "mutated_premise_axis": "INFORMATION",
+      "mutation": "ONE_PREMISE_EVALUATOR_STUCK_YES",
+      "case_count": 45,
+      "microseed_false_authorizations": 6,
+      "centralized_typed_false_authorizations": 6,
+      "microseed_false_refusals_or_abstentions": 0,
+      "centralized_typed_false_refusals_or_abstentions": 0,
+      "microseed_wrong_case_ids": [
+        "ONLY_INFORMATION_NO_0",
+        "ONLY_INFORMATION_NO_1",
+        "ONLY_INFORMATION_NO_2",
+        "ONLY_INFORMATION_NO_3",
+        "ONLY_INFORMATION_UNKNOWN_0",
+        "ONLY_INFORMATION_UNKNOWN_1"
+      ],
+      "centralized_typed_wrong_case_ids": [
+        "ONLY_INFORMATION_NO_0",
+        "ONLY_INFORMATION_NO_1",
+        "ONLY_INFORMATION_NO_2",
+        "ONLY_INFORMATION_NO_3",
+        "ONLY_INFORMATION_UNKNOWN_0",
+        "ONLY_INFORMATION_UNKNOWN_1"
+      ],
+      "typed_central_matches_microseed_every_case": true,
+      "double_no_cases_remain_blocked_under_single_typed_fault": true
+    },
+    {
+      "mutated_premise_axis": "FEASIBILITY",
+      "mutation": "ONE_PREMISE_EVALUATOR_STUCK_YES",
+      "case_count": 45,
+      "microseed_false_authorizations": 6,
+      "centralized_typed_false_authorizations": 6,
+      "microseed_false_refusals_or_abstentions": 0,
+      "centralized_typed_false_refusals_or_abstentions": 0,
+      "microseed_wrong_case_ids": [
+        "ONLY_FEASIBILITY_NO_0",
+        "ONLY_FEASIBILITY_NO_1",
+        "ONLY_FEASIBILITY_NO_2",
+        "ONLY_FEASIBILITY_NO_3",
+        "ONLY_FEASIBILITY_UNKNOWN_0",
+        "ONLY_FEASIBILITY_UNKNOWN_1"
+      ],
+      "centralized_typed_wrong_case_ids": [
+        "ONLY_FEASIBILITY_NO_0",
+        "ONLY_FEASIBILITY_NO_1",
+        "ONLY_FEASIBILITY_NO_2",
+        "ONLY_FEASIBILITY_NO_3",
+        "ONLY_FEASIBILITY_UNKNOWN_0",
+        "ONLY_FEASIBILITY_UNKNOWN_1"
+      ],
+      "typed_central_matches_microseed_every_case": true,
+      "double_no_cases_remain_blocked_under_single_typed_fault": true
+    },
+    {
+      "mutated_premise_axis": "ROUTE",
+      "mutation": "ONE_PREMISE_EVALUATOR_STUCK_YES",
+      "case_count": 45,
+      "microseed_false_authorizations": 6,
+      "centralized_typed_false_authorizations": 6,
+      "microseed_false_refusals_or_abstentions": 0,
+      "centralized_typed_false_refusals_or_abstentions": 0,
+      "microseed_wrong_case_ids": [
+        "ONLY_ROUTE_NO_0",
+        "ONLY_ROUTE_NO_1",
+        "ONLY_ROUTE_NO_2",
+        "ONLY_ROUTE_NO_3",
+        "ONLY_ROUTE_UNKNOWN_0",
+        "ONLY_ROUTE_UNKNOWN_1"
+      ],
+      "centralized_typed_wrong_case_ids": [
+        "ONLY_ROUTE_NO_0",
+        "ONLY_ROUTE_NO_1",
+        "ONLY_ROUTE_NO_2",
+        "ONLY_ROUTE_NO_3",
+        "ONLY_ROUTE_UNKNOWN_0",
+        "ONLY_ROUTE_UNKNOWN_1"
+      ],
+      "typed_central_matches_microseed_every_case": true,
+      "double_no_cases_remain_blocked_under_single_typed_fault": true
+    }
+  ],
+  "shared_evaluator_mutation": {
+    "mutation": "ONE_SHARED_EVALUATOR_STUCK_YES",
+    "case_count": 45,
+    "false_authorizations": 40,
+    "false_refusals_or_abstentions": 0,
+    "wrong_case_ids": [
+      "ONLY_NEED_NO_0",
+      "ONLY_NEED_NO_1",
+      "ONLY_NEED_NO_2",
+      "ONLY_NEED_NO_3",
+      "ONLY_NEED_UNKNOWN_0",
+      "ONLY_NEED_UNKNOWN_1",
+      "ONLY_PRIORITY_NO_0",
+      "ONLY_PRIORITY_NO_1",
+      "ONLY_PRIORITY_NO_2",
+      "ONLY_PRIORITY_NO_3",
+      "ONLY_PRIORITY_UNKNOWN_0",
+      "ONLY_PRIORITY_UNKNOWN_1",
+      "ONLY_INFORMATION_NO_0",
+      "ONLY_INFORMATION_NO_1",
+      "ONLY_INFORMATION_NO_2",
+      "ONLY_INFORMATION_NO_3",
+      "ONLY_INFORMATION_UNKNOWN_0",
+      "ONLY_INFORMATION_UNKNOWN_1",
+      "ONLY_FEASIBILITY_NO_0",
+      "ONLY_FEASIBILITY_NO_1",
+      "ONLY_FEASIBILITY_NO_2",
+      "ONLY_FEASIBILITY_NO_3",
+      "ONLY_FEASIBILITY_UNKNOWN_0",
+      "ONLY_FEASIBILITY_UNKNOWN_1",
+      "ONLY_ROUTE_NO_0",
+      "ONLY_ROUTE_NO_1",
+      "ONLY_ROUTE_NO_2",
+      "ONLY_ROUTE_NO_3",
+      "ONLY_ROUTE_UNKNOWN_0",
+      "ONLY_ROUTE_UNKNOWN_1",
+      "DOUBLE_NO_NEED_PRIORITY",
+      "DOUBLE_NO_NEED_INFORMATION",
+      "DOUBLE_NO_NEED_FEASIBILITY",
+      "DOUBLE_NO_NEED_ROUTE",
+      "DOUBLE_NO_PRIORITY_INFORMATION",
+      "DOUBLE_NO_PRIORITY_FEASIBILITY",
+      "DOUBLE_NO_PRIORITY_ROUTE",
+      "DOUBLE_NO_INFORMATION_FEASIBILITY",
+      "DOUBLE_NO_INFORMATION_ROUTE",
+      "DOUBLE_NO_FEASIBILITY_ROUTE"
+    ]
+  },
+  "checks": {
+    "sealed_head_ms1924": true,
+    "organism_worktree_clean": true,
+    "centralized_typed_unmutated_matches_microseed_all_cases": true,
+    "microseed_typed_mutation_false_auth_is_six_each_axis": true,
+    "centralized_typed_mutation_matches_microseed_each_axis": true,
+    "double_no_cases_contained_under_single_typed_fault": true,
+    "shared_evaluator_stuck_yes_false_authorizes_every_non_yes_case": true,
+    "shared_evaluator_stuck_yes_has_no_false_refusals": true,
+    "shared_evaluator_has_larger_unsafe_blast_radius_than_any_typed_site": true,
+    "authorized_cases_remain_yes_under_stuck_yes_mutations": true
+  },
+  "passed": 10,
+  "total": 10,
+  "all_pass": true,
+  "interpretation": {
+    "factorized_result": "A single stuck-YES fault in one typed premise evaluator only removes that premise's veto; cases with another independent NO remain blocked.",
+    "fairness_control_result": "A centralized manager with the same typed submodule factorization matches Microseed exactly under corresponding single-site mutations.",
+    "coupled_baseline_result": "A single stuck-YES fault in one evaluator shared across all premise types removes every premise veto and false-authorizes every non-YES case in the matrix.",
+    "earned_statement": "INDEPENDENT_PREMISE_FACTORIZATION_BOUNDS_SINGLE_EVALUATOR_UNSAFE_AUTHORITY_FAULT_BLAST_RADIUS_UNDER_THIS_MATRIX",
+    "rejected_overclaim": "PHYSICAL_DISTRIBUTION_OF_PREMISE_OWNERS_IS_REQUIRED_FOR_FAULT_CONTAINMENT"
+  },
+  "started_at_epoch": 1787974711.0259292,
+  "duration_seconds": 0.016561,
+  "authority": "ENGINEERING_MEASUREMENT_ONLY_NO_NOVELTY_OR_CANONICAL_PROMOTION"
+}

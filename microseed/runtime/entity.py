@@ -636,6 +636,9 @@ class Microseed:
             "status":"CURRENT_REHEARSAL_PROPOSAL", "proposal_id":proposal_id, "sequence":list(p.sequence),
             "authority":p.authority, "truth_authority":p.truth_authority, "execution_authority":p.execution_authority,
             "qualification_authority":p.qualification_authority, "semantic_goal_authority":p.semantic_goal_authority,
+            "action_indicated":p.action_indicated,
+            "action_indication_authority":p.action_indication_authority,
+            "action_indication_rule":"PROPOSAL_RETURNED != ACTION_INDICATED__DERIVE_BOUNDED_ACTION_COMMITMENT_REQUIRED",
         }
 
     def observe_opaque_control_state(self, obs: Observation, *, evidence_id: str) -> dict[str, Any]:
