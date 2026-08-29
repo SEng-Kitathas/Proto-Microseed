@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import hashlib
+
 import json
 import subprocess
 import sys
@@ -12,6 +14,19 @@ REPO = ROOT
 REPORT = ROOT / "reports" / "ms1933_invalidation_blast_radius"
 REPORT.mkdir(parents=True, exist_ok=True)
 sys.path.insert(0, str(REPO))
+
+def _source_snapshot() -> str:
+    h = hashlib.sha256()
+    for source_base in (ROOT / "microseed", ROOT / "tests"):
+        for p in sorted(source_base.rglob("*.py")):
+            rel = str(p.relative_to(ROOT)).replace("\\", "/")
+            digest = hashlib.sha256(p.read_bytes()).hexdigest()
+            h.update(rel.encode())
+            h.update(b"\0")
+            h.update(digest.encode())
+            h.update(b"\n")
+    return h.hexdigest()
+
 
 from microseed import (  # noqa: E402
     Authority,
@@ -154,10 +169,7 @@ def main() -> int:
     head = subprocess.check_output(
         ["git", "-C", str(REPO), "rev-parse", "HEAD"], text=True
     ).strip()
-    status = subprocess.check_output(
-        ["git", "-C", str(REPO), "status", "--short", "--untracked-files=all", "--", "microseed", "tests"],
-        text=True,
-    )
+    source_start = _source_snapshot()
 
     started = time.time()
     scenarios = [
@@ -188,9 +200,11 @@ def main() -> int:
     ]
 
     by = {row["name"]: row for row in scenarios}
+    source_end = _source_snapshot()
+
     checks = {
         "descends_from_ms1924": subprocess.run(["git", "-C", str(REPO), "merge-base", "--is-ancestor", "6b0f012980a625143ea7137be848d6f13b57325b", head], capture_output=True).returncode == 0,
-        "organism_worktree_clean": status == "",
+        "source_snapshot_stable_during_run": source_start == source_end,
         "coordination_specific_stales_exact_branch": by["coordination_specific_drift"]["local_stale_capability_count"] == DEPTH,
         "coordination_specific_stales_one_relation": by["coordination_specific_drift"]["local_stale_relation_count"] == 1,
         "root_drift_stales_exact_downstream_branch": by["root_capability_drift"]["local_stale_capability_count"] == DEPTH,
@@ -205,8 +219,11 @@ def main() -> int:
         "schema": "pcmmad.ms1933.invalidation-blast-radius.v1",
         "classification": "NON_NOVELTY_ARCHITECTURE_FACTOR_EXPERIMENT",
         "discriminator": "LOCAL_DEPENDENCY_INVALIDATION != GLOBAL_AUTHORIZATION_EPOCH_RECHECK_BLAST_RADIUS",
-        "sealed_repo_head": head,
-        "organism_worktree_clean": status == "",
+        "current_repo_head": head,
+        "origin_experiment_head": "6b0f012980a625143ea7137be848d6f13b57325b",
+        "source_snapshot_start_sha256": source_start,
+        "source_snapshot_end_sha256": source_end,
+        "source_stable_during_run": source_start == source_end,
         "fixture": {
             "branches": BRANCHES,
             "capability_chain_depth": DEPTH,

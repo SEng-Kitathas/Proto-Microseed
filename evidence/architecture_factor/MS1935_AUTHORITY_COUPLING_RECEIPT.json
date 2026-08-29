@@ -2,8 +2,11 @@
   "schema": "pcmmad.ms1935.authority-coupling.v1",
   "classification": "NON_NOVELTY_ARCHITECTURE_FACTOR_EXPERIMENT",
   "discriminator": "INDEPENDENT_TYPED_PREMISE_FACTORIZATION -> UNSAFE_AUTHORITY_FAULT_CONTAINMENT",
-  "sealed_repo_head": "6b0f012980a625143ea7137be848d6f13b57325b",
-  "organism_worktree_clean": true,
+  "current_repo_head": "1dcdbd62e80bde4c41f40cbf79c64a1d35f34502",
+  "origin_experiment_head": "6b0f012980a625143ea7137be848d6f13b57325b",
+  "source_snapshot_start_sha256": "0b58df92d72dedf4856ee3b6b209af3991c4e0192595d120dd38139bd0f92528",
+  "source_snapshot_end_sha256": "0b58df92d72dedf4856ee3b6b209af3991c4e0192595d120dd38139bd0f92528",
+  "source_stable_during_run": true,
   "microseed_gate_source": {
     "path": "microseed/runtime/commitment.py",
     "sha256": "aced0107fd17d391e6c01d3416ac9f4f06699754c5baf84f4ffcc66cbb490701",
@@ -229,8 +232,8 @@
     ]
   },
   "checks": {
-    "sealed_head_ms1924": true,
-    "organism_worktree_clean": true,
+    "descends_from_ms1924": true,
+    "source_snapshot_stable_during_run": true,
     "centralized_typed_unmutated_matches_microseed_all_cases": true,
     "microseed_typed_mutation_false_auth_is_six_each_axis": true,
     "centralized_typed_mutation_matches_microseed_each_axis": true,
@@ -250,7 +253,7 @@
     "earned_statement": "INDEPENDENT_PREMISE_FACTORIZATION_BOUNDS_SINGLE_EVALUATOR_UNSAFE_AUTHORITY_FAULT_BLAST_RADIUS_UNDER_THIS_MATRIX",
     "rejected_overclaim": "PHYSICAL_DISTRIBUTION_OF_PREMISE_OWNERS_IS_REQUIRED_FOR_FAULT_CONTAINMENT"
   },
-  "started_at_epoch": 1787974711.0259292,
-  "duration_seconds": 0.016561,
+  "started_at_epoch": 1787976144.175476,
+  "duration_seconds": 0.077189,
   "authority": "ENGINEERING_MEASUREMENT_ONLY_NO_NOVELTY_OR_CANONICAL_PROMOTION"
 }

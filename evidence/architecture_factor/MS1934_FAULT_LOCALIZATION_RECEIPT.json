@@ -2,8 +2,11 @@
   "schema": "pcmmad.ms1934.fault-localization.v1",
   "classification": "NON_NOVELTY_ARCHITECTURE_FACTOR_EXPERIMENT",
   "discriminator": "EXPLICIT_TYPED_PREMISE_LINEAGE -> FAULT_LOCALIZATION_DIAGNOSTIC_PRECISION",
-  "sealed_repo_head": "6b0f012980a625143ea7137be848d6f13b57325b",
-  "organism_worktree_clean": true,
+  "current_repo_head": "1dcdbd62e80bde4c41f40cbf79c64a1d35f34502",
+  "origin_experiment_head": "6b0f012980a625143ea7137be848d6f13b57325b",
+  "source_snapshot_start_sha256": "0b58df92d72dedf4856ee3b6b209af3991c4e0192595d120dd38139bd0f92528",
+  "source_snapshot_end_sha256": "0b58df92d72dedf4856ee3b6b209af3991c4e0192595d120dd38139bd0f92528",
+  "source_stable_during_run": true,
   "fixture": {
     "branches": 8,
     "capability_chain_depth": 3,
@@ -393,8 +396,8 @@
     }
   ],
   "checks": {
-    "sealed_head_ms1924": true,
-    "organism_worktree_clean": true,
+    "descends_from_ms1924": true,
+    "source_snapshot_stable_during_run": true,
     "microseed_unique_localization_all_scenarios": true,
     "typed_central_unique_localization_all_scenarios": true,
     "typed_central_matches_microseed_candidates_all_scenarios": true,
@@ -415,7 +418,7 @@
     "earned_statement": "DIAGNOSTIC_PRECISION_FOLLOWS_EXPLICIT_TYPED_TRACE_INFORMATION_UNDER_THIS_FIXTURE",
     "rejected_overclaim": "PHYSICAL_DISTRIBUTION_OF_AUTHORITY_OWNERS_CAUSES_UNIQUE_DIAGNOSTIC_PRECISION"
   },
-  "started_at_epoch": 1787974710.2827666,
-  "duration_seconds": 0.450304,
+  "started_at_epoch": 1787976143.4101496,
+  "duration_seconds": 0.479315,
   "authority": "ENGINEERING_MEASUREMENT_ONLY_NO_NOVELTY_OR_CANONICAL_PROMOTION"
 }

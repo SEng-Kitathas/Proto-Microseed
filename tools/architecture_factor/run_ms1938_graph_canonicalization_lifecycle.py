@@ -15,6 +15,19 @@ REPORT = ROOT / "reports" / "ms1938_graph_canonicalization_lifecycle"
 REPORT.mkdir(parents=True, exist_ok=True)
 sys.path.insert(0, str(REPO))
 
+def _source_snapshot() -> str:
+    h = hashlib.sha256()
+    for source_base in (ROOT / "microseed", ROOT / "tests"):
+        for p in sorted(source_base.rglob("*.py")):
+            rel = str(p.relative_to(ROOT)).replace("\\", "/")
+            digest = hashlib.sha256(p.read_bytes()).hexdigest()
+            h.update(rel.encode())
+            h.update(b"\0")
+            h.update(digest.encode())
+            h.update(b"\n")
+    return h.hexdigest()
+
+
 import run_ms1933_invalidation_blast_radius as ms1933  # noqa: E402
 
 FAULT_REASON = "MS1938_OPAQUE_INJECTED_FAULT"
@@ -178,7 +191,7 @@ def _run_fault(branches: int, name: str, action) -> dict:
 
 def main() -> int:
     head = subprocess.check_output(["git", "-C", str(REPO), "rev-parse", "HEAD"], text=True).strip()
-    status = subprocess.check_output(["git", "-C", str(REPO), "status", "--short", "--untracked-files=all", "--", "microseed", "tests"], text=True)
+    source_start = _source_snapshot()
     started = time.time()
 
     base_graph = _graph(MIN_BRANCHES)
@@ -269,9 +282,11 @@ def main() -> int:
     canonical_cert_plus_manifest_bytes = certificate_total + canonical_manifest_archive_bytes
     raw_order_churn_archive_bytes = raw_graph_archive_bytes + inventory_archive_bytes
 
+    source_end = _source_snapshot()
+
     checks = {
         "descends_from_ms1924": subprocess.run(["git", "-C", str(REPO), "merge-base", "--is-ancestor", "6b0f012980a625143ea7137be848d6f13b57325b", head], capture_output=True).returncode == 0,
-        "organism_worktree_clean": status == "",
+        "source_snapshot_stable_during_run": source_start == source_end,
         "raw_graph_hash_changes_under_reversal": raw_base_sha != raw_reversed_sha,
         "raw_graph_hash_changes_under_shuffle": raw_base_sha != raw_shuffled_sha,
         "canonical_graph_hash_ignores_edge_order": canonical_base_sha == canonical_reversed_sha == canonical_shuffled_sha,
@@ -293,8 +308,11 @@ def main() -> int:
         "schema": "pcmmad.ms1938.graph-canonicalization-lifecycle.v1",
         "classification": "NON_NOVELTY_TRACE_MANIFEST_LIFECYCLE_EXPERIMENT",
         "discriminator": "SEMANTIC_GRAPH_IDENTITY != SERIALIZATION_EDGE_ORDER",
-        "sealed_repo_head": head,
-        "organism_worktree_clean": status == "",
+        "current_repo_head": head,
+        "origin_experiment_head": "6b0f012980a625143ea7137be848d6f13b57325b",
+        "source_snapshot_start_sha256": source_start,
+        "source_snapshot_end_sha256": source_end,
+        "source_stable_during_run": source_start == source_end,
         "canonicalization_contract": {
             "graph": "validate 2-endpoint non-self duplicate-free edges; normalize endpoints to strings; lexicographically sort edge tuples before hash",
             "inventory": "DO NOT sort; ordered identity remains semantic because bitmap positions depend on it",

@@ -2,8 +2,11 @@
   "schema": "pcmmad.ms1938.graph-canonicalization-lifecycle.v1",
   "classification": "NON_NOVELTY_TRACE_MANIFEST_LIFECYCLE_EXPERIMENT",
   "discriminator": "SEMANTIC_GRAPH_IDENTITY != SERIALIZATION_EDGE_ORDER",
-  "sealed_repo_head": "6b0f012980a625143ea7137be848d6f13b57325b",
-  "organism_worktree_clean": true,
+  "current_repo_head": "1dcdbd62e80bde4c41f40cbf79c64a1d35f34502",
+  "origin_experiment_head": "6b0f012980a625143ea7137be848d6f13b57325b",
+  "source_snapshot_start_sha256": "0b58df92d72dedf4856ee3b6b209af3991c4e0192595d120dd38139bd0f92528",
+  "source_snapshot_end_sha256": "0b58df92d72dedf4856ee3b6b209af3991c4e0192595d120dd38139bd0f92528",
+  "source_stable_during_run": true,
   "canonicalization_contract": {
     "graph": "validate 2-endpoint non-self duplicate-free edges; normalize endpoints to strings; lexicographically sort edge tuples before hash",
     "inventory": "DO NOT sort; ordered identity remains semantic because bitmap positions depend on it",
@@ -43,7 +46,7 @@
           "name": "coordination_specific_fault",
           "full_projection_bytes": 979,
           "certificate_bytes": 355,
-          "certificate_sha256": "2fef5b3a5e52db5bc0c7611797c1c79a0715500c54619664ff3064db0719b652",
+          "certificate_sha256": "27511af6fabb7228664031ff9823a2d67690babd43e47dbc0966680f3c61c49b",
           "event_count": 2,
           "origin": [
             "COORDINATION",
@@ -55,7 +58,7 @@
           "name": "shared_counterparty_fault",
           "full_projection_bytes": 5150,
           "certificate_bytes": 357,
-          "certificate_sha256": "f7074d49dbdd1b8efd7614ff9a03b81350c49778eb0deda0435af08663defbd0",
+          "certificate_sha256": "a1de3235cbdb74e8bd93e939540bfb26c61c45101f43693ae7ba73bf35b0d4ef",
           "event_count": 17,
           "origin": [
             "COUNTERPARTY",
@@ -75,7 +78,7 @@
           "name": "coordination_specific_fault",
           "full_projection_bytes": 1030,
           "certificate_bytes": 357,
-          "certificate_sha256": "41465db345979f93cdf9c5c45bb4aedc245ef5472826ab23f5c8ac892bac8273",
+          "certificate_sha256": "d62352b1ba9a2b5b7bc02ff9c6ca6181544f62d1a87c9ff0a4a3875bb727d36c",
           "event_count": 2,
           "origin": [
             "COORDINATION",
@@ -87,7 +90,7 @@
           "name": "shared_counterparty_fault",
           "full_projection_bytes": 5762,
           "certificate_bytes": 359,
-          "certificate_sha256": "48d4d6aa0db87c789e478f07533538df91907a3e788e2b29c2f94587299570ea",
+          "certificate_sha256": "d7f42834669254aa45cccceb8d90e28dfd2375e607518bf26843fcc34000d1e3",
           "event_count": 19,
           "origin": [
             "COUNTERPARTY",
@@ -107,7 +110,7 @@
           "name": "coordination_specific_fault",
           "full_projection_bytes": 1081,
           "certificate_bytes": 358,
-          "certificate_sha256": "a0be71202648aa83f0c9db2f0fd554a0dc71674cfda596438536f14048bcb4fa",
+          "certificate_sha256": "ac1df8ae17d54199838373bce4bd53bafe95e19aa0b886e5d7c17bbcf12403ac",
           "event_count": 2,
           "origin": [
             "COORDINATION",
@@ -119,7 +122,7 @@
           "name": "shared_counterparty_fault",
           "full_projection_bytes": 6374,
           "certificate_bytes": 360,
-          "certificate_sha256": "888078e7f7e847eb9e439be86fa6317db8fe9ccb5fb5b4aceabb68f267776436",
+          "certificate_sha256": "a50671d1730579785622f902d75d09504aeba552543a61348bee574f2e304af7",
           "event_count": 21,
           "origin": [
             "COUNTERPARTY",
@@ -139,7 +142,7 @@
           "name": "coordination_specific_fault",
           "full_projection_bytes": 1135,
           "certificate_bytes": 359,
-          "certificate_sha256": "a7c323dc99ba199da83be460dc45002db728556190b36a78d4fcc8356b24d12d",
+          "certificate_sha256": "14e37e16e547c7353a530bc36f7f5da1773d9593f39ac8b38bbb76256b2e6de6",
           "event_count": 2,
           "origin": [
             "COORDINATION",
@@ -151,7 +154,7 @@
           "name": "shared_counterparty_fault",
           "full_projection_bytes": 6996,
           "certificate_bytes": 361,
-          "certificate_sha256": "5cea3df3f10adc3850e399a994d4c3b17ec935cf7c5085b164533985de588886",
+          "certificate_sha256": "e352fa7b40412c03d81fba3738e3336c21baeb1ebdd877e6586c75544e34e2c7",
           "event_count": 23,
           "origin": [
             "COUNTERPARTY",
@@ -171,7 +174,7 @@
           "name": "coordination_specific_fault",
           "full_projection_bytes": 1189,
           "certificate_bytes": 359,
-          "certificate_sha256": "7af3e25d9cb61061af7993b43a3fb3042c0a05568eb71c21c19e185dd5a7be81",
+          "certificate_sha256": "c3f0bf99a7215a66022dba7a284ba17ce431a309a66eac55b6c21179e6d77380",
           "event_count": 2,
           "origin": [
             "COORDINATION",
@@ -183,7 +186,7 @@
           "name": "shared_counterparty_fault",
           "full_projection_bytes": 7618,
           "certificate_bytes": 361,
-          "certificate_sha256": "5f0d3696f170a2057b0010508984700f8433f6f73bbaf4edb37a26b3636d017d",
+          "certificate_sha256": "cde0bb04bd1c538fb748c1b1510376a52d120c603e75b60bbec8160dca9feb2c",
           "event_count": 25,
           "origin": [
             "COUNTERPARTY",
@@ -203,7 +206,7 @@
           "name": "coordination_specific_fault",
           "full_projection_bytes": 1243,
           "certificate_bytes": 361,
-          "certificate_sha256": "123aa5215dcb3ed104d653196fbdc9b8751b1411f5134b00b4efa2750fe98420",
+          "certificate_sha256": "9f6e64ebd5cd9bb718a33e5ea3c3d92d49cce07c482eb6946f52bf02b3aa4499",
           "event_count": 2,
           "origin": [
             "COORDINATION",
@@ -215,7 +218,7 @@
           "name": "shared_counterparty_fault",
           "full_projection_bytes": 8240,
           "certificate_bytes": 363,
-          "certificate_sha256": "4d57c8fffcbe92fd20f97f030c3c984334080f4627d57cdb46eefbaa5991d586",
+          "certificate_sha256": "b0b6bc6d4640decc3b9e8c8886161082e5882e8df9693cafabf944c8d79028e1",
           "event_count": 27,
           "origin": [
             "COUNTERPARTY",
@@ -235,7 +238,7 @@
           "name": "coordination_specific_fault",
           "full_projection_bytes": 1297,
           "certificate_bytes": 362,
-          "certificate_sha256": "dd40214325a533c42c7b46386a7e60927014a5021f521939fc916bc3d39d5cc4",
+          "certificate_sha256": "63545715fb014bdc211fd7f933566c6cecbf9f28feddc5b4034d2610b7c496db",
           "event_count": 2,
           "origin": [
             "COORDINATION",
@@ -247,7 +250,7 @@
           "name": "shared_counterparty_fault",
           "full_projection_bytes": 8862,
           "certificate_bytes": 364,
-          "certificate_sha256": "c3295eb759351ca73b53f4726364ee12c147a8a561a127c12f730fb7093d7376",
+          "certificate_sha256": "c7287e7947f62b30b60493c0732baa56a06a38a52ad431b6707deffe379570f3",
           "event_count": 29,
           "origin": [
             "COUNTERPARTY",
@@ -267,7 +270,7 @@
           "name": "coordination_specific_fault",
           "full_projection_bytes": 1351,
           "certificate_bytes": 363,
-          "certificate_sha256": "f606c19a4d9c126b0313ecfd4ed51d2f6685e05b36f9437befddd37a52877af6",
+          "certificate_sha256": "84020e8f214289b4e06b38f5f8d9e1c431b9dc9763989be880031de9e840fa23",
           "event_count": 2,
           "origin": [
             "COORDINATION",
@@ -279,7 +282,7 @@
           "name": "shared_counterparty_fault",
           "full_projection_bytes": 9484,
           "certificate_bytes": 365,
-          "certificate_sha256": "a92eadfe01c0aad945609c1d4f7b3dd5a39a8bdacf84501741a5d0884ab55ce2",
+          "certificate_sha256": "688c617bd90855417449bb1b9480525ac4e61fd1d063e463fe4febec7ae09640",
           "event_count": 31,
           "origin": [
             "COUNTERPARTY",
@@ -299,7 +302,7 @@
           "name": "coordination_specific_fault",
           "full_projection_bytes": 1405,
           "certificate_bytes": 363,
-          "certificate_sha256": "b4a8b9cbb4c126fe94359afa86ab60219ec26bc3e6558e0de458e9fc354260e8",
+          "certificate_sha256": "36bb6a625b09f7ed2d23ccdd87ad00073a0de9d80123741343e2dff16f715ad4",
           "event_count": 2,
           "origin": [
             "COORDINATION",
@@ -311,7 +314,7 @@
           "name": "shared_counterparty_fault",
           "full_projection_bytes": 10106,
           "certificate_bytes": 365,
-          "certificate_sha256": "e61e78568ad0eb40cf85e38652b7f8ef42bbcaa7537490de3ba1603f510edcfa",
+          "certificate_sha256": "8b7e2dcd343d340fc8773ebff4c8f9e4e17293dbf7986f4674d84d195aad0f19",
           "event_count": 33,
           "origin": [
             "COUNTERPARTY",
@@ -331,7 +334,7 @@
           "name": "coordination_specific_fault",
           "full_projection_bytes": 1459,
           "certificate_bytes": 365,
-          "certificate_sha256": "fa379fd1a74c3633f08889c3b390c853a40f41864661e2887ffb69513a9f710b",
+          "certificate_sha256": "c6bc4c92f5ba99c81428f69ea5db918d04da6f8f930f0ab13ace06718863a2ae",
           "event_count": 2,
           "origin": [
             "COORDINATION",
@@ -343,7 +346,7 @@
           "name": "shared_counterparty_fault",
           "full_projection_bytes": 10734,
           "certificate_bytes": 367,
-          "certificate_sha256": "d7f84f94c1f245982a89afd8d29076e001b09613b58a8370ea1073160166ec95",
+          "certificate_sha256": "812775cd5e4192a26f7fba306bbfdc8b7f4dbe539d3bb6f98dd83ef1dd7f2264",
           "event_count": 35,
           "origin": [
             "COUNTERPARTY",
@@ -363,7 +366,7 @@
           "name": "coordination_specific_fault",
           "full_projection_bytes": 1513,
           "certificate_bytes": 366,
-          "certificate_sha256": "6dc643d31fd3201998436399160e4d6c5accc695fecebc19fdcc55d08eaeb5c6",
+          "certificate_sha256": "088297c34a6db942a6a1911d83608bc136b2ab9da4817214257b42be5b072f0c",
           "event_count": 2,
           "origin": [
             "COORDINATION",
@@ -375,7 +378,7 @@
           "name": "shared_counterparty_fault",
           "full_projection_bytes": 11362,
           "certificate_bytes": 368,
-          "certificate_sha256": "e2efd08cf4b7f9e12612b55c0cc6e993539a00d1099e089349771028b235f9cc",
+          "certificate_sha256": "b0f05a2507d73f3fa43a8685f48d6798da3f4d9d452d7663014e3e3760656cba",
           "event_count": 37,
           "origin": [
             "COUNTERPARTY",
@@ -395,7 +398,7 @@
           "name": "coordination_specific_fault",
           "full_projection_bytes": 1567,
           "certificate_bytes": 367,
-          "certificate_sha256": "1f2383d596ac66db768257541c517bd931611d4892de64760dc741cbd7b0176f",
+          "certificate_sha256": "28d19a25c1dd36aa07100803bfd2ee01fa32973c860bb97ac5c548e0977878ea",
           "event_count": 2,
           "origin": [
             "COORDINATION",
@@ -407,7 +410,7 @@
           "name": "shared_counterparty_fault",
           "full_projection_bytes": 11990,
           "certificate_bytes": 369,
-          "certificate_sha256": "44f54c5b6634feb2ee18f3b7bffb6ecae1a429cccdcd1c0b811c95da8d62cd1b",
+          "certificate_sha256": "c70d9cf5df0b7e5c3c86c06ed61504a6a1fba52d862360d4df904de6d60ae773",
           "event_count": 39,
           "origin": [
             "COUNTERPARTY",
@@ -432,8 +435,8 @@
     "raw_order_churn_to_canonical_graph_archive_ratio": 6.0
   },
   "checks": {
-    "sealed_head_ms1924": true,
-    "organism_worktree_clean": true,
+    "descends_from_ms1924": true,
+    "source_snapshot_stable_during_run": true,
     "raw_graph_hash_changes_under_reversal": true,
     "raw_graph_hash_changes_under_shuffle": true,
     "canonical_graph_hash_ignores_edge_order": true,
@@ -456,7 +459,7 @@
     "important_scar": "CANONICALIZE_ONLY_SEMANTICALLY_UNORDERED_STRUCTURE_NOT_POSITION_BEARING_INVENTORIES",
     "next_question": "Whether certificate/manifests should remain experiment-only or justify a project-control implementation for compact server-side readback; no organism adoption is implied."
   },
-  "started_at_epoch": 1787974712.8312323,
-  "duration_seconds": 4.160598,
+  "started_at_epoch": 1787976146.132278,
+  "duration_seconds": 4.022858,
   "authority": "ENGINEERING_MEASUREMENT_ONLY_NO_NOVELTY_OR_CANONICAL_PROMOTION"
 }

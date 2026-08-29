@@ -14,6 +14,19 @@ REPORT = ROOT / "reports" / "ms1936_causal_trace_certificate"
 REPORT.mkdir(parents=True, exist_ok=True)
 sys.path.insert(0, str(REPO))
 
+def _source_snapshot() -> str:
+    h = hashlib.sha256()
+    for source_base in (ROOT / "microseed", ROOT / "tests"):
+        for p in sorted(source_base.rglob("*.py")):
+            rel = str(p.relative_to(ROOT)).replace("\\", "/")
+            digest = hashlib.sha256(p.read_bytes()).hexdigest()
+            h.update(rel.encode())
+            h.update(b"\0")
+            h.update(digest.encode())
+            h.update(b"\n")
+    return h.hexdigest()
+
+
 import run_ms1933_invalidation_blast_radius as ms1933  # noqa: E402
 
 BRANCHES = ms1933.BRANCHES
@@ -188,9 +201,7 @@ def _scenario(name: str, action) -> dict:
 
 def main() -> int:
     head = subprocess.check_output(["git", "-C", str(REPO), "rev-parse", "HEAD"], text=True).strip()
-    status = subprocess.check_output(
-        ["git", "-C", str(REPO), "status", "--short", "--untracked-files=all", "--", "microseed", "tests"], text=True
-    )
+    source_start = _source_snapshot()
     started = time.time()
     scenarios = [
         _scenario("coordination_specific_fault", lambda m: m.change_operational_coordination(f"R{TARGET}", reason=FAULT_REASON)),
@@ -201,9 +212,11 @@ def main() -> int:
 
     scenario_checks = [all(s["checks"].values()) for s in scenarios]
     ratios = [s["compression_ratio_full_over_certificate"] for s in scenarios]
+    source_end = _source_snapshot()
+
     checks = {
         "descends_from_ms1924": subprocess.run(["git", "-C", str(REPO), "merge-base", "--is-ancestor", "6b0f012980a625143ea7137be848d6f13b57325b", head], capture_output=True).returncode == 0,
-        "organism_worktree_clean": status == "",
+        "source_snapshot_stable_during_run": source_start == source_end,
         "all_certificate_semantic_and_binding_checks_pass": all(scenario_checks),
         "all_certificates_smaller_than_full_projection": all(s["certificate_bytes"] < s["full_projection_bytes"] for s in scenarios),
         "all_compression_ratios_above_one": all(r > 1.0 for r in ratios),
@@ -215,8 +228,11 @@ def main() -> int:
         "schema": "pcmmad.ms1936.causal-invalidation-certificate.v1",
         "classification": "NON_NOVELTY_TRACE_EFFICIENCY_EXPERIMENT",
         "discriminator": "FULL_CAUSAL_INVALIDATION_TRACE != MINIMUM_ROOT_AND_CLOSURE_CERTIFICATE",
-        "sealed_repo_head": head,
-        "organism_worktree_clean": status == "",
+        "current_repo_head": head,
+        "origin_experiment_head": "6b0f012980a625143ea7137be848d6f13b57325b",
+        "source_snapshot_start_sha256": source_start,
+        "source_snapshot_end_sha256": source_end,
+        "source_stable_during_run": source_start == source_end,
         "static_bindings": {
             "inventory": INVENTORY,
             "inventory_sha256": INVENTORY_SHA,

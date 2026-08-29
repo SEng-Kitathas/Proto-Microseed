@@ -2,8 +2,11 @@
   "schema": "pcmmad.ms1936.causal-invalidation-certificate.v1",
   "classification": "NON_NOVELTY_TRACE_EFFICIENCY_EXPERIMENT",
   "discriminator": "FULL_CAUSAL_INVALIDATION_TRACE != MINIMUM_ROOT_AND_CLOSURE_CERTIFICATE",
-  "sealed_repo_head": "6b0f012980a625143ea7137be848d6f13b57325b",
-  "organism_worktree_clean": true,
+  "current_repo_head": "1dcdbd62e80bde4c41f40cbf79c64a1d35f34502",
+  "origin_experiment_head": "6b0f012980a625143ea7137be848d6f13b57325b",
+  "source_snapshot_start_sha256": "0b58df92d72dedf4856ee3b6b209af3991c4e0192595d120dd38139bd0f92528",
+  "source_snapshot_end_sha256": "0b58df92d72dedf4856ee3b6b209af3991c4e0192595d120dd38139bd0f92528",
+  "source_stable_during_run": true,
   "static_bindings": {
     "inventory": {
       "capabilities": [
@@ -222,7 +225,7 @@
         "v": 1,
         "g": "f7f75c219e46f1a8282506066aff0b676e0fc1ae098884154e7a2b291186890f",
         "i": "5353c14c72624c9a054699010972640f373dfa4e7a109baf27ed3a18760e5328",
-        "t": "8ef77c2f5077a1ac0d2dcf0746af2729ad36c2f292f66facbcf9f13fc72cd2a0",
+        "t": "5c7bb8d036d8385611e89974b58e8a8b87ff33da602fec84f0c62c513a001172",
         "r": "e9c6259bcde302e65e25e10d5bfe45c9451f9e84c76ffeebf461d999bd7349a1",
         "o": [
           "COORDINATION",
@@ -234,7 +237,7 @@
         "p": "0",
         "n": 2
       },
-      "certificate_sha256": "3d136ff7ccf8d33b1692997f7e5d2e6f04fbf06fe0c01bbe54d09f351382b75f",
+      "certificate_sha256": "b30d559330d95ae7022d4a40cafcec1765a2496c06fbf2088a0ce7d59456f7f5",
       "checks": {
         "origin_exact": true,
         "stale_capability_closure_exact": true,
@@ -272,7 +275,7 @@
         "v": 1,
         "g": "f7f75c219e46f1a8282506066aff0b676e0fc1ae098884154e7a2b291186890f",
         "i": "5353c14c72624c9a054699010972640f373dfa4e7a109baf27ed3a18760e5328",
-        "t": "77792e25c1c1e871c993c539f3b20eec094afbe1e4aa81f3dccc2f7fbe093e7e",
+        "t": "fa500e271cb55819164e9a5828376459cae1fa247986b886943130ab7e928557",
         "r": "e9c6259bcde302e65e25e10d5bfe45c9451f9e84c76ffeebf461d999bd7349a1",
         "o": [
           "CAPABILITY",
@@ -284,7 +287,7 @@
         "p": "0",
         "n": 1
       },
-      "certificate_sha256": "da5e74cb3dc5a2bffad5cf0ebe14daec38ecedb8731cce137891228760b3fefd",
+      "certificate_sha256": "8390576544b04f786662ad132a54570545fa82c98169728a21d652deb8d89219",
       "checks": {
         "origin_exact": true,
         "stale_capability_closure_exact": true,
@@ -320,7 +323,7 @@
         "v": 1,
         "g": "f7f75c219e46f1a8282506066aff0b676e0fc1ae098884154e7a2b291186890f",
         "i": "5353c14c72624c9a054699010972640f373dfa4e7a109baf27ed3a18760e5328",
-        "t": "58b216c1d48037981c4c8f924e6395b8784e7a9109372cfeb361bb7b8fc28ce2",
+        "t": "bdd3f90daee5ed5005768b18e1f6f487a141cc480827ee66a9ccfd804a096737",
         "r": "e9c6259bcde302e65e25e10d5bfe45c9451f9e84c76ffeebf461d999bd7349a1",
         "o": [
           "CAPABILITY",
@@ -332,7 +335,7 @@
         "p": "0",
         "n": 1
       },
-      "certificate_sha256": "9e03ac0c9870edc5cab4da738be480fe0e28fa7e11d4de4b8c675ebb43d33e2f",
+      "certificate_sha256": "8420f881522051b90c51567f983696b90c49517700d849d270ed686db8bd9836",
       "checks": {
         "origin_exact": true,
         "stale_capability_closure_exact": true,
@@ -402,7 +405,7 @@
         "v": 1,
         "g": "f7f75c219e46f1a8282506066aff0b676e0fc1ae098884154e7a2b291186890f",
         "i": "5353c14c72624c9a054699010972640f373dfa4e7a109baf27ed3a18760e5328",
-        "t": "b9552587020bcbbb86653c0bc0d28d6fe5f89b75aa2af9c32ccd20f7917d7e21",
+        "t": "b8eb19b4f1dad74471b7431e9ce07090d95f8199eea22065355d176e1dc70028",
         "r": "e9c6259bcde302e65e25e10d5bfe45c9451f9e84c76ffeebf461d999bd7349a1",
         "o": [
           "COUNTERPARTY",
@@ -414,7 +417,7 @@
         "p": "1",
         "n": 17
       },
-      "certificate_sha256": "877cb8a6f9a0debe2718e425bb110dc25af82ba107dc890a9068106ab3a169ea",
+      "certificate_sha256": "2d0fbbaef265bb353ad0a66a7d708ecdb2b15dd1a88c363965765b925a822e30",
       "checks": {
         "origin_exact": true,
         "stale_capability_closure_exact": true,
@@ -439,8 +442,8 @@
     "total_bytes_saved": 6205
   },
   "checks": {
-    "sealed_head_ms1924": true,
-    "organism_worktree_clean": true,
+    "descends_from_ms1924": true,
+    "source_snapshot_stable_during_run": true,
     "all_certificate_semantic_and_binding_checks_pass": true,
     "all_certificates_smaller_than_full_projection": true,
     "all_compression_ratios_above_one": true,
@@ -455,7 +458,7 @@
     "non_replacement_statement": "COMPACT_CERTIFICATE != FULL_EVENT_STREAM_FOR_AUDIT_OR_RECOVERY",
     "next_question": "Whether the projection can generalize across dynamic inventories/topologies without fragile external ordering assumptions."
   },
-  "started_at_epoch": 1787974711.347556,
-  "duration_seconds": 0.42453,
+  "started_at_epoch": 1787976144.5562341,
+  "duration_seconds": 0.476635,
   "authority": "ENGINEERING_MEASUREMENT_ONLY_NO_NOVELTY_OR_CANONICAL_PROMOTION"
 }

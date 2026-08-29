@@ -14,6 +14,19 @@ REPORT = ROOT / "reports" / "ms1935_authority_coupling"
 REPORT.mkdir(parents=True, exist_ok=True)
 sys.path.insert(0, str(REPO))
 
+def _source_snapshot() -> str:
+    h = hashlib.sha256()
+    for source_base in (ROOT / "microseed", ROOT / "tests"):
+        for p in sorted(source_base.rglob("*.py")):
+            rel = str(p.relative_to(ROOT)).replace("\\", "/")
+            digest = hashlib.sha256(p.read_bytes()).hexdigest()
+            h.update(rel.encode())
+            h.update(b"\0")
+            h.update(digest.encode())
+            h.update(b"\n")
+    return h.hexdigest()
+
+
 from microseed.runtime.commitment import (  # noqa: E402
     RelationalCommitment,
     TernaryCommitment,
@@ -151,9 +164,7 @@ def _evaluate_site(cases: list[dict[str, str]], axis: str) -> dict:
 
 def main() -> int:
     head = subprocess.check_output(["git", "-C", str(REPO), "rev-parse", "HEAD"], text=True).strip()
-    status = subprocess.check_output(
-        ["git", "-C", str(REPO), "status", "--short", "--untracked-files=all", "--", "microseed", "tests"], text=True
-    )
+    source_start = _source_snapshot()
     started = time.time()
     cases = _cases()
 
@@ -190,9 +201,11 @@ def main() -> int:
     expected_typed_false_auth = 6
     per_site_false_auth = [r["microseed_false_authorizations"] for r in typed_sites]
 
+    source_end = _source_snapshot()
+
     checks = {
         "descends_from_ms1924": subprocess.run(["git", "-C", str(REPO), "merge-base", "--is-ancestor", "6b0f012980a625143ea7137be848d6f13b57325b", head], capture_output=True).returncode == 0,
-        "organism_worktree_clean": status == "",
+        "source_snapshot_stable_during_run": source_start == source_end,
         "centralized_typed_unmutated_matches_microseed_all_cases": baseline_equivalence,
         "microseed_typed_mutation_false_auth_is_six_each_axis": all(x == expected_typed_false_auth for x in per_site_false_auth),
         "centralized_typed_mutation_matches_microseed_each_axis": all(r["typed_central_matches_microseed_every_case"] for r in typed_sites),
@@ -211,8 +224,11 @@ def main() -> int:
         "schema": "pcmmad.ms1935.authority-coupling.v1",
         "classification": "NON_NOVELTY_ARCHITECTURE_FACTOR_EXPERIMENT",
         "discriminator": "INDEPENDENT_TYPED_PREMISE_FACTORIZATION -> UNSAFE_AUTHORITY_FAULT_CONTAINMENT",
-        "sealed_repo_head": head,
-        "organism_worktree_clean": status == "",
+        "current_repo_head": head,
+        "origin_experiment_head": "6b0f012980a625143ea7137be848d6f13b57325b",
+        "source_snapshot_start_sha256": source_start,
+        "source_snapshot_end_sha256": source_end,
+        "source_stable_during_run": source_start == source_end,
         "microseed_gate_source": {
             "path": "microseed/runtime/commitment.py",
             "sha256": hashlib.sha256(source.read_bytes()).hexdigest(),

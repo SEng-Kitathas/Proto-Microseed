@@ -14,6 +14,19 @@ REPORT = ROOT / "reports" / "ms1934_fault_localization"
 REPORT.mkdir(parents=True, exist_ok=True)
 sys.path.insert(0, str(REPO))
 
+def _source_snapshot() -> str:
+    h = hashlib.sha256()
+    for source_base in (ROOT / "microseed", ROOT / "tests"):
+        for p in sorted(source_base.rglob("*.py")):
+            rel = str(p.relative_to(ROOT)).replace("\\", "/")
+            digest = hashlib.sha256(p.read_bytes()).hexdigest()
+            h.update(rel.encode())
+            h.update(b"\0")
+            h.update(digest.encode())
+            h.update(b"\n")
+    return h.hexdigest()
+
+
 # Reuse only the already-verified synthetic fixture constructor/constants from MS1933.
 import run_ms1933_invalidation_blast_radius as ms1933  # noqa: E402
 
@@ -204,9 +217,7 @@ def _scenario(name: str, fault_kind: str, true_id: str, action) -> dict:
 
 def main() -> int:
     head = subprocess.check_output(["git", "-C", str(REPO), "rev-parse", "HEAD"], text=True).strip()
-    status = subprocess.check_output(
-        ["git", "-C", str(REPO), "status", "--short", "--untracked-files=all", "--", "microseed", "tests"], text=True
-    )
+    source_start = _source_snapshot()
     started = time.time()
 
     scenarios = [
@@ -237,9 +248,11 @@ def main() -> int:
     ]
     by = {x["name"]: x for x in scenarios}
 
+    source_end = _source_snapshot()
+
     checks = {
         "descends_from_ms1924": subprocess.run(["git", "-C", str(REPO), "merge-base", "--is-ancestor", "6b0f012980a625143ea7137be848d6f13b57325b", head], capture_output=True).returncode == 0,
-        "organism_worktree_clean": status == "",
+        "source_snapshot_stable_during_run": source_start == source_end,
         "microseed_unique_localization_all_scenarios": all(x["microseed"]["unique_true_root"] for x in scenarios),
         "typed_central_unique_localization_all_scenarios": all(
             x["centralized_typed_dependency_trace_baseline"]["unique_true_root"] for x in scenarios
@@ -266,8 +279,11 @@ def main() -> int:
         "schema": "pcmmad.ms1934.fault-localization.v1",
         "classification": "NON_NOVELTY_ARCHITECTURE_FACTOR_EXPERIMENT",
         "discriminator": "EXPLICIT_TYPED_PREMISE_LINEAGE -> FAULT_LOCALIZATION_DIAGNOSTIC_PRECISION",
-        "sealed_repo_head": head,
-        "organism_worktree_clean": status == "",
+        "current_repo_head": head,
+        "origin_experiment_head": "6b0f012980a625143ea7137be848d6f13b57325b",
+        "source_snapshot_start_sha256": source_start,
+        "source_snapshot_end_sha256": source_end,
+        "source_stable_during_run": source_start == source_end,
         "fixture": {
             "branches": BRANCHES,
             "capability_chain_depth": DEPTH,

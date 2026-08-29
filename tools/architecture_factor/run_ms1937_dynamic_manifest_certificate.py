@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import hashlib
+
 import json
 import subprocess
 import sys
@@ -11,6 +13,19 @@ REPO = ROOT
 REPORT = ROOT / "reports" / "ms1937_dynamic_manifest_certificate"
 REPORT.mkdir(parents=True, exist_ok=True)
 sys.path.insert(0, str(REPO))
+
+def _source_snapshot() -> str:
+    h = hashlib.sha256()
+    for source_base in (ROOT / "microseed", ROOT / "tests"):
+        for p in sorted(source_base.rglob("*.py")):
+            rel = str(p.relative_to(ROOT)).replace("\\", "/")
+            digest = hashlib.sha256(p.read_bytes()).hexdigest()
+            h.update(rel.encode())
+            h.update(b"\0")
+            h.update(digest.encode())
+            h.update(b"\n")
+    return h.hexdigest()
+
 
 import run_ms1936_causal_trace_certificate as ms1936  # noqa: E402
 
@@ -114,9 +129,7 @@ def _cert_scenarios() -> list[dict]:
 
 def main() -> int:
     head = subprocess.check_output(["git", "-C", str(REPO), "rev-parse", "HEAD"], text=True).strip()
-    status = subprocess.check_output(
-        ["git", "-C", str(REPO), "status", "--short", "--untracked-files=all", "--", "microseed", "tests"], text=True
-    )
+    source_start = _source_snapshot()
     started = time.time()
 
     scenarios = _cert_scenarios()
@@ -175,9 +188,11 @@ def main() -> int:
     full_total = sum(s["full_projection_bytes"] for s in scenarios)
     cert_plus_manifest = cert_total + manifest_v1_bytes
 
+    source_end = _source_snapshot()
+
     checks = {
         "descends_from_ms1924": subprocess.run(["git", "-C", str(REPO), "merge-base", "--is-ancestor", "6b0f012980a625143ea7137be848d6f13b57325b", head], capture_output=True).returncode == 0,
-        "organism_worktree_clean": status == "",
+        "source_snapshot_stable_during_run": source_start == source_end,
         "exact_v1_manifest_verifies_all": all(r["exact_v1_verification"]["status"] == "VERIFIED" for r in rows),
         "append_growth_current_manifest_rejected_all": all(r["appended_v2_current_manifest_verification"]["status"] == "REJECTED" for r in rows),
         "reordered_inventory_rejected_all": all(r["reordered_inventory_verification"]["status"] == "REJECTED" for r in rows),
@@ -192,8 +207,11 @@ def main() -> int:
         "schema": "pcmmad.ms1937.dynamic-manifest-certificate.v1",
         "classification": "NON_NOVELTY_TRACE_PORTABILITY_EXPERIMENT",
         "discriminator": "BITMAP_CERTIFICATE_DECODE_REQUIRES_EXACT_CONTENT_ADDRESSED_INVENTORY_AND_GRAPH_MANIFESTS",
-        "sealed_repo_head": head,
-        "organism_worktree_clean": status == "",
+        "current_repo_head": head,
+        "origin_experiment_head": "6b0f012980a625143ea7137be848d6f13b57325b",
+        "source_snapshot_start_sha256": source_start,
+        "source_snapshot_end_sha256": source_end,
+        "source_stable_during_run": source_start == source_end,
         "v1": {
             "inventory_sha256": _sha(inv_v1),
             "graph_sha256": _sha(graph_v1),

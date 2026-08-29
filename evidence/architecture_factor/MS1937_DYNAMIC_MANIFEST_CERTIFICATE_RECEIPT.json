@@ -2,8 +2,11 @@
   "schema": "pcmmad.ms1937.dynamic-manifest-certificate.v1",
   "classification": "NON_NOVELTY_TRACE_PORTABILITY_EXPERIMENT",
   "discriminator": "BITMAP_CERTIFICATE_DECODE_REQUIRES_EXACT_CONTENT_ADDRESSED_INVENTORY_AND_GRAPH_MANIFESTS",
-  "sealed_repo_head": "6b0f012980a625143ea7137be848d6f13b57325b",
-  "organism_worktree_clean": true,
+  "current_repo_head": "1dcdbd62e80bde4c41f40cbf79c64a1d35f34502",
+  "origin_experiment_head": "6b0f012980a625143ea7137be848d6f13b57325b",
+  "source_snapshot_start_sha256": "0b58df92d72dedf4856ee3b6b209af3991c4e0192595d120dd38139bd0f92528",
+  "source_snapshot_end_sha256": "0b58df92d72dedf4856ee3b6b209af3991c4e0192595d120dd38139bd0f92528",
+  "source_stable_during_run": true,
   "v1": {
     "inventory_sha256": "5353c14c72624c9a054699010972640f373dfa4e7a109baf27ed3a18760e5328",
     "graph_sha256": "f7f75c219e46f1a8282506066aff0b676e0fc1ae098884154e7a2b291186890f",
@@ -26,7 +29,7 @@
   "verification_rows": [
     {
       "name": "coordination_specific_fault",
-      "certificate_sha256": "cf33488276d8eb5101f110effe93ef999b6e45384a1804f631a47c47338991ab",
+      "certificate_sha256": "1144aa0c1b81118d425865c80b82a731b6afcaa131c3968cea301b3bd48564e7",
       "exact_v1_verification": {
         "status": "VERIFIED",
         "reason": "EXACT_REFERENCED_MANIFESTS",
@@ -95,7 +98,7 @@
     },
     {
       "name": "root_capability_fault",
-      "certificate_sha256": "f2e8e86ade315cc3dea6ac6b75f4034cc6f22d4cfa89587a0a5fe2291a86edb3",
+      "certificate_sha256": "9a44f2a2d338565e2226f5c936ea68a98c7de5bc8b24041fb1f5d99615d39220",
       "exact_v1_verification": {
         "status": "VERIFIED",
         "reason": "EXACT_REFERENCED_MANIFESTS",
@@ -160,7 +163,7 @@
     },
     {
       "name": "leaf_capability_fault",
-      "certificate_sha256": "8f67f05573a094403164ad307937f51e028e41dcf485998c38b87d2187e4b3f5",
+      "certificate_sha256": "965fa35ac286fb1206c1ce2aecd02b499dbf0a9fa555d4d5ca58c01c5367838c",
       "exact_v1_verification": {
         "status": "VERIFIED",
         "reason": "EXACT_REFERENCED_MANIFESTS",
@@ -221,7 +224,7 @@
     },
     {
       "name": "shared_counterparty_fault",
-      "certificate_sha256": "eaa30ebeaaccad5347deee625ac10a1604cd14dd8bab24b504a1cf975c054872",
+      "certificate_sha256": "243c131e2a170abc4106393fd548d5f2f3ef486109b4b31328041e27df95ccc8",
       "exact_v1_verification": {
         "status": "VERIFIED",
         "reason": "EXACT_REFERENCED_MANIFESTS",
@@ -358,8 +361,8 @@
     "compression_ratio_full_over_certificates_plus_manifest": 3.4806
   },
   "checks": {
-    "sealed_head_ms1924": true,
-    "organism_worktree_clean": true,
+    "descends_from_ms1924": true,
+    "source_snapshot_stable_during_run": true,
     "exact_v1_manifest_verifies_all": true,
     "append_growth_current_manifest_rejected_all": true,
     "reordered_inventory_rejected_all": true,
@@ -378,7 +381,7 @@
     "important_scar": "APPEND_ONLY_INVENTORY_GROWTH_CAN_PRESERVE_OLD_BITMAP_POSITIONS_AND_LOOK_PLAUSIBLE_BUT_MUST_STILL_FAIL_CURRENT_MANIFEST_BINDING",
     "next_question": "Canonicalize semantically unordered graph representations and measure manifest/certificate lifecycle costs under longer dynamic histories."
   },
-  "started_at_epoch": 1787974712.0823252,
-  "duration_seconds": 0.432186,
+  "started_at_epoch": 1787976145.3282638,
+  "duration_seconds": 0.501774,
   "authority": "ENGINEERING_MEASUREMENT_ONLY_NO_NOVELTY_OR_CANONICAL_PROMOTION"
 }

@@ -205,3 +205,31 @@ Novelty posture remains:
 `UNKNOWN / NOT_ENTITLED_TO_CLAIM`
 
 These results are engineering measurements under named fixtures/baselines. They do not promote a universal architecture claim.
+
+
+## Publication-descendant rerun guard
+
+The original experiments were earned on organism-code baseline MS1924 (`6b0f012980a625143ea7137be848d6f13b57325b`). The public repository now also contains the MS1939 proposal/action-indication clarification, so a reproduction harness cannot require every future research descendant to have Git HEAD exactly equal to MS1924 or require `microseed/` and `tests/` to be globally clean before the run. That would make the documented `python tools/architecture_factor/...` reproduction commands fail on a legitimate descendant even when the experiment itself is stable.
+
+The six public harnesses therefore retain the historical ancestry check (`MS1924` must be an ancestor) and now bind a SHA-256 snapshot of all `microseed/**/*.py` and `tests/**/*.py` files immediately before and after each experiment. A run is admissible only when that source/test snapshot is unchanged across the experiment. The receipt records:
+
+- current repository HEAD at run start;
+- original experiment head MS1924;
+- source snapshot before and after;
+- `source_stable_during_run`;
+- the experiment-specific scientific checks.
+
+This changes the **run-integrity guard**, not the original experimental baseline or the measured claims.
+
+A final publication-descendant rerun against local MS1939 commit `1dcdbd62e80bde4c41f40cbf79c64a1d35f34502` produced:
+
+| Experiment | Result | Source stable |
+|---|---:|---:|
+| MS1933 | 10/10 PASS | yes |
+| MS1934 | 12/12 PASS | yes |
+| MS1935 | 10/10 PASS | yes |
+| MS1936 | 7/7 PASS | yes |
+| MS1937 | 10/10 PASS | yes |
+| MS1938 | 13/13 PASS | yes |
+
+The durable aggregate launcher journal ended with `PUBLIC_ARCHITECTURE_FACTOR_RERUN=PASS`. Its execution supervisor missed the terminal transition and later reported the job as unsupervised; the child process was no longer present and each per-experiment `reports/.../receipt.json` independently reported `all_pass: true` with `source_stable_during_run: true`. The scientific result therefore rests on the per-experiment receipts and durable stdout, not the stale supervisor status.
