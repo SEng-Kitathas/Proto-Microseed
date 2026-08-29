@@ -45,8 +45,13 @@ class ForkedWorldQualificationSource:
         if not self.provider_id:
             raise ValueError("EMPTY_QUALIFICATION_PROVIDER_ID")
     def sample(self, action_id: str) -> tuple[dict, dict]:
-        probe=self.prototype.fork(); probe.reset(); before=probe.observe(); probe.apply(action_id); after=probe.observe_outcome()
-        return before,after
+        probe=self.prototype.fork()
+        try:
+            probe.reset(); before=probe.observe(); probe.apply(action_id); after=probe.observe_outcome()
+            return before,after
+        finally:
+            closer=getattr(probe,"close",None)
+            if callable(closer): closer()
 
 
 @dataclass(frozen=True)
@@ -130,12 +135,18 @@ class ShadowEnvironmentAdapter:
     def reset_control(self, ms: Microseed, tag: str) -> dict:
         self.world.reset(); return self.observe_control(ms,tag)
 
-    def _external_probe(self, action_id: str) -> dict:
-        probe=self.world.fork(); probe.reset(); probe.apply(action_id); return probe.observe_outcome()
+    def _external_action_sample(self, action_id: str) -> tuple[dict, dict]:
+        probe=self.world.fork()
+        try:
+            probe.reset(); before=probe.observe(); probe.apply(action_id); after=probe.observe_outcome()
+            return before,after
+        finally:
+            closer=getattr(probe,"close",None)
+            if callable(closer): closer()
 
     def equipped_seed_rows(self, action_id: str, n: int = 12) -> tuple[RehearsalTransitionObservation,...]:
-        """Explicit external equipment: one separately generated world probe supplies a seed prediction."""
-        c=self.config; before=self.world.fork(); before.reset(); start=before.observe(); after=self._external_probe(action_id)
+        """Explicit external equipment: a separate world probe supplies one seed prediction."""
+        c=self.config; start,after=self._external_action_sample(action_id)
         effect=float(after["observed_value"])-float(start["observed_value"])
         return tuple(RehearsalTransitionObservation(f"MS1949-SEED-{self.world.name}-{action_id}-{i}",str(start["next_state_id"]),action_id,str(after["next_state_id"]),effect,0,c.frame_id,0,c.episode_id,0) for i in range(n))
 
