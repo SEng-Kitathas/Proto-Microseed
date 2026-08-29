@@ -10,7 +10,7 @@ from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 
 from microseed import Microseed
-from research.substrate_shadow.environment_adapter import ShadowEnvironmentAdapter, AdapterConfig
+from research.substrate_shadow.environment_adapter import ShadowEnvironmentAdapter, AdapterConfig, ExternalEndpointUnavailable, ExternalEndpointAmbiguous
 from tests.embodiment.test_ms1941_learned_signal_response_reentry import _close
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -26,17 +26,22 @@ class ProcessChargeWorld:
         self.proc=subprocess.Popen([sys.executable,str(SERVER)],stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True,bufsize=1,cwd=str(ROOT))
         if self.proc.stdin is None or self.proc.stdout is None: raise RuntimeError('PROCESS_WORLD_PIPE_SETUP_FAILED')
         self.pid=self.proc.pid
+        self.crash_after_apply=False
+    def is_available(self): return self.proc.poll() is None
     def _call(self,op,**payload):
-        if self.proc.poll() is not None: raise RuntimeError(f'PROCESS_WORLD_NOT_RUNNING:{self.proc.returncode}')
+        if self.proc.poll() is not None: raise ExternalEndpointUnavailable(f'PROCESS_WORLD_NOT_RUNNING:{self.proc.returncode}')
         assert self.proc.stdin is not None and self.proc.stdout is not None
-        self.proc.stdin.write(json.dumps({'op':op,**payload},separators=(',',':'))+'\n'); self.proc.stdin.flush()
+        try:
+            self.proc.stdin.write(json.dumps({'op':op,**payload},separators=(',',':'))+'\n'); self.proc.stdin.flush()
+        except (BrokenPipeError,OSError) as exc:
+            raise ExternalEndpointAmbiguous(f'PROCESS_WORLD_DISPATCH_AMBIGUOUS:{type(exc).__name__}:{exc}') from exc
         line=self.proc.stdout.readline()
-        if not line: raise RuntimeError('PROCESS_WORLD_EMPTY_RESPONSE')
+        if not line: raise ExternalEndpointAmbiguous('PROCESS_WORLD_EMPTY_RESPONSE_AFTER_DISPATCH')
         result=json.loads(line)
         if result.get('status')!='OK': raise RuntimeError(f'PROCESS_WORLD_ERROR:{result}')
         return result
     def reset(self): self._call('reset')
-    def apply(self,action_id): return self._call('apply',action_id=action_id)
+    def apply(self,action_id): return self._call('apply_and_exit' if self.crash_after_apply else 'apply',action_id=action_id)
     def observe(self):
         r=self._call('observe'); r.pop('status',None); return r
     def observe_outcome(self):
@@ -75,7 +80,7 @@ def run_process_world():
         cmt=ms.derive_bounded_action_commitment(proposal.proposal_id); assert cmt.commitment.value=='YES'
         adapter.reset_control(ms,'FINAL')
         intent=ms.nominate_bounded_action_intent(proposal.proposal_id,adapter.act_obligation()); assert intent['status']=='ACTION_INTENT_NOMINATED'
-        ex=ms.execute_bounded_action(intent['intent']['intent_id'],adapter.act_obligation()); assert ex['status']=='ACTION_EXECUTED'
+        ex=adapter.execute_intent(ms,intent['intent']['intent_id']); assert ex['status']=='ACTION_EXECUTED'
         out=adapter.record_execution_outcome(ms,ex['execution']['execution_id'],evidence_id='E-MS1956-FINAL',capture_id='CAP-MS1956-FINAL')
         assert out['status']=='ACTION_OUTCOME_OBSERVED' and out['outcome']['actual_next_state_id']=='PROC-LEVEL-2'
         assert ms.action_outcome_predictive_relation_status(relation_id)['status']=='CURRENT_PREDICTIVE_RELATION'

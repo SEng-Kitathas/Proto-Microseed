@@ -15,6 +15,10 @@ def main() -> None:
             elif op=='apply':
                 if msg.get('action_id')!='PROC-CHARGE': raise ValueError('UNKNOWN_ACTION')
                 level=2; result={'status':'OK','receipt':'process-charge','level':level}
+            elif op=='apply_and_exit':
+                if msg.get('action_id')!='PROC-CHARGE': raise ValueError('UNKNOWN_ACTION')
+                level=2
+                __import__('os')._exit(17)
             elif op in {'observe','observe_outcome'}:
                 result={'status':'OK','next_state_id':f'PROC-LEVEL-{level}','observed_value':2.4 if level>=2 else 0.0,'server_pid':__import__('os').getpid()}
             elif op=='close':

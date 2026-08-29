@@ -25,6 +25,7 @@ class ChoiceWorld:
         payload=';'.join(f'{k}:{self.effects[k]:.3f}' for k in sorted(self.effects))
         self.compatibility_sha256=hashlib.sha256(f'CHOICE-WORLD:v1:{payload}'.encode()).hexdigest()
         self.value=0.0
+    def is_available(self): return True
     def reset(self): self.value=0.0
     def apply(self,action_id):
         assert action_id in self.effects; self.value=self.effects[action_id]

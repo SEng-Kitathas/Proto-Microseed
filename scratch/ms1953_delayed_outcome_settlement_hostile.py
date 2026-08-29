@@ -19,6 +19,7 @@ class DelayedChargeWorld:
     action_ids=('CHARGE-DELAYED',)
     compatibility_sha256=hashlib.sha256(b'DELAYED-CHARGE-WORLD:v1:delayed-two-ticks').hexdigest()
     def __init__(self): self.level=0; self.pending=0
+    def is_available(self): return True
     def reset(self): self.level=0; self.pending=0
     def apply(self,action_id):
         assert action_id=='CHARGE-DELAYED'; self.pending=2

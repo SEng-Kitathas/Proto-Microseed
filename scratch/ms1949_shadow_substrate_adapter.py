@@ -18,6 +18,7 @@ class ChargeWorld:
     name='CHARGE-WORLD'; action_ids=('CHARGE',)
     compatibility_sha256=hashlib.sha256(b'CHARGE-WORLD:v1:CHARGE->LEVEL-2:value2.4').hexdigest()
     def __init__(self): self.level=0
+    def is_available(self): return True
     def reset(self): self.level=0
     def apply(self,action_id):
         assert action_id=='CHARGE'; self.level=min(2,self.level+2); return {'receipt':'charged','level':self.level}
@@ -30,6 +31,7 @@ class ParityWorld:
     name='PARITY-WORLD'; action_ids=('STEP',)
     compatibility_sha256=hashlib.sha256(b'PARITY-WORLD:v1:STEP->ODD:value2.4').hexdigest()
     def __init__(self): self.counter=0
+    def is_available(self): return True
     def reset(self): self.counter=0
     def apply(self,action_id):
         assert action_id=='STEP'; self.counter+=1; return {'receipt':'stepped','counter':self.counter}

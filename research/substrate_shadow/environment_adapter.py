@@ -12,12 +12,21 @@ from microseed import (
 )
 
 
+class ExternalEndpointUnavailable(RuntimeError):
+    """The external endpoint is known unavailable before an effect dispatch."""
+
+
+class ExternalEndpointAmbiguous(RuntimeError):
+    """A request may have crossed the transport boundary but completion is unknown."""
+
+
 class ExternalWorld(Protocol):
     """Research-side world contract. It owns reality; Microseed does not."""
     name: str
     action_ids: tuple[str, ...]
     compatibility_sha256: str
 
+    def is_available(self) -> bool: ...
     def reset(self) -> None: ...
     def apply(self, action_id: str) -> dict: ...
     def observe(self) -> dict: ...
@@ -86,6 +95,50 @@ class ShadowEnvironmentAdapter:
 
     def environment_binding_obligation(self) -> QueryObligation:
         return QueryObligation("SUBSTRATE-ENV-BIND-Q", "current environment compatibility basis", Authority.DERIVED_READ_ONLY, operational_scope_id=self.config.scope_id)
+
+    def endpoint_available(self) -> bool:
+        return bool(self.world.is_available())
+
+    def refresh_endpoint_liveness(self, ms: Microseed) -> dict:
+        if self.endpoint_available():
+            return {"status":"CURRENT_ENDPOINT","authority":Authority.NONE.value,"staled_capability_ids":[]}
+        stale:set[str]=set()
+        c=self.config
+        for cid in tuple(self.world.action_ids)+(c.observation_capability_id,):
+            contract=ms.capabilities.contracts.get(cid)
+            if contract is not None and contract.currentness=="CURRENT":
+                stale.update(ms.capabilities.invalidate(cid,reason="EXTERNAL_ENDPOINT_UNAVAILABLE"))
+        return {
+            "status":"STALE_ENDPOINT",
+            "reason":"EXTERNAL_ENDPOINT_UNAVAILABLE",
+            "authority":Authority.NONE.value,
+            "staled_capability_ids":sorted(stale),
+        }
+
+    def execute_intent(self, ms: Microseed, intent_id: str, **kwargs) -> dict:
+        pre=self.refresh_endpoint_liveness(ms)
+        if pre["status"]!="CURRENT_ENDPOINT":
+            return {"status":"NO_EXECUTION","reason":"EXTERNAL_ENDPOINT_NOT_CURRENT","authority":Authority.NONE.value,"liveness":pre}
+        try:
+            return ms.execute_bounded_action(intent_id,self.act_obligation(),**kwargs)
+        except ExternalEndpointUnavailable as exc:
+            post=self.refresh_endpoint_liveness(ms)
+            return {"status":"NO_EXECUTION","reason":"EXTERNAL_ENDPOINT_NOT_CURRENT","authority":Authority.NONE.value,"liveness":post,"transport_error":str(exc)}
+        except ExternalEndpointAmbiguous as exc:
+            # Ambiguous dispatch is not a world outcome and not safe to retry blindly.
+            stale:set[str]=set()
+            c=self.config
+            for cid in tuple(self.world.action_ids)+(c.observation_capability_id,):
+                contract=ms.capabilities.contracts.get(cid)
+                if contract is not None and contract.currentness=="CURRENT":
+                    stale.update(ms.capabilities.invalidate(cid,reason="EXTERNAL_ENDPOINT_DISPATCH_AMBIGUOUS"))
+            return {
+                "status":"UNKNOWN_EXECUTION",
+                "reason":"EXTERNAL_ENDPOINT_DISPATCH_AMBIGUOUS",
+                "authority":Authority.NONE.value,
+                "staled_capability_ids":sorted(stale),
+                "transport_error":str(exc),
+            }
 
     def attach(self, ms: Microseed) -> None:
         c=self.config
@@ -183,7 +236,7 @@ class ShadowEnvironmentAdapter:
         for i in range(n):
             self.reset_control(ms,f"TRAIN-{action_id}-{i}")
             intent=ms.nominate_bounded_action_intent(p.proposal_id,self.act_obligation()); assert intent["status"]=="ACTION_INTENT_NOMINATED"
-            ex=ms.execute_bounded_action(intent["intent"]["intent_id"],self.act_obligation()); assert ex["status"]=="ACTION_EXECUTED"
+            ex=self.execute_intent(ms,intent["intent"]["intent_id"]); assert ex["status"]=="ACTION_EXECUTED"
             out=self.record_execution_outcome(ms,ex["execution"]["execution_id"],evidence_id=f"E-{self.world.name}-{c.adapter_instance_id}-{action_id}-{i}",capture_id=f"CAP-{self.world.name}-{c.adapter_instance_id}-{action_id}-{i}")
             assert out["status"]=="ACTION_OUTCOME_OBSERVED", out
         candidates=[x for x in ms.nominate_action_outcome_predictive_candidates() if x.capability_id==action_id]
