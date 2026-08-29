@@ -52,8 +52,7 @@ def run_restart():
         c2=m2.derive_bounded_action_commitment(proposal_id); assert c2.commitment.value=='YES'
         intent=m2.nominate_bounded_action_intent(proposal_id,a2.act_obligation()); assert intent['status']=='ACTION_INTENT_NOMINATED'
         ex=m2.execute_bounded_action(intent['intent']['intent_id'],a2.act_obligation()); assert ex['status']=='ACTION_EXECUTED'
-        c=a2.config
-        out=m2.record_bounded_action_outcome_via_observation_basis(ex['execution']['execution_id'],observation_capability_id=c.observation_capability_id,observation_obligation=a2.obs_obligation(),basis_capability_id=c.observation_basis_id,basis_obligation=a2.basis_obligation(),evidence_id='E-MS1950-REENTRY',capture_id='CAP-MS1950-REENTRY')
+        out=a2.record_execution_outcome(m2,ex['execution']['execution_id'],evidence_id='E-MS1950-REENTRY',capture_id='CAP-MS1950-REENTRY')
         assert out['status']=='ACTION_OUTCOME_OBSERVED'
         assert out['outcome']['actual_next_state_id']=='LEVEL-2'
         assert hashlib.sha256(json.dumps(m2.action_outcome_learning.relations[relation_id].serializable(),sort_keys=True,separators=(',',':')).encode()).hexdigest()==relation_digest

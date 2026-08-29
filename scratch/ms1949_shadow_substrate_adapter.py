@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import hashlib
 import sys
 import tempfile
 from copy import deepcopy
@@ -15,6 +16,7 @@ from tests.embodiment.test_ms1941_learned_signal_response_reentry import _close
 
 class ChargeWorld:
     name='CHARGE-WORLD'; action_ids=('CHARGE',)
+    compatibility_sha256=hashlib.sha256(b'CHARGE-WORLD:v1:CHARGE->LEVEL-2:value2.4').hexdigest()
     def __init__(self): self.level=0
     def reset(self): self.level=0
     def apply(self,action_id):
@@ -25,6 +27,7 @@ class ChargeWorld:
 
 class ParityWorld:
     name='PARITY-WORLD'; action_ids=('STEP',)
+    compatibility_sha256=hashlib.sha256(b'PARITY-WORLD:v1:STEP->ODD:value2.4').hexdigest()
     def __init__(self): self.counter=0
     def reset(self): self.counter=0
     def apply(self,action_id):
@@ -44,8 +47,7 @@ def run_world(world):
         cmt=ms.derive_bounded_action_commitment(p.proposal_id); assert cmt.commitment.value=='YES'
         intent=ms.nominate_bounded_action_intent(p.proposal_id,adapter.act_obligation()); assert intent['status']=='ACTION_INTENT_NOMINATED'
         ex=ms.execute_bounded_action(intent['intent']['intent_id'],adapter.act_obligation()); assert ex['status']=='ACTION_EXECUTED'
-        c=adapter.config
-        out=ms.record_bounded_action_outcome_via_observation_basis(ex['execution']['execution_id'],observation_capability_id=c.observation_capability_id,observation_obligation=adapter.obs_obligation(),basis_capability_id=c.observation_basis_id,basis_obligation=adapter.basis_obligation(),evidence_id=f'E-MS1949-FINAL-{world.name}',capture_id=f'CAP-MS1949-FINAL-{world.name}')
+        out=adapter.record_execution_outcome(ms,ex['execution']['execution_id'],evidence_id=f'E-MS1949-FINAL-{world.name}',capture_id=f'CAP-MS1949-FINAL-{world.name}')
         assert out['status']=='ACTION_OUTCOME_OBSERVED'
         assert ms.action_outcome_predictive_relation_status(rel)['status']=='CURRENT_PREDICTIVE_RELATION'
         assert p.truth_authority==p.execution_authority=='NONE'
