@@ -62,6 +62,11 @@ RESEARCH_COMPONENTS.update({
         "source_sha256": "b007df624d3205d35a5d3a1ea59ed48a5192ce644f8fc2c6bf406ed3525849d2",
         "ceiling": "opaque supplied primitive actions/effect deltas; bounded synthetic referent symmetry; no object identity",
     },
+    "MS1958_1961_AFFORDANCE_RELATIVE_PROTO_REFERENCE": {
+        "status": "RESEARCH_ONLY",
+        "source_sha256": "485aaecb4d2f3aca156e9cabd80e8423cefa52282207be00ee4e4fb1e66dd054",
+        "ceiling": "boundary-coherent channel partitions plus opaque action-response content can support protocol-relative re-association across sensor permutation and action-order changes; joint sensor+actuator alias symmetry remains numerically unidentifiable; identity/semantic-reference/language authority NONE",
+    },
     "MS803_827_AFFORDANCE_CURRENTNESS_DRIFT": {
         "status": "RESEARCH_ONLY",
         "source_sha256": "b7e09a713ecfd686f300c9f8c15fc19bb7346f7f1c99b661d426eb33ff2378c9",
