@@ -4600,6 +4600,77 @@ class Microseed:
             })
         return out
 
+    def discover_epistemic_projection_candidates_with_budget(
+        self,
+        training_samples: Iterable[ProjectionSample],
+        validation_samples: Iterable[ProjectionSample],
+        cfg: ProjectionDiscoveryConfig | None = None,
+        *,
+        max_subset_evaluations: int,
+    ) -> dict[str, Any]:
+        """Run projection discovery only when the supplied budget covers exhaustive subset search.
+
+        This method never performs a partial subset search.  If the exact deterministic
+        subset count exceeds the supplied budget, it fails closed before fitting any
+        candidate so budget exhaustion cannot be confused with exhaustive absence.
+        """
+        budget=int(max_subset_evaluations)
+        if budget < 1:
+            raise ValueError("BOUNDED_PROJECTION_SEARCH_EVALUATION_BUDGET_REQUIRED")
+        train=tuple(training_samples)
+        validation=tuple(validation_samples)
+        for sample in train + validation:
+            if not self.frames.is_current(sample.frame_id,sample.frame_epoch):
+                raise ValueError("STALE_OR_UNKNOWN_PROJECTION_SAMPLE_FRAME")
+        config=cfg or ProjectionDiscoveryConfig()
+        dims={len(x.raw_tokens) for x in train + validation}
+        if not train or not validation or len(dims)!=1 or next(iter(dims)) < 1:
+            findings=self.discover_epistemic_projection_candidates(train,validation,config)
+            return {
+                "status":"EXHAUSTIVE_PROJECTION_SEARCH_COMPLETED",
+                "reason":None,
+                "candidates":tuple(findings),
+                "candidate_count":len(findings),
+                "required_subset_evaluations":0,
+                "subset_evaluations_performed":0,
+                "max_subset_evaluations":budget,
+                "search_complete":True,
+                "search_order":"ASCENDING_SUBSET_SIZE_THEN_LEXICOGRAPHIC_POSITIONS",
+                "semantic_attention_authority":"NONE",
+                "truth_authority":"NONE",
+            }
+        dim=next(iter(dims))
+        max_size=min(int(config.max_subset),dim)
+        required=sum(math.comb(dim,size) for size in range(1,max_size+1))
+        if required > budget:
+            return {
+                "status":"DEFER_UNKNOWN",
+                "reason":"PROJECTION_SEARCH_SUBSET_EVALUATION_BUDGET_INSUFFICIENT",
+                "candidates":(),
+                "candidate_count":0,
+                "required_subset_evaluations":required,
+                "subset_evaluations_performed":0,
+                "max_subset_evaluations":budget,
+                "search_complete":False,
+                "search_order":"ASCENDING_SUBSET_SIZE_THEN_LEXICOGRAPHIC_POSITIONS",
+                "semantic_attention_authority":"NONE",
+                "truth_authority":"NONE",
+            }
+        findings=self.discover_epistemic_projection_candidates(train,validation,config)
+        return {
+            "status":"EXHAUSTIVE_PROJECTION_SEARCH_COMPLETED",
+            "reason":None,
+            "candidates":tuple(findings),
+            "candidate_count":len(findings),
+            "required_subset_evaluations":required,
+            "subset_evaluations_performed":required,
+            "max_subset_evaluations":budget,
+            "search_complete":True,
+            "search_order":"ASCENDING_SUBSET_SIZE_THEN_LEXICOGRAPHIC_POSITIONS",
+            "semantic_attention_authority":"NONE",
+            "truth_authority":"NONE",
+        }
+
     def epistemic_projection_candidate_status(self, candidate_id: str) -> dict[str, Any]:
         return self.epistemic_projection_candidates[candidate_id].serializable()
 
