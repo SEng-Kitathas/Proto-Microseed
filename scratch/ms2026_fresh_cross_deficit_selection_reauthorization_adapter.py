@@ -82,9 +82,10 @@ def _selected_opportunity(initial_surface: dict, persisted: dict) -> dict:
 def run_stable() -> dict:
     td, m, calls, initial_surface, comparison, selection = _surface(True)
     try:
-        persisted = persist_and_nominate_selected_current_opportunity(m, initial_surface)
+        _ops, _native_selection, selected = m._current_owned_referent_cross_deficit_selection_bundle(act_ob())
+        assert _native_selection.licenses_yes() and selected is not None
+        persisted = m.nominate_current_strict_same_value_referent_epistemic_opportunity(act_ob())
         assert persisted["status"] == "SELECTED_OPPORTUNITY_PERSISTED_AND_NOMINATED", persisted
-        selected = _selected_opportunity(initial_surface, persisted)
         result = execute_with_fresh_cross_deficit_selection_reauthorization(m, persisted, selected)
         assert result["status"] == "ACTION_EXECUTED", result
         assert calls == ["P2"], calls
@@ -96,9 +97,10 @@ def run_stable() -> dict:
 def run_new_competitor_block() -> dict:
     td, m, calls, initial_surface, comparison, selection = _surface(True)
     try:
-        persisted = persist_and_nominate_selected_current_opportunity(m, initial_surface)
+        _ops, _native_selection, selected = m._current_owned_referent_cross_deficit_selection_bundle(act_ob())
+        assert _native_selection.licenses_yes() and selected is not None
+        persisted = m.nominate_current_strict_same_value_referent_epistemic_opportunity(act_ob())
         assert persisted["status"] == "SELECTED_OPPORTUNITY_PERSISTED_AND_NOMINATED", persisted
-        selected = _selected_opportunity(initial_surface, persisted)
         weak_p4 = next(op for op in initial_surface["opportunities"] if op["probe_action_id"] == "P4")
         _add_strong_current_p4_competitor(m, weak_p4)
         result = execute_with_fresh_cross_deficit_selection_reauthorization(m, persisted, selected)

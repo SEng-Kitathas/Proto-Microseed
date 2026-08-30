@@ -74,54 +74,24 @@ def _add_strong_current_p4_competitor(m, weak_p4_opportunity: dict) -> str:
 
 
 def run_ms2025() -> dict:
-    td, m, calls, initial_surface, initial_comparison, initial_selection = _surface(True)
+    td, m, calls, _initial_surface, _initial_comparison, _initial_selection = _surface(True)
     try:
-        assert initial_selection.licenses_yes(), initial_selection.serializable()
-        persisted = persist_and_nominate_selected_current_opportunity(m, initial_surface)
+        ops, selection, selected = m._current_owned_referent_cross_deficit_selection_bundle(act_ob())
+        assert selection.licenses_yes() and selected is not None and selected["probe_action_id"] == "P2"
+        persisted = m.nominate_current_strict_same_value_referent_epistemic_opportunity(act_ob())
         assert persisted["status"] == "SELECTED_OPPORTUNITY_PERSISTED_AND_NOMINATED", persisted
-        assert persisted["selected_probe_action_id"] == "P2", persisted
-        assert calls == [], calls
-
-        selected = next(
-            op for op in initial_surface["opportunities"]
-            if op["deficit"].deficit_id == persisted["selected_deficit_id"]
-        )
-        weak_p4 = next(op for op in initial_surface["opportunities"] if op["probe_action_id"] == "P4")
+        weak_p4 = next(op for op in ops if op["probe_action_id"] == "P4")
         new_binding = _add_strong_current_p4_competitor(m, weak_p4)
-
-        fresh_surface = enumerate_opportunities(m)
-        assert fresh_surface["status"] == "MULTIPLE_CURRENT_OWNED_REFERENT_EPISTEMIC_OPPORTUNITIES", fresh_surface
-        fresh_comparison = derive_strict_same_value_regulatory_dominance(m, fresh_surface["opportunities"])
-        fresh_selection = derive_selection_commitment(fresh_comparison, fresh_surface["opportunities"])
-        assert not fresh_selection.licenses_yes(), fresh_selection.serializable()
-        assert fresh_comparison["status"] == "NO_STRICT_SAME_VALUE_REGULATORY_DOMINANCE", fresh_comparison
-        assert fresh_comparison["reason"] == "WORST_RESIDUAL_PRESSURE_TIE", fresh_comparison
-
+        fresh = m.derive_current_owned_referent_cross_deficit_selection_surface(act_ob())
+        assert fresh["status"] == "NO_CURRENT_STRICT_CROSS_DEFICIT_SELECTION", fresh
         execution = m.execute_bounded_action(
-            persisted["nomination"]["intent"]["intent_id"],
-            act_ob(),
-            epistemic_step_context=EpistemicStepExecutionContext(
-                selected["trial"], decision_context=selected["decision_context"],
-            ),
+            persisted["nomination"]["intent"]["intent_id"], act_ob(),
+            epistemic_step_context=EpistemicStepExecutionContext(selected["trial"], decision_context=selected["decision_context"]),
         )
-        # This campaign intentionally proves the stale-selection leak if ordinary
-        # local reauthorization still executes P2 after cross-deficit uniqueness died.
-        assert execution["status"] == "ACTION_EXECUTED", execution
-        assert calls == ["P2"], calls
-        return {
-            "status": "VIOLATION_REPRODUCED",
-            "law": "NOMINATION_TIME_CROSS_DEFICIT_SELECTION != EFFECT_TIME_CROSS_DEFICIT_SELECTION_CURRENTNESS",
-            "selected_probe_at_nomination": "P2",
-            "new_competitor_binding_id": new_binding,
-            "fresh_surface_status": fresh_surface["status"],
-            "fresh_probe_action_ids": list(fresh_surface["probe_action_ids"]),
-            "fresh_comparison": fresh_comparison,
-            "fresh_selection": fresh_selection.serializable(),
-            "execution_status": execution["status"],
-            "handler_calls": list(calls),
-            "local_selected_deficit_remained_current": "YES",
-            "cross_deficit_selection_reauthorized_at_effect": "NO",
-        }
+        assert execution["status"] == "NO_EXECUTION", execution
+        assert execution["reason"] == "CURRENT_CROSS_DEFICIT_SELECTION_REQUIRED_AT_EXECUTION", execution
+        assert calls == [], calls
+        return {"status":"HISTORICAL_VIOLATION_CLOSED","law":"NOMINATION_TIME_CROSS_DEFICIT_SELECTION != EFFECT_TIME_CROSS_DEFICIT_SELECTION_CURRENTNESS","new_competitor_binding_id":new_binding,"fresh_selection":fresh,"execution_status":execution["status"],"execution_reason":execution["reason"],"handler_calls":list(calls),"cross_deficit_selection_reauthorized_at_effect":"YES"}
     finally:
         m.biography.close(); m.evidence.conn.close(); m.store.conn.close(); td.cleanup()
 
