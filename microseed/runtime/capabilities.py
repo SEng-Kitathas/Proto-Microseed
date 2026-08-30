@@ -23,6 +23,121 @@ class CapabilityRegistry:
         self.reverse_deps: dict[str, set[str]] = {}
         self._on_invalidate = on_invalidate
 
+    def assess_dependency_closure(self, capability_id: str) -> dict[str, Any]:
+        """Assess executable currentness through the declared capability graph.
+
+        Structural registration may contain forward references and cycles.  Those
+        shapes are not declared false merely because they are unresolved.  This
+        ephemeral assessment answers the narrower operational question: can this
+        capability be used *now* from a fully registered/current dependency closure?
+
+        The traversal is iterative and memoized per call so wide/deep graphs do not
+        require recursive Python stack growth.  A cycle without a separately qualified
+        closure mechanism fails closed for executable currentness; it is not promoted
+        to a universal claim that cycles are invalid.
+        """
+        root = str(capability_id)
+        if root not in self.contracts:
+            return {
+                "status": "UNKNOWN_INCOMPLETE", "reason": f"CAPABILITY_NOT_FOUND:{root}",
+                "capability_id": root, "visited_count": 0, "edge_count": 0,
+                "max_depth": 0, "cycle": (), "authority": Authority.NONE.value,
+            }
+
+        done: set[str] = set()
+        active_index: dict[str, int] = {}
+        path: list[str] = []
+        # stack rows are [capability_id, next_dependency_index]
+        stack: list[list[Any]] = [[root, 0]]
+        visited_count = 0
+        edge_count = 0
+        max_depth = 1
+
+        while stack:
+            cid = str(stack[-1][0])
+            next_index = int(stack[-1][1])
+            if next_index == 0:
+                current = self.contracts.get(cid)
+                if current is None:
+                    return {
+                        "status": "UNKNOWN_INCOMPLETE",
+                        "reason": f"DEPENDENCY_NOT_REGISTERED:{cid}",
+                        "capability_id": root, "visited_count": visited_count,
+                        "edge_count": edge_count, "max_depth": max_depth,
+                        "cycle": (), "authority": Authority.NONE.value,
+                    }
+                if current.qualification not in {QualificationState.QUALIFIED, QualificationState.SHADOW_QUALIFIED} or current.currentness != "CURRENT":
+                    return {
+                        "status": "UNKNOWN_INCOMPLETE",
+                        "reason": f"DEPENDENCY_NOT_CURRENT:{cid}:{current.qualification.value}:{current.currentness}",
+                        "capability_id": root, "visited_count": visited_count,
+                        "edge_count": edge_count, "max_depth": max_depth,
+                        "cycle": (), "authority": Authority.NONE.value,
+                    }
+                active_index[cid] = len(path)
+                path.append(cid)
+                visited_count += 1
+
+            current = self.contracts[cid]
+            deps = tuple(current.dependencies)
+            if next_index >= len(deps):
+                stack.pop()
+                active_index.pop(cid, None)
+                if path and path[-1] == cid:
+                    path.pop()
+                done.add(cid)
+                continue
+
+            dep = str(deps[next_index])
+            stack[-1][1] = next_index + 1
+            edge_count += 1
+            if dep in done:
+                continue
+            if dep in active_index:
+                start = active_index[dep]
+                cycle = tuple(path[start:] + [dep])
+                return {
+                    "status": "UNKNOWN_INCOMPLETE",
+                    "reason": "DEPENDENCY_CYCLE_UNQUALIFIED:" + "->".join(cycle),
+                    "capability_id": root, "visited_count": visited_count,
+                    "edge_count": edge_count, "max_depth": max_depth,
+                    "cycle": cycle, "authority": Authority.NONE.value,
+                }
+            if dep not in self.contracts:
+                return {
+                    "status": "UNKNOWN_INCOMPLETE",
+                    "reason": f"DEPENDENCY_NOT_REGISTERED:{dep}",
+                    "capability_id": root, "visited_count": visited_count,
+                    "edge_count": edge_count, "max_depth": max_depth,
+                    "cycle": (), "authority": Authority.NONE.value,
+                }
+            stack.append([dep, 0])
+            max_depth = max(max_depth, len(stack))
+
+        return {
+            "status": "CURRENT_DEPENDENCY_CLOSURE", "reason": "CURRENT",
+            "capability_id": root, "visited_count": visited_count,
+            "edge_count": edge_count, "max_depth": max_depth,
+            "cycle": (), "authority": Authority.NONE.value,
+        }
+
+    def is_locally_current(self, capability_id: str) -> bool:
+        """Return only this contract's own qualification/currentness metadata.
+
+        This deliberately does not traverse dependencies.  It exists for owner-specific
+        diagnostics where local staleness must remain distinguishable from transitive
+        unusability.  Executable use must continue to call ``is_current``/``invoke``.
+        """
+        current = self.contracts.get(str(capability_id))
+        return bool(
+            current is not None
+            and current.qualification in {QualificationState.QUALIFIED, QualificationState.SHADOW_QUALIFIED}
+            and current.currentness == "CURRENT"
+        )
+
+    def is_current(self, capability_id: str) -> bool:
+        return self.assess_dependency_closure(capability_id)["status"] == "CURRENT_DEPENDENCY_CLOSURE"
+
     def register(self, contract: CapabilityContract) -> None:
         if contract.capability_id in self.contracts:
             raise ValueError(f"duplicate capability: {contract.capability_id}")
@@ -62,9 +177,10 @@ class CapabilityRegistry:
         c = self.contracts.get(capability_id)
         if c is None:
             return {"status": "NO_PATH", "authority": Authority.NONE.value}
-        if c.qualification not in {QualificationState.QUALIFIED, QualificationState.SHADOW_QUALIFIED}:
-            return {"status": "UNKNOWN_INCOMPLETE", "reason": c.qualification.value,
-                    "authority": Authority.NONE.value}
+        closure = self.assess_dependency_closure(capability_id)
+        if closure["status"] != "CURRENT_DEPENDENCY_CLOSURE":
+            return {"status": "UNKNOWN_INCOMPLETE", "reason": closure["reason"],
+                    "dependency_closure": closure, "authority": Authority.NONE.value}
         if c.query_obligation_id and c.query_obligation_id != obligation.obligation_id:
             return {"status": "UNKNOWN_INCOMPLETE", "reason": "QUERY_OBLIGATION_MISMATCH",
                     "authority": Authority.NONE.value}

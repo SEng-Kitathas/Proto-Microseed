@@ -172,9 +172,7 @@ def derive_current_epistemic_feasibility_routes(
     for fid, cap in sorted(capabilities.contracts.items()):
         if cap.authority != Authority.DERIVED_READ_ONLY:
             continue
-        if cap.qualification not in {QualificationState.QUALIFIED, QualificationState.SHADOW_QUALIFIED}:
-            continue
-        if cap.currentness != "CURRENT":
+        if not capabilities.is_current(fid):
             continue
         target = str(cap.boundary.get("target_capability_id", ""))
         if not target or target not in cap.dependencies:
@@ -184,9 +182,7 @@ def derive_current_epistemic_feasibility_routes(
             continue
         if target_cap.authority != Authority.EFFECT:
             continue
-        if target_cap.qualification not in {QualificationState.QUALIFIED, QualificationState.SHADOW_QUALIFIED}:
-            continue
-        if target_cap.currentness != "CURRENT":
+        if not capabilities.is_current(target):
             continue
         # Route and target must inhabit the same requested opaque operational scope.
         if cap.operational_scope_id != operational_scope_id:
@@ -292,7 +288,7 @@ def derive_grounded_feasibility_option(
         return _unknown("FEASIBILITY_CAPABILITY_NOT_FOUND")
     if cap.authority != Authority.DERIVED_READ_ONLY:
         return _unknown("FEASIBILITY_CAPABILITY_REQUIRES_DERIVED_READ_ONLY")
-    if cap.qualification not in {QualificationState.QUALIFIED, QualificationState.SHADOW_QUALIFIED} or cap.currentness != "CURRENT":
+    if not capabilities.is_current(fid):
         return _unknown("FEASIBILITY_CAPABILITY_NOT_CURRENT")
     if str(cap.boundary.get("target_capability_id", "")) != target:
         return _unknown("FEASIBILITY_CAPABILITY_TARGET_MISMATCH")
@@ -484,9 +480,7 @@ def derive_current_epistemic_effect_action_tokens(
     for cid, cap in sorted(capabilities.contracts.items()):
         if cap.authority != Authority.EFFECT:
             continue
-        if cap.qualification not in {QualificationState.QUALIFIED, QualificationState.SHADOW_QUALIFIED}:
-            continue
-        if cap.currentness != "CURRENT" or cap.handler is None:
+        if not capabilities.is_current(cid) or cap.handler is None:
             continue
         if cap.query_obligation_id and cap.query_obligation_id != obligation.obligation_id:
             continue
@@ -795,7 +789,7 @@ def _route_commitment(
         target_id=f"capability:{cid}:qualification",
         premise_ids=(cid,),
     )
-    if not q.licenses_yes() or cap.currentness != "CURRENT" or capabilities.epochs.get(cid) != epochs.get(cid) or cap.computed_signature_sha256() != sigs.get(cid):
+    if not q.licenses_yes() or not capabilities.is_current(cid) or capabilities.epochs.get(cid) != epochs.get(cid) or cap.computed_signature_sha256() != sigs.get(cid):
         return RelationalCommitment(
             _sha({"route": target, "cap": cid, "current": False}), target,
             TernaryCommitment.UNKNOWN, reason=f"EPISTEMIC_PROGRAM_COMPONENT_NOT_CURRENT:{cid}",

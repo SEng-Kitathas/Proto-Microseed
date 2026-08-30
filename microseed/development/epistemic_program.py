@@ -155,7 +155,7 @@ def _route_problem(
     for cid in steps:
         c=capabilities.contracts.get(cid)
         if c is None: return f'NO_PATH:{cid}'
-        if c.qualification not in {QualificationState.QUALIFIED,QualificationState.SHADOW_QUALIFIED} or c.currentness!='CURRENT':
+        if not capabilities.is_current(cid):
             return f'CAPABILITY_NOT_CURRENT:{cid}'
         if c.authority!=Authority.EFFECT: return f'CAPABILITY_NOT_EFFECT_AUTHORIZED:{cid}'
         if c.query_obligation_id and c.query_obligation_id!=obligation.obligation_id: return f'QUERY_OBLIGATION_MISMATCH:{cid}'
@@ -255,7 +255,7 @@ def advance_epistemic_program_trial(
     current_epochs=dict(trial.capability_epochs); current_sigs=dict(trial.capability_signatures)
     for cid in trial.steps:
         c=capabilities.contracts.get(cid)
-        if c is None or c.qualification not in {QualificationState.QUALIFIED,QualificationState.SHADOW_QUALIFIED} or c.currentness!='CURRENT':
+        if c is None or not capabilities.is_current(cid):
             return replace(trial,status='INVALID',invalid_reason=f'PROGRAM_COMPONENT_NOT_CURRENT:{cid}')
         if capabilities.epochs.get(cid)!=current_epochs[cid] or c.computed_signature_sha256()!=current_sigs[cid]:
             return replace(trial,status='INVALID',invalid_reason=f'PROGRAM_COMPONENT_DRIFT:{cid}')

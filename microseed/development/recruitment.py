@@ -123,7 +123,7 @@ class RecruitmentRegistry:
         if p is None: return {"status":"UNKNOWN_INCOMPLETE","reason":"RECRUITMENT_PROPOSAL_NOT_FOUND"}
         for cid,epoch in p.capability_epochs:
             c=capabilities.contracts.get(cid)
-            if c is None or c.qualification not in {QualificationState.QUALIFIED,QualificationState.SHADOW_QUALIFIED}:
+            if c is None or not capabilities.is_current(cid):
                 return {"status":"UNKNOWN_INCOMPLETE","reason":f"RECRUITMENT_CAPABILITY_NOT_CURRENT:{cid}"}
             if capabilities.epochs.get(cid,-1)!=epoch:
                 return {"status":"UNKNOWN_INCOMPLETE","reason":f"RECRUITMENT_CAPABILITY_EPOCH_DRIFT:{cid}"}

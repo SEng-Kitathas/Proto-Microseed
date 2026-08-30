@@ -425,7 +425,7 @@ class Microseed:
         cap_epochs=[]
         for cid in selected:
             c=self.capabilities.contracts.get(cid)
-            if c is None or c.qualification not in {QualificationState.QUALIFIED,QualificationState.SHADOW_QUALIFIED}:
+            if c is None or not self.capabilities.is_current(cid):
                 raise ValueError(f"RECRUITMENT_CAPABILITY_NOT_CURRENT:{cid}")
             if c.operational_scope_id and c.operational_scope_id != operational_scope_id:
                 raise ValueError(f"RECRUITMENT_SCOPE_MISMATCH:{cid}")
@@ -510,7 +510,7 @@ class Microseed:
 
     def _rehearsal_observation_current(self, row: RehearsalTransitionObservation) -> bool:
         cap = self.capabilities.contracts.get(row.capability_id)
-        if cap is None or cap.qualification not in {QualificationState.QUALIFIED, QualificationState.SHADOW_QUALIFIED}:
+        if cap is None or not self.capabilities.is_current(row.capability_id):
             return False
         if self.capabilities.epochs.get(row.capability_id, -1) != row.capability_epoch:
             return False
@@ -661,7 +661,7 @@ class Microseed:
             return {"status":"UNKNOWN_INCOMPLETE","reason":"REHEARSAL_PROPOSAL_NOT_FOUND","authority":Authority.NONE.value}
         for cid, epoch in p.capability_epochs:
             c = self.capabilities.contracts.get(cid)
-            if c is None or c.qualification not in {QualificationState.QUALIFIED, QualificationState.SHADOW_QUALIFIED} or self.capabilities.epochs.get(cid,-1) != epoch:
+            if c is None or not self.capabilities.is_current(cid) or self.capabilities.epochs.get(cid,-1) != epoch:
                 return {"status":"UNKNOWN_INCOMPLETE","reason":f"REHEARSAL_CAPABILITY_NOT_CURRENT:{cid}","authority":Authority.NONE.value}
         for fid, epoch in p.frame_epochs:
             if not self.frames.is_current(fid, epoch):
@@ -680,7 +680,7 @@ class Microseed:
                 return {"status":"UNKNOWN_INCOMPLETE","reason":f"REHEARSAL_COORDINATION_NOT_CURRENT:{rid}","authority":Authority.NONE.value}
         for cid, epoch in p.evidence_premise_epochs:
             c = self.capabilities.contracts.get(cid)
-            if c is None or c.qualification not in {QualificationState.QUALIFIED, QualificationState.SHADOW_QUALIFIED}:
+            if c is None or not self.capabilities.is_current(cid):
                 return {"status":"UNKNOWN_INCOMPLETE","reason":f"REHEARSAL_EVIDENCE_PREMISE_NOT_CURRENT:{cid}","authority":Authority.NONE.value}
             if self.capabilities.epochs.get(cid, -1) != epoch:
                 return {"status":"UNKNOWN_INCOMPLETE","reason":f"REHEARSAL_EVIDENCE_PREMISE_EPOCH_DRIFT:{cid}","authority":Authority.NONE.value}
@@ -780,7 +780,7 @@ class Microseed:
         if not cmt.licenses_yes():
             return {"status":"ABSTAIN","reason":cmt.reason,"commitment":cmt.serializable(),"execution_authority":"NONE"}
         p=self.counterfactual_rehearsals.proposals[proposal_id]; cid=p.sequence[0]; cap=self.capabilities.contracts.get(cid)
-        if cap is None or cap.qualification not in {QualificationState.QUALIFIED,QualificationState.SHADOW_QUALIFIED}:
+        if cap is None or not self.capabilities.is_current(cid):
             return {"status":"ABSTAIN","reason":"ACTION_CAPABILITY_NOT_CURRENT","commitment":cmt.serializable(),"execution_authority":"NONE"}
         if self.capabilities.epochs.get(cid,-1) != dict(p.capability_epochs).get(cid,-2):
             return {"status":"ABSTAIN","reason":"ACTION_CAPABILITY_EPOCH_DRIFT","commitment":cmt.serializable(),"execution_authority":"NONE"}
@@ -809,7 +809,7 @@ class Microseed:
         cap=self.capabilities.contracts.get(cid)
         if not cmt.licenses_yes():
             return {"status":"ABSTAIN","reason":"MULTI_VALUE_ACTION_COMMITMENT_NOT_LICENSED","license":license_result,"execution_authority":"NONE"}
-        if cap is None or cap.qualification not in {QualificationState.QUALIFIED,QualificationState.SHADOW_QUALIFIED}:
+        if cap is None or not self.capabilities.is_current(cid):
             return {"status":"ABSTAIN","reason":"ACTION_CAPABILITY_NOT_CURRENT","license":license_result,"execution_authority":"NONE"}
         if cap.authority!=Authority.EFFECT or obligation.required_authority!=Authority.EFFECT:
             return {"status":"ABSTAIN","reason":"ACTION_REQUIRES_EFFECT_AUTHORITY","license":license_result,"execution_authority":"NONE"}
@@ -1793,7 +1793,7 @@ class Microseed:
         cw=self.action_closure.current_state
         if cw is None or cw.state_id!=intent.start_state_id or cw.evidence_id!=intent.control_state_evidence_id: return {"status":"NO_EXECUTION","reason":"CONTROL_STATE_DRIFT","authority":Authority.NONE.value}
         cap=self.capabilities.contracts.get(intent.capability_id)
-        if cap is None or cap.authority!=Authority.EFFECT or cap.qualification not in {QualificationState.QUALIFIED,QualificationState.SHADOW_QUALIFIED} or self.capabilities.epochs.get(intent.capability_id,-1)!=intent.capability_epoch: return {"status":"NO_EXECUTION","reason":"EFFECT_CAPABILITY_NOT_CURRENT","authority":Authority.NONE.value}
+        if cap is None or cap.authority!=Authority.EFFECT or not self.capabilities.is_current(intent.capability_id) or self.capabilities.epochs.get(intent.capability_id,-1)!=intent.capability_epoch: return {"status":"NO_EXECUTION","reason":"EFFECT_CAPABILITY_NOT_CURRENT","authority":Authority.NONE.value}
         if obligation.required_authority!=Authority.EFFECT or obligation.obligation_id!=intent.obligation_id or obligation.operational_scope_id!=intent.operational_scope_id: return {"status":"NO_EXECUTION","reason":"ACTION_OBLIGATION_DRIFT","authority":Authority.NONE.value}
         # MS1532/MS1534: nomination-time premise licensing is not execution-time
         # authority. Re-derive the actual intent basis immediately before EFFECT.
@@ -1850,6 +1850,14 @@ class Microseed:
                 "status": "OUTCOME_REJECTED",
                 "reason": "OBSERVATION_BASIS_DOES_NOT_BIND_CHANNEL",
             }
+        # Preserve owner-specific diagnostics before transitive invocation.  A locally
+        # current BASIS may be transitively unusable because OBS is stale; that must not
+        # be misreported as local BASIS staleness.  Actual execution below still requires
+        # full dependency closure through CapabilityRegistry.invoke().
+        if not self.capabilities.is_locally_current(basis_capability_id):
+            return {"status": "OUTCOME_REJECTED", "reason": "OBSERVATION_BASIS_NOT_CURRENT"}
+        if not self.capabilities.is_locally_current(observation_capability_id):
+            return {"status": "OUTCOME_REJECTED", "reason": "OBSERVATION_CAPABILITY_NOT_CURRENT"}
         basis = self.capabilities.invoke(
             basis_capability_id, basis_obligation, execution_id=execution_id
         )
@@ -2033,7 +2041,7 @@ class Microseed:
         action_contract = self.capabilities.contracts.get(execution.capability_id)
         if (
             action_contract is None
-            or action_contract.qualification not in {QualificationState.QUALIFIED, QualificationState.SHADOW_QUALIFIED}
+            or not self.capabilities.is_current(execution.capability_id)
             or action_contract.currentness != "CURRENT"
             or self.capabilities.epochs.get(execution.capability_id, -1) != execution.capability_epoch
             or action_contract.computed_signature_sha256() != receipt.get("action_capability_signature_sha256")
@@ -2045,7 +2053,7 @@ class Microseed:
             historical = self.capabilities.contracts.get(str(historical_id))
             if (
                 historical is None
-                or historical.qualification not in {QualificationState.QUALIFIED, QualificationState.SHADOW_QUALIFIED}
+                or not self.capabilities.is_current(str(historical_id))
                 or historical.currentness != "CURRENT"
                 or self.capabilities.epochs.get(str(historical_id), -1) != int(receipt.get("historical_admission_basis_capability_epoch", -2))
                 or historical.computed_signature_sha256() != receipt.get("historical_admission_basis_signature_sha256")
@@ -2058,7 +2066,7 @@ class Microseed:
                 if (
                     not cid
                     or contract is None
-                    or contract.qualification not in {QualificationState.QUALIFIED, QualificationState.SHADOW_QUALIFIED}
+                    or not self.capabilities.is_current(cid)
                     or contract.currentness != "CURRENT"
                     or self.capabilities.epochs.get(cid, -1) != int(receipt.get(f"{prefix}_epoch", -2))
                     or contract.computed_signature_sha256() != receipt.get(f"{prefix}_signature_sha256")
@@ -2664,9 +2672,9 @@ class Microseed:
                 rejected.append((cid,"CAPABILITY_NOT_FOUND")); continue
             if cap.authority!=Authority.EFFECT:
                 rejected.append((cid,"CAPABILITY_NOT_EFFECT_AUTHORIZED")); continue
-            if cap.qualification not in {QualificationState.QUALIFIED,QualificationState.SHADOW_QUALIFIED}:
-                rejected.append((cid,"CAPABILITY_NOT_QUALIFIED")); continue
-            if cap.currentness!="CURRENT" or epoch is None:
+            if not self.capabilities.is_current(cid):
+                rejected.append((cid,"CAPABILITY_NOT_CURRENT")); continue
+            if epoch is None:
                 rejected.append((cid,"CAPABILITY_NOT_CURRENT")); continue
             current.append((cid,int(epoch),cap.computed_signature_sha256()))
         base={
@@ -3312,7 +3320,7 @@ class Microseed:
 
     def _action_outcome_relation_structurally_current(self, r: QualifiedActionOutcomePredictiveRelation) -> bool:
         cap=self.capabilities.contracts.get(r.capability_id)
-        if cap is None or cap.qualification not in {QualificationState.QUALIFIED,QualificationState.SHADOW_QUALIFIED}: return False
+        if cap is None or not self.capabilities.is_current(r.capability_id): return False
         if self.capabilities.epochs.get(r.capability_id,-1)!=r.capability_epoch: return False
         if not self.values.is_current(r.value_epoch[0],r.value_epoch[1]): return False
         if any(not self.frames.is_current(fid,ep) for fid,ep in r.frame_epochs): return False
@@ -3321,7 +3329,7 @@ class Microseed:
         if any(not self.coordinations.is_current(cid,ep) for cid,ep in r.coordination_epochs): return False
         for cid,ep in r.evidence_premise_epochs:
             c=self.capabilities.contracts.get(cid)
-            if c is None or c.qualification not in {QualificationState.QUALIFIED,QualificationState.SHADOW_QUALIFIED}: return False
+            if c is None or not self.capabilities.is_current(cid): return False
             if self.capabilities.epochs.get(cid,-1)!=ep: return False
         for cid,sig in r.evidence_premise_signatures:
             c=self.capabilities.contracts.get(cid)
@@ -3717,7 +3725,7 @@ class Microseed:
             reason=None
             if str(payload.get("control_state_id",""))!=str(control_state_id):
                 reason="RAW_OBSERVATION_CONTROL_STATE_MISMATCH"
-            elif cap is None or cap.qualification not in {QualificationState.QUALIFIED,QualificationState.SHADOW_QUALIFIED}:
+            elif cap is None or not self.capabilities.is_current(cid):
                 reason="RAW_OBSERVATION_CAPABILITY_NOT_CURRENT"
             elif self.capabilities.epochs.get(cid,-1)!=int(payload.get("observation_capability_epoch",-1)):
                 reason="RAW_OBSERVATION_CAPABILITY_EPOCH_DRIFT"
@@ -3905,7 +3913,7 @@ class Microseed:
         kind, object_id = handle.split(":", 1)
         if kind == "CAP":
             c = self.capabilities.contracts.get(object_id)
-            return bool(c is not None and c.qualification in {QualificationState.QUALIFIED, QualificationState.SHADOW_QUALIFIED})
+            return bool(c is not None and self.capabilities.is_current(object_id))
         if kind == "TOPO":
             return self.topologies.is_current(object_id)
         if kind == "CP":
@@ -3959,7 +3967,7 @@ class Microseed:
         c=self.capabilities.contracts.get(anchor.object_id)
         return bool(
             c is not None
-            and c.qualification in {QualificationState.QUALIFIED,QualificationState.SHADOW_QUALIFIED}
+            and self.capabilities.is_current(anchor.object_id)
             and self.capabilities.epochs.get(anchor.object_id,0) == anchor.epoch
         )
 
@@ -4011,7 +4019,7 @@ class Microseed:
     def bind_probe_capability(self, deficit_id: str, capability_id: str) -> dict[str, Any]:
         """Mark a current qualified capability as available to probe, never as an answer."""
         c=self.capabilities.contracts.get(capability_id)
-        if c is None or c.qualification not in {QualificationState.QUALIFIED,QualificationState.SHADOW_QUALIFIED}:
+        if c is None or not self.capabilities.is_current(capability_id):
             raise ValueError("PROBE_CAPABILITY_NOT_CURRENT")
         epoch=self.capabilities.epochs.get(capability_id,0)
         rec=self.epistemic_deficits.bind_probe(deficit_id,capability_id,epoch)
@@ -4169,7 +4177,7 @@ class Microseed:
             fid=str(payload.get("frame_id",""))
             frame=self.frames.frames.get(fid)
             reason=None
-            if cap is None or cap.qualification not in {QualificationState.QUALIFIED,QualificationState.SHADOW_QUALIFIED}:
+            if cap is None or not self.capabilities.is_current(cid):
                 reason="RAW_OBSERVATION_CAPABILITY_NOT_CURRENT"
             elif self.capabilities.epochs.get(cid,-1)!=int(payload.get("observation_capability_epoch",-1)):
                 reason="RAW_OBSERVATION_CAPABILITY_EPOCH_DRIFT"
@@ -4485,7 +4493,7 @@ class Microseed:
             fid=str(payload.get("frame_id",""))
             frame=self.frames.frames.get(fid)
             reason=None
-            if cap is None or cap.qualification not in {QualificationState.QUALIFIED,QualificationState.SHADOW_QUALIFIED}:
+            if cap is None or not self.capabilities.is_current(cid):
                 reason="RAW_OBSERVATION_CAPABILITY_NOT_CURRENT"
             elif self.capabilities.epochs.get(cid,-1)!=int(payload.get("observation_capability_epoch",-1)):
                 reason="RAW_OBSERVATION_CAPABILITY_EPOCH_DRIFT"
@@ -5103,7 +5111,7 @@ class Microseed:
             cap=self.capabilities.contracts.get(probe.capability_id)
             cap_current=(
                 cap is not None
-                and cap.qualification in {QualificationState.QUALIFIED,QualificationState.SHADOW_QUALIFIED}
+                and self.capabilities.is_current(probe.capability_id)
                 and self.capabilities.epochs.get(probe.capability_id,-1)==probe.capability_epoch
             )
             frame_current=self.frames.is_current(probe.frame_id,probe.frame_epoch)
@@ -5147,7 +5155,7 @@ class Microseed:
         for schema_id,epoch in alternative.episode_schema_epochs:
             if not self.episodes.is_current(schema_id,epoch): raise ValueError("STALE_DRIFT_INTERVENTION_PLAN_ALTERNATIVE_EPISODE")
         cap=self.capabilities.contracts.get(probe.capability_id)
-        if cap is None or cap.qualification not in {QualificationState.QUALIFIED,QualificationState.SHADOW_QUALIFIED} or self.capabilities.epochs.get(probe.capability_id,-1)!=probe.capability_epoch:
+        if cap is None or not self.capabilities.is_current(probe.capability_id) or self.capabilities.epochs.get(probe.capability_id,-1)!=probe.capability_epoch:
             raise ValueError("STALE_DRIFT_INTERVENTION_PLAN_CAPABILITY")
         if not self.frames.is_current(probe.frame_id,probe.frame_epoch):
             raise ValueError("STALE_DRIFT_INTERVENTION_PLAN_FRAME")
@@ -5397,7 +5405,7 @@ class Microseed:
             contract = self.capabilities.contracts.get(cid)
             if contract is None:
                 raise ValueError(f"unknown trace capability:{cid}")
-            if contract.qualification not in {QualificationState.QUALIFIED, QualificationState.SHADOW_QUALIFIED}:
+            if not self.capabilities.is_current(cid):
                 raise ValueError(f"noncurrent trace capability:{cid}:{contract.qualification.value}")
             epochs.append((cid, self.capabilities.epochs.get(cid, 0)))
         bound = replace(
@@ -6062,7 +6070,7 @@ class Microseed:
         """
         for cid, epoch in contract.capability_epochs:
             c=self.capabilities.contracts.get(cid)
-            if c is None or c.qualification not in {QualificationState.QUALIFIED, QualificationState.SHADOW_QUALIFIED}:
+            if c is None or not self.capabilities.is_current(cid):
                 raise ValueError(f"TOPOLOGY_CAPABILITY_NOT_CURRENT:{cid}")
             if self.capabilities.epochs.get(cid,-1) != int(epoch):
                 raise ValueError(f"TOPOLOGY_CAPABILITY_EPOCH_DRIFT:{cid}")
@@ -6495,15 +6503,21 @@ class Microseed:
         if not ok:
             raise ValueError(reason)
         sig = candidate.operational_signature or {}
+        declared_dependencies = tuple(dict.fromkeys(str(dep) for dep in candidate.proposed_contract.dependencies))
+        if len(declared_dependencies) != len(candidate.proposed_contract.dependencies):
+            raise ValueError("CANDIDATE_DUPLICATE_CAPABILITY_DEPENDENCY")
+        for dep in declared_dependencies:
+            closure = self.capabilities.assess_dependency_closure(dep)
+            if closure["status"] != "CURRENT_DEPENDENCY_CLOSURE":
+                raise ValueError(f"CANDIDATE_DEPENDENCY_CLOSURE_INCOMPLETE:{dep}:{closure['reason']}")
         bound_epochs = sig.get("dependency_epochs")
         if bound_epochs is not None:
-            for dep, epoch in bound_epochs:
-                contract_now = self.capabilities.contracts.get(dep)
-                if contract_now is None or contract_now.qualification not in {
-                    QualificationState.QUALIFIED, QualificationState.SHADOW_QUALIFIED
-                }:
-                    raise ValueError(f"CANDIDATE_DEPENDENCY_NOT_CURRENT:{dep}")
-                if self.capabilities.epochs.get(dep, 0) != int(epoch):
+            normalized_bound_epochs = tuple((str(dep), int(epoch)) for dep, epoch in bound_epochs)
+            bound_dependency_ids = tuple(dep for dep, _ in normalized_bound_epochs)
+            if len(set(bound_dependency_ids)) != len(bound_dependency_ids) or set(bound_dependency_ids) != set(declared_dependencies):
+                raise ValueError("CANDIDATE_DEPENDENCY_EPOCH_SET_MISMATCH")
+            for dep, epoch in normalized_bound_epochs:
+                if self.capabilities.epochs.get(dep, -1) != epoch:
                     raise ValueError(f"CANDIDATE_DEPENDENCY_EPOCH_DRIFT:{dep}")
         bound_frames = tuple((str(fid), int(epoch)) for fid, epoch in sig.get("frame_epochs", ()))
         for frame_id, epoch in bound_frames:
