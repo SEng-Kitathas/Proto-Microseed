@@ -6,6 +6,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
+from microseed import EpistemicStatus
+from microseed.runtime.entity import action_result_digest
 from scratch.ms2008_referent_ambiguity_becomes_decision_bearing import act_ob
 from scratch.ms2021_cross_deficit_selection_blocker_replayed_with_raw_contrast import enumerate_opportunities
 from scratch.ms2022_same_value_cross_deficit_regulatory_dominance_quarry import derive_strict_same_value_regulatory_dominance
@@ -61,14 +63,40 @@ def persist_and_nominate_selected_current_opportunity(m, surface: dict) -> dict:
         }
     op = matches[0]
     d = op["deficit"]
+    # The ephemeral opportunity uses the latest authenticated raw observation as a
+    # read-only premise. Durable deficit lifecycle requires an explicit UNKNOWN
+    # evidence record. Reuse the endogenous-discovery pattern: write our own
+    # inference as UNKNOWN_INCOMPLETE, content-bound to the selected opportunity
+    # and its raw provenance, so self-generated structure cannot masquerade as
+    # external support.
+    unknown_payload = {
+        "kind": "SELECTED_OWNED_REFERENT_EPISTEMIC_UNKNOWN",
+        "opportunity_id": str(op["opportunity_id"]),
+        "opportunity_content_signature_sha256": str(op["content_signature_sha256"]),
+        "binding_id": str(op["binding_id"]),
+        "probe_action_id": selected_probe,
+        "source_raw_observation_evidence_id": str(d.unknown_evidence_id),
+        "hypothesis_digest_sha256": str(d.hypothesis_digest_sha256),
+        "missing_discriminator_signature_sha256": str(d.missing_discriminator_signature_sha256),
+        "selection_commitment_id": str(selection.commitment_id),
+        "proposal_only": True,
+        "authority_gain": "NONE",
+    }
+    unknown_id = "SELECTED-REFERENT-UNKNOWN-" + action_result_digest(unknown_payload)[:24]
+    unknown = m.append_evidence(
+        unknown_id, unknown_payload, EpistemicStatus.UNKNOWN_INCOMPLETE,
+        source="MICROSEED_ENDOGENOUS_SELECTED_EPISTEMIC_OPPORTUNITY",
+    )
     persisted = m.record_action_limited_unknown(
         deficit_id=d.deficit_id,
         question_key=d.question_key,
         hypothesis_digest_sha256=d.hypothesis_digest_sha256,
-        unknown_evidence_id=d.unknown_evidence_id,
+        unknown_evidence_id=unknown.evidence_id,
         missing_discriminator_signature_sha256=d.missing_discriminator_signature_sha256,
         premise_anchors=d.premise_anchors,
-        assistance_ancestry=d.assistance_ancestry,
+        assistance_ancestry=tuple(d.assistance_ancestry) + (
+            "ENDOGENOUS_UNKNOWN_MATERIALIZED_AFTER_STRICT_CROSS_DEFICIT_SELECTION",
+        ),
     )
     nomination = m.nominate_endogenous_epistemic_program_step_intent_from_current_surface(
         op["trial"], op["decision_context"], act_ob(),

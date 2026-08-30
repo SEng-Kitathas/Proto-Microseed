@@ -14,7 +14,7 @@ Can the bounded MS2023 cross-deficit selection commitment be composed into the e
 ## Laws
 - tie => persist nothing, nominate nothing;
 - selection commitment grants no execution authority;
-- the adapter may not change deficit content, trial content, probe identity, decision context, or regulatory premises;
+- the adapter may not change hypothesis/discriminator/probe/decision content;
 - no caller supplies the winner; matching is from the commitment's content-bound selected deficit/probe ids;
 - no generic queue/scheduler/opportunity registry is introduced.
 
@@ -26,6 +26,14 @@ Can the bounded MS2023 cross-deficit selection commitment be composed into the e
 ## First execution result — LIFECYCLE FAILURE, preserved
 The symmetric tie path abstained as intended. The asymmetric selected path reached durable registration and then failed in `record_action_limited_unknown` with `EPISTEMIC_DEFICIT_REQUIRES_UNKNOWN_INCOMPLETE_EVIDENCE`.
 
-The transient MS2021/MS2022 opportunity's `EpistemicDeficitRecord` is constructed over a current owned raw-evidence premise for read-only opportunity evaluation. The durable deficit owner, correctly, requires its `unknown_evidence_id` to name an explicit evidence record whose disposition is `UNKNOWN_INCOMPLETE`. Therefore an ephemeral decision-bearing opportunity is **not directly persistable as a durable epistemic deficit**, even when cross-deficit selection is lawful.
+The transient MS2021/MS2022 opportunity's `EpistemicDeficitRecord` is constructed over a current owned raw-evidence premise for read-only opportunity evaluation. The durable deficit owner, correctly, requires its `unknown_evidence_id` to name an explicit evidence record whose disposition is `UNKNOWN_INCOMPLETE`.
 
-Classification: `EPHEMERAL_OPPORTUNITY_PREMISE != DURABLE_UNKNOWN_EVIDENCE_LIFECYCLE`. No scientific verdict yet on whether existing owners can lawfully materialize the selected opportunity's exact UNKNOWN without adding a new mechanism. This failure state is intentionally committed before repair/re-derivation.
+Classification: `EPHEMERAL_OPPORTUNITY_PREMISE != DURABLE_UNKNOWN_EVIDENCE_LIFECYCLE`.
+
+## Repair hypothesis 1 — endogenous UNKNOWN materialization
+Source audit found an existing precedent in `discover_capability_candidates`: Microseed writes its own derived proposal as `UNKNOWN_INCOMPLETE` evidence so self-generated inference cannot masquerade as external support. MS2024 therefore attempted to materialize a selected, content-bound UNKNOWN record after strict cross-deficit selection and before durable deficit registration.
+
+### Repair attempt 1 result — HARNESS SHAPE FAILURE, preserved
+The attempt did not reach UNKNOWN materialization. It assumed the selected MS2021 opportunity contained MS2014-style `opportunity_id` / `content_signature_sha256` fields; the live MS2021 opportunity object does not expose `opportunity_id`, raising `KeyError: 'opportunity_id'`.
+
+Classification: `REPAIR_ADAPTER_ASSUMED_LATER_OPPORTUNITY_SHAPE__NO_SCIENTIFIC_VERDICT`. The endogenous-UNKNOWN lifecycle hypothesis remains open. This failed repair state is intentionally committed before adapting to the actual live opportunity surface.
