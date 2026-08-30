@@ -101,7 +101,11 @@ from ..development.reentry import (
 )
 from ..development.epistemic_program import GeneratedEpistemicProgramCandidate, begin_epistemic_program_trial, begin_generated_epistemic_program_trial, completed_program_evidence_payload
 from ..development.relational_algebra import OpaqueActionCompositionCandidate, OpaqueTransitionSample, discover_opaque_action_composition_candidates, discover_one_step_visible_history_refinements
-from ..development.epistemic_priority import derive_program_contrast_discrimination_commitment
+from ..development.epistemic_priority import (
+    derive_program_contrast_discrimination_commitment,
+    derive_current_same_value_regulatory_consequence_surface,
+    derive_strict_same_value_cross_deficit_selection_commitment,
+)
 from ..development.epistemic_action import (
     EpistemicStepExecutionContext, EpistemicDecisionBearingContext, derive_epistemic_program_step_commitment, derive_epistemic_program_step_local_precheck,
     derive_grounded_feasibility_option, derive_current_program_discrimination_commitment, derive_current_decision_bearing_commitment,
@@ -7305,6 +7309,201 @@ class Microseed:
         return {**common,"status":"CURRENT_PARTIAL_OPERATIONAL_REFERENT_AMBIGUITY",
                 "informative_probe_status":probe_status,"informative_candidates":tuple(candidates),
                 "unique_probe_action_id":unique}
+
+
+    def _derive_current_owned_referent_epistemic_opportunity_for_binding(
+        self, binding, obligation: QueryObligation, *, max_probe_steps: int = 2, max_records: int = 4096,
+    ) -> dict[str, Any] | None:
+        """Derive one ephemeral, fully-licensed referent opportunity from current owned evidence."""
+        live=self.derive_current_partial_operational_referent_ambiguity(
+            binding.binding_id,max_probe_steps=max_probe_steps,max_records=max_records,
+        )
+        if live.get("status")!="CURRENT_PARTIAL_OPERATIONAL_REFERENT_AMBIGUITY": return None
+        if live.get("informative_probe_status")!="CURRENT_UNIQUE_INFORMATIVE_REFERENT_PROBE": return None
+        probe=str(live.get("unique_probe_action_id") or "")
+        if not probe: return None
+        try: hypothesis=projection_conditioned_hypothesis_surface_digest(binding,self.action_outcome_learning.relations)
+        except ValueError: return None
+        candidates=tuple(x for x in live.get("informative_candidates",()) if str(x.get("action_id"))==probe)
+        if len(candidates)!=1: return None
+        raw_candidate=candidates[0]
+        discriminator=action_result_digest({
+            "hypothesis":hypothesis,"survivors":list(live.get("surviving_bucket_ids",())),
+            "probe":probe,"partition":raw_candidate.get("predicted_response_partition",()),
+        })
+        relation_sets=[]; probe_digests=[]; frame_epochs=set(); value_epochs=set()
+        for bucket in live.get("surviving_bucket_ids",()):
+            rows=[]
+            for action in binding.action_ids:
+                rid=binding.relation_id_for(str(bucket),str(action))
+                relation=self.action_outcome_learning.relations.get(str(rid)) if rid else None
+                if relation is None or not self._action_outcome_relation_current(relation): return None
+                edge=relation.as_epistemic_alternative_relation()
+                if edge is None: return None
+                rows.append(edge); frame_epochs.add(tuple(edge.frame_epoch))
+                if edge.value_epoch is not None: value_epochs.add(tuple(edge.value_epoch))
+                if str(action)==probe: probe_digests.append(edge.digest())
+            relation_sets.append(tuple(rows))
+        if len(value_epochs)!=1 or not frame_epochs or not probe_digests: return None
+        value_id,value_epoch=next(iter(value_epochs))
+        prefix=live.get("probe_prefix") or {}
+        raw_ids=tuple(str(x) for x in prefix.get("raw_observation_evidence_ids",()))
+        if not raw_ids: return None
+        op_basis={"binding":binding.binding_id,"probe":probe,"hypothesis":hypothesis,"discriminator":discriminator}
+        deficit=EpistemicDeficitRecord(
+            deficit_id="OWNED-REFERENT-OP-"+action_result_digest(op_basis)[:20],
+            question_key="raw-referent-"+discriminator[:20],hypothesis_digest_sha256=hypothesis,
+            unknown_evidence_id=raw_ids[-1],missing_discriminator_signature_sha256=discriminator,
+            premise_anchors=(
+                EpistemicCurrentnessAnchor("VALUE",str(value_id),int(value_epoch)),
+                EpistemicCurrentnessAnchor("PROJECTION",binding.projection_id,binding.projection_epoch),
+            ),
+            assistance_ancestry=("DERIVED_FROM_CURRENT_PARTIAL_REFERENT_AMBIGUITY","QUALIFIED_ROUTING_SURFACE","NO_CALLER_BINDING_OR_DEFICIT"),
+        )
+        candidate=GeneratedEpistemicProgramCandidate(
+            "OWNED-REFERENT-PROGRAM-"+action_result_digest({"deficit":deficit.deficit_id,"probe":probe})[:20],
+            (probe,),tuple(sorted(set(probe_digests))),tuple(sorted(frame_epochs)),
+            assistance_ancestry=("OWNED_REFERENT_DECISION_SURFACE","UNIQUE_INFORMATIVE_PROBE"),
+        )
+        current_state=self.action_closure.current_state
+        if current_state is None: return None
+        try:
+            trial=begin_generated_epistemic_program_trial(
+                candidate,deficit_id=deficit.deficit_id,discrimination_signature_sha256=discriminator,
+                capabilities=self.capabilities,obligation=obligation,current_frame_epochs=dict(self.frames.epochs),
+                start_state_id=current_state.state_id,start_state_evidence_id=current_state.evidence_id,
+            )
+        except ValueError: return None
+        dc=EpistemicDecisionBearingContext(tuple(relation_sets),())
+        options,_=derive_current_grounded_feasibility_surface(
+            capabilities=self.capabilities,operational_scope_id=obligation.operational_scope_id,
+        )
+        option=next((x for x in options if x.capability_id==probe),None)
+        if option is None: return None
+        priority=derive_current_decision_bearing_commitment_from_grounded_surface(
+            trial=trial,deficit=deficit,decision_context=dc,feasibility_options=options,
+            capabilities=self.capabilities,values=self.values,current_frame_epochs=dict(self.frames.epochs),
+            current_episode_epochs=dict(self.episodes.epochs),current_topology_epochs=dict(self.topologies.epochs),
+            current_coordination_epochs=dict(self.coordinations.epochs),
+        )
+        if not priority.licenses_yes(): return None
+        trace_information=derive_current_program_discrimination_commitment(
+            trial=trial,decision_context=dc,decision_bearing_commitment=priority,
+        )
+        outcomes=tuple(
+            (str(bucket),action_result_digest({"opaque_raw_response_multiset":response}))
+            for bucket,response in raw_candidate.get("predicted_response_partition",())
+        )
+        if len(outcomes)<2: return None
+        condition=action_result_digest({
+            "task_id":binding.task_id,"action_id":probe,"channel_ids":list(binding.channel_ids),
+            "horizon":int(binding.horizon),"observable_kind":"OPAQUE_RAW_RESPONSE_MULTISET",
+        })
+        contrast=EpistemicContrastRow(
+            binding.projection_id,binding.projection_epoch,outcomes,condition_signature_sha256=condition,
+        )
+        contrast_information=derive_program_contrast_discrimination_commitment(
+            trial=trial,contrast_rows=(contrast,),decision_bearing_commitment=priority,
+            source_premise_ids=(binding.binding_id,*raw_ids,*tuple(sorted(set(probe_digests)))),
+        )
+        if not contrast_information.licenses_yes(): return None
+        step_commitment=derive_epistemic_program_step_commitment(
+            trial=trial,deficit=deficit,feasibility=option,capabilities=self.capabilities,obligation=obligation,
+            current_frame_epochs=dict(self.frames.epochs),current_state=current_state,
+            priority_commitment=priority,information_commitment=contrast_information,
+        )
+        if not step_commitment.licenses_yes(): return None
+        consequence=derive_current_same_value_regulatory_consequence_surface(
+            deficit=deficit,values=self.values,relation_sets=tuple(
+                {(edge.state_id,edge.capability_id):edge for edge in rows} for rows in dc.relation_sets
+            ),options=options,start_state_id=trial.start_state_id,decision_bearing_commitment=priority,
+        )
+        if consequence.get("status")!="CURRENT_SAME_VALUE_REGULATORY_CONSEQUENCE_SURFACE": return None
+        content_signature=action_result_digest({
+            "probe":probe,"hypothesis":hypothesis,"discriminator":discriminator,
+            "survivors":list(live.get("surviving_bucket_ids",())),"value_id":consequence["value_id"],
+            "value_epoch":consequence["value_epoch"],"current_value":consequence["current_value"],
+            "first_actions":list(consequence["first_actions"]),"residual_pressures":list(consequence["residual_pressures"]),
+            "observable_outcomes":list(outcomes),
+        })
+        return {
+            "binding_id":binding.binding_id,"probe_action_id":probe,"deficit":deficit,"trial":trial,
+            "decision_context":dc,"priority":priority,"trace_information":trace_information,
+            "contrast_information":contrast_information,"commitment":step_commitment,"consequence":consequence,
+            "content_signature_sha256":content_signature,
+            "probe_control_state_predictions":tuple(next(r for r in rows if r.capability_id==probe).next_state_id for rows in dc.relation_sets),
+            "selection_authority":"NONE","execution_authority":"NONE",
+        }
+
+    def _current_owned_referent_epistemic_opportunities(
+        self, obligation: QueryObligation, *, max_probe_steps: int = 2, max_records: int = 4096,
+    ) -> tuple[dict[str, Any], ...]:
+        coordinate=self.operational_referent_class_set_projection_signature_sha256(); by_content={}
+        for binding in sorted(self.action_outcome_learning.projection_conditioned_bindings.values(),key=lambda b:b.binding_id):
+            projection=self.epistemic_projections.records.get(binding.projection_id)
+            if projection is None or projection.signature_sha256!=coordinate or not self._projection_conditioned_binding_current(binding):
+                continue
+            op=self._derive_current_owned_referent_epistemic_opportunity_for_binding(
+                binding,obligation,max_probe_steps=max_probe_steps,max_records=max_records,
+            )
+            if op is None: continue
+            sig=str(op["content_signature_sha256"])
+            prior=by_content.get(sig)
+            if prior is None or str(op["binding_id"])<str(prior["binding_id"]): by_content[sig]=op
+        return tuple(sorted(by_content.values(),key=lambda x:(str(x["probe_action_id"]),str(x["content_signature_sha256"]))))
+
+    def derive_current_owned_referent_epistemic_opportunity_surface(
+        self, obligation: QueryObligation, *, max_probe_steps: int = 2, max_records: int = 4096,
+    ) -> dict[str, Any]:
+        """Enumerate current, individually-licensed referent epistemic opportunities read-only."""
+        ops=self._current_owned_referent_epistemic_opportunities(
+            obligation,max_probe_steps=max_probe_steps,max_records=max_records,
+        )
+        summaries=tuple({
+            "binding_id":op["binding_id"],"deficit_id":op["deficit"].deficit_id,
+            "probe_action_id":op["probe_action_id"],"content_signature_sha256":op["content_signature_sha256"],
+            "priority_commitment":op["priority"].serializable(),"information_commitment":op["contrast_information"].serializable(),
+            "step_commitment":op["commitment"].serializable(),"consequence":dict(op["consequence"]),
+            "probe_control_state_predictions":tuple(op["probe_control_state_predictions"]),
+        } for op in ops)
+        probes=tuple(sorted({str(op["probe_action_id"]) for op in ops}))
+        base={"opportunities":summaries,"probe_action_ids":probes,"selection_authority":"NONE","execution_authority":"NONE","truth_authority":"NONE"}
+        if not ops: return {**base,"status":"NO_CURRENT_OWNED_REFERENT_EPISTEMIC_OPPORTUNITY"}
+        if len(ops)==1: return {**base,"status":"CURRENT_UNIQUE_OWNED_REFERENT_EPISTEMIC_OPPORTUNITY","selection_authority":"CONTENT_UNIQUENESS_ONLY"}
+        if len(probes)==1: return {**base,"status":"MULTIPLE_REFERENT_PRESSURES_SHARED_PROBE","selection_authority":"SHARED_ACTION_COMPOSITION_ONLY"}
+        return {**base,"status":"MULTIPLE_CURRENT_OWNED_REFERENT_EPISTEMIC_OPPORTUNITIES","reason":"CROSS_DEFICIT_SELECTION_REQUIRED"}
+
+    def derive_current_owned_referent_cross_deficit_selection_surface(
+        self, obligation: QueryObligation, *, max_probe_steps: int = 2, max_records: int = 4096,
+    ) -> dict[str, Any]:
+        """Re-derive one strict same-value selection over the current owned opportunity set."""
+        ops=self._current_owned_referent_epistemic_opportunities(
+            obligation,max_probe_steps=max_probe_steps,max_records=max_records,
+        )
+        if len(ops)<2:
+            return {"status":"NO_CURRENT_CROSS_DEFICIT_SELECTION_REQUIRED","opportunity_count":len(ops),"selection_authority":"NONE","execution_authority":"NONE"}
+        rows=[]
+        for op in ops:
+            consequence=op["consequence"]
+            rows.append({
+                "deficit_id":op["deficit"].deficit_id,"probe_action_id":op["probe_action_id"],
+                "value_id":consequence["value_id"],"value_epoch":consequence["value_epoch"],
+                "current_value":consequence["current_value"],"worst_residual_pressure":consequence["worst_residual_pressure"],
+                "premise_ids":(
+                    op["deficit"].deficit_id,op["priority"].commitment_id,op["contrast_information"].commitment_id,
+                    op["commitment"].commitment_id,*tuple(str(x) for x in consequence.get("proposal_digests",())),
+                ),
+            })
+        selection=derive_strict_same_value_cross_deficit_selection_commitment(tuple(rows))
+        q=dict(selection.qualifiers)
+        selected=next((op for op in ops if str(op["deficit"].deficit_id)==str(q.get("selected_deficit_id")) and str(op["probe_action_id"])==str(q.get("selected_probe_action_id"))),None) if selection.licenses_yes() else None
+        return {
+            "status":"CURRENT_STRICT_SAME_VALUE_CROSS_DEFICIT_SELECTION" if selection.licenses_yes() else "NO_CURRENT_STRICT_CROSS_DEFICIT_SELECTION",
+            "selection_commitment":selection.serializable(),"selected_deficit_id":None if selected is None else selected["deficit"].deficit_id,
+            "selected_probe_action_id":None if selected is None else selected["probe_action_id"],
+            "opportunity_count":len(ops),"probe_action_ids":tuple(sorted({str(op["probe_action_id"]) for op in ops})),
+            "selection_authority":q.get("selection_authority","NONE"),"execution_authority":"NONE","truth_authority":"NONE",
+        }
 
     def derive_current_owned_referent_decision_surface(
         self, deficit_id: str, *, max_probe_steps: int = 8, max_records: int = 4096,

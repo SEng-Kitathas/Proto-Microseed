@@ -138,6 +138,71 @@ def derive_regulatory_decision_bearing_commitment(
     )
 
 
+def derive_current_same_value_regulatory_consequence_surface(
+    *,
+    deficit: EpistemicDeficitRecord | None,
+    values: ValueVariableRegistry,
+    relation_sets: Iterable[Mapping[tuple[str, str], RehearsalTransitionRelation]],
+    options: Iterable[RecruitmentOption],
+    start_state_id: str,
+    decision_bearing_commitment: RelationalCommitment,
+) -> dict[str, object]:
+    """Project one freshly-derived decision-bearing premise into residual pressure only.
+
+    The caller must have just derived ``decision_bearing_commitment`` from the same
+    relation sets/options under the full currentness checks owned by
+    ``derive_regulatory_decision_bearing_commitment``.  This function replays only
+    the bounded one-step rehearsal needed to expose a same-value comparison row; it
+    does not compare deficits or grant selection authority.
+    """
+    base={"selection_authority":"NONE","execution_authority":"NONE","truth_authority":"NONE","semantic_goal_authority":"NONE"}
+    if deficit is None or not decision_bearing_commitment.licenses_yes():
+        return {**base,"status":"DEFER_UNKNOWN","reason":"CURRENT_DECISION_BEARING_COMMITMENT_REQUIRED"}
+    if decision_bearing_commitment.target_id!=f"epistemic-decision-bearing:{deficit.deficit_id}" or deficit.deficit_id not in decision_bearing_commitment.premise_ids:
+        return {**base,"status":"DEFER_UNKNOWN","reason":"DECISION_BEARING_COMMITMENT_BINDING_REQUIRED"}
+    anchors=tuple(a for a in deficit.premise_anchors if a.kind=="VALUE")
+    if len(anchors)!=1:
+        return {**base,"status":"DEFER_UNKNOWN","reason":"EXACT_CURRENT_VALUE_ANCHOR_REQUIRED"}
+    anchor=anchors[0]
+    if not values.is_current(anchor.object_id,anchor.epoch):
+        return {**base,"status":"DEFER_UNKNOWN","reason":"VALUE_PREMISE_NOT_CURRENT"}
+    latest=values.latest.get(anchor.object_id)
+    if latest is None or int(latest[0])!=int(anchor.epoch):
+        return {**base,"status":"DEFER_UNKNOWN","reason":"CURRENT_VALUE_OBSERVATION_REQUIRED"}
+    contract=values.contracts.get(anchor.object_id)
+    if contract is None:
+        return {**base,"status":"DEFER_UNKNOWN","reason":"CURRENT_VALUE_CONTRACT_REQUIRED"}
+    rows=tuple(dict(x) for x in relation_sets); opts=tuple(options)
+    if len(rows)<2:
+        return {**base,"status":"DEFER_UNKNOWN","reason":"MULTIPLE_LIVE_RELATIONAL_ALTERNATIVES_REQUIRED"}
+    proposals=[]
+    cfg=CounterfactualRehearsalConfig(max_horizon=1,max_nodes=64,min_support=1,min_consistency=0.99)
+    for rs in rows:
+        p=propose_counterfactual_rehearsal(
+            rs,start_state_id=str(start_state_id),start_value=float(latest[1]),
+            viable_low=float(contract.viable_low),viable_high=float(contract.viable_high),
+            value_epoch=(anchor.object_id,anchor.epoch),options=opts,cfg=cfg,
+        )
+        if p is None or not p.sequence:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"ALTERNATIVE_REHEARSAL_UNRESOLVED"}
+        proposals.append(p)
+    expected_first=tuple(dict(decision_bearing_commitment.qualifiers).get("first_actions","").split("|"))
+    actual_first=tuple(p.sequence[0] for p in proposals)
+    if expected_first!=actual_first:
+        return {**base,"status":"DEFER_UNKNOWN","reason":"DECISION_BEARING_REHEARSAL_CONTENT_DRIFT","expected_first_actions":expected_first,"actual_first_actions":actual_first}
+    residuals=tuple(float(p.residual_pressure) for p in proposals)
+    if any(not math.isfinite(x) or x<0.0 for x in residuals):
+        return {**base,"status":"DEFER_UNKNOWN","reason":"FINITE_NONNEGATIVE_RESIDUAL_PRESSURE_REQUIRED"}
+    return {
+        **base,"status":"CURRENT_SAME_VALUE_REGULATORY_CONSEQUENCE_SURFACE",
+        "deficit_id":deficit.deficit_id,"value_id":anchor.object_id,"value_epoch":int(anchor.epoch),
+        "current_value":float(latest[1]),"first_actions":actual_first,
+        "residual_pressures":residuals,"worst_residual_pressure":max(residuals),
+        "proposal_digests":tuple(p.digest() for p in proposals),
+        "decision_bearing_commitment_id":decision_bearing_commitment.commitment_id,
+    }
+
+
 def derive_strict_same_value_cross_deficit_selection_commitment(
     opportunity_rows: Iterable[Mapping[str, object]],
 ) -> RelationalCommitment:
