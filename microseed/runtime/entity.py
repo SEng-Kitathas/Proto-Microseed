@@ -609,6 +609,52 @@ class Microseed:
         self.store.append("COUNTERFACTUAL_REHEARSAL_PROPOSAL", packet)
         return proposal
 
+    def nominate_current_raw_projection_conditioned_rehearsal(
+        self, observations: Iterable[RehearsalTransitionObservation], options: Iterable[RecruitmentOption],
+        *, start_state_id: str, value_id: str, projection_routing_id: str, routing_task_id: str,
+        routing_channel_id: str, config: CounterfactualRehearsalConfig = CounterfactualRehearsalConfig(),
+    ) -> CounterfactualRehearsalProposal | None:
+        """Re-enter existing rehearsal from one owned current raw-projection bucket.
+
+        This is a narrow composition bridge between two already-earned owners:
+        ``resolve_current_raw_projection_conditioned_relation`` derives the opaque
+        bucket from exactly one current bounded raw receipt, while
+        ``nominate_counterfactual_rehearsal`` remains the sole rehearsal owner.
+
+        The caller supplies neither a projection bucket nor a preferred routed
+        relation.  Every routed option that is eligible under the existing binding
+        must independently resolve to the same current bucket.  Any missing, stale,
+        duplicate, ambiguous, or inconsistent evidence fails closed.  This method
+        creates no policy/selector state and grants no truth, semantic,
+        qualification, model-switch, or execution authority.
+        """
+        opts = tuple(options)
+        binding = self.action_outcome_learning.projection_conditioned_bindings.get(str(projection_routing_id))
+        if binding is None or not self._projection_conditioned_binding_current(binding):
+            return None
+        eligible = tuple(sorted({o.capability_id for o in opts} & set(binding.action_ids)))
+        if not eligible:
+            return None
+        buckets: set[str] = set()
+        for action_id in eligible:
+            resolved = self.resolve_current_raw_projection_conditioned_relation(
+                str(projection_routing_id), action_id=action_id, task_id=str(routing_task_id),
+                channel_id=str(routing_channel_id), horizon=int(binding.horizon),
+            )
+            if resolved.get("status") != "CURRENT_PARTITION_SCOPED_RELATION":
+                return None
+            bucket = resolved.get("projection_bucket_id")
+            if not isinstance(bucket, str) or not bucket:
+                return None
+            buckets.add(bucket)
+        if len(buckets) != 1:
+            return None
+        return self.nominate_counterfactual_rehearsal(
+            observations, opts, start_state_id=start_state_id, value_id=value_id, config=config,
+            projection_routing_id=str(projection_routing_id), projection_bucket_id=next(iter(buckets)),
+            routing_task_id=str(routing_task_id), routing_channel_id=str(routing_channel_id),
+        )
+
     def counterfactual_rehearsal_status(self, proposal_id: str) -> dict[str, Any]:
         p = self.counterfactual_rehearsals.proposals.get(proposal_id)
         if p is None:
