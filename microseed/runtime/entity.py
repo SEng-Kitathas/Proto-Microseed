@@ -1518,6 +1518,24 @@ class Microseed:
             )
         )
 
+    @classmethod
+    def _epistemic_program_step_observation_authentication_required(cls, deficit) -> bool:
+        """Keep authenticated-observation requirements orthogonal to discriminator ownership.
+
+        Historical PROBE_AVAILABLE programs keep their existing lifecycle rechecks.  A
+        referent-derived ACTION_LIMITED program is also an information probe, so its
+        actual step must enter through the same authenticated observation-admission owner
+        before it can become bearing/program evidence.  This predicate does not grant or
+        imply registered-contrast discriminator-satisfaction authority.
+        """
+        if cls._probe_lifecycle_evidence_rechecks_required(deficit):
+            return True
+        if deficit is None:
+            return False
+        return "DERIVED_FROM_CURRENT_PARTIAL_REFERENT_AMBIGUITY" in tuple(
+            str(x) for x in deficit.assistance_ancestry
+        )
+
     def _authenticated_probe_program_step_observation(
         self, step_record,
     ) -> tuple[dict[str, Any] | None, dict[str, Any]]:
@@ -1619,7 +1637,7 @@ class Microseed:
                 "truth_authority":"NONE","answer_authority":"NONE",
                 "model_replacement_authority":"NONE","execution_authority":"NONE",
             }
-        if self._probe_lifecycle_evidence_rechecks_required(deficit):
+        if self._epistemic_program_step_observation_authentication_required(deficit):
             authenticated,auth_detail=self._authenticated_probe_program_step_observation(rec)
             if authenticated is None:
                 return {
@@ -1692,7 +1710,7 @@ class Microseed:
                 return {"status":"PROGRAM_EVIDENCE_REJECTED","reason":"PROGRAM_STEP_RECORD_BINDING_MISMATCH"}
             if execution.capability_id!=rec.capability_id or execution.capability_epoch!=rec.capability_epoch or outcome.evidence_id!=rec.outcome_evidence_id or outcome.actual_next_state_id!=rec.actual_next_state_id:
                 return {"status":"PROGRAM_EVIDENCE_REJECTED","reason":"PROGRAM_STEP_RECORD_CONTENT_MISMATCH"}
-            if self._probe_lifecycle_evidence_rechecks_required(deficit):
+            if self._epistemic_program_step_observation_authentication_required(deficit):
                 authenticated,auth_detail=self._authenticated_probe_program_step_observation(rec)
                 if authenticated is None:
                     return {
