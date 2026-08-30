@@ -4293,12 +4293,13 @@ class Microseed:
         Direct projections read that raw row.  Composed projections are evaluated
         through their exact recorded source-projection ancestry, under a supplied
         recursion-depth ceiling.  Projection IDs define a deterministic opaque
-        coordinate order.  The caller supplies only source-count and depth ceilings,
-        never per-sample buckets, source IDs, or semantic labels.
+        coordinate order.  The caller supplies only a positive finite source-count
+        ceiling and a bounded depth ceiling, never per-sample buckets, source IDs,
+        or semantic labels.
         """
         limit=int(max_source_projections)
         depth_limit=int(max_projection_depth)
-        if limit < 1 or limit > 16:
+        if limit < 1:
             raise ValueError("BOUNDED_SOURCE_PROJECTION_COUNT_REQUIRED")
         if depth_limit < 0 or depth_limit > 8:
             raise ValueError("BOUNDED_PROJECTION_EVALUATION_DEPTH_REQUIRED")
