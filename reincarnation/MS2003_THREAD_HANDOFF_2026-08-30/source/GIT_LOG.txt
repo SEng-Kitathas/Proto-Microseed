@@ -1,0 +1,75 @@
+9946d4ddf37642615b5f4e5a47685f94397803ff	19b9c2874777f5fca5a219605b9c25736641c8f9	2026-08-30T10:14:48-04:00	MS2003 route owned operational referent context into bounded policy
+19b9c2874777f5fca5a219605b9c25736641c8f9	eecf2e3f5daf40ba67c2b3d7ffd14176df17e575	2026-08-30T09:53:48-04:00	MS2002 persist operational referent classes across restart
+eecf2e3f5daf40ba67c2b3d7ffd14176df17e575	1616f131dc0e4854aa9b050b657911ec86306b3b	2026-08-30T09:28:48-04:00	MS2000 requalify stale capability identity from fresh evidence
+1616f131dc0e4854aa9b050b657911ec86306b3b	66052ff913fc481336d96d866200e95e2dd96cd2	2026-08-30T02:30:29-04:00	MS1999 scale endogenous composition and dependency closure
+66052ff913fc481336d96d866200e95e2dd96cd2	246fcc4c44df08e8336e89432f17dedac8e15600	2026-08-30T01:47:29-04:00	MS1998 remove evaluator-mode and caller-bucket assistance from context rehearsal
+246fcc4c44df08e8336e89432f17dedac8e15600	c5c84cfbd308df38a94144b0bd4a9eed004d3a81	2026-08-30T00:57:42-04:00	MS1997 bridge lived history to endogenous program
+c5c84cfbd308df38a94144b0bd4a9eed004d3a81	a3e82f4f80bbe910234590f2cdf982293ac4fa96	2026-08-30T00:33:57-04:00	MS1996 eliminate caller choice in endogenous program construction
+a3e82f4f80bbe910234590f2cdf982293ac4fa96	cd60c48a0fd8a4e0fea0995ca8550af2f8c394d3	2026-08-29T23:51:26-04:00	MS1995 preserve operational reassociation through crossing and occlusion
+cd60c48a0fd8a4e0fea0995ca8550af2f8c394d3	76db4aa62c802fb744aca4d6a66ad4fb78d3cbd6	2026-08-29T23:35:08-04:00	MS1994 preserve multiple-trace persistence topology under conflict
+76db4aa62c802fb744aca4d6a66ad4fb78d3cbd6	9427eaacf8f07655dfb08264a22a82c6f14bc61d	2026-08-29T23:18:08-04:00	MS1993 add intervention-bound operational persistence pressure
+9427eaacf8f07655dfb08264a22a82c6f14bc61d	75b794011514c2d686f1d92e840b5c5d62a8c9f7	2026-08-29T22:26:30-04:00	MS1992 preserve NAKED first-probe authority boundary
+75b794011514c2d686f1d92e840b5c5d62a8c9f7	3dc6fb7655d0be3633df917a962126f69054144d	2026-08-29T22:23:32-04:00	MS1991 make projection search budget completeness explicit
+3dc6fb7655d0be3633df917a962126f69054144d	c6563464e92a266aaafb734520d75a590d8cadd9	2026-08-29T22:08:32-04:00	MS1990 scale explicit projection source ceilings beyond 16
+c6563464e92a266aaafb734520d75a590d8cadd9	c734c366fa22a313f7eb4c07eac83a17e513bcfc	2026-08-29T21:52:57-04:00	MS1989 separate selected dependencies from full projection basis
+c734c366fa22a313f7eb4c07eac83a17e513bcfc	d34a3491d412c154f525eedebafe624a18537b3f	2026-08-29T21:29:04-04:00	MS1988 verify depth4 recursive opaque composition genericity
+d34a3491d412c154f525eedebafe624a18537b3f	e0c948d32c006d21ad4a867d6f5941c75d7208f7	2026-08-29T20:18:50-04:00	MS1987 recurse opaque projection composition through source lineage
+e0c948d32c006d21ad4a867d6f5941c75d7208f7	383196060c0bb88980a2e22b972972a4e09f58a5	2026-08-29T19:45:15-04:00	Adopt 1991 plain-language engineering prose doctrine
+383196060c0bb88980a2e22b972972a4e09f58a5	9ef6ea3f33f27ef6cdf8aea1093f7ba688be2c85	2026-08-29T19:38:25-04:00	MS1986 compose owned learned buckets with source projection lineage
+9ef6ea3f33f27ef6cdf8aea1093f7ba688be2c85	7f99c49764776ed70ee61e03d9c4b77cb1946953	2026-08-29T17:43:05-04:00	MS1985 localize learned-bucket composition ownership boundary
+7f99c49764776ed70ee61e03d9c4b77cb1946953	a363bdda9db4ff849fda1359107cc026eee1c962	2026-08-29T17:39:25-04:00	MS1984 reuse temporal constructor projections from owned raw history
+a363bdda9db4ff849fda1359107cc026eee1c962	dfcd4017b0d0b18bad88d5093ae61188cf6a8db1	2026-08-29T17:30:31-04:00	MS1983 derive projection routing bucket from owned raw evidence
+dfcd4017b0d0b18bad88d5093ae61188cf6a8db1	f6c4b2e9cef17f07e9a007d0948101417e0243e4	2026-08-29T17:20:37-04:00	MS1981-1982 derive temporal raw constructor samples from owned receipts
+f6c4b2e9cef17f07e9a007d0948101417e0243e4	29485101abc8105a971545c9be1ccfc0c7460384	2026-08-29T16:49:24-04:00	MS1980 extend owned raw projection support to arity3
+29485101abc8105a971545c9be1ccfc0c7460384	c97fc43be92d31c3da36baedce74e58189d7efac	2026-08-29T16:47:46-04:00	MS1977-1979 derive bounded owned raw-coordinate projection samples
+c97fc43be92d31c3da36baedce74e58189d7efac	021a00328c2325eed0b87996e90ac8b287010b7e	2026-08-29T15:33:21-04:00	MS1976 extend owned-history constructor growth to lag3
+021a00328c2325eed0b87996e90ac8b287010b7e	4d75ff836730ff02455ff78628077c73224a0e70	2026-08-29T15:31:43-04:00	MS1974-1975 derive constructor history from authenticated owned action chains
+4d75ff836730ff02455ff78628077c73224a0e70	9621a62756258399042d5f17056331874469c192	2026-08-29T15:23:00-04:00	MS1973 bind history refinement usability to exact restart premises
+9621a62756258399042d5f17056331874469c192	6e60f78aa8a4dd908f03d526eb19d8f1b4a7692e	2026-08-29T15:15:55-04:00	MS1972 embody generic representation growth in process-backed alias world
+6e60f78aa8a4dd908f03d526eb19d8f1b4a7692e	ac2a215c23e055f0f3ac6b4a5bbec0af50c4d32e	2026-08-29T15:13:40-04:00	MS1971 generalize owned-history refinement projection admission
+ac2a215c23e055f0f3ac6b4a5bbec0af50c4d32e	02d9e88fdea3ad47882e2369c6d72c28bbfe587f	2026-08-29T15:01:38-04:00	MS1970 separate affordance decomposition from genealogy
+02d9e88fdea3ad47882e2369c6d72c28bbfe587f	42fc1bfc5f81687262a4cce3481b365e617d1bc1	2026-08-29T14:58:55-04:00	MS1969 bound reappearance to affordance reassociation not persistence
+42fc1bfc5f81687262a4cce3481b365e617d1bc1	cc32c0064b708a2d5a1f474b13e4bc154a38cdb7	2026-08-29T14:57:53-04:00	MS1968 bridge noisy referents across separately current frames
+cc32c0064b708a2d5a1f474b13e4bc154a38cdb7	dd868d5b176fddd65a7839cab58fcbbeb777421e	2026-08-29T14:56:37-04:00	MS1967 bind passive calibration lifecycle to operational frames
+dd868d5b176fddd65a7839cab58fcbbeb777421e	c92d2eae21823ff695457d0ca7205c5db431f5aa	2026-08-29T14:49:51-04:00	MS1962-1966 bound proto-reference continuity and noisy observation frame
+c92d2eae21823ff695457d0ca7205c5db431f5aa	e39c1089f9d3e5ae852a6f278bc2d12e48545e23	2026-08-29T14:45:11-04:00	MS1958-1961 embody affordance-relative proto-reference with symmetry ceiling
+e39c1089f9d3e5ae852a6f278bc2d12e48545e23	7c8327f5d8b6c398a788fe3ed32ce7b7e4c7439c	2026-08-29T14:33:46-04:00	MS1957 bind external endpoint liveness and ambiguous dispatch
+7c8327f5d8b6c398a788fe3ed32ce7b7e4c7439c	b2f54b6e225e88fd8811a197aeb662e9dff8e194	2026-08-29T14:11:19-04:00	MS1956 cross serialized process boundary with shadow substrate
+b2f54b6e225e88fd8811a197aeb662e9dff8e194	f6fb2ed278b88d39bc8f73fe38668bb757c8f4d8	2026-08-29T14:09:33-04:00	MS1955 validate multi-action learned choice on shadow substrate
+f6fb2ed278b88d39bc8f73fe38668bb757c8f4d8	65a1b82dbcc7bb374c6be22e7e3c2d007bd47501	2026-08-29T14:08:11-04:00	MS1954 separate runtime environment from qualification source
+65a1b82dbcc7bb374c6be22e7e3c2d007bd47501	b466ebca72eb52d5cd60149fc3e409de12b44792	2026-08-29T14:05:45-04:00	MS1953 add external outcome settlement boundary for delayed worlds
+b466ebca72eb52d5cd60149fc3e409de12b44792	e32864c206c89ea084bcb250483b204fb861fa54	2026-08-29T14:03:45-04:00	MS1951-1952 harden shadow substrate lifetime and world compatibility
+e32864c206c89ea084bcb250483b204fb861fa54	9c0e0b8554da1f30d59fd5f7841311f8122e75a1	2026-08-29T13:59:04-04:00	MS1949-1950 establish shadow substrate adapter and restart reentry
+9c0e0b8554da1f30d59fd5f7841311f8122e75a1	673db9978f48151ef862954a177f519683e900f2	2026-08-29T13:54:58-04:00	MS1948 localize equal-signal tie-break as operational arbitration
+673db9978f48151ef862954a177f519683e900f2	2045de71a5b4bd72e73e4f00aa6fdeaf3ea3b71a	2026-08-29T11:34:04-04:00	MS1947 close NAKED first-probe branch on normative authority
+2045de71a5b4bd72e73e4f00aa6fdeaf3ea3b71a	c56917aa48daac941556828ec110a57306c60458	2026-08-29T11:29:55-04:00	MS1946 localize unmodeled signal probe authority boundary
+c56917aa48daac941556828ec110a57306c60458	18696b19bf090ace01e6a4d2226b7b88609a3ad0	2026-08-29T11:18:23-04:00	MS1945 select represented signal by qualified regulatory rehearsal
+18696b19bf090ace01e6a4d2226b7b88609a3ad0	ce53da17c0224c59a67eb0a0fa321a94b0e01997	2026-08-29T02:32:39-04:00	MS1944 preserve signal replacement action boundary
+ce53da17c0224c59a67eb0a0fa321a94b0e01997	4c46d21f7665c439f4b8a8f578a5e9d94628c6f6	2026-08-29T02:24:17-04:00	MS1943 preserve signal predictive currentness boundary
+4c46d21f7665c439f4b8a8f578a5e9d94628c6f6	2da2902d9c10502a79942c6cc985ba3644605414	2026-08-29T01:32:16-04:00	MS1942 record integrated signaling release witness
+2da2902d9c10502a79942c6cc985ba3644605414	6f816ddfd7967d93d9fd0ed668e94ac4e64f8533	2026-08-29T01:31:46-04:00	MS1942 harden motif subject binding across source traces
+6f816ddfd7967d93d9fd0ed668e94ac4e64f8533	3473834da0ce1bbc0db16a35f4b9b8e2fa551ee2	2026-08-29T01:15:04-04:00	MS1942 merge bounded prelingual signaling substrate
+3473834da0ce1bbc0db16a35f4b9b8e2fa551ee2	1dcdbd62e80bde4c41f40cbf79c64a1d35f34502	2026-08-29T00:06:35-04:00	Harden architecture-factor reruns across descendants
+1dcdbd62e80bde4c41f40cbf79c64a1d35f34502	6b0f012980a625143ea7137be848d6f13b57325b	2026-08-29T00:02:14-04:00	MS1939 clarify rehearsal proposal vs action indication
+6b0f012980a625143ea7137be848d6f13b57325b	646f3a5ca9acd311ff30c436d63a5cf0f1fe1e78	2026-08-27T22:28:26-04:00	MS1924 seal restart history not reauthorization
+646f3a5ca9acd311ff30c436d63a5cf0f1fe1e78	40b690ecfa66c963119398e1e8029cf9014e2173	2026-08-27T22:21:57-04:00	MS1923 seal representation versus realization distinction
+40b690ecfa66c963119398e1e8029cf9014e2173	dd2deb503c253c2f2df79325a2eb66c27cf9699d	2026-08-27T22:18:18-04:00	MS1922 seal unrepresented route authority boundary
+dd2deb503c253c2f2df79325a2eb66c27cf9699d	c1a6cd59a1220eb1d180e27c08c1c3d85416d42a	2026-08-27T22:14:33-04:00	MS1921 seal lawful recurrence route coverage
+c1a6cd59a1220eb1d180e27c08c1c3d85416d42a	7aea15479dc968acc8326a602e93e0b8f9a4c1c0	2026-08-27T22:07:36-04:00	MS1920 seal revisit refinement history insufficiency
+7aea15479dc968acc8326a602e93e0b8f9a4c1c0	01fc8e0b359d470a0a2ec97ff15685c55b6c7af7	2026-08-27T22:02:08-04:00	MS1919 preserve probe evidence obligations across revisit
+01fc8e0b359d470a0a2ec97ff15685c55b6c7af7	a5f6454919f0759e31de85341a856f1542c82018	2026-08-27T20:20:36-04:00	MS1918 require authenticated observation for probe evidence
+a5f6454919f0759e31de85341a856f1542c82018	54bde4fd01509642a7c11a5f94645b56f92a8d28	2026-08-27T20:02:13-04:00	MS1917 rederive direct probe surface at execution
+54bde4fd01509642a7c11a5f94645b56f92a8d28	33e93566bee2bbd04cc17c005609a060fe7dbfad	2026-08-27T19:49:30-04:00	MS1916 bind direct probe authorization to current locus
+33e93566bee2bbd04cc17c005609a060fe7dbfad	83d516691e13cb2639aae993cfedc7c831686b8e	2026-08-27T17:11:59-04:00	MS1915 require decision-bound priority and information
+83d516691e13cb2639aae993cfedc7c831686b8e	345476a6792ca56804787bc0bec19682f2517ece	2026-08-27T08:51:44-04:00	MS1914 add bounded sharded compatibility runner
+345476a6792ca56804787bc0bec19682f2517ece	4605b60a5a19d886d7774caaf372248141faad4b	2026-08-27T08:42:13-04:00	MS1914 re-earn inherited epistemic guards under external mutants
+4605b60a5a19d886d7774caaf372248141faad4b	f264e3c7fe1a5fdff3b7286ae196f908cf76f925	2026-08-27T08:31:16-04:00	MS1913 pass 2 close lifecycle sibling bypasses
+f264e3c7fe1a5fdff3b7286ae196f908cf76f925	5b0e20504e7581387a03a8b435510a82a753ac67	2026-08-27T07:57:46-04:00	MS1912 pass 1 harden completed program evidence ancestry
+5b0e20504e7581387a03a8b435510a82a753ac67	517d2dc9211ccd2fdee760a522050b2b5f4ceefb	2026-08-27T02:15:00-04:00	MS1909-1911 bound restart authority and collapse equivalent discriminator paths
+517d2dc9211ccd2fdee760a522050b2b5f4ceefb	60e09df1a9e99dad4db24b0cd82bc377c94c520e	2026-08-27T01:51:39-04:00	MS1908 require independent program satisfaction of registered discriminator
+60e09df1a9e99dad4db24b0cd82bc377c94c520e	b83dc908f0d91f98b09dbe15095a92fb0b3d3f5a	2026-08-27T01:46:34-04:00	MS1899-1907 recover direct probe lifecycle and inert one-step program
+b83dc908f0d91f98b09dbe15095a92fb0b3d3f5a	10fb1095d4572dcc414b128c0b0a8204d43db488	2026-08-27T01:34:21-04:00	MS1891-1898 project current missing contrast and bind exact relation ancestry
+10fb1095d4572dcc414b128c0b0a8204d43db488	81ef76e992c2104de6107e1efbf124ab06455acc	2026-08-27T01:31:37-04:00	MS1888-1890 prove assistance and define content-only discriminator identity
+81ef76e992c2104de6107e1efbf124ab06455acc	4a6007e5f851833ba1ff1eb08802804958d03ab4	2026-08-27T01:30:23-04:00	Revert "MS1888-1889 derive missing discriminator from current revised surface"
+4a6007e5f851833ba1ff1eb08802804958d03ab4	2e73101001b00b59d284855fe5c9a4f55b2486c7	2026-08-27T01:28:41-04:00	MS1888-1889 derive missing discriminator from current revised surface
+2e73101001b00b59d284855fe5c9a4f55b2486c7		2026-08-27T01:25:45-04:00	Seal exact MS1887 extracted baseline

@@ -1,0 +1,14 @@
+{
+  "methodology/MS2004_UNIFIED_REFERENT_LIFETIME_POLICY.md": {
+    "bytes": 3544,
+    "sha256": "2611afcb3d446d392935d5be15ab23d60804dfdbdb7c386bb9ebf997d8c68883"
+  },
+  "scratch/ms2004_unified_referent_lifetime_policy.py": {
+    "bytes": 16410,
+    "sha256": "5870150348c38f50ed5f45e3f27da39dc58ff867d057b6707e4cceae1740998b"
+  },
+  "tests/embodiment/test_ms2004_unified_referent_lifetime_policy.py": {
+    "bytes": 1426,
+    "sha256": "5d5dc2d1b6c8cce192f24fa5d4d62f8f1ed39a3ffc1754c82798635df91bb9fc"
+  }
+}

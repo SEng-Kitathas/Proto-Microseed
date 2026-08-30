@@ -1,0 +1,10 @@
+{
+  "bundle_restore": "PASS",
+  "restored_head": "18696b19bf090ace01e6a4d2226b7b88609a3ad0",
+  "restored_tree": "de240e3424debf7d170bf29d24dc3c564518c753",
+  "expected_head": "18696b19bf090ace01e6a4d2226b7b88609a3ad0",
+  "expected_tree": "de240e3424debf7d170bf29d24dc3c564518c753",
+  "cited_jobs": 27,
+  "cited_job_logs_copied": 27,
+  "cited_job_logs_missing": []
+}

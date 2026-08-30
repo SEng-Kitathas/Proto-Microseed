@@ -1,0 +1,510 @@
+{
+  "base_research_head": "9946d4ddf37642615b5f4e5a47685f94397803ff",
+  "base_research_tree": "c8795b5de35f02d8c50b100aa264a6018e76494f",
+  "canonical_main_dev": "MS1527",
+  "created": "2026-08-30 ET",
+  "files": {
+    "00_READ_ME_FIRST.md": {
+      "bytes": 5831,
+      "sha256": "de2656cbb13fa7f33fa12b134e30797c3d018add1af16dbc3a8c29b06574df36"
+    },
+    "01_NEXT_THREAD_INGRESS_PROMPT.txt": {
+      "bytes": 4751,
+      "sha256": "7503f391b0a4373fc884c15953efbcc2a7e607fda3a33516b93f354e67e5be33"
+    },
+    "02_VERIFIED_STATE_AND_CONTRADICTIONS.md": {
+      "bytes": 7757,
+      "sha256": "f50973510b5378b87d9e70fd16955b78c6dc3a0e37a8dae187bf036e34a81284"
+    },
+    "03_COMMANDERS_INTENT.md": {
+      "bytes": 10854,
+      "sha256": "1b6f2209f967034823c70c0a78e380e1e542cc8772d548ca6f88b16d18c519ce"
+    },
+    "04_PROJECT_HISTORY_AND_ENGINEERING_DECISIONS.md": {
+      "bytes": 16755,
+      "sha256": "784f5b9fcc01994ea907995639f85445431b0ecd90efcfdf2a684bd814ae2c02"
+    },
+    "05_SCARS_AND_DO_NOT_REINTRODUCE.md": {
+      "bytes": 16749,
+      "sha256": "0ff87a8795a9be12a10913a104126afb0e0459943916c1a1fecbfabd4559457f"
+    },
+    "06_AUTHORITY_LINEAGE_AND_PROMOTION_MAP.md": {
+      "bytes": 7710,
+      "sha256": "4680d1d204aeee0f9c80b4d70e27d7ee73daff15111425c155cf567521590603"
+    },
+    "07_CURRENT_FRONTIER_MS2004_UNSEALED.md": {
+      "bytes": 7026,
+      "sha256": "7c5b927ebe60b51fe04526368c5ac1cced7b862187aa816b64c1c29f7f2342ad"
+    },
+    "08_RECOVERY_AND_OPERATING_PLAYBOOK.md": {
+      "bytes": 9506,
+      "sha256": "6a05ffd79b561896a89ffa232990b17920eda8a4b6be63f58fd694a97ddbf955"
+    },
+    "09_TRANSCRIPT_FIDELITY_AND_GAPS.md": {
+      "bytes": 3703,
+      "sha256": "a7f9d7a4b0e1097872f1da11290ec9579ad3e4629d4af4f030c4de48f97a1569"
+    },
+    "THIS_CONVERSATION.md": {
+      "bytes": 221054,
+      "sha256": "1b563cda631649433a3efb6473c3ecfd4cd0ee4069f38ec20d017b74002fab16"
+    },
+    "VERIFY_REINCARNATION_PACKAGE.py": {
+      "bytes": 5020,
+      "sha256": "e7731daec00426fdb048ec81bcebab6d76ef2aeb3fb79a1e71305d621dec299c"
+    },
+    "archives/PCMMAD_LAB_HANDOFF_MS1944_2026-08-29.zip": {
+      "bytes": 3736368,
+      "sha256": "892dd4914e285faaab82168dbe293dda4bcd033b9d7584972c5d836e7e92d08a"
+    },
+    "archives/RAHL_ENGINEERING_IN_HOUSE_SOP_SPLIT_CANDIDATE_R3_1_2026-08-29.zip": {
+      "bytes": 104946,
+      "sha256": "4d205becc2413889bdb37c6b6ff7513d6f759a7dff1d9f9b8fddaddd8235a278"
+    },
+    "historical/MS1944_HANDOFF_DOCS/00_READ_ME_FIRST.md": {
+      "bytes": 3190,
+      "sha256": "c522ac8e90ca63d7173a80737f8f8901ec4120b97296eedf568a543455129d66"
+    },
+    "historical/MS1944_HANDOFF_DOCS/01_NEXT_LAB_INGRESS_PROMPT.txt": {
+      "bytes": 1451,
+      "sha256": "52496341fac84cd66e4d442852016626a5c63fd0dfa338f001dc4c5719276628"
+    },
+    "historical/MS1944_HANDOFF_DOCS/02_HANDOFF_STATE.json": {
+      "bytes": 1519,
+      "sha256": "60d84e4518c8a4563596057fa4198fe94acb1d36b2eff84667bce9501fa86b99"
+    },
+    "historical/MS1944_HANDOFF_DOCS/03_MILESTONE_INDEX.md": {
+      "bytes": 1398,
+      "sha256": "a5896aa5277968071d33d8eb6a522d5d48bd51dd2e81af351acba508e3e2b0a5"
+    },
+    "historical/MS1944_HANDOFF_DOCS/04_RECOVERY_AND_RESTORE.md": {
+      "bytes": 1172,
+      "sha256": "8a58f5c970d010d341183ca6d3420754847d9b7dc10d871ad06736e80830cb4f"
+    },
+    "historical/MS1944_HANDOFF_DOCS/05_PACKAGE_SCOPE_AND_NONCLAIMS.md": {
+      "bytes": 772,
+      "sha256": "0f2539f66d22b192d8f2420f8c59ae909c92d1921d865144131325b0af506f91"
+    },
+    "historical/hand-stitched thread recovery document.txt": {
+      "bytes": 760639,
+      "sha256": "75464a42ca3d11b065b91fd0d7c12b3b334f0311ccf3ea66b0232a4b28896b17"
+    },
+    "snapshots/current_root/continuity/design_thread_stream/DESIGN_THREAD_STREAM.md": {
+      "bytes": 199741,
+      "sha256": "95068c3230fa25b73815e9164253ca20693ea96935aa15548df7cb636e51ac48"
+    },
+    "snapshots/current_root/continuity/live_shadow/LIVE_SHADOW.md": {
+      "bytes": 6600,
+      "sha256": "30eccf0e4f442da77ee551c47953036ab265f44c7ead989ba5987df4f4724ad8"
+    },
+    "snapshots/current_root/notes/maintenance/BROWSER_BRIDGE_HARDENING_2026-08-29.md": {
+      "bytes": 6771,
+      "sha256": "93f3103610bee617e4630ff4783b5a5cf95b4a56e3bbd4a7b39b2c12501c885d"
+    },
+    "snapshots/current_root/notes/maintenance/DONOR_COMPOSITION_SCALE_V1_LANGUAGE_AUDIT_2026-08-30.md": {
+      "bytes": 7002,
+      "sha256": "b1038ee253aaff09879dc11846eecd934c12153f9b854a5c60900b1752d23458"
+    },
+    "snapshots/current_root/notes/maintenance/EXECUTION_DROP_RECOVERY_SCAR_2026-08-30.md": {
+      "bytes": 4058,
+      "sha256": "20520584efd075b4b67a9343f8149da4db4fc7e43c19f111fbd9b51fa8586716"
+    },
+    "snapshots/current_root/notes/maintenance/FULL_THREAD_HANDOFF_MS1944_2026-08-29.md": {
+      "bytes": 3204,
+      "sha256": "572e53e41475ac40861c5840e3fcf9e8be5403d9dcd1b2905393b46c28a717ab"
+    },
+    "snapshots/current_root/notes/maintenance/GITHUB_PUBLICATION_2026-08-28.md": {
+      "bytes": 2719,
+      "sha256": "5c37e95b215070e3573f687c40d0709aa0b00ece3c8c65ef42073a4be369ce06"
+    },
+    "snapshots/current_root/notes/maintenance/GITHUB_PUBLICATION_MS1939_2026-08-29.md": {
+      "bytes": 8136,
+      "sha256": "cdc0e36fabb0f0d57e180d4361870d0b3ba3865cc28d82ba3f782b2ef9af594f"
+    },
+    "snapshots/current_root/notes/maintenance/GITHUB_PUBLICATION_MS1947_2026-08-29.md": {
+      "bytes": 4157,
+      "sha256": "1cd59a75ad8df58b51fb8e94cf0d90882293b0f503a9cd0108ff14fa07e6a57a"
+    },
+    "snapshots/current_root/notes/maintenance/HAND_STITCHED_THREAD_RECOVERY_LINEAR_READ.md": {
+      "bytes": 9516,
+      "sha256": "21e61cf9c00962e24ba9c4590b6602c0cceee3c3e12f92b9314a96ae18c3f8ec"
+    },
+    "snapshots/current_root/notes/maintenance/HSP_CAMPAIGN20_SOP_UPGRADE_EVIDENCE.md": {
+      "bytes": 5857,
+      "sha256": "7129c21355a499d22485516ea1ae72d523e72fbc782630014121b04e6c082b7f"
+    },
+    "snapshots/current_root/notes/maintenance/LOCAL_MODEL_REVIEWER_SETUP.md": {
+      "bytes": 4463,
+      "sha256": "5ca672a5cbc9061d1e51f1a376f5b6e5aa292d5beb1e475c8194957595b77b17"
+    },
+    "snapshots/current_root/notes/maintenance/MS1912_PASS01_EVIDENCE.md": {
+      "bytes": 3843,
+      "sha256": "56fa6eb4a0d3c1e3f95f1fa621dfa8006bf293102528fea8c94a07c9c93bf729"
+    },
+    "snapshots/current_root/notes/maintenance/MS1912_PASS01_RECEIPT.json": {
+      "bytes": 1223,
+      "sha256": "846fe129b7f1a2a671ccb5da2d7a16b3eba3257f24378e97d44385d680c4aa83"
+    },
+    "snapshots/current_root/notes/maintenance/MS1913_PASS02_EVIDENCE.md": {
+      "bytes": 5538,
+      "sha256": "30d9a8a88dccc7cff0483496dde1bed957c48c7e9d93df7f59393df7729d8bbb"
+    },
+    "snapshots/current_root/notes/maintenance/MS1914_EXTERNAL_LITERATURE_MAP.md": {
+      "bytes": 6143,
+      "sha256": "c42dacd666acffc046455c90040b0281c42fbc6aab25f80101b71109c018fcaf"
+    },
+    "snapshots/current_root/notes/maintenance/MS1914_PASS03_EVIDENCE.md": {
+      "bytes": 7308,
+      "sha256": "b84a5be61eeecce440948cbd9eee6e4cfd3e2b19f526f8f0141ed5622db8c29c"
+    },
+    "snapshots/current_root/notes/maintenance/MS1914_PASS03_EXTERNAL_VALIDATION_EVIDENCE.md": {
+      "bytes": 5364,
+      "sha256": "7a401149f6776efd9d6518fed2b7ace3f647acaefab0ac16c67f9a66afe0359e"
+    },
+    "snapshots/current_root/notes/maintenance/MS1915_PASS04_EVIDENCE.md": {
+      "bytes": 6228,
+      "sha256": "fbcadc1d983dbae7c5f00da88abc9bb9a188d8beeef8674e87e14995728d256d"
+    },
+    "snapshots/current_root/notes/maintenance/MS1916_PASS05_EVIDENCE.md": {
+      "bytes": 8020,
+      "sha256": "12a675a80fe346f79a87ee7badcb3f677c4c897b58ecb0f653d29dc753d2ec0c"
+    },
+    "snapshots/current_root/notes/maintenance/MS1917_PASS06_EVIDENCE.md": {
+      "bytes": 5027,
+      "sha256": "bef5252f60a97af2090b90004168425a760c9a593718fef776d18bd5822e4a24"
+    },
+    "snapshots/current_root/notes/maintenance/MS1918_PASS07_EVIDENCE.md": {
+      "bytes": 6669,
+      "sha256": "99737a9042e81b98775fef49a5fb44e6a542a92044ef5947f1ca738ed477992c"
+    },
+    "snapshots/current_root/notes/maintenance/MS1919_PASS08_EVIDENCE.md": {
+      "bytes": 7236,
+      "sha256": "4a82355150fe332b9164005b9e2421ec0e21abf95ba2be4cf18da14194cd4eea"
+    },
+    "snapshots/current_root/notes/maintenance/MS1920_PASS09_EVIDENCE.md": {
+      "bytes": 6315,
+      "sha256": "efcf452bb950d095cf94ae3e0dddd0274e3c7b61c66eabd000283fbf3280c2cb"
+    },
+    "snapshots/current_root/notes/maintenance/MS1921_PASS10_EVIDENCE.md": {
+      "bytes": 7559,
+      "sha256": "8ba9294a4dcf17ff8fd59c1a667453e56e2587185f44844a3f2c436b66b603ad"
+    },
+    "snapshots/current_root/notes/maintenance/MS1922_PASS11_EVIDENCE.md": {
+      "bytes": 5443,
+      "sha256": "2a3ef4af1ad4105ac4ff3cfd7e4a2e4837d4e2c39fecaabebf20145ef41c6a93"
+    },
+    "snapshots/current_root/notes/maintenance/MS1923_PASS12_EVIDENCE.md": {
+      "bytes": 4932,
+      "sha256": "fc670392b0bc29ad82019ad1328dec9b8193974470825ea4a616711407b60f91"
+    },
+    "snapshots/current_root/notes/maintenance/MS1924_PASS13_EVIDENCE.md": {
+      "bytes": 4761,
+      "sha256": "58866a36585bf6b0767cf38938321eb5149b27caf8e607ff8c297074d75ccd6f"
+    },
+    "snapshots/current_root/notes/maintenance/MS1925_PRIOR_ART_MECHANISM_COMPARISON.md": {
+      "bytes": 17580,
+      "sha256": "c2edb6798fc05f2b5a64d65fe5f12225c9a259263b5751b7c6653b87677f9764"
+    },
+    "snapshots/current_root/notes/maintenance/MS1926_EQUIPPED_EXPERIMENTAL_INTERVENTION_WARRANT_DESIGN.md": {
+      "bytes": 9630,
+      "sha256": "1d4bf274ed1844abe81cfad385ddc5c24254673d9154dbb6d08e8856ee146bfb"
+    },
+    "snapshots/current_root/notes/maintenance/MS1927_COMPOSITION_DISTINCTIVENESS_FALSIFICATION.md": {
+      "bytes": 11918,
+      "sha256": "30c0a1c923d4b6c82c0dd0fe1321d4eff09484597c84d942f8136d4a4e83d300"
+    },
+    "snapshots/current_root/notes/maintenance/MS1928_LOCAL_OWNER_MANAGER_EQUIVALENCE_AUDIT.md": {
+      "bytes": 7563,
+      "sha256": "480f0dc98979196b000650cafaf2c063681935d47c1c8dfbaf6cc66e266e18cc"
+    },
+    "snapshots/current_root/notes/maintenance/MS1929_INDEPENDENT_SPECIALIST_CHALLENGE_PACKET.md": {
+      "bytes": 7861,
+      "sha256": "71b96b033f3573f99f565efcd76fcf39690b39541b611e38af28699fa682cf7e"
+    },
+    "snapshots/current_root/notes/maintenance/MS1930_LOCAL_MODEL_DIVERSE_REVIEW.md": {
+      "bytes": 6461,
+      "sha256": "cf9073aedd697caebb3e82d2b9c6573571105195fefeaa02bd8c329087d770ce"
+    },
+    "snapshots/current_root/notes/maintenance/MS1931_SOURCE_ANCHORED_MODEL_DIVERSE_ADJUDICATION.md": {
+      "bytes": 8335,
+      "sha256": "ea31d890504f40ce87080a7748b0b1013f344520e6a8ac1f71d3e9398c126a1b"
+    },
+    "snapshots/current_root/notes/maintenance/MS1931_VERIFIED_PRIMARY_SOURCE_ADJUDICATION_PACKET.md": {
+      "bytes": 16185,
+      "sha256": "ebef3eeb681238d388d16e5ab885ef9008c6b27b3dd4a6a97ee8e896cea70be0"
+    },
+    "snapshots/current_root/notes/maintenance/MS1932_LEARNED_MODEL_ADMISSIBILITY_PRIOR_ART.md": {
+      "bytes": 8456,
+      "sha256": "0c569f10651cd727ade6aa2154a3aff1c9c74d6d888a3c5176ca3bb324121294"
+    },
+    "snapshots/current_root/notes/maintenance/MS1933_EXTERNAL_CLAUDE_HAIKU45_COMPLETION_CORRECTION.md": {
+      "bytes": 6353,
+      "sha256": "94558e7fd5695bf7612f2ef42bf9bb11a34afde8935b638ac5510af565e6b5bf"
+    },
+    "snapshots/current_root/notes/maintenance/MS1933_EXTERNAL_CLAUDE_HAIKU45_REVIEW.md": {
+      "bytes": 10856,
+      "sha256": "9864e9694d4b718c8c71871db4316ae3907e94f32c2302409cc29a2c836cf3fd"
+    },
+    "snapshots/current_root/notes/maintenance/MS1933_GROK_EXTERNAL_CHALLENGE_PROMPT.md": {
+      "bytes": 3855,
+      "sha256": "566b6f4fd4efec74b47abfa475feda5bf01d7c3317a0e4554ab22d6785c7971b"
+    },
+    "snapshots/current_root/notes/maintenance/MS1933_INVALIDATION_BLAST_RADIUS_EXPERIMENT.md": {
+      "bytes": 6330,
+      "sha256": "3d4ec25ee421a55d5c75b62d587968f3acbac711a4ad94a18e6850ef5ec934be"
+    },
+    "snapshots/current_root/notes/maintenance/MS1934_FAULT_LOCALIZATION_DIAGNOSTIC_PRECISION.md": {
+      "bytes": 8040,
+      "sha256": "29a56b6ba281331bd3baee058280678b166c86e73067076784d4ce146c01bce9"
+    },
+    "snapshots/current_root/notes/maintenance/MS1934_MS1939_CONSOLIDATED_CHECKPOINT.md": {
+      "bytes": 9285,
+      "sha256": "2c0c3f07d4e55f472eaafa535265c26c005715b6733bd313defedd4c69a6cb0c"
+    },
+    "snapshots/current_root/notes/maintenance/MS1935_AUTHORITY_COUPLING_FAULT_CONTAINMENT.md": {
+      "bytes": 5877,
+      "sha256": "f6b526144cccdba00ef534a4c3bdcb04e85346c30335da4757061a0b294f6a52"
+    },
+    "snapshots/current_root/notes/maintenance/MS1936_CAUSAL_TRACE_CERTIFICATE.md": {
+      "bytes": 4881,
+      "sha256": "6f0e6ebfa7ab43fb720904c5a3158b0ca8fcccbe393f0c31248114d0ae7332fc"
+    },
+    "snapshots/current_root/notes/maintenance/MS1937_DYNAMIC_MANIFEST_CERTIFICATE.md": {
+      "bytes": 5075,
+      "sha256": "bd86053985614589e2cd0287cb7bdfa27b24b0adb09ceefc1ae84a0cbee6eec7"
+    },
+    "snapshots/current_root/notes/maintenance/MS1938_GRAPH_CANONICALIZATION_LIFECYCLE.md": {
+      "bytes": 6830,
+      "sha256": "6d6d3575112ffa5594c7505ee1dbb1fa7153ade03821f06bec2a2268647dbd53"
+    },
+    "snapshots/current_root/notes/maintenance/MS1940_MS1942_LOCAL_RELEASE_EVIDENCE_2026-08-29.md": {
+      "bytes": 7616,
+      "sha256": "573594721b5b0cd59e0049f41d74efe4899b5858bad54fb30de4f92a2aa1cc90"
+    },
+    "snapshots/current_root/notes/maintenance/MS1940_MS1942_PRELINGUAL_SIGNALING_MERGE_EVIDENCE.md": {
+      "bytes": 10947,
+      "sha256": "d5ac19c2b1293094e87066f07a4d0cc86777de5d1434eb283801d0aff0f6986e"
+    },
+    "snapshots/current_root/notes/maintenance/MS1943_MS1944_LOCAL_CHECKPOINT_2026-08-29.md": {
+      "bytes": 4695,
+      "sha256": "8b7642162b0d18c4d46b8a2bdad2273bff42cf8dfbaa2f488db7024c4cf04871"
+    },
+    "snapshots/current_root/notes/maintenance/MS1945_LOCAL_CHECKPOINT_2026-08-29.md": {
+      "bytes": 5825,
+      "sha256": "b1fd0394853fcdbe2bb285e6d38774e21c81ae575a68515a133f7267fd183e4f"
+    },
+    "snapshots/current_root/notes/maintenance/MS1946_LOCAL_CHECKPOINT_2026-08-29.md": {
+      "bytes": 5345,
+      "sha256": "0eaa0bf00014aad4af05f3b242f6292056cb0b72b2d49594c8818128f77e5dac"
+    },
+    "snapshots/current_root/notes/maintenance/MS1947_LOCAL_CHECKPOINT_2026-08-29.md": {
+      "bytes": 4170,
+      "sha256": "582ce3dc0ab2654275e1b6563bc2f748dd3ce8d82a5aeaaec7a721f9047e1078"
+    },
+    "snapshots/current_root/notes/maintenance/MS1948_MS1956_ACCELERATED_DUAL_ARM_CHECKPOINT_2026-08-29.md": {
+      "bytes": 11421,
+      "sha256": "4e67e61202f4cc7d9a15daee198c97295ece1edfbe8a41be9f41315009f8af1a"
+    },
+    "snapshots/current_root/notes/maintenance/MS1957_MS1966_R3_1_PROTO_REFERENCE_CHECKPOINT_2026-08-29.md": {
+      "bytes": 8206,
+      "sha256": "27012d07b9c0fc89249ddaecdccfc2932267213260c220726aafd8c0708e986c"
+    },
+    "snapshots/current_root/notes/maintenance/MS1967_MS1970_R3_1_REFERENCE_BOUNDARY_CHECKPOINT_2026-08-29.md": {
+      "bytes": 8791,
+      "sha256": "a3364e7123149412dd9e9fc41088f33d168c801b7009593509128cc452f54455"
+    },
+    "snapshots/current_root/notes/maintenance/MS1971_MS1976_REPRESENTATION_GROWTH_CHECKPOINT_2026-08-29.md": {
+      "bytes": 8249,
+      "sha256": "59a31175f8473ff9f55ce9804b8c6dd1f034e711c0d3d389eb651510dbd628c0"
+    },
+    "snapshots/current_root/notes/maintenance/MS1977_MS1982_RAW_REPRESENTATION_CHECKPOINT_2026-08-29.md": {
+      "bytes": 5737,
+      "sha256": "133abd9217eae736b14245403e2a0d1b86771d12868f71b78342c92d766e9edf"
+    },
+    "snapshots/current_root/notes/maintenance/MS1985_MS1986_COMPOSITION_AND_PUBLICATION_CHECKPOINT_2026-08-29.md": {
+      "bytes": 4764,
+      "sha256": "61f5e35d31ae48c5551475937b67a7eb3b8a07f5f06b6cdf4460e47d215c46c9"
+    },
+    "snapshots/current_root/notes/maintenance/MS1987_RECURSIVE_OPAQUE_COMPOSITION_CHECKPOINT_2026-08-29.md": {
+      "bytes": 3696,
+      "sha256": "bcb722bdc24f2616754218d1bd0ea6cc4fc5c3bf1db40a3778e5b28f84da63fe"
+    },
+    "snapshots/current_root/notes/maintenance/MS1988_DEPTH4_GENERICITY_CHECKPOINT_2026-08-29.md": {
+      "bytes": 2421,
+      "sha256": "5b53949f9dc06e8c32ed7693033876e64d2bf7a9f92a10ea5c54b2a5a0806778"
+    },
+    "snapshots/current_root/notes/maintenance/MS1989_SELECTED_DEPENDENCY_LINEAGE_CHECKPOINT_2026-08-29.md": {
+      "bytes": 3112,
+      "sha256": "7fb6a0bb124e5c027f18151a4d4710bc58c04ea8374b72fd19c7bc2d997c7161"
+    },
+    "snapshots/current_root/notes/maintenance/MS1990_SOURCE_COUNT_SCALING_CHECKPOINT_2026-08-29.md": {
+      "bytes": 3108,
+      "sha256": "e3d4b11f565c397a63d4413c1a43ac8b8fb1fb4097c184d41a5819a10d1f3875"
+    },
+    "snapshots/current_root/notes/maintenance/MS1991_SEARCH_BUDGET_COMPLETENESS_CHECKPOINT_2026-08-29.md": {
+      "bytes": 3038,
+      "sha256": "81c5ba7c66c2f8db8f970be55442fe95baf3194cd1d61f3723ddcf84662c0dc2"
+    },
+    "snapshots/current_root/notes/maintenance/MS1993_INTERVENTION_BOUND_PERSISTENCE_CHECKPOINT_2026-08-29.md": {
+      "bytes": 3381,
+      "sha256": "7e6d4843d9cda9876828500fc695ef313dd302b193938e0d768ac75125561ba9"
+    },
+    "snapshots/current_root/notes/maintenance/MS1994_MULTIPLE_TRACE_PERSISTENCE_CHECKPOINT_2026-08-29.md": {
+      "bytes": 3877,
+      "sha256": "3f296cda55827456f7266f88cb3f1428db9648210dc8f7c9a76eda3721914c90"
+    },
+    "snapshots/current_root/notes/maintenance/MS1995_CROSSING_OCCLUSION_REASSOCIATION_CHECKPOINT_2026-08-29.md": {
+      "bytes": 2856,
+      "sha256": "5bdb5a5505e6d719577de34165d7c136e7bbbd339f7db96377b8d7ab491136e9"
+    },
+    "snapshots/current_root/notes/maintenance/MS1996_ENDOGENOUS_PROGRAM_CALLER_CHOICE_ELIMINATION_CHECKPOINT_2026-08-30.md": {
+      "bytes": 4959,
+      "sha256": "055d1d6ec4fdf38f387b8212ab6f49e61a96253162387af9028eadcee6945f18"
+    },
+    "snapshots/current_root/notes/maintenance/MS1997_AUTHENTICATED_LIVED_HISTORY_BRIDGE_CHECKPOINT_2026-08-30.md": {
+      "bytes": 3854,
+      "sha256": "8c0efacaf1f9fc04b9c6d3c301641c3b4709fe6f996e408d277cc622f39996f3"
+    },
+    "snapshots/current_root/notes/maintenance/MS1998_OBSERVABLE_CONTEXT_ASSISTANCE_REMOVAL_CHECKPOINT_2026-08-30.md": {
+      "bytes": 5842,
+      "sha256": "50ebfd01154489184d32f20755d706944ba0f7865cc46f1447e6be67d1418d9f"
+    },
+    "snapshots/current_root/notes/maintenance/PRELINGUAL_SUBSTRATE_REMAINING_WORK_PROJECTION_2026-08-29.md": {
+      "bytes": 7830,
+      "sha256": "b1c33825b850b9c23e529403ba5cb19377b60f11b1a636611b50e44651e18ad9"
+    },
+    "snapshots/current_root/notes/maintenance/PRELINGUAL_SUBSTRATE_REMAINING_WORK_PROJECTION_AFTER_MS1996_2026-08-30.md": {
+      "bytes": 6424,
+      "sha256": "51de9223b2bcb770b5d8a336269567e8b03672e3661bb19d535f4566964f29db"
+    },
+    "snapshots/current_root/notes/maintenance/PRELINGUAL_SUBSTRATE_REMAINING_WORK_PROJECTION_AFTER_MS1998_2026-08-30.md": {
+      "bytes": 4577,
+      "sha256": "78e611170cd5a6b08ef1efe14f27976e81bd899ad677f7e6a331609c111d86d3"
+    },
+    "snapshots/current_root/notes/maintenance/RAHL_ENGINEERING_CURRENT_TRUSTED_PACKAGE_ADOPTION_EVIDENCE.md": {
+      "bytes": 9128,
+      "sha256": "8a4373468c3268acf52a4f10d41a2b43db734e065701bdb4b7b8860d558bd015"
+    },
+    "snapshots/current_root/notes/maintenance/RAHL_PASS003_F005_CONTROLLED_INGRESS.md": {
+      "bytes": 3245,
+      "sha256": "7b5603a4954bafa2cbeb0ae2a38e563a61463f9b475739ff6890308f92878e9b"
+    },
+    "snapshots/current_root/notes/maintenance/RAHL_PASS003_F006_PLUS_CONTROLLED_INGRESS.md": {
+      "bytes": 1933,
+      "sha256": "4bab05c1010cef6e196ebaf315268c989ac8676b516cdd940a0d86a15c8ac7e7"
+    },
+    "snapshots/current_root/notes/maintenance/RAHL_R3_1_CONTROLLED_INGRESS_AND_ADOPTION_2026-08-29.md": {
+      "bytes": 7859,
+      "sha256": "b78184dc5cbe44eb30fb406a7e9b0c17e55f95ea5ef01588c7f0070376f549e5"
+    },
+    "snapshots/current_root/notes/maintenance/RAHL_R3_1_FRESH_REAL_PROJECT_SHADOW_ADJUDICATION_2026-08-29.md": {
+      "bytes": 4960,
+      "sha256": "59b68d487bedbcb8e91c63563b4ecd585aa5892b09937d429175438f55e5f62f"
+    },
+    "snapshots/current_root/notes/maintenance/RAHL_R3_1_WINDOWS_VERIFIER_PORTABILITY_AND_HOSTILE_REPLAY_2026-08-29.md": {
+      "bytes": 4662,
+      "sha256": "d9cb4fe4589fd9fbad8dd7918432f5825568e208e321a168772f1efc504f4680"
+    },
+    "snapshots/current_root/notes/maintenance/RESEARCH_OS_UNIFIED_V3_INSTALL_REPORT.md": {
+      "bytes": 4667,
+      "sha256": "015f5dc88f70fe779793f3a82df4bab912107b8a6f338cd3b3bfcb3856850546"
+    },
+    "snapshots/current_root/notes/maintenance/VALIDATION_PASS_V1_PRIOR_ART_STARMAP.md": {
+      "bytes": 7495,
+      "sha256": "369a87077e3dec1b36ce35643daa86ade18419d61560d6d3740b42792b195e0b"
+    },
+    "snapshots/current_root/state/current/CURRENT_STATE.md": {
+      "bytes": 2574,
+      "sha256": "0075726e84cab5651b2f47bae45ceabfb90bc28a4ad23f93a238b86201469c57"
+    },
+    "snapshots/current_root/state/doctrine_snapshot/1991_PLAIN_LANGUAGE_ENGINEERING_PROSE_DOCTRINE_2026-08-29.md": {
+      "bytes": 3073,
+      "sha256": "85e53db995762156c1aa98de4346fae1dc64a3e8c64bc727ac85d7da463ccbee"
+    },
+    "snapshots/current_root/state/doctrine_snapshot/EXTERNAL_VALIDATION_AND_SCAR_REEARNING_AMENDMENT.md": {
+      "bytes": 6764,
+      "sha256": "34b1e43634c0090df4c7148eeea618582a4ead2cfdf0170f20a4942a46bf8567"
+    },
+    "snapshots/current_root/state/doctrine_snapshot/PROJECT_LOCAL_EXTERNAL_VALIDATION_AMENDMENT.md": {
+      "bytes": 5303,
+      "sha256": "f010a2d054d5039736c58e6b7816b7d94f08c48783d0b6aaf3484a57e355c6d4"
+    },
+    "snapshots/current_root/state/doctrine_snapshot/PROJECT_LOCAL_HSP_MODEL_ADEQUACY_AMENDMENT.md": {
+      "bytes": 9702,
+      "sha256": "0814e25454991564ec9f594d8ad017d57c720b8be648ef57a0bc2eda1da7417d"
+    },
+    "snapshots/current_root/state/doctrine_snapshot/PROJECT_LOCAL_OARR_AMENDMENT.md": {
+      "bytes": 2122,
+      "sha256": "94fbf5f092741c813452f7f6e18857387de75beb0f949d700fc7e826eff1d881"
+    },
+    "snapshots/current_root/state/doctrine_snapshot/RAHL_ENGINEERING_R3_1_SHADOW_USE_ADOPTION.md": {
+      "bytes": 5774,
+      "sha256": "dcfdb67aa292207e4f8e358afeced001b35cb9efc77256fca1bd3555b6e1bdae"
+    },
+    "snapshots/current_root/state/doctrine_snapshot/RAHL_ENGINEERING_V5_POST_V5_SOP_ADOPTION.md": {
+      "bytes": 11948,
+      "sha256": "1f022bb0aabb56c4ef55babf7377f33b021b2c5ba14de26dcdf2efe8ffb00e0e"
+    },
+    "snapshots/current_root/state/doctrine_snapshot/RAHL_R3_1_VERIFIER_PORTABILITY_AMENDMENT_2026-08-29.md": {
+      "bytes": 2552,
+      "sha256": "8bfda6225db2b9c554e960f210ff7664bf5547bfbb6e168abba479ff849d34f1"
+    },
+    "snapshots/current_root/state/doctrine_snapshot/RESEARCH_OS_PASS1_DOCTRINE.md": {
+      "bytes": 6560,
+      "sha256": "2da5246fc655cd74ff36ce2983814435259376047632efedf797fab39da5513b"
+    },
+    "snapshots/current_root/state/doctrine_snapshot/RESEARCH_OS_UNIFIED_V3_DOCTRINE.md": {
+      "bytes": 7214,
+      "sha256": "a2be17088d22173e9f2f848d8ccb3b8a516497c106bba4e1f563ac5592c81c7d"
+    },
+    "snapshots/current_root/state/doctrine_snapshot/RESEARCH_REALITY_DUAL_ARM_CONVERGENCE_2026-08-29.md": {
+      "bytes": 3297,
+      "sha256": "cc0e93599c792ecd60fc004e2152721fde35d9f8ceb63c75d9757b1b02b89901"
+    },
+    "snapshots/current_root/state/doctrine_snapshot/SUBSTANTIVE_PASS_SEAL_GITHUB_PUBLICATION_2026-08-29.md": {
+      "bytes": 2044,
+      "sha256": "9a1d866964fef27b227d3495196c8c1309a0e6628edacc1291bddd2b48adb4e8"
+    },
+    "snapshots/current_root/state/next_steps/NEXT_STEPS.md": {
+      "bytes": 4255,
+      "sha256": "20bb9565a49f69565c28ec78650445fba84b87d3c2b431025ba742baff0bbc59"
+    },
+    "snapshots/current_root/state/revisit_ledger/REVISIT_LEDGER.md": {
+      "bytes": 3691,
+      "sha256": "3c8f1f0029e90533f85497c4d7c88505efe88102070631ba0025b33b14bcfd53"
+    },
+    "snapshots/current_root/state/trace_matrix/TRACE_MATRIX.md": {
+      "bytes": 3377,
+      "sha256": "89274ef431b1a519f765a0858cf3fc9b0a2c839db4e92b725310ae747cb95348"
+    },
+    "source/GIT_LOG.txt": {
+      "bytes": 12795,
+      "sha256": "76d771b10afc93cdb5804f1b14fe84c8dc8321f41a9c94e067decd6c9861d914"
+    },
+    "source/GIT_STATE.json": {
+      "bytes": 707,
+      "sha256": "f32292b3ec3aa1afb4752eb196d379d0bab54c1ae30f6e1d27f0efec0499d805"
+    },
+    "source/MS2004_UNSEALED_HASHES.json": {
+      "bytes": 525,
+      "sha256": "3da5b0116004cf3911171a3e8eecb8dcba91eecedf0531529bd8c2da8ecd640a"
+    },
+    "source/REMOTE_REFS.txt": {
+      "bytes": 246,
+      "sha256": "1db53844a16132272895ab66ada778fee12a1d90f049b7583da8f65a2f60eb99"
+    },
+    "unsealed_worktree_snapshot/MS2004/methodology/MS2004_UNIFIED_REFERENT_LIFETIME_POLICY.md": {
+      "bytes": 3544,
+      "sha256": "2611afcb3d446d392935d5be15ab23d60804dfdbdb7c386bb9ebf997d8c68883"
+    },
+    "unsealed_worktree_snapshot/MS2004/scratch/ms2004_unified_referent_lifetime_policy.py": {
+      "bytes": 16410,
+      "sha256": "5870150348c38f50ed5f45e3f27da39dc58ff867d057b6707e4cceae1740998b"
+    },
+    "unsealed_worktree_snapshot/MS2004/tests/embodiment/test_ms2004_unified_referent_lifetime_policy.py": {
+      "bytes": 1426,
+      "sha256": "5d5dc2d1b6c8cce192f24fa5d4d62f8f1ed39a3ffc1754c82798635df91bb9fc"
+    }
+  },
+  "novelty": "UNKNOWN / NOT_ENTITLED_TO_CLAIM",
+  "package": "MS2003_THREAD_HANDOFF_2026-08-30"
+}

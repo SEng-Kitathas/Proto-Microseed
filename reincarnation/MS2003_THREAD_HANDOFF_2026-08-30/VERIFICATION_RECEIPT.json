@@ -1,0 +1,9 @@
+{
+  "base_research_head": "9946d4ddf37642615b5f4e5a47685f94397803ff",
+  "base_research_tree": "c8795b5de35f02d8c50b100aa264a6018e76494f",
+  "directory_verify": "125/125 payload files PASS",
+  "manifest_file_count": 125,
+  "manifest_sha256": "332e6ddf591066c4f4a552fd4221dd83ece00d3c09766ca83c97004495e5212c",
+  "package": "MS2003_THREAD_HANDOFF_2026-08-30",
+  "status": "PASS"
+}

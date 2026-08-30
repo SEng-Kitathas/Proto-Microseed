@@ -1,0 +1,24 @@
+{
+  "schema": "microseed.ms1912.pass01.receipt.v1",
+  "discriminator": "COMPLETE_MATCHING_DISCRIMINATOR != COMPLETED_PROGRAM_EVIDENCE_ENTITLED_TO_PROMOTION_IF_SOURCE_ANCESTRY_IS_FORGED",
+  "cwd": "E:\\new pc\\AI_Pushes_Sandbox\\projects\\protoagi_microseed_reincarnation_20260827\\research_ms1888_replay",
+  "command": [
+    "C:\\Users\\ancal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "tests\\embodiment\\test_ms1912_pass01_completed_program_evidence_hardening.py"
+  ],
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "started_at": "2026-08-27T11:56:46Z",
+  "finished_at": "2026-08-27T11:56:49Z",
+  "duration_seconds": 2.193338,
+  "exit_code": 0,
+  "test_sha256": "ea3c16bf97d1e86752757bf44d47776d0610d7f7cc0daa1aab667b562b11a9b5",
+  "stdout_path": "reports\\ms1912_pass01\\pytest.stdout.log",
+  "stderr_path": "reports\\ms1912_pass01\\pytest.stderr.log",
+  "stdout_sha256": "68d662c6a85c67397691a31db63087b1d850ad4867d59336ae46efd3f7f8d0c1",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "completion_marker": "COMPLETE",
+  "classification": "PASS"
+}

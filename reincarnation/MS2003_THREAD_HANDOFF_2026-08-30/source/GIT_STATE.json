@@ -1,0 +1,15 @@
+{
+  "checkpoint_created": "2026-08-30 ET",
+  "research_branch": "research/ms1888-replay",
+  "head": "9946d4ddf37642615b5f4e5a47685f94397803ff",
+  "tree": "c8795b5de35f02d8c50b100aa264a6018e76494f",
+  "status_short": [
+    "?? methodology/MS2004_UNIFIED_REFERENT_LIFETIME_POLICY.md",
+    "?? scratch/ms2004_unified_referent_lifetime_policy.py",
+    "?? tests/embodiment/test_ms2004_unified_referent_lifetime_policy.py"
+  ],
+  "remote_research_ref": "9946d4ddf37642615b5f4e5a47685f94397803ff\trefs/heads/research/ms1888-replay",
+  "remote_main_ref": "3473834da0ce1bbc0db16a35f4b9b8e2fa551ee2\trefs/heads/main",
+  "canonical_main_dev": "MS1527",
+  "novelty": "UNKNOWN / NOT_ENTITLED_TO_CLAIM"
+}

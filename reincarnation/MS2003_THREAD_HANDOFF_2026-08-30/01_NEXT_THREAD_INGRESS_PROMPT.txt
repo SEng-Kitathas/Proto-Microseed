@@ -1,0 +1,65 @@
+Rehydrate this ProtoAGI Microseed project from the attached / checked-out reincarnation package and continue from the strongest verified live state.
+
+MODE: RECOVERY first. Do not widen until recovery is complete.
+ROLE: R1 Conservative Auditor first; hand off to R5 Reality Pressure Engine only after currentness/lineage is reconciled.
+
+Mandatory recovery order:
+1. Read `00_READ_ME_FIRST.md`.
+2. Verify `MANIFEST_SHA256.json` with `VERIFY_REINCARNATION_PACKAGE.py`.
+3. Read `02_VERIFIED_STATE_AND_CONTRADICTIONS.md`.
+4. Read `03_COMMANDERS_INTENT.md`.
+5. Read `05_SCARS_AND_DO_NOT_REINTRODUCE.md`.
+6. Read `06_AUTHORITY_LINEAGE_AND_PROMOTION_MAP.md`.
+7. Read `07_CURRENT_FRONTIER_MS2004_UNSEALED.md`.
+8. Read `08_RECOVERY_AND_OPERATING_PLAYBOOK.md`.
+9. Read `09_TRANSCRIPT_FIDELITY_AND_GAPS.md`, then `THIS_CONVERSATION.md`.
+10. Read the packaged Live Shadow + Design Thread Stream and the current state/doctrine/revisit/trace snapshots.
+11. Inspect the exact R3.1 SOP ZIP and project-local R3.1 adoption/amendment notes when engineering doctrine matters.
+12. If the original ngrok/local server is available, compare its live Git state to this package before making any scientific/currentness claim.
+
+Strongest packaged research witness at checkpoint creation:
+- research branch: `research/ms1888-replay`
+- sealed/published research HEAD: MS2003 `9946d4ddf37642615b5f4e5a47685f94397803ff`
+- tree: `c8795b5de35f02d8c50b100aa264a6018e76494f`
+- remote readback matched exact SHA.
+- canonical Main-Dev remains MS1527.
+- novelty remains UNKNOWN / NOT_ENTITLED_TO_CLAIM.
+
+Critical continuity contradiction:
+- packaged Design Thread Stream stops at MS1998;
+- packaged root Current State reaches MS2000;
+- packaged Next Steps still references MS1998;
+- Git/remote evidence is newer: MS2003.
+Do not let stale continuity prose demote verified Git reality. Do not discard the stale files either; they preserve intent and chronology. Reconcile by evidence, lineage, authority, recency.
+
+Current unsealed frontier:
+Three MS2004 files were present untracked in the live research worktree and are preserved under `unsealed_worktree_snapshot/MS2004/`.
+MS2004 direct scratch result was reported PASS before this checkpoint, but it had NOT been sealed/published at package creation.
+Its question is whether four-session unified external lifetime composition can combine drift/relearning, restart/currentness, persisted operational referent class pressure, zero-row decision policy, ambiguity refusal, and co-present capability requalification without a new referent/policy/lifecycle manager.
+Its remaining blocker is fixed externally equipped opaque referent probing versus endogenous referent information seeking.
+
+DO NOT:
+- silently promote MS2004 because it is packaged;
+- silently reintroduce a referent manager, object tracker, semantic token registry, policy manager, lifecycle manager, hidden evaluator mode, caller-selected action/program/bucket/referent, global truth owner, or stale authority reuse;
+- interpret operational reassociation or signature-class persistence as numerical identity;
+- interpret signaling/token usefulness as semantic reference;
+- add language before the prelingual/reference gate;
+- convert epistemic need into NAKED execution authority;
+- rewrite historical negatives when a successor later closes them;
+- collapse research publication, canonical promotion, or PRELINGUAL_SUBSTRATE_V1 into one status;
+- trust a tool call merely because it returned successfully: verify output/artifact/state.
+
+Commander’s Intent in one paragraph:
+Build the strongest honest prelingual developmental substrate possible by repeatedly forcing research mechanisms to touch reality, preferring lawful composition over new primitives, and preserving exact evidence/currentness/authority boundaries. The research arm and reality embodiment arm should converge continuously rather than serially. Capabilities may emerge from composition; authority must remain earned and explicit. Preserve UNKNOWN and named refusal states. Keep canonical Main-Dev, sealed research, unsealed experiments, donor material, and hypotheses separate. Before language, make the substrate recognizable and self-consistent across long-lived, restarted, partially observable, many-referent worlds. Publish every substantive earned research pass with exact Git/readback discipline, but never let publication language outrun evidence.
+
+After recovery, return a compact ingress report:
+- Mode
+- Role
+- Verified
+- Provisional
+- Baseline
+- Open seams
+- Exact live Git state versus packaged Git state
+- Immediate next action
+
+Then continue the project. Do not ask the operator to re-explain history already present here.

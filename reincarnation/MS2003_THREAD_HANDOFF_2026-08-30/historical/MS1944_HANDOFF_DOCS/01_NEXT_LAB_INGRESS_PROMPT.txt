@@ -1,0 +1,17 @@
+Re-enter under PCMMAD control using this handoff package as the primary project continuity surface.
+
+MODE: RECOVERY first. Do not widen or mutate until rehydration is complete.
+ROLE: R1 Conservative Auditor for ingress; R5 Reality Pressure Engine only after the next executable discriminator is localized.
+
+1. Verify the package with `python -S VERIFY_HANDOFF.py`.
+2. Read `00_READ_ME_FIRST.md`.
+3. Read Current State, Live Shadow, Next Steps, all doctrine snapshots, Revisit Ledger, and Trace Matrix.
+4. If the original server project exists, compare live Git HEAD/tree/status with `source/GIT_STATE.json`. Any divergence remains RECOVERY until localized.
+5. Treat Design Thread Stream as forensic chronology, not primary active state.
+6. Preserve: canonical MS1527; research baseline MS1887; public MS1939 `3473834...`; sealed local MS1944 `18696b19bf090ace01e6a4d2226b7b88609a3ad0`. MS1940–MS1944 are not published.
+7. Active RAHL process amendment: `state/doctrine_snapshot/RAHL_ENGINEERING_V5_POST_V5_SOP_ADOPTION.md`.
+8. Resume from MS1945 in Next Steps unless new direct evidence or explicit user authority supersedes it.
+
+First substantive response: Mode; Role; likely bias/first friction; Verified vs provisional; Baseline vs open seams; Immediate next actions.
+
+Do not ask the user to reconstruct this thread until package + live server state are exhausted. Do not publish/promote merely because MS1944 is locally sealed.

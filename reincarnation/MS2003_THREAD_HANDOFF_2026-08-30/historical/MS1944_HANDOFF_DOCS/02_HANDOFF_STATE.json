@@ -1,0 +1,31 @@
+{
+  "schema": "pcmmad.lab-handoff.v1",
+  "created_date_et": "2026-08-29",
+  "project_id": "protoagi_microseed_reincarnation_20260827",
+  "mode": "RECOVERY_CHECKPOINT",
+  "recommended_ingress_role": "R1 Conservative Auditor",
+  "next_execution_role": "R5 Reality Pressure Engine",
+  "canonical_main_dev": "MS1527",
+  "research_baseline": "MS1887",
+  "public_state": "MS1939",
+  "public_head": "3473834da0ce1bbc0db16a35f4b9b8e2fa551ee2",
+  "local_research_state": "MS1944",
+  "local_research_head": "18696b19bf090ace01e6a4d2226b7b88609a3ad0",
+  "local_tree": "de240e3424debf7d170bf29d24dc3c564518c753",
+  "source_test_snapshot": "ead0ad92ec0d4cb4c8d2df63f8e837b980a1aa515daf339b0147da84a89cdf14",
+  "local_worktree_clean": true,
+  "local_ms1940_ms1944_published": false,
+  "novelty": "UNKNOWN / NOT_ENTITLED_TO_CLAIM",
+  "next_discriminator": "MS1945 represented-alternative signal selection \u2014 composition-only first",
+  "offline_git_bundle": "source/PROTO_MICROSEED_MS1944.bundle",
+  "offline_restore_verified": true,
+  "restored_head": "18696b19bf090ace01e6a4d2226b7b88609a3ad0",
+  "restored_tree": "de240e3424debf7d170bf29d24dc3c564518c753",
+  "active_doctrine": "all state/doctrine_snapshot/*.md; project-local amendments control within scope",
+  "continuity_primary": [
+    "state/current/CURRENT_STATE.md",
+    "continuity/live_shadow/LIVE_SHADOW.md",
+    "state/next_steps/NEXT_STEPS.md"
+  ],
+  "continuity_forensic": "continuity/design_thread_stream/DESIGN_THREAD_STREAM.md"
+}
