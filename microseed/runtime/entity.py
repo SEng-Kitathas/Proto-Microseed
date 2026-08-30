@@ -1556,6 +1556,52 @@ class Microseed:
         # this helper runs.  Admission owns observation authenticity/currentness only.
         return admitted,{"reason":"CURRENT_AUTHENTICATED_PROGRAM_STEP_OBSERVATION"}
 
+    @staticmethod
+    def _referent_program_step_raw_observation_required(deficit) -> bool:
+        return bool(
+            deficit is not None
+            and "DERIVED_FROM_CURRENT_PARTIAL_REFERENT_AMBIGUITY" in tuple(
+                str(x) for x in deficit.assistance_ancestry
+            )
+        )
+
+    def _current_owned_referent_program_step_raw_observation(
+        self, step_record,
+    ) -> tuple[dict[str, Any] | None, dict[str, Any]]:
+        """Bind a referent probe step to its exact current post-step raw observation.
+
+        Action outcome authentication proves that the effect and state observation were
+        admitted.  A referent discriminator is instead defined over opaque raw response
+        content.  This reuses the current owned probe-prefix reconstruction and requires
+        the just-completed program execution to be the final owned action with one current
+        raw receipt after it.  No raw content is supplied by the caller.
+        """
+        prefix=self.derive_current_owned_opaque_probe_prefix(max_steps=8)
+        if prefix.get("status")!="CURRENT_OWNED_OPAQUE_PROBE_PREFIX":
+            return None,{"reason":"CURRENT_REFERENT_POST_PROBE_RAW_OBSERVATION_REQUIRED","probe_prefix":prefix}
+        actions=tuple(str(x) for x in prefix.get("opaque_action_sequence",()))
+        execution_ids=tuple(str(x) for x in prefix.get("execution_ids",()))
+        raw_eids=tuple(str(x) for x in prefix.get("raw_observation_evidence_ids",()))
+        if (
+            not actions or not execution_ids
+            or actions[-1]!=str(step_record.capability_id)
+            or execution_ids[-1]!=str(step_record.execution_id)
+            or len(raw_eids)!=len(actions)+1
+        ):
+            return None,{
+                "reason":"CURRENT_REFERENT_POST_PROBE_RAW_OBSERVATION_BINDING_MISMATCH",
+                "probe_prefix":prefix,
+                "step_execution_id":step_record.execution_id,
+                "step_capability_id":step_record.capability_id,
+            }
+        raw_eid=raw_eids[-1]
+        raw_row=self.evidence.get(raw_eid)
+        if raw_row is None or (raw_row.get("payload") or {}).get("kind")!="BOUNDED_RAW_OBSERVATION_COORDINATES":
+            return None,{"reason":"CURRENT_REFERENT_POST_PROBE_RAW_EVIDENCE_NOT_FOUND","raw_observation_evidence_id":raw_eid}
+        return {"probe_prefix":prefix,"raw_observation_evidence_id":raw_eid,"raw_observation_sha256":raw_row.get("sha256")},{
+            "reason":"CURRENT_OWNED_REFERENT_POST_PROBE_RAW_OBSERVATION",
+        }
+
     def assess_epistemic_program_step_outcome_bearing(
         self, prior_trial, advanced_trial, decision_context: EpistemicDecisionBearingContext,
     ) -> dict[str, Any]:
@@ -1647,6 +1693,16 @@ class Microseed:
                     "truth_authority":"NONE","answer_authority":"NONE",
                     "model_replacement_authority":"NONE","execution_authority":"NONE",
                 }
+        if self._referent_program_step_raw_observation_required(deficit):
+            raw_observation,raw_detail=self._current_owned_referent_program_step_raw_observation(rec)
+            if raw_observation is None:
+                return {
+                    "status":"PROGRAM_STEP_BEARING_UNRESOLVED",
+                    "reason":raw_detail["reason"],
+                    "referent_raw_observation":raw_detail,
+                    "truth_authority":"NONE","answer_authority":"NONE",
+                    "model_replacement_authority":"NONE","execution_authority":"NONE",
+                }
         packet = witness.serializable()
         duplicate = any(
             e.get("kind") == "EPISTEMIC_PROGRAM_STEP_BEARING_WITNESS"
@@ -1717,6 +1773,14 @@ class Microseed:
                         "status":"PROGRAM_EVIDENCE_REJECTED",
                         "reason":auth_detail["reason"],
                         "observation_admission":auth_detail.get("observation_admission"),
+                    }
+            if self._referent_program_step_raw_observation_required(deficit):
+                raw_observation,raw_detail=self._current_owned_referent_program_step_raw_observation(rec)
+                if raw_observation is None:
+                    return {
+                        "status":"PROGRAM_EVIDENCE_REJECTED",
+                        "reason":raw_detail["reason"],
+                        "referent_raw_observation":raw_detail,
                     }
         payload=completed_program_evidence_payload(trial)
         payload["relevance_authority"]="BOUNDED_PROGRAM_DISCRIMINATION_BINDING_ONLY"
