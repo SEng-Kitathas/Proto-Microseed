@@ -8,14 +8,17 @@ Can the bounded MS2023 cross-deficit selection commitment be composed into the e
 2. Re-derive strict same-value regulatory dominance.
 3. Require one MS2023 YES selection commitment.
 4. Match the commitment's exact selected deficit/probe to one current opportunity.
-5. Persist only that already-derived deficit using existing `record_action_limited_unknown`.
-6. Reuse `nominate_endogenous_epistemic_program_step_intent_from_current_surface` unchanged.
+5. Materialize a content-bound endogenous `UNKNOWN_INCOMPLETE` evidence record for the selected ambiguity, following the existing endogenous-discovery pattern that marks self-generated structure as proposal/unknown rather than external support.
+6. Persist only that selected deficit with existing `record_action_limited_unknown`.
+7. Reuse `nominate_endogenous_epistemic_program_step_intent_from_current_surface` unchanged.
 
 ## Laws
 - tie => persist nothing, nominate nothing;
 - selection commitment grants no execution authority;
 - the adapter may not change hypothesis/discriminator/probe/decision content;
 - no caller supplies the winner; matching is from the commitment's content-bound selected deficit/probe ids;
+- raw observation remains provenance, not the durable UNKNOWN record itself;
+- the endogenous UNKNOWN record must be content-bound to the selected deficit, binding, probe, trial digest, priority/information/step commitments, raw source evidence, and cross-deficit selection commitment;
 - no generic queue/scheduler/opportunity registry is introduced.
 
 ## Hostiles
@@ -36,4 +39,18 @@ Source audit found an existing precedent in `discover_capability_candidates`: Mi
 ### Repair attempt 1 result — HARNESS SHAPE FAILURE, preserved
 The attempt did not reach UNKNOWN materialization. It assumed the selected MS2021 opportunity contained MS2014-style `opportunity_id` / `content_signature_sha256` fields; the live MS2021 opportunity object does not expose `opportunity_id`, raising `KeyError: 'opportunity_id'`.
 
-Classification: `REPAIR_ADAPTER_ASSUMED_LATER_OPPORTUNITY_SHAPE__NO_SCIENTIFIC_VERDICT`. The endogenous-UNKNOWN lifecycle hypothesis remains open. This failed repair state is intentionally committed before adapting to the actual live opportunity surface.
+Classification: `REPAIR_ADAPTER_ASSUMED_LATER_OPPORTUNITY_SHAPE__NO_SCIENTIFIC_VERDICT`.
+
+## Repair attempt 2 — actual live opportunity schema
+The UNKNOWN payload was rebound only to fields the MS2021 opportunity actually owns: selected ephemeral deficit id/content, binding id, probe id, trial id/digest, priority commitment id, owned-observable information commitment id, step commitment id, source raw observation evidence id, and MS2023 selection commitment id.
+
+### Result — PASS
+- symmetric P2/P4 tie: `ABSTAIN`; deficit/intent/execution deltas all zero;
+- asymmetric same-value strict dominance: exactly one endogenous UNKNOWN evidence record, exactly one durable selected ACTION_LIMITED deficit, exactly one P2 action intent, zero executions and zero handler calls;
+- fresh current value observation inside the viable interval before selection: opportunity surface disappears and no durable deficit/intent is created;
+- ordinary nomination re-derives priority and owned observable information from the newly persisted deficit; no new nomination/execution owner is required.
+
+Earned distinction:
+`SELECTED EPHEMERAL OPPORTUNITY != DURABLE DEFICIT UNTIL ENDOGENOUS UNKNOWN IS MATERIALIZED`.
+
+No scheduler, weighted utility, persistent opportunity registry, or execution authority is earned.

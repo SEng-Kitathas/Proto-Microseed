@@ -71,8 +71,12 @@ def persist_and_nominate_selected_current_opportunity(m, surface: dict) -> dict:
     # external support.
     unknown_payload = {
         "kind": "SELECTED_OWNED_REFERENT_EPISTEMIC_UNKNOWN",
-        "opportunity_id": str(op["opportunity_id"]),
-        "opportunity_content_signature_sha256": str(op["content_signature_sha256"]),
+        "selected_ephemeral_deficit_id": str(d.deficit_id),
+        "selected_trial_id": str(op["trial"].trial_id),
+        "selected_trial_digest": str(op["trial"].digest()),
+        "priority_commitment_id": str(op["priority"].commitment_id),
+        "information_commitment_id": str(op["contrast_information"].commitment_id),
+        "step_commitment_id": str(op["commitment"].commitment_id),
         "binding_id": str(op["binding_id"]),
         "probe_action_id": selected_probe,
         "source_raw_observation_evidence_id": str(d.unknown_evidence_id),
