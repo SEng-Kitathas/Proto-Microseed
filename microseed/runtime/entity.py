@@ -4197,21 +4197,89 @@ class Microseed:
             "truth_authority":"NONE",
         }
 
-    def derive_admitted_projection_samples_from_owned_projection_buckets(
-        self, *, max_source_projections: int = 8,
+    def _evaluate_current_projection_bucket_from_owned_raw_sample(
+        self, projection_id: str, sample: ProjectionSample, *, max_projection_depth: int,
     ) -> dict[str, Any]:
-        """Ephemerally compose compatible current learned raw-projection buckets.
+        """Evaluate one current projection over an owned raw sample through exact source lineage."""
+        depth_limit=int(max_projection_depth)
+        if depth_limit < 0 or depth_limit > 8:
+            raise ValueError("BOUNDED_PROJECTION_EVALUATION_DEPTH_REQUIRED")
+        memo: dict[str,str]={}
+        visiting: set[str]=set()
+
+        def visit(pid: str, depth: int) -> tuple[str | None, str | None]:
+            if pid in memo:
+                return memo[pid],None
+            if pid in visiting:
+                return None,"SOURCE_PROJECTION_DEPENDENCY_CYCLE"
+            rec=self.epistemic_projections.records.get(pid)
+            if rec is None or not self.epistemic_projections.is_current(pid,rec.epoch):
+                return None,"SOURCE_PROJECTION_NOT_CURRENT"
+            candidates=[c for c in self.epistemic_projection_candidates.values() if c.digest()==rec.signature_sha256]
+            if len(candidates)!=1:
+                return None,"SOURCE_PROJECTION_CONTENT_NOT_EXACTLY_RECOVERABLE"
+            candidate=candidates[0]
+            if any(not self.frames.is_current(fid,ep) for fid,ep in candidate.frame_epochs):
+                return None,"SOURCE_PROJECTION_FRAME_NOT_CURRENT"
+            if (sample.frame_id,sample.frame_epoch) not in set(candidate.frame_epochs):
+                return None,"SOURCE_PROJECTION_FRAME_INCOMPATIBLE_WITH_BASE_SAMPLE"
+            visiting.add(pid)
+            try:
+                if rec.source_projection_epochs:
+                    if depth >= depth_limit:
+                        return None,"SOURCE_PROJECTION_RECURSIVE_DEPTH_EXCEEDS_BOUND"
+                    source_buckets=[]
+                    for source_id,source_epoch,source_signature in rec.source_projection_epochs:
+                        source=self.epistemic_projections.records.get(source_id)
+                        if source is None or source.signature_sha256!=source_signature or not self.epistemic_projections.is_current(source_id,source_epoch):
+                            return None,"SOURCE_PROJECTION_ANCESTRY_NOT_CURRENT"
+                        bucket,reason=visit(source_id,depth+1)
+                        if bucket is None:
+                            return None,reason or "SOURCE_PROJECTION_ANCESTRY_NOT_EVALUABLE"
+                        source_buckets.append(bucket)
+                    bucket=candidate.project(tuple(source_buckets))
+                    if bucket is None:
+                        return None,"COMPOSED_SOURCE_PROJECTION_DOES_NOT_COVER_DERIVED_BUCKET_VECTOR"
+                else:
+                    bucket=candidate.project(sample.raw_tokens)
+                    if bucket is None:
+                        return None,"SOURCE_PROJECTION_DOES_NOT_COVER_ALL_BASE_SAMPLES"
+                memo[pid]=str(bucket)
+                return str(bucket),None
+            finally:
+                visiting.discard(pid)
+
+        bucket,reason=visit(str(projection_id),0)
+        return {
+            "status":"CURRENT_PROJECTION_BUCKET_EVALUATED" if bucket is not None else "PROJECTION_BUCKET_NOT_EVALUABLE",
+            "projection_id":str(projection_id),
+            "bucket":bucket,
+            "reason":reason,
+            "max_projection_depth":depth_limit,
+            "sample_id":sample.sample_id,
+            "semantic_symbol_authority":"NONE",
+            "semantic_composition_authority":"NONE",
+            "truth_authority":"NONE",
+        }
+
+    def derive_admitted_projection_samples_from_owned_projection_buckets(
+        self, *, max_source_projections: int = 8, max_projection_depth: int = 4,
+    ) -> dict[str, Any]:
+        """Ephemerally compose buckets from compatible current admitted projections.
 
         Base rows come only from the existing owned raw-receipt/action-outcome join.
-        Source projections are collected automatically from current admitted raw
-        projections whose exact nominated candidate content remains available, whose
-        frame ancestry is current, and which project every base raw row.  Projection
-        IDs define a deterministic opaque coordinate order.  The caller supplies only
-        a bounded source-count ceiling, never per-sample buckets or semantic labels.
+        Direct projections read that raw row.  Composed projections are evaluated
+        through their exact recorded source-projection ancestry, under a supplied
+        recursion-depth ceiling.  Projection IDs define a deterministic opaque
+        coordinate order.  The caller supplies only source-count and depth ceilings,
+        never per-sample buckets, source IDs, or semantic labels.
         """
         limit=int(max_source_projections)
+        depth_limit=int(max_projection_depth)
         if limit < 1 or limit > 16:
             raise ValueError("BOUNDED_SOURCE_PROJECTION_COUNT_REQUIRED")
+        if depth_limit < 0 or depth_limit > 8:
+            raise ValueError("BOUNDED_PROJECTION_EVALUATION_DEPTH_REQUIRED")
         base=self.derive_admitted_projection_samples_from_owned_raw_observations()
         base_samples=tuple(base.get("samples",()))
         if not base_samples:
@@ -4239,14 +4307,13 @@ class Microseed:
                 source_rejections.append((projection_id,"SOURCE_PROJECTION_FRAME_NOT_CURRENT")); continue
             buckets=[]
             reason=None
-            allowed_frames=set(candidate.frame_epochs)
             for sample in base_samples:
-                if (sample.frame_id,sample.frame_epoch) not in allowed_frames:
-                    reason="SOURCE_PROJECTION_FRAME_INCOMPATIBLE_WITH_BASE_SAMPLE"; break
-                bucket=candidate.project(sample.raw_tokens)
-                if bucket is None:
-                    reason="SOURCE_PROJECTION_DOES_NOT_COVER_ALL_BASE_SAMPLES"; break
-                buckets.append(str(bucket))
+                evaluated=self._evaluate_current_projection_bucket_from_owned_raw_sample(
+                    projection_id,sample,max_projection_depth=depth_limit,
+                )
+                if evaluated["status"]!="CURRENT_PROJECTION_BUCKET_EVALUATED":
+                    reason=str(evaluated.get("reason") or "SOURCE_PROJECTION_NOT_EVALUABLE"); break
+                buckets.append(str(evaluated["bucket"]))
             if reason is not None:
                 source_rejections.append((projection_id,reason)); continue
             compatible.append((projection_id,candidate,tuple(buckets)))
@@ -4314,7 +4381,8 @@ class Microseed:
             "source_projection_epochs":source_projection_epochs,
             "source_projection_count":len(compatible),
             "source_rejections":tuple(source_rejections),
-            "composition_basis":"CURRENT_EXACT_ADMITTED_RAW_PROJECTIONS_OVER_OWNED_RAW_ACTION_OUTCOME_SAMPLES",
+            "max_projection_depth":depth_limit,
+            "composition_basis":"CURRENT_EXACT_ADMITTED_PROJECTIONS_RECURSIVELY_EVALUATED_OVER_OWNED_RAW_ACTION_OUTCOME_SAMPLES",
             "coordinate_order_basis":"LEXICOGRAPHIC_PROJECTION_ID",
             "source_selection_authority":"COMPATIBLE_CURRENT_SET_WITH_SUPPLIED_COUNT_CEILING_ONLY",
             "sample_persistence":"NONE",
