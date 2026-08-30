@@ -119,7 +119,7 @@ from ..persistence.identity import assess_continuity, continuity_witness_from_ex
 from ..persistence.biography import DevelopmentalBiography, BiographyIntegrityError
 from ..cognition.hypothesis import Hypothesis, HypothesisSet
 from ..cognition.event_frames import infer_event_frame
-from ..cognition.referents import nominate_by_boundary_coherence, OperationalReferentSignature
+from ..cognition.referents import nominate_by_boundary_coherence, OperationalReferentSignature, derive_affordance_relative_referent_signature, derive_channel_change_boundaries
 from ..cognition.research_registry import RESEARCH_COMPONENTS
 
 
@@ -655,6 +655,50 @@ class Microseed:
             observations, opts, start_state_id=start_state_id, value_id=value_id, config=config,
             projection_routing_id=str(projection_routing_id), projection_bucket_id=next(iter(buckets)),
             routing_task_id=str(routing_task_id), routing_channel_id=str(routing_channel_id),
+        )
+
+    def nominate_current_operational_referent_class_set_conditioned_rehearsal(
+        self, observations: Iterable[RehearsalTransitionObservation], options: Iterable[RecruitmentOption],
+        observation_samples: Iterable[Iterable[Any]], opaque_action_sequence: Iterable[Any],
+        *, start_state_id: str, value_id: str, projection_routing_id: str,
+        routing_task_id: str, routing_channel_id: str, max_records: int = 4096,
+        config: CounterfactualRehearsalConfig = CounterfactualRehearsalConfig(),
+    ) -> CounterfactualRehearsalProposal | None:
+        """Re-enter existing rehearsal from one owned operational class-set context.
+
+        The caller supplies raw observations and opaque action handles, but neither a
+        referent class, projection bucket, routed relation, nor preferred action.  All
+        eligible options must resolve through the same internally derived class-set
+        bucket. Existing externally qualified routing and rehearsal remain sole owners.
+        """
+        opts=tuple(options)
+        binding=self.action_outcome_learning.projection_conditioned_bindings.get(str(projection_routing_id))
+        if binding is None or not self._projection_conditioned_binding_current(binding):
+            return None
+        eligible=tuple(sorted({o.capability_id for o in opts} & set(binding.action_ids)))
+        if not eligible:
+            return None
+        samples=tuple(tuple(row) for row in observation_samples)
+        actions=tuple(str(x) for x in opaque_action_sequence)
+        buckets=set()
+        for action_id in eligible:
+            resolved=self.resolve_current_operational_referent_class_set_conditioned_relation(
+                str(projection_routing_id),samples,actions,action_id=action_id,
+                task_id=str(routing_task_id),channel_id=str(routing_channel_id),
+                horizon=int(binding.horizon),max_records=max_records,
+            )
+            if resolved.get("status") != "CURRENT_PARTITION_SCOPED_RELATION":
+                return None
+            bucket=resolved.get("projection_bucket_id")
+            if not isinstance(bucket,str) or not bucket:
+                return None
+            buckets.add(bucket)
+        if len(buckets) != 1:
+            return None
+        return self.nominate_counterfactual_rehearsal(
+            observations,opts,start_state_id=start_state_id,value_id=value_id,config=config,
+            projection_routing_id=str(projection_routing_id),projection_bucket_id=next(iter(buckets)),
+            routing_task_id=str(routing_task_id),routing_channel_id=str(routing_channel_id),
         )
 
     def counterfactual_rehearsal_status(self, proposal_id: str) -> dict[str, Any]:
@@ -6682,6 +6726,174 @@ class Microseed:
     def infer_event_frame(self, effects, *, rival_segmentations=None):
         return infer_event_frame(effects, rival_segmentations=rival_segmentations)
 
+
+    def derive_operational_referent_signatures_from_raw_trace(
+        self, observation_samples: Iterable[Iterable[Any]], opaque_action_sequence: Iterable[Any],
+    ) -> dict[str, Any]:
+        """Derive operational referent signatures from bounded raw history only.
+
+        Caller input is restricted to time-ordered raw observations plus opaque action
+        handles.  Boundaries, coherent channel groups, and signatures are derived here.
+        No referent/class label, numerical identity, semantic reference, truth, causal,
+        or execution authority is accepted or granted.
+        """
+        samples=tuple(tuple(row) for row in observation_samples)
+        actions=tuple(str(x) for x in opaque_action_sequence)
+        if len(actions) != max(0,len(samples)-1):
+            return {"status":"UNKNOWN_INCOMPLETE","reason":"OPAQUE_ACTION_SEQUENCE_MUST_BIND_EACH_SAMPLE_TRANSITION",
+                    "identity_authority":"NONE","semantic_reference_authority":"NONE",
+                    "truth_authority":"NONE","execution_authority":"NONE"}
+        try:
+            boundaries=derive_channel_change_boundaries(samples)
+        except ValueError as exc:
+            return {"status":"UNKNOWN_INCOMPLETE","reason":str(exc),
+                    "identity_authority":"NONE","semantic_reference_authority":"NONE",
+                    "truth_authority":"NONE","execution_authority":"NONE"}
+        nomination=nominate_by_boundary_coherence(boundaries)
+        if nomination.status != "REFERENT_PARTITION_NOMINATED":
+            return {"status":"UNKNOWN_INCOMPLETE","reason":nomination.reason,
+                    "channel_change_boundaries":[list(x) for x in boundaries],
+                    "identity_authority":"NONE","semantic_reference_authority":"NONE",
+                    "truth_authority":"NONE","execution_authority":"NONE"}
+        signatures=[]
+        for group in nomination.groups:
+            signature=derive_affordance_relative_referent_signature(boundaries,group,actions)
+            if signature.status != "OPERATIONAL_REFERENT_SIGNATURE_DERIVED" or signature.signature_sha256 is None:
+                return {"status":"UNKNOWN_INCOMPLETE","reason":signature.reason,
+                        "identity_authority":"NONE","semantic_reference_authority":"NONE",
+                        "truth_authority":"NONE","execution_authority":"NONE"}
+            signatures.append({"group_channels":list(group),"signature_sha256":signature.signature_sha256,
+                               "action_response_rows":[[a,list(bits)] for a,bits in signature.action_response_rows]})
+        signatures.sort(key=lambda row:(str(row["signature_sha256"]),tuple(row["group_channels"])))
+        return {"status":"OPERATIONAL_REFERENT_SIGNATURES_DERIVED_FROM_RAW_TRACE",
+                "channel_change_boundaries":[list(x) for x in boundaries],"signature_classes":signatures,
+                "caller_supplied_boundary_signatures":"NO","caller_supplied_referent_groups":"NO",
+                "caller_supplied_referent_classes":"NO","identity_authority":"NONE",
+                "semantic_reference_authority":"NONE","truth_authority":"NONE",
+                "causal_authority":"NONE","execution_authority":"NONE"}
+
+    def operational_referent_class_set_projection_signature_sha256(self) -> str:
+        """Content signature for the fixed operational-signature-class-set coordinate.
+
+        This is an opaque derivation-rule identity only, not a semantic referent or
+        object-identity claim.  It exists so supplied projection handles cannot be
+        swapped for arbitrary bucket semantics at resolution time.
+        """
+        return action_result_digest({
+            "kind":"OPERATIONAL_REFERENT_SIGNATURE_CLASS_SET_CONTEXT_V1",
+            "inputs":"OWNED_RAW_TRACE_BOUNDARY_COHERENCE_PLUS_PERSISTED_EXACT_SIGNATURE_CLASS_REASSOCIATION",
+            "identity_authority":"NONE",
+            "semantic_reference_authority":"NONE",
+        })
+
+    def derive_current_operational_referent_class_set_context(
+        self, observation_samples: Iterable[Iterable[Any]], opaque_action_sequence: Iterable[Any],
+        *, max_records: int = 4096,
+    ) -> dict[str, Any]:
+        """Derive one current set-valued operational context from owned raw history.
+
+        Every currently derived signature must reassociate to prior persisted evidence.
+        The resulting bucket names the canonical *set of operational classes*, never
+        an individual witness or numerical object.  Ambiguity, absent ancestry, or
+        bounded-search exhaustion fails closed.
+        """
+        derived=self.derive_operational_referent_signatures_from_raw_trace(
+            observation_samples,opaque_action_sequence
+        )
+        if derived.get("status") != "OPERATIONAL_REFERENT_SIGNATURES_DERIVED_FROM_RAW_TRACE":
+            return {**derived,"context_status":"UNAVAILABLE","projection_bucket_id":None}
+        class_hashes=[]; class_witnesses=[]
+        for row in derived.get("signature_classes",()):
+            sig=OperationalReferentSignature(
+                status="OPERATIONAL_REFERENT_SIGNATURE_DERIVED",
+                signature_sha256=str(row["signature_sha256"]),
+                action_response_rows=tuple(
+                    (str(a),tuple(bool(x) for x in bits))
+                    for a,bits in row["action_response_rows"]
+                ),
+                reason="AFFORDANCE_RELATIVE_BOUNDARY_RESPONSE_ONLY",
+            )
+            match=self.reassociate_operational_referent_signature(sig,max_records=max_records)
+            if match.get("status") != "OPERATIONAL_REFERENT_SIGNATURE_CLASS_REASSOCIATED":
+                return {
+                    "status":str(match.get("status","UNKNOWN_INCOMPLETE")),
+                    "reason":str(match.get("reason","OPERATIONAL_REFERENT_CLASS_NOT_CURRENTLY_REASSOCIATED")),
+                    "failed_signature_sha256":sig.signature_sha256,
+                    "context_status":"UNAVAILABLE","projection_bucket_id":None,
+                    "identity_authority":"NONE","semantic_reference_authority":"NONE",
+                    "truth_authority":"NONE","execution_authority":"NONE",
+                }
+            class_hashes.append(str(sig.signature_sha256))
+            class_witnesses.append({
+                "signature_sha256":str(sig.signature_sha256),
+                "matching_evidence_ids":list(match.get("matching_evidence_ids",())),
+                "match_count":int(match.get("match_count",0)),
+            })
+        classes=tuple(sorted(set(class_hashes)))
+        if not classes:
+            return {"status":"UNKNOWN_INCOMPLETE","reason":"NO_CURRENT_OPERATIONAL_REFERENT_SIGNATURE_CLASSES",
+                    "context_status":"UNAVAILABLE","projection_bucket_id":None,
+                    "identity_authority":"NONE","semantic_reference_authority":"NONE",
+                    "truth_authority":"NONE","execution_authority":"NONE"}
+        coordinate=self.operational_referent_class_set_projection_signature_sha256()
+        bucket="refset-"+action_result_digest({
+            "coordinate_signature_sha256":coordinate,
+            "operational_signature_classes":list(classes),
+        })[:20]
+        return {
+            "status":"CURRENT_OPERATIONAL_REFERENT_SIGNATURE_CLASS_SET_CONTEXT",
+            "context_status":"CURRENT","projection_bucket_id":bucket,
+            "coordinate_signature_sha256":coordinate,
+            "operational_signature_classes":list(classes),
+            "class_witnesses":class_witnesses,
+            "class_set_cardinality":len(classes),
+            "witness_selection":"NONE__CLASS_SET_ONLY",
+            "identity_authority":"NONE","semantic_reference_authority":"NONE",
+            "truth_authority":"NONE","execution_authority":"NONE",
+        }
+
+    def resolve_current_operational_referent_class_set_conditioned_relation(
+        self, binding_id: str, observation_samples: Iterable[Iterable[Any]],
+        opaque_action_sequence: Iterable[Any], *, action_id: str, task_id: str,
+        channel_id: str, horizon: int, max_records: int = 4096,
+    ) -> dict[str, Any]:
+        """Resolve an existing qualified relation from current operational class-set context.
+
+        The existing projection-conditioned routing binding remains the only routing
+        qualification owner.  This bridge derives its bucket internally and requires
+        the binding projection to be the exact fixed supplied/provenanced coordinate.
+        """
+        binding=self.action_outcome_learning.projection_conditioned_bindings.get(str(binding_id))
+        if binding is None or not self._projection_conditioned_binding_current(binding):
+            return {"status":"DEFER_UNKNOWN","reason":"ROUTING_BINDING_NOT_CURRENT",
+                    "identity_authority":"NONE","semantic_reference_authority":"NONE","execution_authority":"NONE"}
+        rec=self.epistemic_projections.records.get(binding.projection_id)
+        expected=self.operational_referent_class_set_projection_signature_sha256()
+        if rec is None or rec.projection_origin != "SUPPLIED_AND_PROVENANCED" or rec.signature_sha256 != expected:
+            return {"status":"DEFER_UNKNOWN","reason":"OPERATIONAL_REFERENT_CLASS_SET_COORDINATE_MISMATCH",
+                    "identity_authority":"NONE","semantic_reference_authority":"NONE","execution_authority":"NONE"}
+        context=self.derive_current_operational_referent_class_set_context(
+            observation_samples,opaque_action_sequence,max_records=max_records
+        )
+        if context.get("status") != "CURRENT_OPERATIONAL_REFERENT_SIGNATURE_CLASS_SET_CONTEXT":
+            return {"status":"DEFER_UNKNOWN","reason":str(context.get("reason",context.get("status","CONTEXT_UNAVAILABLE"))),
+                    "context_status":context.get("status"),"identity_authority":"NONE",
+                    "semantic_reference_authority":"NONE","execution_authority":"NONE"}
+        bucket=str(context["projection_bucket_id"])
+        result=dict(self.resolve_projection_conditioned_action_outcome_relation(
+            str(binding_id),projection_bucket_id=bucket,action_id=str(action_id),task_id=str(task_id),
+            channel_id=str(channel_id),horizon=int(horizon),
+        ))
+        result["projection_bucket_id"]=bucket
+        result["bucket_derivation_basis"]="CURRENT_OWNED_RAW_TRACE_PLUS_PERSISTED_OPERATIONAL_SIGNATURE_CLASS_SET"
+        result["operational_signature_classes"]=list(context["operational_signature_classes"])
+        result["referent_witness_selection"]="NONE__CLASS_SET_ONLY"
+        result["bucket_selection_authority"]="NONE"
+        result["identity_authority"]="NONE"
+        result["semantic_reference_authority"]="NONE"
+        result["truth_authority"]="NONE"
+        result["execution_authority"]="NONE"
+        return result
 
     def record_operational_referent_signature(
         self,

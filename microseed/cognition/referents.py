@@ -13,6 +13,30 @@ class ReferentNomination:
     identity_authority: str = "NONE"
 
 
+def derive_channel_change_boundaries(
+    observation_samples: Sequence[Sequence[Hashable]],
+) -> tuple[tuple[int, ...], ...]:
+    """Derive per-channel change boundaries from one bounded raw sample history.
+
+    Rows are time-ordered raw observations.  A boundary index ``t`` means the
+    channel value at sample ``t`` differs from sample ``t-1``.  This operation
+    is deterministic and structural only: it grants no referent, identity,
+    semantic, causal, truth, or execution authority.
+    """
+    samples=tuple(tuple(row) for row in observation_samples)
+    if len(samples) < 2:
+        raise ValueError("REFERENT_BOUNDARY_DERIVATION_REQUIRES_AT_LEAST_TWO_SAMPLES")
+    width=len(samples[0])
+    if width < 1:
+        raise ValueError("REFERENT_BOUNDARY_DERIVATION_REQUIRES_NONEMPTY_OBSERVATIONS")
+    if any(len(row) != width for row in samples):
+        raise ValueError("REFERENT_BOUNDARY_DERIVATION_REQUIRES_RECTANGULAR_SAMPLES")
+    return tuple(
+        tuple(t for t in range(1,len(samples)) if samples[t][channel] != samples[t-1][channel])
+        for channel in range(width)
+    )
+
+
 def nominate_by_boundary_coherence(channel_boundaries: Sequence[Sequence[Hashable]]) -> ReferentNomination:
     """Nominate channel partitions by boundary coherence, never object identity.
 
