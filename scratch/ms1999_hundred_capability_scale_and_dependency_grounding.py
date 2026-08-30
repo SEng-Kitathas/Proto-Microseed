@@ -143,7 +143,11 @@ def run_hundred_effect_arm(order: tuple[str, ...] = ("P1", "P2", "N1", "N2")) ->
         except Exception as exc:
             recovery_error = f"{type(exc).__name__}:{exc}"
         assert recovery_error and "duplicate candidate/capability" in recovery_error
-        assert not hasattr(m, "requalify_capability")
+
+        # Historical-scope rule: MS1999 sealed with no lawful same-identity
+        # requalification path.  Successor milestones may later close that seam;
+        # this witness records the MS1999-seal fact rather than forbidding future APIs.
+        ms1999_seal_requalification_path = "MISSING_AT_MS1999_SEAL"
 
         return {
             "status": "PASS_WITH_RECOVERY_BLOCKER",
@@ -161,7 +165,8 @@ def run_hundred_effect_arm(order: tuple[str, ...] = ("P1", "P2", "N1", "N2")) ->
             "local_stale_count": len(stale),
             "stale_admission_status": stale_admitted["status"],
             "stale_admission_reason": stale_admitted["reason"],
-            "same_identity_requalification_path": "MISSING",
+            "same_identity_requalification_path": ms1999_seal_requalification_path,
+            "successor_tree_requalification_api_present": hasattr(m, "requalify_capability"),
             "same_identity_requalification_probe": recovery_error,
             "execution_authority": "NONE",
             "truth_authority": "NONE",
@@ -326,7 +331,7 @@ def run_dependency_topology_arm() -> dict[str, object]:
         "deep_chain_closure_visited_count": deep_closure["visited_count"],
         "deep_chain_max_depth": deep_closure["max_depth"],
         "deep_chain_closure_ms": round(deep_ms, 6),
-        "actual_requalification_closure": "NOT_AVAILABLE__SAME_IDENTITY_CAPABILITY_REQUALIFICATION_PATH_MISSING",
+        "actual_requalification_closure": "NOT_AVAILABLE_AT_MS1999_SEAL__SAME_IDENTITY_CAPABILITY_REQUALIFICATION_PATH_MISSING",
     }
 
 

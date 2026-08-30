@@ -45,6 +45,25 @@ class CapabilityCandidate:
         return sha256_bytes(canonical_json(self.serializable()))
 
 
+
+
+@dataclass(frozen=True)
+class CapabilityRequalificationTicket:
+    """External currentness-only requalification for one existing stale contract.
+
+    The ticket is bound to immutable capability content and the exact stale epoch.
+    It carries no authority field: requalification may restore current usability of
+    already-earned authority, but it cannot grant or increase authority.
+    """
+
+    capability_id: str
+    contract_signature_sha256: str
+    stale_epoch: int
+    state: QualificationState
+    qualifier_id: str
+    reason: str
+    qualification_evidence: tuple[EvidenceRef, ...] = ()
+
 @dataclass(frozen=True)
 class CapabilityQualificationTicket:
     """Externally issued, content-bound qualification decision.
@@ -94,6 +113,57 @@ class ExternalCapabilityQualifier:
             qualification_evidence=refs,
         )
 
+    def requalify(
+        self,
+        contract: CapabilityContract,
+        *,
+        stale_epoch: int,
+        qualification_evidence: Iterable[EvidenceRef],
+    ) -> CapabilityRequalificationTicket:
+        """Issue a currentness-only ticket for identical stale capability content.
+
+        Supportive evidence is checked through the existing fixed qualifier using a
+        read-only authority request.  This deliberately does not create an EFFECT
+        authority-grant path; the ticket contains no authority field.
+        """
+        refs = tuple(qualification_evidence)
+        decision = self.fixed.decide(refs, Authority.DERIVED_READ_ONLY)
+        return CapabilityRequalificationTicket(
+            capability_id=contract.capability_id,
+            contract_signature_sha256=contract.computed_signature_sha256(),
+            stale_epoch=int(stale_epoch),
+            state=decision.state,
+            qualifier_id=self.qualifier_id,
+            reason=decision.reason,
+            qualification_evidence=refs,
+        )
+
+
+
+def validate_external_requalification_ticket(
+    contract: CapabilityContract,
+    stale_epoch: int,
+    ticket: CapabilityRequalificationTicket,
+    ledger: EvidenceLedger,
+) -> tuple[bool, str]:
+    if not ticket.qualifier_id or ticket.qualifier_id.upper().startswith("MICROSEED"):
+        return False, "REQUALIFIER_NOT_EXTERNAL"
+    if ticket.capability_id != contract.capability_id:
+        return False, "REQUALIFICATION_CAPABILITY_ID_MISMATCH"
+    if ticket.contract_signature_sha256 != contract.computed_signature_sha256():
+        return False, "REQUALIFICATION_CONTRACT_SIGNATURE_MISMATCH"
+    if int(ticket.stale_epoch) != int(stale_epoch):
+        return False, "REQUALIFICATION_STALE_EPOCH_MISMATCH"
+    if not ticket.qualification_evidence:
+        return False, "NO_REQUALIFICATION_EVIDENCE"
+    decision = FixedQualifier(ledger).decide(
+        ticket.qualification_evidence, Authority.DERIVED_READ_ONLY
+    )
+    if ticket.state != decision.state or ticket.reason != decision.reason:
+        return False, "REQUALIFICATION_DECISION_MISMATCH"
+    if ticket.state not in {QualificationState.SHADOW_QUALIFIED, QualificationState.QUALIFIED}:
+        return False, f"REQUALIFICATION_NOT_ADMISSIBLE:{ticket.state.value}"
+    return True, "VALID_EXTERNAL_CAPABILITY_REQUALIFICATION"
 
 def validate_external_ticket(
     candidate: CapabilityCandidate,

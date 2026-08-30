@@ -17,7 +17,7 @@ def test_ms1999_hundred_effect_program_construction_survives_order_budget_and_lo
     assert left["budget_status"] == right["budget_status"] == "SEARCH_BUDGET_EXHAUSTED_NOT_SATURATED"
     assert left["local_stale_count"] == right["local_stale_count"] == 2
     assert left["stale_admission_status"] == right["stale_admission_status"] == "ABSTAIN"
-    assert left["same_identity_requalification_path"] == right["same_identity_requalification_path"] == "MISSING"
+    assert left["same_identity_requalification_path"] == right["same_identity_requalification_path"] == "MISSING_AT_MS1999_SEAL"
     assert left["execution_authority"] == right["execution_authority"] == "NONE"
 
 
@@ -59,4 +59,4 @@ def test_ms1999_locality_and_iterative_deep_closure_do_not_claim_requalification
     assert result["deep_chain_capability_count"] == 1500
     assert result["deep_chain_closure_visited_count"] == 1500
     assert result["deep_chain_max_depth"] == 1500
-    assert result["actual_requalification_closure"] == "NOT_AVAILABLE__SAME_IDENTITY_CAPABILITY_REQUALIFICATION_PATH_MISSING"
+    assert result["actual_requalification_closure"] == "NOT_AVAILABLE_AT_MS1999_SEAL__SAME_IDENTITY_CAPABILITY_REQUALIFICATION_PATH_MISSING"

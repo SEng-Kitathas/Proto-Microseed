@@ -169,6 +169,35 @@ class CapabilityRegistry:
             self._on_invalidate(capability_id, stale, reason)
         return stale
 
+
+    def reactivate(
+        self, capability_id: str, *, qualification: QualificationState
+    ) -> CapabilityContract:
+        """Return one stale identical capability to currentness as a new epoch.
+
+        This registry performs no qualification.  The caller must validate fresh
+        external requalification evidence first.  Dependents are intentionally not
+        reactivated: each stale owner must re-earn currentness independently.
+        """
+        cid = str(capability_id)
+        current = self.contracts.get(cid)
+        if current is None:
+            raise ValueError(f"UNKNOWN_CAPABILITY:{cid}")
+        if current.qualification != QualificationState.STALE or current.currentness != "STALE":
+            raise ValueError(f"CAPABILITY_REACTIVATION_REQUIRES_STALE:{cid}")
+        if qualification not in {QualificationState.SHADOW_QUALIFIED, QualificationState.QUALIFIED}:
+            raise ValueError(f"CAPABILITY_REACTIVATION_QUALIFICATION_INVALID:{qualification.value}")
+        for dep in tuple(current.dependencies):
+            closure = self.assess_dependency_closure(dep)
+            if closure["status"] != "CURRENT_DEPENDENCY_CLOSURE":
+                raise ValueError(
+                    f"CAPABILITY_REACTIVATION_DEPENDENCY_NOT_CURRENT:{dep}:{closure['reason']}"
+                )
+        current.qualification = qualification
+        current.currentness = "CURRENT"
+        self.epochs[cid] = self.epochs.get(cid, 0) + 1
+        return current
+
     def change_dependency(self, capability_id: str, *, reason: str = "DEPENDENCY_CHANGED") -> set[str]:
         self.epochs[capability_id] = self.epochs.get(capability_id, 0) + 1
         return self.invalidate(capability_id, reason=reason)

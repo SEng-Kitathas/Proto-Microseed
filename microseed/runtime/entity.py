@@ -23,7 +23,9 @@ from ..development.commitment_adapters import (
 from ..development.capability_admission import (
     CapabilityCandidate,
     CapabilityQualificationTicket,
+    CapabilityRequalificationTicket,
     validate_external_ticket,
+    validate_external_requalification_ticket,
 )
 from ..development.discovery import (
     OperationalTrace, DiscoveryConfig, discover_candidates,
@@ -6594,6 +6596,54 @@ class Microseed:
         self.path.append("CAPABILITY_CANDIDATE_ADMITTED", packet)
         self.store.append("CAPABILITY_CANDIDATE_ADMITTED", packet)
         return contract
+
+
+    def requalify_capability(
+        self, ticket: CapabilityRequalificationTicket
+    ) -> CapabilityContract:
+        """Consume fresh external currentness evidence for one identical stale capability.
+
+        Requalification is content/epoch-bound and does not register a new identity,
+        alter immutable contract content, increase authority, or auto-reactivate stale
+        dependents.  Each stale dependent must independently re-earn currentness after
+        its dependency closure is current.
+        """
+        cid = str(ticket.capability_id)
+        contract = self.capabilities.contracts.get(cid)
+        if contract is None:
+            raise ValueError(f"UNKNOWN_CAPABILITY:{cid}")
+        if contract.qualification != QualificationState.STALE or contract.currentness != "STALE":
+            raise ValueError(f"CAPABILITY_REQUALIFICATION_REQUIRES_STALE:{cid}")
+        stale_epoch = int(self.capabilities.epochs.get(cid, 0))
+        ok, reason = validate_external_requalification_ticket(
+            contract, stale_epoch, ticket, self.evidence
+        )
+        if not ok:
+            raise ValueError(reason)
+        old_authority = contract.authority
+        old_signature = contract.computed_signature_sha256()
+        fresh = self.capabilities.reactivate(cid, qualification=ticket.state)
+        if fresh.authority != old_authority or fresh.computed_signature_sha256() != old_signature:
+            raise RuntimeError("CAPABILITY_REQUALIFICATION_CHANGED_IMMUTABLE_CONTENT_OR_AUTHORITY")
+        if cid in self.development.records:
+            self.development.requalify(
+                cid, state=ticket.state, evidence=ticket.qualification_evidence, reason=ticket.reason
+            )
+        packet = {
+            "capability_id": cid,
+            "contract_signature_sha256": old_signature,
+            "stale_epoch": stale_epoch,
+            "current_epoch": int(self.capabilities.epochs[cid]),
+            "qualification": fresh.qualification.value,
+            "qualifier_id": ticket.qualifier_id,
+            "qualification_evidence_ids": [x.evidence_id for x in ticket.qualification_evidence],
+            "authority_preserved": fresh.authority.value,
+            "authority_gain": "NONE",
+            "dependent_auto_reactivation": "NONE",
+        }
+        self.path.append("CAPABILITY_REQUALIFIED", packet)
+        self.store.append("CAPABILITY_REQUALIFIED", packet)
+        return fresh
 
     def invalidate_capability(self, capability_id: str, *, reason: str) -> set[str]:
         return self.capabilities.invalidate(capability_id, reason=reason)

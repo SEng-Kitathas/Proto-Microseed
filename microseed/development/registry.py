@@ -43,6 +43,25 @@ class DevelopmentRegistry:
         r.authority = d.authority
         return r
 
+
+    def requalify(
+        self, artifact_id: str, *, state: QualificationState,
+        evidence: Iterable[EvidenceRef], reason: str,
+    ) -> DevelopmentRecord:
+        """Record externally validated requalification without changing authority."""
+        r = self.records[artifact_id]
+        if r.qualification != QualificationState.STALE:
+            raise ValueError(f"DEVELOPMENT_REQUALIFICATION_REQUIRES_STALE:{artifact_id}")
+        if state not in {QualificationState.SHADOW_QUALIFIED, QualificationState.QUALIFIED}:
+            raise ValueError(f"DEVELOPMENT_REQUALIFICATION_STATE_INVALID:{state.value}")
+        refs = tuple(evidence)
+        if not refs:
+            raise ValueError("DEVELOPMENT_REQUALIFICATION_REQUIRES_EVIDENCE")
+        r.qualification = state
+        r.evidence = tuple(r.evidence) + refs
+        r.notes = tuple(r.notes) + (f"REQUALIFIED:{reason}",)
+        return r
+
     def invalidate(self, artifact_id: str, reason: str) -> set[str]:
         """Mark the changed artifact and transitive dependents stale, preserving history."""
         stale: set[str] = set()
