@@ -38,7 +38,7 @@ def derive_selection_commitment(comparison: dict, opportunities) -> RelationalCo
             str(op["deficit"].deficit_id)
             for op in rows
         } | {
-            str(op["step_commitment"].commitment_id)
+            str(op["commitment"].commitment_id)
             for op in rows
         } | {
             str(op["contrast_information"].commitment_id)
