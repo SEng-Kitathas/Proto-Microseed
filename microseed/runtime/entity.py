@@ -119,7 +119,7 @@ from ..persistence.identity import assess_continuity, continuity_witness_from_ex
 from ..persistence.biography import DevelopmentalBiography, BiographyIntegrityError
 from ..cognition.hypothesis import Hypothesis, HypothesisSet
 from ..cognition.event_frames import infer_event_frame
-from ..cognition.referents import nominate_by_boundary_coherence
+from ..cognition.referents import nominate_by_boundary_coherence, OperationalReferentSignature
 from ..cognition.research_registry import RESEARCH_COMPONENTS
 
 
@@ -6681,6 +6681,132 @@ class Microseed:
 
     def infer_event_frame(self, effects, *, rival_segmentations=None):
         return infer_event_frame(effects, rival_segmentations=rival_segmentations)
+
+
+    def record_operational_referent_signature(
+        self,
+        evidence_id: str,
+        signature: OperationalReferentSignature,
+        *,
+        source_evidence_ids: Iterable[str] = (),
+    ) -> dict[str, Any]:
+        """Persist one opaque operational referent-signature witness as evidence only.
+
+        The record carries no numerical-identity, semantic-reference, truth, or
+        execution authority.  It is a durable witness for later operational
+        signature-class reassociation, not an object registry.
+        """
+        if (
+            signature.status != "OPERATIONAL_REFERENT_SIGNATURE_DERIVED"
+            or signature.signature_sha256 is None
+        ):
+            return {
+                "status": "UNKNOWN_INCOMPLETE",
+                "reason": "CURRENT_OPERATIONAL_REFERENT_SIGNATURE_REQUIRED",
+                "identity_authority": "NONE",
+                "semantic_reference_authority": "NONE",
+            }
+        payload = {
+            "kind": "OPERATIONAL_REFERENT_SIGNATURE_WITNESS",
+            "signature_sha256": str(signature.signature_sha256),
+            "action_response_rows": [
+                [str(action), [bool(x) for x in response]]
+                for action, response in signature.action_response_rows
+            ],
+            "source_evidence_ids": [str(x) for x in source_evidence_ids],
+            "operational_authority": "NONE",
+            "identity_authority": "NONE",
+            "semantic_reference_authority": "NONE",
+            "truth_authority": "NONE",
+            "execution_authority": "NONE",
+        }
+        ref = self.append_evidence(
+            evidence_id, payload, EpistemicStatus.PRESSURE_SUPPORTED,
+            source="MICROSEED-OPERATIONAL-REFERENT-WITNESS",
+        )
+        return {
+            "status": "OPERATIONAL_REFERENT_SIGNATURE_WITNESS_RECORDED",
+            "evidence_id": ref.evidence_id,
+            "signature_sha256": str(signature.signature_sha256),
+            "identity_authority": "NONE",
+            "semantic_reference_authority": "NONE",
+        }
+
+    def reassociate_operational_referent_signature(
+        self,
+        signature: OperationalReferentSignature,
+        *,
+        max_records: int = 4096,
+    ) -> dict[str, Any]:
+        """Boundedly match a current opaque signature to prior evidence classes.
+
+        Exact signature equality supports only operational class reassociation.
+        Multiple historical witnesses remain a class/set; no witness is promoted to
+        numerical object identity.  If the bounded scan cannot establish absence,
+        report budget exhaustion rather than false 'no match'.
+        """
+        if (
+            signature.status != "OPERATIONAL_REFERENT_SIGNATURE_DERIVED"
+            or signature.signature_sha256 is None
+        ):
+            return {
+                "status": "UNKNOWN_INCOMPLETE",
+                "reason": "CURRENT_OPERATIONAL_REFERENT_SIGNATURE_REQUIRED",
+                "identity_authority": "NONE",
+                "semantic_reference_authority": "NONE",
+            }
+        bound = int(max_records)
+        if bound <= 0:
+            return {
+                "status": "SEARCH_BUDGET_EXHAUSTED_NOT_SATURATED",
+                "reason": "OPERATIONAL_REFERENT_EVIDENCE_SCAN_BUDGET_ZERO",
+                "identity_authority": "NONE",
+                "semantic_reference_authority": "NONE",
+            }
+        total = self.evidence.count()
+        rows = self.evidence.recent(bound)
+        target = str(signature.signature_sha256)
+        matches = []
+        for row in rows:
+            payload = row.get("payload", {})
+            if not isinstance(payload, dict):
+                continue
+            if payload.get("kind") != "OPERATIONAL_REFERENT_SIGNATURE_WITNESS":
+                continue
+            if str(payload.get("signature_sha256", "")) != target:
+                continue
+            if row.get("negative"):
+                continue
+            matches.append(str(row["evidence_id"]))
+        search_complete = total <= bound
+        if matches:
+            return {
+                "status": "OPERATIONAL_REFERENT_SIGNATURE_CLASS_REASSOCIATED",
+                "signature_sha256": target,
+                "witness_evidence_ids": tuple(sorted(matches)),
+                "match_count": len(matches),
+                "search_complete": search_complete,
+                "identity_authority": "NONE",
+                "semantic_reference_authority": "NONE",
+                "truth_authority": "NONE",
+                "execution_authority": "NONE",
+            }
+        if not search_complete:
+            return {
+                "status": "SEARCH_BUDGET_EXHAUSTED_NOT_SATURATED",
+                "reason": "OPERATIONAL_REFERENT_WITNESS_MAY_EXIST_OUTSIDE_SCAN_WINDOW",
+                "scanned_records": len(rows),
+                "total_records": total,
+                "identity_authority": "NONE",
+                "semantic_reference_authority": "NONE",
+            }
+        return {
+            "status": "UNKNOWN_INCOMPLETE",
+            "reason": "NO_PRIOR_OPERATIONAL_REFERENT_SIGNATURE_CLASS_WITNESS",
+            "search_complete": True,
+            "identity_authority": "NONE",
+            "semantic_reference_authority": "NONE",
+        }
 
     def nominate_referents(self, boundary_signatures):
         return nominate_by_boundary_coherence(boundary_signatures)

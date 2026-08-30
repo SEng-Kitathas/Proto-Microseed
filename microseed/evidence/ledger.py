@@ -71,6 +71,22 @@ class EvidenceLedger:
                 missing.append(ref.evidence_id)
         return not missing, missing
 
+
+    def count(self) -> int:
+        row = self.conn.execute("select count(*) from evidence").fetchone()
+        return int(row[0]) if row else 0
+
+    def recent(self, limit: int) -> list[dict[str, Any]]:
+        bound = int(limit)
+        if bound <= 0:
+            return []
+        ids = [
+            r[0] for r in self.conn.execute(
+                "select evidence_id from evidence order by seq desc limit ?", (bound,)
+            )
+        ]
+        return [self.get(i) for i in ids if self.get(i) is not None]
+
     def list(self) -> list[dict[str, Any]]:
         ids = [r[0] for r in self.conn.execute("select evidence_id from evidence order by seq")]
         return [self.get(i) for i in ids if self.get(i) is not None]
