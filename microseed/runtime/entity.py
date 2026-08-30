@@ -1,5 +1,6 @@
 from __future__ import annotations
 from dataclasses import replace
+from itertools import combinations
 import math
 from pathlib import Path
 from typing import Any, Iterable
@@ -3793,6 +3794,75 @@ class Microseed:
             matches.append((row,payload))
         return matches,tuple(rejections)
 
+    def derive_current_owned_opaque_probe_prefix(self, *, max_steps: int = 8) -> dict[str, Any]:
+        """Reconstruct one current bounded opaque interaction prefix from owned ancestry only.
+
+        The caller supplies only a finite depth ceiling.  Raw content and action handles
+        are recovered from current raw-observation receipts plus the exact admitted
+        action/outcome predecessor chain.  Duplicate receipts or predecessor ambiguity
+        fail closed; this method grants no semantic, truth, selection or execution authority.
+        """
+        base={"semantic_coordinate_authority":"NONE","semantic_referent_authority":"NONE",
+              "truth_authority":"NONE","selection_authority":"NONE","execution_authority":"NONE"}
+        depth=int(max_steps)
+        if depth < 0 or depth > 8:
+            raise ValueError("BOUNDED_CURRENT_PROBE_PREFIX_DEPTH_REQUIRED")
+        cw=self.action_closure.current_state
+        if cw is None:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"NO_CURRENT_OPAQUE_CONTROL_STATE"}
+        current_frames={(fid,self.frames.epochs[fid]) for fid in self.frames.frames if self.frames.is_current(fid)}
+        matches,rejections=self._current_bounded_raw_receipts_for_control_state(
+            control_state_id=cw.state_id,control_state_evidence_id=cw.evidence_id,allowed_frames=current_frames,
+        )
+        if len(matches)!=1:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"EXACT_SINGLE_CURRENT_RAW_OBSERVATION_FOR_PROBE_PREFIX_REQUIRED",
+                    "matching_receipt_count":len(matches),"receipt_rejections":rejections}
+        current_row,current_payload=matches[0]
+        frame=(str(current_payload["frame_id"]),int(current_payload["frame_epoch"]))
+        raw_rev=[tuple(str(x) for x in current_payload["raw_tokens"])]
+        raw_eids=[str(current_row["evidence_id"])]
+        actions_rev=[]; execution_ids=[]
+        cursor_state=cw.state_id; cursor_evidence=cw.evidence_id
+        for lag in range(depth):
+            predecessors=[o for o in self.action_closure.outcomes.values() if o.evidence_id==cursor_evidence]
+            if not predecessors:
+                break
+            if len(predecessors)!=1:
+                return {**base,"status":"DEFER_UNKNOWN","reason":"PROBE_PREFIX_PREDECESSOR_OUTCOME_NOT_UNIQUE",
+                        "lag":lag,"predecessor_outcome_count":len(predecessors)}
+            outcome=predecessors[0]
+            projected=self.derive_admitted_opaque_transition_sample(outcome.execution_id)
+            if projected.get("status")!="ADMITTED_OPAQUE_TRANSITION_SAMPLE":
+                return {**base,"status":"DEFER_UNKNOWN","reason":"PROBE_PREFIX_PREDECESSOR_TRANSITION_NOT_ADMITTED","lag":lag}
+            sample=projected["sample"]
+            execution=self.action_closure.executions.get(outcome.execution_id)
+            intent=None if execution is None else self.action_closure.intents.get(execution.intent_id)
+            if execution is None or intent is None:
+                return {**base,"status":"DEFER_UNKNOWN","reason":"PROBE_PREFIX_PREDECESSOR_ACTION_NOT_OWNED","lag":lag}
+            if sample.end_token!=cursor_state or (sample.frame_id,sample.frame_epoch)!=frame:
+                return {**base,"status":"DEFER_UNKNOWN","reason":"PROBE_PREFIX_PREDECESSOR_STATE_OR_FRAME_MISMATCH","lag":lag}
+            pmatches,prejections=self._current_bounded_raw_receipts_for_control_state(
+                control_state_id=intent.start_state_id,control_state_evidence_id=intent.control_state_evidence_id,allowed_frames={frame},
+            )
+            if len(pmatches)!=1:
+                return {**base,"status":"DEFER_UNKNOWN","reason":"EXACT_SINGLE_PREDECESSOR_RAW_OBSERVATION_FOR_PROBE_PREFIX_REQUIRED",
+                        "lag":lag,"matching_receipt_count":len(pmatches),"receipt_rejections":prejections}
+            prow,ppayload=pmatches[0]
+            actions_rev.append(str(execution.capability_id)); execution_ids.append(str(execution.execution_id))
+            raw_rev.append(tuple(str(x) for x in ppayload["raw_tokens"])); raw_eids.append(str(prow["evidence_id"]))
+            cursor_state=intent.start_state_id; cursor_evidence=intent.control_state_evidence_id
+        if len(raw_rev)>1:
+            episodes=[(eid,self.episodes.epochs[eid]) for eid,schema in self.episodes.schemas.items()
+                      if self.episodes.is_current(eid) and frame in tuple(schema.frame_epochs)]
+            if len(episodes)!=1:
+                return {**base,"status":"DEFER_UNKNOWN","reason":"EXACT_SINGLE_CURRENT_EPISODE_FOR_PROBE_PREFIX_REQUIRED",
+                        "episode_matches":tuple(episodes)}
+        return {**base,"status":"CURRENT_OWNED_OPAQUE_PROBE_PREFIX",
+                "raw_samples":tuple(reversed(raw_rev)),"opaque_action_sequence":tuple(reversed(actions_rev)),
+                "raw_observation_evidence_ids":tuple(reversed(raw_eids)),"execution_ids":tuple(reversed(execution_ids)),
+                "frame_epoch":frame,"step_count":len(actions_rev),"depth_ceiling":depth,
+                "history_basis":"AUTHENTICATED_CURRENT_RAW_RECEIPTS_PLUS_ACTION_OUTCOME_PREDECESSOR_CHAIN"}
+
     def resolve_current_raw_projection_conditioned_relation(
         self, binding_id: str, *, action_id: str, task_id: str, channel_id: str, horizon: int,
     ) -> dict[str, Any]:
@@ -6894,6 +6964,204 @@ class Microseed:
         result["truth_authority"]="NONE"
         result["execution_authority"]="NONE"
         return result
+
+    def _current_operational_referent_signature_class_scan(self, *, max_records: int = 4096) -> dict[str, Any]:
+        """Recover current opaque signature-class content from bounded owned evidence."""
+        bound=int(max_records)
+        if bound <= 0:
+            return {"status":"SEARCH_BUDGET_EXHAUSTED_NOT_SATURATED","classes":{},"authority":"NONE"}
+        total=self.evidence.count(); rows=self.evidence.recent(bound)
+        classes: dict[str, tuple[tuple[str,tuple[bool,...]],...]]={}; conflicts=[]
+        for row in rows:
+            payload=row.get("payload") or {}
+            if payload.get("kind")!="OPERATIONAL_REFERENT_SIGNATURE_WITNESS" or row.get("negative"):
+                continue
+            sha=str(payload.get("signature_sha256",""))
+            response=tuple((str(a),tuple(bool(x) for x in bits)) for a,bits in payload.get("action_response_rows",()))
+            if len(sha)!=64 or not response:
+                continue
+            prior=classes.get(sha)
+            if prior is not None and prior!=response:
+                conflicts.append(sha)
+            classes[sha]=response
+        if conflicts:
+            return {"status":"OPERATIONAL_REFERENT_SIGNATURE_CONTENT_CONFLICT",
+                    "conflicting_classes":tuple(sorted(set(conflicts))),"authority":"NONE"}
+        if total > bound:
+            return {"status":"SEARCH_BUDGET_EXHAUSTED_NOT_SATURATED","scanned_records":len(rows),
+                    "total_records":total,"classes":{},"authority":"NONE"}
+        return {"status":"SATURATED_OPERATIONAL_REFERENT_SIGNATURE_CLASS_SCAN","classes":classes,"authority":"NONE"}
+
+    def reconstruct_operational_referent_class_set_for_bucket(
+        self, bucket_id: str, *, max_records: int = 4096, max_unique_classes: int = 16, max_subset_size: int = 6,
+    ) -> dict[str, Any]:
+        """Boundedly invert one deterministic class-set bucket from already-owned class witnesses."""
+        scan=self._current_operational_referent_signature_class_scan(max_records=max_records)
+        if scan.get("status")!="SATURATED_OPERATIONAL_REFERENT_SIGNATURE_CLASS_SCAN":
+            return {"status":str(scan.get("status","UNKNOWN_INCOMPLETE")),
+                    "reason":"OWNED_SIGNATURE_CLASS_SCAN_NOT_SATURATED","authority":"NONE"}
+        classes=tuple(sorted(scan["classes"]))
+        if len(classes)>int(max_unique_classes):
+            return {"status":"SEARCH_BUDGET_EXHAUSTED_NOT_SATURATED","reason":"UNIQUE_SIGNATURE_CLASS_BUDGET_EXCEEDED",
+                    "class_count":len(classes),"authority":"NONE"}
+        coordinate=self.operational_referent_class_set_projection_signature_sha256()
+        matches=[]; tested=0; upper=min(len(classes),int(max_subset_size))
+        for size in range(1,upper+1):
+            for subset in combinations(classes,size):
+                tested+=1
+                candidate="refset-"+action_result_digest({"coordinate_signature_sha256":coordinate,
+                                                           "operational_signature_classes":list(subset)})[:20]
+                if candidate==str(bucket_id): matches.append(subset)
+        if not matches:
+            if len(classes)>upper:
+                return {"status":"SEARCH_BUDGET_EXHAUSTED_NOT_SATURATED","reason":"SUBSET_SIZE_BUDGET_MAY_HIDE_PREIMAGE",
+                        "tested_subsets":tested,"authority":"NONE"}
+            return {"status":"UNKNOWN_INCOMPLETE","reason":"NO_OWNED_CLASS_SET_PREIMAGE",
+                    "tested_subsets":tested,"authority":"NONE"}
+        if len(matches)>1:
+            return {"status":"OPERATIONAL_REFERENT_CLASS_SET_PREIMAGE_AMBIGUOUS",
+                    "candidate_class_sets":tuple(matches),"tested_subsets":tested,"authority":"NONE"}
+        return {"status":"OPERATIONAL_REFERENT_CLASS_SET_RECONSTRUCTED",
+                "operational_signature_classes":matches[0],"tested_subsets":tested,
+                "authority":"NONE","identity_authority":"NONE","semantic_reference_authority":"NONE"}
+
+    def derive_current_partial_operational_referent_ambiguity(
+        self, binding_id: str, *, max_probe_steps: int = 8, max_records: int = 4096,
+    ) -> dict[str, Any]:
+        """Derive live qualified referent alternatives from the current owned partial probe prefix."""
+        base={"truth_authority":"NONE","identity_authority":"NONE","semantic_reference_authority":"NONE",
+              "selection_authority":"NONE","execution_authority":"NONE"}
+        prefix=self.derive_current_owned_opaque_probe_prefix(max_steps=max_probe_steps)
+        if prefix.get("status")!="CURRENT_OWNED_OPAQUE_PROBE_PREFIX":
+            return {**base,"status":"DEFER_UNKNOWN","reason":"CURRENT_OWNED_PROBE_PREFIX_REQUIRED","probe_prefix":prefix}
+        observed=tuple(str(x) for x in prefix.get("opaque_action_sequence",()))
+        if not observed:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"CURRENT_PARTIAL_PROBE_ACTIONS_REQUIRED","probe_prefix":prefix}
+        binding=self.action_outcome_learning.projection_conditioned_bindings.get(str(binding_id))
+        if binding is None or not self._projection_conditioned_binding_current(binding):
+            return {**base,"status":"DEFER_UNKNOWN","reason":"QUALIFIED_REFERENT_ROUTING_BINDING_NOT_CURRENT"}
+        rec=self.epistemic_projections.records.get(binding.projection_id)
+        if rec is None or rec.signature_sha256!=self.operational_referent_class_set_projection_signature_sha256():
+            return {**base,"status":"DEFER_UNKNOWN","reason":"OPERATIONAL_REFERENT_CLASS_SET_COORDINATE_MISMATCH"}
+        scan=self._current_operational_referent_signature_class_scan(max_records=max_records)
+        if scan.get("status")!="SATURATED_OPERATIONAL_REFERENT_SIGNATURE_CLASS_SCAN":
+            return {**base,"status":"DEFER_UNKNOWN","reason":str(scan.get("status","SIGNATURE_SCAN_NOT_SATURATED"))}
+        derived=self.derive_operational_referent_signatures_from_raw_trace(prefix["raw_samples"],observed)
+        if derived.get("status")!="OPERATIONAL_REFERENT_SIGNATURES_DERIVED_FROM_RAW_TRACE":
+            return {**base,"status":"DEFER_UNKNOWN","reason":"CURRENT_PARTIAL_REFERENT_TRACE_NOT_DERIVABLE","detail":derived}
+        current=tuple(sorted(
+            tuple((str(a),tuple(bool(x) for x in bits)) for a,bits in row["action_response_rows"])
+            for row in derived["signature_classes"]
+        ))
+        def project_class_set(class_set: Iterable[str]) -> tuple[tuple[tuple[str,tuple[bool,...]],...],...]:
+            rows=[]
+            for sha in class_set:
+                full=dict(scan["classes"][str(sha)])
+                if any(a not in full for a in observed):
+                    return ()
+                rows.append(tuple((a,tuple(full[a])) for a in observed))
+            return tuple(sorted(rows))
+        survivors=[]; class_sets={}
+        for bucket in tuple(binding.qualified_bucket_ids):
+            r=self.reconstruct_operational_referent_class_set_for_bucket(str(bucket),max_records=max_records)
+            if r.get("status")!="OPERATIONAL_REFERENT_CLASS_SET_RECONSTRUCTED":
+                return {**base,"status":"DEFER_UNKNOWN","reason":"QUALIFIED_BUCKET_CLASS_SET_NOT_RECONSTRUCTED",
+                        "bucket_id":str(bucket),"detail":r}
+            cs=tuple(r["operational_signature_classes"]); class_sets[str(bucket)]=cs
+            if project_class_set(cs)==current:
+                survivors.append(str(bucket))
+        if not survivors:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"NO_QUALIFIED_REFERENT_ALTERNATIVE_MATCHES_CURRENT_PARTIAL_TRACE",
+                    "probe_prefix":prefix}
+        common={**base,"qualified_bucket_count":len(binding.qualified_bucket_ids),
+                "surviving_bucket_ids":tuple(sorted(survivors)),"observed_actions":observed,
+                "probe_prefix":prefix,"binding_id":binding.binding_id}
+        if len(survivors)==1:
+            return {**common,"status":"CURRENT_PARTIAL_OPERATIONAL_REFERENT_RESOLVED","resolved_bucket_id":survivors[0]}
+        # Candidate probe universe is derived from owned response rows, never supplied by the caller.
+        universes=[]
+        for bucket in survivors:
+            for sha in class_sets[bucket]: universes.append(set(dict(scan["classes"][sha])))
+        action_universe=set.intersection(*universes) if universes else set()
+        remaining=tuple(sorted(action_universe-set(observed)))
+        candidates=[]
+        for action in remaining:
+            partition=[]
+            for bucket in sorted(survivors):
+                responses=tuple(sorted(tuple(dict(scan["classes"][sha])[action]) for sha in class_sets[bucket]))
+                partition.append((bucket,responses))
+            if len({responses for _,responses in partition})>1:
+                candidates.append({"action_id":action,"predicted_response_partition":tuple(partition)})
+        if not candidates:
+            probe_status="NO_CURRENT_INFORMATIVE_REFERENT_PROBE"; unique=None
+        elif len(candidates)>1:
+            probe_status="CURRENT_REFERENT_PROBE_AMBIGUOUS"; unique=None
+        else:
+            probe_status="CURRENT_UNIQUE_INFORMATIVE_REFERENT_PROBE"; unique=candidates[0]["action_id"]
+        return {**common,"status":"CURRENT_PARTIAL_OPERATIONAL_REFERENT_AMBIGUITY",
+                "informative_probe_status":probe_status,"informative_candidates":tuple(candidates),
+                "unique_probe_action_id":unique}
+
+    def derive_current_owned_referent_decision_surface(
+        self, deficit_id: str, *, max_probe_steps: int = 8, max_records: int = 4096,
+    ) -> dict[str, Any]:
+        """Reconstruct the current decision surface for one internally-derived referent deficit."""
+        deficit=self.epistemic_deficits.records.get(str(deficit_id))
+        if deficit is None or deficit.state==EpistemicDeficitState.STALE:
+            return {"status":"DEFER_UNKNOWN","reason":"CURRENT_EPISTEMIC_DEFICIT_REQUIRED","execution_authority":"NONE"}
+        ancestry=tuple(str(x) for x in deficit.assistance_ancestry)
+        if "DERIVED_FROM_CURRENT_PARTIAL_REFERENT_AMBIGUITY" not in ancestry:
+            return {"status":"DEFER_UNKNOWN","reason":"OWNED_REFERENT_DEFICIT_ANCESTRY_REQUIRED","execution_authority":"NONE"}
+        panchors=tuple(a for a in deficit.premise_anchors if a.kind=="PROJECTION")
+        if len(panchors)!=1:
+            return {"status":"DEFER_UNKNOWN","reason":"EXACT_SINGLE_REFERENT_PROJECTION_ANCHOR_REQUIRED","execution_authority":"NONE"}
+        anchor=panchors[0]
+        bindings=[]
+        for binding in self.action_outcome_learning.projection_conditioned_bindings.values():
+            if binding.projection_id!=anchor.object_id or binding.projection_epoch!=anchor.epoch or not self._projection_conditioned_binding_current(binding):
+                continue
+            try: digest=projection_conditioned_hypothesis_surface_digest(binding,self.action_outcome_learning.relations)
+            except ValueError: continue
+            if digest==deficit.hypothesis_digest_sha256: bindings.append(binding)
+        if len(bindings)!=1:
+            return {"status":"DEFER_UNKNOWN","reason":"EXACT_SINGLE_CURRENT_REFERENT_ROUTING_SURFACE_REQUIRED",
+                    "matching_binding_ids":tuple(sorted(b.binding_id for b in bindings)),"execution_authority":"NONE"}
+        binding=bindings[0]
+        live=self.derive_current_partial_operational_referent_ambiguity(binding.binding_id,max_probe_steps=max_probe_steps,max_records=max_records)
+        if live.get("status")!="CURRENT_PARTIAL_OPERATIONAL_REFERENT_AMBIGUITY":
+            return {"status":"DEFER_UNKNOWN","reason":"CURRENT_REFERENT_AMBIGUITY_REQUIRED","live_surface":live,"execution_authority":"NONE"}
+        if live.get("informative_probe_status")!="CURRENT_UNIQUE_INFORMATIVE_REFERENT_PROBE":
+            return {"status":"DEFER_UNKNOWN","reason":str(live.get("informative_probe_status","UNIQUE_REFERENT_PROBE_REQUIRED")),
+                    "live_surface":live,"execution_authority":"NONE"}
+        probe=str(live["unique_probe_action_id"])
+        candidate=next(x for x in live["informative_candidates"] if x["action_id"]==probe)
+        current_disc=action_result_digest({"hypothesis":deficit.hypothesis_digest_sha256,
+                                           "survivors":list(live["surviving_bucket_ids"]),
+                                           "probe":probe,"partition":candidate["predicted_response_partition"]})
+        if current_disc!=deficit.missing_discriminator_signature_sha256:
+            return {"status":"DEFER_UNKNOWN","reason":"CURRENT_REFERENT_DISCRIMINATOR_CONTENT_DRIFT",
+                    "current_discriminator_signature_sha256":current_disc,"execution_authority":"NONE"}
+        relation_sets=[]; probe_digests=[]
+        for bucket in live["surviving_bucket_ids"]:
+            rows=[]
+            for action in binding.action_ids:
+                rid=binding.relation_id_for(str(bucket),str(action))
+                relation=self.action_outcome_learning.relations.get(str(rid)) if rid else None
+                if relation is None or not self._action_outcome_relation_current(relation):
+                    return {"status":"DEFER_UNKNOWN","reason":"ROUTED_REFERENT_RELATION_NOT_CURRENT",
+                            "bucket_id":bucket,"action_id":action,"execution_authority":"NONE"}
+                edge=relation.as_epistemic_alternative_relation()
+                if edge is None:
+                    return {"status":"DEFER_UNKNOWN","reason":"ROUTED_REFERENT_RELATION_NOT_LOSSLESS_EPISTEMIC_EDGE",
+                            "relation_id":relation.relation_id,"execution_authority":"NONE"}
+                rows.append(edge)
+                if str(action)==probe: probe_digests.append(edge.digest())
+            relation_sets.append(tuple(rows))
+        return {"status":"CURRENT_OWNED_REFERENT_DECISION_SURFACE","binding_id":binding.binding_id,
+                "relation_sets":tuple(relation_sets),"source_relation_digests":tuple(sorted(set(probe_digests))),
+                "unique_probe_action_id":probe,"surviving_bucket_ids":tuple(live["surviving_bucket_ids"]),
+                "discriminator_signature_sha256":current_disc,"live_surface":live,
+                "truth_authority":"NONE","selection_authority":"NONE","execution_authority":"NONE"}
 
     def record_operational_referent_signature(
         self,
