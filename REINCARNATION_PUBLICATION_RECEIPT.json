@@ -1,0 +1,12 @@
+{
+  "base_research_head": "9946d4ddf37642615b5f4e5a47685f94397803ff",
+  "branch": "continuity/reincarnation-2026-08-30",
+  "manifest_sha256": "332e6ddf591066c4f4a552fd4221dd83ece00d3c09766ca83c97004495e5212c",
+  "note": "This receipt records successful publication/readback of the package commit. This receipt itself is committed afterward and requires its own remote readback.",
+  "package_commit": "14e07c6b44d13f7d2655015dc93be80acd3d72cb",
+  "package_tree": "77339fee9390c5662afa77664ea71c37be697576",
+  "package_zip": "reincarnation/MS2003_THREAD_HANDOFF_2026-08-30.zip",
+  "package_zip_sha256": "c8f5d1c3f5b9acc2e012be56e4b96926e2b1db88cd51bf75e03664f14b66b6a4",
+  "remote_readback": "14e07c6b44d13f7d2655015dc93be80acd3d72cb",
+  "status": "GITHUB_PUBLISHED_AND_REMOTE_READBACK_VERIFIED"
+}
