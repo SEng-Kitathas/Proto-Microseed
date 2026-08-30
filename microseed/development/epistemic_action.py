@@ -1,7 +1,7 @@
 from __future__ import annotations
 from dataclasses import asdict, dataclass
 import hashlib, json
-from typing import Any, Mapping
+from typing import Any, Iterable, Mapping
 
 from ..runtime.capabilities import CapabilityRegistry
 from ..runtime.commitment import RelationalCommitment, TernaryCommitment, conjoin_required_commitments
@@ -1069,6 +1069,72 @@ def derive_epistemic_program_step_commitment(
         expected_cid=expected_cid, required=(need,priority_commitment,information_commitment,feas,route),
         reason_prefix="EPISTEMIC_PROGRAM_STEP",
         decision_premises="PRIORITY_AND_INFORMATION_EXACTLY_BOUND",
+    )
+
+
+def derive_cross_deficit_selected_epistemic_execution_commitment(
+    *,
+    local_step_commitment: RelationalCommitment,
+    cross_deficit_selection_commitment: RelationalCommitment,
+    expected_deficit_id: str,
+    expected_probe_action_id: str,
+    selection_ancestry_premise_ids: Iterable[str] = (),
+) -> RelationalCommitment:
+    """Conjoin one current local epistemic step with its current cross-deficit selection.
+
+    This is an execution *premise* commitment only.  It grants no EFFECT authority;
+    CapabilityRegistry.invoke remains the sole effect owner.  The expanded premise
+    list preserves both child commitment ids and their underlying ancestry in the
+    eventual ActionExecutionRecord.
+    """
+    target=f"epistemic-selected-execution:{expected_deficit_id}:{expected_probe_action_id}"
+    qnone=(("authority_gain","NONE"),("execution_authority","NONE"),("truth_authority","NONE"),("semantic_goal_authority","NONE"),("selection_authority","NONE"))
+    local_q=dict(local_step_commitment.qualifiers); select_q=dict(cross_deficit_selection_commitment.qualifiers)
+    premises=tuple(dict.fromkeys((
+        local_step_commitment.commitment_id,cross_deficit_selection_commitment.commitment_id,
+        *local_step_commitment.premise_ids,*cross_deficit_selection_commitment.premise_ids,
+        *tuple(str(x) for x in selection_ancestry_premise_ids),
+    )))
+    if not local_step_commitment.licenses_yes():
+        return RelationalCommitment(
+            _sha({"target":target,"local":local_step_commitment.commitment_id,"selection":cross_deficit_selection_commitment.commitment_id,"reason":"local"}),
+            target,TernaryCommitment.UNKNOWN,reason="CURRENT_LOCAL_EPISTEMIC_STEP_COMMITMENT_REQUIRED",qualifiers=qnone,premise_ids=premises,
+        )
+    if (
+        str(local_q.get("deficit_id"))!=str(expected_deficit_id)
+        or str(local_q.get("expected_capability_id"))!=str(expected_probe_action_id)
+    ):
+        return RelationalCommitment(
+            _sha({"target":target,"local_qualifiers":local_step_commitment.qualifiers,"reason":"local-binding"}),
+            target,TernaryCommitment.UNKNOWN,reason="LOCAL_EPISTEMIC_STEP_BINDING_REQUIRED",qualifiers=qnone,premise_ids=premises,
+        )
+    if not cross_deficit_selection_commitment.licenses_yes():
+        return RelationalCommitment(
+            _sha({"target":target,"selection":cross_deficit_selection_commitment.commitment_id,"reason":"selection"}),
+            target,TernaryCommitment.UNKNOWN,reason="CURRENT_CROSS_DEFICIT_SELECTION_REQUIRED",qualifiers=qnone,premise_ids=premises,
+        )
+    if (
+        cross_deficit_selection_commitment.target_id!="cross-deficit-epistemic-selection"
+        or str(select_q.get("selected_deficit_id"))!=str(expected_deficit_id)
+        or str(select_q.get("selected_probe_action_id"))!=str(expected_probe_action_id)
+        or str(select_q.get("selection_authority"))!="STRICT_SAME_VALUE_REGULATORY_DOMINANCE_ONLY"
+    ):
+        return RelationalCommitment(
+            _sha({"target":target,"selection":cross_deficit_selection_commitment.serializable(),"reason":"selection-binding"}),
+            target,TernaryCommitment.UNKNOWN,reason="CROSS_DEFICIT_SELECTED_OPPORTUNITY_BINDING_REQUIRED",qualifiers=qnone,premise_ids=premises,
+        )
+    return RelationalCommitment(
+        _sha({"target":target,"local":local_step_commitment.commitment_id,"selection":cross_deficit_selection_commitment.commitment_id,"premises":premises}),
+        target,TernaryCommitment.YES,
+        reason="LOCAL_STEP_AND_CURRENT_CROSS_DEFICIT_SELECTION_LICENSED",
+        qualifiers=(
+            ("authority_gain","NONE"),("execution_authority","NONE"),("truth_authority","NONE"),("semantic_goal_authority","NONE"),
+            ("selection_authority","STRICT_SAME_VALUE_REGULATORY_DOMINANCE_ONLY"),
+            ("selected_deficit_id",str(expected_deficit_id)),("selected_probe_action_id",str(expected_probe_action_id)),
+            ("local_step_commitment_id",local_step_commitment.commitment_id),
+            ("cross_deficit_selection_commitment_id",cross_deficit_selection_commitment.commitment_id),
+        ),
+        premise_ids=premises,
     )
 
 def nominate_epistemic_program_step_intent(

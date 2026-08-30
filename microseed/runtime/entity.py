@@ -111,6 +111,7 @@ from ..development.epistemic_action import (
     derive_grounded_feasibility_option, derive_current_program_discrimination_commitment, derive_current_decision_bearing_commitment,
     derive_current_grounded_feasibility_surface, derive_current_decision_bearing_commitment_from_grounded_surface,
     derive_program_observable_partition, program_partition_strictly_refines,
+    derive_cross_deficit_selected_epistemic_execution_commitment,
     derive_current_generated_epistemic_program_candidates, derive_epistemic_program_step_outcome_bearing,
     nominate_epistemic_program_step_intent as derive_epistemic_program_step_intent,
 )
@@ -2021,6 +2022,42 @@ class Microseed:
             )
             if fresh.commitment_id!=intent.action_commitment.commitment_id:
                 return fresh,"EPISTEMIC_PROGRAM_STEP_PREMISE_DRIFT",{"fresh_commitment":fresh.serializable()}
+            selected_marker=(
+                deficit is not None
+                and "ENDOGENOUS_UNKNOWN_MATERIALIZED_AFTER_STRICT_CROSS_DEFICIT_SELECTION" in tuple(str(x) for x in deficit.assistance_ancestry)
+            )
+            if selected_marker:
+                unknown=self.evidence.get(deficit.unknown_evidence_id)
+                payload=None if unknown is None else unknown.get("payload")
+                if (
+                    unknown is None or unknown.get("disposition")!=EpistemicStatus.UNKNOWN_INCOMPLETE.value
+                    or unknown.get("source")!="MICROSEED_ENDOGENOUS_SELECTED_EPISTEMIC_OPPORTUNITY"
+                    or not isinstance(payload,dict)
+                    or payload.get("kind")!="SELECTED_OWNED_REFERENT_EPISTEMIC_UNKNOWN"
+                    or str(payload.get("selected_ephemeral_deficit_id"))!=str(deficit.deficit_id)
+                    or str(payload.get("probe_action_id"))!=str(intent.capability_id)
+                    or str(payload.get("cross_deficit_selection_authority"))!="STRICT_SAME_VALUE_REGULATORY_DOMINANCE_ONLY"
+                    or not str(payload.get("cross_deficit_selection_commitment_id",""))
+                ):
+                    return None,"CROSS_DEFICIT_SELECTION_NOMINATION_ANCESTRY_REQUIRED_AT_EXECUTION",{"unknown_evidence_id":deficit.unknown_evidence_id}
+                _ops,fresh_selection,selected=self._current_owned_referent_cross_deficit_selection_bundle(obligation)
+                if not fresh_selection.licenses_yes() or selected is None:
+                    return None,"CURRENT_CROSS_DEFICIT_SELECTION_REQUIRED_AT_EXECUTION",{"fresh_selection":fresh_selection.serializable(),"current_opportunity_count":len(_ops)}
+                fq=dict(fresh_selection.qualifiers)
+                if (
+                    str(fq.get("selected_deficit_id"))!=str(deficit.deficit_id)
+                    or str(fq.get("selected_probe_action_id"))!=str(intent.capability_id)
+                    or str(fq.get("selection_authority"))!="STRICT_SAME_VALUE_REGULATORY_DOMINANCE_ONLY"
+                ):
+                    return None,"CROSS_DEFICIT_SELECTED_OPPORTUNITY_DRIFT_AT_EXECUTION",{"fresh_selection":fresh_selection.serializable()}
+                combined=derive_cross_deficit_selected_epistemic_execution_commitment(
+                    local_step_commitment=fresh,cross_deficit_selection_commitment=fresh_selection,
+                    expected_deficit_id=deficit.deficit_id,expected_probe_action_id=intent.capability_id,
+                    selection_ancestry_premise_ids=(deficit.unknown_evidence_id,str(payload["cross_deficit_selection_commitment_id"])),
+                )
+                if not combined.licenses_yes():
+                    return combined,"CROSS_DEFICIT_SELECTED_EXECUTION_COMMITMENT_NOT_CURRENT",{"fresh_selection":fresh_selection.serializable()}
+                return combined,"CROSS_DEFICIT_SELECTED_EXECUTION_COMMITMENT_NOT_CURRENT",{"fresh_selection":fresh_selection.serializable()}
             return fresh,"EPISTEMIC_PROGRAM_STEP_COMMITMENT_NOT_CURRENT",None
         if intent.basis_kind=="SINGLE_VALUE_REHEARSAL":
             if intent.proposal_id is None or self.counterfactual_rehearsal_status(intent.proposal_id).get("status")!="CURRENT_REHEARSAL_PROPOSAL":
