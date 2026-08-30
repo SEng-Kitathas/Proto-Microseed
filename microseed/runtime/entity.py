@@ -7367,6 +7367,68 @@ class Microseed:
                 "discriminator_signature_sha256":current_disc,"live_surface":live,
                 "truth_authority":"NONE","selection_authority":"NONE","execution_authority":"NONE"}
 
+    def derive_current_resolved_referent_routing_context(
+        self, deficit_id: str, *, max_probe_steps: int = 8, max_records: int = 4096,
+    ) -> dict[str, Any]:
+        """Recover one current post-probe qualified routing context from the deficit itself.
+
+        The deficit supplies only previously-owned hypothesis/projection ancestry. The
+        resolved bucket is re-derived from the current authenticated raw/action prefix.
+        No semantic referent identity or model-switch authority is created.
+        """
+        deficit=self.epistemic_deficits.records.get(str(deficit_id))
+        if deficit is None or deficit.state!=EpistemicDeficitState.REVISIT_REQUIRED:
+            return {"status":"DEFER_UNKNOWN","reason":"CURRENT_COMPLETED_REFERENT_DEFICIT_REQUIRED","execution_authority":"NONE"}
+        ancestry=tuple(str(x) for x in deficit.assistance_ancestry)
+        if "DERIVED_FROM_CURRENT_PARTIAL_REFERENT_AMBIGUITY" not in ancestry:
+            return {"status":"DEFER_UNKNOWN","reason":"OWNED_REFERENT_DEFICIT_ANCESTRY_REQUIRED","execution_authority":"NONE"}
+        panchors=tuple(a for a in deficit.premise_anchors if a.kind=="PROJECTION")
+        if len(panchors)!=1:
+            return {"status":"DEFER_UNKNOWN","reason":"EXACT_SINGLE_REFERENT_PROJECTION_ANCHOR_REQUIRED","execution_authority":"NONE"}
+        anchor=panchors[0]; matches=[]
+        for binding in self.action_outcome_learning.projection_conditioned_bindings.values():
+            if binding.projection_id!=anchor.object_id or binding.projection_epoch!=anchor.epoch or not self._projection_conditioned_binding_current(binding):
+                continue
+            try: digest=projection_conditioned_hypothesis_surface_digest(binding,self.action_outcome_learning.relations)
+            except ValueError: continue
+            if digest!=deficit.hypothesis_digest_sha256: continue
+            live=self.derive_current_partial_operational_referent_ambiguity(binding.binding_id,max_probe_steps=max_probe_steps,max_records=max_records)
+            if live.get("status")=="CURRENT_PARTIAL_OPERATIONAL_REFERENT_RESOLVED":
+                matches.append((binding,live))
+        if len(matches)!=1:
+            return {"status":"DEFER_UNKNOWN","reason":"EXACT_SINGLE_CURRENT_RESOLVED_REFERENT_ROUTING_CONTEXT_REQUIRED",
+                    "matching_binding_ids":tuple(sorted(x[0].binding_id for x in matches)),"execution_authority":"NONE"}
+        binding,live=matches[0]
+        return {
+            "status":"CURRENT_RESOLVED_REFERENT_ROUTING_CONTEXT",
+            "binding_id":binding.binding_id,"resolved_bucket_id":str(live["resolved_bucket_id"]),
+            "task_id":binding.task_id,"channel_ids":tuple(binding.channel_ids),"horizon":int(binding.horizon),
+            "probe_prefix":live.get("probe_prefix"),"deficit_id":deficit.deficit_id,
+            "truth_authority":"NONE","identity_authority":"NONE","semantic_reference_authority":"NONE",
+            "selection_authority":"NONE","execution_authority":"NONE",
+        }
+
+    def nominate_current_resolved_referent_rehearsal(
+        self, deficit_id: str, observations: Iterable[RehearsalTransitionObservation],
+        options: Iterable[RecruitmentOption], *, start_state_id: str, value_id: str,
+        config: CounterfactualRehearsalConfig = CounterfactualRehearsalConfig(max_horizon=1),
+        max_probe_steps: int = 8, max_records: int = 4096,
+    ) -> CounterfactualRehearsalProposal | None:
+        """Re-enter the existing rehearsal owner from one internally resolved referent bucket."""
+        current=self.derive_current_resolved_referent_routing_context(
+            deficit_id,max_probe_steps=max_probe_steps,max_records=max_records,
+        )
+        if current.get("status")!="CURRENT_RESOLVED_REFERENT_ROUTING_CONTEXT":
+            return None
+        channels=tuple(current.get("channel_ids",()))
+        if len(channels)!=1 or int(config.max_horizon)!=int(current["horizon"]):
+            return None
+        return self.nominate_counterfactual_rehearsal(
+            observations,options,start_state_id=start_state_id,value_id=value_id,config=config,
+            projection_routing_id=str(current["binding_id"]),projection_bucket_id=str(current["resolved_bucket_id"]),
+            routing_task_id=str(current["task_id"]),routing_channel_id=str(channels[0]),
+        )
+
     def record_operational_referent_signature(
         self,
         evidence_id: str,
