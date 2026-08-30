@@ -1,5 +1,5 @@
 from __future__ import annotations
-import hashlib, json
+import hashlib, json, math
 from typing import Iterable, Mapping
 
 from ..runtime.commitment import RelationalCommitment, TernaryCommitment
@@ -135,6 +135,103 @@ def derive_regulatory_decision_bearing_commitment(
         cid, target, stance, reason=reason,
         qualifiers=qnone + (("first_actions", "|".join(first_actions)), ("value_id", anchor.object_id), ("value_epoch", str(anchor.epoch))),
         premise_ids=(deficit.deficit_id, deficit.unknown_evidence_id, anchor.object_id, *bound_probe_premises),
+    )
+
+
+def derive_strict_same_value_cross_deficit_selection_commitment(
+    opportunity_rows: Iterable[Mapping[str, object]],
+) -> RelationalCommitment:
+    """Derive one narrow cross-deficit selection from an exact shared regulatory coordinate.
+
+    The rows are current, read-only consequence summaries produced by existing
+    opportunity/rehearsal owners.  This function does not enumerate opportunities,
+    persist deficits, rank different value variables, or execute anything.  It asks
+    only whether one live opportunity has strictly lower *worst residual pressure*
+    than every other live opportunity on the same exact value coordinate.
+    """
+    target="cross-deficit-epistemic-selection"
+    qnone=(("authority_gain","NONE"),("selection_authority","NONE"),("execution_authority","NONE"),("truth_authority","NONE"),("semantic_goal_authority","NONE"))
+    rows=tuple(dict(x) for x in opportunity_rows)
+    base_premises=tuple(sorted({str(pid) for row in rows for pid in row.get("premise_ids",())}))
+    if len(rows)<2:
+        return RelationalCommitment(
+            _sha({"target":target,"rows":rows}),target,TernaryCommitment.UNKNOWN,
+            reason="MULTIPLE_CURRENT_CROSS_DEFICIT_OPPORTUNITIES_REQUIRED",qualifiers=qnone,
+            premise_ids=base_premises,
+        )
+    required=("deficit_id","probe_action_id","value_id","value_epoch","current_value","worst_residual_pressure")
+    if any(any(key not in row for key in required) for row in rows):
+        return RelationalCommitment(
+            _sha({"target":target,"rows":rows,"reason":"shape"}),target,TernaryCommitment.UNKNOWN,
+            reason="CROSS_DEFICIT_REGULATORY_CONSEQUENCE_ROW_INCOMPLETE",qualifiers=qnone,
+            premise_ids=base_premises,
+        )
+    deficits=tuple(str(row["deficit_id"]) for row in rows)
+    probes=tuple(str(row["probe_action_id"]) for row in rows)
+    if len(set(deficits))!=len(deficits):
+        return RelationalCommitment(
+            _sha({"target":target,"deficits":deficits}),target,TernaryCommitment.UNKNOWN,
+            reason="DISTINCT_CURRENT_DEFICITS_REQUIRED",qualifiers=qnone,premise_ids=base_premises,
+        )
+    if len(set(probes))<2:
+        return RelationalCommitment(
+            _sha({"target":target,"probes":probes}),target,TernaryCommitment.UNKNOWN,
+            reason="CROSS_DEFICIT_SELECTION_NOT_REQUIRED_FOR_SHARED_PROBE",qualifiers=qnone,
+            premise_ids=base_premises,
+        )
+    coordinates=[]; scored=[]
+    try:
+        for row in rows:
+            current_value=float(row["current_value"]); residual=float(row["worst_residual_pressure"])
+            if not math.isfinite(current_value) or not math.isfinite(residual) or residual<0.0:
+                raise ValueError("NONFINITE_OR_NEGATIVE")
+            coordinates.append((str(row["value_id"]),int(row["value_epoch"]),current_value))
+            scored.append((residual,str(row["probe_action_id"]),str(row["deficit_id"]),row))
+    except (TypeError,ValueError,OverflowError):
+        return RelationalCommitment(
+            _sha({"target":target,"rows":rows,"reason":"numeric"}),target,TernaryCommitment.UNKNOWN,
+            reason="FINITE_NONNEGATIVE_REGULATORY_CONSEQUENCE_REQUIRED",qualifiers=qnone,
+            premise_ids=base_premises,
+        )
+    if len(set(coordinates))!=1:
+        return RelationalCommitment(
+            _sha({"target":target,"coordinates":coordinates}),target,TernaryCommitment.UNKNOWN,
+            reason="EXACT_SAME_VALUE_COORDINATE_REQUIRED",qualifiers=qnone,premise_ids=base_premises,
+        )
+    ranked=tuple(sorted(scored,key=lambda x:(x[0],x[1],x[2])))
+    best=ranked[0][0]; winners=tuple(x for x in ranked if x[0]==best)
+    if len(winners)!=1:
+        return RelationalCommitment(
+            _sha({"target":target,"coordinate":coordinates[0],"scores":[(x[2],x[1],x[0]) for x in ranked]}),
+            target,TernaryCommitment.UNKNOWN,reason="WORST_RESIDUAL_PRESSURE_TIE",qualifiers=qnone,
+            premise_ids=base_premises,
+        )
+    next_score=ranked[1][0]
+    if not best<next_score:
+        return RelationalCommitment(
+            _sha({"target":target,"coordinate":coordinates[0],"scores":[(x[2],x[1],x[0]) for x in ranked]}),
+            target,TernaryCommitment.UNKNOWN,reason="NO_STRICT_SAME_VALUE_REGULATORY_DOMINANCE",qualifiers=qnone,
+            premise_ids=base_premises,
+        )
+    winner=winners[0]; row=winner[3]
+    premise_ids=tuple(sorted(set(base_premises+(str(row["deficit_id"]),))))
+    cid=_sha({
+        "target":target,"coordinate":coordinates[0],"selected_deficit_id":winner[2],
+        "selected_probe_action_id":winner[1],"best":best,"next":next_score,
+        "scores":[(x[2],x[1],x[0]) for x in ranked],"premises":premise_ids,
+    })
+    return RelationalCommitment(
+        cid,target,TernaryCommitment.YES,
+        reason="STRICT_SAME_VALUE_CROSS_DEFICIT_REGULATORY_DOMINANCE",
+        qualifiers=(
+            ("authority_gain","NONE"),
+            ("selection_authority","STRICT_SAME_VALUE_REGULATORY_DOMINANCE_ONLY"),
+            ("execution_authority","NONE"),("truth_authority","NONE"),("semantic_goal_authority","NONE"),
+            ("selected_probe_action_id",winner[1]),("selected_deficit_id",winner[2]),
+            ("comparison_basis","EXACT_SAME_VALUE_COORDINATE__STRICT_WORST_RESIDUAL_PRESSURE_ONLY"),
+            ("dominant_worst_residual_pressure",str(best)),("next_worst_residual_pressure",str(next_score)),
+        ),
+        premise_ids=premise_ids,
     )
 
 
