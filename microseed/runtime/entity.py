@@ -7473,15 +7473,12 @@ class Microseed:
         if len(probes)==1: return {**base,"status":"MULTIPLE_REFERENT_PRESSURES_SHARED_PROBE","selection_authority":"SHARED_ACTION_COMPOSITION_ONLY"}
         return {**base,"status":"MULTIPLE_CURRENT_OWNED_REFERENT_EPISTEMIC_OPPORTUNITIES","reason":"CROSS_DEFICIT_SELECTION_REQUIRED"}
 
-    def derive_current_owned_referent_cross_deficit_selection_surface(
+    def _current_owned_referent_cross_deficit_selection_bundle(
         self, obligation: QueryObligation, *, max_probe_steps: int = 2, max_records: int = 4096,
-    ) -> dict[str, Any]:
-        """Re-derive one strict same-value selection over the current owned opportunity set."""
+    ) -> tuple[tuple[dict[str, Any], ...], RelationalCommitment, dict[str, Any] | None]:
         ops=self._current_owned_referent_epistemic_opportunities(
             obligation,max_probe_steps=max_probe_steps,max_records=max_records,
         )
-        if len(ops)<2:
-            return {"status":"NO_CURRENT_CROSS_DEFICIT_SELECTION_REQUIRED","opportunity_count":len(ops),"selection_authority":"NONE","execution_authority":"NONE"}
         rows=[]
         for op in ops:
             consequence=op["consequence"]
@@ -7497,12 +7494,92 @@ class Microseed:
         selection=derive_strict_same_value_cross_deficit_selection_commitment(tuple(rows))
         q=dict(selection.qualifiers)
         selected=next((op for op in ops if str(op["deficit"].deficit_id)==str(q.get("selected_deficit_id")) and str(op["probe_action_id"])==str(q.get("selected_probe_action_id"))),None) if selection.licenses_yes() else None
+        return ops,selection,selected
+
+    def derive_current_owned_referent_cross_deficit_selection_surface(
+        self, obligation: QueryObligation, *, max_probe_steps: int = 2, max_records: int = 4096,
+    ) -> dict[str, Any]:
+        """Re-derive one strict same-value selection over the current owned opportunity set."""
+        ops,selection,selected=self._current_owned_referent_cross_deficit_selection_bundle(
+            obligation,max_probe_steps=max_probe_steps,max_records=max_records,
+        )
+        if len(ops)<2:
+            return {"status":"NO_CURRENT_CROSS_DEFICIT_SELECTION_REQUIRED","opportunity_count":len(ops),"selection_authority":"NONE","execution_authority":"NONE"}
+        q=dict(selection.qualifiers)
         return {
             "status":"CURRENT_STRICT_SAME_VALUE_CROSS_DEFICIT_SELECTION" if selection.licenses_yes() else "NO_CURRENT_STRICT_CROSS_DEFICIT_SELECTION",
             "selection_commitment":selection.serializable(),"selected_deficit_id":None if selected is None else selected["deficit"].deficit_id,
             "selected_probe_action_id":None if selected is None else selected["probe_action_id"],
             "opportunity_count":len(ops),"probe_action_ids":tuple(sorted({str(op["probe_action_id"]) for op in ops})),
             "selection_authority":q.get("selection_authority","NONE"),"execution_authority":"NONE","truth_authority":"NONE",
+        }
+
+    def nominate_current_strict_same_value_referent_epistemic_opportunity(
+        self, obligation: QueryObligation, *, max_probe_steps: int = 2, max_records: int = 4096,
+    ) -> dict[str, Any]:
+        """Persist and nominate only the current strict same-value cross-deficit winner."""
+        before=(len(self.epistemic_deficits.records),len(self.action_closure.intents),len(self.action_closure.executions))
+        ops,selection,selected=self._current_owned_referent_cross_deficit_selection_bundle(
+            obligation,max_probe_steps=max_probe_steps,max_records=max_records,
+        )
+        if not selection.licenses_yes() or selected is None:
+            return {
+                "status":"ABSTAIN","reason":selection.reason,"selection_commitment":selection.serializable(),
+                "selection_authority":"NONE","execution_authority":"NONE",
+                "deficit_delta":len(self.epistemic_deficits.records)-before[0],
+                "intent_delta":len(self.action_closure.intents)-before[1],"execution_delta":len(self.action_closure.executions)-before[2],
+            }
+        d=selected["deficit"]; probe=str(selected["probe_action_id"]); q=dict(selection.qualifiers)
+        if d.deficit_id in self.epistemic_deficits.records:
+            return {
+                "status":"ABSTAIN","reason":"SELECTED_EPISTEMIC_DEFICIT_ALREADY_PERSISTED",
+                "selected_deficit_id":d.deficit_id,"selected_probe_action_id":probe,
+                "selection_commitment":selection.serializable(),"selection_authority":"NONE","execution_authority":"NONE",
+                "deficit_delta":0,"intent_delta":0,"execution_delta":0,
+            }
+        unknown_payload={
+            "kind":"SELECTED_OWNED_REFERENT_EPISTEMIC_UNKNOWN",
+            "selected_ephemeral_deficit_id":d.deficit_id,"selected_trial_id":selected["trial"].trial_id,
+            "selected_trial_digest":selected["trial"].digest(),"binding_id":selected["binding_id"],
+            "probe_action_id":probe,"source_raw_observation_evidence_id":d.unknown_evidence_id,
+            "hypothesis_digest_sha256":d.hypothesis_digest_sha256,
+            "missing_discriminator_signature_sha256":d.missing_discriminator_signature_sha256,
+            "priority_commitment_id":selected["priority"].commitment_id,
+            "information_commitment_id":selected["contrast_information"].commitment_id,
+            "step_commitment_id":selected["commitment"].commitment_id,
+            "opportunity_content_signature_sha256":selected["content_signature_sha256"],
+            "cross_deficit_selection_commitment_id":selection.commitment_id,
+            "cross_deficit_selection_authority":q.get("selection_authority","NONE"),
+            "proposal_only":True,"authority_gain":"NONE",
+        }
+        unknown_id="SELECTED-REFERENT-UNKNOWN-"+action_result_digest(unknown_payload)[:24]
+        existing=self.evidence.get(unknown_id)
+        if existing is None:
+            unknown=self.append_evidence(
+                unknown_id,unknown_payload,EpistemicStatus.UNKNOWN_INCOMPLETE,
+                source="MICROSEED_ENDOGENOUS_SELECTED_EPISTEMIC_OPPORTUNITY",
+            )
+        else:
+            if existing.get("disposition")!=EpistemicStatus.UNKNOWN_INCOMPLETE.value or existing.get("payload")!=unknown_payload:
+                return {"status":"ABSTAIN","reason":"SELECTED_ENDOGENOUS_UNKNOWN_EVIDENCE_COLLISION","selection_authority":"NONE","execution_authority":"NONE","deficit_delta":0,"intent_delta":0,"execution_delta":0}
+            unknown=type("ExistingUnknown",(),{"evidence_id":unknown_id})()
+        persisted=self.record_action_limited_unknown(
+            deficit_id=d.deficit_id,question_key=d.question_key,hypothesis_digest_sha256=d.hypothesis_digest_sha256,
+            unknown_evidence_id=unknown.evidence_id,missing_discriminator_signature_sha256=d.missing_discriminator_signature_sha256,
+            premise_anchors=d.premise_anchors,
+            assistance_ancestry=tuple(d.assistance_ancestry)+("ENDOGENOUS_UNKNOWN_MATERIALIZED_AFTER_STRICT_CROSS_DEFICIT_SELECTION",),
+        )
+        nomination=self.nominate_endogenous_epistemic_program_step_intent_from_current_surface(
+            selected["trial"],selected["decision_context"],obligation,
+        )
+        return {
+            "status":"SELECTED_OPPORTUNITY_PERSISTED_AND_NOMINATED" if nomination.get("status")=="ACTION_INTENT_NOMINATED" else "SELECTED_OPPORTUNITY_PERSISTED_BUT_NOT_NOMINATED",
+            "reason":str(nomination.get("reason",nomination.get("status","UNKNOWN"))),
+            "selected_deficit_id":d.deficit_id,"selected_probe_action_id":probe,"unknown_evidence_id":unknown.evidence_id,
+            "persisted_deficit":persisted.serializable(),"selection_commitment":selection.serializable(),"nomination":nomination,
+            "selection_authority":q.get("selection_authority","NONE"),"execution_authority":"NONE",
+            "deficit_delta":len(self.epistemic_deficits.records)-before[0],
+            "intent_delta":len(self.action_closure.intents)-before[1],"execution_delta":len(self.action_closure.executions)-before[2],
         }
 
     def derive_current_owned_referent_decision_surface(
