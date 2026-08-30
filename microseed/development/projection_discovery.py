@@ -121,6 +121,7 @@ class EpistemicProjectionCandidate:
     frame_epochs: tuple[tuple[str, int], ...]
     assistance_ancestry: tuple[str, ...]
     source_projection_epochs: tuple[tuple[str, int, str], ...] = ()
+    dependency_projection_epochs: tuple[tuple[str, int, str], ...] = ()
     nomination_basis: str = "BOUNDED_ACTION_CONDITIONED_PREDICTIVE_EQUIVALENCE"
     proposal_authority: str = "NONE"
     qualification_authority: str = "NONE"
@@ -146,7 +147,25 @@ class EpistemicProjectionCandidate:
             deps.append((pid,ep,sig))
         if len({x[0] for x in deps}) != len(deps):
             raise ValueError("DUPLICATE_CANDIDATE_SOURCE_PROJECTION_ANCESTRY")
-        object.__setattr__(self,"source_projection_epochs",tuple(sorted(deps)))
+        basis=tuple(sorted(deps))
+        object.__setattr__(self,"source_projection_epochs",basis)
+        supplied_selected=[]
+        for projection_id, epoch, signature in self.dependency_projection_epochs:
+            pid=str(projection_id); ep=int(epoch); sig=str(signature).lower()
+            if not pid or ep < 0 or len(sig)!=64 or any(c not in "0123456789abcdef" for c in sig):
+                raise ValueError("INVALID_CANDIDATE_DEPENDENCY_PROJECTION_ANCESTRY")
+            supplied_selected.append((pid,ep,sig))
+        if len({x[0] for x in supplied_selected}) != len(supplied_selected):
+            raise ValueError("DUPLICATE_CANDIDATE_DEPENDENCY_PROJECTION_ANCESTRY")
+        supplied_selected=tuple(sorted(supplied_selected))
+        derived_selected=()
+        if basis:
+            if max(self.input_positions) >= len(basis):
+                raise ValueError("CANDIDATE_DEPENDENCY_POSITION_OUT_OF_SOURCE_BASIS")
+            derived_selected=tuple(sorted(basis[i] for i in self.input_positions))
+        if supplied_selected and supplied_selected != derived_selected:
+            raise ValueError("CANDIDATE_DEPENDENCY_PROJECTIONS_DO_NOT_MATCH_SELECTED_INPUT_POSITIONS")
+        object.__setattr__(self,"dependency_projection_epochs",derived_selected)
 
     def signature_payload(self) -> dict[str, Any]:
         out = {
@@ -202,6 +221,7 @@ class EpistemicProjectionCandidate:
             frame_epochs=tuple((str(x[0]), int(x[1])) for x in d["frame_epochs"]),
             assistance_ancestry=tuple(str(x) for x in d.get("assistance_ancestry", ())),
             source_projection_epochs=tuple((str(x[0]),int(x[1]),str(x[2])) for x in d.get("source_projection_epochs", ())),
+            dependency_projection_epochs=tuple((str(x[0]),int(x[1]),str(x[2])) for x in d.get("dependency_projection_epochs", ())),
             nomination_basis=str(d.get("nomination_basis", "BOUNDED_ACTION_CONDITIONED_PREDICTIVE_EQUIVALENCE")),
             proposal_authority=str(d.get("proposal_authority", "NONE")),
             qualification_authority=str(d.get("qualification_authority", "NONE")),
@@ -298,6 +318,11 @@ def _fit_candidate(
     if len(lineages)!=1:
         return None
     source_projection_epochs=next(iter(lineages))
+    dependency_projection_epochs=()
+    if source_projection_epochs:
+        if max(positions) >= len(source_projection_epochs):
+            return None
+        dependency_projection_epochs=tuple(source_projection_epochs[i] for i in positions)
     action_effect: dict[tuple[tuple[str, ...], str], Counter[str]] = defaultdict(Counter)
     keys: set[tuple[str, ...]] = set()
     actions = sorted({r.action_token for r in train})
@@ -383,6 +408,7 @@ def _fit_candidate(
         frame_epochs=tuple(frame_epochs),
         assistance_ancestry=cfg.assistance_ancestry(),
         source_projection_epochs=source_projection_epochs,
+        dependency_projection_epochs=dependency_projection_epochs,
     )
 
 

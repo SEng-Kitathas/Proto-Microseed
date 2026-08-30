@@ -4228,15 +4228,37 @@ class Microseed:
                 if rec.source_projection_epochs:
                     if depth >= depth_limit:
                         return None,"SOURCE_PROJECTION_RECURSIVE_DEPTH_EXCEEDS_BOUND"
-                    source_buckets=[]
-                    for source_id,source_epoch,source_signature in rec.source_projection_epochs:
-                        source=self.epistemic_projections.records.get(source_id)
-                        if source is None or source.signature_sha256!=source_signature or not self.epistemic_projections.is_current(source_id,source_epoch):
-                            return None,"SOURCE_PROJECTION_ANCESTRY_NOT_CURRENT"
-                        bucket,reason=visit(source_id,depth+1)
-                        if bucket is None:
-                            return None,reason or "SOURCE_PROJECTION_ANCESTRY_NOT_EVALUABLE"
-                        source_buckets.append(bucket)
+                    if tuple(candidate.source_projection_epochs)!=tuple(rec.source_projection_epochs):
+                        return None,"SOURCE_PROJECTION_BASIS_LINEAGE_MISMATCH"
+                    if candidate.dependency_projection_epochs:
+                        if tuple(candidate.dependency_projection_epochs)!=tuple(rec.dependency_projection_epochs):
+                            return None,"SOURCE_PROJECTION_DEPENDENCY_LINEAGE_MISMATCH"
+                        if max(candidate.input_positions) >= len(rec.source_projection_epochs):
+                            return None,"SOURCE_PROJECTION_DEPENDENCY_POSITION_OUT_OF_BOUNDS"
+                        selected=tuple(rec.source_projection_epochs[i] for i in candidate.input_positions)
+                        if tuple(sorted(selected))!=tuple(rec.dependency_projection_epochs):
+                            return None,"SOURCE_PROJECTION_DEPENDENCY_POSITION_MISMATCH"
+                        source_buckets=["" for _ in rec.source_projection_epochs]
+                        for pos,(source_id,source_epoch,source_signature) in zip(candidate.input_positions,selected):
+                            source=self.epistemic_projections.records.get(source_id)
+                            if source is None or source.signature_sha256!=source_signature or not self.epistemic_projections.is_current(source_id,source_epoch):
+                                return None,"SOURCE_PROJECTION_DEPENDENCY_NOT_CURRENT"
+                            bucket,reason=visit(source_id,depth+1)
+                            if bucket is None:
+                                return None,reason or "SOURCE_PROJECTION_DEPENDENCY_NOT_EVALUABLE"
+                            source_buckets[pos]=bucket
+                    else:
+                        # Legacy composed candidates did not distinguish selected dependencies.
+                        # Preserve their conservative full-basis evaluation/currentness behavior.
+                        source_buckets=[]
+                        for source_id,source_epoch,source_signature in rec.source_projection_epochs:
+                            source=self.epistemic_projections.records.get(source_id)
+                            if source is None or source.signature_sha256!=source_signature or not self.epistemic_projections.is_current(source_id,source_epoch):
+                                return None,"SOURCE_PROJECTION_ANCESTRY_NOT_CURRENT"
+                            bucket,reason=visit(source_id,depth+1)
+                            if bucket is None:
+                                return None,reason or "SOURCE_PROJECTION_ANCESTRY_NOT_EVALUABLE"
+                            source_buckets.append(bucket)
                     bucket=candidate.project(tuple(source_buckets))
                     if bucket is None:
                         return None,"COMPOSED_SOURCE_PROJECTION_DOES_NOT_COVER_DERIVED_BUCKET_VECTOR"
@@ -4614,6 +4636,7 @@ class Microseed:
             qualification_evidence_ids=qids,
             frame_epochs=tuple(candidate.frame_epochs),
             source_projection_epochs=tuple(candidate.source_projection_epochs),
+            dependency_projection_epochs=tuple(candidate.dependency_projection_epochs),
         )
         self.epistemic_projections.register(rec)
         packet = rec.serializable()
