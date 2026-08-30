@@ -2021,7 +2021,11 @@ class Microseed:
                 program_discriminator_satisfaction=satisfaction,
             )
             if fresh.commitment_id!=intent.action_commitment.commitment_id:
-                return fresh,"EPISTEMIC_PROGRAM_STEP_PREMISE_DRIFT",{"fresh_commitment":fresh.serializable()}
+                # A freshly-derived YES does not preserve nomination authority when it
+                # is a different commitment.  Effect-time reauthorization requires
+                # continuity of the exact nominated premise set, not merely another
+                # currently-licensable step.
+                return None,"EPISTEMIC_PROGRAM_STEP_PREMISE_DRIFT",{"fresh_commitment":fresh.serializable()}
             selected_marker=(
                 deficit is not None
                 and "ENDOGENOUS_UNKNOWN_MATERIALIZED_AFTER_STRICT_CROSS_DEFICIT_SELECTION" in tuple(str(x) for x in deficit.assistance_ancestry)
