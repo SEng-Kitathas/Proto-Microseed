@@ -80,47 +80,52 @@ def _selected_opportunity(initial_surface: dict, persisted: dict) -> dict:
 
 
 def run_stable() -> dict:
-    td, m, calls, initial_surface, comparison, selection = _surface(True)
+    td, m, calls, _initial_surface, _comparison, _selection = _surface(True)
     try:
-        _ops, _native_selection, selected = m._current_owned_referent_cross_deficit_selection_bundle(act_ob())
-        assert _native_selection.licenses_yes() and selected is not None
+        ops, native_selection, selected = m._current_owned_referent_cross_deficit_selection_bundle(act_ob())
+        assert native_selection.licenses_yes() and selected is not None and selected["probe_action_id"] == "P2"
         persisted = m.nominate_current_strict_same_value_referent_epistemic_opportunity(act_ob())
         assert persisted["status"] == "SELECTED_OPPORTUNITY_PERSISTED_AND_NOMINATED", persisted
-        result = execute_with_fresh_cross_deficit_selection_reauthorization(m, persisted, selected)
-        assert result["status"] == "ACTION_EXECUTED", result
+        execution = m.execute_bounded_action(
+            persisted["nomination"]["intent"]["intent_id"], act_ob(),
+            epistemic_step_context=EpistemicStepExecutionContext(selected["trial"], decision_context=selected["decision_context"]),
+        )
+        assert execution["status"] == "ACTION_EXECUTED", execution
         assert calls == ["P2"], calls
-        return {"status": "PASS", "result": result, "calls": list(calls)}
+        return {"status":"PASS","execution":execution,"calls":list(calls),"native_reauthorization_owner":"MS2030_RUNTIME"}
     finally:
         m.biography.close(); m.evidence.conn.close(); m.store.conn.close(); td.cleanup()
 
 
 def run_new_competitor_block() -> dict:
-    td, m, calls, initial_surface, comparison, selection = _surface(True)
+    td, m, calls, _initial_surface, _comparison, _selection = _surface(True)
     try:
-        _ops, _native_selection, selected = m._current_owned_referent_cross_deficit_selection_bundle(act_ob())
-        assert _native_selection.licenses_yes() and selected is not None
+        ops, native_selection, selected = m._current_owned_referent_cross_deficit_selection_bundle(act_ob())
+        assert native_selection.licenses_yes() and selected is not None
         persisted = m.nominate_current_strict_same_value_referent_epistemic_opportunity(act_ob())
         assert persisted["status"] == "SELECTED_OPPORTUNITY_PERSISTED_AND_NOMINATED", persisted
-        weak_p4 = next(op for op in initial_surface["opportunities"] if op["probe_action_id"] == "P4")
+        weak_p4 = next(op for op in ops if op["probe_action_id"] == "P4")
         _add_strong_current_p4_competitor(m, weak_p4)
-        result = execute_with_fresh_cross_deficit_selection_reauthorization(m, persisted, selected)
-        assert result["status"] == "NO_EXECUTION", result
-        assert result["reason"] == "CURRENT_CROSS_DEFICIT_SELECTION_REQUIRED", result
-        assert result["fresh_comparison"]["reason"] == "WORST_RESIDUAL_PRESSURE_TIE", result
+        execution = m.execute_bounded_action(
+            persisted["nomination"]["intent"]["intent_id"], act_ob(),
+            epistemic_step_context=EpistemicStepExecutionContext(selected["trial"], decision_context=selected["decision_context"]),
+        )
+        assert execution["status"] == "NO_EXECUTION", execution
+        assert execution["reason"] == "CURRENT_CROSS_DEFICIT_SELECTION_REQUIRED_AT_EXECUTION", execution
         assert calls == [], calls
-        return {"status": "PASS", "result": result, "calls": list(calls)}
+        return {"status":"PASS","execution":execution,"calls":list(calls),"native_reauthorization_owner":"MS2030_RUNTIME"}
     finally:
         m.biography.close(); m.evidence.conn.close(); m.store.conn.close(); td.cleanup()
 
 
 def run_ms2026() -> dict:
     return {
-        "status": "PASS",
-        "stable": run_stable(),
-        "new_competitor_block": run_new_competitor_block(),
-        "new_scheduler_required": "NO",
-        "persistent_opportunity_registry_required": "NO",
-        "ordinary_executor_remains_effect_owner": "YES",
+        "status":"HISTORICAL_ADAPTER_SUPERSEDED_BY_NATIVE_RUNTIME",
+        "stable":run_stable(),
+        "new_competitor_block":run_new_competitor_block(),
+        "new_scheduler_required":"NO",
+        "persistent_opportunity_registry_required":"NO",
+        "ordinary_executor_remains_effect_owner":"YES",
     }
 
 

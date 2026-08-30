@@ -21,3 +21,11 @@ Classification:
 The adapter is therefore superseded, not repaired by aliasing ids. Current MS2026 replay should prove that the native MS2030 gate supplies the behavior the adapter originally established: stable selected P2 executes through ordinary EFFECT; new equal competitor blocks before EFFECT; no scheduler or persistent opportunity registry is introduced.
 
 This partial-failure state is intentionally committed before updating the MS2026 current regression harness.
+
+
+## Repair — native supersession replay
+MS2026 current replay no longer compares scratch opportunity IDs against promoted runtime IDs. It now reconstructs/nominates through the native MS2028/MS2029 owners and lets MS2030 own effect-time reauthorization. Stable P2 executes once through ordinary EFFECT; new equal P4 competitor blocks before EFFECT. The historical scratch adapter remains recoverable in prior Git commits and is explicitly classified as superseded rather than silently rewritten into authority.
+
+
+## Verification
+Focused current-law replay across MS2025 + MS2026 + MS2030: 6/6 PASS in 16.52s, stderr empty. Historical failure/violation states remain available in earlier Git commits; current branch now encodes the repaired law.
