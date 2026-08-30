@@ -1754,6 +1754,31 @@ class Microseed:
             "decision_surface":surface,
         }
 
+    def _fresh_owned_referent_decision_context_for_trial(
+        self, trial: EpistemicProgramTrial,
+    ) -> tuple[EpistemicDecisionBearingContext | None, str | None, dict[str, Any] | None]:
+        """Re-derive an internally-owned partial-referent decision surface at execution time."""
+        deficit=self.epistemic_deficits.records.get(trial.deficit_id)
+        if deficit is None or deficit.state==EpistemicDeficitState.STALE:
+            return None,"NOT_APPLICABLE",None
+        ancestry=tuple(str(x) for x in deficit.assistance_ancestry)
+        if "DERIVED_FROM_CURRENT_PARTIAL_REFERENT_AMBIGUITY" not in ancestry:
+            return None,"NOT_APPLICABLE",None
+        if len(trial.steps)!=1:
+            return None,"CURRENT_OWNED_REFERENT_SINGLE_PROBE_TRIAL_REQUIRED",{"trial_steps":trial.steps}
+        surface=self.derive_current_owned_referent_decision_surface(deficit.deficit_id)
+        if surface.get("status")!="CURRENT_OWNED_REFERENT_DECISION_SURFACE":
+            return None,"CURRENT_OWNED_REFERENT_DECISION_SURFACE_REQUIRED_AT_EXECUTION",{"decision_surface":surface}
+        if str(surface.get("unique_probe_action_id"))!=str(trial.steps[0]):
+            return None,"CURRENT_OWNED_REFERENT_PROBE_TRIAL_BINDING_REQUIRED",{
+                "current_probe_action_id":surface.get("unique_probe_action_id"),"trial_steps":trial.steps,
+            }
+        if tuple(sorted(str(x) for x in surface.get("source_relation_digests",())))!=tuple(sorted(trial.source_relation_digests)):
+            return None,"CURRENT_OWNED_REFERENT_PROBE_SOURCE_ANCESTRY_DRIFT",{
+                "decision_surface":surface,"trial_source_relation_digests":trial.source_relation_digests,
+            }
+        return EpistemicDecisionBearingContext(tuple(surface["relation_sets"]),()),None,{"decision_surface":surface}
+
     def _fresh_action_commitment_for_intent(self, intent: BoundedActionIntent, *, obligation: QueryObligation | None = None, epistemic_step_context: EpistemicStepExecutionContext | None = None) -> tuple[RelationalCommitment | None, str, dict[str, Any] | None]:
         if intent.basis_kind=="EPISTEMIC_PROGRAM_STEP":
             if obligation is None or epistemic_step_context is None:
@@ -1793,6 +1818,11 @@ class Microseed:
                 if fresh_probe_context is None:
                     return None,probe_context_reason or "CURRENT_REVISED_DIRECT_PROBE_DECISION_SURFACE_REQUIRED_AT_EXECUTION",probe_context_detail
                 execution_decision_context=fresh_probe_context
+            fresh_referent_context,referent_context_reason,referent_context_detail=self._fresh_owned_referent_decision_context_for_trial(trial)
+            if referent_context_reason!="NOT_APPLICABLE":
+                if fresh_referent_context is None:
+                    return None,referent_context_reason or "CURRENT_OWNED_REFERENT_DECISION_SURFACE_REQUIRED_AT_EXECUTION",referent_context_detail
+                execution_decision_context=fresh_referent_context
             if execution_decision_context is not None:
                 if priority_options is None:
                     priority_options,_priority_basis=derive_current_grounded_feasibility_surface(
