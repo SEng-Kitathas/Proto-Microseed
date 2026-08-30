@@ -101,6 +101,7 @@ from ..development.reentry import (
 )
 from ..development.epistemic_program import GeneratedEpistemicProgramCandidate, begin_epistemic_program_trial, begin_generated_epistemic_program_trial, completed_program_evidence_payload
 from ..development.relational_algebra import OpaqueActionCompositionCandidate, OpaqueTransitionSample, discover_opaque_action_composition_candidates, discover_one_step_visible_history_refinements
+from ..development.epistemic_priority import derive_program_contrast_discrimination_commitment
 from ..development.epistemic_action import (
     EpistemicStepExecutionContext, EpistemicDecisionBearingContext, derive_epistemic_program_step_commitment, derive_epistemic_program_step_local_precheck,
     derive_grounded_feasibility_option, derive_current_program_discrimination_commitment, derive_current_decision_bearing_commitment,
@@ -907,7 +908,7 @@ class Microseed:
         )
         if not priority.licenses_yes():
             return {"status":"ABSTAIN","reason":priority.reason,"priority":priority.serializable(),"local_precheck":local.serializable(),"execution_authority":"NONE"}
-        information=derive_current_program_discrimination_commitment(
+        information=self._derive_current_epistemic_program_information_commitment(
             trial=trial, decision_context=decision_context, decision_bearing_commitment=priority,
         )
         if not information.licenses_yes():
@@ -958,7 +959,7 @@ class Microseed:
         )
         if not priority.licenses_yes():
             return {"status":"ABSTAIN","reason":priority.reason,"priority":priority.serializable(),"local_precheck":local.serializable(),"feasibility_basis":feasibility_basis,"execution_authority":"NONE"}
-        information=derive_current_program_discrimination_commitment(
+        information=self._derive_current_epistemic_program_information_commitment(
             trial=trial, decision_context=decision_context, decision_bearing_commitment=priority,
         )
         if not information.licenses_yes():
@@ -1022,7 +1023,7 @@ class Microseed:
         )
         if not priority.licenses_yes():
             return {"status":"ABSTAIN","reason":priority.reason,"priority":priority.serializable(),"execution_authority":"NONE"}
-        information=derive_current_program_discrimination_commitment(
+        information=self._derive_current_epistemic_program_information_commitment(
             trial=trial, decision_context=decision_context, decision_bearing_commitment=priority,
         )
         if not information.licenses_yes():
@@ -1416,6 +1417,97 @@ class Microseed:
         result["evidence_independence_authority"] = "NONE"
         return result
 
+    def _current_owned_referent_program_observable_contrast(
+        self, trial,
+    ) -> tuple[tuple[EpistemicContrastRow, ...] | None, tuple[str, ...], str, dict[str, Any] | None]:
+        """Derive the current one-step referent raw-response contrast from owned evidence only."""
+        deficit=self.epistemic_deficits.records.get(str(trial.deficit_id))
+        if deficit is None or deficit.state==EpistemicDeficitState.STALE:
+            return None,(),"NOT_APPLICABLE",None
+        ancestry=tuple(str(x) for x in deficit.assistance_ancestry)
+        if "DERIVED_FROM_CURRENT_PARTIAL_REFERENT_AMBIGUITY" not in ancestry:
+            return None,(),"NOT_APPLICABLE",None
+        idx=len(trial.step_records)
+        if trial.status!="OPEN" or idx>=len(trial.steps):
+            return None,(deficit.deficit_id,),"CURRENT_OWNED_REFERENT_OPEN_PROGRAM_REQUIRED",None
+        surface=self.derive_current_owned_referent_decision_surface(deficit.deficit_id)
+        if surface.get("status")!="CURRENT_OWNED_REFERENT_DECISION_SURFACE":
+            # Preserve the historical pre-MS2009 assisted lane only when this organism
+            # has never owned bounded raw-observation evidence at all. Once raw evidence
+            # exists, current-prefix failure is a real currentness/ambiguity failure and
+            # must not fall back to caller-supplied trace semantics.
+            total=self.evidence.count()
+            has_owned_raw=any(
+                isinstance(row.get("payload"),dict)
+                and row["payload"].get("kind")=="BOUNDED_RAW_OBSERVATION_COORDINATES"
+                for row in self.evidence.recent(total)
+            ) if total else False
+            if not has_owned_raw:
+                return None,(),"NOT_APPLICABLE",{"legacy_assisted_referent_context":"NO_OWNED_RAW_OBSERVATION_HISTORY"}
+            return None,(deficit.deficit_id,),"CURRENT_OWNED_REFERENT_DECISION_SURFACE_REQUIRED",{"decision_surface":surface}
+        probe=str(surface.get("unique_probe_action_id",""))
+        if tuple(trial.steps[idx:])!=(probe,):
+            return None,(deficit.deficit_id,),"CURRENT_OWNED_REFERENT_SINGLE_PROBE_REMAINDER_REQUIRED",{"probe_action_id":probe,"remaining_steps":tuple(trial.steps[idx:])}
+        if tuple(sorted(str(x) for x in surface.get("source_relation_digests",())))!=tuple(sorted(str(x) for x in trial.source_relation_digests)):
+            return None,(deficit.deficit_id,trial.trial_id),"CURRENT_OWNED_REFERENT_PROBE_SOURCE_ANCESTRY_DRIFT",{"decision_surface":surface}
+        binding=self.action_outcome_learning.projection_conditioned_bindings.get(str(surface.get("binding_id","")))
+        if binding is None or not self._projection_conditioned_binding_current(binding):
+            return None,(deficit.deficit_id,),"CURRENT_OWNED_REFERENT_ROUTING_BINDING_REQUIRED",None
+        live=surface.get("live_surface") or {}
+        candidates=tuple(x for x in live.get("informative_candidates",()) if str(x.get("action_id"))==probe)
+        if len(candidates)!=1:
+            return None,(deficit.deficit_id,binding.binding_id),"EXACT_CURRENT_OWNED_REFERENT_OBSERVABLE_CONTRAST_REQUIRED",{"candidate_count":len(candidates)}
+        candidate=candidates[0]
+        outcomes=tuple((str(bucket),action_result_digest({"opaque_raw_response_multiset":response})) for bucket,response in candidate.get("predicted_response_partition",()))
+        if len(outcomes)<2 or len({x[0] for x in outcomes})!=len(outcomes):
+            return None,(deficit.deficit_id,binding.binding_id),"CURRENT_OWNED_REFERENT_OBSERVABLE_PARTITION_INVALID",None
+        condition=action_result_digest({
+            "task_id":binding.task_id,"action_id":probe,
+            "channel_ids":list(binding.channel_ids),"horizon":int(binding.horizon),
+            "observable_kind":"OPAQUE_RAW_RESPONSE_MULTISET",
+        })
+        row=EpistemicContrastRow(binding.projection_id,binding.projection_epoch,outcomes,condition_signature_sha256=condition)
+        projection=self.epistemic_projections.records.get(binding.projection_id)
+        if projection is None or not self.epistemic_projections.is_current(binding.projection_id,binding.projection_epoch):
+            return None,(deficit.deficit_id,binding.binding_id),"CURRENT_OWNED_REFERENT_PROJECTION_REQUIRED",None
+        contrast_signature=derive_pre_evidence_discriminator_signature(
+            hypothesis_digest_sha256=deficit.hypothesis_digest_sha256,rows=(row,),
+            projection_content_signatures={binding.projection_id:projection.signature_sha256},
+        )
+        prefix=live.get("probe_prefix") or {}
+        premise_ids=(
+            deficit.deficit_id,binding.binding_id,binding.projection_id,contrast_signature,
+            *tuple(str(x) for x in prefix.get("raw_observation_evidence_ids",())),
+            *tuple(str(x) for x in surface.get("source_relation_digests",())),
+        )
+        return (row,),tuple(dict.fromkeys(premise_ids)),"CURRENT_OWNED_REFERENT_OBSERVABLE_CONTRAST",{
+            "contrast_signature_sha256":contrast_signature,"probe_action_id":probe,
+            "binding_id":binding.binding_id,
+        }
+
+    def _derive_current_epistemic_program_information_commitment(
+        self, trial, decision_context: EpistemicDecisionBearingContext,
+        decision_bearing_commitment: RelationalCommitment,
+    ) -> RelationalCommitment:
+        """Use an internally-owned observable contrast when applicable; otherwise keep trace semantics."""
+        rows,premises,reason,detail=self._current_owned_referent_program_observable_contrast(trial)
+        if reason!="NOT_APPLICABLE":
+            if rows is None:
+                idx=len(trial.step_records); target=f"epistemic-program-information:{trial.trial_id}:step:{idx}"
+                return RelationalCommitment(
+                    action_result_digest({"target":target,"reason":reason,"premises":list(premises),"detail":detail}),
+                    target,TernaryCommitment.UNKNOWN,reason=reason,
+                    qualifiers=(("authority_gain","NONE"),("execution_authority","NONE"),("truth_authority","NONE"),("selection_authority","NONE")),
+                    premise_ids=(trial.trial_id,decision_bearing_commitment.commitment_id,*premises),
+                )
+            return derive_program_contrast_discrimination_commitment(
+                trial=trial,contrast_rows=rows,decision_bearing_commitment=decision_bearing_commitment,
+                source_premise_ids=premises,
+            )
+        return derive_current_program_discrimination_commitment(
+            trial=trial,decision_context=decision_context,decision_bearing_commitment=decision_bearing_commitment,
+        )
+
     def nominate_endogenous_epistemic_program_step_intent_from_current_surface(
         self, trial, decision_context: EpistemicDecisionBearingContext, obligation: QueryObligation,
     ) -> dict[str, Any]:
@@ -1448,7 +1540,7 @@ class Microseed:
         )
         if not priority.licenses_yes():
             return {"status":"ABSTAIN","reason":priority.reason,"priority":priority.serializable(),"feasibility_basis":basis.get(target),"execution_authority":"NONE"}
-        information=derive_current_program_discrimination_commitment(trial=trial,decision_context=decision_context,decision_bearing_commitment=priority)
+        information=self._derive_current_epistemic_program_information_commitment(trial=trial,decision_context=decision_context,decision_bearing_commitment=priority)
         if not information.licenses_yes():
             return {"status":"ABSTAIN","reason":information.reason,"priority":priority.serializable(),"information":information.serializable(),"feasibility_basis":basis.get(target),"execution_authority":"NONE"}
         intent,cmt=derive_epistemic_program_step_intent(
@@ -1480,7 +1572,7 @@ class Microseed:
         )
         if not priority.licenses_yes():
             return {"status":"ABSTAIN","reason":priority.reason,"priority":priority.serializable(),"execution_authority":"NONE"}
-        information=derive_current_program_discrimination_commitment(trial=trial,decision_context=decision_context,decision_bearing_commitment=priority)
+        information=self._derive_current_epistemic_program_information_commitment(trial=trial,decision_context=decision_context,decision_bearing_commitment=priority)
         if not information.licenses_yes():
             return {"status":"ABSTAIN","reason":information.reason,"priority":priority.serializable(),"information":information.serializable(),"execution_authority":"NONE"}
         idx=len(trial.step_records)
@@ -1916,7 +2008,7 @@ class Microseed:
                     current_frame_epochs=dict(self.frames.epochs), current_episode_epochs=dict(self.episodes.epochs),
                     current_topology_epochs=dict(self.topologies.epochs), current_coordination_epochs=dict(self.coordinations.epochs),
                 )
-                information=derive_current_program_discrimination_commitment(trial=trial,decision_context=execution_decision_context,decision_bearing_commitment=priority)
+                information=self._derive_current_epistemic_program_information_commitment(trial=trial,decision_context=execution_decision_context,decision_bearing_commitment=priority)
             satisfaction=self.derive_current_program_discriminator_satisfaction(trial) if deficit is not None and deficit.state==EpistemicDeficitState.PROBE_AVAILABLE else None
             fresh=derive_epistemic_program_step_commitment(
                 trial=trial, deficit=deficit, feasibility=feasibility, capabilities=self.capabilities, obligation=obligation,

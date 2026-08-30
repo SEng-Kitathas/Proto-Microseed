@@ -3,7 +3,7 @@ import hashlib, json
 from typing import Iterable, Mapping
 
 from ..runtime.commitment import RelationalCommitment, TernaryCommitment
-from .epistemic import EpistemicDeficitRecord, EpistemicDeficitState
+from .epistemic import EpistemicContrastRow, EpistemicDeficitRecord, EpistemicDeficitState
 from .recruitment import RecruitmentOption
 from .rehearsal import CounterfactualRehearsalConfig, RehearsalTransitionRelation, propose_counterfactual_rehearsal
 from .value import ValueVariableRegistry
@@ -135,6 +135,55 @@ def derive_regulatory_decision_bearing_commitment(
         cid, target, stance, reason=reason,
         qualifiers=qnone + (("first_actions", "|".join(first_actions)), ("value_id", anchor.object_id), ("value_epoch", str(anchor.epoch))),
         premise_ids=(deficit.deficit_id, deficit.unknown_evidence_id, anchor.object_id, *bound_probe_premises),
+    )
+
+
+def derive_program_contrast_discrimination_commitment(
+    *,
+    trial,
+    contrast_rows: Iterable[EpistemicContrastRow],
+    decision_bearing_commitment: RelationalCommitment,
+    source_premise_ids: Iterable[str] = (),
+) -> RelationalCommitment:
+    """Ask whether one bounded open program step partitions live alternatives by opaque outcomes.
+
+    ``EpistemicContrastRow`` already owns candidate -> opaque predicted-outcome
+    partitions without transition-model semantics.  This adapter therefore does not
+    reinterpret outcome digests as states, truth, identity, or effects.  It only
+    asks whether the exact current one-step program is associated with more than
+    one opaque observable signature across the same bounded candidate set.
+
+    Multi-step observable composition is intentionally not inferred here.
+    """
+    idx=len(trial.step_records)
+    target=f"epistemic-program-information:{trial.trial_id}:step:{idx}"
+    qnone=(("authority_gain","NONE"),("execution_authority","NONE"),("truth_authority","NONE"),("selection_authority","NONE"))
+    premises=(trial.trial_id,decision_bearing_commitment.commitment_id,*tuple(str(x) for x in source_premise_ids))
+    if not decision_bearing_commitment.licenses_yes():
+        return RelationalCommitment(_sha({"target":target,"priority":decision_bearing_commitment.commitment_id,"kind":"contrast"}),target,TernaryCommitment.UNKNOWN,reason="CURRENT_DECISION_BEARING_PREMISE_REQUIRED",qualifiers=qnone,premise_ids=premises)
+    if trial.status!="OPEN" or idx>=len(trial.steps):
+        return RelationalCommitment(_sha({"target":target,"trial":trial.digest(),"kind":"contrast"}),target,TernaryCommitment.NO,reason="NO_OPEN_PROGRAM_REMAINDER",qualifiers=qnone,premise_ids=premises)
+    remaining=tuple(trial.steps[idx:])
+    if len(remaining)!=1:
+        return RelationalCommitment(_sha({"target":target,"remaining":remaining,"kind":"contrast"}),target,TernaryCommitment.UNKNOWN,reason="OWNED_OBSERVABLE_CONTRAST_SINGLE_STEP_REQUIRED",qualifiers=qnone,premise_ids=premises)
+    rows=tuple(contrast_rows)
+    if not rows:
+        return RelationalCommitment(_sha({"target":target,"rows":0,"kind":"contrast"}),target,TernaryCommitment.UNKNOWN,reason="OWNED_OBSERVABLE_CONTRAST_REQUIRED",qualifiers=qnone,premise_ids=premises)
+    candidate_sets=[tuple(cid for cid,_ in row.candidate_outcome_digests) for row in rows]
+    expected=candidate_sets[0]
+    if len(expected)<2 or any(candidates!=expected for candidates in candidate_sets[1:]):
+        return RelationalCommitment(_sha({"target":target,"candidate_sets":candidate_sets,"kind":"contrast"}),target,TernaryCommitment.UNKNOWN,reason="OWNED_OBSERVABLE_CONTRAST_CANDIDATE_SET_MISMATCH",qualifiers=qnone,premise_ids=premises)
+    signatures=[]
+    for candidate in expected:
+        signatures.append(tuple(dict(row.candidate_outcome_digests)[candidate] for row in rows))
+    partition_count=len(set(signatures))
+    stance=TernaryCommitment.YES if partition_count>1 else TernaryCommitment.NO
+    reason="PROGRAM_CAN_CHANGE_OWNED_OBSERVABLE_CONTRAST" if stance==TernaryCommitment.YES else "PROGRAM_CANNOT_CHANGE_OWNED_OBSERVABLE_CONTRAST"
+    return RelationalCommitment(
+        _sha({"target":target,"trial":trial.digest(),"rows":[row.serializable() for row in rows],"priority":decision_bearing_commitment.commitment_id,"source_premises":list(source_premise_ids)}),
+        target,stance,reason=reason,
+        qualifiers=qnone+(("observable_partition_count",str(partition_count)),("contrast_row_count",str(len(rows)))),
+        premise_ids=premises,
     )
 
 
