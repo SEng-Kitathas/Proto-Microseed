@@ -153,3 +153,29 @@ Classification:
 `V1_SOAK_001_HARNESS_GLOBAL_DRIFT_EXPECTATION_WRONG__LOCALIZED_R41_DRIFT_REQUIRED`.
 
 This is a positive localization requirement: the repair/hostile must stale only the changed R relation and preserve unrelated K/M relations.
+
+
+## Canonical V1 violation — stale learned relation survives through durable rehearsal reuse
+A two-arm targeted hostile was run before further soak work.
+
+### Arm A — regulatory sign reversal
+Reusing the old +1 proposal in an N-style sign-reversed world is blocked **before execution** by current-value reprojection:
+
+`BOUNDED_REHEARSAL_PREDICTS_WORSE_REGULATORY_PRESSURE`.
+
+This is a positive current-value guard.
+
+### Arm B — terminal-only causal drift
+The harder world preserves the beneficial +1 regulatory effect but changes only `R-41`'s terminal consequence from `s2 -> u` to `s2 -> w`. Sixteen repeated lawful executions produce localized empirical drift:
+- `K-17`: `CURRENT_WITHIN_BOUNDS`;
+- `M-23`: `CURRENT_WITHIN_BOUNDS`;
+- `R-41`: `DRIFT_WITNESS` -> `STALE_PREDICTIVE_RELATION`.
+
+After the drift witness, the durable `s2` rehearsal derived from the old R relation still reports `CURRENT_REHEARSAL_PROPOSAL`. After lawfully walking to `s2` with the unchanged K/M proposals, it still derives a fresh `YES` bounded-action commitment and nominates an `R-41` intent with expected terminal `u`.
+
+Violation:
+`STALE_R41_PREDICTIVE_RELATION_CAN_REMAIN_EXECUTION_PREMISE_THROUGH_DURABLE_REHEARSAL_REUSE`.
+
+This is a genuine canonical-V1 temporal-integrity defect. The learned relation owner knows R is empirically stale; the durable rehearsal status path does not currently propagate that empirical currentness into reused proposal validity.
+
+Repair constraint: modify the existing rehearsal/currentness owner narrowly so a proposal transition derived from a learned predictive relation cannot remain current when every matching learned relation digest is empirically stale. Preserve supplied-row rehearsal behavior, qualified scoped-routing behavior, history, and current-value reprojection. No new lifecycle manager.

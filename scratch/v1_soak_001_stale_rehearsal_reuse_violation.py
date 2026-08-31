@@ -112,18 +112,30 @@ def run_terminal_drift_violation() -> dict[str, object]:
         drift={}
         for action in MAIN:
             drift[action]=ms.assess_action_outcome_predictive_currentness(relations[action],config=PredictiveCurrentnessConfig(window_size=8,min_accuracy=.75,consecutive_failure_windows=2))
-            assert drift[action]["status"]=="DRIFT_WITNESS",drift[action]
+        assert drift["K-17"]["status"]=="CURRENT_WITHIN_BOUNDS",drift["K-17"]
+        assert drift["M-23"]["status"]=="CURRENT_WITHIN_BOUNDS",drift["M-23"]
+        assert drift["R-41"]["status"]=="DRIFT_WITNESS",drift["R-41"]
         relation_status={a:ms.action_outcome_predictive_relation_status(rid) for a,rid in relations.items()}
         proposal_status={state:ms.counterfactual_rehearsal_status(pid) for state,pid in proposals.items()}
+        assert relation_status["K-17"]["status"]==relation_status["M-23"]["status"]=="CURRENT_PREDICTIVE_RELATION"
+        assert relation_status["R-41"]["status"]=="STALE_PREDICTIVE_RELATION"
+        # Walk lawfully to s2 using the still-current K/M proposals, then pressure the old R proposal.
         world.configure_mode("D");world.reset();adapter.observe_control(ms,"POST-DRIFT")
-        s0=ms.action_closure.current_state;assert s0 is not None
-        pid=proposals[s0.state_id]
+        advance=[]
+        for state_id in ("s0","s1"):
+            state=ms.action_closure.current_state;assert state is not None and state.state_id==state_id
+            pid=proposals[state_id]
+            intent=ms.nominate_bounded_action_intent(pid,adapter.act_obligation());assert intent["status"]=="ACTION_INTENT_NOMINATED",intent
+            ex=adapter.execute_intent(ms,intent["intent"]["intent_id"]);assert ex["status"]=="ACTION_EXECUTED"
+            obs=adapter.record_execution_outcome(ms,ex["execution"]["execution_id"],evidence_id=f"POST-DRIFT-{state_id}",capture_id=f"POST-DRIFT-CAP-{state_id}");assert obs["status"]=="ACTION_OUTCOME_OBSERVED"
+            advance.append(intent["intent"]["capability_id"])
+        s2=ms.action_closure.current_state;assert s2 is not None and s2.state_id=="s2"
+        pid=proposals["s2"]
         commitment=ms.derive_bounded_action_commitment(pid)
         intent=ms.nominate_bounded_action_intent(pid,adapter.act_obligation())
-        violated=(all(x["status"]=="STALE_PREDICTIVE_RELATION" for x in relation_status.values()) and proposal_status[s0.state_id]["status"]=="CURRENT_REHEARSAL_PROPOSAL" and commitment.commitment.value=="YES" and intent["status"]=="ACTION_INTENT_NOMINATED")
-        return {"status":"VIOLATED" if violated else "BLOCKED","relations":relations,"proposals":proposals,"relation_status":relation_status,"proposal_status":proposal_status,"post_drift_commitment":commitment.serializable(),"post_drift_intent":intent,"violation":"STALE_PREDICTIVE_RELATION_CAN_REMAIN_EXECUTION_PREMISE_THROUGH_DURABLE_REHEARSAL_REUSE" if violated else None}
+        violated=(proposal_status["s2"]["status"]=="CURRENT_REHEARSAL_PROPOSAL" and commitment.commitment.value=="YES" and intent["status"]=="ACTION_INTENT_NOMINATED")
+        return {"status":"VIOLATED" if violated else "BLOCKED","relations":relations,"proposals":proposals,"drift_assessments":drift,"relation_status":relation_status,"proposal_status":proposal_status,"advance_to_s2":advance,"post_drift_r_commitment":commitment.serializable(),"post_drift_r_intent":intent,"violation":"STALE_R41_PREDICTIVE_RELATION_CAN_REMAIN_EXECUTION_PREMISE_THROUGH_DURABLE_REHEARSAL_REUSE" if violated else None}
     finally: close_ms(ms);td.cleanup()
-
 
 def run():
     return {"sign_flip_guard":run_sign_flip_guard(),"terminal_only_drift":run_terminal_drift_violation()}
