@@ -231,3 +231,12 @@ Earned research repair law:
 `DURABLE_REHEARSAL_REUSE_DOES_NOT_OUTLIVE_THE_CURRENTNESS_OF_ITS_OWNED_LEARNED_TRANSITION_PREMISE`.
 
 This is not yet canonical. Canonical PRELINGUAL_SUBSTRATE_V1 remains frozen at the original promotion checkpoint until full repair validation and explicit promotion decision.
+
+
+## Revised smoke — horizon-boundary guard failure / no scientific verdict
+The first run of the revised localized-drift harness stopped before bootstrap because the run guard required `shift_episode < episodes - 40`. The 80-episode smoke deliberately uses a 40/40 split, so the strict inequality rejected a horizon that actually satisfies the intended minimum post-shift window.
+
+Classification:
+`V1_SOAK_001_HARNESS_SHIFT_WINDOW_STRICT_INEQUALITY__NO_SCIENTIFIC_VERDICT`.
+
+Repair: allow `shift_episode <= episodes - 40`; do not alter organism/runtime behavior.
