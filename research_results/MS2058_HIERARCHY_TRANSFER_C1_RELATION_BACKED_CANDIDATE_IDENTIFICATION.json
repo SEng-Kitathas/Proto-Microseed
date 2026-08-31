@@ -1,0 +1,33 @@
+{
+  "schema": "ms2058_hierarchy_transfer_c1_relation_backed_candidate_identification/v1",
+  "status": "RESEARCH_RESULT__C1_SURVIVED",
+  "parent_research_commit": "e54d684f2c58c3df2b28f3e37642317e09e03915",
+  "production_delta": [],
+  "focused": {
+    "pytest": "6/6 PASS",
+    "duration_seconds": 10.37,
+    "stderr_bytes": 0
+  },
+  "broader": {
+    "pytest": "53/53 PASS",
+    "duration_seconds": 27.64,
+    "stderr_bytes": 0
+  },
+  "survived_claims": [
+    "candidate IDs can be projected from exact-current learned action-outcome relations plus current EFFECT capability/obligation/scope owners",
+    "current capability without learned relation is excluded",
+    "wrong obligation/scope and read-only capability are excluded",
+    "unseen state yields no candidates",
+    "stale relation/capability disappears without history deletion",
+    "equal-positive candidates remain an unresolved set rather than arbitrary structural choice",
+    "projection grants no feasibility, semantic role, truth, ranking, or execution authority"
+  ],
+  "next_seam": "OPERATIONAL_PAIRING_TOPOLOGY_IDENTIFICATION_WITHOUT_SUPPLIED_PARENT_CHILD_ROLE_TOPOLOGY",
+  "authority": {
+    "truth": "NONE",
+    "execution": "NONE",
+    "semantic_role": "NONE",
+    "feasibility": "NONE",
+    "canonical_promotion": "NONE"
+  }
+}
