@@ -54,3 +54,30 @@ Classification:
 The subsequent Windows SQLite TemporaryDirectory cleanup error is the known teardown engineering scar and is not a scientific result.
 
 Per research lineage policy this failed campaign state SHALL be committed/pushed before repair.
+
+
+## Repair 1 — registry shape binding
+Repair is intentionally narrow: bind the fixture to live registry owners `OperationalFrameRegistry.frames` and `EpisodeSchemaRegistry.schemas`. No scientific mechanism or hypothesis changed.
+
+
+## Observed result — FULL-FRAME STRICT PARETO EARNED RESEARCH-ONLY
+After the published harness-shape failure, Repair 1 bound to the live frame/schema registry owners only. Direct witness PASS.
+
+Observed:
+- full V/W trade-off: P2 `{V:0.0,W:0.5}`, P4 `{V:0.5,W:0.0}` -> `NO_STRICT_PARETO_SELECTION`;
+- lawful full-frame dominance: P2 `{V:0.0,W:0.0}`, P4 `{V:0.5,W:0.5}` -> P2 `CURRENT_STRICT_PARETO_SELECTION_RESEARCH_ONLY`;
+- new current X after vector construction -> `COMPLETE_VALUE_FRAME_NOT_CURRENT_AT_SELECTION`;
+- same-epoch W observation change -> same stale-frame refusal;
+- current X with no observation -> frame/vector construction blocked;
+- missing B::W action/value effect -> vector completion blocked;
+- lawful full-frame vector API has no caller `requested_value_ids`/`value_ids` parameter;
+- handler calls zero; derivation read-only.
+
+Cleanup-neutral focused MS2032–MS2036 lineage subset: **18/18 PASS in 79.56s**, stderr empty.
+
+Earned:
+`CROSS_VALUE_STRICT_PARETO_COMPARISON_IS_LAWFUL_ONLY_OVER_ORGANISM_OWNED_COMPLETE_CURRENT_VALUE_FRAME`.
+
+`FULL_FRAME_CURRENTNESS_MUST_BE_REDERIVED_BEFORE_CROSS_VALUE_SELECTION`.
+
+Runtime selection remains unauthorized pending owner/promotion audit and later effect-time reauthorization.

@@ -34,9 +34,9 @@ def _seed_effects(ms, effects: dict[tuple[str, str], float]) -> None:
     for value_id in ("V", "W"):
         frame_id = f"F-MS2036-{value_id}"
         schema_id = f"E-MS2036-{value_id}"
-        if frame_id not in ms.frames.contracts:
+        if frame_id not in ms.frames.frames:
             ms.register_operational_frame(_frame(frame_id))
-        if schema_id not in ms.episodes.contracts:
+        if schema_id not in ms.episodes.schemas:
             ms.register_episode_schema(_episode(schema_id, frame_id, value_id))
     for (action_id, value_id), effect in effects.items():
         for sample in range(7):
