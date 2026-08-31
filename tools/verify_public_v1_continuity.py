@@ -17,6 +17,12 @@ def git(*args):
         raise RuntimeError(p.stderr.strip() or p.stdout.strip())
     return p.stdout.strip()
 
+def git_bytes(*args):
+    p=subprocess.run(['git',*args],cwd=ROOT,capture_output=True)
+    if p.returncode:
+        raise RuntimeError(p.stderr.decode('utf-8','replace').strip() or p.stdout.decode('utf-8','replace').strip())
+    return p.stdout
+
 issues=[]
 # Single-branch clones do not necessarily contain tags that point at off-main genesis commits.
 # Fetch only the exact public tags required for verification when they are absent locally.
@@ -27,20 +33,23 @@ for tag in ('prelingual-substrate-v1','naked-authority-design-v1-genesis','groun
         if fetch.returncode != 0:
             issues.append('TAG_FETCH_FAILED:'+tag)
 
-pointer=json.loads(POINTER.read_text(encoding='utf-8'))
-r=json.loads(RECEIPT.read_text(encoding='utf-8'))
+pointer_blob=git_bytes('show','HEAD:'+POINTER.relative_to(ROOT).as_posix())
+receipt_blob=git_bytes('show','HEAD:'+RECEIPT.relative_to(ROOT).as_posix())
+suite_stdout_blob=git_bytes('show','HEAD:'+SUITE_STDOUT.relative_to(ROOT).as_posix())
+pointer=json.loads(pointer_blob.decode('utf-8'))
+r=json.loads(receipt_blob.decode('utf-8'))
 if r.get('promotion_commit')!=V1: issues.append('RECEIPT_PROMOTION_COMMIT')
 if r.get('promotion_tree')!=V1_TREE: issues.append('RECEIPT_PROMOTION_TREE')
 
 # Public mirrors bind the copied operator receipt and exact scientific stdout.
 mirrors=pointer.get('public_mirrors',{})
-receipt_sha=hashlib.sha256(RECEIPT.read_bytes()).hexdigest()
-stdout_sha=hashlib.sha256(SUITE_STDOUT.read_bytes()).hexdigest()
+receipt_sha=hashlib.sha256(receipt_blob).hexdigest()
+stdout_sha=hashlib.sha256(suite_stdout_blob).hexdigest()
 if mirrors.get('exact_promotion_receipt',{}).get('sha256')!=receipt_sha: issues.append('PUBLIC_RECEIPT_HASH')
 if mirrors.get('exact_suite_stdout',{}).get('sha256')!=stdout_sha: issues.append('PUBLIC_SUITE_STDOUT_HASH')
 if r.get('scheduler_stdout',{}).get('sha256')!=stdout_sha: issues.append('RECEIPT_SUITE_STDOUT_HASH')
-if r.get('scheduler_stdout',{}).get('bytes')!=SUITE_STDOUT.stat().st_size: issues.append('RECEIPT_SUITE_STDOUT_BYTES')
-if b'911 passed in 883.01s' not in SUITE_STDOUT.read_bytes(): issues.append('SUITE_STDOUT_VERDICT')
+if r.get('scheduler_stdout',{}).get('bytes')!=len(suite_stdout_blob): issues.append('RECEIPT_SUITE_STDOUT_BYTES')
+if b'911 passed in 883.01s' not in suite_stdout_blob: issues.append('SUITE_STDOUT_VERDICT')
 if git('rev-parse',V1+'^{tree}')!=V1_TREE: issues.append('V1_TREE')
 if git('rev-parse','prelingual-substrate-v1^{}')!=V1: issues.append('V1_TAG')
 if git('rev-parse','naked-authority-design-v1-genesis^{}')!=NAKED: issues.append('NAKED_TAG')
