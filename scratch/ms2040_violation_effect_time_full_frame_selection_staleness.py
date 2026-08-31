@@ -40,19 +40,29 @@ def run_ms2040() -> dict:
             ),
         )
 
-        # This campaign is a violation reproducer. Current code is expected to execute
-        # because the full-frame selected-origin marker is not yet recognized by the
-        # effect-time global-selection gate.
-        assert execution["status"] == "ACTION_EXECUTED", execution
-        assert calls == ["P2"], calls
+        if execution["status"] == "ACTION_EXECUTED":
+            assert calls == ["P2"], calls
+            return {
+                "status": "VIOLATION_REPRODUCED",
+                "nomination": nominated,
+                "fresh_full_frame_selection": fresh,
+                "execution": execution,
+                "handler_calls": list(calls),
+                "violation": "NOMINATION_TIME_FULL_FRAME_SELECTION != EFFECT_TIME_FULL_FRAME_SELECTION_CURRENTNESS",
+                "marker_bypass": "UNRECOGNIZED_SELECTED_ORIGIN_MARKER_BYPASSES_EFFECT_TIME_GLOBAL_SELECTION_REAUTHORIZATION",
+            }
+        assert execution["status"] == "NO_EXECUTION", execution
+        assert execution["reason"] == "CURRENT_FULL_FRAME_CROSS_DEFICIT_SELECTION_REQUIRED_AT_EXECUTION", execution
+        assert calls == [], calls
         return {
-            "status": "VIOLATION_REPRODUCED",
+            "status": "HISTORICAL_VIOLATION_CLOSED",
             "nomination": nominated,
             "fresh_full_frame_selection": fresh,
             "execution": execution,
             "handler_calls": list(calls),
             "violation": "NOMINATION_TIME_FULL_FRAME_SELECTION != EFFECT_TIME_FULL_FRAME_SELECTION_CURRENTNESS",
             "marker_bypass": "UNRECOGNIZED_SELECTED_ORIGIN_MARKER_BYPASSES_EFFECT_TIME_GLOBAL_SELECTION_REAUTHORIZATION",
+            "full_frame_selection_reauthorized_at_effect": "YES",
         }
     finally:
         ms.biography.close(); ms.evidence.conn.close(); ms.store.conn.close(); td.cleanup()

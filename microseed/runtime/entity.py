@@ -115,6 +115,7 @@ from ..development.epistemic_action import (
     derive_current_grounded_feasibility_surface, derive_current_decision_bearing_commitment_from_grounded_surface,
     derive_program_observable_partition, program_partition_strictly_refines,
     derive_cross_deficit_selected_epistemic_execution_commitment,
+    derive_full_frame_selected_epistemic_execution_commitment,
     derive_current_generated_epistemic_program_candidates, derive_epistemic_program_step_outcome_bearing,
     nominate_epistemic_program_step_intent as derive_epistemic_program_step_intent,
 )
@@ -2029,11 +2030,54 @@ class Microseed:
                 # continuity of the exact nominated premise set, not merely another
                 # currently-licensable step.
                 return None,"EPISTEMIC_PROGRAM_STEP_PREMISE_DRIFT",{"fresh_commitment":fresh.serializable()}
-            selected_marker=(
+            ancestry=tuple(str(x) for x in deficit.assistance_ancestry) if deficit is not None else ()
+            full_frame_selected_marker=(
                 deficit is not None
-                and "ENDOGENOUS_UNKNOWN_MATERIALIZED_AFTER_STRICT_CROSS_DEFICIT_SELECTION" in tuple(str(x) for x in deficit.assistance_ancestry)
+                and "ENDOGENOUS_UNKNOWN_MATERIALIZED_AFTER_STRICT_FULL_FRAME_PARETO_SELECTION" in ancestry
             )
-            if selected_marker:
+            same_value_selected_marker=(
+                deficit is not None
+                and "ENDOGENOUS_UNKNOWN_MATERIALIZED_AFTER_STRICT_CROSS_DEFICIT_SELECTION" in ancestry
+            )
+            if full_frame_selected_marker:
+                unknown=self.evidence.get(deficit.unknown_evidence_id)
+                payload=None if unknown is None else unknown.get("payload")
+                if (
+                    unknown is None or unknown.get("disposition")!=EpistemicStatus.UNKNOWN_INCOMPLETE.value
+                    or unknown.get("source")!="MICROSEED_ENDOGENOUS_SELECTED_FULL_FRAME_EPISTEMIC_OPPORTUNITY"
+                    or not isinstance(payload,dict)
+                    or payload.get("kind")!="SELECTED_OWNED_REFERENT_FULL_FRAME_EPISTEMIC_UNKNOWN"
+                    or str(payload.get("selected_ephemeral_deficit_id"))!=str(deficit.deficit_id)
+                    or str(payload.get("probe_action_id"))!=str(intent.capability_id)
+                    or str(payload.get("cross_deficit_selection_authority"))!="STRICT_FULL_FRAME_PARETO_REGULATORY_DOMINANCE_ONLY"
+                    or not str(payload.get("cross_deficit_selection_commitment_id",""))
+                    or not str(payload.get("complete_value_frame_digest_sha256",""))
+                ):
+                    return None,"FULL_FRAME_SELECTION_NOMINATION_ANCESTRY_REQUIRED_AT_EXECUTION",{"unknown_evidence_id":deficit.unknown_evidence_id}
+                fresh_surface=self.derive_current_owned_referent_full_frame_cross_deficit_selection_surface(obligation)
+                if fresh_surface.get("status")!="CURRENT_STRICT_FULL_FRAME_CROSS_DEFICIT_SELECTION":
+                    return None,"CURRENT_FULL_FRAME_CROSS_DEFICIT_SELECTION_REQUIRED_AT_EXECUTION",{"fresh_selection_surface":fresh_surface}
+                if (
+                    str(fresh_surface.get("selected_deficit_id"))!=str(deficit.deficit_id)
+                    or str(fresh_surface.get("selected_probe_action_id"))!=str(intent.capability_id)
+                    or str(fresh_surface.get("selection_authority"))!="STRICT_FULL_FRAME_PARETO_REGULATORY_DOMINANCE_ONLY"
+                ):
+                    return None,"FULL_FRAME_SELECTED_OPPORTUNITY_DRIFT_AT_EXECUTION",{"fresh_selection_surface":fresh_surface}
+                fresh_frame=dict(fresh_surface["complete_value_frame"])
+                fresh_selection=derive_strict_full_frame_pareto_selection_commitment(tuple(fresh_surface["vectors"]),fresh_frame)
+                combined=derive_full_frame_selected_epistemic_execution_commitment(
+                    local_step_commitment=fresh,full_frame_selection_commitment=fresh_selection,
+                    expected_deficit_id=deficit.deficit_id,expected_probe_action_id=intent.capability_id,
+                    expected_complete_value_frame_digest_sha256=str(fresh_frame["frame_digest_sha256"]),
+                    selection_ancestry_premise_ids=(
+                        deficit.unknown_evidence_id,str(payload["cross_deficit_selection_commitment_id"]),
+                        str(payload["complete_value_frame_digest_sha256"]),
+                    ),
+                )
+                if not combined.licenses_yes():
+                    return combined,"FULL_FRAME_SELECTED_EXECUTION_COMMITMENT_NOT_CURRENT",{"fresh_selection":fresh_selection.serializable(),"fresh_selection_surface":fresh_surface}
+                return combined,"FULL_FRAME_SELECTED_EXECUTION_COMMITMENT_NOT_CURRENT",{"fresh_selection":fresh_selection.serializable(),"fresh_selection_surface":fresh_surface}
+            if same_value_selected_marker:
                 unknown=self.evidence.get(deficit.unknown_evidence_id)
                 payload=None if unknown is None else unknown.get("payload")
                 if (
