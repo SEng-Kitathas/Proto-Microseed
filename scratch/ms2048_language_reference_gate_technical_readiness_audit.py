@@ -1,6 +1,8 @@
 from __future__ import annotations
 import json, tempfile
 from pathlib import Path
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from microseed import Microseed
 from microseed.cognition.research_registry import RESEARCH_COMPONENTS
 from scratch.ms2046_grounded_operational_token_referent_binding_quarry import run_ms2046

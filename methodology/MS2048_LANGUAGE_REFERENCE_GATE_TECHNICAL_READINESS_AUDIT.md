@@ -48,3 +48,24 @@ Classification:
 `MS2048_HARNESS_REPOSITORY_IMPORT_PATH_FAILURE__NO_SCIENTIFIC_VERDICT`.
 
 Repair shall add only the standard repository-root path insertion. No gate criterion changes.
+
+
+## Repair 1 — standard standalone root binding
+Added only the standard repository-root `sys.path` insertion used by neighboring standalone scratch campaigns. No audit criterion changed.
+
+
+## Observed result — LANGUAGE-FACING EVIDENCE GREEN / V1 WHOLE PENDING
+After the published standalone-import harness failure, Repair 1 added only the standard repository-root binding. Direct audit then PASSed its language-facing prerequisites.
+
+Observed:
+- grounded operational token→referent candidate: GREEN;
+- four-referent partial-observability robustness: GREEN;
+- operational body/counterparty boundary: GREEN;
+- runtime language status remains `DEFERRED_PRELINGUAL_COGNITION_ACTIVE`;
+- no language/meaning/reference manager attributes present;
+- historical MS702–MS801 language/predicate/event-frame components remain explicitly `RESEARCH_ONLY` donor material with supplied-metalanguage ceilings;
+- semantic reference and language authority remain NONE.
+
+Current audit status: `PENDING_V1_WHOLE_SUITE`.
+
+If the independent frozen V1 current-core whole suite closes green, the remaining language-gate boundary becomes an **operator admission decision**, not an untested technical prerequisite in this audit.
