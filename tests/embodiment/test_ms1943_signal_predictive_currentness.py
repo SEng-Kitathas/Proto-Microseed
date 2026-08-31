@@ -174,8 +174,18 @@ def test_recovery_after_empirical_signal_drift_does_not_reactivate_old_model_or_
         first = ms.assess_action_outcome_predictive_currentness(relation_id, config=CFG)
         assert first["status"] == "DRIFT_WITNESS"
 
+        # Recovery observations are explicitly assisted.  The stale learned
+        # zero-row proposal is no longer a lawful execution premise after the
+        # drift witness; reuse the original supplied-row seed proposal that
+        # remains in the rehearsal registry from _learn_and_qualify().
+        assisted = next(
+            p for pid, p in ms.counterfactual_rehearsals.proposals.items()
+            if pid != proposal.proposal_id
+        )
+        assert ms.counterfactual_rehearsal_status(assisted.proposal_id)["status"] == "CURRENT_REHEARSAL_PROPOSAL"
+        assert ms.counterfactual_rehearsal_status(proposal.proposal_id)["status"] == "UNKNOWN_INCOMPLETE"
         for i in range(16, 32):
-            _execute(ms, world, proposal, i, expected="T0", prefix="REC")
+            _execute(ms, world, assisted, i, expected="T0", prefix="REC-ASSISTED")
         recovered = ms.assess_action_outcome_predictive_currentness(relation_id, config=CFG)
         assert recovered["status"] == "DRIFT_WITNESS"
         assert ms.action_outcome_predictive_relation_status(relation_id)["status"] == "STALE_PREDICTIVE_RELATION"

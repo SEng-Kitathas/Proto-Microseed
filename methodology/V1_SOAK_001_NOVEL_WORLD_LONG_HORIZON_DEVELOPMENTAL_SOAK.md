@@ -201,3 +201,33 @@ Classification:
 `MS1943_RECOVERY_TEST_STALE_PROPOSAL_EXECUTION_IS_FIXTURE_CONVENIENCE_NOT_LAWFUL_MODEL_AUTHORITY`.
 
 The production repair remains justified. The historical recovery regression must be corrected so its post-drift observations are obtained through an explicitly assisted sampling path, while preserving the actual MS1943 claim: later matching evidence does not automatically reactivate the historical stale model or rewrite coordination.
+
+
+## MS1943 regression correction — recovery sampling made explicitly assisted
+The historical recovery test is corrected without changing its scientific assertion. After drift, it now verifies that the learned zero-row proposal is `UNKNOWN_INCOMPLETE`, locates the original supplied-row seed proposal already retained from the MS1941 learning fixture, and uses that explicitly assisted proposal to collect the sixteen later matching recovery observations.
+
+The old relation must remain `STALE_PREDICTIVE_RELATION`; coordination remains unchanged.
+
+This restores consistency with MS1943's own doctrine:
+`LATER_PREDICTIVE_RECOVERY != AUTOMATIC_HISTORICAL_MODEL_REACTIVATION`,
+while adding:
+`RECOVERY_OBSERVATION_COLLECTION != STALE_MODEL_EXECUTION_AUTHORITY`.
+
+
+## Repair validation packet — PASS
+The narrow learned-relation-currentness propagation repair plus corrected MS1943 recovery fixture passed the targeted temporal-integrity/currentness/restart packet:
+
+- V1-SOAK-001 stale-rehearsal repair regression;
+- MS1943 signal predictive currentness;
+- MS1941 learned signal-response reentry;
+- MS1950 restart reentry;
+- MS1951 multi-restart developmental lifetime;
+- MS1998 owned raw-context rehearsal reentry;
+- MS2041 effect-time full-frame selection reauthorization.
+
+Result: **16/16 PASS in 25.35s**, stderr empty.
+
+Earned research repair law:
+`DURABLE_REHEARSAL_REUSE_DOES_NOT_OUTLIVE_THE_CURRENTNESS_OF_ITS_OWNED_LEARNED_TRANSITION_PREMISE`.
+
+This is not yet canonical. Canonical PRELINGUAL_SUBSTRATE_V1 remains frozen at the original promotion checkpoint until full repair validation and explicit promotion decision.
