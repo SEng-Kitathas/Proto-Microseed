@@ -310,3 +310,37 @@ Correct classification:
 MS1452 is corrected to collect post-drift recovery observations through its original supplied-row seed proposal while asserting the stale learned proposal is `UNKNOWN_INCOMPLETE`.
 
 MS2050 is **not rewritten**: it remains a valid historical/canonical control asserting PRELINGUAL_SUBSTRATE_V1 production identity. Repair-descendant regression validation must report that guard as an explicit expected exclusion until a separate promotion supersedes the canonical baseline.
+
+
+## Repair-descendant whole-regression gate — PASS / technical promotion readiness
+After correcting the MS1452 stale-recovery fixture, the focused cleanup-neutral packet passed **17/17 in 30.31s**.
+
+The authoritative whole regression gate used the same Windows cleanup-neutral lane as canonical V1 and explicitly excluded only the historical MS2050 canonical byte-identity assertion:
+
+- server job: `job-e2d21972fa9f`;
+- result: **912 passed, 1 deselected in 693.37s**;
+- stderr empty;
+- deselected test: `test_ms2050_current_production_bytes_match_frozen_895_of_895_whole_suite_subject`.
+
+That one guard was run separately and failed exactly because this research branch contains a production delta. It remains unmodified and valid as a canonical-control test.
+
+Production diff from promoted V1 is confined to one existing owner:
+`microseed/runtime/entity.py`.
+
+`git diff --check` is clean.
+
+### Corrected interpretation of the earlier 497/416 run
+Plain pytest was the wrong Windows gate. Direct log triage found 996 WinError-32 SQLite teardown exceptions. Only two substantive assertions existed: MS1452's stale recovery fixture (now corrected through explicit assisted sampling) and the expected MS2050 canonical byte-identity guard. Therefore the prior statement that the repair broke hundreds of historical behaviors is **demoted**.
+
+### Technical readiness
+The repair is now technically ready for an explicit canonical promotion decision:
+- original V1 violation reproduced;
+- narrow existing-owner repair embodied;
+- MS1452/MS1943 fixture-authority contradictions repaired without erasing history;
+- focused currentness/restart packet green;
+- 80-episode smoke green;
+- 1,200-episode long-horizon phenotype green;
+- applicable cleanup-neutral whole regression suite green;
+- production delta confined to one owner.
+
+This does **not** self-promote. Project governance still requires explicit operator promotion before canonical `main` changes.
