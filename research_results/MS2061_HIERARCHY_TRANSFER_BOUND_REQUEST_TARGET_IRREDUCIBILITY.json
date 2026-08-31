@@ -1,0 +1,33 @@
+{
+  "schema": "ms2061_hierarchy_transfer_bound_request_target_irreducibility/v1",
+  "status": "IRREDUCIBLE_GAP_VERIFIED",
+  "parent_research_commit": "a69525fc00e4d14f75b7633db9abe22d69442837",
+  "production_delta": [],
+  "focused": {
+    "pytest": "5/5 PASS",
+    "duration_seconds": 1.35,
+    "stderr_bytes": 0
+  },
+  "broader": {
+    "pytest": "86/86 PASS",
+    "duration_seconds": 58.22,
+    "stderr_bytes": 0
+  },
+  "verified_gaps": [
+    "ordinary BoundedActionIntent does not bind runtime invocation kwargs/target",
+    "same nominal intent identity can execute with different caller-supplied targets in clean replays",
+    "action-outcome learning groups target-conditioned experiences by capability_id and loses target identity",
+    "existing capability candidate admission does not mint executable EFFECT request variants",
+    "pre-registering one capability per target works only as finite supplied assistance"
+  ],
+  "repair_target": "LEARNED_OPAQUE_REQUEST_TARGET_REQUIRES_PRE_DELIBERATION_CONTENT_BINDING_TO_OPERATIONAL_INVOCATION",
+  "non_target": [
+    "hierarchy manager",
+    "semantic desired-state ontology",
+    "generic planner",
+    "child local means owner"
+  ],
+  "scars": [
+    "external qualifier rejected EFFECT proposal at RESEARCH_ONLY before later explicit EFFECT bridge diagnostic"
+  ]
+}
