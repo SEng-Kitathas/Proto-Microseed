@@ -1,0 +1,32 @@
+{
+  "schema": "ms2060_hierarchy_transfer_request_channel_vs_local_means/v1",
+  "status": "RESEARCH_RESULT__SURVIVED",
+  "parent_research_commit": "1daf7cb279a887ffbfc3491664a972b5b0c392d5",
+  "production_delta": [],
+  "focused": {
+    "pytest": "6/6 PASS",
+    "duration_seconds": 4.23,
+    "stderr_bytes": 0
+  },
+  "broader": {
+    "pytest": "81/81 PASS",
+    "duration_seconds": 57.76,
+    "stderr_bytes": 0
+  },
+  "survived_claims": [
+    "same opaque requested subordinate state can be realized through different child-local means as child state changes",
+    "child-local means are absent from parent capability registry",
+    "parent learns request-channel -> higher-effect relation while local means vary",
+    "REFUSED/UNKNOWN child feasibility vetoes request",
+    "request-channel capability explicitly denies parent ownership of local means",
+    "recruitment/request relation retains semantic-goal authority NONE",
+    "finite request handles remain supplied and are not misreported as endogenous desired-state construction"
+  ],
+  "next_seam": "FINITE_REQUEST_HANDLE_SET != ENDOGENOUS_SUBORDINATE_DESIRED_STATE_CONSTRUCTION",
+  "authority": {
+    "local_actuation": "NONE",
+    "semantic_goal": "NONE",
+    "child_override": "NONE",
+    "canonical_promotion": "NONE"
+  }
+}
