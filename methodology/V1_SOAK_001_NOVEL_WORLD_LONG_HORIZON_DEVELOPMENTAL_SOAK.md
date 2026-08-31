@@ -293,3 +293,20 @@ The soak is a strong temporal-integrity/localized-adaptation witness, not an ope
 
 ### Claim ceiling
 Not earned: canonical promotion, open-ended development, self-qualification, NAKED autonomy, language competence, or AGI.
+
+
+## Whole-suite triage — plain pytest failure was mostly Windows teardown noise
+The first post-soak whole-suite invocation used plain `python -m pytest -q`, unlike the canonical V1 cleanup-neutral whole-suite lane. It reported 497 failed / 416 passed. Direct log clustering showed **996 explicit WinError-32 `biography.sqlite3` cleanup exceptions**, the known Windows SQLite teardown scar.
+
+Only two substantive assertion failures were present:
+1. MS1452 recovery sampling reused a learned proposal after its relation had been empirically staled — the same fixture-authority contradiction already found and corrected in MS1943.
+2. MS2050's canonical production-byte identity guard intentionally fails because this research branch contains a production repair and therefore no longer byte-matches the frozen V1 control.
+
+Therefore the earlier interpretation `497 functional regressions` is demoted.
+
+Correct classification:
+`PLAIN_PYTEST_497_FAILURE_COUNT_IS_DOMINATED_BY_KNOWN_WINDOWS_SQLITE_TEARDOWN_NOISE_PLUS_ONE_STALE_RECOVERY_FIXTURE_AND_ONE_EXPECTED_CANONICAL_IDENTITY_GUARD`.
+
+MS1452 is corrected to collect post-drift recovery observations through its original supplied-row seed proposal while asserting the stale learned proposal is `UNKNOWN_INCOMPLETE`.
+
+MS2050 is **not rewritten**: it remains a valid historical/canonical control asserting PRELINGUAL_SUBSTRATE_V1 production identity. Repair-descendant regression validation must report that guard as an explicit expected exclusion until a separate promotion supersedes the canonical baseline.
