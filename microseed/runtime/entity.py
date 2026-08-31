@@ -7603,6 +7603,89 @@ class Microseed:
             "execution_authority":"NONE","truth_authority":"NONE",
         }
 
+    def nominate_current_strict_full_frame_referent_epistemic_opportunity(
+        self, obligation: QueryObligation, *, config: DiscoveryConfig | None = None,
+        max_probe_steps: int = 2, max_records: int = 4096,
+    ) -> dict[str, Any]:
+        """Persist and nominate only the current strict full-frame Pareto winner."""
+        before=(len(self.epistemic_deficits.records),len(self.action_closure.intents),len(self.action_closure.executions))
+        surface=self.derive_current_owned_referent_full_frame_cross_deficit_selection_surface(
+            obligation,config=config,max_probe_steps=max_probe_steps,max_records=max_records,
+        )
+        if surface.get("status")!="CURRENT_STRICT_FULL_FRAME_CROSS_DEFICIT_SELECTION" or str(surface.get("selection_authority"))!="STRICT_FULL_FRAME_PARETO_REGULATORY_DOMINANCE_ONLY":
+            return {
+                "status":"ABSTAIN","reason":str(surface.get("reason",surface.get("status","UNKNOWN"))),
+                "selection_surface":surface,"selection_authority":"NONE","execution_authority":"NONE",
+                "deficit_delta":len(self.epistemic_deficits.records)-before[0],
+                "intent_delta":len(self.action_closure.intents)-before[1],"execution_delta":len(self.action_closure.executions)-before[2],
+            }
+        selected_deficit=str(surface["selected_deficit_id"]); selected_probe=str(surface["selected_probe_action_id"])
+        ops=self._current_owned_referent_epistemic_opportunities(
+            obligation,max_probe_steps=max_probe_steps,max_records=max_records,
+        )
+        selected=next((op for op in ops if str(op["deficit"].deficit_id)==selected_deficit and str(op["probe_action_id"])==selected_probe),None)
+        if selected is None:
+            return {"status":"ABSTAIN","reason":"SELECTED_CURRENT_OPPORTUNITY_REQUIRED","selection_authority":"NONE","execution_authority":"NONE","deficit_delta":0,"intent_delta":0,"execution_delta":0}
+        d=selected["deficit"]
+        if d.deficit_id in self.epistemic_deficits.records:
+            return {
+                "status":"ABSTAIN","reason":"SELECTED_EPISTEMIC_DEFICIT_ALREADY_PERSISTED",
+                "selected_deficit_id":d.deficit_id,"selected_probe_action_id":selected_probe,
+                "selection_surface":surface,"selection_authority":"NONE","execution_authority":"NONE",
+                "deficit_delta":0,"intent_delta":0,"execution_delta":0,
+            }
+        sc=dict(surface["selection_commitment"]); frame=dict(surface["complete_value_frame"])
+        unknown_payload={
+            "kind":"SELECTED_OWNED_REFERENT_FULL_FRAME_EPISTEMIC_UNKNOWN",
+            "selected_ephemeral_deficit_id":d.deficit_id,"selected_trial_id":selected["trial"].trial_id,
+            "selected_trial_digest":selected["trial"].digest(),"binding_id":selected["binding_id"],
+            "probe_action_id":selected_probe,"source_raw_observation_evidence_id":d.unknown_evidence_id,
+            "hypothesis_digest_sha256":d.hypothesis_digest_sha256,
+            "missing_discriminator_signature_sha256":d.missing_discriminator_signature_sha256,
+            "priority_commitment_id":selected["priority"].commitment_id,
+            "information_commitment_id":selected["contrast_information"].commitment_id,
+            "step_commitment_id":selected["commitment"].commitment_id,
+            "opportunity_content_signature_sha256":selected["content_signature_sha256"],
+            "cross_deficit_selection_commitment_id":str(sc["commitment_id"]),
+            "cross_deficit_selection_authority":"STRICT_FULL_FRAME_PARETO_REGULATORY_DOMINANCE_ONLY",
+            "complete_value_frame_digest_sha256":str(frame["frame_digest_sha256"]),
+            "proposal_only":True,"authority_gain":"NONE",
+        }
+        unknown_id="SELECTED-FULL-FRAME-REFERENT-UNKNOWN-"+action_result_digest(unknown_payload)[:24]
+        existing=self.evidence.get(unknown_id)
+        if existing is None:
+            unknown=self.append_evidence(
+                unknown_id,unknown_payload,EpistemicStatus.UNKNOWN_INCOMPLETE,
+                source="MICROSEED_ENDOGENOUS_SELECTED_FULL_FRAME_EPISTEMIC_OPPORTUNITY",
+            )
+            unknown_evidence_id=unknown.evidence_id
+        else:
+            if (
+                existing.get("disposition")!=EpistemicStatus.UNKNOWN_INCOMPLETE.value
+                or existing.get("payload")!=unknown_payload
+                or existing.get("source")!="MICROSEED_ENDOGENOUS_SELECTED_FULL_FRAME_EPISTEMIC_OPPORTUNITY"
+            ):
+                return {"status":"ABSTAIN","reason":"SELECTED_ENDOGENOUS_UNKNOWN_EVIDENCE_COLLISION","selection_authority":"NONE","execution_authority":"NONE","deficit_delta":0,"intent_delta":0,"execution_delta":0}
+            unknown_evidence_id=unknown_id
+        persisted=self.record_action_limited_unknown(
+            deficit_id=d.deficit_id,question_key=d.question_key,hypothesis_digest_sha256=d.hypothesis_digest_sha256,
+            unknown_evidence_id=unknown_evidence_id,missing_discriminator_signature_sha256=d.missing_discriminator_signature_sha256,
+            premise_anchors=d.premise_anchors,
+            assistance_ancestry=tuple(d.assistance_ancestry)+("ENDOGENOUS_UNKNOWN_MATERIALIZED_AFTER_STRICT_FULL_FRAME_PARETO_SELECTION",),
+        )
+        nomination=self.nominate_endogenous_epistemic_program_step_intent_from_current_surface(
+            selected["trial"],selected["decision_context"],obligation,
+        )
+        return {
+            "status":"SELECTED_OPPORTUNITY_PERSISTED_AND_NOMINATED" if nomination.get("status")=="ACTION_INTENT_NOMINATED" else "SELECTED_OPPORTUNITY_PERSISTED_BUT_NOT_NOMINATED",
+            "reason":str(nomination.get("reason",nomination.get("status","UNKNOWN"))),
+            "selected_deficit_id":d.deficit_id,"selected_probe_action_id":selected_probe,"unknown_evidence_id":unknown_evidence_id,
+            "persisted_deficit":persisted.serializable(),"selection_surface":surface,"nomination":nomination,
+            "selection_authority":"STRICT_FULL_FRAME_PARETO_REGULATORY_DOMINANCE_ONLY","execution_authority":"NONE",
+            "deficit_delta":len(self.epistemic_deficits.records)-before[0],
+            "intent_delta":len(self.action_closure.intents)-before[1],"execution_delta":len(self.action_closure.executions)-before[2],
+        }
+
     def nominate_current_strict_same_value_referent_epistemic_opportunity(
         self, obligation: QueryObligation, *, max_probe_steps: int = 2, max_records: int = 4096,
     ) -> dict[str, Any]:
