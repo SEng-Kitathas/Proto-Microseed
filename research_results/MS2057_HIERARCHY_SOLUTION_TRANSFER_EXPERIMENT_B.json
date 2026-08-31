@@ -1,0 +1,55 @@
+{
+  "schema": "ms2057_hierarchy_solution_transfer_experimental_b/v1",
+  "status": "RESEARCH_RESULT__EXPERIMENTAL_B_SURVIVED",
+  "base_head": "0312459457223feb79bb2d0d71ab8387fbc28b1c",
+  "branch": "research/hierarchy-solution-transfer-v1",
+  "production_delta": [],
+  "focused": {
+    "pytest": "6/6 PASS",
+    "duration_seconds": 4.71,
+    "stderr_bytes": 0
+  },
+  "broader": {
+    "pytest": "47/47 PASS",
+    "duration_seconds": 18.35,
+    "stderr_bytes": 0,
+    "includes": [
+      "MS1002 recruitment",
+      "MS1027 topology/currentness",
+      "MS1427 action-outcome learning",
+      "P1A",
+      "N1A",
+      "MS2056 promotion",
+      "MS2057 transfer"
+    ]
+  },
+  "survived_claims": [
+    "actual outcomes can earn context-dependent subordinate-request -> higher-level consequence relations using existing action-outcome learner",
+    "learned relations can drive different U1/U2 choices in HA/HB with no supplied predicted_effect at query time",
+    "50/50 unresolved hidden-context mixture yields abstention/no predictive candidate",
+    "subordinate capability drift stales learned relation and restart does not restore currentness",
+    "REFUSED and UNKNOWN subordinate feasibility remain binding",
+    "no Parent/Child/Hierarchy manager or production mechanism added"
+  ],
+  "not_established": [
+    "full donor-solution transfer",
+    "endogenous subordinate candidate discovery",
+    "endogenous topology discovery",
+    "recursive hierarchy",
+    "CFE transfer",
+    "semantic parent/child identity"
+  ],
+  "next_seam": "STRUCTURAL_IDENTIFICATION__HOW_SUBORDINATE_REQUEST_CANDIDATE_SET_AND_OPERATIONAL_PAIRING_ARE_EARNED_WITHOUT_SUPPLIED_ROLE_TOPOLOGY",
+  "scars": [
+    "single-row exposure scheduler rejected by rehearsal recurrence gate",
+    "no-current-regulatory-pressure scheduler correctly abstained",
+    "test asserted recruitment field name on rehearsal proposal",
+    "direct debug cleanup hit known Windows SQLite lock after authoritative output"
+  ],
+  "authority": {
+    "truth": "NONE",
+    "execution": "NONE",
+    "semantic_goal": "NONE",
+    "canonical_promotion": "NONE"
+  }
+}
