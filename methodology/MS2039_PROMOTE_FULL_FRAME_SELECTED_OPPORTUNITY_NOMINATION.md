@@ -39,3 +39,22 @@ Classification:
 `MS2039_FOCUSED_HARNESS_TEST_PATH_MISMATCH__NO_SCIENTIFIC_VERDICT`.
 
 The production nomination implementation and MS2039 tests had not yet received a scientific verdict at this point. Per research lineage policy this state is preserved before repairing the launcher path.
+
+
+## Harness repair — exact historical path
+Focused launcher only: corrected the historical MS2029 test filename to `test_ms2029_promote_selected_opportunity_persistence_nomination.py`. No production or scientific hypothesis change.
+
+
+## Observed result — PRODUCTION NOMINATION GREEN
+After the published focused-harness path failure, the exact historical MS2029 path was corrected with no production change. Cleanup-neutral focused MS2029 + MS2037–MS2039 lineage: **12/12 PASS in 26.16s**, stderr empty.
+
+Observed:
+- full-frame trade-off -> ABSTAIN, zero durable state;
+- full-frame dominance -> exactly one selected endogenous UNKNOWN_INCOMPLETE + one ACTION_LIMITED deficit + one P2 intent + zero executions;
+- selected UNKNOWN carries exact full-frame selection commitment id/authority and frame digest;
+- durable deficit carries `ENDOGENOUS_UNKNOWN_MATERIALIZED_AFTER_STRICT_FULL_FRAME_PARETO_SELECTION`;
+- second call idempotent;
+- incomplete current frame -> ABSTAIN with zero deltas;
+- historical same-value nomination path remains available.
+
+MS2039 promotes persistence/nomination only. Effect-time full-frame reauthorization remains deliberately unmodified and is the next hostile target.
