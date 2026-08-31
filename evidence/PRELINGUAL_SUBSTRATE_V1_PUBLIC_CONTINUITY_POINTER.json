@@ -99,5 +99,18 @@
       "sha256": "5432c11be80077a62e11b2918d0e4af667c045bcb98746a80ca8b96e1ad08edc"
     }
   },
-  "external_checkability_note": "Git/tag/parent/subtree claims are locally derivable; the 911/911 test verdict is backed by the mirrored exact suite stdout whose hash matches the copied operator promotion receipt. Deeper continuity content remains unavailable unless the auditor has access to the dedicated continuity repository."
+  "external_checkability_note": "Git/tag/parent/subtree claims are locally derivable; the 911/911 test verdict is backed by the mirrored exact suite stdout whose hash matches the copied operator promotion receipt. Deeper continuity content remains unavailable unless the auditor has access to the dedicated continuity repository.",
+  "active_post_v1_canonical_repair": {
+    "operator_choice": "P1A",
+    "tag": "prelingual-substrate-v1-p1a-repair",
+    "candidate_commit": "c036ab55dca2bca057c0f84ca6d5c8bc3e313fa7",
+    "production_delta": [
+      "microseed/runtime/entity.py"
+    ],
+    "receipt": "evidence/MS2054_P1A_CANONICAL_REPAIR_PROMOTION_RECEIPT.json",
+    "whole_suite": "914/914 PASS in 750.69s",
+    "whole_suite_stdout_sha256": "77e83ca294af5e6a9abfdb16a17add29fa70b74ca443be04870c93216cca3d25",
+    "historical_v1_remains": "0fa41f1ed4cf2fbd341b5f0b63adbc0034d4ac39",
+    "n1a": "AUTHORIZED_NEXT_NOT_INCLUDED"
+  }
 }

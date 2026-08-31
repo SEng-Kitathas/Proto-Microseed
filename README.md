@@ -12,7 +12,7 @@ The promoted V1 claim remains deliberately bounded. It does **not** grant NAKED 
 
 Current operator continuity is maintained separately in `SEng-Kitathas/Proto-Microseed-RD-Continuity`, which may not be publicly reachable to every auditor. To keep the V1 promotion externally checkable from this repository, the minimum promotion-continuity receipt is mirrored at `evidence/PRELINGUAL_SUBSTRATE_V1_PUBLIC_CONTINUITY_POINTER.json`, with the exact promotion receipt mirrored at `evidence/PRELINGUAL_SUBSTRATE_V1_PROMOTION_CONTINUITY_RECEIPT.json` and the exact 911-test stdout at `evidence/PRELINGUAL_SUBSTRATE_V1_EXACT_SUITE_STDOUT.log`; verify locally with `python tools/verify_public_v1_continuity.py`.
 
-The canonical V1 checkpoint remains the immutable tagged commit `0fa41f1ed4cf2fbd341b5f0b63adbc0034d4ac39`. Later documentation-only maintenance may advance repository `main` only while the verifier confirms `microseed/` remains byte-identical to that checkpoint.
+Historical V1 remains the immutable tagged commit `0fa41f1ed4cf2fbd341b5f0b63adbc0034d4ac39`. Operator-selected P1A promotes a narrow post-V1 canonical repair that changes production only at `microseed/runtime/entity.py`; see `evidence/MS2054_P1A_CANONICAL_REPAIR_PROMOTION_RECEIPT.json`. The repaired canonical tag is `prelingual-substrate-v1-p1a-repair`. N1A remains separate until embodied and hostile-validated.
 
 
 

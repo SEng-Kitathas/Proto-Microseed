@@ -1,6 +1,6 @@
 {
   "schema": "ms2054_p1a_canonical_repair_promotion/v1",
-  "status": "PRECOMMIT_VALIDATION_PENDING",
+  "status": "TECHNICALLY_PROMOTED_PENDING_TAG_AND_REMOTE_READBACK",
   "base_public_head": "bff8d11e3bcb47d4a944479e6be51c97b99bd41e",
   "historical_canonical_v1": "0fa41f1ed4cf2fbd341b5f0b63adbc0034d4ac39",
   "research_repair_head": "3e95bb520307b5b2a0dc4d292655f0d9c3a76014",
@@ -8,5 +8,24 @@
     "microseed/runtime/entity.py"
   ],
   "operator_choice": "P1A",
-  "n1a_status": "AUTHORIZED_NEXT_NOT_INCLUDED_IN_THIS_PROMOTION"
+  "n1a_status": "AUTHORIZED_NEXT__NOT_YET_EMBODIED",
+  "candidate_commit": "c036ab55dca2bca057c0f84ca6d5c8bc3e313fa7",
+  "candidate_tree": "a9bd5d20fc1e62eb3f01f4dbfbad0c48609254fa",
+  "focused_validation": {
+    "pytest": "20/20 PASS",
+    "duration_seconds": 25.72,
+    "stderr_bytes": 0
+  },
+  "whole_regression": {
+    "job_id": "job-4fe8032f719d",
+    "pytest": "914/914 PASS",
+    "duration_seconds": 750.69,
+    "stderr_bytes": 0,
+    "stdout_path": "evidence/MS2054_P1A_WHOLE_SUITE_STDOUT.log",
+    "stdout_sha256": "77e83ca294af5e6a9abfdb16a17add29fa70b74ca443be04870c93216cca3d25"
+  },
+  "repair_entity_sha256": "a00b426b549ae745afcf04f881f4d6e4f353b9057aa51b92bdc6f1015a7721ba",
+  "promotion_tag": "prelingual-substrate-v1-p1a-repair",
+  "public_checkpoint_tag": "public-continuity-v1-2026-08-31",
+  "historical_v1_tag": "prelingual-substrate-v1"
 }

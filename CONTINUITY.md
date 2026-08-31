@@ -60,3 +60,15 @@ Use these distinctions:
 `PUBLIC_PROMOTION_RECEIPT != FULL_CONTINUITY_REPOSITORY`
 
 A public auditor may therefore verify the promotion checkpoint, branch genesis, current production-byte identity, and the published promotion verification summary here, while treating deeper private continuity claims as reported unless separately supplied.
+
+## Active post-V1 canonical repair
+
+Operator-selected P1A is now the active canonical substrate repair once tag/remote readback completes. Historical `PRELINGUAL_SUBSTRATE_V1` remains immutable at `0fa41f1...`; the repaired canon differs in production only at `microseed/runtime/entity.py` and closes stale learned-relation authority leakage through durable rehearsal reuse.
+
+Promotion receipt: `evidence/MS2054_P1A_CANONICAL_REPAIR_PROMOTION_RECEIPT.json`
+
+Whole regression evidence: `evidence/MS2054_P1A_WHOLE_SUITE_STDOUT.log`
+
+Canonical repaired tag: `prelingual-substrate-v1-p1a-repair`
+
+N1A is operator-authorized next work, but is **not** included in P1A promotion.
