@@ -64,3 +64,15 @@ Production delta is exactly two files:
 - `microseed/runtime/entity.py`
 
 Research candidate only. Authoritative whole cleanup-neutral regression remains pending before any promotion discussion.
+
+## Authoritative whole-suite gate
+Tested commit: `930ae22132e19a5439a473796e6055276dac791f`.
+
+The scheduler submit/list plane returned `job not found`, and subsequent long synchronous transports lost their client connection after starting duplicate runs. Recovery inspection found three whole-suite processes. Two accidental duplicate/unlogged runs were terminated by PID tree; the explicitly redirected lane (PID 32428) was retained as the sole authoritative execution.
+
+Authoritative result: **966/966 PASS in 1110.24s**, stderr **0 bytes**.
+Exact stdout: **1168 bytes**, SHA-256 `b7f062e3fd4c83bdd0068e6dabdcfb7bb2aa4a14e7d80388d655f2a170144f7a`.
+
+The PowerShell sidecar created `MS2062_WHOLE_SUITE_EXIT.txt` as a zero-byte file rather than recording the process exit code. This is classified as execution-result capture bookkeeping, not a scientific failure: the retained process reached terminal state and its complete pytest summary ended at `[100%]` with `966 passed in 1110.24s (0:18:30)`; stderr is empty. No exit code is invented.
+
+Status: `WHOLE_SUITE_GREEN__NOT_CANONICAL`. Promotion remains a separate decision/gate.

@@ -1,6 +1,6 @@
 {
   "schema": "ms2062_bound_learned_request_target_specialization/v1",
-  "status": "RESEARCH_CANDIDATE__FOCUSED_AND_BROADER_GREEN__WHOLE_PENDING",
+  "status": "RESEARCH_CANDIDATE__WHOLE_SUITE_GREEN__NOT_CANONICAL",
   "parent_research_commit": "27ce3aed1598aa558fb9bc2ffa4a8ccd141102b6",
   "base_public_head": "0312459457223feb79bb2d0d71ab8387fbc28b1c",
   "production_delta": [
@@ -38,9 +38,24 @@
     "test CapabilityContract syntax error before behavior",
     "5/7 run exposed test/API mismatches: missing QueryObligation on direct invoke and nonexistent serialized intent signature field",
     "restart hostile exposed changed-projection-version requalification defect; repaired in production",
-    "ad hoc Python introspection could not import pytest; direct source read used instead"
+    "ad hoc Python introspection could not import pytest; direct source read used instead",
+    "scheduler submit/list returned job not found; no hidden scheduler verdict used",
+    "runSync/runPython long calls lost client transport after spawning duplicate whole-suite processes",
+    "duplicate unlogged whole-suite processes were terminated; sole authoritative redirected PID 32428 retained",
+    "PowerShell exit-code sidecar was created zero-byte; final pytest 100% summary + process terminal state + stderr-empty are authoritative scientific evidence"
   ],
   "whole_suite": {
-    "status": "PENDING"
-  }
+    "status": "PASS",
+    "pytest": "966/966 PASS",
+    "duration_seconds": 1110.24,
+    "stderr_bytes": 0,
+    "stdout_bytes": 1168,
+    "stdout_sha256": "b7f062e3fd4c83bdd0068e6dabdcfb7bb2aa4a14e7d80388d655f2a170144f7a",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_log": "research_results/MS2062_WHOLE_SUITE_STDOUT.log",
+    "stderr_log": "research_results/MS2062_WHOLE_SUITE_STDERR.log",
+    "execution_transport": "RECOVERED_REDIRECTED_LOCAL_LANE_AFTER_SCHEDULER_AND_CLIENT_TRANSPORT_FAILURES",
+    "exit_code_capture": "BLANK_SIDECAR__PYTEST_TERMINAL_SUMMARY_COMPLETE"
+  },
+  "tested_commit": "930ae22132e19a5439a473796e6055276dac791f"
 }
