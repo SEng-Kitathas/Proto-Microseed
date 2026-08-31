@@ -2,7 +2,34 @@
 
 Proto-Microseed is an experimental developmental cognitive runtime focused on a narrow question: how much cognition can be earned through grounded operational mechanisms and lawful composition before a large supplied semantic ontology or generic planner becomes necessary?
 
-This repository is a **research descendant**, not a declaration of canonical Main-Dev promotion. MS1924 was the prior sealed organism-code baseline. **MS1939** is the current research-descendant release in this repository: it preserves model-only counterfactual rehearsal while making explicit that a returned rehearsal proposal is **not** itself a current action indication.
+This repository now carries the operator-promoted canonical bounded/equipped baseline **`PRELINGUAL_SUBSTRATE_V1`**. The promotion decision was made explicitly after the MS2050/MS2051 technical-readiness gates and the MS2052 operator decision boundary; it is embodied by `methodology/MS2053_OPERATOR_PROMOTION_AND_RESEARCH_GATE_OPENING.md`.
+
+The promoted V1 claim remains deliberately bounded. It does **not** grant NAKED first-unmodeled-physical-probe authority, semantic self/body/other identity authority, semantic reference/truth authority from language, or language competence. Two separate research gates are open from the exact V1 baseline: NAKED constitutional authority design and grounded language/reference research. Neither branch self-promotes to canonical `main`.
+
+
+## PRELINGUAL_SUBSTRATE_V1 canonical checkpoint
+
+The promoted baseline includes the bounded developmental substrate accumulated through MS2052, including currentness/qualification/authority factorization, referent and representation growth, full-frame cross-value selection with effect-time reauthorization, modern 100-EFFECT lifecycle pressure, bounded four-referent robustness, operational body/counterparty distinction, and grounded operational token→referent binding candidates.
+
+Promotion is a project-governance event, not a relaxation of scientific ceilings. The following remain explicit:
+
+```text
+SELECTION_AUTHORITY != EXECUTION_AUTHORITY
+CAPABILITY_REQUALIFICATION_CURRENTNESS != DERIVED_RELATIONAL_EVIDENCE_REQUALIFICATION
+NAKED_FIRST_UNMODELED_PHYSICAL_PROBE_REMAINS_BLOCKED_ON_EXPLICIT_NEW_NORMATIVE_COMMITMENT
+SIGNAL != REFERENCE
+TOKEN_EMITTED != TOKEN_MEANS
+UTTERANCE_PRODUCED != REFERENT_BOUND
+LANGUAGE_QUALITY != EPISTEMIC_AUTHORITY
+FLUENCY != CURRENT_PREMISE
+```
+
+The exact promoted Git checkpoint is identified by the annotated tag **`prelingual-substrate-v1`**.
+
+### Open research branches
+
+- `research/naked-authority-design-v1` — design/adversarial pressure for a new bounded NAKED first-probe constitutional premise. **Opening the branch does not grant the authority.**
+- `research/grounded-language-reference-v1` — grounded language/reference research under V1 evidence/currentness/authority laws. Historical language work is donor-only and must be re-earned.
 
 ## Current bounded claims
 
