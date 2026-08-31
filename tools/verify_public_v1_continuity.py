@@ -26,7 +26,7 @@ def git_bytes(*args):
 issues=[]
 # Single-branch clones do not necessarily contain tags that point at off-main genesis commits.
 # Fetch only the exact public tags required for verification when they are absent locally.
-for tag in ('prelingual-substrate-v1','naked-authority-design-v1-genesis','grounded-language-reference-v1-genesis'):
+for tag in ('prelingual-substrate-v1','naked-authority-design-v1-genesis','grounded-language-reference-v1-genesis','prelingual-substrate-v1-p1a-repair'):
     probe=subprocess.run(['git','rev-parse','--verify','--quiet',tag+'^{}'],cwd=ROOT,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
     if probe.returncode != 0:
         fetch=subprocess.run(['git','fetch','--quiet','origin','tag',tag],cwd=ROOT,text=True,capture_output=True)
@@ -66,9 +66,12 @@ if head_microseed != v1_microseed:
     if p1a_tag.returncode != 0:
         issues.append('MICROSEED_CHANGED_WITHOUT_P1A_CANONICAL_TAG')
     else:
-        changed=git('diff','--name-only',V1+'..'+p1a_tag.stdout.strip(),'--','microseed').splitlines()
+        p1a_commit=p1a_tag.stdout.strip()
+        changed=git('diff','--name-only',V1+'..'+p1a_commit,'--','microseed').splitlines()
         if changed != ['microseed/runtime/entity.py']:
             issues.append('P1A_PRODUCTION_DELTA_NOT_NARROW')
+        if subprocess.run(['git','merge-base','--is-ancestor',p1a_commit,head],cwd=ROOT).returncode != 0:
+            issues.append('HEAD_NOT_DESCENDANT_OF_P1A_CANONICAL_TAG')
 # Confirm branch-genesis metadata in both the public pointer and the copied operator receipt.
 g=pointer.get('research_branch_genesis',{})
 if g.get('naked',{}).get('genesis_commit')!=NAKED or g.get('naked',{}).get('parent')!=V1: issues.append('POINTER_NAKED_GENESIS')

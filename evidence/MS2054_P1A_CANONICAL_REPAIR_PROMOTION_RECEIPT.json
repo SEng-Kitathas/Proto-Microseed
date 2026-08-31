@@ -1,6 +1,6 @@
 {
   "schema": "ms2054_p1a_canonical_repair_promotion/v1",
-  "status": "TECHNICALLY_PROMOTED_PENDING_TAG_AND_REMOTE_READBACK",
+  "status": "PROMOTED__TAG_AND_REMOTE_READBACK_VERIFIED_SEPARATELY",
   "base_public_head": "bff8d11e3bcb47d4a944479e6be51c97b99bd41e",
   "historical_canonical_v1": "0fa41f1ed4cf2fbd341b5f0b63adbc0034d4ac39",
   "research_repair_head": "3e95bb520307b5b2a0dc4d292655f0d9c3a76014",
