@@ -6,7 +6,7 @@ from ..runtime.commitment import RelationalCommitment, TernaryCommitment
 from .epistemic import EpistemicContrastRow, EpistemicDeficitRecord, EpistemicDeficitState
 from .recruitment import RecruitmentOption
 from .rehearsal import CounterfactualRehearsalConfig, RehearsalTransitionRelation, propose_counterfactual_rehearsal
-from .value import ValueVariableRegistry
+from .value import ValueVariableRegistry, derive_complete_current_value_frame, residual_pressure_after_effect
 
 
 def _sha(value: object) -> str:
@@ -391,3 +391,110 @@ def derive_program_trace_discrimination_commitment(
         qualifiers=qnone+(("predicted_trace_count",str(len(set(traces)))),),
         premise_ids=(trial.trial_id,decision_bearing_commitment.commitment_id),
     )
+
+
+def derive_current_full_frame_epistemic_consequence_vector(
+    *,
+    deficit_id: str,
+    probe_action_id: str,
+    consequence: Mapping[str, object],
+    values: ValueVariableRegistry,
+    current_capability_epochs: Mapping[str, int],
+    effect_witnesses: Mapping[str, Mapping[str, object]],
+    complete_value_frame: Mapping[str, object],
+) -> dict[str, object]:
+    """Project one current epistemic opportunity across the organism-owned value frame.
+
+    Branch identity comes from the already-current same-value consequence surface;
+    coordinate effects come from separately current singleton action/value evidence.
+    This grants no selection or execution authority.
+    """
+    base={"selection_authority":"NONE","execution_authority":"NONE","truth_authority":"NONE","semantic_goal_authority":"NONE","semantic_value_priority_authority":"NONE","persistence":"NONE"}
+    current_frame=derive_complete_current_value_frame(values)
+    if current_frame.get("status")!="CURRENT_COMPLETE_VALUE_FRAME":
+        return {**base,"status":"DEFER_UNKNOWN","reason":"COMPLETE_CURRENT_VALUE_FRAME_REQUIRED"}
+    if str(current_frame.get("frame_digest_sha256"))!=str(complete_value_frame.get("frame_digest_sha256")) or list(current_frame.get("rows",()))!=list(complete_value_frame.get("rows",())):
+        return {**base,"status":"DEFER_UNKNOWN","reason":"COMPLETE_VALUE_FRAME_NOT_CURRENT"}
+    if consequence.get("status")!="CURRENT_SAME_VALUE_REGULATORY_CONSEQUENCE_SURFACE":
+        return {**base,"status":"DEFER_UNKNOWN","reason":"CURRENT_EPISTEMIC_CONSEQUENCE_REQUIRED"}
+    actions=tuple(str(x) for x in consequence.get("first_actions",()))
+    proposals=tuple(str(x) for x in consequence.get("proposal_digests",()))
+    if len(actions)<2 or len(actions)!=len(proposals):
+        return {**base,"status":"DEFER_UNKNOWN","reason":"BRANCH_ACTION_IDENTITY_REQUIRED"}
+    value_rows={str(row["value_id"]):dict(row) for row in current_frame["rows"]}
+    premise_ids={str(consequence.get("decision_bearing_commitment_id","")),*proposals}
+    premise_ids.discard("")
+    branches=[]
+    for branch_index,(action_id,proposal_digest) in enumerate(zip(actions,proposals)):
+        residuals={}; sources={}
+        for value_id in current_frame["current_value_ids"]:
+            value_id=str(value_id); key=f"{action_id}::{value_id}"; row=effect_witnesses.get(key)
+            if row is None:
+                return {**base,"status":"DEFER_UNKNOWN","reason":f"CURRENT_DOWNSTREAM_ACTION_VALUE_EFFECT_REQUIRED:{action_id}:{value_id}"}
+            if row.get("status")!="CURRENT_EFFECT":
+                return {**base,"status":"DEFER_UNKNOWN","reason":f"DOWNSTREAM_ACTION_VALUE_EFFECT_UNRESOLVED:{action_id}:{value_id}:{row.get('status')}"}
+            frame_row=value_rows[value_id]
+            if int(row.get("value_epoch",-1))!=int(frame_row["value_epoch"]):
+                return {**base,"status":"DEFER_UNKNOWN","reason":f"DOWNSTREAM_ACTION_VALUE_EPOCH_DRIFT:{action_id}:{value_id}"}
+            if int(row.get("capability_epoch",-1))!=int(current_capability_epochs.get(action_id,-2)):
+                return {**base,"status":"DEFER_UNKNOWN","reason":f"DOWNSTREAM_ACTION_CAPABILITY_EPOCH_DRIFT:{action_id}"}
+            contract=values.contracts[value_id]
+            residuals[value_id]=float(residual_pressure_after_effect(contract,float(frame_row["current_value"]),float(row["effect"])))
+            src=tuple(str(x) for x in row.get("source_trace_ids",()))
+            sources[value_id]=src; premise_ids.update(src)
+        branches.append({"branch_index":branch_index,"proposal_digest":proposal_digest,"downstream_action_id":action_id,"residual_by_value":residuals,"effect_source_trace_ids_by_value":sources})
+    worst={str(value_id):max(float(branch["residual_by_value"][str(value_id)]) for branch in branches) for value_id in current_frame["current_value_ids"]}
+    return {
+        **base,"status":"CURRENT_FULL_FRAME_EPISTEMIC_CONSEQUENCE_VECTOR",
+        "deficit_id":str(deficit_id),"probe_action_id":str(probe_action_id),
+        "complete_value_frame_digest_sha256":str(current_frame["frame_digest_sha256"]),
+        "value_rows":value_rows,"branches":tuple(branches),"worst_residual_by_value":worst,
+        "premise_ids":tuple(sorted(premise_ids)),"construction_authority":"DERIVED_READ_ONLY_ONLY",
+    }
+
+
+def derive_strict_full_frame_pareto_selection_commitment(
+    vector_rows: Iterable[Mapping[str, object]],
+    complete_value_frame: Mapping[str, object],
+) -> RelationalCommitment:
+    """Derive one strict Pareto selection over an exact complete current value frame."""
+    target="cross-deficit-full-frame-epistemic-selection"
+    qnone=(("authority_gain","NONE"),("selection_authority","NONE"),("execution_authority","NONE"),("truth_authority","NONE"),("semantic_goal_authority","NONE"),("semantic_value_priority_authority","NONE"))
+    rows=tuple(dict(x) for x in vector_rows)
+    base_premises=tuple(sorted({str(pid) for row in rows for pid in row.get("premise_ids",())}))
+    if complete_value_frame.get("status")!="CURRENT_COMPLETE_VALUE_FRAME":
+        return RelationalCommitment(_sha({"target":target,"reason":"frame"}),target,TernaryCommitment.UNKNOWN,reason="COMPLETE_CURRENT_VALUE_FRAME_REQUIRED",qualifiers=qnone,premise_ids=base_premises)
+    if len(rows)<2:
+        return RelationalCommitment(_sha({"target":target,"rows":rows}),target,TernaryCommitment.UNKNOWN,reason="MULTIPLE_COMPLETE_VECTORS_REQUIRED",qualifiers=qnone,premise_ids=base_premises)
+    digest=str(complete_value_frame.get("frame_digest_sha256","")); frame_rows={str(x["value_id"]):dict(x) for x in complete_value_frame.get("rows",())}; coordinate_ids=tuple(sorted(frame_rows))
+    if not digest or not coordinate_ids:
+        return RelationalCommitment(_sha({"target":target,"reason":"frame-shape"}),target,TernaryCommitment.UNKNOWN,reason="COMPLETE_CURRENT_VALUE_FRAME_REQUIRED",qualifiers=qnone,premise_ids=base_premises)
+    deficits=[]; probes=[]
+    for row in rows:
+        if row.get("status")!="CURRENT_FULL_FRAME_EPISTEMIC_CONSEQUENCE_VECTOR" or str(row.get("complete_value_frame_digest_sha256",""))!=digest:
+            return RelationalCommitment(_sha({"target":target,"rows":rows,"reason":"vector-frame"}),target,TernaryCommitment.UNKNOWN,reason="EXACT_COMPLETE_CURRENT_VALUE_FRAME_VECTOR_REQUIRED",qualifiers=qnone,premise_ids=base_premises)
+        value_rows=row.get("value_rows"); worst=row.get("worst_residual_by_value")
+        if not isinstance(value_rows,Mapping) or not isinstance(worst,Mapping) or set(map(str,value_rows))!=set(coordinate_ids) or set(map(str,worst))!=set(coordinate_ids):
+            return RelationalCommitment(_sha({"target":target,"rows":rows,"reason":"vector-shape"}),target,TernaryCommitment.UNKNOWN,reason="COMPLETE_CURRENT_VECTOR_REQUIRED",qualifiers=qnone,premise_ids=base_premises)
+        normalized={str(k):dict(v) for k,v in value_rows.items()}
+        if any(normalized[v]!=frame_rows[v] for v in coordinate_ids):
+            return RelationalCommitment(_sha({"target":target,"rows":rows,"reason":"descriptor"}),target,TernaryCommitment.UNKNOWN,reason="EXACT_COMPLETE_CURRENT_VALUE_FRAME_VECTOR_REQUIRED",qualifiers=qnone,premise_ids=base_premises)
+        try:
+            if any(not math.isfinite(float(worst[v])) or float(worst[v])<0.0 for v in coordinate_ids): raise ValueError
+        except (TypeError,ValueError,OverflowError):
+            return RelationalCommitment(_sha({"target":target,"rows":rows,"reason":"numeric"}),target,TernaryCommitment.UNKNOWN,reason="FINITE_NONNEGATIVE_REGULATORY_CONSEQUENCE_REQUIRED",qualifiers=qnone,premise_ids=base_premises)
+        deficits.append(str(row.get("deficit_id",""))); probes.append(str(row.get("probe_action_id","")))
+    if len(set(deficits))!=len(deficits) or any(not x for x in deficits):
+        return RelationalCommitment(_sha({"target":target,"deficits":deficits}),target,TernaryCommitment.UNKNOWN,reason="DISTINCT_CURRENT_DEFICITS_REQUIRED",qualifiers=qnone,premise_ids=base_premises)
+    if len(set(probes))<2:
+        return RelationalCommitment(_sha({"target":target,"probes":probes}),target,TernaryCommitment.UNKNOWN,reason="CROSS_DEFICIT_SELECTION_NOT_REQUIRED_FOR_SHARED_PROBE",qualifiers=qnone,premise_ids=base_premises)
+    def dominates(a,b):
+        aw=a["worst_residual_by_value"]; bw=b["worst_residual_by_value"]
+        return all(float(aw[v])<=float(bw[v]) for v in coordinate_ids) and any(float(aw[v])<float(bw[v]) for v in coordinate_ids)
+    winners=[]
+    for i,row in enumerate(rows):
+        if all(i==j or dominates(row,other) for j,other in enumerate(rows)): winners.append(row)
+    if len(winners)!=1:
+        return RelationalCommitment(_sha({"target":target,"digest":digest,"rows":rows}),target,TernaryCommitment.UNKNOWN,reason="NO_UNIQUE_STRICT_PARETO_DOMINATOR",qualifiers=qnone,premise_ids=base_premises)
+    winner=winners[0]; qualifiers=(("authority_gain","BOUNDED_SELECTION_ONLY"),("selection_authority","STRICT_FULL_FRAME_PARETO_REGULATORY_DOMINANCE_ONLY"),("execution_authority","NONE"),("truth_authority","NONE"),("semantic_goal_authority","NONE"),("semantic_value_priority_authority","NONE"),("selected_deficit_id",str(winner["deficit_id"])),("selected_probe_action_id",str(winner["probe_action_id"])),("complete_value_frame_digest_sha256",digest))
+    return RelationalCommitment(_sha({"target":target,"digest":digest,"winner":winner,"rows":rows}),target,TernaryCommitment.YES,reason="UNIQUE_STRICT_FULL_FRAME_PARETO_DOMINATOR",qualifiers=qualifiers,premise_ids=tuple(sorted(set(base_premises+(str(winner["deficit_id"]),)))) )

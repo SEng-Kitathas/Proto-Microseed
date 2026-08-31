@@ -1,5 +1,5 @@
 from __future__ import annotations
-import math
+import hashlib, json, math
 from typing import Callable
 from ..runtime.types import ValueVariableContract, QualificationState
 
@@ -170,3 +170,50 @@ class ValueVariableRegistry:
             }
             for vid, contract in sorted(self.contracts.items())
         }
+
+
+def derive_complete_current_value_frame(values: "ValueVariableRegistry") -> dict[str, object]:
+    """Derive the complete current constitutional value frame read-only.
+
+    Frame membership is owned by the registry, never by a caller-supplied subset.
+    Every current qualified value requires a current same-epoch observation.
+    """
+    base = {
+        "selection_authority": "NONE",
+        "execution_authority": "NONE",
+        "truth_authority": "NONE",
+        "semantic_goal_authority": "NONE",
+        "semantic_value_priority_authority": "NONE",
+        "persistence": "NONE",
+        "construction_authority": "DERIVED_READ_ONLY_ONLY",
+    }
+    current_ids = tuple(sorted(value_id for value_id in values.contracts if values.is_current(value_id)))
+    excluded = tuple(sorted(value_id for value_id in values.contracts if not values.is_current(value_id)))
+    rows: list[dict[str, object]] = []
+    for value_id in current_ids:
+        contract = values.contracts[value_id]
+        epoch = int(values.epochs[value_id])
+        latest = values.latest.get(value_id)
+        if latest is None or int(latest[0]) != epoch:
+            return {**base, "status": "DEFER_UNKNOWN", "reason": f"CURRENT_VALUE_FRAME_OBSERVATION_MISSING:{value_id}", "current_value_ids": list(current_ids), "excluded_noncurrent_value_ids": list(excluded), "missing_value_id": value_id}
+        current_value = float(latest[1])
+        if not math.isfinite(current_value):
+            return {**base, "status": "DEFER_UNKNOWN", "reason": f"CURRENT_VALUE_FRAME_NONFINITE_OBSERVATION:{value_id}", "current_value_ids": list(current_ids), "excluded_noncurrent_value_ids": list(excluded)}
+        rows.append({
+            "value_id": value_id,
+            "value_epoch": epoch,
+            "current_value": current_value,
+            "contract_signature_sha256": str(contract.signature_sha256),
+        })
+    if not rows:
+        return {**base, "status": "DEFER_UNKNOWN", "reason": "NO_CURRENT_CONSTITUTIONAL_VALUE_FRAME", "current_value_ids": [], "excluded_noncurrent_value_ids": list(excluded)}
+    canonical = json.dumps(rows, sort_keys=True, separators=(",", ":"), ensure_ascii=True)
+    return {
+        **base,
+        "status": "CURRENT_COMPLETE_VALUE_FRAME",
+        "reason": "ALL_CURRENT_CONSTITUTIONAL_VALUES_HAVE_CURRENT_OBSERVATIONS",
+        "current_value_ids": list(current_ids),
+        "excluded_noncurrent_value_ids": list(excluded),
+        "rows": rows,
+        "frame_digest_sha256": hashlib.sha256(canonical.encode("utf-8")).hexdigest(),
+    }

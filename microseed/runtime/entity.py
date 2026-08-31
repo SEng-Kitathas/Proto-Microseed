@@ -64,6 +64,7 @@ from ..development.episode import EpisodeSchemaRegistry
 from ..development.value import (
     ValueVariableRegistry,
     residual_pressure_after_effect,
+    derive_complete_current_value_frame,
 )
 from ..development.action_licensing import compose_multi_value_action_licenses, project_regulatory_effect_license
 from ..development.recruitment import RecruitmentOption, RecruitmentProposal, RecruitmentRegistry
@@ -105,6 +106,8 @@ from ..development.epistemic_priority import (
     derive_program_contrast_discrimination_commitment,
     derive_current_same_value_regulatory_consequence_surface,
     derive_strict_same_value_cross_deficit_selection_commitment,
+    derive_current_full_frame_epistemic_consequence_vector,
+    derive_strict_full_frame_pareto_selection_commitment,
 )
 from ..development.epistemic_action import (
     EpistemicStepExecutionContext, EpistemicDecisionBearingContext, derive_epistemic_program_step_commitment, derive_epistemic_program_step_local_precheck,
@@ -7553,6 +7556,51 @@ class Microseed:
             "selected_probe_action_id":None if selected is None else selected["probe_action_id"],
             "opportunity_count":len(ops),"probe_action_ids":tuple(sorted({str(op["probe_action_id"]) for op in ops})),
             "selection_authority":q.get("selection_authority","NONE"),"execution_authority":"NONE","truth_authority":"NONE",
+        }
+
+    def derive_current_owned_referent_full_frame_cross_deficit_selection_surface(
+        self, obligation: QueryObligation, *, config: DiscoveryConfig | None = None,
+        max_probe_steps: int = 2, max_records: int = 4096,
+    ) -> dict[str, Any]:
+        """Re-derive one read-only strict Pareto selection over the complete current value frame."""
+        frame=derive_complete_current_value_frame(self.values)
+        base={"selection_authority":"NONE","execution_authority":"NONE","truth_authority":"NONE"}
+        if frame.get("status")!="CURRENT_COMPLETE_VALUE_FRAME":
+            return {**base,"status":"NO_CURRENT_COMPLETE_VALUE_FRAME","reason":frame.get("reason"),"complete_value_frame":frame}
+        ops=self._current_owned_referent_epistemic_opportunities(
+            obligation,max_probe_steps=max_probe_steps,max_records=max_records,
+        )
+        probes=tuple(sorted({str(op["probe_action_id"]) for op in ops}))
+        if len(ops)<2 or len(probes)<2:
+            return {**base,"status":"NO_CURRENT_FULL_FRAME_CROSS_DEFICIT_SELECTION_REQUIRED","opportunity_count":len(ops),"probe_action_ids":probes,"complete_value_frame":frame}
+        license_result=self.derive_multi_value_action_licenses(tuple(str(x) for x in frame["current_value_ids"]),config=config)
+        effects=dict(license_result.get("effect_witnesses") or {})
+        vectors=[]
+        for op in ops:
+            vector=derive_current_full_frame_epistemic_consequence_vector(
+                deficit_id=op["deficit"].deficit_id,probe_action_id=str(op["probe_action_id"]),
+                consequence=op["consequence"],values=self.values,
+                current_capability_epochs=dict(self.capabilities.epochs),effect_witnesses=effects,
+                complete_value_frame=frame,
+            )
+            if vector.get("status")!="CURRENT_FULL_FRAME_EPISTEMIC_CONSEQUENCE_VECTOR":
+                return {**base,"status":"NO_CURRENT_STRICT_FULL_FRAME_CROSS_DEFICIT_SELECTION","reason":vector.get("reason"),"opportunity_count":len(ops),"probe_action_ids":probes,"complete_value_frame":frame,"incomplete_vector":vector}
+            vectors.append(vector)
+        current_frame=derive_complete_current_value_frame(self.values)
+        if current_frame.get("status")!="CURRENT_COMPLETE_VALUE_FRAME" or str(current_frame.get("frame_digest_sha256"))!=str(frame.get("frame_digest_sha256")) or list(current_frame.get("rows",()))!=list(frame.get("rows",())):
+            return {**base,"status":"NO_CURRENT_STRICT_FULL_FRAME_CROSS_DEFICIT_SELECTION","reason":"COMPLETE_VALUE_FRAME_NOT_CURRENT_AT_SELECTION","opportunity_count":len(ops),"probe_action_ids":probes,"complete_value_frame":current_frame}
+        selection=derive_strict_full_frame_pareto_selection_commitment(tuple(vectors),current_frame)
+        q=dict(selection.qualifiers)
+        selected_deficit=q.get("selected_deficit_id") if selection.licenses_yes() else None
+        selected_probe=q.get("selected_probe_action_id") if selection.licenses_yes() else None
+        return {
+            "status":"CURRENT_STRICT_FULL_FRAME_CROSS_DEFICIT_SELECTION" if selection.licenses_yes() else "NO_CURRENT_STRICT_FULL_FRAME_CROSS_DEFICIT_SELECTION",
+            "reason":selection.reason,"selection_commitment":selection.serializable(),
+            "selected_deficit_id":selected_deficit,"selected_probe_action_id":selected_probe,
+            "opportunity_count":len(ops),"probe_action_ids":probes,
+            "complete_value_frame":current_frame,"vectors":tuple(vectors),
+            "selection_authority":q.get("selection_authority","NONE"),
+            "execution_authority":"NONE","truth_authority":"NONE",
         }
 
     def nominate_current_strict_same_value_referent_epistemic_opportunity(
