@@ -1,6 +1,6 @@
 {
   "schema": "ms2055_n1a_embodiment_readiness/v1",
-  "status": "RESEARCH_EMBODIMENT_BROADER_GREEN__WHOLE_SUITE_PENDING",
+  "status": "RESEARCH_EMBODIMENT__WHOLE_SUITE_GOVERNANCE_GUARD_REPAIR_PENDING_RERUN",
   "p1a_canonical_base": "2c3e225fd1fcaa89965da80d6048bc178c521740",
   "operator_choice": "N1A",
   "research_branch": "research/naked-authority-design-v1-p1a-n1a",
@@ -35,5 +35,17 @@
     "stderr_bytes": 0,
     "stdout_path": "research_results/MS2055_N1A_BROADER_FOCUSED_STDOUT.log",
     "stdout_sha256": "84c5032211f0547e3447e2b1acf68e99cca6f4520ca83f6625c56fc0236b0014"
+  },
+  "whole_suite_first_pass": {
+    "job_id": "job-1e55175ecf49",
+    "pytest": "923 PASS / 3 FAIL",
+    "duration_seconds": 1166.85,
+    "stderr_bytes": 0,
+    "failures": [
+      "MS2047 historical V1 delta audit x2",
+      "MS2050 historical V1 integrity test via MS2047"
+    ],
+    "classification": "HISTORICAL_V1_SHAPE_AUDIT_CURRENT_HEAD_ASSUMPTION__NOT_N1A_BEHAVIORAL_FAILURE",
+    "repair": "bind MS2047 _git_core_delta to immutable V1 promotion commit"
   }
 }

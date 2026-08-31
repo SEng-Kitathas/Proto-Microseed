@@ -63,3 +63,10 @@ The preliminary MS2055 receipt also omitted the newly-added warrant module becau
 
 ## Broader regression after guard repair
 `job-6b102d745ac3`: **54/54 PASS in 49.44s**, stderr empty. Exact stdout SHA-256 `84c5032211f0547e3447e2b1acf68e99cca6f4520ca83f6625c56fc0236b0014`.
+
+## First whole-suite scar
+Authoritative whole regression `job-1e55175ecf49` returned **923 PASS / 3 FAIL** in 1166.85s with empty stderr. All three failures originated from the same historical MS2047 V1-candidate audit using arbitrary current `HEAD` to calculate the sealed post-MS2035 V1 production delta. N1A correctly added new production paths, so the historical audit became stale.
+
+Repair: MS2047 now binds its Git delta to immutable V1 promotion commit `0fa41f1...` instead of future descendants. MS2050 can therefore continue to use MS2047 as a historical V1 shape audit without asserting future canon must equal V1.
+
+Classification: `HISTORICAL_V1_SHAPE_AUDIT_CURRENT_HEAD_ASSUMPTION__NOT_N1A_BEHAVIORAL_FAILURE`.

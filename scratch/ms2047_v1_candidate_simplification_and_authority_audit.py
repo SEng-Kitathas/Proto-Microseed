@@ -13,6 +13,7 @@ from scratch.ms2008_referent_ambiguity_becomes_decision_bearing import act_ob
 from scratch.ms2036_full_frame_bound_pareto_research import _fixture, _p2_dominates_effects, _tradeoff_effects
 
 BASE = "84a19d7ea30342c84ac8a9f0bf44fa0fe556bc43"
+V1_PROMOTION = "0fa41f1ed4cf2fbd341b5f0b63adbc0034d4ac39"
 EXPECTED_CORE = {
     "microseed/development/epistemic_action.py",
     "microseed/development/epistemic_priority.py",
@@ -27,14 +28,15 @@ FORBIDDEN_ATTRS = (
 )
 
 
-def _git_core_delta() -> dict[str, object]:
+def _git_core_delta(target_ref: str = V1_PROMOTION) -> dict[str, object]:
+    """Audit the sealed V1 candidate delta, not arbitrary future HEAD descendants."""
     root = Path(__file__).resolve().parents[1]
-    head = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=root, text=True).strip()
-    rows = subprocess.check_output(["git", "diff", "--name-status", f"{BASE}..{head}", "--", "microseed"], cwd=root, text=True).splitlines()
+    target = subprocess.check_output(["git", "rev-parse", target_ref], cwd=root, text=True).strip()
+    rows = subprocess.check_output(["git", "diff", "--name-status", f"{BASE}..{target}", "--", "microseed"], cwd=root, text=True).splitlines()
     changed = {row.split("\t", 1)[1].replace("\\", "/") for row in rows if "\t" in row}
     new_files = [row for row in rows if row.startswith("A\t")]
-    numstat = subprocess.check_output(["git", "diff", "--numstat", f"{BASE}..{head}", "--", "microseed"], cwd=root, text=True).splitlines()
-    return {"head": head, "changed_core_paths": sorted(changed), "new_core_files": new_files, "numstat": numstat}
+    numstat = subprocess.check_output(["git", "diff", "--numstat", f"{BASE}..{target}", "--", "microseed"], cwd=root, text=True).splitlines()
+    return {"head": target, "audit_ref": target_ref, "changed_core_paths": sorted(changed), "new_core_files": new_files, "numstat": numstat}
 
 
 def _surface_authority(effects):
