@@ -6,6 +6,15 @@ This repository now carries the operator-promoted canonical bounded/equipped bas
 
 The promoted V1 claim remains deliberately bounded. It does **not** grant NAKED first-unmodeled-physical-probe authority, semantic self/body/other identity authority, semantic reference/truth authority from language, or language competence. Two separate research gates are open from the exact V1 baseline: NAKED constitutional authority design and grounded language/reference research. Neither branch self-promotes to canonical `main`.
 
+## Continuity and external audit
+
+**Start at [`CONTINUITY.md`](CONTINUITY.md) before inspecting any branch named `continuity/*`.** The embedded `continuity/reincarnation-2026-08-30` branch is a preserved historical MS2003-era package, not current continuity authority.
+
+Current operator continuity is maintained separately in `SEng-Kitathas/Proto-Microseed-RD-Continuity`, which may not be publicly reachable to every auditor. To keep the V1 promotion externally checkable from this repository, the minimum promotion-continuity receipt is mirrored at `evidence/PRELINGUAL_SUBSTRATE_V1_PUBLIC_CONTINUITY_POINTER.json`, with the exact promotion receipt mirrored at `evidence/PRELINGUAL_SUBSTRATE_V1_PROMOTION_CONTINUITY_RECEIPT.json` and the exact 911-test stdout at `evidence/PRELINGUAL_SUBSTRATE_V1_EXACT_SUITE_STDOUT.log`; verify locally with `python tools/verify_public_v1_continuity.py`.
+
+The canonical V1 checkpoint remains the immutable tagged commit `0fa41f1ed4cf2fbd341b5f0b63adbc0034d4ac39`. Later documentation-only maintenance may advance repository `main` only while the verifier confirms `microseed/` remains byte-identical to that checkpoint.
+
+
 
 ## PRELINGUAL_SUBSTRATE_V1 canonical checkpoint
 

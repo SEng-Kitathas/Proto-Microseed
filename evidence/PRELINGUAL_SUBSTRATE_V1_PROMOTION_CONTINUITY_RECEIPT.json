@@ -1,0 +1,77 @@
+{
+  "status": "PASS_WITH_CONTROL_PLANE_SCAR",
+  "checkpoint": "PRELINGUAL_SUBSTRATE_V1_PROMOTION",
+  "promotion_commit": "0fa41f1ed4cf2fbd341b5f0b63adbc0034d4ac39",
+  "promotion_tree": "88a4014db5838848b1e36b904b96e55b2a5f670e",
+  "operator_decisions": {
+    "v1": "PROMOTE",
+    "naked": "OPEN_SEPARATE_AUTHORITY_DESIGN",
+    "grounded_language": "OPEN_RESEARCH_GATE"
+  },
+  "remote_heads": {
+    "main": "0fa41f1ed4cf2fbd341b5f0b63adbc0034d4ac39",
+    "research/ms1888-replay": "0fa41f1ed4cf2fbd341b5f0b63adbc0034d4ac39",
+    "research/naked-authority-design-v1": "06a3cbd409262b2b948fb8d1c3b96ad78f2b6c91",
+    "research/grounded-language-reference-v1": "e4e4c961654794d5d2b26eaeadeded2c0075a5df"
+  },
+  "peeled_tags": {
+    "prelingual-substrate-v1": "0fa41f1ed4cf2fbd341b5f0b63adbc0034d4ac39",
+    "checkpoint-prelingual-substrate-v1-2026-08-30": "0fa41f1ed4cf2fbd341b5f0b63adbc0034d4ac39",
+    "naked-authority-design-v1-genesis": "06a3cbd409262b2b948fb8d1c3b96ad78f2b6c91",
+    "grounded-language-reference-v1-genesis": "e4e4c961654794d5d2b26eaeadeded2c0075a5df"
+  },
+  "exact_suite": {
+    "job_id": "job-e2760923d14b",
+    "pytest": "911/911 PASS",
+    "duration_seconds": 883.01,
+    "stderr_bytes": 0,
+    "scheduler_status": "FAILED",
+    "scheduler_failure_kind": "SUPERVISION_LOST",
+    "scheduler_return_code": null,
+    "scientific_test_verdict": "PASS"
+  },
+  "fresh_clone_checks": {
+    "main": {
+      "head": "0fa41f1ed4cf2fbd341b5f0b63adbc0034d4ac39",
+      "tree": "88a4014db5838848b1e36b904b96e55b2a5f670e",
+      "clean": true,
+      "fsck": "PASS",
+      "gate_packet": "5/5 PASS in 8.66s"
+    },
+    "naked": {
+      "head": "06a3cbd409262b2b948fb8d1c3b96ad78f2b6c91",
+      "parent": "0fa41f1ed4cf2fbd341b5f0b63adbc0034d4ac39",
+      "clean": true,
+      "fsck": "PASS",
+      "runtime_test_delta": false
+    },
+    "language": {
+      "head": "e4e4c961654794d5d2b26eaeadeded2c0075a5df",
+      "parent": "0fa41f1ed4cf2fbd341b5f0b63adbc0034d4ac39",
+      "clean": true,
+      "fsck": "PASS",
+      "runtime_test_delta": false
+    }
+  },
+  "source_zip": {
+    "path": "source/Proto-Microseed-PRELINGUAL_SUBSTRATE_V1-0fa41f1ed4cf-source.zip",
+    "bytes": 2279379,
+    "sha256": "289191dcf942f4e8569df6c5047426531c51379cf95b5ff7a0cedd14ef7b6e56"
+  },
+  "git_bundle": {
+    "path": "source/Proto-Microseed-PRELINGUAL_SUBSTRATE_V1-0fa41f1ed4cf-all-branches.bundle",
+    "bytes": 2103012,
+    "sha256": "a9457a2ffd3c196b50ecb315feb6299e20b621ca66d9ba9b05ae303c470d474f"
+  },
+  "scheduler_stdout": {
+    "path": "system/logs/execution/job-e2760923d14b/stdout.log",
+    "bytes": 1086,
+    "sha256": "5432c11be80077a62e11b2918d0e4af667c045bcb98746a80ca8b96e1ad08edc"
+  },
+  "scheduler_stderr": {
+    "path": "system/logs/execution/job-e2760923d14b/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "created_at_utc": "2026-08-31T04:40:29.401198+00:00"
+}

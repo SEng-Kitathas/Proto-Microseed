@@ -1,0 +1,103 @@
+{
+  "schema": "proto_microseed_public_continuity_receipt/v1",
+  "status": "PUBLIC_EXTERNAL_AUDIT_POINTER",
+  "canonical_label": "PRELINGUAL_SUBSTRATE_V1",
+  "promotion_commit": "0fa41f1ed4cf2fbd341b5f0b63adbc0034d4ac39",
+  "promotion_tree": "88a4014db5838848b1e36b904b96e55b2a5f670e",
+  "public_repository": "SEng-Kitathas/Proto-Microseed",
+  "historical_embedded_continuity_branch": {
+    "name": "continuity/reincarnation-2026-08-30",
+    "status": "HISTORICAL_MS2003_ERA__NOT_CURRENT_CONTINUITY_AUTHORITY"
+  },
+  "authoritative_operator_continuity": {
+    "repository": "SEng-Kitathas/Proto-Microseed-RD-Continuity",
+    "external_reachability": "NOT_ASSUMED_PUBLIC",
+    "external_verification_ceiling": "DEEP_CONTINUITY_CONTENT_IS_REPORTED_UNLESS_AUDITOR_HAS_ACCESS"
+  },
+  "promotion_tags": {
+    "prelingual-substrate-v1": "0fa41f1ed4cf2fbd341b5f0b63adbc0034d4ac39",
+    "checkpoint-prelingual-substrate-v1-2026-08-30": "0fa41f1ed4cf2fbd341b5f0b63adbc0034d4ac39"
+  },
+  "research_branch_genesis": {
+    "naked": {
+      "branch": "research/naked-authority-design-v1",
+      "genesis_commit": "06a3cbd409262b2b948fb8d1c3b96ad78f2b6c91",
+      "parent": "0fa41f1ed4cf2fbd341b5f0b63adbc0034d4ac39",
+      "tag": "naked-authority-design-v1-genesis"
+    },
+    "grounded_language": {
+      "branch": "research/grounded-language-reference-v1",
+      "genesis_commit": "e4e4c961654794d5d2b26eaeadeded2c0075a5df",
+      "parent": "0fa41f1ed4cf2fbd341b5f0b63adbc0034d4ac39",
+      "tag": "grounded-language-reference-v1-genesis"
+    }
+  },
+  "promotion_verification_summary": {
+    "exact_suite": {
+      "job_id": "job-e2760923d14b",
+      "pytest": "911/911 PASS",
+      "duration_seconds": 883.01,
+      "stderr_bytes": 0,
+      "scheduler_status": "FAILED",
+      "scheduler_failure_kind": "SUPERVISION_LOST",
+      "scientific_test_verdict": "PASS"
+    },
+    "fresh_clone_main": {
+      "head": "0fa41f1ed4cf2fbd341b5f0b63adbc0034d4ac39",
+      "tree": "88a4014db5838848b1e36b904b96e55b2a5f670e",
+      "clean": true,
+      "fsck": "PASS",
+      "gate_packet": "5/5 PASS in 8.66s"
+    },
+    "fresh_clone_naked_genesis": {
+      "head": "06a3cbd409262b2b948fb8d1c3b96ad78f2b6c91",
+      "parent": "0fa41f1ed4cf2fbd341b5f0b63adbc0034d4ac39",
+      "clean": true,
+      "fsck": "PASS",
+      "runtime_test_delta": false
+    },
+    "fresh_clone_language_genesis": {
+      "head": "e4e4c961654794d5d2b26eaeadeded2c0075a5df",
+      "parent": "0fa41f1ed4cf2fbd341b5f0b63adbc0034d4ac39",
+      "clean": true,
+      "fsck": "PASS",
+      "runtime_test_delta": false
+    },
+    "source_zip": {
+      "bytes": 2279379,
+      "sha256": "289191dcf942f4e8569df6c5047426531c51379cf95b5ff7a0cedd14ef7b6e56"
+    },
+    "git_bundle": {
+      "bytes": 2103012,
+      "sha256": "a9457a2ffd3c196b50ecb315feb6299e20b621ca66d9ba9b05ae303c470d474f"
+    },
+    "scheduler_stdout": {
+      "bytes": 1086,
+      "sha256": "5432c11be80077a62e11b2918d0e4af667c045bcb98746a80ca8b96e1ad08edc"
+    },
+    "scheduler_stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "claim_boundaries": [
+    "INSPECTED_SURFACE != AUTHORITATIVE_SURFACE",
+    "OPERATOR_VERIFIED_PRIVATE_CONTINUITY != EXTERNALLY_REACHABLE_CONTINUITY",
+    "PUBLIC_PROMOTION_RECEIPT != FULL_CONTINUITY_REPOSITORY",
+    "CURRENT_REPOSITORY_HEAD_MAY_ADVANCE_BY_DOCS_ONLY_MAINTENANCE_WHILE_PRELINGUAL_SUBSTRATE_V1_REMAINS_THE_TAGGED_CANONICAL_CHECKPOINT"
+  ],
+  "source_of_copied_promotion_fields": "operator continuity receipt PRELINGUAL_SUBSTRATE_V1_PROMOTION_CHECKPOINT_2026-08-30.json",
+  "created_at_utc": "2026-08-31T11:47:23.321969+00:00",
+  "public_mirrors": {
+    "exact_promotion_receipt": {
+      "path": "evidence/PRELINGUAL_SUBSTRATE_V1_PROMOTION_CONTINUITY_RECEIPT.json",
+      "sha256": "c0f3ea96bbfa59fdfe75910120285654797afff028d8044bc0633e647ef3a43d"
+    },
+    "exact_suite_stdout": {
+      "path": "evidence/PRELINGUAL_SUBSTRATE_V1_EXACT_SUITE_STDOUT.log",
+      "bytes": 1086,
+      "sha256": "5432c11be80077a62e11b2918d0e4af667c045bcb98746a80ca8b96e1ad08edc"
+    }
+  },
+  "external_checkability_note": "Git/tag/parent/subtree claims are locally derivable; the 911/911 test verdict is backed by the mirrored exact suite stdout whose hash matches the copied operator promotion receipt. Deeper continuity content remains unavailable unless the auditor has access to the dedicated continuity repository."
+}
