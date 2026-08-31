@@ -8,10 +8,13 @@ from scratch.v1_soak_001_stale_rehearsal_reuse_violation import run
 V1 = "0fa41f1ed4cf2fbd341b5f0b63adbc0034d4ac39"
 
 
-def test_ms2054_p1a_is_narrow_production_repair_from_v1():
+def test_ms2054_tagged_p1a_is_narrow_production_repair_from_v1():
     root = Path(__file__).resolve().parents[2]
+    p1a = subprocess.check_output(
+        ["git", "rev-parse", "prelingual-substrate-v1-p1a-repair^{}"], cwd=root, text=True
+    ).strip()
     changed = subprocess.check_output(
-        ["git", "diff", "--name-only", f"{V1}..HEAD", "--", "microseed"], cwd=root, text=True
+        ["git", "diff", "--name-only", f"{V1}..{p1a}", "--", "microseed"], cwd=root, text=True
     ).splitlines()
     assert changed == ["microseed/runtime/entity.py"]
 

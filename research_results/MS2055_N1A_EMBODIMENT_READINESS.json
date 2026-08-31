@@ -1,11 +1,12 @@
 {
   "schema": "ms2055_n1a_embodiment_readiness/v1",
-  "status": "RESEARCH_CANDIDATE_PRE_WHOLE_SUITE",
+  "status": "RESEARCH_CANDIDATE__BROADER_REGRESSION_REPAIR_PENDING_RERUN",
   "p1a_canonical_base": "2c3e225fd1fcaa89965da80d6048bc178c521740",
   "operator_choice": "N1A",
   "research_branch": "research/naked-authority-design-v1-p1a-n1a",
   "production_delta": [
     "microseed/development/action_closure.py",
+    "microseed/development/experimental_warrant.py",
     "microseed/persistence/store.py",
     "microseed/runtime/entity.py"
   ],
@@ -13,5 +14,17 @@
     "n1a_tests": "8/8 PASS",
     "combined_c01_c04_plus_p1a_before_known_harm_addition": "13/13 PASS"
   },
-  "canonical_promotion": "NOT_YET_EARNED"
+  "canonical_promotion": "NOT_YET_EARNED",
+  "preliminary_receipt_correction": {
+    "previous_omission": "microseed/development/experimental_warrant.py was untracked when the precommit diff was computed",
+    "classification": "PRECOMMIT_RECEIPT_BOOKKEEPING_ERROR__NO_PRODUCTION_FILE_OMITTED_FROM_COMMIT",
+    "corrected": true
+  },
+  "broader_regression_first_pass": {
+    "job_id": "job-ba41101c63e8",
+    "result": "53 PASS / 1 FAIL",
+    "failure": "MS2054 guard compared V1 against arbitrary descendant HEAD rather than immutable P1A tag",
+    "classification": "HISTORICAL_PROMOTION_GUARD_CURRENT_HEAD_ASSUMPTION__NOT_N1A_BEHAVIORAL_FAILURE",
+    "repair": "bind MS2054 narrow-delta assertion to prelingual-substrate-v1-p1a-repair peeled commit"
+  }
 }

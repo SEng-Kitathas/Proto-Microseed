@@ -54,3 +54,9 @@ N1A carries no predicted consequence. After EFFECT, the external observation own
 
 ## Promotion discipline
 This milestone is research embodiment until hostile, focused, whole-suite, fresh-clone, and canonical-promotion checks pass. Research branch success does not self-promote.
+## First broader-regression scar
+The first broader run (`job-ba41101c63e8`) returned 53 PASS / 1 FAIL. The sole failure was the MS2054 P1A promotion guard comparing historical V1 to arbitrary current `HEAD`; an N1A descendant therefore correctly violated the old "only entity.py differs" assertion. The guard is repaired to inspect the immutable `prelingual-substrate-v1-p1a-repair` tag instead.
+
+Classification: `HISTORICAL_PROMOTION_GUARD_CURRENT_HEAD_ASSUMPTION__NOT_N1A_BEHAVIORAL_FAILURE`.
+
+The preliminary MS2055 receipt also omitted the newly-added warrant module because its production-delta command ran before untracked files were committed. The commit contained the file; the receipt is corrected explicitly rather than silently rewritten.
