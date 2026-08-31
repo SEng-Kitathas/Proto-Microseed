@@ -20,3 +20,12 @@ The relation has semantic reference, truth, execution, semantic identity, and nu
 
 ## B1→B2 discipline
 Do not attempt compositional reference yet. First pressure persistence/restart and multiple independently grounded tokens so B2 cannot be faked by composing one brittle relation with itself.
+
+
+## Observed result — PASS
+Direct quarry PASS. Focused LANG-C01 + MS2046/MS2051 regressions: **5/5 PASS in 2.84s**, stderr empty.
+
+Earned research-only:
+`CURRENT_EXACT_GROUNDED_BINDING_CAN_SUPPORT_A_BRANCH_OWNED_B1_OPERATIONAL_REFERENCE_RELATION_WITHOUT_SEMANTIC_REFERENCE_AUTHORITY`.
+
+Next: persistence/restart and multiple independently grounded tokens before B2 composition.
