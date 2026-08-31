@@ -18,3 +18,14 @@ Repeat use, capability substitution, epoch drift, signature drift, scope drift, 
 A PASS would show only that an A1 warrant **can be structurally bounded** so it does not automatically become general action authority. It does not justify the constitutional premise itself and does not prove downstream physical risk is bounded.
 
 Next pressure must attack the issuance rule and consumption semantics, especially self-authorization loops and crash/restart windows.
+
+
+## Observed result — PASS
+Direct quarry PASS. Focused C01 + historical authority/currentness regressions: **10/10 PASS in 17.51s**, stderr empty.
+
+Earned research-only:
+`ONE_SHOT_EXACT_ACTION_BOUND_CURRENT_STATE_BOUND_EXPERIMENTAL_WARRANT_CAN_BE_DEFINED_WITHOUT_INFORMATION_VALUE_OR_GENERAL_ACTION_AUTHORITY`.
+
+Not earned: constitutional justification, issuance legitimacy, crash-safe consumption, or bounded downstream risk.
+
+Next: issuance/consumption hostile.
