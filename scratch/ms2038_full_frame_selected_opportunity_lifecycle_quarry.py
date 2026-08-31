@@ -8,7 +8,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from microseed import EpistemicStatus
 from microseed.development.discovery import DiscoveryConfig
-from microseed.runtime.commitment import action_result_digest
+from microseed.runtime.entity import action_result_digest
 from scratch.ms2008_referent_ambiguity_becomes_decision_bearing import act_ob
 from scratch.ms2035_organism_owned_current_value_frame_completeness import _contract
 from scratch.ms2036_full_frame_bound_pareto_research import (

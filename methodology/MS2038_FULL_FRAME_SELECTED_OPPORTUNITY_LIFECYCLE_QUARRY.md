@@ -34,3 +34,27 @@ Classification:
 `MS2038_HARNESS_IMPORT_BINDING_FAILURE__NO_SCIENTIFIC_VERDICT`.
 
 Per research lineage policy this failed state is preserved before repair.
+
+
+## Repair 1 — bind live action digest owner
+Narrow repair only: import the live `action_result_digest` alias from `microseed.runtime.entity`, matching historical scratch lineage. No lifecycle hypothesis changed.
+
+
+## Observed result — FULL-FRAME SELECTED LIFECYCLE EARNED
+After the published import-binding failure, Repair 1 bound the live action digest owner only. Direct witness PASS.
+
+Observed:
+- full-frame trade-off -> ABSTAIN with zero durable deltas;
+- full-frame P2 dominance -> one endogenous UNKNOWN_INCOMPLETE, one durable ACTION_LIMITED deficit, one P2 intent, zero executions;
+- second identical call -> idempotent `SELECTED_EPISTEMIC_DEFICIT_ALREADY_PERSISTED`, zero deltas;
+- current X without observation -> no complete frame, zero durable deltas;
+- handler calls zero.
+
+The selected UNKNOWN is content-bound to the full-frame selection commitment id/authority and frame digest, while the durable deficit carries `ENDOGENOUS_UNKNOWN_MATERIALIZED_AFTER_STRICT_FULL_FRAME_PARETO_SELECTION`.
+
+Cleanup-neutral focused MS2036–MS2038 lineage: **10/10 PASS in 53.21s**, stderr empty.
+
+Earned research-only lifecycle:
+`STRICT_FULL_FRAME_SELECTED_EPHEMERAL_OPPORTUNITY_CAN_USE_EXISTING_ENDOGENOUS_UNKNOWN_AND_ORDINARY_NOMINATION_LIFECYCLE`.
+
+Execution/effect-time currentness remains unearned.
