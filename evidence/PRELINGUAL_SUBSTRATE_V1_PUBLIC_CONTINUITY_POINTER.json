@@ -129,6 +129,11 @@
       "UNIQUE_ELIGIBILITY_ONLY",
       "DURABLE_RESERVATION_BEFORE_EFFECT",
       "ACTUAL_OUTCOME_SOVEREIGNTY"
-    ]
+    ],
+    "promotion_commit": "5bbf5a91384bfdd8f749cf6780c77be73aeeafe3",
+    "promotion_tree": "0d9753a5e139d910461e51aa210db3f5834b95d2",
+    "microseed_tree": "b5f7cb091923cff81e74798530dedb01bdc60c1e",
+    "promotion_readback_receipt": "evidence/MS2056_N1A_CANONICAL_PROMOTION_READBACK_RECEIPT.json",
+    "remote_and_fresh_clone_status": "VERIFIED"
   }
 }

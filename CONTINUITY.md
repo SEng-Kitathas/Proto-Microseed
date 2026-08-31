@@ -71,4 +71,6 @@ N1A promotion receipt: `evidence/MS2056_N1A_CANONICAL_PROMOTION_RECEIPT.json`
 
 N1A whole regression: `evidence/MS2056_N1A_WHOLE_SUITE_STDOUT.log`
 
+Promotion remote/fresh-clone readback: `evidence/MS2056_N1A_CANONICAL_PROMOTION_READBACK_RECEIPT.json`
+
 N1A grants only one exact bounded first-unmodeled EFFECT exposure after current qualification, scope, state, complete current value-frame, known-consequence exclusion, and unique-eligibility gates. `UNKNOWN != SAFE`; the warrant is durably consumed before EFFECT and does not create generic exploration authority.

@@ -12,7 +12,7 @@ Historical V1 did **not** grant NAKED first-unmodeled-physical-probe authority. 
 
 Current operator continuity is maintained separately in `SEng-Kitathas/Proto-Microseed-RD-Continuity`, which may not be publicly reachable to every auditor. To keep the V1 promotion externally checkable from this repository, the minimum promotion-continuity receipt is mirrored at `evidence/PRELINGUAL_SUBSTRATE_V1_PUBLIC_CONTINUITY_POINTER.json`, with the exact promotion receipt mirrored at `evidence/PRELINGUAL_SUBSTRATE_V1_PROMOTION_CONTINUITY_RECEIPT.json` and the exact 911-test stdout at `evidence/PRELINGUAL_SUBSTRATE_V1_EXACT_SUITE_STDOUT.log`; verify locally with `python tools/verify_public_v1_continuity.py`.
 
-Historical V1 remains immutable at `0fa41f1ed4cf2fbd341b5f0b63adbc0034d4ac39`; P1A remains immutable at tag `prelingual-substrate-v1-p1a-repair`. Active repaired/extended canon is sealed by tag `prelingual-substrate-v1-p1a-n1a`; see `evidence/MS2056_N1A_CANONICAL_PROMOTION_RECEIPT.json`.
+Historical V1 remains immutable at `0fa41f1ed4cf2fbd341b5f0b63adbc0034d4ac39`; P1A remains immutable at tag `prelingual-substrate-v1-p1a-repair`. Active repaired/extended canon is sealed by tag `prelingual-substrate-v1-p1a-n1a`; see `evidence/MS2056_N1A_CANONICAL_PROMOTION_RECEIPT.json`. Remote/tag/fresh-clone confirmation is recorded in `evidence/MS2056_N1A_CANONICAL_PROMOTION_READBACK_RECEIPT.json`.
 
 
 

@@ -1,0 +1,50 @@
+{
+  "schema": "ms2056_n1a_canonical_promotion_readback/v1",
+  "status": "CANONICAL_PROMOTION_REMOTE_AND_FRESH_CLONE_VERIFIED",
+  "canonical_label": "PRELINGUAL_SUBSTRATE_V1_P1A_N1A",
+  "promotion_commit": "5bbf5a91384bfdd8f749cf6780c77be73aeeafe3",
+  "promotion_tree": "0d9753a5e139d910461e51aa210db3f5834b95d2",
+  "microseed_tree": "b5f7cb091923cff81e74798530dedb01bdc60c1e",
+  "promotion_tag": "prelingual-substrate-v1-p1a-n1a",
+  "tested_research_head": "9caaac51ecfdac7b5e48c98faf585d4b36ed09e8",
+  "tested_research_microseed_tree": "b5f7cb091923cff81e74798530dedb01bdc60c1e",
+  "whole_suite": {
+    "job_id": "job-5640f9b7d6d5",
+    "pytest": "926/926 PASS",
+    "duration_seconds": 913.93,
+    "stderr_bytes": 0,
+    "stdout_bytes": 1086,
+    "stdout_sha256": "a39257a8c0b01edd0c077d53b7220ac135d6ba7ce0206a5ece00f24428be57e4"
+  },
+  "remote_readback": {
+    "refs": [
+      "5bbf5a91384bfdd8f749cf6780c77be73aeeafe3\trefs/heads/main",
+      "5bbf5a91384bfdd8f749cf6780c77be73aeeafe3\trefs/heads/research/ms1888-replay",
+      "5bbf5a91384bfdd8f749cf6780c77be73aeeafe3\trefs/heads/research/naked-authority-design-v1-p1a-n1a",
+      "0fa41f1ed4cf2fbd341b5f0b63adbc0034d4ac39\trefs/tags/prelingual-substrate-v1^{}",
+      "0e1bbd0512f5f868e5263d660300191f0bf239f8\trefs/tags/prelingual-substrate-v1-p1a-n1a",
+      "5bbf5a91384bfdd8f749cf6780c77be73aeeafe3\trefs/tags/prelingual-substrate-v1-p1a-n1a^{}",
+      "2c3e225fd1fcaa89965da80d6048bc178c521740\trefs/tags/prelingual-substrate-v1-p1a-repair^{}"
+    ],
+    "main_exact": true,
+    "research_ms1888_exact": true,
+    "n1a_branch_exact": true,
+    "tag_peeled_exact": true
+  },
+  "fresh_public_single_branch_clone": {
+    "head": "5bbf5a91384bfdd8f749cf6780c77be73aeeafe3",
+    "clean": true,
+    "public_verifier": "PASS",
+    "promotion_gate": "14/14 PASS in 11.20s",
+    "fsck": "PASS",
+    "n1a_tag": "5bbf5a91384bfdd8f749cf6780c77be73aeeafe3",
+    "p1a_tag": "2c3e225fd1fcaa89965da80d6048bc178c521740",
+    "v1_tag": "0fa41f1ed4cf2fbd341b5f0b63adbc0034d4ac39",
+    "microseed_tree": "b5f7cb091923cff81e74798530dedb01bdc60c1e"
+  },
+  "production_identity": {
+    "promotion_vs_tested_research_microseed_equal": true,
+    "meaning": "MS2056 seal is governance/evidence-only on tested N1A production bytes"
+  },
+  "created_at_utc": "2026-08-31T14:09:04.502023+00:00"
+}
