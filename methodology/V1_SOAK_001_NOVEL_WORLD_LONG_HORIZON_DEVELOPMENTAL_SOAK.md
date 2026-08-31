@@ -240,3 +240,22 @@ Classification:
 `V1_SOAK_001_HARNESS_SHIFT_WINDOW_STRICT_INEQUALITY__NO_SCIENTIFIC_VERDICT`.
 
 Repair: allow `shift_episode <= episodes - 40`; do not alter organism/runtime behavior.
+
+
+## Revised localized-drift smoke — PASS
+After the horizon-guard correction, the 80-episode smoke completed cleanly with a 40/40 pre/post split. The run included:
+- durable zero-row proposal reuse;
+- three periodic SQLite restart/snapshot cycles;
+- sixteen terminal-only D-regime episodes while the old R relation was still current;
+- localized currentness assessment (K/M current, R drift witness);
+- stale R durable rehearsal -> `UNKNOWN_INCOMPLETE`;
+- K/M remained executable to `s2`;
+- old R intent blocked;
+- external disjoint holdout qualification of one R replacement;
+- new zero-row R proposal predicted `w` and re-entered execution;
+- post-repair long-phase continuation;
+- forked 8-referent diagnostics with ambiguity/occlusion pressure.
+
+Result: **1/1 PASS in 15.00s**, stderr empty.
+
+This smoke validates the harness and the narrow repair but remains too short to support a long-horizon phenotype claim.

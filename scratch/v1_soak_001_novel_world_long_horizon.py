@@ -418,7 +418,7 @@ def event_kind_counts(ms: Microseed) -> dict[str, int]:
 
 
 def run_soak(cfg: SoakConfig, output_root: Path) -> dict[str, object]:
-    if not (40 <= cfg.shift_episode < cfg.episodes - 40): raise ValueError("SHIFT_EPISODE_MUST_LEAVE_PRE_AND_POST_WINDOWS")
+    if not (40 <= cfg.shift_episode <= cfg.episodes - 40): raise ValueError("SHIFT_EPISODE_MUST_LEAVE_PRE_AND_POST_WINDOWS")
     output_root.mkdir(parents=True, exist_ok=True); runtime_root = output_root / "runtime"; snapshots = output_root / "snapshots"; telemetry = Telemetry(output_root / "telemetry.jsonl")
     config_payload = {**cfg.__dict__, "canonical_v1": CANONICAL_V1, "run_subject": "V1_REPAIR_DESCENDANT_AFTER_STALE_REHEARSAL_VIOLATION"}
     (output_root / "config.json").write_text(json.dumps(config_payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
