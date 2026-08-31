@@ -222,7 +222,13 @@ class EpistemicDeficitRegistry:
         ))
 
     def snapshot(self) -> dict[str, dict[str, Any]]:
-        return {k: v.serializable() for k, v in sorted(self.records.items())}
+        return {
+            k: {
+                **v.serializable(),
+                "capability_dependents": sorted(self.capability_dependents.get(k, ())),
+            }
+            for k, v in sorted(self.records.items())
+        }
 
 
 def _sha256_token(value: str, *, error: str) -> str:
@@ -339,6 +345,10 @@ class EpistemicProjectionRegistry:
 
     def __init__(self) -> None:
         self.records: dict[str, EpistemicProjectionRecord] = {}
+        # projection -> executable capabilities whose immutable content is bound
+        # to this exact opaque projection currentness surface.  This grants the
+        # projection no execution authority; it is only a stale-propagation edge.
+        self.capability_dependents: dict[str, set[str]] = {}
 
     @staticmethod
     def _currentness_dependencies(record: EpistemicProjectionRecord) -> tuple[tuple[str,int,str], ...]:
@@ -353,6 +363,11 @@ class EpistemicProjectionRegistry:
             if source is None or source.signature_sha256!=source_signature or not self.is_current(source_id,source_epoch):
                 raise ValueError("EPISTEMIC_SOURCE_PROJECTION_NOT_CURRENT")
         self.records[record.projection_id] = record
+
+    def bind_capability(self, projection_id: str, capability_id: str) -> None:
+        if projection_id not in self.records:
+            raise ValueError("UNKNOWN_EPISTEMIC_PROJECTION")
+        self.capability_dependents.setdefault(str(projection_id), set()).add(str(capability_id))
 
     def _require_current_source_ancestry(self, record: EpistemicProjectionRecord) -> None:
         for source_id,source_epoch,source_signature in self._currentness_dependencies(record):

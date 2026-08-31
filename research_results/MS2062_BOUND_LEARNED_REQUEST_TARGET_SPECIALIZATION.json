@@ -1,0 +1,46 @@
+{
+  "schema": "ms2062_bound_learned_request_target_specialization/v1",
+  "status": "RESEARCH_CANDIDATE__FOCUSED_AND_BROADER_GREEN__WHOLE_PENDING",
+  "parent_research_commit": "27ce3aed1598aa558fb9bc2ffa4a8ccd141102b6",
+  "base_public_head": "0312459457223feb79bb2d0d71ab8387fbc28b1c",
+  "production_delta": [
+    "microseed/development/epistemic.py",
+    "microseed/runtime/entity.py"
+  ],
+  "focused": {
+    "pytest": "9/9 PASS",
+    "duration_seconds": 1.49,
+    "stderr_bytes": 0
+  },
+  "broader": {
+    "pytest": "95/95 PASS",
+    "duration_seconds": 176.78,
+    "stderr_bytes": 0
+  },
+  "repair_law": "LEARNED_OPAQUE_REQUEST_TARGET_REQUIRES_PRE_DELIBERATION_CONTENT_BINDING_TO_OPERATIONAL_INVOCATION",
+  "embodiment": [
+    "authority-attenuating fixed-target specialization of already-qualified EFFECT request channel",
+    "target token must belong to exact externally-qualified endogenous projection candidate vocabulary",
+    "specialization content-binds base capability ID/epoch/signature plus target projection ID/epoch/signature plus token",
+    "runtime target override forbidden",
+    "projection->capability currentness dependency stales specialization on target representation drift",
+    "base request capability drift stales specialization transitively",
+    "changed projection signature cannot reuse old candidate vocabulary without fresh external requalification",
+    "restart requires explicit base-channel re-registration then deterministic specialization re-derivation"
+  ],
+  "authority": {
+    "new_effect_authority": "NONE",
+    "semantic_desired_state_authority": "NONE",
+    "local_means_authority": "NONE",
+    "canonical_promotion": "NONE"
+  },
+  "scars": [
+    "test CapabilityContract syntax error before behavior",
+    "5/7 run exposed test/API mismatches: missing QueryObligation on direct invoke and nonexistent serialized intent signature field",
+    "restart hostile exposed changed-projection-version requalification defect; repaired in production",
+    "ad hoc Python introspection could not import pytest; direct source read used instead"
+  ],
+  "whole_suite": {
+    "status": "PENDING"
+  }
+}

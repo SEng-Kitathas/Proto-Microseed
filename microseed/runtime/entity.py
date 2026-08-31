@@ -5571,8 +5571,9 @@ class Microseed:
         wp=witness.serializable();self.path.append("EPISTEMIC_PROJECTION_PREDICTIVE_CURRENTNESS_ASSESSED",wp);self.store.append("EPISTEMIC_PROJECTION_PREDICTIVE_CURRENTNESS_ASSESSED",wp)
         if witness.status=="DRIFT_WITNESS":
             stale=self.epistemic_projections.invalidate(projection_id);bindings=self.epistemic_contrasts.invalidate_projection(projection_id,stale.epoch)
+            stale_caps=self._stale_capabilities_bound_to_projection(projection_id,reason="PREDICTIVE_CURRENTNESS_DRIFT")
             stale_deficits=self._stale_epistemic_deficits_for_premise("PROJECTION",projection_id,stale.epoch,"PREDICTIVE_CURRENTNESS_DRIFT")
-            packet={"projection_id":projection_id,"old_epoch":rec.epoch,"new_epoch":stale.epoch,"window_accuracies":list(witness.window_accuracies),"drift_window":witness.drift_window,"stale_binding_ids":list(bindings),"stale_deficit_ids":sorted(stale_deficits),"drift_cause_authority":"NONE","regime_identity_authority":"NONE","truth_authority":"NONE"}
+            packet={"projection_id":projection_id,"old_epoch":rec.epoch,"new_epoch":stale.epoch,"window_accuracies":list(witness.window_accuracies),"drift_window":witness.drift_window,"stale_binding_ids":list(bindings),"stale_deficit_ids":sorted(stale_deficits),"stale_capability_ids":sorted(stale_caps),"drift_cause_authority":"NONE","regime_identity_authority":"NONE","truth_authority":"NONE"}
             self.path.append("EPISTEMIC_PROJECTION_PREDICTIVE_INVALIDATED",packet);self.store.append("EPISTEMIC_PROJECTION_PREDICTIVE_INVALIDATED",packet)
             wp["projection_current"]=False;wp["new_projection_epoch"]=stale.epoch
         else:
@@ -5810,11 +5811,13 @@ class Microseed:
         rec=self.epistemic_projections.change(
             projection_id,new_signature_sha256=new_signature_sha256
         )
+        stale_caps=self._stale_capabilities_bound_to_projection(projection_id,reason=reason)
         stale=self.epistemic_contrasts.invalidate_projection(projection_id,rec.epoch)
         stale_deficits=self._stale_epistemic_deficits_for_premise("PROJECTION",projection_id,rec.epoch,reason)
         packet={
             "projection_id":projection_id,"signature_sha256":rec.signature_sha256,
             "epoch":rec.epoch,"reason":reason,"stale_binding_ids":list(stale),"stale_deficit_ids":sorted(stale_deficits),
+            "stale_capability_ids":sorted(stale_caps),
             "semantic_projection_authority":"NONE","raw_projection_discovery_authority":"NONE",
         }
         self.path.append("EPISTEMIC_PROJECTION_CHANGED",packet)
@@ -6609,13 +6612,16 @@ class Microseed:
         changed=self.epistemic_projections.invalidate_dependency(kind,object_id)
         stale_bindings=[]
         stale_deficits=[]
+        stale_caps=[]
         for pid in changed:
             rec=self.epistemic_projections.records[pid]
             stale_bindings.extend(self.epistemic_contrasts.invalidate_projection(pid,rec.epoch))
+            stale_caps.extend(self._stale_capabilities_bound_to_projection(pid,reason=f"DEPENDENCY:{kind}:{object_id}:{reason}"))
             stale_deficits.extend(self._stale_epistemic_deficits_for_premise("PROJECTION",pid,rec.epoch,f"DEPENDENCY:{kind}:{object_id}:{reason}"))
         if changed:
             packet={"premise_kind":str(kind).upper(),"object_id":str(object_id),"reason":str(reason),
                     "projection_ids":list(changed),"stale_binding_ids":sorted(set(stale_bindings)),"stale_deficit_ids":sorted(set(stale_deficits)),
+                    "stale_capability_ids":sorted(set(stale_caps)),
                     "truth_authority":"NONE"}
             self.path.append("EPISTEMIC_PROJECTION_DEPENDENCY_INVALIDATED",packet)
             self.store.append("EPISTEMIC_PROJECTION_DEPENDENCY_INVALIDATED",packet)
@@ -6996,6 +7002,21 @@ class Microseed:
         })
         return ref
 
+    def _stale_capabilities_bound_to_projection(self, projection_id: str, *, reason: str) -> set[str]:
+        """Stale executable specializations bound to an opaque projection.
+
+        Projection evidence carries no execution authority.  This only closes the
+        inverse currentness edge so an already-qualified specialization cannot
+        outlive the exact representation version embedded in its immutable content.
+        """
+        stale: set[str] = set()
+        for cid in sorted(self.epistemic_projections.capability_dependents.get(str(projection_id), ())):
+            if cid in self.capabilities.contracts and self.capabilities.is_current(cid):
+                stale |= self.capabilities.invalidate(
+                    cid, reason=f"PROJECTION:{projection_id}:{reason}"
+                )
+        return stale
+
     def register_capability(
         self,
         contract: CapabilityContract,
@@ -7008,6 +7029,7 @@ class Microseed:
         topology_dependencies: Iterable[tuple[str, int]] = (),
         counterparty_dependencies: Iterable[tuple[str, int]] = (),
         coordination_dependencies: Iterable[tuple[str, int]] = (),
+        projection_dependencies: Iterable[tuple[str, int, str]] = (),
     ) -> None:
         """Register an already-qualified capability contract.
 
@@ -7019,6 +7041,11 @@ class Microseed:
         topology_deps = tuple((str(tid), int(epoch)) for tid, epoch in topology_dependencies)
         counterparty_deps = tuple((str(cid), int(epoch)) for cid, epoch in counterparty_dependencies)
         coordination_deps = tuple((str(rid), int(epoch)) for rid, epoch in coordination_dependencies)
+        projection_deps = tuple((str(pid), int(epoch), str(signature).lower()) for pid, epoch, signature in projection_dependencies)
+        for projection_id, epoch, signature in projection_deps:
+            rec = self.epistemic_projections.records.get(projection_id)
+            if rec is None or rec.signature_sha256 != signature or not self.epistemic_projections.is_current(projection_id, epoch):
+                raise ValueError(f"CAPABILITY_PROJECTION_EPOCH_OR_SIGNATURE_DRIFT:{projection_id}")
         for value_id, epoch in value_deps:
             if not self.values.is_current(value_id, epoch):
                 raise ValueError(f"CAPABILITY_VALUE_EPOCH_DRIFT:{value_id}")
@@ -7040,6 +7067,8 @@ class Microseed:
             self.counterparties.bind_capability(counterparty_id, contract.capability_id)
         for coordination_id, _ in coordination_deps:
             self.coordinations.bind_capability(coordination_id, contract.capability_id)
+        for projection_id, _, _ in projection_deps:
+            self.epistemic_projections.bind_capability(projection_id, contract.capability_id)
         ev = tuple(evidence)
         assistance = tuple(assistance_ancestry) or tuple(contract.assistance_ancestry)
         if contract.capability_id in self.development.records:
@@ -7049,7 +7078,7 @@ class Microseed:
             kind="CAPABILITY_CONTRACT",
             lineage=tuple(contract.lineage),
             assistance_ancestry=assistance,
-            dependencies=tuple(contract.dependencies) + tuple(extra_development_dependencies) + tuple(vid for vid, _ in value_deps) + tuple(tid for tid, _ in topology_deps) + tuple(cid for cid, _ in counterparty_deps) + tuple(rid for rid, _ in coordination_deps),
+            dependencies=tuple(contract.dependencies) + tuple(extra_development_dependencies) + tuple(vid for vid, _ in value_deps) + tuple(tid for tid, _ in topology_deps) + tuple(cid for cid, _ in counterparty_deps) + tuple(rid for rid, _ in coordination_deps) + tuple(pid for pid, _, _ in projection_deps),
             qualification=contract.qualification,
             authority=contract.authority,
             evidence=ev,
@@ -7059,6 +7088,7 @@ class Microseed:
                 "TOPOLOGY_DEPENDENCIES:" + ",".join(f"{tid}@{epoch}" for tid, epoch in topology_deps),
                 "COUNTERPARTY_DEPENDENCIES:" + ",".join(f"{cid}@{epoch}" for cid, epoch in counterparty_deps),
                 "COORDINATION_DEPENDENCIES:" + ",".join(f"{rid}@{epoch}" for rid, epoch in coordination_deps),
+                "PROJECTION_DEPENDENCIES:" + ",".join(f"{pid}@{epoch}:{signature}" for pid, epoch, signature in projection_deps),
             ),
         ))
         packet = {
@@ -7071,9 +7101,113 @@ class Microseed:
             "topology_dependencies": [list(x) for x in topology_deps],
             "counterparty_dependencies": [list(x) for x in counterparty_deps],
             "coordination_dependencies": [list(x) for x in coordination_deps],
+            "projection_dependencies": [list(x) for x in projection_deps],
         }
         self.path.append("CAPABILITY_REGISTERED", packet)
         self.store.append("CAPABILITY_REGISTERED", packet)
+
+    def derive_bound_request_specialization(
+        self, base_capability_id: str, target_projection_id: str, target_token: str,
+    ) -> CapabilityContract:
+        """Narrow one qualified opaque request channel to one learned target bucket.
+
+        This is authority attenuation, not capability qualification: execution
+        authority, obligation and scope are inherited unchanged from an already
+        current base request channel.  The target must belong to the exact current
+        vocabulary of an externally-qualified endogenous projection.
+        """
+        import hashlib, json
+        base=self.capabilities.contracts.get(str(base_capability_id))
+        if base is None or not self.capabilities.is_current(str(base_capability_id)):
+            raise ValueError("BOUND_REQUEST_BASE_CAPABILITY_NOT_CURRENT")
+        if base.authority != Authority.EFFECT or base.handler is None:
+            raise ValueError("BOUND_REQUEST_BASE_REQUIRES_CURRENT_EFFECT_HANDLER")
+        if base.qualification not in {QualificationState.SHADOW_QUALIFIED,QualificationState.QUALIFIED}:
+            raise ValueError("BOUND_REQUEST_BASE_NOT_QUALIFIED")
+        if base.boundary.get("request_target_binding_mode") != "OPAQUE_PROJECTION_BUCKET_SPECIALIZABLE" or base.interface.get("target") != "opaque":
+            raise ValueError("BOUND_REQUEST_BASE_INTERFACE_NOT_SPECIALIZABLE")
+        rec=self.epistemic_projections.records.get(str(target_projection_id))
+        if rec is None or not self.epistemic_projections.is_current(rec.projection_id,rec.epoch):
+            raise ValueError("BOUND_REQUEST_TARGET_PROJECTION_NOT_CURRENT")
+        if rec.projection_origin == "SUPPLIED_AND_PROVENANCED" or rec.proposal_candidate_sha256 is None:
+            raise ValueError("BOUND_REQUEST_TARGET_REQUIRES_ENDOGENOUS_EXTERNALLY_QUALIFIED_PROJECTION")
+        candidate=None
+        for collection in (self.epistemic_projection_candidates,self.epistemic_constructor_candidates,self.robust_epistemic_constructor_candidates):
+            for c in collection.values():
+                if c.digest()==rec.proposal_candidate_sha256:
+                    candidate=c;break
+            if candidate is not None:break
+        if candidate is None:
+            raise ValueError("BOUND_REQUEST_TARGET_PROJECTION_CANDIDATE_NOT_AVAILABLE")
+        if rec.signature_sha256 != candidate.digest():
+            raise ValueError("BOUND_REQUEST_TARGET_PROJECTION_VERSION_REQUIRES_FRESH_EXTERNAL_REQUALIFICATION")
+        vocabulary={str(bucket) for _,bucket in candidate.key_to_bucket}
+        token=str(target_token)
+        if token not in vocabulary:
+            raise ValueError("BOUND_REQUEST_TARGET_NOT_IN_QUALIFIED_PROJECTION_VOCABULARY")
+        base_epoch=self.capabilities.epochs[str(base_capability_id)]
+        base_sig=base.computed_signature_sha256()
+        identity={
+            "base_capability_id":base.capability_id,"base_capability_epoch":base_epoch,
+            "base_capability_signature_sha256":base_sig,
+            "target_projection_id":rec.projection_id,"target_projection_epoch":rec.epoch,
+            "target_projection_signature_sha256":rec.signature_sha256,"target_token":token,
+        }
+        digest=hashlib.sha256(json.dumps(identity,sort_keys=True,separators=(",",":"),default=str).encode()).hexdigest()
+        cid="bound-request-"+digest[:20]
+        existing=self.capabilities.contracts.get(cid)
+        if existing is not None:
+            if not self.capabilities.is_current(cid):
+                raise ValueError("BOUND_REQUEST_SPECIALIZATION_ALREADY_STALE")
+            return existing
+        base_handler=base.handler
+        def bound_handler(**kwargs):
+            if kwargs:
+                raise ValueError("BOUND_REQUEST_SPECIALIZATION_RUNTIME_ARGUMENT_OVERRIDE_FORBIDDEN")
+            return base_handler(target=token)
+        boundary=dict(base.boundary)
+        boundary.update(identity)
+        boundary["local_means_owned_by_specialization"]=False
+        interface=dict(base.interface)
+        interface["target"]="BOUND_CURRENT_OPAQUE_PROJECTION_BUCKET"
+        assistance=tuple(base.assistance_ancestry)+(
+            "MS2062_BOUND_REQUEST_SPECIALIZATION",
+            f"BASE_REQUEST_CAPABILITY:{base.capability_id}@{base_epoch}:{base_sig}",
+            f"TARGET_PROJECTION:{rec.projection_id}@{rec.epoch}:{rec.signature_sha256}",
+            f"TARGET_PROJECTION_ORIGIN:{rec.projection_origin}",
+            "NO_NEW_EXECUTION_AUTHORITY",
+            "NO_SEMANTIC_DESIRED_STATE_AUTHORITY",
+        )
+        contract=CapabilityContract(
+            capability_id=cid,purpose="opaque bound request specialization",
+            boundary=boundary,interface=interface,
+            invariants=tuple(base.invariants)+("BOUND_TARGET_CANNOT_BE_OVERRIDDEN","AUTHORITY_INHERITED_NOT_INCREASED"),
+            hazards=tuple(base.hazards),authority=base.authority,
+            lineage=tuple(base.lineage)+("MS2062_BOUND_REQUEST_SPECIALIZATION",),
+            currentness="CURRENT",resources=dict(base.resources),
+            dependencies=tuple(dict.fromkeys(tuple(base.dependencies)+(base.capability_id,))),
+            query_obligation_id=base.query_obligation_id,witness_predicate=base.witness_predicate,
+            qualification=base.qualification,handler=bound_handler,assistance_ancestry=assistance,
+            operational_scope_id=base.operational_scope_id,
+        )
+        self.register_capability(
+            contract,assistance_ancestry=assistance,
+            notes=(
+                "AUTHORITY_ATTENUATING_FIXED_TARGET_SPECIALIZATION",
+                "TARGET_TOKEN_BELONGS_TO_QUALIFIED_PROJECTION_VOCABULARY",
+                "NO_LOCAL_MEANS_AUTHORITY",
+            ),
+            projection_dependencies=((rec.projection_id,rec.epoch,rec.signature_sha256),),
+        )
+        packet={
+            "specialized_capability_id":cid,**identity,
+            "authority":contract.authority.value,"qualification":contract.qualification.value,
+            "query_obligation_id":contract.query_obligation_id,"operational_scope_id":contract.operational_scope_id,
+            "semantic_desired_state_authority":"NONE","local_means_authority":"NONE",
+        }
+        self.path.append("BOUND_REQUEST_SPECIALIZATION_DERIVED",packet)
+        self.store.append("BOUND_REQUEST_SPECIALIZATION_DERIVED",packet)
+        return contract
 
     def nominate_capability_candidate(self, candidate: CapabilityCandidate) -> str:
         """Record a proposal without admitting it to the executable repertoire."""
