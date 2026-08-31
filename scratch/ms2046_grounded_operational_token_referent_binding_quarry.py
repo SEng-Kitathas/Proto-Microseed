@@ -286,7 +286,7 @@ def binding_status(ms: Microseed, candidate: dict[str, object]) -> dict[str, obj
         return {"status": "UNKNOWN_INCOMPLETE", "reason": "QUALIFIED_BINDING_CANDIDATE_REQUIRED"}
     b = candidate["binding"]
     sid = str(b["signal_capability_id"])
-    if not ms.capabilities.is_current(sid, int(b["signal_capability_epoch"])):
+    if not ms.capabilities.is_current(sid) or int(ms.capabilities.epochs[sid]) != int(b["signal_capability_epoch"]):
         return {"status": "STALE_OPERATIONAL_TOKEN_REFERENT_BINDING_CANDIDATE", "reason": "SIGNAL_CAPABILITY_NOT_CURRENT"}
     if ms.capabilities.contracts[sid].computed_signature_sha256() != str(b["signal_capability_signature_sha256"]):
         return {"status": "STALE_OPERATIONAL_TOKEN_REFERENT_BINDING_CANDIDATE", "reason": "SIGNAL_CAPABILITY_SIGNATURE_DRIFT"}

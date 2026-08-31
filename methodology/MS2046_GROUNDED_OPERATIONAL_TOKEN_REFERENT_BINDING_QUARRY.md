@@ -89,3 +89,30 @@ Classification:
 `MS2046_HARNESS_CAPABILITY_CURRENTNESS_API_SHAPE_MISMATCH__NO_SCIENTIFIC_VERDICT`.
 
 The candidate derivation itself had already reached its positive path, but no campaign verdict is promoted from a run that failed before all currentness/hostile checks. Repair shall compare `epochs[id]` explicitly in addition to the one-argument `is_current(id)` API.
+
+
+## Repair 1 — live capability currentness API
+Narrow harness repair: use the live one-argument `CapabilityRegistry.is_current(id)` and separately require exact `epochs[id] == bound_epoch`. No candidate criterion or scientific hypothesis changed.
+
+
+## Observed result — GROUNDED BINDING CANDIDATE EARNED
+After the published currentness-API harness failure, Repair 1 bound the live one-argument capability currentness API and explicit epoch equality. Direct witness PASS.
+
+Cleanup-neutral focused signaling/referent/body lineage: **29/29 PASS in 10.33s**, stderr empty.
+
+Observed:
+- 10 grounded training uses + 6 disjoint holdouts under a different sensor permutation/affine rendering agree on one affordance-relative operational referent signature;
+- the human-readable channel positions differ across train/holdout while the operational signature remains exact;
+- ambiguous signal effect and referent alias symmetry both DEFER_UNKNOWN;
+- signal/coordination drift stales the candidate through currentness ancestry;
+- perfect evaluator-only copy preserves the operational binding but numerical identity authority remains NONE;
+- readable token `hello` with no grounded use history yields no candidate;
+- convention reversal fails holdout agreement and does not invent a new meaning.
+
+Earned research-only:
+`REPEATED_CURRENT_SIGNAL_USE_PLUS_REFERENT_LOCALIZED_COUNTERPARTY_EFFECT_CAN_SUPPORT_A_QUALIFIED_OPERATIONAL_TOKEN_REFERENT_BINDING_CANDIDATE_WITHOUT_SEMANTIC_REFERENCE_AUTHORITY`.
+
+Preserve:
+`GROUNDING_CANDIDATE != LANGUAGE_GATE_ADMISSION`.
+
+No language/reference manager, semantic meaning, numerical identity, truth, execution, or language authority is added.
