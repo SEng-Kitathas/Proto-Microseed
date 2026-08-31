@@ -13,9 +13,10 @@ from scratch.ms2036_full_frame_bound_pareto_research import _fixture, _p2_domina
 
 
 def run_ms2040() -> dict:
-    td, ms, calls, by_probe, _effects = _fixture(_p2_dominates_effects())
+    td, ms, calls, _by_probe, _effects = _fixture(_p2_dominates_effects())
     try:
-        selected = by_probe["P2"]
+        internal_ops = ms._current_owned_referent_epistemic_opportunities(act_ob())
+        selected = next(op for op in internal_ops if str(op["probe_action_id"]) == "P2")
         nominated = ms.nominate_current_strict_full_frame_referent_epistemic_opportunity(act_ob())
         assert nominated["status"] == "SELECTED_OPPORTUNITY_PERSISTED_AND_NOMINATED", nominated
         assert nominated["selected_probe_action_id"] == "P2"

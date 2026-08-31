@@ -33,3 +33,26 @@ Classification:
 `MS2040_HARNESS_PUBLIC_SUMMARY_NOT_INTERNAL_OPPORTUNITY_SHAPE__NO_SCIENTIFIC_VERDICT`.
 
 The intended hostile remains unchanged. Repair shall recover the exact selected current internal opportunity through `_current_owned_referent_epistemic_opportunities` before nomination.
+
+
+## Repair 1 — recover exact internal selected opportunity
+Narrow harness repair only: retrieve the exact current internal P2 opportunity via `_current_owned_referent_epistemic_opportunities` before nomination so the existing trial/decision context can be supplied to ordinary execution. Public summary semantics remain unchanged.
+
+
+## Observed result — VIOLATION REPRODUCED
+After the published harness-shape failure, Repair 1 recovered the exact internal selected P2 opportunity before nomination. Direct hostile then reproduced the intended violation:
+
+- production full-frame nomination succeeded for P2;
+- a new current observed X expanded the constitutional frame to V/W/X without downstream action/X effect witnesses;
+- fresh runtime full-frame selection became `NO_CURRENT_STRICT_FULL_FRAME_CROSS_DEFICIT_SELECTION`, reason `CURRENT_DOWNSTREAM_ACTION_VALUE_EFFECT_REQUIRED:A:X`, selection authority NONE;
+- ordinary `execute_bounded_action` nevertheless returned `ACTION_EXECUTED`;
+- P2 handler fired once;
+- execution record contained only the local epistemic-step premise set, not full-frame nomination/current selection ancestry.
+
+Earned violation:
+`NOMINATION_TIME_FULL_FRAME_SELECTION != EFFECT_TIME_FULL_FRAME_SELECTION_CURRENTNESS`.
+
+More precise:
+`UNRECOGNIZED_SELECTED_ORIGIN_MARKER_BYPASSES_EFFECT_TIME_GLOBAL_SELECTION_REAUTHORIZATION`.
+
+This violation SHALL remain in research Git. Repair follows in a later campaign.
