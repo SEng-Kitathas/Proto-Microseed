@@ -1,6 +1,8 @@
 from __future__ import annotations
 from dataclasses import dataclass
-import json
+import json,sys
+from pathlib import Path
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from scratch.naked_c01_explicit_experimental_warrant_quarry import ActionDescriptor,derive_warrant,authorize
 
 @dataclass

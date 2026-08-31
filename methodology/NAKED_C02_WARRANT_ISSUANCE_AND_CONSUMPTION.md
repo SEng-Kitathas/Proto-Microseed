@@ -26,3 +26,10 @@ Classification:
 `NAKED_C02_HARNESS_DIRECT_IMPORT_PATH_FAILURE__NO_NEW_SCIENTIFIC_NEGATIVE`.
 
 The failure is preserved before repair.
+
+
+## Repair / observed result — PASS
+Added only the standard repo-root import shim. Direct campaign PASS. C01–C03 + historical boundary packet: **7/7 PASS in 4.49s** at C03 close.
+
+Earned from C02:
+`WARRANT_AUTHORITY_MUST_BE_CONSUMED_BEFORE_EFFECT_AND_UNKNOWNNESS_ALONE_CANNOT_SELECT_WARRANT_SUBJECT`.
