@@ -259,3 +259,37 @@ After the horizon-guard correction, the 80-episode smoke completed cleanly with 
 Result: **1/1 PASS in 15.00s**, stderr empty.
 
 This smoke validates the harness and the narrow repair but remains too short to support a long-horizon phenotype claim.
+
+
+## Full 1,200-episode long-horizon result — PASS on repaired research descendant
+Server job `job-fc7a1d158877` completed rc0 with stderr empty in ~491 seconds. The run was launched from research head `0847bd6df4baa0881315a998e90750ac44c171ac`, which includes the stale-rehearsal repair and is therefore **not** the unchanged canonical V1 checkout.
+
+Independent telemetry audit verified:
+- 1200/1200 ordinary episodes each contain exactly three ordinary action effects;
+- 3716 total ordinary executions/outcomes including bootstrap, drift checks, assisted replacement qualification, and reentry;
+- no `RUN_FAILURE`; exactly one `RUN_END`;
+- one `INTENT_BLOCKED`, exactly the intended stale-R fail-closed check;
+- K/M remained current under the terminal-only regime change; old R produced the drift witness and became stale;
+- old R durable rehearsal became unusable;
+- one replacement R relation was externally qualified from disjoint actual holdouts;
+- replacement R zero-row rehearsal predicted `w`, executed, and remained current;
+- no global reset; K/M history/currentness remained intact;
+- three restart snapshots: before environment reattachment, relations/proposals were not current; after explicit reattachment, active relations/proposals became current; automatic authority gain remained NONE;
+- referent diagnostics: 8 classes under full/cross geometry, 6 under occlusion, 7 under explicit alias, then recovery to 8 when ambiguity lifted; numerical/semantic identity authority remained NONE;
+- watchdog maxima ~497.6 MiB RSS and ~67.2 MiB runtime state, below configured ceilings;
+- no network, shell, source mutation, language-branch, or NAKED-branch capability was exposed;
+- no new core manager was added.
+
+### Important negative / non-demonstration
+Program diagnostics at start, episode 300, 700, and 1199 all returned `NO_COHERENT_THREE_LOCUS_CHAIN_MODEL_SURFACE` / `ABSTAIN`. Hypothesis count rose from 0 to 2 after the regime change, but no full chain was generated. This world changes only the terminal R consequence and therefore never supplies the six-hypothesis/two-full-chain structure the historical three-locus generator expects.
+
+Therefore:
+`SOAK_001_PASS != OPEN_ENDED_PROGRAM_GENERATION`.
+
+The soak is a strong temporal-integrity/localized-adaptation witness, not an open-ended development demonstration.
+
+### Research-only earned law
+`REPAIRED_V1_DESCENDANT_MAINTAINED_LONG_HORIZON_DURABLE_ZERO_ROW_OPERATION_ACROSS_RESTARTS_AND_REFERENT_GEOMETRY_PRESSURE_THEN_LOCALIZED_TERMINAL_CAUSAL_DRIFT_STALED_ONLY_R41_BLOCKED_ITS_DURABLE_REHEARSAL_AND_RESUMED_AFTER_EXPLICIT_REPLACEMENT_QUALIFICATION_WITHOUT_GLOBAL_RESET`.
+
+### Claim ceiling
+Not earned: canonical promotion, open-ended development, self-qualification, NAKED autonomy, language competence, or AGI.
