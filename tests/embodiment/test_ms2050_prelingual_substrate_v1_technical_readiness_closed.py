@@ -9,12 +9,14 @@ from scratch.ms2047_v1_candidate_simplification_and_authority_audit import run_m
 
 
 FROZEN_WHOLE_HEAD = "1e6ca740db9bec7492b2ffc988d0b7a091cddf99"
+V1_PROMOTION = "0fa41f1ed4cf2fbd341b5f0b63adbc0034d4ac39"
 
 
-def test_ms2050_current_production_bytes_match_frozen_895_of_895_whole_suite_subject():
+def test_ms2050_tagged_v1_production_bytes_match_frozen_895_of_895_whole_suite_subject():
     root = Path(__file__).resolve().parents[2]
-    current = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=root, text=True).strip()
-    diff = subprocess.run(["git", "diff", "--quiet", f"{FROZEN_WHOLE_HEAD}..{current}", "--", "microseed"], cwd=root)
+    tag = subprocess.check_output(["git", "rev-parse", "prelingual-substrate-v1^{}"], cwd=root, text=True).strip()
+    assert tag == V1_PROMOTION
+    diff = subprocess.run(["git", "diff", "--quiet", f"{FROZEN_WHOLE_HEAD}..{V1_PROMOTION}", "--", "microseed"], cwd=root)
     assert diff.returncode == 0
     audit = run_ms2047()
     assert audit["status"] == "V1_CANDIDATE_SHAPE_AUDIT_PASS"

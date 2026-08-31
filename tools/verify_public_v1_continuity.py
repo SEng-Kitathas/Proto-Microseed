@@ -58,8 +58,17 @@ if git('rev-parse',NAKED+'^')!=V1: issues.append('NAKED_PARENT')
 if git('rev-parse',LANG+'^')!=V1: issues.append('LANG_PARENT')
 head=git('rev-parse','HEAD')
 if subprocess.run(['git','merge-base','--is-ancestor',V1,head],cwd=ROOT).returncode!=0: issues.append('HEAD_NOT_DESCENDANT_OF_V1')
-# Later public maintenance commits are permitted only if organism bytes remain identical to V1 until a new canonical promotion says otherwise.
-if git('rev-parse','HEAD:microseed')!=git('rev-parse',V1+':microseed'): issues.append('MICROSEED_SUBTREE_CHANGED_FROM_V1')
+# Historical V1 remains immutable. A later canonical promotion may change organism bytes only with its own explicit promotion tag.
+head_microseed=git('rev-parse','HEAD:microseed')
+v1_microseed=git('rev-parse',V1+':microseed')
+if head_microseed != v1_microseed:
+    p1a_tag=subprocess.run(['git','rev-parse','--verify','--quiet','prelingual-substrate-v1-p1a-repair^{}'],cwd=ROOT,text=True,capture_output=True)
+    if p1a_tag.returncode != 0:
+        issues.append('MICROSEED_CHANGED_WITHOUT_P1A_CANONICAL_TAG')
+    else:
+        changed=git('diff','--name-only',V1+'..'+p1a_tag.stdout.strip(),'--','microseed').splitlines()
+        if changed != ['microseed/runtime/entity.py']:
+            issues.append('P1A_PRODUCTION_DELTA_NOT_NARROW')
 # Confirm branch-genesis metadata in both the public pointer and the copied operator receipt.
 g=pointer.get('research_branch_genesis',{})
 if g.get('naked',{}).get('genesis_commit')!=NAKED or g.get('naked',{}).get('parent')!=V1: issues.append('POINTER_NAKED_GENESIS')
@@ -69,5 +78,5 @@ tags=r.get('peeled_tags',{})
 if heads.get('research/naked-authority-design-v1')!=NAKED or tags.get('naked-authority-design-v1-genesis')!=NAKED: issues.append('RECEIPT_NAKED_GENESIS')
 if heads.get('research/grounded-language-reference-v1')!=LANG or tags.get('grounded-language-reference-v1-genesis')!=LANG: issues.append('RECEIPT_LANGUAGE_GENESIS')
 status='PASS' if not issues else 'FAIL'
-print(json.dumps({'status':status,'head':head,'canonical_v1':V1,'canonical_tree':V1_TREE,'head_microseed_tree':git('rev-parse','HEAD:microseed'),'v1_microseed_tree':git('rev-parse',V1+':microseed'),'public_receipt_sha256':receipt_sha,'suite_stdout_sha256':stdout_sha,'issues':issues},indent=2))
+print(json.dumps({'status':status,'head':head,'canonical_v1':V1,'canonical_tree':V1_TREE,'head_microseed_tree':head_microseed,'v1_microseed_tree':v1_microseed,'public_receipt_sha256':receipt_sha,'suite_stdout_sha256':stdout_sha,'issues':issues},indent=2))
 sys.exit(0 if not issues else 1)

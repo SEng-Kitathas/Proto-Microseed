@@ -184,7 +184,16 @@ def test_recovery_after_drift_does_not_reactivate_old_relation():
         w=ms.assess_action_outcome_predictive_currentness(old.relation_id)
         assert w['status']=='DRIFT_WITNESS'
         # Even if later observations happen to match again, the historical drift witness remains currentness-negative.
-        for i in range(16): execute_actual(ms,p,16+i,next_state='S1',post=1.5,prefix='REC')
+        # Recovery sampling is explicitly assisted: the learned zero-row proposal
+        # is no longer a lawful execution premise after empirical drift, so use
+        # the original supplied-row seed proposal retained from establish_old_law().
+        assisted = next(
+            proposal for pid, proposal in ms.counterfactual_rehearsals.proposals.items()
+            if pid != p.proposal_id
+        )
+        assert ms.counterfactual_rehearsal_status(p.proposal_id)['status'] == 'UNKNOWN_INCOMPLETE'
+        assert ms.counterfactual_rehearsal_status(assisted.proposal_id)['status'] == 'CURRENT_REHEARSAL_PROPOSAL'
+        for i in range(16): execute_actual(ms,assisted,16+i,next_state='S1',post=1.5,prefix='REC-ASSISTED')
         w2=ms.assess_action_outcome_predictive_currentness(old.relation_id)
         assert w2['status']=='DRIFT_WITNESS'
         assert ms.action_outcome_predictive_relation_status(old.relation_id)['status']=='STALE_PREDICTIVE_RELATION'
