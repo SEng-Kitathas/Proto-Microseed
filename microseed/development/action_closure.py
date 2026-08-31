@@ -36,11 +36,17 @@ class BoundedActionIntent:
     execution_authority: str = "NONE"
     truth_authority: str = "NONE"
     semantic_intention_authority: str = "NONE"
+    experimental_warrant_id: str | None = None
+    experimental_subject_id: str | None = None
+    experimental_capability_signature_sha256: str | None = None
+    experimental_value_frame_digest_sha256: str | None = None
+    experimental_value_frame_rows: tuple[tuple[str, int, float, str], ...] = ()
     def serializable(self) -> dict[str, Any]:
         d=asdict(self); d['action_commitment']=self.action_commitment.serializable()
         d['value_epoch']=None if self.value_epoch is None else list(self.value_epoch)
         d['required_value_epochs']=[list(x) for x in self.required_value_epochs]
         d['derivation_parameters']=[list(x) for x in self.derivation_parameters]
+        d['experimental_value_frame_rows']=[list(x) for x in self.experimental_value_frame_rows]
         return d
     @classmethod
     def from_serializable(cls,d):
@@ -56,7 +62,12 @@ class BoundedActionIntent:
             required_value_epochs=tuple((str(x[0]),int(x[1])) for x in d.get('required_value_epochs',())),
             derivation_parameters=tuple((str(x[0]),x[1]) for x in d.get('derivation_parameters',())),
             authority=str(d.get('authority',Authority.MODEL_OUTPUT_ONLY.value)),execution_authority=str(d.get('execution_authority','NONE')),
-            truth_authority=str(d.get('truth_authority','NONE')),semantic_intention_authority=str(d.get('semantic_intention_authority','NONE')))
+            truth_authority=str(d.get('truth_authority','NONE')),semantic_intention_authority=str(d.get('semantic_intention_authority','NONE')),
+            experimental_warrant_id=None if d.get('experimental_warrant_id') is None else str(d.get('experimental_warrant_id')),
+            experimental_subject_id=None if d.get('experimental_subject_id') is None else str(d.get('experimental_subject_id')),
+            experimental_capability_signature_sha256=None if d.get('experimental_capability_signature_sha256') is None else str(d.get('experimental_capability_signature_sha256')),
+            experimental_value_frame_digest_sha256=None if d.get('experimental_value_frame_digest_sha256') is None else str(d.get('experimental_value_frame_digest_sha256')),
+            experimental_value_frame_rows=tuple((str(x[0]),int(x[1]),float(x[2]),str(x[3])) for x in d.get('experimental_value_frame_rows',())))
 
 @dataclass(frozen=True)
 class ActionExecutionRecord:

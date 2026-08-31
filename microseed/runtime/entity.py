@@ -67,13 +67,14 @@ from ..development.value import (
     derive_complete_current_value_frame,
 )
 from ..development.action_licensing import compose_multi_value_action_licenses, project_regulatory_effect_license
+from ..development.experimental_warrant import ConstitutionalExperimentalWarrant, issue_warrant as issue_n1a_warrant
 from ..development.recruitment import RecruitmentOption, RecruitmentProposal, RecruitmentRegistry
 from ..development.rehearsal import (
     RehearsalTransitionObservation, RehearsalTransitionRelation, CounterfactualRehearsalConfig, CounterfactualRehearsalProposal,
     CounterfactualRehearsalRegistry, derive_rehearsal_transition_relations, propose_counterfactual_rehearsal,
 )
 from ..development.action_closure import (
-    OpaqueControlStateWitness, BoundedActionIntent, ActionExecutionRecord, ActionOutcomeRecord,
+    OpaqueControlStateWitness, BoundedActionIntent, ActionExecutionRecord, ActionOutcomeRecord, ActionOutcomeCoordinate,
     ActionClosureRegistry, build_multi_value_outcome_coordinates, stable_id as action_stable_id, result_digest as action_result_digest,
 )
 from ..development.action_learning import (
@@ -904,6 +905,102 @@ class Microseed:
         intent=BoundedActionIntent(intent_id=action_stable_id("ACTION-INTENT-",payload),proposal_id=None,proposal_digest=None,action_commitment=cmt,capability_id=cid,capability_epoch=self.capabilities.epochs[cid],start_state_id=cw.state_id,control_state_evidence_id=cw.evidence_id,expected_next_state_id=None,expected_value_effect=None,value_epoch=None,obligation_id=obligation.obligation_id,operational_scope_id=obligation.operational_scope_id,basis_kind="MULTI_VALUE_LICENSE",required_value_epochs=value_epochs,derivation_parameters=params)
         self.action_closure.add_intent(intent); packet=intent.serializable(); self.path.append("BOUNDED_ACTION_INTENT",packet); self.store.append("BOUNDED_ACTION_INTENT",packet)
         return {"status":"ACTION_INTENT_NOMINATED","intent":packet,"license":license_result,"execution_authority":"NONE"}
+
+    def _n1a_subject_consumption_key(self, subject_id: str) -> str:
+        return f"N1A_CONSUMED::{subject_id}"
+
+    def _n1a_known_consequence_reasons(self, capability_id: str, capability_epoch: int, value_frame: dict[str, Any]) -> tuple[str, ...]:
+        reasons: list[str] = []
+        if any(x.capability_id == capability_id and x.capability_epoch == capability_epoch for x in self.action_closure.executions.values()):
+            reasons.append("CAPABILITY_ALREADY_EXECUTED_THIS_EPOCH")
+        if any(r.capability_id == capability_id and self._action_outcome_relation_current(r) for r in self.action_outcome_learning.relations.values()):
+            reasons.append("CURRENT_PREDICTIVE_RELATION_EXISTS")
+        value_ids = tuple(str(x) for x in value_frame.get("current_value_ids", ()))
+        if value_ids:
+            licenses = self.derive_multi_value_action_licenses(value_ids)
+            for key, row in licenses.get("effect_witnesses", {}).items():
+                if key.startswith(f"{capability_id}::") and row.get("status") == "CURRENT_EFFECT":
+                    reasons.append("CURRENT_VALUE_BOUND_EFFECT_EXISTS:" + key.split("::", 1)[1])
+        return tuple(sorted(set(reasons)))
+
+    def derive_n1a_experimental_warrant(self, obligation: QueryObligation) -> dict[str, Any]:
+        """Derive one exact N1A first-exposure warrant without curiosity or safety authority."""
+        base={"authority":Authority.NONE.value,"execution_authority":Authority.NONE.value,
+              "truth_authority":"NONE","semantic_goal_authority":"NONE",
+              "information_value_authority":"NONE","selection_authority":"UNIQUE_ELIGIBILITY_ONLY",
+              "downstream_risk_status":"UNKNOWN_INCOMPLETE_ACCEPTED_BY_N1A_CONSTITUTION"}
+        if obligation.required_authority != Authority.EFFECT:
+            return {**base,"status":"ABSTAIN","reason":"N1A_OBLIGATION_MUST_REQUIRE_EFFECT"}
+        cw=self.action_closure.current_state
+        if cw is None:
+            return {**base,"status":"ABSTAIN","reason":"CURRENT_CONTROL_STATE_REQUIRED"}
+        frame=derive_complete_current_value_frame(self.values)
+        if frame.get("status") != "CURRENT_COMPLETE_VALUE_FRAME":
+            return {**base,"status":"ABSTAIN","reason":"COMPLETE_CURRENT_VALUE_FRAME_REQUIRED","value_frame":frame}
+        rows=tuple((str(x["value_id"]),int(x["value_epoch"]),float(x["current_value"]),str(x["contract_signature_sha256"])) for x in frame["rows"])
+        candidates=[]; rejected={}
+        for cid,cap in sorted(self.capabilities.contracts.items()):
+            if cap.authority != Authority.EFFECT:
+                continue
+            if cap.handler is None:
+                rejected[cid]="EFFECT_HANDLER_REQUIRED"; continue
+            if not self.capabilities.is_current(cid):
+                rejected[cid]="ACTION_CAPABILITY_NOT_CURRENT"; continue
+            if cap.query_obligation_id and cap.query_obligation_id != obligation.obligation_id:
+                rejected[cid]="QUERY_OBLIGATION_MISMATCH"; continue
+            if cap.operational_scope_id and cap.operational_scope_id != obligation.operational_scope_id:
+                rejected[cid]="OPERATIONAL_SCOPE_MISMATCH"; continue
+            epoch=int(self.capabilities.epochs[cid]); sig=cap.computed_signature_sha256()
+            known=self._n1a_known_consequence_reasons(cid,epoch,frame)
+            if known:
+                rejected[cid]="CONSEQUENCE_ALREADY_MODELED:"+"|".join(known); continue
+            w=issue_n1a_warrant(
+                capability_id=cid,capability_epoch=epoch,capability_signature_sha256=sig,
+                obligation_id=obligation.obligation_id,operational_scope_id=obligation.operational_scope_id,
+                issue_state_id=cw.state_id,issue_state_evidence_id=cw.evidence_id,
+                value_frame_digest_sha256=str(frame["frame_digest_sha256"]),value_frame_rows=rows,
+            )
+            if self.store.get(self._n1a_subject_consumption_key(w.subject_id)) is not None:
+                rejected[cid]="N1A_FIRST_EXPOSURE_ALREADY_CONSUMED"; continue
+            candidates.append((cid,w))
+        if len(candidates)!=1:
+            return {**base,"status":"ABSTAIN",
+                    "reason":"NO_CURRENT_ELIGIBLE_UNMODELED_ACTION" if not candidates else "UNIQUE_EXPERIMENT_SUBJECT_REQUIRED",
+                    "eligible_capability_ids":[x[0] for x in candidates],"rejected":rejected,"value_frame":frame}
+        cid,w=candidates[0]
+        cmt=RelationalCommitment(
+            action_stable_id("N1A-COMMIT-",w.serializable()),f"capability:{cid}:n1a-first-exposure",TernaryCommitment.YES,
+            reason="N1A_EXACT_BOUNDED_RESIDUAL_UNKNOWN_ACCEPTED",
+            qualifiers=(("authority_gain","NONE"),("execution_authority","NONE"),("selection_authority","UNIQUE_ELIGIBILITY_ONLY"),
+                        ("downstream_risk_status",w.residual_risk_status),("value_frame_digest_sha256",w.value_frame_digest_sha256),
+                        ("moral_compass_basis","COMPLETE_CURRENT_CONSTITUTIONAL_VALUE_FRAME_WITH_NO_CURRENT_MODELED_EFFECT_BYPASS")),
+            premise_ids=(w.subject_id,w.issue_state_evidence_id,w.value_frame_digest_sha256),
+        )
+        return {**base,"status":"N1A_EXPERIMENTAL_WARRANT_ISSUED","warrant":w.serializable(),
+                "commitment":cmt.serializable(),"eligible_capability_ids":[cid],"rejected":rejected,"value_frame":frame,
+                "moral_compass":"CURRENT_VALUE_FRAME_PRESENT__KNOWN_CONSEQUENCE_CANNOT_USE_N1A"}
+
+    def nominate_n1a_experimental_action_intent(self, obligation: QueryObligation) -> dict[str, Any]:
+        surface=self.derive_n1a_experimental_warrant(obligation)
+        if surface.get("status")!="N1A_EXPERIMENTAL_WARRANT_ISSUED":
+            return surface
+        w=ConstitutionalExperimentalWarrant.from_serializable(surface["warrant"])
+        cmt=RelationalCommitment.from_serializable(surface["commitment"])
+        intent=BoundedActionIntent(
+            intent_id=action_stable_id("ACTION-INTENT-",{"basis":"N1A_EXPERIMENTAL_WARRANT","warrant":w.warrant_id}),
+            proposal_id=None,proposal_digest=None,action_commitment=cmt,capability_id=w.capability_id,capability_epoch=w.capability_epoch,
+            start_state_id=w.issue_state_id,control_state_evidence_id=w.issue_state_evidence_id,expected_next_state_id=None,expected_value_effect=None,
+            value_epoch=None,obligation_id=w.obligation_id,operational_scope_id=w.operational_scope_id,basis_kind="N1A_EXPERIMENTAL_WARRANT",
+            required_value_epochs=tuple((x[0],x[1]) for x in w.value_frame_rows),
+            experimental_warrant_id=w.warrant_id,experimental_subject_id=w.subject_id,
+            experimental_capability_signature_sha256=w.capability_signature_sha256,
+            experimental_value_frame_digest_sha256=w.value_frame_digest_sha256,experimental_value_frame_rows=w.value_frame_rows,
+        )
+        self.action_closure.add_intent(intent); packet=intent.serializable()
+        self.path.append("BOUNDED_ACTION_INTENT",packet); self.store.append("BOUNDED_ACTION_INTENT",packet)
+        self.path.append("N1A_EXPERIMENTAL_WARRANT_ISSUED",w.serializable()); self.store.append("N1A_EXPERIMENTAL_WARRANT_ISSUED",w.serializable())
+        return {"status":"N1A_ACTION_INTENT_NOMINATED","intent":packet,"warrant":w.serializable(),
+                "execution_authority":"NONE","downstream_risk_status":w.residual_risk_status}
 
     def nominate_epistemic_program_step_intent(
         self, trial, feasibility: RecruitmentOption, obligation: QueryObligation,
@@ -2131,6 +2228,23 @@ class Microseed:
                     return combined,"CROSS_DEFICIT_SELECTED_EXECUTION_COMMITMENT_NOT_CURRENT",{"fresh_selection":fresh_selection.serializable()}
                 return combined,"CROSS_DEFICIT_SELECTED_EXECUTION_COMMITMENT_NOT_CURRENT",{"fresh_selection":fresh_selection.serializable()}
             return fresh,"EPISTEMIC_PROGRAM_STEP_COMMITMENT_NOT_CURRENT",None
+        if intent.basis_kind=="N1A_EXPERIMENTAL_WARRANT":
+            if obligation is None:
+                return None,"N1A_EXECUTION_OBLIGATION_REQUIRED",None
+            fresh=self.derive_n1a_experimental_warrant(obligation)
+            if fresh.get("status")!="N1A_EXPERIMENTAL_WARRANT_ISSUED":
+                return None,"N1A_WARRANT_NOT_CURRENT",fresh
+            w=ConstitutionalExperimentalWarrant.from_serializable(fresh["warrant"])
+            if (w.warrant_id!=intent.experimental_warrant_id or w.subject_id!=intent.experimental_subject_id
+                or w.capability_id!=intent.capability_id or w.capability_epoch!=intent.capability_epoch
+                or w.capability_signature_sha256!=intent.experimental_capability_signature_sha256
+                or w.value_frame_digest_sha256!=intent.experimental_value_frame_digest_sha256
+                or w.value_frame_rows!=intent.experimental_value_frame_rows):
+                return None,"N1A_WARRANT_PREMISE_DRIFT",fresh
+            cmt=RelationalCommitment.from_serializable(fresh["commitment"])
+            if cmt.commitment_id!=intent.action_commitment.commitment_id:
+                return None,"N1A_WARRANT_COMMITMENT_DRIFT",fresh
+            return cmt,"N1A_WARRANT_COMMITMENT_NOT_CURRENT",fresh
         if intent.basis_kind=="SINGLE_VALUE_REHEARSAL":
             if intent.proposal_id is None or self.counterfactual_rehearsal_status(intent.proposal_id).get("status")!="CURRENT_REHEARSAL_PROPOSAL":
                 return None,"REHEARSAL_PREMISE_DRIFT",None
@@ -2171,11 +2285,29 @@ class Microseed:
             return out
         if not fresh_commitment.licenses_yes():
             return {"status":"NO_EXECUTION","reason":stale_reason,"commitment":fresh_commitment.serializable(),"authority":Authority.NONE.value}
+        n1a_reserved=False
+        if intent.basis_kind=="N1A_EXPERIMENTAL_WARRANT":
+            if not intent.experimental_subject_id or not intent.experimental_warrant_id:
+                return {"status":"NO_EXECUTION","reason":"N1A_WARRANT_ANCESTRY_MISSING","authority":Authority.NONE.value}
+            reservation={"subject_id":intent.experimental_subject_id,"warrant_id":intent.experimental_warrant_id,
+                         "capability_id":intent.capability_id,"capability_epoch":intent.capability_epoch,
+                         "capability_signature_sha256":intent.experimental_capability_signature_sha256,
+                         "value_frame_digest_sha256":intent.experimental_value_frame_digest_sha256,
+                         "state_id":intent.start_state_id,"state_evidence_id":intent.control_state_evidence_id,
+                         "obligation_id":intent.obligation_id,"operational_scope_id":intent.operational_scope_id,
+                         "consumed_before_effect":True,"downstream_risk_status":"UNKNOWN_INCOMPLETE_ACCEPTED_BY_N1A_CONSTITUTION"}
+            if not self.store.set_if_absent(self._n1a_subject_consumption_key(intent.experimental_subject_id),reservation):
+                return {"status":"NO_EXECUTION","reason":"N1A_FIRST_EXPOSURE_ALREADY_CONSUMED","authority":Authority.NONE.value}
+            self.path.append("N1A_EXPERIMENTAL_WARRANT_RESERVED_BEFORE_EFFECT",reservation)
+            self.store.append("N1A_EXPERIMENTAL_WARRANT_RESERVED_BEFORE_EFFECT",reservation)
+            n1a_reserved=True
         result=self.capabilities.invoke(intent.capability_id,obligation,**kwargs)
         if result.get("status")!="CAPABILITY_RESULT": return {"status":"NO_EXECUTION","reason":result.get("reason",result.get("status")),"authority":Authority.NONE.value}
         rec=ActionExecutionRecord(execution_id=action_stable_id("ACTION-EXEC-",{"intent":intent_id,"result":action_result_digest(result.get('value'))}),intent_id=intent_id,capability_id=intent.capability_id,capability_epoch=intent.capability_epoch,start_state_id=intent.start_state_id,handler_result_sha256=action_result_digest(result.get("value")),execution_commitment_id=fresh_commitment.commitment_id,execution_premise_ids=fresh_commitment.premise_ids)
         self.action_closure.add_execution(rec); packet=rec.serializable(); self.path.append("BOUNDED_ACTION_EXECUTED",packet); self.store.append("BOUNDED_ACTION_EXECUTED",packet)
-        return {"status":"ACTION_EXECUTED","execution":packet,"handler_value":result.get("value"),"observation_recorded":False}
+        return {"status":"ACTION_EXECUTED","execution":packet,"handler_value":result.get("value"),"observation_recorded":False,
+                "n1a_warrant_reserved_before_effect":n1a_reserved,
+                "downstream_risk_status":"UNKNOWN_INCOMPLETE_ACCEPTED_BY_N1A_CONSTITUTION" if n1a_reserved else None}
 
     def record_bounded_action_outcome_via_observation_basis(
         self,
@@ -3581,6 +3713,8 @@ class Microseed:
         payload=dict(obs.value); intent=self.action_closure.intents[ex.intent_id]
         evidence_premise_epochs=tuple((str(cid),int(epoch)) for cid,epoch in evidence_premise_epochs)
         evidence_premise_signatures=tuple((str(cid),str(sig).lower()) for cid,sig in evidence_premise_signatures)
+        if intent.basis_kind=="N1A_EXPERIMENTAL_WARRANT":
+            return self._record_n1a_experimental_action_outcome(ex,intent,obs,payload,evidence_id=evidence_id,evidence_premise_epochs=evidence_premise_epochs,evidence_premise_signatures=evidence_premise_signatures)
         if intent.basis_kind=="MULTI_VALUE_LICENSE":
             return self._record_multi_value_action_outcome(ex,intent,obs,payload,evidence_id=evidence_id,evidence_premise_epochs=evidence_premise_epochs,evidence_premise_signatures=evidence_premise_signatures)
         if intent.basis_kind=="EPISTEMIC_PROGRAM_STEP":
@@ -3616,6 +3750,47 @@ class Microseed:
         self.action_closure.add_outcome(outcome); packet=outcome.serializable(); self.path.append("BOUNDED_ACTION_OUTCOME",packet); self.store.append("BOUNDED_ACTION_OUTCOME",packet)
         state_packet=self.action_closure.current_state.serializable(); self.path.append("OPAQUE_CONTROL_STATE_OBSERVED",state_packet); self.store.append("OPAQUE_CONTROL_STATE_OBSERVED",state_packet)
         return {"status":"ACTION_OUTCOME_OBSERVED","outcome":packet,"value_state":value_packet,"requires_redeliberation":True}
+
+    def _record_n1a_experimental_action_outcome(self, ex: ActionExecutionRecord, intent: BoundedActionIntent, obs: Observation, payload: dict[str, Any], *, evidence_id: str, evidence_premise_epochs: tuple[tuple[str,int], ...] = (), evidence_premise_signatures: tuple[tuple[str,str], ...] = ()) -> dict[str, Any]:
+        """Observe N1A consequence after EFFECT; observation creates evidence, never retrospective safety authority."""
+        if "next_state_id" not in payload or not isinstance(payload.get("observed_values"),dict):
+            return {"status":"OUTCOME_REJECTED","reason":"N1A_OUTCOME_REQUIRES_COMPLETE_VALUE_OBSERVATION"}
+        pre_rows={str(x[0]):(int(x[1]),float(x[2]),str(x[3])) for x in intent.experimental_value_frame_rows}
+        observed={str(k):float(v) for k,v in payload["observed_values"].items()}
+        if set(observed)!=set(pre_rows) or any(not math.isfinite(v) for v in observed.values()):
+            return {"status":"OUTCOME_REJECTED","reason":"N1A_COMPLETE_ISSUE_VALUE_FRAME_OBSERVATION_REQUIRED",
+                    "required_value_ids":sorted(pre_rows),"observed_value_ids":sorted(observed)}
+        for value_id,(epoch,_,signature) in pre_rows.items():
+            contract=self.values.contracts.get(value_id)
+            if contract is None or not self.values.is_current(value_id,epoch) or str(contract.signature_sha256)!=signature:
+                return {"status":"OUTCOME_REJECTED","reason":"N1A_VALUE_FRAME_PREMISE_NOT_CURRENT","value_id":value_id}
+        next_state=str(payload["next_state_id"])
+        actual={k:round(observed[k]-pre_rows[k][1],3) for k in sorted(pre_rows)}
+        self.observe(obs)
+        ref=self.append_evidence(evidence_id,{"kind":"N1A_FIRST_EXPOSURE_OUTCOME","execution_id":ex.execution_id,"next_state_id":next_state,
+            "observed_values":observed,"actual_value_effects":actual,"start_state_id":intent.start_state_id,"capability_id":ex.capability_id,
+            "capability_epoch":ex.capability_epoch,"n1a_warrant_id":intent.experimental_warrant_id,"n1a_subject_id":intent.experimental_subject_id,
+            "issue_value_frame_digest_sha256":intent.experimental_value_frame_digest_sha256,"residual_risk_at_effect":"UNKNOWN_INCOMPLETE_ACCEPTED_BY_N1A_CONSTITUTION",
+            "capture_id":obs.capture_id,"observation_lineage":list(obs.lineage),"observation_currentness_basis":obs.currentness_basis,
+            "evidence_premise_epochs":[list(x) for x in evidence_premise_epochs],"evidence_premise_signatures":[list(x) for x in evidence_premise_signatures],
+            "truth_authority":"NONE","semantic_goal_authority":"NONE"},EpistemicStatus.PRESSURE_SUPPORTED,source=obs.origin)
+        value_packets={value_id:self.observe_value_state(value_id,observed[value_id]) for value_id in sorted(observed)}
+        self.action_closure.set_state(OpaqueControlStateWitness(next_state,ref.evidence_id))
+        coordinates=tuple(ActionOutcomeCoordinate(value_id=value_id,value_epoch=pre_rows[value_id][0],observed_value=observed[value_id],
+            actual_value_effect=actual[value_id],learning_ancestry_status="CURRENT",truth_authority="NONE",semantic_goal_authority="NONE")
+            for value_id in sorted(observed))
+        pc=RelationalCommitment(action_stable_id("ACTION-PREDICTION-",{"execution":ex.execution_id,"evidence":ref.sha256}),
+            f"action-execution:{ex.execution_id}:prediction-match",TernaryCommitment.UNKNOWN,
+            reason="N1A_FIRST_EXPOSURE_HAD_NO_PRIOR_CONSEQUENCE_PREDICTION",
+            qualifiers=(("evidence_id",ref.evidence_id),("truth_authority","NONE"),("residual_risk_at_effect","UNKNOWN_INCOMPLETE_ACCEPTED_BY_N1A_CONSTITUTION")),
+            premise_ids=tuple(x for x in (intent.experimental_warrant_id,intent.experimental_subject_id,ex.execution_id) if x))
+        outcome=ActionOutcomeRecord(outcome_id=action_stable_id("ACTION-OUTCOME-",{"execution":ex.execution_id,"evidence":ref.sha256}),
+            execution_id=ex.execution_id,evidence_id=ref.evidence_id,actual_next_state_id=next_state,observed_value=None,value_id=None,actual_value_effect=None,
+            value_outcomes=coordinates,prediction_commitment=pc)
+        self.action_closure.add_outcome(outcome); packet=outcome.serializable(); self.path.append("BOUNDED_ACTION_OUTCOME",packet); self.store.append("BOUNDED_ACTION_OUTCOME",packet)
+        state_packet=self.action_closure.current_state.serializable(); self.path.append("OPAQUE_CONTROL_STATE_OBSERVED",state_packet); self.store.append("OPAQUE_CONTROL_STATE_OBSERVED",state_packet)
+        return {"status":"N1A_ACTION_OUTCOME_OBSERVED","outcome":packet,"value_states":value_packets,"actual_value_effects":actual,
+                "requires_redeliberation":True,"retrospective_safety_authority":"NONE"}
 
     def _record_multi_value_action_outcome(self, ex: ActionExecutionRecord, intent: BoundedActionIntent, obs: Observation, payload: dict[str, Any], *, evidence_id: str, evidence_premise_epochs: tuple[tuple[str,int], ...] = (), evidence_premise_signatures: tuple[tuple[str,str], ...] = ()) -> dict[str, Any]:
         """Record one execution outcome with independently observed value coordinates."""

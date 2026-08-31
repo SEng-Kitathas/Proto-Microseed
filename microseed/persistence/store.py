@@ -39,3 +39,12 @@ class StateStore:
     def get(self, key: str, default: Any = None) -> Any:
         row = self.conn.execute("select value from kv where k=?", (key,)).fetchone()
         return default if row is None else json.loads(row[0])
+
+    def set_if_absent(self, key: str, value: Any) -> bool:
+        """Atomically reserve one durable key; return False when already present."""
+        cur = self.conn.execute(
+            "insert or ignore into kv(k,value,updated_ns) values(?,?,?)",
+            (key, json.dumps(value, sort_keys=True), time.time_ns()),
+        )
+        self.conn.commit()
+        return int(cur.rowcount) == 1
