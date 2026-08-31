@@ -61,14 +61,14 @@ Use these distinctions:
 
 A public auditor may therefore verify the promotion checkpoint, branch genesis, current production-byte identity, and the published promotion verification summary here, while treating deeper private continuity claims as reported unless separately supplied.
 
-## Active post-V1 canonical repair
+## Active post-V1 canonical substrate
 
-Operator-selected P1A is now the active canonical substrate repair once tag/remote readback completes. Historical `PRELINGUAL_SUBSTRATE_V1` remains immutable at `0fa41f1...`; the repaired canon differs in production only at `microseed/runtime/entity.py` and closes stale learned-relation authority leakage through durable rehearsal reuse.
+Historical `PRELINGUAL_SUBSTRATE_V1` remains immutable at `0fa41f1...`. P1A remains sealed at `prelingual-substrate-v1-p1a-repair`. The active repaired/extended canon is `PRELINGUAL_SUBSTRATE_V1_P1A_N1A`, sealed by `prelingual-substrate-v1-p1a-n1a`.
 
-Promotion receipt: `evidence/MS2054_P1A_CANONICAL_REPAIR_PROMOTION_RECEIPT.json`
+P1A receipt: `evidence/MS2054_P1A_CANONICAL_REPAIR_PROMOTION_RECEIPT.json`
 
-Whole regression evidence: `evidence/MS2054_P1A_WHOLE_SUITE_STDOUT.log`
+N1A promotion receipt: `evidence/MS2056_N1A_CANONICAL_PROMOTION_RECEIPT.json`
 
-Canonical repaired tag: `prelingual-substrate-v1-p1a-repair`
+N1A whole regression: `evidence/MS2056_N1A_WHOLE_SUITE_STDOUT.log`
 
-N1A is operator-authorized next work, but is **not** included in P1A promotion.
+N1A grants only one exact bounded first-unmodeled EFFECT exposure after current qualification, scope, state, complete current value-frame, known-consequence exclusion, and unique-eligibility gates. `UNKNOWN != SAFE`; the warrant is durably consumed before EFFECT and does not create generic exploration authority.

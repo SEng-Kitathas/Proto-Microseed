@@ -2,9 +2,9 @@
 
 Proto-Microseed is an experimental developmental cognitive runtime focused on a narrow question: how much cognition can be earned through grounded operational mechanisms and lawful composition before a large supplied semantic ontology or generic planner becomes necessary?
 
-This repository now carries the operator-promoted canonical bounded/equipped baseline **`PRELINGUAL_SUBSTRATE_V1`**. The promotion decision was made explicitly after the MS2050/MS2051 technical-readiness gates and the MS2052 operator decision boundary; it is embodied by `methodology/MS2053_OPERATOR_PROMOTION_AND_RESEARCH_GATE_OPENING.md`.
+This repository carries historical **`PRELINGUAL_SUBSTRATE_V1`** plus the operator-promoted repaired/extended canonical substrate **`PRELINGUAL_SUBSTRATE_V1_P1A_N1A`**. Historical V1 remains immutable at its original tag; P1A repaired stale rehearsal-currentness authority, and N1A adds one exact bounded first-unmodeled-effect constitutional warrant under residual uncertainty. See `methodology/MS2054_P1A_STALE_REHEARSAL_CURRENTNESS_CANONICAL_REPAIR.md`, `methodology/MS2055_N1A_CONSTITUTIONAL_EXPERIMENTAL_AUTHORITY_EMBODIMENT.md`, and `methodology/MS2056_N1A_CANONICAL_PROMOTION.md`.
 
-The promoted V1 claim remains deliberately bounded. It does **not** grant NAKED first-unmodeled-physical-probe authority, semantic self/body/other identity authority, semantic reference/truth authority from language, or language competence. Two separate research gates are open from the exact V1 baseline: NAKED constitutional authority design and grounded language/reference research. Neither branch self-promotes to canonical `main`.
+Historical V1 did **not** grant NAKED first-unmodeled-physical-probe authority. N1A now grants only the narrower operator-selected constitutional case: one exact current, qualified, uniquely eligible, genuinely unmodeled EFFECT exposure after all existing gates, with residual downstream risk still explicitly UNKNOWN and durable pre-effect one-shot consumption. It does **not** grant generic exploration, curiosity, safety certification, semantic self/body/other identity authority, semantic reference/truth authority from language, or language competence.
 
 ## Continuity and external audit
 
@@ -12,11 +12,11 @@ The promoted V1 claim remains deliberately bounded. It does **not** grant NAKED 
 
 Current operator continuity is maintained separately in `SEng-Kitathas/Proto-Microseed-RD-Continuity`, which may not be publicly reachable to every auditor. To keep the V1 promotion externally checkable from this repository, the minimum promotion-continuity receipt is mirrored at `evidence/PRELINGUAL_SUBSTRATE_V1_PUBLIC_CONTINUITY_POINTER.json`, with the exact promotion receipt mirrored at `evidence/PRELINGUAL_SUBSTRATE_V1_PROMOTION_CONTINUITY_RECEIPT.json` and the exact 911-test stdout at `evidence/PRELINGUAL_SUBSTRATE_V1_EXACT_SUITE_STDOUT.log`; verify locally with `python tools/verify_public_v1_continuity.py`.
 
-Historical V1 remains the immutable tagged commit `0fa41f1ed4cf2fbd341b5f0b63adbc0034d4ac39`. Operator-selected P1A promotes a narrow post-V1 canonical repair that changes production only at `microseed/runtime/entity.py`; see `evidence/MS2054_P1A_CANONICAL_REPAIR_PROMOTION_RECEIPT.json`. The repaired canonical tag is `prelingual-substrate-v1-p1a-repair`. N1A remains separate until embodied and hostile-validated.
+Historical V1 remains immutable at `0fa41f1ed4cf2fbd341b5f0b63adbc0034d4ac39`; P1A remains immutable at tag `prelingual-substrate-v1-p1a-repair`. Active repaired/extended canon is sealed by tag `prelingual-substrate-v1-p1a-n1a`; see `evidence/MS2056_N1A_CANONICAL_PROMOTION_RECEIPT.json`.
 
 
 
-## PRELINGUAL_SUBSTRATE_V1 canonical checkpoint
+## PRELINGUAL_SUBSTRATE_V1 historical canonical checkpoint
 
 The promoted baseline includes the bounded developmental substrate accumulated through MS2052, including currentness/qualification/authority factorization, referent and representation growth, full-frame cross-value selection with effect-time reauthorization, modern 100-EFFECT lifecycle pressure, bounded four-referent robustness, operational body/counterparty distinction, and grounded operational token→referent binding candidates.
 
@@ -25,7 +25,8 @@ Promotion is a project-governance event, not a relaxation of scientific ceilings
 ```text
 SELECTION_AUTHORITY != EXECUTION_AUTHORITY
 CAPABILITY_REQUALIFICATION_CURRENTNESS != DERIVED_RELATIONAL_EVIDENCE_REQUALIFICATION
-NAKED_FIRST_UNMODELED_PHYSICAL_PROBE_REMAINS_BLOCKED_ON_EXPLICIT_NEW_NORMATIVE_COMMITMENT
+HISTORICAL_V1: NAKED_FIRST_UNMODELED_PHYSICAL_PROBE_REMAINS_BLOCKED_ON_EXPLICIT_NEW_NORMATIVE_COMMITMENT
+CURRENT_P1A_N1A: EXACT_ONE_SHOT_FIRST_UNMODELED_EFFECT_MAY_BE_WARRANTED_AFTER_ALL_EXISTING_GATES
 SIGNAL != REFERENCE
 TOKEN_EMITTED != TOKEN_MEANS
 UTTERANCE_PRODUCED != REFERENT_BOUND

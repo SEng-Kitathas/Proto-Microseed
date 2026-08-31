@@ -111,6 +111,24 @@
     "whole_suite": "914/914 PASS in 750.69s",
     "whole_suite_stdout_sha256": "77e83ca294af5e6a9abfdb16a17add29fa70b74ca443be04870c93216cca3d25",
     "historical_v1_remains": "0fa41f1ed4cf2fbd341b5f0b63adbc0034d4ac39",
-    "n1a": "AUTHORIZED_NEXT_NOT_INCLUDED"
+    "n1a": "SUPERSEDED_BY_CANONICAL_N1A_PROMOTION"
+  },
+  "active_canonical_substrate": {
+    "label": "PRELINGUAL_SUBSTRATE_V1_P1A_N1A",
+    "tag": "prelingual-substrate-v1-p1a-n1a",
+    "tested_research_head": "9caaac51ecfdac7b5e48c98faf585d4b36ed09e8",
+    "p1a_base": "2c3e225fd1fcaa89965da80d6048bc178c521740",
+    "promotion_receipt": "evidence/MS2056_N1A_CANONICAL_PROMOTION_RECEIPT.json",
+    "whole_suite": "926/926 PASS in 913.93s",
+    "whole_suite_stdout_sha256": "a39257a8c0b01edd0c077d53b7220ac135d6ba7ce0206a5ece00f24428be57e4",
+    "historical_v1_remains": "0fa41f1ed4cf2fbd341b5f0b63adbc0034d4ac39",
+    "authority_boundary": [
+      "UNKNOWN != SAFE",
+      "UNKNOWN != SELECTED",
+      "UNKNOWN != PERMITTED",
+      "UNIQUE_ELIGIBILITY_ONLY",
+      "DURABLE_RESERVATION_BEFORE_EFFECT",
+      "ACTUAL_OUTCOME_SOVEREIGNTY"
+    ]
   }
 }

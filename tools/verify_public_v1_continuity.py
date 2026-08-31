@@ -26,7 +26,7 @@ def git_bytes(*args):
 issues=[]
 # Single-branch clones do not necessarily contain tags that point at off-main genesis commits.
 # Fetch only the exact public tags required for verification when they are absent locally.
-for tag in ('prelingual-substrate-v1','naked-authority-design-v1-genesis','grounded-language-reference-v1-genesis','prelingual-substrate-v1-p1a-repair'):
+for tag in ('prelingual-substrate-v1','naked-authority-design-v1-genesis','grounded-language-reference-v1-genesis','prelingual-substrate-v1-p1a-repair','prelingual-substrate-v1-p1a-n1a'):
     probe=subprocess.run(['git','rev-parse','--verify','--quiet',tag+'^{}'],cwd=ROOT,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
     if probe.returncode != 0:
         fetch=subprocess.run(['git','fetch','--quiet','origin','tag',tag],cwd=ROOT,text=True,capture_output=True)
@@ -72,6 +72,22 @@ if head_microseed != v1_microseed:
             issues.append('P1A_PRODUCTION_DELTA_NOT_NARROW')
         if subprocess.run(['git','merge-base','--is-ancestor',p1a_commit,head],cwd=ROOT).returncode != 0:
             issues.append('HEAD_NOT_DESCENDANT_OF_P1A_CANONICAL_TAG')
+# If current public canon advertises N1A, verify tag ancestry, exact production delta, and public whole-suite evidence.
+active=pointer.get('active_canonical_substrate',{})
+if active.get('label')=='PRELINGUAL_SUBSTRATE_V1_P1A_N1A':
+    n1a_tag=git('rev-parse','prelingual-substrate-v1-p1a-n1a^{}')
+    p1a_commit=git('rev-parse','prelingual-substrate-v1-p1a-repair^{}')
+    if subprocess.run(['git','merge-base','--is-ancestor',n1a_tag,head],cwd=ROOT).returncode != 0: issues.append('HEAD_NOT_DESCENDANT_OF_N1A_CANONICAL_TAG')
+    n1a_delta=git('diff','--name-only',p1a_commit+'..'+n1a_tag,'--','microseed').splitlines()
+    expected_n1a=['microseed/development/action_closure.py','microseed/development/experimental_warrant.py','microseed/persistence/store.py','microseed/runtime/entity.py']
+    if n1a_delta != expected_n1a: issues.append('N1A_PRODUCTION_DELTA_NOT_EXACT')
+    n1a_receipt_blob=git_bytes('show','HEAD:evidence/MS2056_N1A_CANONICAL_PROMOTION_RECEIPT.json')
+    n1a_log_blob=git_bytes('show','HEAD:evidence/MS2056_N1A_WHOLE_SUITE_STDOUT.log')
+    n1a_receipt=json.loads(n1a_receipt_blob.decode('utf-8'))
+    n1a_stdout_sha=hashlib.sha256(n1a_log_blob).hexdigest()
+    if n1a_receipt.get('whole_suite',{}).get('stdout_sha256')!=n1a_stdout_sha: issues.append('N1A_WHOLE_STDOUT_HASH')
+    if active.get('whole_suite_stdout_sha256')!=n1a_stdout_sha: issues.append('POINTER_N1A_WHOLE_STDOUT_HASH')
+    if b'926 passed in 913.93s' not in n1a_log_blob: issues.append('N1A_WHOLE_VERDICT')
 # Confirm branch-genesis metadata in both the public pointer and the copied operator receipt.
 g=pointer.get('research_branch_genesis',{})
 if g.get('naked',{}).get('genesis_commit')!=NAKED or g.get('naked',{}).get('parent')!=V1: issues.append('POINTER_NAKED_GENESIS')

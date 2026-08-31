@@ -1,0 +1,54 @@
+{
+  "schema": "ms2056_n1a_canonical_promotion/v1",
+  "status": "PROMOTION_COMMIT_PENDING_TAG_PUSH_READBACK",
+  "canonical_label": "PRELINGUAL_SUBSTRATE_V1_P1A_N1A",
+  "promotion_tag": "prelingual-substrate-v1-p1a-n1a",
+  "historical_v1": "0fa41f1ed4cf2fbd341b5f0b63adbc0034d4ac39",
+  "p1a_canonical_base": "2c3e225fd1fcaa89965da80d6048bc178c521740",
+  "tested_n1a_research_head": "9caaac51ecfdac7b5e48c98faf585d4b36ed09e8",
+  "production_delta_from_p1a": [
+    "microseed/development/action_closure.py",
+    "microseed/development/experimental_warrant.py",
+    "microseed/persistence/store.py",
+    "microseed/runtime/entity.py"
+  ],
+  "operator_authority": "EXPLICIT_DO_SO_AFTER_926_OF_926_PASS",
+  "focused_hostile": {
+    "n1a": "8/8 PASS",
+    "historical_guard_replay": "14/14 PASS",
+    "broader": "54/54 PASS in 49.44s"
+  },
+  "whole_suite": {
+    "job_id": "job-5640f9b7d6d5",
+    "pytest": "926/926 PASS",
+    "duration_seconds": 913.93,
+    "stderr_bytes": 0,
+    "stdout_path": "evidence/MS2056_N1A_WHOLE_SUITE_STDOUT.log",
+    "stdout_bytes": 1086,
+    "stdout_sha256": "a39257a8c0b01edd0c077d53b7220ac135d6ba7ce0206a5ece00f24428be57e4",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "failed_pressure_lineage": [
+    {
+      "job_id": "job-ba41101c63e8",
+      "result": "53 PASS / 1 FAIL",
+      "classification": "HISTORICAL_P1A_GUARD_CURRENT_HEAD_ASSUMPTION"
+    },
+    {
+      "job_id": "job-1e55175ecf49",
+      "result": "923 PASS / 3 FAIL",
+      "classification": "HISTORICAL_V1_SHAPE_AUDIT_CURRENT_HEAD_ASSUMPTION"
+    }
+  ],
+  "authority_boundary": {
+    "unknown_safe": false,
+    "unknown_selected": false,
+    "unknown_permitted_without_warrant": false,
+    "selection_authority": "UNIQUE_ELIGIBILITY_ONLY",
+    "truth_authority": "NONE",
+    "semantic_goal_authority": "NONE",
+    "information_value_authority": "NONE",
+    "retrospective_safety_authority": "NONE"
+  },
+  "promotion_commit_binding": "VERIFY promotion_tag peeled commit after tag creation; receipt intentionally does not self-hash its containing commit"
+}
