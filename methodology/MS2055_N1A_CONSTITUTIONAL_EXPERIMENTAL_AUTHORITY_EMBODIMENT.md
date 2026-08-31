@@ -60,3 +60,6 @@ The first broader run (`job-ba41101c63e8`) returned 53 PASS / 1 FAIL. The sole f
 Classification: `HISTORICAL_PROMOTION_GUARD_CURRENT_HEAD_ASSUMPTION__NOT_N1A_BEHAVIORAL_FAILURE`.
 
 The preliminary MS2055 receipt also omitted the newly-added warrant module because its production-delta command ran before untracked files were committed. The commit contained the file; the receipt is corrected explicitly rather than silently rewritten.
+
+## Broader regression after guard repair
+`job-6b102d745ac3`: **54/54 PASS in 49.44s**, stderr empty. Exact stdout SHA-256 `84c5032211f0547e3447e2b1acf68e99cca6f4520ca83f6625c56fc0236b0014`.

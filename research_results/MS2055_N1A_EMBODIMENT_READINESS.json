@@ -1,6 +1,6 @@
 {
   "schema": "ms2055_n1a_embodiment_readiness/v1",
-  "status": "RESEARCH_CANDIDATE__BROADER_REGRESSION_REPAIR_PENDING_RERUN",
+  "status": "RESEARCH_EMBODIMENT_BROADER_GREEN__WHOLE_SUITE_PENDING",
   "p1a_canonical_base": "2c3e225fd1fcaa89965da80d6048bc178c521740",
   "operator_choice": "N1A",
   "research_branch": "research/naked-authority-design-v1-p1a-n1a",
@@ -26,5 +26,14 @@
     "failure": "MS2054 guard compared V1 against arbitrary descendant HEAD rather than immutable P1A tag",
     "classification": "HISTORICAL_PROMOTION_GUARD_CURRENT_HEAD_ASSUMPTION__NOT_N1A_BEHAVIORAL_FAILURE",
     "repair": "bind MS2054 narrow-delta assertion to prelingual-substrate-v1-p1a-repair peeled commit"
+  },
+  "research_head_before_receipt_seal": "cad6e75bf7b6b07cb8531d12cc9664dc451e06b8",
+  "broader_regression_rerun": {
+    "job_id": "job-6b102d745ac3",
+    "pytest": "54/54 PASS",
+    "duration_seconds": 49.44,
+    "stderr_bytes": 0,
+    "stdout_path": "research_results/MS2055_N1A_BROADER_FOCUSED_STDOUT.log",
+    "stdout_sha256": "84c5032211f0547e3447e2b1acf68e99cca6f4520ca83f6625c56fc0236b0014"
   }
 }
