@@ -144,3 +144,12 @@ Classification is intentionally pending until owner audit:
 `V1_SOAK_001_REPEATED_REHEARSAL_ID_COLLISION__HARNESS_VS_SUBSTRATE_LIFETIME_SEAM_UNRESOLVED`.
 
 Do not patch by randomizing IDs or deleting history. First inspect the existing rehearsal registry/currentness/lifecycle owners for a lawful reuse path.
+
+
+## Stale-rehearsal hostile — first terminal-drift assumption failure
+A harder shift was introduced: preserve the beneficial +1 regulatory effect while changing only the terminal causal consequence from `s2 -> u` to `s2 -> w`. The first targeted hostile incorrectly expected drift witnesses on all three learned relations. V1 correctly reported `CURRENT_WITHIN_BOUNDS` for unchanged `K-17` and `M-23`; only `R-41` is causally wrong.
+
+Classification:
+`V1_SOAK_001_HARNESS_GLOBAL_DRIFT_EXPECTATION_WRONG__LOCALIZED_R41_DRIFT_REQUIRED`.
+
+This is a positive localization requirement: the repair/hostile must stale only the changed R relation and preserve unrelated K/M relations.
