@@ -16,10 +16,10 @@ This is a **phenotype / temporal-integrity experiment**, not an intelligence sco
 The world contains:
 - the already-lawful opaque V1 action surface `K-17`, `M-23`, `R-41`;
 - an opaque regulatory coordinate;
-- eight evaluator-only latent referent sources rendered through changing channel permutations and appearances;
+- eight evaluator-only latent referent sources rendered through changing channel permutations and appearances on an explicit forked diagnostic trace;
 - periodic occlusion;
 - a bounded interval where two referents become operationally aliased;
-- a nuisance/spurious raw coordinate with no causal role;
+- a bounded live four-coordinate raw lane containing regulatory sign, inherited nuisance, one spurious coordinate, and one coarse referent nuisance;
 - a halfway P→N causal regime change in action outcomes.
 
 No human-readable object labels are given to Microseed.
@@ -131,3 +131,16 @@ Classification:
 `V1_SOAK_001_HARNESS_OVERSIZED_RAW_TOKEN_SURFACE__NO_SCIENTIFIC_VERDICT`.
 
 Repair rule: do **not** widen the canonical raw observation contract. Keep the live raw-token lane inside its existing four-coordinate bound and move the high-dimensional eight-referent geometry back to the already-declared forked-world diagnostic trace, where it remains explicit assistance rather than hidden V1 observation-surface growth.
+
+
+## Second smoke — repeated deterministic rehearsal proposal collision / verdict pending owner audit
+After repairing the raw-ingress harness without widening V1, bootstrap succeeded and the long zero-row phase began. On the second repeated current `s0 -> K-17` zero-row nomination, `CounterfactualRehearsalRegistry.add` raised:
+
+`ValueError: duplicate counterfactual rehearsal proposal`
+
+The proposal ID is content-deterministic and identical to the prior lawful proposal. This is potentially a **real lifetime-composition seam**: repeated ordinary use of the same learned one-step relation may require either an existing owned reuse/status path or a narrow idempotence fix in the rehearsal owner.
+
+Classification is intentionally pending until owner audit:
+`V1_SOAK_001_REPEATED_REHEARSAL_ID_COLLISION__HARNESS_VS_SUBSTRATE_LIFETIME_SEAM_UNRESOLVED`.
+
+Do not patch by randomizing IDs or deleting history. First inspect the existing rehearsal registry/currentness/lifecycle owners for a lawful reuse path.

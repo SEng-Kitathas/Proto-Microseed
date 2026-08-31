@@ -161,7 +161,11 @@ class NovelDevelopmentalWorld(ObservableContextWorld):
     def observe(self) -> dict:
         row = super().observe()
         base = list(row["raw_tokens"])
-        row["raw_tokens"] = base + [f"n{self.spurious}"] + [str(x) for x in self.observe_entities()]
+        # Preserve the inherited bounded four-coordinate live raw-ingress surface.
+        # The high-dimensional referent geometry is available only through the
+        # explicit forked-world diagnostic trace below, not smuggled into V1.
+        coarse_referent_nuisance = sum(self.entity_latent) & 1
+        row["raw_tokens"] = base + [f"n{self.spurious}", f"r{coarse_referent_nuisance}"]
         row["visual_phase"] = self.visual_phase
         return row
 
