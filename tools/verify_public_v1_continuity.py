@@ -18,6 +18,15 @@ def git(*args):
     return p.stdout.strip()
 
 issues=[]
+# Single-branch clones do not necessarily contain tags that point at off-main genesis commits.
+# Fetch only the exact public tags required for verification when they are absent locally.
+for tag in ('prelingual-substrate-v1','naked-authority-design-v1-genesis','grounded-language-reference-v1-genesis'):
+    probe=subprocess.run(['git','rev-parse','--verify','--quiet',tag+'^{}'],cwd=ROOT,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
+    if probe.returncode != 0:
+        fetch=subprocess.run(['git','fetch','--quiet','origin','tag',tag],cwd=ROOT,text=True,capture_output=True)
+        if fetch.returncode != 0:
+            issues.append('TAG_FETCH_FAILED:'+tag)
+
 pointer=json.loads(POINTER.read_text(encoding='utf-8'))
 r=json.loads(RECEIPT.read_text(encoding='utf-8'))
 if r.get('promotion_commit')!=V1: issues.append('RECEIPT_PROMOTION_COMMIT')
