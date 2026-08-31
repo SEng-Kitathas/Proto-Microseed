@@ -745,6 +745,27 @@ class Microseed:
             c = self.capabilities.contracts.get(cid)
             if c is None or c.computed_signature_sha256() != signature:
                 return {"status":"UNKNOWN_INCOMPLETE","reason":f"REHEARSAL_EVIDENCE_PREMISE_SIGNATURE_DRIFT:{cid}","authority":Authority.NONE.value}
+        # V1-SOAK-001 repair: a durable rehearsal may reuse a qualified learned
+        # transition across many episodes, but empirical drift can stale that learned
+        # relation without changing capability/frame/value epochs.  The proposal
+        # already owns the exact transition-relation digests it was built from, so
+        # revalidation must propagate learned-relation currentness through that
+        # existing ancestry instead of treating durable proposal history as an
+        # independent currentness source.  Supplied-row relations have no matching
+        # learned-registry owner and continue through the historical premise checks.
+        for relation_digest in p.transition_relation_digests:
+            learned_matches = []
+            for learned in self.action_outcome_learning.relations.values():
+                rr = learned.as_rehearsal_relation()
+                if rr is not None and rr.digest() == relation_digest:
+                    learned_matches.append(learned)
+            if learned_matches and not any(self._action_outcome_relation_current(learned) for learned in learned_matches):
+                stale_ids = ",".join(sorted(learned.relation_id for learned in learned_matches))
+                return {
+                    "status":"UNKNOWN_INCOMPLETE",
+                    "reason":f"REHEARSAL_LEARNED_RELATION_NOT_CURRENT:{stale_ids}",
+                    "authority":Authority.NONE.value,
+                }
         return {
             "status":"CURRENT_REHEARSAL_PROPOSAL", "proposal_id":proposal_id, "sequence":list(p.sequence),
             "authority":p.authority, "truth_authority":p.truth_authority, "execution_authority":p.execution_authority,

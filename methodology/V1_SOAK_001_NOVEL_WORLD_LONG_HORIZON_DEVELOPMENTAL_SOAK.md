@@ -179,3 +179,25 @@ Violation:
 This is a genuine canonical-V1 temporal-integrity defect. The learned relation owner knows R is empirically stale; the durable rehearsal status path does not currently propagate that empirical currentness into reused proposal validity.
 
 Repair constraint: modify the existing rehearsal/currentness owner narrowly so a proposal transition derived from a learned predictive relation cannot remain current when every matching learned relation digest is empirically stale. Preserve supplied-row rehearsal behavior, qualified scoped-routing behavior, history, and current-value reprojection. No new lifecycle manager.
+
+
+## Research repair — learned-relation currentness propagates into durable rehearsal reuse
+The existing `counterfactual_rehearsal_status` owner is extended narrowly. For each transition digest already carried by a durable proposal, it checks whether that digest corresponds to one or more qualified learned predictive relations. If so, at least one matching learned relation must remain current. If every matching learned relation is stale, proposal status becomes `UNKNOWN_INCOMPLETE` with `REHEARSAL_LEARNED_RELATION_NOT_CURRENT:<relation-id>`.
+
+No new registry, manager, ID, semantic ontology, or policy is introduced. The repair composes existing proposal transition ancestry with the already-owned `_action_outcome_relation_current` predicate.
+
+Supplied-row proposals remain on their historical premise/currentness checks when no learned-registry digest matches. Projection-scoped routing remains separately governed by its qualified binding/currentness path.
+
+Expected repair law:
+`DURABLE_REHEARSAL_REUSE_DOES_NOT_OUTLIVE_THE_CURRENTNESS_OF_ITS_OWNED_LEARNED_TRANSITION_PREMISE`.
+
+
+## MS1943 owner audit — historical recovery fixture contradicts its own stated stale-model ceiling
+MS1943's methodology is explicit: after a durable drift witness, the old learned relation is stale and **zero-row rehearsal can no longer use the stale relation**. The later recovery test nevertheless calls the same `_execute(..., proposal, ...)` helper sixteen more times after staleness only to manufacture matching recovery observations, then checks that the old relation does not reactivate.
+
+That fixture behavior is not an earned recovery authority. It contradicts the methodology's own execution ceiling and only escaped notice because proposal currentness did not propagate learned-relation empirical staleness.
+
+Classification:
+`MS1943_RECOVERY_TEST_STALE_PROPOSAL_EXECUTION_IS_FIXTURE_CONVENIENCE_NOT_LAWFUL_MODEL_AUTHORITY`.
+
+The production repair remains justified. The historical recovery regression must be corrected so its post-drift observations are obtained through an explicitly assisted sampling path, while preserving the actual MS1943 claim: later matching evidence does not automatically reactivate the historical stale model or rewrite coordination.
