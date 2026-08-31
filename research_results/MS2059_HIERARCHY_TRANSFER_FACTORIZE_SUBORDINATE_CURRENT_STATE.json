@@ -1,0 +1,26 @@
+{
+  "schema": "ms2059_hierarchy_transfer_factorized_subordinate_current_state/v1",
+  "status": "RESEARCH_RESULT__SURVIVED",
+  "parent_research_commit": "df1c68b146a5f440473d44c266a0a668a8b4c571",
+  "production_delta": [],
+  "focused": {
+    "pytest": "6/6 PASS",
+    "duration_seconds": 1.43,
+    "stderr_bytes": 0
+  },
+  "broader": {
+    "pytest": "75/75 PASS",
+    "duration_seconds": 57.45,
+    "stderr_bytes": 0
+  },
+  "survived_claims": [
+    "existing opaque projection discovery identifies joint higher-context + subordinate-current-state factors",
+    "unary grammar fails where pair grammar succeeds",
+    "coordinate permutation preserves latent-factor recovery",
+    "nuisance coordinates excluded and nuisance variation generalizes",
+    "hidden subordinate state makes relation unidentifiable",
+    "projection grants no semantic parent/child/truth/execution authority"
+  ],
+  "correction": "MS2057/MS2058 require no RecruitmentTopologyContract; separate role-topology graph not yet shown necessary for bounded transfer",
+  "next_seam": "REQUEST_ACTION_HANDLE_VS_SUBORDINATE_LOCAL_MEANS_AND_LATER_ENDOGENOUS_DESIRED_STATE_REQUEST_CONSTRUCTION"
+}
