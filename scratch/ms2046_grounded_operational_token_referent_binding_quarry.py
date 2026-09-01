@@ -376,6 +376,66 @@ def empirical_binding_currentness_status(
     }
 
 
+def bounded_operational_coreference_status(
+    ms: Microseed,
+    left: dict[str, object],
+    right: dict[str, object],
+    left_current_episodes: tuple[dict[str, object], ...],
+    left_current_holdouts: tuple[dict[str, object], ...],
+    right_current_episodes: tuple[dict[str, object], ...],
+    right_current_holdouts: tuple[dict[str, object], ...],
+) -> dict[str, object]:
+    """Query-local operational co-reference over two empirically current bindings.
+
+    This is intentionally not a durable registry. It composes the post-binding empirical
+    currentness witness for each token binding, then compares only the opaque operational
+    referent signatures. It grants no semantic reference, identity, truth, language, or
+    execution authority.
+    """
+    base = {
+        "semantic_reference_authority": "NONE",
+        "token_meaning_authority": "NONE",
+        "numerical_identity_authority": "NONE",
+        "truth_authority": "NONE",
+        "execution_authority": "NONE",
+        "language_authority": "NONE",
+        "authority_gain": "NONE",
+        "durable_coreference_registry_warranted": False,
+    }
+    left_status = empirical_binding_currentness_status(ms, left, left_current_episodes, left_current_holdouts)
+    right_status = empirical_binding_currentness_status(ms, right, right_current_episodes, right_current_holdouts)
+    if left_status["status"] != "CURRENT_EMPIRICALLY_GROUNDED_TOKEN_REFERENT_BINDING_CANDIDATE" or right_status["status"] != "CURRENT_EMPIRICALLY_GROUNDED_TOKEN_REFERENT_BINDING_CANDIDATE":
+        return {
+            **base,
+            "status": "DEFER_UNKNOWN",
+            "reason": "BOTH_GROUNDED_BINDINGS_MUST_BE_EMPIRICALLY_CURRENT",
+            "left_status": left_status,
+            "right_status": right_status,
+        }
+    left_sig = str(left_status["operational_referent_signature_sha256"])
+    right_sig = str(right_status["operational_referent_signature_sha256"])
+    if left_sig == right_sig:
+        return {
+            **base,
+            "status": "CURRENT_BOUNDED_OPERATIONAL_COREFERENCE_CANDIDATE",
+            "reason": "TWO_EMPIRICALLY_CURRENT_GROUNDED_BINDINGS_SHARE_ONE_OPERATIONAL_REFERENT_SIGNATURE",
+            "operational_referent_signature_sha256": left_sig,
+            "binding_ids": [left["binding_id"], right["binding_id"]],
+            "left_status": left_status,
+            "right_status": right_status,
+        }
+    return {
+        **base,
+        "status": "CURRENT_BOUNDED_OPERATIONAL_DISTINCTION",
+        "reason": "EMPIRICALLY_CURRENT_GROUNDED_BINDINGS_RESOLVE_TO_DIFFERENT_OPERATIONAL_REFERENT_SIGNATURES",
+        "left_operational_referent_signature_sha256": left_sig,
+        "right_operational_referent_signature_sha256": right_sig,
+        "binding_ids": [left["binding_id"], right["binding_id"]],
+        "left_status": left_status,
+        "right_status": right_status,
+    }
+
+
 def _history(ms: Microseed, world: GroundedReferenceWorld, *, train_mode: str = "P", hold_mode: str = "P", alias: bool = False):
     world.configure_alias(alias)
     world.configure_signal_mode(train_mode)
