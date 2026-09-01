@@ -1,0 +1,59 @@
+{
+  "admission_decision": "ADMISSIBLE_TO_CONTROLLED_PROMOTION_REVIEW",
+  "audit": "PROMOTION_ADMISSION_AUDIT_V1",
+  "audit_findings": [
+    "Release-gate condition is satisfied in the research finish candidate.",
+    "Functional whole-suite pressure is green when the current canonical identity guard is treated as an expected promotion-boundary guard rather than a functional test.",
+    "The current canonical identity guard fails exactly because the finish branch carries a real Microseed subtree delta.",
+    "The only production code delta from the current canon is microseed/runtime/entity.py.",
+    "The production code delta composes with existing EpistemicProjectionRegistry selected-dependency semantics: dependency_projection_epochs or source_projection_epochs.",
+    "No semantic reference, language, selfhood, numerical identity, truth, execution, arbitrary desired-state, or generic planner authority is granted by the finish branch.",
+    "Promotion cannot be implicit because canonical receipts/tests still point to the bounded hierarchy canon tree."
+  ],
+  "audited_branch": "research/hardening-release-gate-finish-v1",
+  "audited_head": "1c42da8e53df54a11615a88150a667f9673dff67",
+  "audited_microseed_tree": "88f5a058cc5a4e92b1006c36d31b95cf727d197f",
+  "authority_ceiling": [
+    "ADMISSION_AUDIT_PASS != CANONICAL_PROMOTION",
+    "RELEASE_GATE_CONDITION_MET != SUBSTRATE_FREEZE_DECLARED",
+    "FUNCTIONAL_WHOLE_SUITE_GREEN_WITH_CANON_GUARD_DESELECTED != CURRENT_CANON_UPDATED",
+    "RESEARCH_RESULT != CANON",
+    "WIP != RESULT"
+  ],
+  "campaign": "MS_SUBSTRATE_HARDENING_V1",
+  "canonical_baseline": {
+    "commit": "ed2cde491962105b0d853b7fd82d8e8b3d81bd8a",
+    "microseed_tree": "9d63915e9e0396f39d255df474d8c2849a153e3f",
+    "name": "PRELINGUAL_SUBSTRATE_V1_P1A_N1A_BOUNDED_HIERARCHY_V1",
+    "public_main": "3ec008b9f1f44c3871c28aee19d823ff68680cc7"
+  },
+  "production_delta_from_current_canon": {
+    "changed_files": [
+      "microseed/runtime/entity.py"
+    ],
+    "microseed_tree_changed": true,
+    "summary": "One production-owner file delta: transitive dependent-projection staling in Microseed.change_epistemic_projection."
+  },
+  "promotion_decision": "NOT_PERFORMED",
+  "remote_readback": {
+    "origin/research/hardening-release-gate-finish-v1": "1c42da8e53df54a11615a88150a667f9673dff67",
+    "rd_continuity_origin_main": "fce45705d0acb8250ac01008da287751a618357e"
+  },
+  "required_next_for_promotion": [
+    "Explicit operator promotion authority for canonical movement.",
+    "Prepare a promotion candidate branch/commit from the finish branch or equivalent exact tree.",
+    "Update canonical promotion receipt(s), current-canon identity guard(s), public continuity verifier expectations, and RD continuity checkpoint surfaces in one controlled promotion pass.",
+    "Run fresh-clone whole-suite and public/RD verifiers after promotion candidate is sealed.",
+    "Tag the new canonical checkpoint only if all promotion gates pass and the operator approves."
+  ],
+  "status": "ADMISSION_AUDIT_PASS__CONTROLLED_PROMOTION_REVIEW_ADMISSIBLE__CANONICAL_PROMOTION_NOT_PERFORMED",
+  "verification": {
+    "canon_identity_guard_observed_result": "FAIL as expected: finish HEAD microseed tree 88f5a058... differs from current canon/REPAIRED tree 9d63915e...",
+    "cleanup_harness_caveat": "TemporaryDirectory.cleanup made non-throwing only for known Windows SQLite teardown noise; test bodies/assertions unchanged.",
+    "deselected_canon_identity_guard": "tests/embodiment/test_ms2065_bounded_hierarchy_promotion_candidate.py::test_ms2065_candidate_preserves_repaired_tested_microseed_bytes_and_exact_delta",
+    "fresh_remote_compileall": "PASS for microseed and integrated H/SH6/SH7 test files",
+    "fresh_remote_functional_whole_suite": "1003 passed, 1 deselected in 1158.78s; PYTEST_RC=0",
+    "fresh_remote_public_verifier": "PASS at finish head; issues empty",
+    "fresh_remote_release_gate_harness": "73/73 PASS in 459.94s; PYTEST_RC=0"
+  }
+}
