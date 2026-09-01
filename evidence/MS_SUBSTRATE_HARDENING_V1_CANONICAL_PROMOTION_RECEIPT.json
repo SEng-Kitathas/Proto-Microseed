@@ -1,0 +1,82 @@
+{
+  "admission_audit_v2_head": "aaabf382f98bddc0bdcdfc84ffa11a8a942798d1",
+  "authority_boundary": {
+    "arbitrary_desired_state_authority": false,
+    "bc_repair_admitted": false,
+    "durable_vocabulary_registry_authority": false,
+    "execution_authority_gain": false,
+    "language_reference_authority_gain": false,
+    "raw_projection_discovery_authority": false,
+    "selfhood_or_numerical_identity_authority": false,
+    "semantic_projection_authority": false,
+    "truth_authority_gain": false
+  },
+  "bc_overlap_decision": {
+    "future_requirement": "serialize/rebase before any later B/C promotion or merge",
+    "reason": "independent production-owner overlap on microseed/runtime/entity.py; not admitted into release-gate finish/admission line",
+    "research_hardening_bc_nested_currentness_v1": "QUARANTINED_EXCLUDED_FROM_THIS_PROMOTION"
+  },
+  "candidate_microseed_tree": "88f5a058cc5a4e92b1006c36d31b95cf727d197f",
+  "canonical_label": "PRELINGUAL_SUBSTRATE_V1_P1A_N1A_BOUNDED_HIERARCHY_V1_MS_SUBSTRATE_HARDENING_V1",
+  "earned_properties": [
+    "Dependent derived projections are discovered before source projection epoch advances.",
+    "Old source epoch/signature remains available for dependency matching.",
+    "Transitive dependent projections are collected over current dependency descriptors.",
+    "Direct source-bound capabilities still stale through the existing owner.",
+    "Derived-projection-bound capabilities now stale on source projection drift.",
+    "Dependent projection contrast bindings invalidate.",
+    "Dependent projection premise deficits stale with dependency-qualified reasons.",
+    "Projection-change packet reports stale_projection_ids."
+  ],
+  "finish_head": "1c42da8e53df54a11615a88150a667f9673dff67",
+  "operator_authority": "USER_PROCEED_AFTER_PROMOTION_ADMISSION_AUDIT_V2_AND_BC_OVERLAP_DISCLOSURE",
+  "previous_canonical_commit": "ed2cde491962105b0d853b7fd82d8e8b3d81bd8a",
+  "previous_canonical_label": "PRELINGUAL_SUBSTRATE_V1_P1A_N1A_BOUNDED_HIERARCHY_V1",
+  "previous_canonical_microseed_tree": "9d63915e9e0396f39d255df474d8c2849a153e3f",
+  "production_delta": [
+    "microseed/runtime/entity.py"
+  ],
+  "promotion_commit_binding": "VERIFY_PROMOTION_TAG_PEELED_COMMIT_AFTER_TAG_CREATION__RECEIPT_DOES_NOT_SELF_HASH_CONTAINING_COMMIT",
+  "promotion_tag": "prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1-ms-substrate-hardening-v1",
+  "receipt_digest_normalization": "git_committed_blob_bytes__not_worktree_checkout_bytes",
+  "schema": "ms_substrate_hardening_v1_canonical_promotion/v1",
+  "semantic_delta": {
+    "changed_files": [
+      "microseed/runtime/entity.py"
+    ],
+    "claim": "source projection drift stales transitive dependent derived projections bound capabilities, contrast bindings, and deficits, preventing projection-currentness laundering through derived request atoms",
+    "owner": "Microseed.change_epistemic_projection",
+    "shortstat": "1 file changed, 24 insertions(+), 3 deletions(-)"
+  },
+  "status": "PROMOTION_CANDIDATE_SEALED__TAG_PUSH_READBACK_PENDING",
+  "tested_research_microseed_tree": "88f5a058cc5a4e92b1006c36d31b95cf727d197f",
+  "verification": {
+    "canon_identity_guard": "OLD_GUARD_FAILED_AS_EXPECTED_BEFORE_PROMOTION_BECAUSE_FINISH_TREE_DIFFERS_FROM_PREVIOUS_CANON",
+    "functional_whole_suite": {
+      "deselected": "tests/embodiment/test_ms2065_bounded_hierarchy_promotion_candidate.py::test_ms2065_candidate_preserves_repaired_tested_microseed_bytes_and_exact_delta",
+      "duration_seconds": 1158.78,
+      "job_id": "job-1b9f73d12ff9",
+      "pytest": "1003 passed, 1 deselected",
+      "return_code": 0,
+      "stderr_bytes": 0,
+      "stderr_path": "evidence/MS_SUBSTRATE_HARDENING_V1_FUNCTIONAL_WHOLE_SUITE_STDERR.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 1431,
+      "stdout_path": "evidence/MS_SUBSTRATE_HARDENING_V1_FUNCTIONAL_WHOLE_SUITE_STDOUT.log",
+      "stdout_sha256": "80858af4e96ad0610f5d36e64bd28dbdcec97821d3c52984f208df4e7f83179b"
+    },
+    "public_verifier_pre_candidate": "PASS at admission audit V2 head",
+    "release_gate_harness": {
+      "duration_seconds": 459.94,
+      "job_id": "job-1aab24c2c243",
+      "pytest": "73/73 PASS",
+      "return_code": 0,
+      "stderr_bytes": 0,
+      "stderr_path": "evidence/MS_SUBSTRATE_HARDENING_V1_RELEASE_GATE_PROMOTION_AUDIT_STDERR.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 319,
+      "stdout_path": "evidence/MS_SUBSTRATE_HARDENING_V1_RELEASE_GATE_PROMOTION_AUDIT_STDOUT.log",
+      "stdout_sha256": "8fc88bc60a82cac2a6f6498878a73e9676ae47bd744890834abc4b64f45b6b0d"
+    }
+  }
+}

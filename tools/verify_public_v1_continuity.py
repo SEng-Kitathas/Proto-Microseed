@@ -26,7 +26,7 @@ def git_bytes(*args):
 issues=[]
 # Single-branch clones do not necessarily contain tags that point at off-main genesis commits.
 # Fetch only the exact public tags required for verification when they are absent locally.
-for tag in ('prelingual-substrate-v1','naked-authority-design-v1-genesis','grounded-language-reference-v1-genesis','prelingual-substrate-v1-p1a-repair','prelingual-substrate-v1-p1a-n1a','prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1'):
+for tag in ('prelingual-substrate-v1','naked-authority-design-v1-genesis','grounded-language-reference-v1-genesis','prelingual-substrate-v1-p1a-repair','prelingual-substrate-v1-p1a-n1a','prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1','prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1-ms-substrate-hardening-v1'):
     probe=subprocess.run(['git','rev-parse','--verify','--quiet',tag+'^{}'],cwd=ROOT,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
     if probe.returncode != 0:
         fetch=subprocess.run(['git','fetch','--quiet','origin','tag',tag],cwd=ROOT,text=True,capture_output=True)
@@ -106,6 +106,28 @@ if active.get('label')=='PRELINGUAL_SUBSTRATE_V1_P1A_N1A_BOUNDED_HIERARCHY_V1':
     if b'975 passed in 1077.44s' not in hlog_blob: issues.append('BOUNDED_HIERARCHY_WHOLE_VERDICT')
     tested=hreceipt.get('repaired_whole_tested_research_head')
     if tested and git('rev-parse',htag+':microseed')!=git('rev-parse',tested+':microseed'): issues.append('BOUNDED_HIERARCHY_TESTED_PRODUCTION_IDENTITY')
+
+
+# If current public canon advertises MS substrate hardening V1, verify exact ancestry, production delta, receipt/log hashes, and tag binding.
+if active.get('label')=='PRELINGUAL_SUBSTRATE_V1_P1A_N1A_BOUNDED_HIERARCHY_V1_MS_SUBSTRATE_HARDENING_V1':
+    stag=git('rev-parse','prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1-ms-substrate-hardening-v1^{}')
+    prev=git('rev-parse','prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1^{}')
+    if subprocess.run(['git','merge-base','--is-ancestor',stag,head],cwd=ROOT).returncode != 0: issues.append('HEAD_NOT_DESCENDANT_OF_MS_SUBSTRATE_HARDENING_TAG')
+    sdelta=git('diff','--name-only',prev+'..'+stag,'--','microseed').splitlines()
+    expected_s=['microseed/runtime/entity.py']
+    if sdelta != expected_s: issues.append('MS_SUBSTRATE_HARDENING_PRODUCTION_DELTA_NOT_EXACT')
+    sreceipt_blob=git_bytes('show','HEAD:evidence/MS_SUBSTRATE_HARDENING_V1_CANONICAL_PROMOTION_RECEIPT.json')
+    slog_blob=git_bytes('show','HEAD:evidence/MS_SUBSTRATE_HARDENING_V1_FUNCTIONAL_WHOLE_SUITE_STDOUT.log')
+    rlog_blob=git_bytes('show','HEAD:evidence/MS_SUBSTRATE_HARDENING_V1_RELEASE_GATE_PROMOTION_AUDIT_STDOUT.log')
+    sreceipt=json.loads(sreceipt_blob.decode('utf-8'))
+    slog_sha=hashlib.sha256(slog_blob).hexdigest(); rlog_sha=hashlib.sha256(rlog_blob).hexdigest()
+    if sreceipt.get('verification',{}).get('functional_whole_suite',{}).get('stdout_sha256')!=slog_sha: issues.append('MS_SUBSTRATE_HARDENING_WHOLE_STDOUT_HASH')
+    if sreceipt.get('verification',{}).get('release_gate_harness',{}).get('stdout_sha256')!=rlog_sha: issues.append('MS_SUBSTRATE_HARDENING_RELEASE_GATE_STDOUT_HASH')
+    if active.get('tested_research_microseed_tree')!=git('rev-parse',stag+':microseed'): issues.append('POINTER_MS_SUBSTRATE_HARDENING_TREE')
+    if sreceipt.get('candidate_microseed_tree')!=git('rev-parse',stag+':microseed'): issues.append('MS_SUBSTRATE_HARDENING_RECEIPT_TREE')
+    if sreceipt.get('bc_overlap_decision',{}).get('research_hardening_bc_nested_currentness_v1')!='QUARANTINED_EXCLUDED_FROM_THIS_PROMOTION': issues.append('BC_OVERLAP_NOT_EXCLUDED')
+    if b'1003 passed, 1 deselected' not in slog_blob: issues.append('MS_SUBSTRATE_HARDENING_WHOLE_VERDICT')
+    if b'73 passed' not in rlog_blob: issues.append('MS_SUBSTRATE_HARDENING_RELEASE_GATE_VERDICT')
 
 # Confirm branch-genesis metadata in both the public pointer and the copied operator receipt.
 g=pointer.get('research_branch_genesis',{})
