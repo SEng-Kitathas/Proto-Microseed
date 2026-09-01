@@ -1,0 +1,22 @@
+{
+  "verdict": "PASS",
+  "errors": [],
+  "warnings": [],
+  "strongest_control": "token-string permutation",
+  "strongest_risk": "token-only/no-grounded-history control",
+  "embodiment_warranted": true,
+  "required_before_embodiment": [
+    "balanced token frequency",
+    "token-only/no-grounded-history control"
+  ],
+  "authority": "AUDIT_ONLY_NONE_PROMOTION",
+  "model": "Qwen2.5-Coder-1.5B-Instruct-abliterated-Q4_K_L.gguf",
+  "usage": {
+    "completion_tokens": 85,
+    "prompt_tokens": 552,
+    "total_tokens": 637,
+    "prompt_tokens_details": {
+      "cached_tokens": 150
+    }
+  }
+}
