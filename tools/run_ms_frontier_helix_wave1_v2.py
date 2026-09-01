@@ -177,9 +177,9 @@ def generate_reframe(worktree:Path,adir:Path,arm:str,records:list[dict[str,Any]]
             'Do not paraphrase the prior question. If no responsible successor can be earned from admitted evidence, return {"next": null, "reason": "QUESTION_SATURATED__REQUIRES_EXTERNAL_REFRAME"}. JSON only.')
     payload={'arm':arm,'prior_question':fallback_question,'last_pass':({k:prev.get(k) for k in ['question','disposition','survivors','scars','demotions','unresolved','attention_reservoir','next']} if prev else None)}
     try:
-        obj,meta=chat(PRIMARY,sysmsg,json.dumps(payload,ensure_ascii=False),max_tokens=350,temp=.08,raw_dir=adir,raw_tag='REFRAME')
+        obj,meta=chat(PRIMARY,sysmsg,json.dumps(payload,ensure_ascii=False),max_tokens=350,temp=.08,raw_dir=adir,raw_tag=f'REFRAME_AFTER_P{len(records):02d}')
     except Exception as e:
-        writej(adir/'REFRAME_FAILURE.json',{'status':'QUESTION_SATURATED__REQUIRES_EXTERNAL_REFRAME','error':repr(e),'promotion_authority':'NONE'})
+        writej(adir/f'REFRAME_FAILURE_AFTER_P{len(records):02d}.json',{'status':'QUESTION_SATURATED__REQUIRES_EXTERNAL_REFRAME','error':repr(e),'promotion_authority':'NONE'})
         return None
     nq=obj.get('next')
     if nq is None:return None
@@ -187,9 +187,9 @@ def generate_reframe(worktree:Path,adir:Path,arm:str,records:list[dict[str,Any]]
     if nq and not nq.endswith('?'):nq=nq.rstrip('. !')+'?'
     prior={str(r.get('question','')).strip() for r in records}
     if not nq or nq in prior or nq==fallback_question:
-        writej(adir/'REFRAME_SATURATION.json',{'status':'QUESTION_SATURATED__REQUIRES_EXTERNAL_REFRAME','candidate_next':nq,'prior_questions':sorted(prior),'promotion_authority':'NONE','model_meta':meta})
+        writej(adir/f'REFRAME_SATURATION_AFTER_P{len(records):02d}.json',{'status':'QUESTION_SATURATED__REQUIRES_EXTERNAL_REFRAME','candidate_next':nq,'prior_questions':sorted(prior),'promotion_authority':'NONE','model_meta':meta})
         return None
-    writej(adir/'REFRAME_ACCEPTED.json',{'status':'REFRAME_ACCEPTED__NOT_SCIENTIFIC_PASS','next':nq,'model_meta':meta,'promotion_authority':'NONE'})
+    writej(adir/f'REFRAME_ACCEPTED_AFTER_P{len(records):02d}.json',{'status':'REFRAME_ACCEPTED__NOT_SCIENTIFIC_PASS','next':nq,'model_meta':meta,'promotion_authority':'NONE'})
     return nq
 
 def write_research_stop(adir:Path,arm:str,records:list[dict[str,Any]],reason:str)->dict[str,Any]:
@@ -218,7 +218,9 @@ def run_arm(worktree:Path,arm:str,max_passes:int)->dict[str,Any]:
     ledger=['# '+arm+' — Pass Ledger','',f'Seed question: {manifest["seed_question"]}','']
     for r in records:
         ledger += [f'## P{r.get("pass"):02d}',f'Question: {r.get("question")}',f'Disposition: {r.get("disposition")}',f'OARR: {r.get("oarr")}',f'LOOP+: {r.get("loop_plus")}',f'Survivors: {r.get("survivors")}',f'Scars: {r.get("scars")}',f'Demotions: {r.get("demotions")}',f'Next: {r.get("next")}','']
-    for pnum in range(len(records)+1,max_passes+1):
+    pnum=len(records)+1
+    reframe_budget=2
+    while pnum<=max_passes:
         ev=retrieve(chunks,question,compact_helix(prev),k=8)
         evtxt='\n\n'.join(f'SOURCE {c.source}\n{c.text[:900]}' for c in ev)
         system=(
@@ -250,13 +252,14 @@ def run_arm(worktree:Path,arm:str,max_passes:int)->dict[str,Any]:
             errors=validate(candidate,question)
             if not errors:
                 obj=candidate; break
-            writej(adir/f'REJECTED_P{pnum:02d}_ATTEMPT{sem_attempt}.json',{'status':'METHOD_REJECTED__NOT_SCIENTIFIC_PASS','question':question,'errors':errors,'candidate':candidate,'promotion_authority':'NONE'})
+            writej(adir/f'V2_REJECTED_P{pnum:02d}_ATTEMPT{sem_attempt}.json',{'status':'METHOD_REJECTED__NOT_SCIENTIFIC_PASS','question':question,'errors':errors,'candidate':candidate,'promotion_authority':'NONE'})
             attempt_user=user+'\n\nMETHOD RETRY: the previous candidate was rejected for '+json.dumps(errors)+'. Correct those defects. Do not repeat the active question as NEXT unless terminal; produce a real OARR and LOOP+ discriminator, and do not claim a new observed consequence without execution.'
         if obj is None:
             reframed=generate_reframe(worktree,adir,arm,records,question)
-            if reframed:
-                writej(adir/f'P{pnum:02d}_SUCCESSOR_REFRAME.json',{'status':'SUCCESSOR_REFRAMED_AFTER_METHOD_SATURATION__NOT_SCIENTIFIC_PASS','from_question':question,'next':reframed,'errors':errors,'promotion_authority':'NONE'})
+            if reframed and reframe_budget>0:
+                writej(adir/f'P{pnum:02d}_SUCCESSOR_REFRAME_{reframe_budget}.json',{'status':'SUCCESSOR_REFRAMED_AFTER_METHOD_SATURATION__NOT_SCIENTIFIC_PASS','from_question':question,'next':reframed,'errors':errors,'promotion_authority':'NONE'})
                 question=reframed
+                reframe_budget-=1
                 continue
             return write_research_stop(adir,arm,records,'QUESTION_SATURATED__REQUIRES_EXTERNAL_REFRAME')
         obj['pass']=pnum; obj['model_meta']=meta; obj['source_refs']=[c.source for c in ev]; obj['promotion_authority']='NONE'; obj['production_mutation_allowed']=False
@@ -272,6 +275,8 @@ def run_arm(worktree:Path,arm:str,max_passes:int)->dict[str,Any]:
             if not reframed:
                 return write_research_stop(adir,arm,records,'CSC_REVIEW_TERMINAL__REQUIRES_EXTERNAL_REFRAME')
             question=reframed
+            pnum+=1
+            reframe_budget=2
             continue
         nq=str(obj.get('next','')).strip()
         if not nq.endswith('?') or nq==question:
@@ -280,6 +285,8 @@ def run_arm(worktree:Path,arm:str,max_passes:int)->dict[str,Any]:
                 return write_research_stop(adir,arm,records,'QUESTION_SATURATED__REQUIRES_EXTERNAL_REFRAME')
             nq=reframed
         question=nq
+        pnum+=1
+        reframe_budget=2
     if not records:
         return write_research_stop(adir,arm,records,'NO_ADMITTED_PASS__REQUIRES_EXTERNAL_REFRAME')
     final_audit=csc(records,arm,'ARM_CLOSEOUT'); writej(adir/'CSC_ARM_CLOSEOUT.json',final_audit)
