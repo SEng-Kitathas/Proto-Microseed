@@ -1,0 +1,39 @@
+{
+  "arm": "SH7_GLOBAL_DEVELOPMENTAL_HISTORY",
+  "authority_ceiling": [
+    "numerical_identity_authority NONE",
+    "semantic_self_authority NONE",
+    "exclusive_successor_authority NOT_ESTABLISHED_BY_INTERNAL_BIOGRAPHY",
+    "selfhood_claim NOT_QUALIFIED",
+    "execution_uniqueness_authority NONE"
+  ],
+  "campaign": "MS_SUBSTRATE_HARDENING_V1",
+  "canonical_microseed_tree": "9d63915e9e0396f39d255df474d8c2849a153e3f",
+  "claim": "In the tested surface, matched current operational capability state can coexist with descendant, sibling/diverged, or identical biography graphs. Existing DevelopmentalBiography and DevelopmentalContinuityWitness classify lineage and copy ambiguity while granting no numerical identity, semantic selfhood, exclusive successor, or action-selection preference.",
+  "current_branch": "research/hardening-sh7-global-history-v1",
+  "hostiles": [
+    "matched current operational capability state plus descendant extra history retains same current action result but lineage witness remains descendant-only",
+    "matched current operational capability state plus sibling/diverged history remains branch-diverged with no self-selection API",
+    "identical biography graph remains explicit copy ambiguity, not numerical identity",
+    "tampered biography stays UNKNOWN_INCOMPLETE in inherited adjacent tests"
+  ],
+  "mechanism_reused": [
+    "DevelopmentalBiography content-bound causal graph",
+    "DevelopmentalBiography.relation",
+    "continuity_witness_from_exports",
+    "Microseed.biography_witness",
+    "Microseed.developmental_continuity_witness"
+  ],
+  "new_primitive_warrant": "NONE_IN_TESTED_BOUNDS",
+  "pdver": "PROBE -> DERIVE -> EMBODY -> VERIFY -> RECURSE",
+  "production_delta": "NONE",
+  "release_gate_effect": "SH7_HAS_BOUNDED_NEGATIVE_DISPOSITION_CANDIDATE_PENDING_FINISH_RECONCILIATION",
+  "source_base": "f6387c91c08b9b045e914057f30b4b24bd08c6e0",
+  "status": "BOUNDED_NEGATIVE_DISPOSITION__MATCHED_CURRENT_OPERATIONAL_STATE_WITH_DIFFERENT_HISTORY_NEEDS_NO_SELF_OR_GLOBAL_HISTORY_PRIMITIVE__NO_PRODUCTION_DELTA",
+  "tests": {
+    "adjacent_biography_stack_cleanup_neutral": "10/10 PASS in 1.13s; PYTEST_RC=0",
+    "compileall": "PASS for SH7 test and biography/identity/entity owner modules",
+    "raw_adjacent_run": "4 passed / 6 cleanup failures from inherited Windows TemporaryDirectory open biography.sqlite3; visible assertion paths passed",
+    "tests/embodiment/test_hardening_sh7_global_developmental_history.py": "3/3 PASS in 0.68s"
+  }
+}
