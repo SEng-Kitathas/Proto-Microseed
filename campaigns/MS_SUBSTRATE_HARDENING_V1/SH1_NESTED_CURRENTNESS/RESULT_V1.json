@@ -1,0 +1,42 @@
+{
+  "front": "SH1_NESTED_CURRENTNESS",
+  "status": "VERIFIED_HARDENING_RESULT",
+  "claim": "CROSS_LEVEL_CURRENTNESS_REMAINS_LOCAL_UNTIL_REALITY_CONTACT__MIDDLE_DRIFT_DOES_NOT_GRANT_TOP_LEVEL_CLAIRVOYANCE__REPEATED_ACTUAL_NESTED_OUTCOMES_STALE_THE_TOP_REQUEST_EFFECT_RELATION",
+  "claim_ceiling": "Bounded to the tested nested three-level request/effect composition built from canonical MS2063 controllers. It does not establish arbitrary recursive learning. It establishes that hidden middle effect drift and explicit middle-local dependency drift do not silently mutate top currentness; the top stales only after its own actual request outcomes contradict the learned effect relation. Effect-preserving hidden middle phenotype change remains current at both layers.",
+  "pdver": "PROBE -> DERIVE -> VERIFY -> EMBODY -> RECURSE",
+  "focused": {
+    "passed": 3,
+    "failed": 0,
+    "duration_seconds": 25.93
+  },
+  "guard": {
+    "passed": 50,
+    "failed": 0,
+    "duration_seconds": 109.25,
+    "includes_exact_b_head": "c9c6f0470a0bbc706c4f325a2bcdae4404f7c5d5",
+    "includes_exact_c_head": "e6a313fc01f1f73d6f2065027829b271fa0413d0"
+  },
+  "observed": [
+    "Hidden middle effect-flip changed no top or middle capability signature and both learned relations remained current before post-drift world contact.",
+    "Sixteen nested failures produced identical -2 actual consequences at L1 and L2; both layers independently produced 0.0/0.0 DRIFT_WITNESS windows with drift_cause_authority NONE and then stale relations.",
+    "Effect-preserving hidden middle phenotype change produced two 1.0/1.0 windows at both layers and remained current.",
+    "Explicit middle REQ-BASE dependency drift immediately blocked/staled the middle routing but did not directly stale the top relation or alter the top capability signature.",
+    "After repeated nested refusals became actual L2 outcomes, the top independently produced DRIFT_WITNESS 0.0/0.0 and staled.",
+    "The top never received leaf target/local mean as a handler premise."
+  ],
+  "hostile_scars": [
+    "DETERMINISTIC_EQUIVALENT_REHEARSAL_PROPOSAL_ID_COLLISION_IS_A_SAMPLING_HARNESS_SCAR_NOT_CURRENTNESS_RESULT",
+    "BUCKET0_USES_SCOPED_OLD_RELATION__HARDENING_CURRENTNESS_MEASUREMENT_MOVED_TO_BUCKET1_GLOBAL_CURRENT_RELATION"
+  ],
+  "survivors": [
+    "ACTUAL_OUTCOME_SOVEREIGNTY",
+    "LOCAL_CURRENTNESS_OWNERSHIP",
+    "PARENT_PREDICTS_REQUEST_EFFECT != SUBORDINATE_EXECUTION_AUTHORITY",
+    "HIDDEN_CHANGE_WITH_UNCHANGED_OWNED_PREMISES_IS_NOT_PREOBSERVABLE",
+    "EXPLICIT_SUBORDINATE_CURRENTNESS_FAILURE_BLOCKS_SUBORDINATE_ACTION_WITHOUT_UPWARD_CAUSAL_CLAIRVOYANCE"
+  ],
+  "production_delta": [],
+  "promotion_authority": "NONE",
+  "timestamp_epoch": 1788274570.3638003,
+  "test_sha256": "54e0118711da86ad854c9aa0adb94498ce2e184b1d05b8affdc387ec23dc1d81"
+}
