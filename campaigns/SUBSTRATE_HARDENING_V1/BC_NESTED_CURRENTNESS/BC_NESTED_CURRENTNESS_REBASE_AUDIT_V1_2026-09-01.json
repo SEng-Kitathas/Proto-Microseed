@@ -1,0 +1,48 @@
+{
+  "base_canonical_commit": "0f6cf0b3d660c8a4bb9561a65d7f1fd95e1b99f7",
+  "base_canonical_label": "PRELINGUAL_SUBSTRATE_V1_P1A_N1A_BOUNDED_HIERARCHY_V1_MS_SUBSTRATE_HARDENING_V1",
+  "base_canonical_microseed_tree": "88f5a058cc5a4e92b1006c36d31b95cf727d197f",
+  "base_canonical_tag": "prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1-ms-substrate-hardening-v1",
+  "base_public_main": "28489c6feaa9d1d777b8bca0cca2ec3e35042144",
+  "branch": "research/hardening-bc-nested-currentness-rebased-on-hardening-canon-v1",
+  "ceilings": [
+    "Not canon.",
+    "No semantic projection authority.",
+    "No language/reference/truth/execution/selfhood authority.",
+    "No public-main movement.",
+    "No durable global currentness manager.",
+    "No admission of B/C without further broader verification and promotion audit."
+  ],
+  "earned_properties": [
+    "Routed proposals carry exact projection routing and bucket ancestry on durable rehearsal carriers.",
+    "Rehearsal reentry fails closed if persisted routed ancestry lacks bucket selection.",
+    "Projection-conditioned binding currentness checks structural relation premises and per-bucket empirical post-binding drift.",
+    "Bad bucket outcomes cannot be masked by good outcomes from another qualified bucket using the same relation.",
+    "Historical globally stale relations may remain lawfully reusable inside an exactly qualified bucket when scoped currentness evidence supports them.",
+    "Scoped empirical drift remains stale after restart and exact runtime re-registration."
+  ],
+  "focused_verification": {
+    "cleanup_neutral": "12/12 PASS in 63.90s; PYTEST_RC=0",
+    "compileall": "PASS for microseed and B/C focused tests",
+    "current_canon_identity_guard": "1 failed, 1 passed as expected because branch HEAD:microseed 4c805156... differs from current canon 88f5a058...",
+    "direct_unpatched_first_run": "6 passed, 6 failed from Windows SQLite TemporaryDirectory cleanup only; assertions reached/pass before cleanup failures",
+    "public_verifier": "PASS, issues empty; treated as continuity check, not canon admission"
+  },
+  "method": "cherry-pick source B/C repair commit onto current public main; auto-merge of microseed/runtime/entity.py; no current-canon rewind/deletion of hardening evidence",
+  "next_required_for_admission": [
+    "Run broader adjacent and whole-suite verification on the rebased branch.",
+    "Audit exact interaction between hardening V1 transitive projection staling and B/C routed proposal currentness.",
+    "If admitting, perform a separate admission/promotion audit with current-canon identity guard handled explicitly."
+  ],
+  "production_delta_from_current_canon": [
+    "microseed/development/rehearsal.py",
+    "microseed/runtime/entity.py"
+  ],
+  "rebased_head": "3f386fa487e12f738e71393eb0cc1665ebe5d2a4",
+  "rebased_microseed_tree": "4c8051563279d20f2ea555d21d7b3305b039e771",
+  "schema": "microseed.bc_nested_currentness_rebase_audit.v1",
+  "semantic_claim": "B/C rebased research repairs scoped routing currentness: routed rehearsal proposals preserve projection_routing_id and projection_bucket_id ancestry; projection-conditioned relation currentness is revalidated against exact binding, selected bucket, relation, and post-binding routed actual outcomes; ambiguous legacy routed descendants fail closed.",
+  "source_branch": "research/hardening-bc-nested-currentness-v1",
+  "source_commit": "4188e40dce4c560726b0bdaa6661c031b8ddc0e0",
+  "status": "REBASING_SERIALIZATION_COMPLETE__FOCUSED_GREEN__RESEARCH_ONLY__NOT_CANON"
+}
