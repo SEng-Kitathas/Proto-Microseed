@@ -1,0 +1,44 @@
+{
+  "arm": "H_LANGUAGE",
+  "status": "VERIFIED_RESEARCH_RESULT",
+  "claim": "ARBITRARY_OPAQUE_SIGNAL_HANDLE_CAN_BE_GROUNDED_AS_A_CURRENT_OPERATIONAL_REFERENT_INDEX_UNDER_INDEPENDENT_SURFACE_PERMUTATION_WITHOUT_TOKEN_MEANING_TRUTH_IDENTITY_OR_EXECUTION_AUTHORITY",
+  "claim_ceiling": "This establishes bounded grounded operational indexing/reference-adjacent coordination substrate only. It is not semantic reference authority, truth-bearing language, compositional linguistic competence, token invention, proposition formation, or language admission. The binding remains content-bound to current signal capability and coordination descriptors plus grounded operational use history.",
+  "pdver": "PROBE -> DERIVE -> VERIFY -> EMBODY -> RECURSE",
+  "embodiment": "tests\\embodiment\\test_frontier_h_language_opaque_token_permutation.py",
+  "test_sha256": "b6e0cdf9189b8b0e6daf34e9e4af5329d9b3b78014abffce10d653caeddd5178",
+  "focused_plus_guard_result": {
+    "passed": 17,
+    "failed": 0,
+    "duration_seconds": 8.44,
+    "runner": "tools/run_pytest_cleanup_neutral.py",
+    "scope": "frontier token permutation + MS2046/2047/2051 + N1A authority guard"
+  },
+  "observed": [
+    "Two independently built learners used different opaque signal capability IDs TOK-9F and TOK-2A but grounded both through the same actual external signal consequence and disjoint train/holdout use histories.",
+    "The two bindings had different binding IDs and capability signatures while resolving to the same affordance-relative operational referent signature.",
+    "Each binding retained semantic_reference_authority=NONE, token_meaning_authority=NONE, truth_authority=NONE, execution_authority=NONE and language_authority=NONE.",
+    "Human-readable `hello` and a novel named token with no grounded use history remained DEFER_UNKNOWN / SUFFICIENT_GROUNDED_USE_HISTORY_REQUIRED.",
+    "Signal capability drift staled the grounded binding without producing an action intent or execution.",
+    "MS2046 sensor-layout permutation, alias/ambiguity, perfect-copy, convention-reversal and coordination-currentness hostiles remain green; N1A guard separately preserves that token/language cue cannot supply execution authority."
+  ],
+  "oarr": "Surface-token/frequency or caller-name explanation is demoted by independent opaque handle permutation plus ungrounded readable-token negative. Semantic-language explanation is not needed because all semantic/truth/language authorities remain NONE and the operational referent is inherited from grounded affordance-relative evidence.",
+  "survivors": [
+    "TOKEN_EMITTED != TOKEN_MEANS",
+    "OPERATIONAL_REFERENT != SEMANTIC_REFERENCE",
+    "LANGUAGE_COORDINATION != LANGUAGE_SUPPLIES_COGNITION",
+    "LANGUAGE_CUE != EXECUTION_AUTHORITY",
+    "GROUNDING_CANDIDATE != LANGUAGE_GATE_ADMISSION"
+  ],
+  "remaining_seam": "FROM_CURRENT_GROUNDED_OPERATIONAL_INDEX_TO_CONTEXT_SENSITIVE_COREFERENCE_OR_COORDINATION_WITHOUT_SEMANTIC_TRUTH_PROMOTION",
+  "new_core_mechanism_required": "NO_FOR_GROUNDED_OPERATIONAL_INDEXING__UNKNOWN_FOR_LATER_COREFERENCE_COMPOSITIONAL_LANGUAGE",
+  "language_gate_status": "REFERENCE_ADJACENT_OPERATIONAL_INDEXING_EARNED__LANGUAGE_AUTHORITY_REMAINS_NONE",
+  "production_delta": [],
+  "promotion_authority": "NONE",
+  "timestamp_epoch": 1788270302.5724335,
+  "csc_result_verdict": "PASS",
+  "csc_claim_supported": true,
+  "csc_claim_ceiling_ok": true,
+  "language_gate_can_advance_to_bounded_coreference_research": true,
+  "seal_status": "READY_FOR_RESEARCH_COMMIT",
+  "methodology": "methodology\\MS_FRONTIER_H_LANGUAGE_OPAQUE_TOKEN_REFERENT_INDEX_2026-09-01.md"
+}

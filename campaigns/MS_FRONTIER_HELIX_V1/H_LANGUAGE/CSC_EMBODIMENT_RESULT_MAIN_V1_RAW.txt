@@ -1,0 +1,13 @@
+```json
+{
+  "verdict": "PASS",
+  "errors": [],
+  "warnings": [],
+  "claim_supported": true,
+  "claim_ceiling_ok": true,
+  "strongest_survivor": "OPERATIONAL_REFERENT",
+  "strongest_scar": "LANGUAGE_COORDINATION",
+  "next_research_question": "Evaluate the impact of different opaque token-handle permutations on the grounding of operational referents in the H_LANGUAGE microseed.",
+  "language_gate_can_advance_to_bounded_coreference_research": true
+}
+```
