@@ -1,0 +1,12 @@
+{
+  "status": "VERIFIED_SUBSTRATE_DEFECT_V3__DURABLE_ROUTED_PROPOSAL_CURRENTNESS_LAUNDERING",
+  "parent_defect": "DEFECT_RESULT_V2_BUCKET_MASKING.json",
+  "claim": "A_PREEXISTING_DURABLE_ROUTED_REHEARSAL_COULD_REMAIN_CURRENT_AFTER_ITS_EXACT_ROUTING_BINDING_BECAME_EMPIRICALLY_STALE",
+  "hostile_test": "tests/embodiment/test_hardening_routed_rehearsal_stales_with_bucket_routing.py",
+  "pre_repair_observation": "routing_status=STALE_PROJECTION_CONDITIONED_ROUTING while counterfactual_rehearsal_status(old_proposal)=CURRENT_REHEARSAL_PROPOSAL",
+  "root_cause": "counterfactual_rehearsal_status revalidated ordinary premise epochs and learned base-relation digests but had no projection-routing selection ancestry/currentness check.",
+  "required_property": "durable routed proposal currentness must revalidate exact routing binding; ambiguous legacy routed proposal without selected-bucket ancestry must fail closed.",
+  "claim_ceiling": "bounded durable-proposal currentness defect only; no general hierarchy invalidation",
+  "promotion_authority": "NONE",
+  "timestamp_epoch": 1788279216.919768
+}

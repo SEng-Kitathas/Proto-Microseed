@@ -1,0 +1,20 @@
+{
+  "verdict": "REVIEW",
+  "errors": [],
+  "warnings": [],
+  "defect_reproduction_valid": true,
+  "repair_matches_defect": true,
+  "composition_first": true,
+  "historical_scoped_reuse_preserved": true,
+  "unrelated_drift_isolated": true,
+  "restart_preserved": true,
+  "nested_authority_separation_preserved": true,
+  "claim_ceiling_ok": true,
+  "whole_suite_warranted": true,
+  "strongest_remaining_risk": "whole-suite regression not yet run",
+  "mechanism_authorized": false,
+  "promotion_warranted": false,
+  "authority": "AUDIT_ONLY_NONE_PROMOTION",
+  "model": "Qwen2.5-Coder-1.5B-Instruct-abliterated-Q4_K_L.gguf",
+  "review_port": 18192
+}

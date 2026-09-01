@@ -1,0 +1,58 @@
+{
+  "campaign": "SUBSTRATE_HARDENING_V1",
+  "arm": "BC_NESTED_CURRENTNESS",
+  "status": "RESEARCH_REPAIR_CANDIDATE__FOCUSED_VERIFIED__NOT_CANONICAL",
+  "canonical_parent": "e6a313fc01f1f73d6f2065027829b271fa0413d0",
+  "canonical_microseed_parent": "9d63915e9e0396f39d255df474d8c2849a153e3f",
+  "defect": "Projection-conditioned routing could remain CURRENT after NEW post-binding empirical drift in a scoped relation, allowing an empirically stale scoped law to re-enter rehearsal.",
+  "defect_reproduction": "Pre-repair hostile 1/1 PASS: 16 opposite scoped outcomes -> DRIFT_WITNESS [0.0,0.0], global relation stale, routing remained current, resolver returned CURRENT_PARTITION_SCOPED_RELATION, stale relation re-entered rehearsal.",
+  "repair": "Compose existing provenance instead of adding a new manager/carrier. Reconstruct binding-specific routed relation digest from relation + binding qualification evidence, trace outcome->execution->intent->proposal, select exact binding-descended experiences, reuse existing PredictiveCurrentnessConfig/currentness witness, and include scoped empirical currentness in routing currentness.",
+  "why_not_global_stale": "Historical globally empirical-stale relations may lawfully be independently scoped-qualified for one projection bucket. Therefore global stale alone cannot invalidate a routing. Only NEW post-binding drift in exact scoped ancestry should stale it.",
+  "why_no_new_lineage_carrier": "Existing routed relation digest is binding-specific because routing qualification evidence is added before digesting; proposal IDs connect durably through intent/execution/outcome; all are replayed from StateStore after restart.",
+  "hostiles": [
+    "historical globally stale scoped relation still reusable after repair",
+    "new post-binding routed drift stales routing and blocks resolver/rehearsal",
+    "unrelated non-routed global drift does not poison scoped routing",
+    "scoped empirical drift remains stale across restart and exact runtime re-registration",
+    "nested hidden middle effect drift is not magically pre-observed; middle/top stale from each layers own routed actual outcomes",
+    "middle private structural drift is local immediately; top stales only after its own request-failure outcomes"
+  ],
+  "verification": {
+    "routing_hostiles": "4/4 PASS",
+    "nested_hostiles": "2/2 PASS",
+    "focused_lineage": "69/69 PASS in 94.67s",
+    "runner": "tools/run_pytest_cleanup_neutral.py",
+    "stderr": "empty"
+  },
+  "exact_production_delta": {
+    "files": [
+      "microseed/runtime/entity.py"
+    ],
+    "insertions": 58,
+    "deletions": 2,
+    "diff_check": "PASS"
+  },
+  "hashes": {
+    "entity_py": "411f5f6d036f8771d65ab278e1a3e0697e74b1ec6203a8387d911f809f1e323d",
+    "routing_repair_test": "7aff58bf2dccd06c6a073c0718555ac6b02f24aa9729b4a5fa9c9612b79de22b",
+    "nested_repair_test": "7f7c6780bd597927743f26115e0b3635b17040c64f07054ebfd0cadf08ed3c94",
+    "pre_repair_specimen": "284a55767aaf59654b9f36e2220ba772c660425ea09813fbb81df3ac040cf241"
+  },
+  "authority": {
+    "new_execution_authority": "NONE",
+    "new_truth_authority": "NONE",
+    "new_semantic_authority": "NONE",
+    "new_model_switch_authority": "NONE",
+    "new_drift_cause_authority": "NONE",
+    "promotion_authority": "NONE"
+  },
+  "claim_ceiling": "This repairs one bounded empirical-currentness leak in projection-conditioned learned relation routing and demonstrates lawful nested propagation via actual outcomes. It does not establish general recursive hierarchy, instant cross-level state sharing, semantic hierarchy identity, or substrate-wide hardening completion.",
+  "remaining_risks": [
+    "whole-suite regression not yet run",
+    "performance cost from reconstructing descendant experiences on routing currentness checks",
+    "fresh-clone/replay not yet run",
+    "other substrate hardening axes remain open"
+  ],
+  "pdver": "PROBE -> DERIVE -> VERIFY -> EMBODY -> RECURSE",
+  "timestamp_epoch": 1788276577.2857504
+}

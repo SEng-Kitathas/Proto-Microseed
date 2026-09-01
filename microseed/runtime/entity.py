@@ -617,6 +617,16 @@ class Microseed:
         )
         if proposal is None:
             return None
+        if projection_routing_id is not None:
+            # Preserve exact routed-selection ancestry on the existing durable
+            # rehearsal carrier. This distinguishes identical relation reuse across
+            # qualified buckets without creating a second lineage subsystem.
+            proposal=replace(
+                proposal,
+                projection_routing_id=str(projection_routing_id),
+                projection_bucket_id=str(projection_bucket_id),
+            )
+            proposal=replace(proposal,proposal_id="REHEARSAL-"+proposal.digest()[:20])
         self.counterfactual_rehearsals.add(proposal)
         packet = proposal.serializable()
         self.path.append("COUNTERFACTUAL_REHEARSAL_PROPOSAL", packet)
@@ -746,6 +756,40 @@ class Microseed:
             c = self.capabilities.contracts.get(cid)
             if c is None or c.computed_signature_sha256() != signature:
                 return {"status":"UNKNOWN_INCOMPLETE","reason":f"REHEARSAL_EVIDENCE_PREMISE_SIGNATURE_DRIFT:{cid}","authority":Authority.NONE.value}
+        # Hardening V2/V3: durable routed proposals are not independent currentness
+        # sources. Exact routed-selection ancestry is revalidated at use time.
+        if p.projection_routing_id is not None:
+            if p.projection_bucket_id is None:
+                return {"status":"UNKNOWN_INCOMPLETE","reason":"REHEARSAL_PROJECTION_BUCKET_ANCESTRY_MISSING","authority":Authority.NONE.value}
+            binding=self.action_outcome_learning.projection_conditioned_bindings.get(p.projection_routing_id)
+            if binding is None or p.projection_bucket_id not in binding.qualified_bucket_ids or not self._projection_conditioned_binding_current(binding):
+                return {
+                    "status":"UNKNOWN_INCOMPLETE",
+                    "reason":f"REHEARSAL_PROJECTION_ROUTING_NOT_CURRENT:{p.projection_routing_id}",
+                    "authority":Authority.NONE.value,
+                }
+        else:
+            # A pre-V2 persisted routed proposal may still carry binding-specific
+            # routed relation/evidence ancestry while lacking its selected bucket.
+            # Detect that ambiguity and fail closed rather than treating it as ordinary.
+            for binding in self.action_outcome_learning.projection_conditioned_bindings.values():
+                binding_evidence=set(binding.qualification_evidence_ids)
+                if not binding_evidence.issubset(set(p.source_evidence_ids)):
+                    continue
+                for relation_id in binding.relation_ids():
+                    relation=self.action_outcome_learning.relations.get(relation_id)
+                    if relation is None:
+                        continue
+                    rr=relation.as_rehearsal_relation()
+                    if rr is None:
+                        continue
+                    routed=replace(rr,source_evidence_ids=tuple(rr.source_evidence_ids)+tuple(binding.qualification_evidence_ids))
+                    if routed.digest() in set(p.transition_relation_digests):
+                        return {
+                            "status":"UNKNOWN_INCOMPLETE",
+                            "reason":f"REHEARSAL_LEGACY_ROUTING_SELECTION_ANCESTRY_UNAVAILABLE:{binding.binding_id}",
+                            "authority":Authority.NONE.value,
+                        }
         # V1-SOAK-001 repair: a durable rehearsal may reuse a qualified learned
         # transition across many episodes, but empirical drift can stale that learned
         # relation without changing capability/frame/value epochs.  The proposal
@@ -4068,17 +4112,110 @@ class Microseed:
             self.store.append("ACTION_OUTCOME_PROJECTION_ROUTING_CANDIDATE",packet)
         return candidate
 
+    def _projection_conditioned_post_binding_relation_experiences(
+        self, binding: QualifiedProjectionConditionedRelationBinding, bucket_id: str,
+        relation: QualifiedActionOutcomePredictiveRelation,
+    ) -> tuple[ActionOutcomeExperience,...]:
+        """Recover outcomes from one exact binding + selected bucket + relation.
+
+        Scoped qualification may reuse one relation in several buckets, including a
+        relation that was globally stale before the binding existed. Currentness is
+        therefore query-relative to exact routed-selection ancestry, not to the
+        relation object or binding alone.
+        """
+        rr=relation.as_rehearsal_relation()
+        if rr is None:
+            return ()
+        routed=replace(
+            rr,source_evidence_ids=tuple(rr.source_evidence_ids)+tuple(binding.qualification_evidence_ids),
+        )
+        routed_digest=routed.digest()
+        binding_evidence=set(binding.qualification_evidence_ids)
+        wanted:set[str]=set()
+        for outcome in self.action_closure.outcomes.values():
+            ex=self.action_closure.executions.get(outcome.execution_id)
+            if ex is None:
+                continue
+            intent=self.action_closure.intents.get(ex.intent_id)
+            if intent is None:
+                continue
+            proposal=self.counterfactual_rehearsals.proposals.get(intent.proposal_id)
+            if proposal is None:
+                continue
+            if proposal.projection_routing_id != binding.binding_id:
+                continue
+            if proposal.projection_bucket_id != str(bucket_id):
+                continue
+            if routed_digest not in set(proposal.transition_relation_digests):
+                continue
+            if not binding_evidence.issubset(set(proposal.source_evidence_ids)):
+                continue
+            wanted.add(outcome.evidence_id)
+        if not wanted:
+            return ()
+        return tuple(x for x in self._action_outcome_experiences() if x.evidence_id in wanted)
+
+    def _projection_conditioned_has_ambiguous_legacy_descendants(
+        self, binding: QualifiedProjectionConditionedRelationBinding, relation: QualifiedActionOutcomePredictiveRelation,
+    ) -> bool:
+        """Fail closed on routed descendants persisted before bucket ancestry existed."""
+        rr=relation.as_rehearsal_relation()
+        if rr is None:
+            return False
+        routed=replace(
+            rr,source_evidence_ids=tuple(rr.source_evidence_ids)+tuple(binding.qualification_evidence_ids),
+        )
+        routed_digest=routed.digest();binding_evidence=set(binding.qualification_evidence_ids)
+        for outcome in self.action_closure.outcomes.values():
+            ex=self.action_closure.executions.get(outcome.execution_id)
+            if ex is None:
+                continue
+            intent=self.action_closure.intents.get(ex.intent_id)
+            if intent is None:
+                continue
+            proposal=self.counterfactual_rehearsals.proposals.get(intent.proposal_id)
+            if proposal is None:
+                continue
+            if routed_digest not in set(proposal.transition_relation_digests):
+                continue
+            if not binding_evidence.issubset(set(proposal.source_evidence_ids)):
+                continue
+            if proposal.projection_routing_id is None or proposal.projection_bucket_id is None:
+                return True
+        return False
+
+    def _projection_conditioned_relation_empirically_current(
+        self, binding: QualifiedProjectionConditionedRelationBinding, bucket_id: str,
+        relation: QualifiedActionOutcomePredictiveRelation,
+    ) -> bool:
+        rows=self._projection_conditioned_post_binding_relation_experiences(binding,bucket_id,relation)
+        if not rows:
+            return True
+        witness=assess_action_outcome_relation_currentness(relation,rows,PredictiveCurrentnessConfig())
+        return witness.status != "DRIFT_WITNESS"
+
     def _projection_conditioned_binding_current(self, binding: QualifiedProjectionConditionedRelationBinding) -> bool:
         rec=self.epistemic_projections.records.get(binding.projection_id)
         if rec is None or not rec.current or rec.epoch!=binding.projection_epoch or rec.signature_sha256!=binding.projection_signature_sha256:
             return False
         # Scoped qualification may lawfully reuse a globally empirical-stale relation,
-        # but never one whose structural premises (capability/frame/episode/value/etc.)
-        # have themselves ceased to be current.
+        # but never a structurally stale relation or one that has newly failed inside
+        # any exact qualified bucket/action selection ancestry. A stale bucket fails
+        # the binding closed; evidence from another bucket cannot mask it.
         for relation_id in binding.relation_ids():
             relation=self.action_outcome_learning.relations.get(relation_id)
             if relation is None or not self._action_outcome_relation_structurally_current(relation):
                 return False
+            if self._projection_conditioned_has_ambiguous_legacy_descendants(binding,relation):
+                return False
+        for bucket_id in binding.qualified_bucket_ids:
+            for action_id in binding.action_ids:
+                relation_id=binding.relation_id_for(bucket_id,action_id)
+                relation=self.action_outcome_learning.relations.get(relation_id or "")
+                if relation is None or not self._action_outcome_relation_structurally_current(relation):
+                    return False
+                if not self._projection_conditioned_relation_empirically_current(binding,bucket_id,relation):
+                    return False
         return True
 
     def qualify_projection_conditioned_relation_routing(

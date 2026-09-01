@@ -1,0 +1,29 @@
+{
+  "status": "VERIFIED_SUBSTRATE_DEFECT_CANDIDATE",
+  "campaign": "SUBSTRATE_HARDENING_V1",
+  "arm": "BC_NESTED_CURRENTNESS",
+  "claim": "PROJECTION_CONDITIONED_ROUTING_CAN_LAUNDER_POST_QUALIFICATION_EMPIRICAL_STALENESS_BECAUSE_SCOPED_SELECTION_ANCESTRY_IS_NOT_PERSISTED_IN_REHEARSAL_EXECUTION_OUTCOME_LINEAGE",
+  "canonical_parent": "e6a313fc01f1f73d6f2065027829b271fa0413d0",
+  "canonical_microseed_tree": "9d63915e9e0396f39d255df474d8c2849a153e3f",
+  "production_delta": [],
+  "evidence": {
+    "hostile_test": "tests/embodiment/test_hardening_projection_routing_empirical_stale_laundering.py",
+    "hostile_test_sha256": "284a55767aaf59654b9f36e2220ba772c660425ea09813fbb81df3ac040cf241",
+    "hostile_result": "1/1 PASS: relation receives 16 opposite post-routing outcomes, earns DRIFT_WITNESS [0.0,0.0], becomes STALE_PREDICTIVE_RELATION; routing remains CURRENT_PROJECTION_CONDITIONED_ROUTING; scoped resolver returns CURRENT_PARTITION_SCOPED_RELATION with global_relation_status=STALE_PREDICTIVE_RELATION; stale scoped relation re-enters fresh rehearsal.",
+    "code_finding": "_projection_conditioned_binding_current checks projection and structural relation currentness only; empirical relation currentness is intentionally ignored to permit scoped reuse of historical globally-stale relations.",
+    "lineage_finding": "Current projection-conditioned rehearsal proposal preserves relation digest and routing qualification evidence but not routing binding ID or selected projection bucket; intent/execution/outcome premise IDs preserve proposal/execution identity but no scoped routing/bucket ancestry."
+  },
+  "why_not_simple_global_stale_check": "A scoped routing is allowed to independently requalify an already globally empirical-stale historical relation for one projection bucket. Therefore global relation stale state cannot by itself invalidate the routing. The system must distinguish pre-binding stale history from new post-binding drift in the exact scoped bucket.",
+  "minimal_missing_information": "PERSISTED_SCOPED_ROUTING_SELECTION_ANCESTRY = exact routing binding ID + projection ID/epoch/signature + selected bucket + selected relation identity/digest carried from rehearsal through intent/execution/outcome.",
+  "required_property_of_any_repair": "Post-binding empirical currentness must be evaluated only over outcomes descended from the same scoped routing selection; other buckets/actions must not contaminate the witness. New scoped DRIFT_WITNESS must block re-entry while preserving historical evidence and without granting drift-cause/model-switch/semantic authority.",
+  "oarr_rivals_rejected": [
+    "WRONG_RELATION_ID shortcut was found and corrected; defect reproduces on b1 relation that was globally CURRENT at routing qualification.",
+    "STRUCTURAL_CURRENTNESS_ONLY is insufficient because external effect law can drift without changing capability/frame/projection epochs/signatures.",
+    "GLOBAL_STALE_CHECK is overbroad because scoped qualification intentionally permits historical globally-stale relation reuse.",
+    "POST_HOC_BUCKET_INFERENCE is not lawful because current action outcome ancestry does not persist exact routing/bucket selection."
+  ],
+  "claim_ceiling": "This is a bounded currentness-lineage defect in projection-conditioned learned relation routing. It does not invalidate the broader substrate or hierarchy results; it blocks calling scoped routing currentness constitutionally hardened until repaired and reverified.",
+  "mechanism_authority": "NONE_PENDING_REPAIR_SPEC_AND_HOSTILE_VERIFICATION",
+  "promotion_authority": "NONE",
+  "timestamp_epoch": 1788275940.5365155
+}

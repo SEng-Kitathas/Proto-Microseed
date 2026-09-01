@@ -1,0 +1,19 @@
+{
+  "verdict": "REVIEW",
+  "errors": [],
+  "warnings": [
+    "The mechanism_authorized flag is set to false, indicating that CSC cannot authorize architecture."
+  ],
+  "defect_supported": true,
+  "claim_ceiling_ok": true,
+  "irreducible_information_gap": false,
+  "strongest_rival": "WRONG_RELATION_ID shortcut was found and corrected; defect reproduces on b1 relation that was globally CURRENT at routing qualification.",
+  "required_repair_properties": [
+    "Post-binding empirical currentness must be evaluated only over outcomes descended from the same scoped routing selection; other buckets/actions must not contaminate the witness. New scoped DRIFT_WITNESS must block re-entry while preserving historical evidence and without granting drift-cause/model-switch/semantic authority."
+  ],
+  "embodiment_of_repair_warranted": true,
+  "mechanism_authorized": false,
+  "authority": "AUDIT_ONLY_NONE_PROMOTION",
+  "model": "Qwen2.5-Coder-1.5B-Instruct-abliterated-Q4_K_L.gguf",
+  "review_port": 18192
+}

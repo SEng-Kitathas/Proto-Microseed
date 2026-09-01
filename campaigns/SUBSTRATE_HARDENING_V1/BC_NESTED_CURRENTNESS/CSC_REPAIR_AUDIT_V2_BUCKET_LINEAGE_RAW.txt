@@ -1,0 +1,17 @@
+```json
+{
+  "verdict": "REVIEW",
+  "errors": [],
+  "warnings": [],
+  "repair_matches_v1_v2_v3": true,
+  "bucket_isolation_preserved": true,
+  "durable_proposal_currentness_preserved": true,
+  "legacy_nonrouted_compatibility_preserved": true,
+  "composition_first": true,
+  "authority_escalation_detected": true,
+  "whole_suite_warranted": true,
+  "strongest_remaining_risk": "whole-suite not yet rerun on V2/V3 candidate",
+  "mechanism_authorized": true,
+  "promotion_warranted": true
+}
+```

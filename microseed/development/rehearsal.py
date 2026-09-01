@@ -138,6 +138,10 @@ class CounterfactualRehearsalProposal:
     predicted_state_path: tuple[str, ...] = ()
     predicted_step_value_effects: tuple[float, ...] = ()
     assistance_ancestry: tuple[str, ...] = ()
+    # Optional exact routing-selection ancestry. Legacy/non-routed proposals omit
+    # these fields entirely from serialization/digest for byte-compatible replay.
+    projection_routing_id: str | None = None
+    projection_bucket_id: str | None = None
     nodes_expanded: int = 0
     authority: str = Authority.MODEL_OUTPUT_ONLY.value
     semantic_goal_authority: str = "NONE"
@@ -169,6 +173,10 @@ class CounterfactualRehearsalProposal:
         ):
             d[key] = list(d[key])
         d["value_epoch"] = list(self.value_epoch)
+        if self.projection_routing_id is None:
+            d.pop("projection_routing_id", None)
+        if self.projection_bucket_id is None:
+            d.pop("projection_bucket_id", None)
         d["action_indicated"] = self.action_indicated
         d["action_indication_authority"] = self.action_indication_authority
         d["action_indication_rule"] = "PROPOSAL_RETURNED != ACTION_INDICATED__DERIVE_BOUNDED_ACTION_COMMITMENT_REQUIRED"
@@ -192,7 +200,10 @@ class CounterfactualRehearsalProposal:
             evidence_premise_signatures=tuple((str(a), str(b)) for a,b in d.get("evidence_premise_signatures", ())),
             predicted_state_path=tuple(str(x) for x in d.get("predicted_state_path", ())),
             predicted_step_value_effects=tuple(float(x) for x in d.get("predicted_step_value_effects", ())),
-            assistance_ancestry=tuple(d.get("assistance_ancestry", ())), nodes_expanded=int(d.get("nodes_expanded", 0)),
+            assistance_ancestry=tuple(d.get("assistance_ancestry", ())),
+            projection_routing_id=None if d.get("projection_routing_id") is None else str(d.get("projection_routing_id")),
+            projection_bucket_id=None if d.get("projection_bucket_id") is None else str(d.get("projection_bucket_id")),
+            nodes_expanded=int(d.get("nodes_expanded", 0)),
             authority=str(d.get("authority", Authority.MODEL_OUTPUT_ONLY.value)),
             semantic_goal_authority=str(d.get("semantic_goal_authority", "NONE")), truth_authority=str(d.get("truth_authority", "NONE")),
             execution_authority=str(d.get("execution_authority", "NONE")), qualification_authority=str(d.get("qualification_authority", "NONE")),

@@ -1,0 +1,58 @@
+{
+  "status": "RESEARCH_REPAIR_CANDIDATE_V2__FOCUSED_VERIFIED__NOT_CANONICAL",
+  "campaign": "SUBSTRATE_HARDENING_V1",
+  "arm": "BC_NESTED_CURRENTNESS",
+  "canonical_parent": "e6a313fc01f1f73d6f2065027829b271fa0413d0",
+  "canonical_microseed_parent": "9d63915e9e0396f39d255df474d8c2849a153e3f",
+  "defects_closed": [
+    "V1 post-binding scoped empirical staleness laundering",
+    "V2 cross-bucket masking when same relation is reused",
+    "V3 durable routed proposal remaining current after routing stales"
+  ],
+  "repair": "Extend existing CounterfactualRehearsalProposal with optional exact projection_routing_id + projection_bucket_id ancestry; omit absent fields from legacy serialization/digest; content-bind routed proposal identity to this ancestry; reconstruct outcome descendants by exact binding+bucket+relation; fail whole binding closed if any qualified bucket/action earns DRIFT_WITNESS; revalidate routed binding in durable proposal status; fail ambiguous legacy routed descendants/proposals closed.",
+  "composition_first": true,
+  "new_manager": false,
+  "new_authority_class": false,
+  "new_persistence_registry": false,
+  "verification": {
+    "bucket_isolation_and_migration": "3/3 PASS",
+    "durable_proposal": "1/1 PASS",
+    "routing_historical_and_nested_gate": "11/11 PASS earlier",
+    "full_projection_routing_lineage": "60/60 PASS in 150.92s",
+    "legacy_serialization_identity": "2/2 PASS",
+    "diff_check": "PASS"
+  },
+  "exact_production_delta": {
+    "files": [
+      "microseed/development/rehearsal.py",
+      "microseed/runtime/entity.py"
+    ],
+    "numstat": [
+      "12\t1\tmicroseed/development/rehearsal.py",
+      "139\t2\tmicroseed/runtime/entity.py"
+    ],
+    "stat": " microseed/development/rehearsal.py |  13 +++-\n microseed/runtime/entity.py        | 141 ++++++++++++++++++++++++++++++++++++-\n 2 files changed, 151 insertions(+), 3 deletions(-)\n"
+  },
+  "hashes": {
+    "microseed/development/rehearsal.py": "0eb57aac03511aca972bd54a9b989cf5988efca0d4cb064ce22311d74679e801",
+    "microseed/runtime/entity.py": "326a73eef2371fdb35a948f1b1d61b9fb7cfc22d35d3dfe1e66cf766f80917d4"
+  },
+  "authority": {
+    "new_execution_authority": "NONE",
+    "new_truth_authority": "NONE",
+    "new_semantic_authority": "NONE",
+    "new_model_switch_authority": "NONE",
+    "new_drift_cause_authority": "NONE",
+    "promotion_authority": "NONE"
+  },
+  "migration_rule": "legacy non-routed proposal packets/digests remain unchanged; legacy routed descendants whose selected bucket cannot be recovered fail closed.",
+  "claim_ceiling": "Repairs bounded projection-conditioned routing currentness/provenance leaks only. Does not establish general recursive hierarchy, instantaneous cross-level knowledge, or substrate-wide hardening completion.",
+  "remaining_risks": [
+    "whole-suite not yet rerun on V2/V3 candidate",
+    "fresh-clone replay not yet run",
+    "runtime cost of descendant reconstruction under very large routed experience history",
+    "other substrate hardening axes remain open"
+  ],
+  "pdver": "PROBE -> DERIVE -> VERIFY -> EMBODY -> RECURSE",
+  "timestamp_epoch": 1788279217.0186555
+}
