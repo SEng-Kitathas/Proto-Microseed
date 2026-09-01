@@ -1,0 +1,29 @@
+{
+  "question": "How can we overcome the current authority ceiling for operational persistence and determine how to promote operational persistence into numerical identity or semantic reference?",
+  "evidence_contacted": [
+    "SOURCE methodology\\MS1969_GAP_REAPPEARANCE_IDENTITY_BOUNDARY.md#p15.0",
+    "SOURCE methodology\\MS1993_INTERVENTION_BOUND_OPERATIONAL_PERSISTENCE.md#p20.0",
+    "SOURCE methodology\\MS1994_MULTIPLE_INTERVENTION_TRACE_PERSISTENCE_CONFLICT.md#p31.0",
+    "SOURCE methodology\\MS1995_MULTI_REFERENT_CROSSING_OCCLUSION_REASSOCIATION.md#p36.0",
+    "SOURCE methodology\\MS1962_MS1963_REFERENT_CONTINUITY_BOUNDARIES.md#p19.0",
+    "SOURCE methodology\\MS1968_NOISY_CALIBRATED_REFERENT_HANDOFF.md#p18.0",
+    "SOURCE methodology\\MS1970_AFFORDANCE_SPLIT_NOT_GENEALOGY.md#p22.0",
+    "SOURCE methodology\\MS2003_OWNED_OPERATIONAL_REFERENT_CONTEXT_POLICY.md#p23.0"
+  ],
+  "measurement_frame": "Authority ceiling for operational persistence and its relationship with numerical identity and semantic reference.",
+  "probe": "Identify the specific mechanisms and boundaries that constrain operational persistence in relation to numerical identity and semantic reference.",
+  "derive": "Determine the underlying principles and policies that govern the authority ceiling for operational persistence and its interaction with numerical identity and semantic reference.",
+  "verify": "Verify the findings through experiments and simulations that demonstrate the effectiveness of the derived mechanisms in overcoming the authority ceiling for operational persistence.",
+  "oarr": "A real rival mechanism or counterexample that demonstrates a different approach to overcoming the authority ceiling for operational persistence and promoting it into numerical identity or semantic reference.",
+  "loop_plus": "Widen the investigation to include alternative mechanisms and policies that could potentially overcome the authority ceiling for operational persistence and promote it into numerical identity or semantic reference.",
+  "embody": "NO_MUTATION_WARRANTED",
+  "observed_consequence": "SOURCE_EVIDENCE_ONLY__NO_NEW_WORLD_CONSEQUENCE",
+  "survivors": "None identified.",
+  "scars": "None identified.",
+  "demotions": "None identified.",
+  "unresolved": "None identified.",
+  "attention_reservoir": "None identified.",
+  "disposition": "UNKNOWN_INCOMPLETE",
+  "next": "What are the specific mechanisms and policies that govern the authority ceiling for operational persistence and its interaction with numerical identity and semantic reference?",
+  "terminal": false
+}

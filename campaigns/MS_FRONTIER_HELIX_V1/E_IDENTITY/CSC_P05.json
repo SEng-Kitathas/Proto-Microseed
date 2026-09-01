@@ -1,0 +1,34 @@
+{
+  "verdict": "REVIEW",
+  "errors": [],
+  "warnings": [],
+  "strongest_survivor": "The identified persistent developmental quantities are necessary for operational continuity and persistence.",
+  "strongest_scar": "None identified.",
+  "terminal_supported": true,
+  "authority": "AUDIT_ONLY_NONE_PROMOTION",
+  "model_meta": {
+    "attempt": 1,
+    "usage": {
+      "completion_tokens": 66,
+      "prompt_tokens": 939,
+      "total_tokens": 1005,
+      "prompt_tokens_details": {
+        "cached_tokens": 122
+      }
+    },
+    "timings": {
+      "cache_n": 122,
+      "prompt_n": 817,
+      "prompt_ms": 2014.254,
+      "prompt_per_token_ms": 2.4654271725826193,
+      "prompt_per_second": 405.6092230672001,
+      "predicted_n": 66,
+      "predicted_ms": 2043.791,
+      "predicted_per_token_ms": 30.966530303030304,
+      "predicted_per_second": 32.292930147945654
+    },
+    "model": "Qwen2.5-Coder-1.5B-Instruct-abliterated-Q4_K_L.gguf",
+    "fingerprint": "b8831-a279d0f0f",
+    "json_syntax_repaired": false
+  }
+}

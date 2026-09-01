@@ -1,0 +1,42 @@
+{
+  "arm": "E_IDENTITY",
+  "status": "CSC_REVIEW_TERMINAL__REQUIRES_EXTERNAL_REFRAME",
+  "scientific_closure": false,
+  "passes_completed": 7,
+  "last_valid_next": "What are the specific mechanisms and policies that govern the authority ceiling for operational persistence and its interaction with numerical identity and semantic reference?",
+  "csc": {
+    "verdict": "REVIEW",
+    "errors": [],
+    "warnings": [],
+    "strongest_survivor": "Boundary-coherent proto-referent partitions and overlap-bound continuity.",
+    "strongest_scar": "None identified.",
+    "terminal_supported": true,
+    "authority": "AUDIT_ONLY_NONE_PROMOTION",
+    "model_meta": {
+      "attempt": 1,
+      "usage": {
+        "completion_tokens": 66,
+        "prompt_tokens": 985,
+        "total_tokens": 1051,
+        "prompt_tokens_details": {
+          "cached_tokens": 130
+        }
+      },
+      "timings": {
+        "cache_n": 130,
+        "prompt_n": 855,
+        "prompt_ms": 2240.855,
+        "prompt_per_token_ms": 2.6208830409356727,
+        "prompt_per_second": 381.5507919968048,
+        "predicted_n": 66,
+        "predicted_ms": 1891.735,
+        "predicted_per_token_ms": 28.662651515151513,
+        "predicted_per_second": 34.88860754809738
+      },
+      "model": "Qwen2.5-Coder-1.5B-Instruct-abliterated-Q4_K_L.gguf",
+      "fingerprint": "b8831-a279d0f0f",
+      "json_syntax_repaired": false
+    }
+  },
+  "promotion_authority": "NONE"
+}
