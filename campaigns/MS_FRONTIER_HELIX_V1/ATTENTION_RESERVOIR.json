@@ -3,37 +3,47 @@
     {
       "id": "RES-A-NEW-TARGET-VOCAB",
       "priority": "P1",
-      "reason": "A sequencing closed by composition; vocabulary construction remains true seam"
+      "reason": "sequencing solved by composition; representation/vocabulary creation remains"
     },
     {
-      "id": "RES-I-ATOMIC-WHOLE",
-      "priority": "P1",
-      "reason": "negative fixed-budget result; mechanism not authorized; requires stronger OARR"
-    },
-    {
-      "id": "RES-D-CFE-GEOMETRY",
+      "id": "RES-BC-NESTED-CURRENTNESS",
       "priority": "P0",
-      "reason": "pending matched geometry causal embodiment"
+      "reason": "bounded 3-level execution earned; cross-level currentness/learning under middle drift is next hierarchy pressure"
     },
     {
-      "id": "RES-E-IDENTITY",
-      "priority": "P1",
-      "reason": "pending matched-current-state/different-history discriminator"
-    },
-    {
-      "id": "RES-F-VALUE",
-      "priority": "P1",
-      "reason": "pending non-scalar conflict fixture"
-    },
-    {
-      "id": "RES-H-LANGUAGE",
+      "id": "RES-D-TERRAIN-PROVENANCE",
       "priority": "P0",
-      "reason": "pending token->operational referent current-canon gate"
+      "reason": "environment effect verified; ownership/currentness of experimental terrain unresolved"
     },
     {
-      "id": "RES-C-SCALE",
+      "id": "RES-E-GLOBAL-HISTORY",
+      "priority": "P1",
+      "reason": "referent lifetime anti-identity result does not close whole-organism developmental history dependence"
+    },
+    {
+      "id": "RES-F-INCOMPARABLE-CONSTITUTION",
+      "priority": "P1",
+      "reason": "Pareto tradeoffs abstain; only independent constitutional premise could lawfully break incomparability"
+    },
+    {
+      "id": "RES-G-NORMATIVE-EXPLORATION",
+      "priority": "P2",
+      "reason": "epistemic need cannot authorize; only separately grounded normative premise remains conceivable"
+    },
+    {
+      "id": "RES-H-COREFERENCE",
       "priority": "P0",
-      "reason": "A+B ambiguity reduced; bounded three-level test now earned"
+      "reason": "operational token index earned; bounded context-sensitive co-reference is next gate"
+    },
+    {
+      "id": "RES-I-OPERATIONAL-ATOM",
+      "priority": "P0",
+      "reason": "gap localized; naïve atomicity launders currentness; mechanism still unauthorized"
+    },
+    {
+      "id": "RES-J-CONVERGENCE",
+      "priority": "P0",
+      "reason": "survivor set now broad enough for cross-arm collision and independent replay"
     }
   ],
   "rule": "bounded research-governance reservoir; not organism memory or authority"

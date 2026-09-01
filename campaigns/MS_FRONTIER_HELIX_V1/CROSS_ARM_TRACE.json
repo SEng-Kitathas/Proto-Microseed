@@ -3,33 +3,73 @@
     {
       "arms": [
         "A_TARGET",
-        "B_DRIFT"
+        "B_DRIFT",
+        "C_SCALE"
       ],
-      "relation": "C_SCALE_GATE",
-      "status": "EARNED_FOR_BOUNDED_THREE_LEVEL_DISCRIMINATOR_ONLY",
+      "relation": "HIERARCHY_COMPOSITION",
+      "status": "SURVIVOR",
       "evidence_heads": [
         "387794702a26e1c8e7e84113e882154c2d961655",
         "c9c6f0470a0bbc706c4f325a2bcdae4404f7c5d5",
-        "294da612f3407639a28284db7e44c4926a823e0a"
+        "e6a313fc01f1f73d6f2065027829b271fa0413d0"
+      ],
+      "note": "request target sequencing + hidden drift boundary + one deeper execution nesting compose without generic manager"
+    },
+    {
+      "arms": [
+        "B_DRIFT",
+        "E_IDENTITY"
+      ],
+      "relation": "IDENTITY_PRESSURE",
+      "status": "DEMOTES_IDENTITY_PRIMITIVE_IN_TESTED_BOUNDS",
+      "evidence_heads": [
+        "c9c6f0470a0bbc706c4f325a2bcdae4404f7c5d5",
+        "edc0f27af94f39450ffea171c7b448997401d652"
       ]
     },
     {
       "arms": [
-        "A_TARGET",
-        "I_GROWTH"
+        "D_CFE",
+        "A_TARGET"
       ],
-      "relation": "COMPOSITION_VS_NEW_ATOM",
-      "status": "OPEN",
-      "note": "A multi-step sequencing composes from existing atoms; I shows admitted whole is not atomic in current composer."
+      "relation": "ENVIRONMENT_TO_REPRESENTATION",
+      "status": "OPEN_PRODUCTIVE_COLLISION",
+      "note": "terrain controls which relations are discoverable; A still requires current qualified target vocabulary"
+    },
+    {
+      "arms": [
+        "F_VALUE",
+        "G_NAKED"
+      ],
+      "relation": "CONSTITUTIONAL_AUTHORITY",
+      "status": "SURVIVOR",
+      "note": "full-frame value constraints and N1A authority remain distinct from epistemic ranking"
     },
     {
       "arms": [
         "G_NAKED",
         "H_LANGUAGE"
       ],
-      "relation": "AUTHORITY_SEPARATION",
+      "relation": "LANGUAGE_AUTHORITY_SEPARATION",
       "status": "SURVIVOR",
-      "note": "language/epistemic cue cannot be execution-authority source; H must inherit this gate."
+      "note": "grounded operational token indexing is compatible with language/execution authority NONE"
+    },
+    {
+      "arms": [
+        "A_TARGET",
+        "I_GROWTH"
+      ],
+      "relation": "COMPOSITION_VS_ATOMIC_GROWTH",
+      "status": "LOCALIZED_CONTRAST",
+      "note": "existing atoms compose into programs; admitted learned whole is not one atomic runtime composition step; dependency stripping is laundering"
+    },
+    {
+      "arms": [
+        "ALL"
+      ],
+      "relation": "J_CONVERGENCE_GATE",
+      "status": "OPEN",
+      "note": "sufficient exact branch heads and bounded claims exist for independent cross-arm replay/collision audit"
     }
   ],
   "rule": "cross-arm correspondence is evidence only after lineage/fixture dependence accounting"
