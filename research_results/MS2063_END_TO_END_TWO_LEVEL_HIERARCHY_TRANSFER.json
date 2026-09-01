@@ -1,6 +1,6 @@
 {
   "schema": "ms2063_end_to_end_two_level_hierarchy_transfer/v1",
-  "status": "RESEARCH_RESULT__FOCUSED_AND_BROADER_GREEN__WHOLE_PENDING",
+  "status": "RESEARCH_RESULT__FOCUSED_BROADER_WHOLE_GREEN__PROMOTION_REVIEW_ONLY",
   "parent_research_head": "625066a57cf01400bcdd2c261884399b3e28b305",
   "ms2062_production_commit": "930ae22132e19a5439a473796e6055276dac791f",
   "production_delta_from_ms2062": [],
@@ -40,7 +40,14 @@
     "first broader guard invocation used nonexistent historical test filename and stopped before collection"
   ],
   "whole_suite": {
-    "status": "PENDING"
+    "status": "PASS",
+    "pytest": "970/970 PASS",
+    "duration_seconds": 861.5,
+    "stderr_bytes": 0,
+    "stdout_sha256": "e03acfbcd65b303ef10d919f0399f495bff8f2e3f2f1ae339951a62b2b718740",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tested_commit": "ae56c9a722707b42a81518bfebd48f9b2c43d248",
+    "production_delta_from_ms2062": []
   },
   "next_if_whole_green": "PROMOTION_REVIEW_ONLY__NO_AUTOMATIC_CANONICAL_PROMOTION"
 }

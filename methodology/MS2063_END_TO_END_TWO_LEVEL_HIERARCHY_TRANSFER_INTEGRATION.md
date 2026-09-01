@@ -101,3 +101,14 @@ No new `microseed/` production bytes were added by MS2063. It integrates the alr
 - First broader invocation named a nonexistent historical test path and stopped before collection; corrected path set then passed 128/128.
 
 Research result only. Authoritative cleanup-neutral whole regression remains pending before promotion review.
+
+## Authoritative whole-suite closeout
+Controlled cleanup-neutral whole regression against committed MS2063 head `ae56c9a722707b42a81518bfebd48f9b2c43d248` completed:
+- **970/970 PASS in 861.50s**;
+- stderr bytes: **0**;
+- stdout SHA-256: `e03acfbcd65b303ef10d919f0399f495bff8f2e3f2f1ae339951a62b2b718740`;
+- stderr SHA-256: `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`.
+
+The separate controller exit-code file was empty and is **not** used as evidence. The persisted pytest terminal line is complete through `[100%]`, and stderr is empty.
+
+MS2063 added no production files beyond the already-sealed MS2062 candidate. Therefore the end-to-end donor-transfer integration survivor is whole-suite green and advances only to **promotion review**, never automatic canon.
