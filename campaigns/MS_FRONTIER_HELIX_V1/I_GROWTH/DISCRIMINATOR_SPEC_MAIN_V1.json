@@ -1,0 +1,48 @@
+{
+  "status": "MAIN_REASONING_DISCRIMINATOR_SPEC__CONTROL_INPUT_NOT_EVIDENCE",
+  "arm": "I_GROWTH",
+  "created_epoch": 1788263800.5000358,
+  "parent_head": "a0a745825103e0909e67e7afcde4efc25528379a",
+  "canonical_parent": "ed2cde491962105b0d853b7fd82d8e8b3d81bd8a",
+  "pdver": "PROBE -> DERIVE -> VERIFY -> EMBODY -> RECURSE",
+  "oarr_required": true,
+  "loop_plus_required": true,
+  "hsp_measurement_required": true,
+  "csc_status": "PENDING_SHADOW_AUDIT",
+  "promotion_authority": "NONE",
+  "production_mutation_allowed": false,
+  "evidence_context_refs": [
+    "methodology\\MS1968_NOISY_CALIBRATED_REFERENT_HANDOFF.md#p2.0",
+    "methodology\\MS1941_LEARNED_OPAQUE_SIGNAL_RESPONSE_REENTRY.md#p40.0",
+    "methodology\\MS1943_SIGNAL_PREDICTIVE_CURRENTNESS.md#p2.0",
+    "methodology\\MS1947_NAKED_EXPLORATION_NORMATIVE_AUTHORITY_AUDIT.md#p48.0",
+    "methodology\\NAKED_C01_EXPLICIT_EXPERIMENTAL_WARRANT_QUARRY.md#p3.0",
+    "methodology\\MICROSEED_MAIN_DEV_OPERATING_PROFILE_V2_0.md#p5.0",
+    "microseed\\EMBODIMENT_STATUS.md#p8.0",
+    "methodology\\MICROSEED_MAIN_DEV_OPERATING_PROFILE_V1_6.md#p3.0",
+    "methodology\\MS2004_UNIFIED_REFERENT_LIFETIME_POLICY.md#p1.0",
+    "continuity/state/current/CURRENT_STATE.md#p12.0",
+    "methodology\\MICROSEED_MAIN_DEV_OPERATING_PROFILE_V2_5.md#p11.0",
+    "methodology\\MS1981_MS1982_OWNED_TEMPORAL_RAW_CONSTRUCTOR_GROWTH.md#p35.0"
+  ],
+  "spec": {
+    "question": "Can a learned qualified whole become a reusable operational unit that expands lawful reachability under a fixed composition budget, rather than merely being a cache?",
+    "incumbent": "Existing qualification/composition owners can promote a learned whole into a reusable unit; under a fixed bounded composition grammar this can make a later target reachable without granting new authority.",
+    "rival": "Any apparent expansion is only search caching/compression; the target was already reachable from primitives under the same lawful budget or the macro smuggles a supplied sequence.",
+    "manipulation": "Use primitives A,B,C and a fixed composition depth/budget of 2. Train/qualify learned whole M=(A then B) from actual experience without supplying M as a macro. Later target requires (M then C). Test before M, after M, with M withheld, and with primitive search budget increased to 3 as an oracle comparison.",
+    "controls": [
+      "pre-learning fixed-budget negative",
+      "post-learning M-enabled",
+      "M-withheld reversal",
+      "higher primitive-budget oracle",
+      "opaque primitive permutation",
+      "stale M dependency"
+    ],
+    "incumbent_prediction": "Target is unreachable at fixed depth before M, reachable after M as a qualified unit, unreachable when M is withheld/stale, while a depth-3 primitive oracle confirms the underlying sequence existed but exceeded the fixed lawful budget.",
+    "rival_prediction": "Target is reachable at fixed depth before M, or remains reachable when M is withheld, or M only works because its sequence was supplied rather than learned.",
+    "measurement": "Reachability proof/search trace, composition depth, qualified unit identity/dependencies, target success, behavior after M staleness.",
+    "minimal_embodiment": "Research-only bounded composition fixture around existing learned-whole/qualification owners; claim ceiling explicitly limited to fixed-budget reachability expansion.",
+    "falsifier": "No reversible dependence of fixed-budget reachability on the learned qualified whole.",
+    "loop_plus": "If positive, test whether the new whole can itself participate in another learning level before any recursive-closure claim."
+  }
+}
