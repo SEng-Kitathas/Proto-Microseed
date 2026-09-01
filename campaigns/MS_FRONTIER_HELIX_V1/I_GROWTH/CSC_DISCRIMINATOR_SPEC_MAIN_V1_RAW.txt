@@ -1,0 +1,9 @@
+{
+  "verdict": "PASS",
+  "errors": [],
+  "warnings": [],
+  "strongest_control": "pre-learning fixed-budget negative",
+  "strongest_risk": "higher primitive-budget oracle",
+  "embodiment_warranted": true,
+  "required_before_embodiment": ["pre-learning fixed-budget negative"]
+}

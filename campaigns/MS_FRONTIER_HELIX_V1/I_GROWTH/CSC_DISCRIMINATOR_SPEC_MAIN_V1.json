@@ -1,0 +1,21 @@
+{
+  "verdict": "PASS",
+  "errors": [],
+  "warnings": [],
+  "strongest_control": "pre-learning fixed-budget negative",
+  "strongest_risk": "higher primitive-budget oracle",
+  "embodiment_warranted": true,
+  "required_before_embodiment": [
+    "pre-learning fixed-budget negative"
+  ],
+  "authority": "AUDIT_ONLY_NONE_PROMOTION",
+  "model": "Qwen2.5-Coder-1.5B-Instruct-abliterated-Q4_K_L.gguf",
+  "usage": {
+    "completion_tokens": 77,
+    "prompt_tokens": 581,
+    "total_tokens": 658,
+    "prompt_tokens_details": {
+      "cached_tokens": 150
+    }
+  }
+}
