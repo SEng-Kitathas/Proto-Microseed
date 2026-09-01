@@ -1,0 +1,13 @@
+{
+  "verdict": "PASS",
+  "errors": [],
+  "warnings": [],
+  "claim_supported": true,
+  "claim_ceiling_ok": true,
+  "strongest_survivor": "A_TARGET_BOUND_PROGRAM_COMPOSITION_SURVIVES_K_REPLAY",
+  "strongest_remaining_risk": "fixture assistance ceilings",
+  "c_scale_a_b_gate_pressure_sufficient": true,
+  "authority": "AUDIT_ONLY_NONE_PROMOTION",
+  "model": "Qwen2.5-Coder-1.5B-Instruct-abliterated-Q4_K_L.gguf",
+  "review_port": 18192
+}

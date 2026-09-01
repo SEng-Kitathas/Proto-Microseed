@@ -1,0 +1,63 @@
+{
+  "arm": "K_RED_TEAM",
+  "status": "VERIFIED_RED_TEAM_REPRODUCTION_RESULT",
+  "claim": "A_B_G_I_FRONTIER_DISCRIMINATOR_RESULTS_REPRODUCE_ON_THE_SAME_UNMODIFIED_CANONICAL_MICROSEED_IN_AN_INDEPENDENT_K_WORKTREE",
+  "claim_ceiling": "This rules out arm-specific Microseed production bytes as the explanation for the four tested results and independently replays their embedded hostiles. It does not remove each fixture assistance ceiling, prove ecological generality, or promote any arm result into canon.",
+  "pdver": "PROBE -> DERIVE -> VERIFY -> EMBODY -> RECURSE",
+  "canonical_microseed_tree": "9d63915e9e0396f39d255df474d8c2849a153e3f",
+  "source_arms": {
+    "A_TARGET": {
+      "head": "387794702a26e1c8e7e84113e882154c2d961655",
+      "test_sha256": "beca2cdf377d4b4dde593b97585108c3da1eed4239fb38036fef51e0a6e8aae3",
+      "assistance_ceiling": "externally qualified opaque target projection + recurrent operational histories; target vocabulary itself not newly constructed"
+    },
+    "B_DRIFT": {
+      "head": "c9c6f0470a0bbc706c4f325a2bcdae4404f7c5d5",
+      "test_sha256": "36c738e9c41bb89224f6ece46a01964a2a7b6283323eee228781e993e411f26f",
+      "assistance_ceiling": "controlled subordinate phenotype/effect swap fixture; bounded two-level world"
+    },
+    "G_NAKED": {
+      "head": "e41287c0759a76c051b50fdce99f30b57eca560e",
+      "test_sha256": "ff8eb997140829dc5e2c0e035753defde8c858ac21a80e155981e43e8c53cfd5",
+      "assistance_ceiling": "N1A constitutional warrant and typed obligation/scope already exist; test only attacks epistemic/language cue as authority source"
+    },
+    "I_GROWTH": {
+      "head": "0d52b67e75cd2fff6968d9b8c42586d36ae94661",
+      "test_sha256": "53924f055158ac8ed785f07444df458590d0ba99f97f9dbceedc9acef06276b8",
+      "assistance_ceiling": "MS853-877 supplied trace boundaries/effect coordinates and current dependency-directed composer semantics"
+    }
+  },
+  "execution": {
+    "passed": 11,
+    "failed": 0,
+    "duration_seconds": 13.82,
+    "runner": "tools/run_pytest_cleanup_neutral.py",
+    "temporary_test_blobs_deleted_after_replay": true,
+    "k_worktree_clean_after_replay": true
+  },
+  "observed": [
+    "All A/B/G/I source branch heads resolve to the same canonical microseed subtree as K.",
+    "Exact sealed test blobs by SHA replay 11/11 PASS in K without importing any arm-specific production code.",
+    "A opaque-ID/target permutation, B hidden-phenotype split, G cue/scope/currentness hostiles, and I primitive-oracle/whole-withholding/currentness hostiles all survive independent replay.",
+    "Temporary cross-arm test copies were deleted and K returned to clean worktree state."
+  ],
+  "survivors": [
+    "A_TARGET_BOUND_PROGRAM_COMPOSITION_SURVIVES_K_REPLAY",
+    "B_DRIFT_BOUNDARY_SURVIVES_K_REPLAY",
+    "G_NAKED_AUTHORITY_BOUNDARY_SURVIVES_K_REPLAY",
+    "I_GROWTH_NEGATIVE_ATOMICITY_RESULT_SURVIVES_K_REPLAY"
+  ],
+  "red_team_demotions": [
+    "ARM_SPECIFIC_PRODUCTION_CODE_EXPLANATION"
+  ],
+  "remaining_risks": [
+    "fixture assistance ceilings",
+    "synthetic-world ecological breadth",
+    "cross-arm claims beyond exact tested boundaries",
+    "I_GROWTH remains CSC REVIEW at source arm despite reproducible negative observation"
+  ],
+  "architecture_authority": "NONE",
+  "promotion_authority": "NONE",
+  "production_delta": [],
+  "timestamp_epoch": 1788266968.5939326
+}
