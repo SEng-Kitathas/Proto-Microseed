@@ -1,0 +1,31 @@
+{
+  "front": "SH2_COREFERENCE",
+  "status": "VERIFIED_HARDENING_RESULT",
+  "claim": "TWO_INDEPENDENT_CURRENT_GROUNDED_TOKEN_BINDINGS_CAN_SUPPORT_BOUNDED_OPERATIONAL_COREFERENCE_RESEARCH_ONLY_WHEN_THEY_SHARE_THE_SAME_OPERATIONAL_REFERENT_SIGNATURE__WITHOUT_SEMANTIC_TRUTH_LANGUAGE_IDENTITY_OR_EXECUTION_AUTHORITY",
+  "claim_ceiling": "Research-only representability over current grounded bindings. No production co-reference owner was added. This is not semantic reference, proposition/truth representation, compositional language competence or language admission.",
+  "pdver": "PROBE -> DERIVE -> VERIFY -> EMBODY -> RECURSE",
+  "focused_plus_guard": {
+    "passed": 18,
+    "failed": 0,
+    "duration_seconds": 8.89
+  },
+  "observed": [
+    "Two different opaque token capabilities with distinct capability signatures and binding IDs independently grounded to one identical operational referent signature and yielded a read-only co-reference surface.",
+    "Two similarly-shaped tokens under the same coordination but grounded to P vs Q yielded distinct operational referents, not co-reference.",
+    "P training plus Q holdout produced HOLDOUT_REFERENT_BINDING_DISAGREES and co-reference logic deferred rather than inventing contextual meaning.",
+    "Invalidating one token capability staled its binding and made co-reference DEFER_UNKNOWN.",
+    "Co-reference derivation created no action intent/execution and all semantic/truth/language/identity/execution authority fields remained NONE."
+  ],
+  "survivors": [
+    "OPERATIONAL_COREFERENCE != SEMANTIC_REFERENCE",
+    "TOKEN_SURFACE_SIMILARITY != COREFERENCE",
+    "SHARED_COORDINATION != COREFERENCE",
+    "CONVENTION_REVERSAL != AUTOMATIC_CONTEXTUAL_MEANING",
+    "GROUNDING_CURRENTNESS_PRECEDES_COREFERENCE"
+  ],
+  "remaining_seam": "IF_COREFERENCE_IS_TO_BECOME_AN_ORGANISM_OWNED_COORDINATION_SURFACE_IT_REQUIRES_A_SEPARATE_AUTHORITY_NEUTRAL_CURRENTNESS_BOUND_OWNER__NOT_AUTHORIZED_HERE",
+  "production_delta": [],
+  "promotion_authority": "NONE",
+  "test_sha256": "e84d6b0ea013e137e7c04620ca3fc683c55e91b88a22b488909809abd120a1a2",
+  "timestamp_epoch": 1788274697.6429899
+}

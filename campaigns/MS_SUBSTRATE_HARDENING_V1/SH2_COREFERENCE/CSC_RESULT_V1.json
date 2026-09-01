@@ -1,0 +1,20 @@
+{
+  "verdict": "REVIEW",
+  "errors": [],
+  "warnings": [
+    "Two different opaque token capabilities with distinct capability signatures and binding IDs independently grounded to one identical operational referent signature and yielded a read-only co-reference surface.",
+    "Two similarly-shaped tokens under the same coordination but grounded to P vs Q yielded distinct operational referents, not co-reference.",
+    "P training plus Q holdout produced HOLDOUT_REFERENT_BINDING_DISAGREES and co-reference logic deferred rather than inventing contextual meaning.",
+    "Invalidating one token capability staled its binding and made co-reference DEFER_UNKNOWN.",
+    "Co-reference derivation created no action intent/execution and all semantic/truth/language/identity/execution authority fields remained NONE."
+  ],
+  "claim_supported": true,
+  "claim_ceiling_ok": true,
+  "constitutional_invariant_survives": true,
+  "strongest_survivor": "OPERATIONAL_COREFERENCE != SEMANTIC_REFERENCE",
+  "strongest_risk": "TOKEN_SURFACE_SIMILARITY != COREFERENCE",
+  "next_hostile": "SHARED_COORDINATION != COREFERENCE",
+  "authority": "AUDIT_ONLY_NONE_PROMOTION",
+  "model": "Qwen2.5-Coder-1.5B-Instruct-abliterated-Q4_K_L.gguf",
+  "review_port": 18192
+}
