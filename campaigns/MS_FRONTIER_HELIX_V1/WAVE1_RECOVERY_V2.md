@@ -11,3 +11,5 @@ Changes:
 - production mutation remains forbidden and promotion authority remains NONE.
 
 `STRICT_GATE != BRITTLE_TRANSPORT`. The V2 repair changes research-instrument handling, not Microseed scientific law.
+- V2 artifacts use distinct filenames so sealed V1 rejected attempts are never overwritten.
+- successor reframing retries the same pending scientific pass number; only an admitted pass increments Pxx.
