@@ -1,0 +1,43 @@
+{
+  "schema": "ms2065_bounded_hierarchy_canonical_promotion_readback/v1",
+  "status": "CANONICAL_PROMOTION_REMOTE_AND_FRESH_CLONE_VERIFIED",
+  "canonical_label": "PRELINGUAL_SUBSTRATE_V1_P1A_N1A_BOUNDED_HIERARCHY_V1",
+  "canonical_tag": "prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1",
+  "canonical_tag_peeled_commit": "ed2cde491962105b0d853b7fd82d8e8b3d81bd8a",
+  "canonical_microseed_tree": "9d63915e9e0396f39d255df474d8c2849a153e3f",
+  "remote_readback_lines": [
+    "ed2cde491962105b0d853b7fd82d8e8b3d81bd8a\trefs/heads/main",
+    "12597e4ebf648b006f142dd51fa4e6a50b33c197\trefs/tags/prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1",
+    "ed2cde491962105b0d853b7fd82d8e8b3d81bd8a\trefs/tags/prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1^{}"
+  ],
+  "fresh_clone": {
+    "head": "ed2cde491962105b0d853b7fd82d8e8b3d81bd8a",
+    "clean": true,
+    "tag_peeled": "ed2cde491962105b0d853b7fd82d8e8b3d81bd8a",
+    "microseed_tree": "9d63915e9e0396f39d255df474d8c2849a153e3f",
+    "public_verifier": "PASS",
+    "focused_promotion_gate": "18/18 PASS in 33.69s",
+    "fsck": "PASS",
+    "whole_evidence_bytes": 1168,
+    "whole_evidence_sha256": "282ed8993e301a639cd0acbc13e606a37ff6e7178c9895a1e9ece756f42369bb"
+  },
+  "promotion_scientific_gate": {
+    "whole": "975/975 PASS in 1077.44s",
+    "return_code": 0,
+    "stderr_bytes": 0
+  },
+  "publication_repair": {
+    "scar": "WORKTREE_TEXT_BYTES != REPOSITORY_BLOB_BYTES / TEMP_VERIFIED != PUBLISHED_BYTES_VERIFIED",
+    "superseded_local_only_seal": "dd92ea8314f190921dc9f8ed71034b6014260dd2",
+    "repair_seal": "ed2cde491962105b0d853b7fd82d8e8b3d81bd8a",
+    "remote_exposure_of_superseded_seal": false
+  },
+  "authority_ceiling": [
+    "NO_RECURSIVE_HIERARCHY_CLAIM",
+    "NO_ARBITRARY_DESIRED_STATE_CONSTRUCTION",
+    "NO_SEMANTIC_PARENT_CHILD_AUTHORITY",
+    "NO_GENERIC_PLANNER_AUTHORITY",
+    "NO_CFE_TRANSFER",
+    "NO_GENERIC_EXPLORATION_AUTHORITY"
+  ]
+}

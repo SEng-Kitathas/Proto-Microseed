@@ -137,8 +137,10 @@
       "NO_GENERIC_PLANNER_AUTHORITY",
       "NO_GENERIC_EXPLORATION_AUTHORITY"
     ],
-    "promotion_commit": "PENDING_TAG_SEAL_READBACK",
-    "promotion_readback_receipt": "PENDING"
+    "promotion_commit": "ed2cde491962105b0d853b7fd82d8e8b3d81bd8a",
+    "promotion_readback_receipt": "evidence/MS2065_BOUNDED_HIERARCHY_CANONICAL_PROMOTION_READBACK_RECEIPT.json",
+    "remote_verified": true,
+    "fresh_clone_verified": true
   },
   "canonical_ancestry": {
     "n1a": {

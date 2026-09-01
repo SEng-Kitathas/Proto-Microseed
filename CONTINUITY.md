@@ -90,3 +90,6 @@ Promotion receipt: `evidence/MS2065_BOUNDED_HIERARCHY_CANONICAL_PROMOTION_RECEIP
 Promotion whole regression: `evidence/MS2065_BOUNDED_HIERARCHY_PROMOTION_WHOLE_SUITE_STDOUT.log`
 
 The extension promotes only the bounded two-level learned opaque request-target specialization/currentness path. It does not grant recursive hierarchy, semantic Parent/Child authority, arbitrary desired-state construction, generic planning, CFE transfer, or generic exploration authority.
+
+### MS2065 remote/fresh-clone readback
+Canonical tag `prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1` peels to `ed2cde491962105b0d853b7fd82d8e8b3d81bd8a` and fresh-clone verification passed public continuity verification, the 18-test promotion gate, and `git fsck`. Exact promotion whole-suite evidence blob is 1168 bytes with SHA-256 `282ed8993e301a639cd0acbc13e606a37ff6e7178c9895a1e9ece756f42369bb`. Post-promotion docs/evidence may advance `main` beyond the immutable canonical tag while the Microseed subtree remains `9d63915e9e0396f39d255df474d8c2849a153e3f`.
