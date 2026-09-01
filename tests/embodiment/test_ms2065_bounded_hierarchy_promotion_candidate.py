@@ -33,4 +33,4 @@ def test_ms_substrate_hardening_receipt_preserves_authority_ceiling_before_tag_r
     assert r['bc_overlap_decision']['research_hardening_bc_nested_currentness_v1']=='QUARANTINED_EXCLUDED_FROM_THIS_PROMOTION'
     a=r['authority_boundary']
     assert all(v is False for v in a.values())
-    assert r['status'] in {'PROMOTION_CANDIDATE_SEALED__TAG_PUSH_READBACK_PENDING','CANONICAL_PROMOTION_SEALED__LOCAL_TAG_CREATED__REMOTE_PUSH_PENDING','CANONICAL_PROMOTION_SEALED'}
+    assert r['status'] in {'PROMOTION_CANDIDATE_SEALED__TAG_PUSH_READBACK_PENDING','CANONICAL_PROMOTION_SEALED__LOCAL_TAG_CREATED__REMOTE_PUSH_PENDING','CANONICAL_PROMOTION_SEALED','CANONICAL_PROMOTION_SEALED__REMOTE_TAG_AND_BRANCH_READBACK_CONFIRMED__PUBLIC_MAIN_UNMOVED'}
