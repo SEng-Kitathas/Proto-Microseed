@@ -1,0 +1,42 @@
+{
+  "arm": "I_GROWTH",
+  "status": "QUESTION_SATURATED__REQUIRES_EXTERNAL_REFRAME",
+  "scientific_closure": false,
+  "passes_completed": 2,
+  "last_valid_next": "Can a learned operational unit's reuse across different sensor-layout handoffs create genuinely new reachable behavior?",
+  "csc": {
+    "verdict": "REVIEW",
+    "errors": [],
+    "warnings": [],
+    "strongest_survivor": "Currentness and operational continuity mechanisms",
+    "strongest_scar": "Stale learned operational associations that do not create new reachable behavior",
+    "terminal_supported": true,
+    "authority": "AUDIT_ONLY_NONE_PROMOTION",
+    "model_meta": {
+      "attempt": 1,
+      "usage": {
+        "completion_tokens": 70,
+        "prompt_tokens": 522,
+        "total_tokens": 592,
+        "prompt_tokens_details": {
+          "cached_tokens": 122
+        }
+      },
+      "timings": {
+        "cache_n": 122,
+        "prompt_n": 400,
+        "prompt_ms": 1006.624,
+        "prompt_per_token_ms": 2.51656,
+        "prompt_per_second": 397.3678354579267,
+        "predicted_n": 70,
+        "predicted_ms": 1949.538,
+        "predicted_per_token_ms": 27.85054285714286,
+        "predicted_per_second": 35.905942843894294
+      },
+      "model": "Qwen2.5-Coder-1.5B-Instruct-abliterated-Q4_K_L.gguf",
+      "fingerprint": "b8831-a279d0f0f",
+      "json_syntax_repaired": false
+    }
+  },
+  "promotion_authority": "NONE"
+}
