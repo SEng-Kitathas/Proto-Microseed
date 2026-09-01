@@ -1,4 +1,36 @@
 {
-  "entries": [],
+  "entries": [
+    {
+      "arms": [
+        "A_TARGET",
+        "B_DRIFT"
+      ],
+      "relation": "C_SCALE_GATE",
+      "status": "EARNED_FOR_BOUNDED_THREE_LEVEL_DISCRIMINATOR_ONLY",
+      "evidence_heads": [
+        "387794702a26e1c8e7e84113e882154c2d961655",
+        "c9c6f0470a0bbc706c4f325a2bcdae4404f7c5d5",
+        "294da612f3407639a28284db7e44c4926a823e0a"
+      ]
+    },
+    {
+      "arms": [
+        "A_TARGET",
+        "I_GROWTH"
+      ],
+      "relation": "COMPOSITION_VS_NEW_ATOM",
+      "status": "OPEN",
+      "note": "A multi-step sequencing composes from existing atoms; I shows admitted whole is not atomic in current composer."
+    },
+    {
+      "arms": [
+        "G_NAKED",
+        "H_LANGUAGE"
+      ],
+      "relation": "AUTHORITY_SEPARATION",
+      "status": "SURVIVOR",
+      "note": "language/epistemic cue cannot be execution-authority source; H must inherit this gate."
+    }
+  ],
   "rule": "cross-arm correspondence is evidence only after lineage/fixture dependence accounting"
 }

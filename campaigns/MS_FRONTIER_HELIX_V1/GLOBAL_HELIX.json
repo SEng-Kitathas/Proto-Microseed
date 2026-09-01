@@ -1,9 +1,35 @@
 {
-  "survivors": [],
-  "scars": [],
-  "demotions": [],
-  "unresolved": [],
+  "survivors": [
+    "A_TARGET: bound target atoms -> caller-free multi-step proposal composition survives",
+    "B_DRIFT: hidden effect-preserving phenotype change need not stale; effect-changing hidden drift requires actual-outcome contact; observable dependency drift stales immediately",
+    "G_NAKED: epistemic need/language cue does not grant execution authority",
+    "K_RED_TEAM: A/B/G/I discriminator results replay on untouched canonical Microseed"
+  ],
+  "scars": [
+    "CONTROLLER_TERMINATED != CHILD_RUNNER_TERMINATED",
+    "STRICT_GATE != BRITTLE_TRANSPORT",
+    "WINDOWS_SQLITE_TEMP_CLEANUP_REQUIRES_CLEANUP_NEUTRAL_VERDICT",
+    "CFE_AND_MICROSEED_LIVE_MODEL_SURFACES_MUST_BE_ISOLATED"
+  ],
+  "demotions": [
+    "A_TARGET: multi-step target sequencing is not a missing mechanism",
+    "B_DRIFT: persistent child identity is not required in the bounded unchanged-premise case",
+    "G_NAKED: information gain/novelty/language cue as execution authority",
+    "K: arm-specific production code explanation",
+    "I_GROWTH: current reusable whole as atomic fixed-budget reachability-expanding unit"
+  ],
+  "unresolved": [
+    "A: genuinely new target vocabulary/representation construction",
+    "I: atomic/equivalence operational whole question remains open under CSC REVIEW",
+    "D CFE developmental geometry",
+    "E persistent identity necessity",
+    "F multi-scale value conflict",
+    "H grounded language gate",
+    "C bounded three-level hierarchy discriminator now eligible"
+  ],
   "cross_arm_contradictions": [],
-  "mechanism_collisions": [],
-  "next": "Launch Wave 1 after infrastructure seal/readback"
+  "mechanism_collisions": [
+    "A target sequencing is already owned by MS1996+MS2062 composition; do not add separate target-program manager"
+  ],
+  "next": "Run bounded C_SCALE three-level discriminator from unchanged canon while continuing D/E/F/H embodiments; keep I open under K pressure."
 }

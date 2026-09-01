@@ -1,4 +1,40 @@
 {
-  "items": [],
+  "items": [
+    {
+      "id": "RES-A-NEW-TARGET-VOCAB",
+      "priority": "P1",
+      "reason": "A sequencing closed by composition; vocabulary construction remains true seam"
+    },
+    {
+      "id": "RES-I-ATOMIC-WHOLE",
+      "priority": "P1",
+      "reason": "negative fixed-budget result; mechanism not authorized; requires stronger OARR"
+    },
+    {
+      "id": "RES-D-CFE-GEOMETRY",
+      "priority": "P0",
+      "reason": "pending matched geometry causal embodiment"
+    },
+    {
+      "id": "RES-E-IDENTITY",
+      "priority": "P1",
+      "reason": "pending matched-current-state/different-history discriminator"
+    },
+    {
+      "id": "RES-F-VALUE",
+      "priority": "P1",
+      "reason": "pending non-scalar conflict fixture"
+    },
+    {
+      "id": "RES-H-LANGUAGE",
+      "priority": "P0",
+      "reason": "pending token->operational referent current-canon gate"
+    },
+    {
+      "id": "RES-C-SCALE",
+      "priority": "P0",
+      "reason": "A+B ambiguity reduced; bounded three-level test now earned"
+    }
+  ],
   "rule": "bounded research-governance reservoir; not organism memory or authority"
 }
