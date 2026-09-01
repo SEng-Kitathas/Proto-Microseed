@@ -1,0 +1,66 @@
+{
+  "question": "How can operational proto-referent continuity survive a noisy old→overlap→new sensor-layout handoff?",
+  "evidence_contacted": [
+    "methodology\\MS1968_NOISY_CALIBRATED_REFERENT_HANDOFF.md#p2.0",
+    "methodology\\MS1992_NAKED_FIRST_PROBE_REPLAY_REMAINS_AUTHORITY_BLOCKED.md#p32.0",
+    "methodology\\MS1993_INTERVENTION_BOUND_OPERATIONAL_PERSISTENCE.md#p4.0",
+    "continuity/state/current/CURRENT_STATE.md#p12.0",
+    "methodology\\MS1959_MS1961_AFFORDANCE_RELATIVE_PROTO_REFERENCE.md#p29.0",
+    "methodology\\MS1962_MS1963_REFERENT_CONTINUITY_BOUNDARIES.md#p21.0",
+    "methodology\\MS1968_NOISY_CALIBRATED_REFERENT_HANDOFF.md#p16.0",
+    "methodology\\MS1970_AFFORDANCE_SPLIT_NOT_GENEALOGY.md#p26.0"
+  ],
+  "measurement_frame": "Noisy calibrated frame currentness, cross-frame handoff continuity, no-overlap re-association, hidden substitution, one-to-many affordance decomposition vs genealogy.",
+  "probe": "How do boundary-coherent proto-referent partitions and overlap-bound continuity handle the transition between different sensor layouts and calibration frames?",
+  "derive": "The operational proto-referent continuity can survive a noisy old→overlap→new sensor-layout handoff through boundary-coherent proto-referent partitions and overlap-bound continuity, as demonstrated by existing referent work and the current state process law.",
+  "verify": "The evidence supports the survival of operational proto-referent continuity through boundary-coherent proto-referent partitions and overlap-bound continuity, as these mechanisms are already established in existing referent work and the current state process law.",
+  "oarr": "The existing referent work already earned boundary-coherent proto-referent partitions and overlap-bound continuity, which are sufficient to handle the transition between different sensor layouts and calibration frames.",
+  "loop_plus": "No additional causal explanations are needed to verify the survival of operational proto-referent continuity through boundary-coherent proto-referent partitions and overlap-bound continuity.",
+  "embody": "NO_MUTATION_WARRANTED",
+  "observed_consequence": "SOURCE_EVIDENCE_ONLY__NO_NEW_WORLD_CONSEQUENCE",
+  "survivors": "Boundary-coherent proto-referent partitions and overlap-bound continuity.",
+  "scars": "None identified.",
+  "demotions": "None identified.",
+  "unresolved": "None identified.",
+  "attention_reservoir": "None identified.",
+  "disposition": "RESEARCH_CONTINUE",
+  "next": "What are the minimal persistent developmental quantities required for operational continuity and persistence?",
+  "terminal": false,
+  "pass": 3,
+  "model_meta": {
+    "attempt": 1,
+    "usage": {
+      "completion_tokens": 642,
+      "prompt_tokens": 1648,
+      "total_tokens": 2290,
+      "prompt_tokens_details": {
+        "cached_tokens": 399
+      }
+    },
+    "timings": {
+      "cache_n": 399,
+      "prompt_n": 1249,
+      "prompt_ms": 14894.833,
+      "prompt_per_token_ms": 11.925406725380304,
+      "prompt_per_second": 83.85458232395085,
+      "predicted_n": 642,
+      "predicted_ms": 68224.275,
+      "predicted_per_token_ms": 106.26834112149531,
+      "predicted_per_second": 9.410140305631684
+    },
+    "model": "qwen2.5-coder-7b-instruct-abliterated-q4_k_m.gguf",
+    "fingerprint": "b8831-a279d0f0f"
+  },
+  "source_refs": [
+    "methodology\\MS1968_NOISY_CALIBRATED_REFERENT_HANDOFF.md#p2.0",
+    "methodology\\MS1992_NAKED_FIRST_PROBE_REPLAY_REMAINS_AUTHORITY_BLOCKED.md#p32.0",
+    "methodology\\MS1993_INTERVENTION_BOUND_OPERATIONAL_PERSISTENCE.md#p4.0",
+    "continuity/state/current/CURRENT_STATE.md#p12.0",
+    "methodology\\MS1959_MS1961_AFFORDANCE_RELATIVE_PROTO_REFERENCE.md#p29.0",
+    "methodology\\MS1962_MS1963_REFERENT_CONTINUITY_BOUNDARIES.md#p21.0",
+    "methodology\\MS1968_NOISY_CALIBRATED_REFERENT_HANDOFF.md#p16.0",
+    "methodology\\MS1970_AFFORDANCE_SPLIT_NOT_GENEALOGY.md#p26.0"
+  ],
+  "promotion_authority": "NONE",
+  "production_mutation_allowed": false
+}
