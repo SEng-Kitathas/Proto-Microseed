@@ -1,0 +1,29 @@
+{
+  "question": "What specific older owner, assistance, or defect could produce the same apparent result as the strongest current survivor?",
+  "evidence_contacted": [
+    "MS1945_REPRESENTED_SIGNAL_ALTERNATIVE_SELECTION.md#p35.0",
+    "SCARS_AND_DO_NOT_REINTRODUCE.md#p135.0",
+    "REVISIT_LEDGER.md#p3.0",
+    "CURRENT_STATE.md#p10.0",
+    "CURRENT_STATE.md#p13.0",
+    "CURRENT_STATE.md#p9.0",
+    "MS1999_HUNDRED_CAPABILITY_SCALE_AND_DEPENDENCY_GROUNDING.md#p21.0",
+    "SCARS_AND_DO_NOT_REINTRODUCE.md#p138.0"
+  ],
+  "measurement_frame": "The strongest current survivor and its environment, including its history, assistance, and defects.",
+  "probe": "Identify the specific older owner, assistance, or defect that could produce the same apparent result as the strongest current survivor.",
+  "derive": "Analyze the evidence to determine the possible older owners, assistance, or defects that could produce the same apparent result.",
+  "verify": "Verify the derived hypotheses by comparing them with the observed evidence.",
+  "oarr": "A real rival or removal that could alter the current system's behavior, such as an alternative history acquisition method or a different evaluation mechanism.",
+  "loop_plus": "Consider the possibility of alternative history acquisition methods or different evaluation mechanisms that could produce the same apparent result.",
+  "embody": "NO_MUTATION_WARRANTED",
+  "observed_consequence": "SOURCE_EVIDENCE_ONLY__NO_NEW_WORLD_CONSEQUENCE",
+  "survivors": "The strongest current survivor",
+  "scars": "Defects or limitations in the current system, such as the wrong-registry snapshot defect and the lack of a full current class-set reassociation.",
+  "demotions": "Unresolved issues or limitations in the current system, such as the lack of a full current class-set reassociation.",
+  "unresolved": "The specific older owner, assistance, or defect that could produce the same apparent result as the strongest current survivor",
+  "attention_reservoir": "Bounded neglected evidence/branch/anomaly ledger; research governance only.",
+  "disposition": "UNKNOWN_INCOMPLETE",
+  "next": "What specific older owner, assistance, or defect could produce the same apparent result as the strongest current survivor?",
+  "terminal": false
+}

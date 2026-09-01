@@ -1,0 +1,42 @@
+{
+  "arm": "K_RED_TEAM",
+  "status": "QUESTION_SATURATED__REQUIRES_EXTERNAL_REFRAME",
+  "scientific_closure": false,
+  "passes_completed": 1,
+  "last_valid_next": "What specific older owner, assistance, or defect could produce the same apparent result as the strongest current survivor?",
+  "csc": {
+    "verdict": "REVIEW",
+    "errors": [],
+    "warnings": [],
+    "strongest_survivor": "The strongest current survivor",
+    "strongest_scar": "Defects or limitations in the current system",
+    "terminal_supported": false,
+    "authority": "AUDIT_ONLY_NONE_PROMOTION",
+    "model_meta": {
+      "attempt": 1,
+      "usage": {
+        "completion_tokens": 65,
+        "prompt_tokens": 327,
+        "total_tokens": 392,
+        "prompt_tokens_details": {
+          "cached_tokens": 122
+        }
+      },
+      "timings": {
+        "cache_n": 122,
+        "prompt_n": 205,
+        "prompt_ms": 529.507,
+        "prompt_per_token_ms": 2.582960975609756,
+        "prompt_per_second": 387.1525777751758,
+        "predicted_n": 65,
+        "predicted_ms": 1659.798,
+        "predicted_per_token_ms": 25.535353846153846,
+        "predicted_per_second": 39.161391928415384
+      },
+      "model": "Qwen2.5-Coder-1.5B-Instruct-abliterated-Q4_K_L.gguf",
+      "fingerprint": "b8831-a279d0f0f",
+      "json_syntax_repaired": false
+    }
+  },
+  "promotion_authority": "NONE"
+}
