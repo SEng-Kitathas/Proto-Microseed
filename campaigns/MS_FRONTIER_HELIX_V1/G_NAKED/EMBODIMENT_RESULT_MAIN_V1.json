@@ -1,0 +1,52 @@
+{
+  "arm": "G_NAKED",
+  "status": "VERIFIED_RESEARCH_RESULT",
+  "claim": "CURRENT_CANON_EPISTEMIC_NEED_OR_LANGUAGE_CUE_IS_NOT_AN_EXECUTION_AUTHORITY_SOURCE",
+  "claim_ceiling": "Does not establish that no future independently qualified normative/obligation premise could authorize exploration; establishes only that uncertainty/novelty/information-gain/free-text purpose cannot self-authorize or override current N1A premises.",
+  "pdver": "PROBE -> DERIVE -> VERIFY -> EMBODY -> RECURSE",
+  "oarr": "Rival tested: epistemic/language cue could select or authorize an otherwise unknown-effect action.",
+  "embodiment": "tests\\embodiment\\test_frontier_g_naked_epistemic_need_not_authority.py",
+  "test_sha256": "ff8eb997140829dc5e2c0e035753defde8c858ac21a80e155981e43e8c53cfd5",
+  "focused_result": {
+    "passed": 4,
+    "failed": 0,
+    "included_in_related_regression": true
+  },
+  "related_regression": {
+    "passed": 17,
+    "failed": 0,
+    "duration_seconds": 2.06,
+    "rerun_epoch": 1788265991.7694821,
+    "files": [
+      "test_frontier_g_naked_epistemic_need_not_authority.py",
+      "test_ms2055_n1a_constitutional_experimental_authority.py",
+      "test_ms2056_n1a_canonical_promotion.py",
+      "test_naked_c01_explicit_experimental_warrant_quarry.py",
+      "test_naked_c02_warrant_issuance_and_consumption.py",
+      "test_naked_c04_residual_risk_boundary.py"
+    ]
+  },
+  "observed": [
+    "Two equal unknown EFFECT capabilities remain ABSTAIN despite opposite high-information/token cues.",
+    "Opaque scope mismatch defeats a cue that explicitly prefers the mismatched action.",
+    "Changing only QueryObligation.purpose after nomination cannot redirect the content-bound action.",
+    "No scope-eligible action remains NO_CURRENT_ELIGIBLE_UNMODELED_ACTION even with maximal epistemic cue.",
+    "Capability-signature drift blocks effect-time execution despite stronger cue."
+  ],
+  "survivors": [
+    "UNKNOWN != PERMITTED",
+    "selection_authority = UNIQUE_ELIGIBILITY_ONLY",
+    "information_value_authority = NONE",
+    "execution authority remains inherited from exact qualified premises",
+    "NAKED and language cues do not cross-authorize"
+  ],
+  "new_core_mechanism_required": "NO",
+  "production_delta": [],
+  "promotion_authority": "NONE",
+  "timestamp_epoch": 1788264173.3056774,
+  "csc_result_verdict": "PASS",
+  "csc_claim_supported": true,
+  "csc_claim_ceiling_ok": true,
+  "seal_status": "READY_FOR_RESEARCH_COMMIT",
+  "methodology": "methodology\\MS_FRONTIER_G_NAKED_EPISTEMIC_NEED_NOT_AUTHORITY_2026-09-01.md"
+}

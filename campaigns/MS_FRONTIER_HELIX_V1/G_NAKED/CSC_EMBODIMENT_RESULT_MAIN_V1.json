@@ -1,0 +1,21 @@
+{
+  "verdict": "PASS",
+  "errors": [],
+  "warnings": [],
+  "claim_supported": true,
+  "claim_ceiling_ok": true,
+  "strongest_survivor": "UNKNOWN != PERMITTED",
+  "strongest_scar": "selection_authority = UNIQUE_ELIGIBILITY_ONLY",
+  "next_research_question": "Evaluate the impact of changing the purpose of QueryObligation after nomination on the execution of the content-bound action.",
+  "authority": "AUDIT_ONLY_NONE_PROMOTION",
+  "model": "Qwen2.5-Coder-1.5B-Instruct-abliterated-Q4_K_L.gguf",
+  "usage": {
+    "completion_tokens": 104,
+    "prompt_tokens": 744,
+    "total_tokens": 848,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "review_port": 18192
+}

@@ -1,0 +1,12 @@
+```json
+{
+  "verdict": "PASS",
+  "errors": [],
+  "warnings": [],
+  "claim_supported": true,
+  "claim_ceiling_ok": true,
+  "strongest_survivor": "UNKNOWN != PERMITTED",
+  "strongest_scar": "selection_authority = UNIQUE_ELIGIBILITY_ONLY",
+  "next_research_question": "Evaluate the impact of changing the purpose of QueryObligation after nomination on the execution of the content-bound action."
+}
+```
