@@ -1,0 +1,9 @@
+{
+  "verdict": "PASS",
+  "errors": [],
+  "warnings": [],
+  "strongest_control": "Oracle-on positive control",
+  "strongest_risk": "Effect size across permutations",
+  "embodiment_warranted": true,
+  "required_before_embodiment": ["matched search/experience budget", "evaluation code blind to semantic labels"]
+}

@@ -1,0 +1,22 @@
+{
+  "verdict": "PASS",
+  "errors": [],
+  "warnings": [],
+  "strongest_control": "Oracle-on positive control",
+  "strongest_risk": "Effect size across permutations",
+  "embodiment_warranted": true,
+  "required_before_embodiment": [
+    "matched search/experience budget",
+    "evaluation code blind to semantic labels"
+  ],
+  "authority": "AUDIT_ONLY_NONE_PROMOTION",
+  "model": "Qwen2.5-Coder-1.5B-Instruct-abliterated-Q4_K_L.gguf",
+  "usage": {
+    "completion_tokens": 84,
+    "prompt_tokens": 508,
+    "total_tokens": 592,
+    "prompt_tokens_details": {
+      "cached_tokens": 150
+    }
+  }
+}
