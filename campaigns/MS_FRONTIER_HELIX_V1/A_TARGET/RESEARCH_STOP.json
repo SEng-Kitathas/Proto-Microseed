@@ -1,0 +1,42 @@
+{
+  "arm": "A_TARGET",
+  "status": "QUESTION_SATURATED__REQUIRES_EXTERNAL_REFRAME",
+  "scientific_closure": false,
+  "passes_completed": 6,
+  "last_valid_next": "How can Microseed ensure that the constructed interventions/programs are decoupled from execution permission while still being useful and effective?",
+  "csc": {
+    "verdict": "REVIEW",
+    "errors": [],
+    "warnings": [],
+    "strongest_survivor": "How can developmental pressure utilize learned opaque structure and already-qualified primitives to construct useful intervention/probe candidates without caller-supplied semantic action names, and ensure that candidate construction is decoupled from execution permission?",
+    "strongest_scar": "Rich-world lifetime composition",
+    "terminal_supported": true,
+    "authority": "AUDIT_ONLY_NONE_PROMOTION",
+    "model_meta": {
+      "attempt": 1,
+      "usage": {
+        "completion_tokens": 96,
+        "prompt_tokens": 1232,
+        "total_tokens": 1328,
+        "prompt_tokens_details": {
+          "cached_tokens": 129
+        }
+      },
+      "timings": {
+        "cache_n": 129,
+        "prompt_n": 1103,
+        "prompt_ms": 3031.706,
+        "prompt_per_token_ms": 2.748600181323663,
+        "prompt_per_second": 363.8215578951257,
+        "predicted_n": 96,
+        "predicted_ms": 2862.16,
+        "predicted_per_token_ms": 29.814166666666665,
+        "predicted_per_second": 33.54110182519496
+      },
+      "model": "Qwen2.5-Coder-1.5B-Instruct-abliterated-Q4_K_L.gguf",
+      "fingerprint": "b8831-a279d0f0f",
+      "json_syntax_repaired": false
+    }
+  },
+  "promotion_authority": "NONE"
+}

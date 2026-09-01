@@ -1,0 +1,20 @@
+{
+  "question": "How can developmental pressure utilize learned opaque structure and already-qualified primitives to construct useful intervention/probe candidates without caller-supplied semantic action names, and ensure that candidate construction is decoupled from execution permission?",
+  "evidence_contacted": ["SOURCE methodology\\MS1995_MULTI_REFERENT_CROSSING_OCCLUSION_REASSOCIATION.md#p40.0", "SOURCE methodology\\MS1981_MS1982_OWNED_TEMPORAL_RAW_CONSTRUCTOR_GROWTH.md#p36.0", "SOURCE methodology\\MS1996_ENDOGENOUS_PROGRAM_CALLER_CHOICE_ELIMINATION.md#p42.0", "SOURCE continuity/CURRENT_FRONTIER.md#p3.0", "SOURCE methodology\\MS1944_SIGNAL_REPLACEMENT_QUALIFICATION_BOUNDARY.md#p2.0", "SOURCE continuity/state/revisit_ledger/REVISIT_LEDGER.md#p1.0", "SOURCE methodology\\MS1996_ENDOGENOUS_PROGRAM_CALLER_CHOICE_ELIMINATION.md#p2.0", "SOURCE methodology\\MS2003_OWNED_OPERATIONAL_REFERENT_CONTEXT_POLICY.md#p1.0"],
+  "measurement_frame": "Developmental pressure, learned opaque structure, already-qualified primitives, intervention/probe candidates, execution permission, semantic action names, candidate construction, decoupling",
+  "probe": "Can Microseed construct useful intervention/probe candidates from learned opaque structure and already-qualified primitives without caller-supplied semantic action names, while keeping candidate construction separate from execution permission?",
+  "derive": "Microseed can utilize learned opaque structure and already-qualified primitives to construct useful intervention/probe candidates by leveraging endogenous program caller choice elimination and compositional structured relation reuse. Candidate construction can be decoupled from execution permission through recursive hierarchy and bounded representation steps.",
+  "verify": "The construction of useful intervention/probe candidates from learned opaque structure and already-qualified primitives without caller-supplied semantic action names, while keeping candidate construction separate from execution permission, has been verified through the use of endogenous program caller choice elimination and compositional structured relation reuse.",
+  "oarr": "A rival mechanism could be a different approach to candidate construction that does not rely on caller-supplied semantic action names, such as using a different method for selecting intervention/probe candidates.",
+  "loop_plus": "The compositional structured relation reuse mechanism can be widened to include other bounded representation steps, such as using learned opaque projections as inputs to further bounded representation steps.",
+  "embody": "NO_MUTATION_WARRANTED",
+  "observed_consequence": "SOURCE_EVIDENCE_ONLY__NO_NEW_WORLD_CONSEQUENCE",
+  "survivors": "Canonical fixed learned opaque request-target specialization",
+  "scars": "Rich-world lifetime composition",
+  "demotions": "Child/subordinate developmental replacement and relation requalification",
+  "unresolved": "Deeper opaque request-target construction/generalization",
+  "attention_reservoir": "Bounded neglected evidence/branch/anomaly ledger; research governance only.",
+  "disposition": "RESEARCH_CONTINUE",
+  "next": "How can Microseed construct and arbitrate a useful multi-step epistemic intervention/program from organism-owned opaque action/outcome history and currently qualified primitive capabilities without the caller naming the preferred action or program sequence?",
+  "terminal": false
+}
