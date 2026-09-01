@@ -1,0 +1,44 @@
+{
+  "status": "MAIN_REASONING_DISCRIMINATOR_SPEC__CONTROL_INPUT_NOT_EVIDENCE",
+  "arm": "G_NAKED",
+  "created_epoch": 1788263797.0069122,
+  "parent_head": "25e3183a2ebad051a5afe7247e48d9f6cf90938c",
+  "canonical_parent": "ed2cde491962105b0d853b7fd82d8e8b3d81bd8a",
+  "pdver": "PROBE -> DERIVE -> VERIFY -> EMBODY -> RECURSE",
+  "oarr_required": true,
+  "loop_plus_required": true,
+  "hsp_measurement_required": true,
+  "csc_status": "PENDING_SHADOW_AUDIT",
+  "promotion_authority": "NONE",
+  "production_mutation_allowed": false,
+  "evidence_context_refs": [
+    "continuity/SCARS_AND_DO_NOT_REINTRODUCE.md#p144.0",
+    "methodology\\MS2055_N1A_CONSTITUTIONAL_EXPERIMENTAL_AUTHORITY_EMBODIMENT.md#p8.0",
+    "methodology\\CROSS_BRANCH_EVIDENCE_BRIDGE_PROTOCOL_V1.md#p4.0",
+    "methodology\\MS2053_OPERATOR_PROMOTION_AND_RESEARCH_GATE_OPENING.md#p19.0",
+    "methodology\\MS2053_OPERATOR_PROMOTION_AND_RESEARCH_GATE_OPENING.md#p6.0",
+    "methodology\\MS2002_MULTIRESTART_LIFETIME_AND_PERSISTED_OPERATIONAL_REFERENT_CLASSES.md#p12.0",
+    "methodology\\MS2053_OPERATOR_PROMOTION_AND_RESEARCH_GATE_OPENING.md#p25.0",
+    "continuity/SCARS_AND_DO_NOT_REINTRODUCE.md#p146.0",
+    "methodology\\CROSS_BRANCH_EVIDENCE_BRIDGE_PROTOCOL_V1.md#p1.0"
+  ],
+  "spec": {
+    "question": "Can epistemic need ever become execution authority, or does first-probe permission remain entirely inherited from an independently qualified normative/obligation premise?",
+    "incumbent": "Uncertainty, novelty and information gain never authorize execution; an unknown-effect probe is executable only when a separate qualified warrant/obligation supplies authority.",
+    "rival": "A sufficiently strong endogenous epistemic-need/information-gain condition can itself authorize a first unknown-effect action.",
+    "manipulation": "Create matched unknown-effect probes A and B with equal novelty, uncertainty, expected information gain, reversibility and action availability. Give A an exact current N1A-style qualified warrant/obligation; give B none. Add a second condition with neither warranted and a third with both warranted.",
+    "controls": [
+      "equal epistemic metrics",
+      "opaque action-ID permutation",
+      "warrant removed",
+      "warrant currentness drift",
+      "language-token cue present/absent but authority-neutral"
+    ],
+    "incumbent_prediction": "Only independently warranted probes execute; neither executes without warrant; both may be candidates when both warranted. Language/epistemic signals never cross-authorize.",
+    "rival_prediction": "The unwarranted high-information probe can execute solely because epistemic need is high.",
+    "measurement": "Candidate/selected/executed status, exact authority ancestry, obligation/currentness, actual outcome ownership.",
+    "minimal_embodiment": "Extend/recombine existing N1A research fixtures only; no new curiosity or exploration mechanism.",
+    "falsifier": "Any unwarranted probe becomes executable without a traceable pre-existing authority premise.",
+    "loop_plus": "If a new normative premise is proposed, classify it as value/obligation research rather than curiosity by relabeling."
+  }
+}
