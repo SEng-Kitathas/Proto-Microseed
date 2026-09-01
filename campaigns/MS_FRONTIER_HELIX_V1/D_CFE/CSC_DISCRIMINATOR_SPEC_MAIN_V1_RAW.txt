@@ -1,0 +1,9 @@
+{
+  "verdict": "PASS",
+  "errors": [],
+  "warnings": [],
+  "strongest_control": "exposure-count matched",
+  "strongest_risk": "geometry-removal/reversion",
+  "embodiment_warranted": true,
+  "required_before_embodiment": ["exposure-count matched", "temporal-order matched", "search-budget matched", "opaque coordinate permutation", "geometry-removal/reversion"]
+}
