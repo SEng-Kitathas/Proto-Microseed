@@ -1,0 +1,44 @@
+{
+  "front": "SH5_TERRAIN_GENERALIZATION",
+  "status": "VERIFIED_HARDENING_RESULT",
+  "claim": "EXTERNAL_RELATIONAL_COVISIBILITY_TERRAIN_EFFECT_GENERALIZES_ACROSS_MULTIPLE_OPAQUE_ALPHABETS_AND_CAUSAL_ALGEBRAS_UNDER_THE_SAME_UNMODIFIED_MICROSEED_PROJECTION_DISCOVERY_MECHANISM",
+  "claim_ceiling": "Environmental host-system generalization only. It does not make terrain an organism-owned object, does not import CFE code, and does not prove rich-world ecological generality.",
+  "pdver": "PROBE -> DERIVE -> VERIFY -> EMBODY -> RECURSE",
+  "focused": {
+    "passed": 3,
+    "failed": 0,
+    "duration_seconds": 1.33
+  },
+  "guard": {
+    "passed": 15,
+    "failed": 0,
+    "duration_seconds": 19.51,
+    "exact_d_sha256": "4c8945fd15dad356984c7e86fb46e022824c91ec9face20001f31c6fccb7132f"
+  },
+  "families": [
+    "BINARY_PARITY",
+    "TERNARY_MODULAR",
+    "QUATERNARY_MODULAR"
+  ],
+  "observed": [
+    "For each causal family, jointly visible causal coordinates produced an exact two-coordinate projection at near-perfect validation accuracy and strong lift.",
+    "Matched x/z and z/y nuisance topologies produced no projection candidate.",
+    "Coordinate order permutation preserved the result.",
+    "Independent opaque input/effect alphabet permutation preserved the result.",
+    "Insertion-order perturbation within fixed train/validation evidence sets preserved accuracy/lift/bucket cardinality.",
+    "Current Microseed still exposes no developmental_geometry, terrain_topology, relational_visibility_graph, cfe_field or environmental_field_authority owner."
+  ],
+  "measurement_scar": "ROW_SHUFFLE_ACROSS_TRAIN_VALIDATION_BOUNDARY_CHANGES_BASELINE_LIFT_AND_IS_NOT_AN_INSERTION_ORDER_TEST__CORRECTED_TO_SHUFFLE_WITHIN_FIXED_EVIDENCE_PARTITIONS",
+  "survivors": [
+    "SHAPE_THE_FIELD_CAN_CHANGE_DEVELOPMENT",
+    "COORDINATE_LABEL_ORDER_IS_NOT_THE_EFFECT",
+    "OPAQUE_ALPHABET_IDENTITY_IS_NOT_THE_EFFECT",
+    "FIELD_EFFECT_GENERALIZES_BEYOND_BINARY_XOR",
+    "MICROSEED_OWNS_NO_FIELD_AUTHORITY"
+  ],
+  "remaining_seam": "TERRAIN_PROVENANCE_CURRENTNESS_AND_RICH_WORLD_GENERALIZATION_REMAIN_OPEN",
+  "production_delta": [],
+  "promotion_authority": "NONE",
+  "test_sha256": "a2633517d9f58b514119ea3d6090a9c55b96a035e4d49b1533b87d4eb9698d17",
+  "timestamp_epoch": 1788275316.274219
+}

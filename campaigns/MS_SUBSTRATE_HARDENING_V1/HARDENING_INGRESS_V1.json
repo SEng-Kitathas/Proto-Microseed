@@ -1,0 +1,67 @@
+{
+  "campaign": "MS_SUBSTRATE_HARDENING_V1",
+  "status": "HARDENING_INGRESS__PRODUCTION_FROZEN",
+  "created_epoch": 1788274136.3503454,
+  "canonical_parent": "ed2cde491962105b0d853b7fd82d8e8b3d81bd8a",
+  "canonical_microseed_tree": "9d63915e9e0396f39d255df474d8c2849a153e3f",
+  "promotion_authority": "NONE",
+  "production_mutation_allowed": false,
+  "wave2_research_heads": {
+    "A_TARGET": "387794702a26e1c8e7e84113e882154c2d961655",
+    "B_DRIFT": "c9c6f0470a0bbc706c4f325a2bcdae4404f7c5d5",
+    "C_SCALE": "e6a313fc01f1f73d6f2065027829b271fa0413d0",
+    "D_CFE": "0b59687d72868c57d3cd664a1236aeceabad54a8",
+    "E_IDENTITY": "edc0f27af94f39450ffea171c7b448997401d652",
+    "F_VALUE": "45e0e45f915990318824f0dd588728ce56fc27e0",
+    "G_NAKED": "e41287c0759a76c051b50fdce99f30b57eca560e",
+    "H_LANGUAGE": "b453df211e45fb1382d51c6a478a3ce1c0f32998",
+    "I_GROWTH": "56ed04a8c8e4a7f2f2b072dd0d1e12c434805689",
+    "J_CONVERGENCE": "8f246a5fe04d931d1e55855ffc6a6166d7fb23d8",
+    "K_RED_TEAM": "48f6ff173df1fa38737247eac7223b2f191c4fc0"
+  },
+  "prime_directive": "TRY_TO_DISQUALIFY_THE_SUBSTRATE_BEFORE_CALLING_IT_A_SUBSTRATE",
+  "pdver": "PROBE -> DERIVE -> VERIFY -> EMBODY -> RECURSE",
+  "standing_method": {
+    "semantic_helix": true,
+    "oarr_required_when_causal_job_exists": true,
+    "loop_plus_required_when_adjacent_explanation_exists": true,
+    "hsp_measurement_required": true,
+    "csc": "AUDIT_ONLY_NONE_PROMOTION",
+    "attention_reservoir": "RESEARCH_GOVERNANCE_ONLY"
+  },
+  "hardening_fronts": {
+    "SH1_NESTED_CURRENTNESS": {
+      "question": "When a middle controller in a bounded three-level chain internally drifts, what can the top layer lawfully remain current about before and after actual outcome contact?",
+      "kill": "Any stale middle premise is silently laundered through unchanged top routing or any top-level premature causal identity claim."
+    },
+    "SH2_COREFERENCE": {
+      "question": "Can two independently grounded arbitrary token indices support bounded context-sensitive co-reference/coordination without semantic truth, identity or execution authority?",
+      "kill": "Token surface/context label does hidden semantic work or coordination creates authority."
+    },
+    "SH3_SCAFFOLDING_STRIP": {
+      "question": "Which Wave-2 capabilities survive removal/permutation of experimenter-supplied scaffolding and where does behavior collapse?",
+      "kill": "A claimed substrate capability disappears once noncausal fixture assistance is removed."
+    },
+    "SH4_LONG_HORIZON_COLLISION": {
+      "question": "Can hierarchy, value, grounded indexing, NAKED authority and representation/currentness owners coexist causally across repeated restart/drift episodes without constitutional leakage?",
+      "kill": "Any owner silently bypasses another, stale state resurrects, or authority accumulates by history."
+    },
+    "SH5_TERRAIN_GENERALIZATION": {
+      "question": "Does external developmental terrain shaping generalize across causal relations/topologies or only the hand-built XOR fixture?",
+      "kill": "Effect is specific to one synthetic relation/adapter or disappears under matched alternate causal families."
+    },
+    "SH6_NOVEL_VOCABULARY": {
+      "question": "Can existing representation-growth owners create a new operational target distinction not supplied as a qualified target token?",
+      "kill": "Experimenter-supplied labels/partition identities are required."
+    },
+    "SH7_GLOBAL_HISTORY": {
+      "question": "After matching reconstructible current operational state, can different developmental histories produce lawful future divergence that cannot be traced to omitted persisted state?",
+      "kill": "A numerical/self identity primitive is invoked before omitted-state/RNG/dependency audit."
+    },
+    "SH8_ATOMICITY": {
+      "question": "Can learned-whole operational equivalence be defined without dependency/currentness laundering?",
+      "kill": "Any shortcut counts a whole as atomic by erasing ancestry or authority boundaries."
+    }
+  },
+  "release_gate": "NO_SUBSTRATE_FREEZE_DECLARATION_UNTIL_SH1_SH4_HAVE_EXECUTED_HOSTILES_AND_SH5_SH8_HAVE_BOUNDED_DISPOSITIONS"
+}

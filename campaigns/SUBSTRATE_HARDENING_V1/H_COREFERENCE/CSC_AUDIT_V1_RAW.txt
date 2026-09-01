@@ -1,0 +1,13 @@
+```json
+{
+  "verdict": "PASS",
+  "errors": [],
+  "warnings": [],
+  "claim_supported": true,
+  "claim_ceiling_ok": true,
+  "durable_coreference_registry_warranted": false,
+  "strongest_survivor": null,
+  "strongest_remaining_risk": null,
+  "next_hostile": null
+}
+```

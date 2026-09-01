@@ -1,0 +1,35 @@
+{
+  "arm": "H_COREFERENCE_EMPIRICAL_CURRENTNESS",
+  "campaign": "SUBSTRATE_HARDENING_V1",
+  "canonical_microseed_tree": "9d63915e9e0396f39d255df474d8c2849a153e3f",
+  "controls": [
+    "original training/holdout evidence cannot be reused as post-binding empirical currentness evidence",
+    "mixed fresh pre/post reversal evidence returns UNKNOWN_INCOMPLETE rather than current or stale",
+    "semantic_reference_authority NONE",
+    "token_meaning_authority NONE",
+    "truth_authority NONE",
+    "execution_authority NONE",
+    "language_authority NONE",
+    "no Microseed production delta"
+  ],
+  "finding": "Structural capability/coordination descriptor currentness is necessary but not sufficient for operational token->referent binding currentness. Fresh disjoint grounded-use and holdout evidence can re-earn the same opaque operational-referent signature, while an external convention reversal with unchanged descriptors is detected as empirical grounded-referent signature drift.",
+  "hostile_results": {
+    "adjacent_language_reference_stack": "17/17 PASS",
+    "combined_h_tests": "6/6 PASS",
+    "compileall": "PASS",
+    "script_readback": "scratch/ms2046_grounded_operational_token_referent_binding_quarry.py PASS",
+    "tests": [
+      "tests/embodiment/test_hardening_h_binding_empirical_currentness_boundary.py",
+      "tests/embodiment/test_hardening_h_post_binding_empirical_currentness_witness.py"
+    ]
+  },
+  "implemented_surface": "scratch.ms2046_grounded_operational_token_referent_binding_quarry.empirical_binding_currentness_status",
+  "law_preserved": "STRUCTURAL_TOKEN_BINDING_CURRENTNESS != EMPIRICAL_GROUNDED_REFERENCE_CURRENTNESS",
+  "new_bound": "FRESH_DISJOINT_GROUNDED_USE_HISTORY_CAN_WITNESS_EMPIRICAL_CURRENTNESS_FOR_RESEARCH_BINDING_CANDIDATES",
+  "parent_blocker": "d542d78fb3da3b89848be527b587b9f21a86d6f2",
+  "pdver": "PROBE -> DERIVE -> VERIFY -> EMBODY -> RECURSE",
+  "production_delta": [],
+  "promotion_authority": "NONE",
+  "remaining_gate": "QUERY_LOCAL_COREFERENCE_CAN_ONLY_USE_BINDINGS_THAT_PASS_EMPIRICAL_CURRENTNESS; THIS_RESULT_DOES_NOT_GRANT DURABLE LANGUAGE/REFERENCE AUTHORITY",
+  "status": "BOUNDED_REPAIR_CANDIDATE__POST_BINDING_EMPIRICAL_GROUNDED_REFERENCE_CURRENTNESS_EARNED__NO_PRODUCTION_DELTA"
+}

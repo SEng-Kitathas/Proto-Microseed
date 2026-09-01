@@ -5808,15 +5808,36 @@ class Microseed:
         """Advance supplied projection currentness and stale bound old contrasts."""
         if not reason:
             raise ValueError("EPISTEMIC_PROJECTION_CHANGE_REQUIRES_REASON")
+        old_projection=self.epistemic_projections.records.get(str(projection_id))
+        dependent_projection_ids: set[str] = set()
+        def collect_dependents(source_id: str, source_epoch: int, source_signature: str) -> None:
+            for pid,dep in sorted(self.epistemic_projections.records.items()):
+                if pid == str(source_id) or pid in dependent_projection_ids or not dep.current:
+                    continue
+                deps = dep.dependency_projection_epochs or dep.source_projection_epochs
+                if (str(source_id), int(source_epoch), str(source_signature)) in deps:
+                    dependent_projection_ids.add(pid)
+                    collect_dependents(pid, dep.epoch, dep.signature_sha256)
+        if old_projection is not None and old_projection.current:
+            collect_dependents(str(projection_id), old_projection.epoch, old_projection.signature_sha256)
         rec=self.epistemic_projections.change(
             projection_id,new_signature_sha256=new_signature_sha256
         )
         stale_caps=self._stale_capabilities_bound_to_projection(projection_id,reason=reason)
-        stale=self.epistemic_contrasts.invalidate_projection(projection_id,rec.epoch)
-        stale_deficits=self._stale_epistemic_deficits_for_premise("PROJECTION",projection_id,rec.epoch,reason)
+        stale_bindings=set(self.epistemic_contrasts.invalidate_projection(projection_id,rec.epoch))
+        stale_deficits=set(self._stale_epistemic_deficits_for_premise("PROJECTION",projection_id,rec.epoch,reason))
+        for dependent_projection_id in sorted(dependent_projection_ids):
+            dependent=self.epistemic_projections.records.get(dependent_projection_id)
+            if dependent is None:
+                continue
+            dep_reason=f"DEPENDENCY:PROJECTION:{projection_id}:{reason}"
+            stale_caps |= self._stale_capabilities_bound_to_projection(dependent_projection_id,reason=dep_reason)
+            stale_bindings.update(self.epistemic_contrasts.invalidate_projection(dependent_projection_id,dependent.epoch))
+            stale_deficits |= self._stale_epistemic_deficits_for_premise("PROJECTION",dependent_projection_id,dependent.epoch,dep_reason)
         packet={
             "projection_id":projection_id,"signature_sha256":rec.signature_sha256,
-            "epoch":rec.epoch,"reason":reason,"stale_binding_ids":list(stale),"stale_deficit_ids":sorted(stale_deficits),
+            "epoch":rec.epoch,"reason":reason,"stale_projection_ids":sorted(dependent_projection_ids),
+            "stale_binding_ids":sorted(stale_bindings),"stale_deficit_ids":sorted(stale_deficits),
             "stale_capability_ids":sorted(stale_caps),
             "semantic_projection_authority":"NONE","raw_projection_discovery_authority":"NONE",
         }

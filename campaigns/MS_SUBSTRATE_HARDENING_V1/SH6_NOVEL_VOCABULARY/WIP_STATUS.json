@@ -1,0 +1,10 @@
+{
+  "note": "Archived for zero-loss takeover only. No result/CSC/whole-suite/fresh-clone claim is attached.",
+  "original_status_preserved": "UNCOMMITTED_TEST_CAPTURE_ARCHIVED__NO_BOUNDED_DISPOSITION",
+  "promotion_authority": "NONE",
+  "scientific_authority": "NONE",
+  "source_base": "f6387c91c08b9b045e914057f30b4b24bd08c6e0",
+  "status": "SUPERSEDED_BY_RESULT_V1_ON_RESEARCH_BRANCH__ORIGINAL_ARCHIVE_WAS_WIP_ONLY",
+  "superseded_by": "campaigns/MS_SUBSTRATE_HARDENING_V1/SH6_NOVEL_VOCABULARY/RESULT_V1.json",
+  "test": "tests/embodiment/test_hardening_sh6_endogenous_opaque_vocabulary_growth.py"
+}

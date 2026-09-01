@@ -1,0 +1,772 @@
+{
+  "campaign": "MS_FRONTIER_HELIX_V1",
+  "phase": "WAVE1_V2_RECONCILIATION",
+  "created_epoch": 1788262926.0229907,
+  "canonical_parent": "ed2cde491962105b0d853b7fd82d8e8b3d81bd8a",
+  "promotion_authority": "NONE",
+  "arms": {
+    "A_TARGET": {
+      "branch": "research/frontier-a-target-v1",
+      "head": "c41f710ee82f1419cd7c5588bb4cbdd1ac2bff76",
+      "remote": "c41f710ee82f1419cd7c5588bb4cbdd1ac2bff76\trefs/heads/research/frontier-a-target-v1",
+      "total_admitted_passes": 6,
+      "pass_bundle_sha256": "8bb2942cd0412d65c2e26e40bb4d50c5756a0aa48be4c3029a1b865d1b44ef48",
+      "chain_ok": true,
+      "passes": [
+        {
+          "pass": 1,
+          "question": "What is the smallest remaining barrier between canonical fixed learned opaque request-target specialization and genuinely endogenous construction/generalization of useful request targets?",
+          "disposition": "RESEARCH_CONTINUE",
+          "next": "What are the mechanisms by which developmental pressure can construct useful intervention/probe candidates from learned opaque structure and already-qualified primitives without caller-supplied semantic action names?",
+          "terminal": false
+        },
+        {
+          "pass": 2,
+          "question": "What are the mechanisms by which developmental pressure can construct useful intervention/probe candidates from learned opaque structure and already-qualified primitives without caller-supplied semantic action names?",
+          "disposition": "RESEARCH_CONTINUE",
+          "next": "How can developmental pressure construct useful intervention/probe candidates from learned opaque structure and already-qualified primitives without caller-supplied semantic action names?",
+          "terminal": false
+        },
+        {
+          "pass": 3,
+          "question": "How can developmental pressure construct useful intervention/probe candidates from learned opaque structure and already-qualified primitives without caller-supplied semantic action names?",
+          "disposition": "RESEARCH_CONTINUE",
+          "next": "How can developmental pressure construct useful intervention/probe candidates from learned opaque structure and already-qualified primitives without caller-supplied semantic action names, while keeping candidate construction separate from execution permission?",
+          "terminal": false
+        },
+        {
+          "pass": 4,
+          "question": "How can developmental pressure construct useful intervention/probe candidates from learned opaque structure and already-qualified primitives without caller-supplied semantic action names, while keeping candidate construction separate from execution permission?",
+          "disposition": "RESEARCH_CONTINUE",
+          "next": "How can developmental pressure utilize learned opaque structure and already-qualified primitives to construct useful intervention/probe candidates without caller-supplied semantic action names, and ensure that candidate construction is decoupled from execution permission?",
+          "terminal": false
+        },
+        {
+          "pass": 5,
+          "question": "How can developmental pressure utilize learned opaque structure and already-qualified primitives to construct useful intervention/probe candidates without caller-supplied semantic action names, and ensure that candidate construction is decoupled from execution permission?",
+          "disposition": "RESEARCH_CONTINUE",
+          "next": "How can Microseed construct and arbitrate a useful multi-step epistemic intervention/program from organism-owned opaque action/outcome history and currently qualified primitive capabilities without the caller naming the preferred action or program sequence?",
+          "terminal": false
+        },
+        {
+          "pass": 6,
+          "question": "How can Microseed construct and arbitrate a useful multi-step epistemic intervention/program from organism-owned opaque action/outcome history and currently qualified primitive capabilities without the caller naming the preferred action or program sequence?",
+          "disposition": "RESEARCH_CONTINUE",
+          "next": "How can Microseed ensure that the constructed interventions/programs are decoupled from execution permission while still being useful and effective?",
+          "terminal": false
+        }
+      ],
+      "research_stop": {
+        "arm": "A_TARGET",
+        "status": "QUESTION_SATURATED__REQUIRES_EXTERNAL_REFRAME",
+        "scientific_closure": false,
+        "passes_completed": 6,
+        "last_valid_next": "How can Microseed ensure that the constructed interventions/programs are decoupled from execution permission while still being useful and effective?",
+        "csc": {
+          "verdict": "REVIEW",
+          "errors": [],
+          "warnings": [],
+          "strongest_survivor": "How can developmental pressure utilize learned opaque structure and already-qualified primitives to construct useful intervention/probe candidates without caller-supplied semantic action names, and ensure that candidate construction is decoupled from execution permission?",
+          "strongest_scar": "Rich-world lifetime composition",
+          "terminal_supported": true,
+          "authority": "AUDIT_ONLY_NONE_PROMOTION",
+          "model_meta": {
+            "attempt": 1,
+            "usage": {
+              "completion_tokens": 96,
+              "prompt_tokens": 1232,
+              "total_tokens": 1328,
+              "prompt_tokens_details": {
+                "cached_tokens": 129
+              }
+            },
+            "timings": {
+              "cache_n": 129,
+              "prompt_n": 1103,
+              "prompt_ms": 3031.706,
+              "prompt_per_token_ms": 2.748600181323663,
+              "prompt_per_second": 363.8215578951257,
+              "predicted_n": 96,
+              "predicted_ms": 2862.16,
+              "predicted_per_token_ms": 29.814166666666665,
+              "predicted_per_second": 33.54110182519496
+            },
+            "model": "Qwen2.5-Coder-1.5B-Instruct-abliterated-Q4_K_L.gguf",
+            "fingerprint": "b8831-a279d0f0f",
+            "json_syntax_repaired": false
+          }
+        },
+        "promotion_authority": "NONE"
+      },
+      "legacy_arm_closeout_consistency": {
+        "reported_passes": 3,
+        "matches_total": false
+      },
+      "microseed_delta": []
+    },
+    "B_DRIFT": {
+      "branch": "research/frontier-b-drift-v1",
+      "head": "24571298b7182d9ba615abf7fae2108e821a110b",
+      "remote": "24571298b7182d9ba615abf7fae2108e821a110b\trefs/heads/research/frontier-b-drift-v1",
+      "total_admitted_passes": 4,
+      "pass_bundle_sha256": "805e3c7a67d8ea12a0352c6c1b6efcaba9a4ab904778d5e946726efb80019146",
+      "chain_ok": true,
+      "passes": [
+        {
+          "pass": 1,
+          "question": "How much subordinate developmental change can occur before higher-level learned request-effect relations must abstain, reidentify, or relearn rather than merely stale/requalify?",
+          "disposition": "UNKNOWN_INCOMPLETE",
+          "next": "How does the rate of subordinate developmental change affect the accuracy and reliability of higher-level learned request-effect relations?",
+          "terminal": false
+        },
+        {
+          "pass": 2,
+          "question": "How does the rate of subordinate developmental change affect the accuracy and reliability of higher-level learned request-effect relations?",
+          "disposition": "UNKNOWN_INCOMPLETE",
+          "next": "How does the rate of subordinate developmental change affect the accuracy and reliability of higher-level learned request-effect relations?",
+          "terminal": true
+        },
+        {
+          "pass": 3,
+          "question": "How does the rate of subordinate developmental change affect the accuracy and reliability of higher-level learned request-effect relations?",
+          "disposition": "UNKNOWN_INCOMPLETE",
+          "next": "What are the specific mechanisms by which subordinate developmental change affects the accuracy and reliability of higher-level learned request-effect relations?",
+          "terminal": false
+        },
+        {
+          "pass": 4,
+          "question": "What are the specific mechanisms by which subordinate developmental change affects the accuracy and reliability of higher-level learned request-effect relations?",
+          "disposition": "UNKNOWN_INCOMPLETE",
+          "next": "What are the specific mechanisms by which subordinate developmental change affects the accuracy and reliability of higher-level learned request-effect relations?",
+          "terminal": true
+        }
+      ],
+      "research_stop": {
+        "arm": "B_DRIFT",
+        "status": "QUESTION_SATURATED__REQUIRES_EXTERNAL_REFRAME",
+        "scientific_closure": false,
+        "passes_completed": 4,
+        "last_valid_next": "What are the specific mechanisms by which subordinate developmental change affects the accuracy and reliability of higher-level learned request-effect relations?",
+        "csc": {
+          "verdict": "REVIEW",
+          "errors": [],
+          "warnings": [],
+          "strongest_survivor": "Subordinate-request -> higher-level consequence relations can tolerate a certain amount of subordinate developmental change before reidentification or relearning is necessary.",
+          "strongest_scar": "Stale current use can affect the accuracy of higher-level learned request-effect relations.",
+          "terminal_supported": true,
+          "authority": "AUDIT_ONLY_NONE_PROMOTION",
+          "model_meta": {
+            "attempt": 1,
+            "usage": {
+              "completion_tokens": 92,
+              "prompt_tokens": 1049,
+              "total_tokens": 1141,
+              "prompt_tokens_details": {
+                "cached_tokens": 122
+              }
+            },
+            "timings": {
+              "cache_n": 122,
+              "prompt_n": 927,
+              "prompt_ms": 2409.783,
+              "prompt_per_token_ms": 2.5995501618122976,
+              "prompt_per_second": 384.68194024109226,
+              "predicted_n": 92,
+              "predicted_ms": 2863.083,
+              "predicted_per_token_ms": 31.12046739130435,
+              "predicted_per_second": 32.13319348408691
+            },
+            "model": "Qwen2.5-Coder-1.5B-Instruct-abliterated-Q4_K_L.gguf",
+            "fingerprint": "b8831-a279d0f0f",
+            "json_syntax_repaired": false
+          }
+        },
+        "promotion_authority": "NONE"
+      },
+      "legacy_arm_closeout_consistency": null,
+      "microseed_delta": []
+    },
+    "D_CFE": {
+      "branch": "research/frontier-d-cfe-v1",
+      "head": "6e77c3310233ce9449f09834b5421a2495f7e2a5",
+      "remote": "6e77c3310233ce9449f09834b5421a2495f7e2a5\trefs/heads/research/frontier-d-cfe-v1",
+      "total_admitted_passes": 3,
+      "pass_bundle_sha256": "27153ea8471dea72a4e9940e92dc56cbcc9d0ba586da0bd7e61510d0f01d6f3e",
+      "chain_ok": true,
+      "passes": [
+        {
+          "pass": 1,
+          "question": "Holding mechanisms, total experiences, actions, affordances, and outcome distribution controlled, can learner-visible relational geometry alter what Microseed develops?",
+          "disposition": "UNKNOWN_INCOMPLETE",
+          "next": "What specific mechanisms within Microseed interact with relational geometry and determine their impact?",
+          "terminal": false
+        },
+        {
+          "pass": 2,
+          "question": "What specific mechanisms within Microseed interact with relational geometry and determine their impact?",
+          "disposition": "UNKNOWN_INCOMPLETE",
+          "next": "What are the potential consequences of altering the mechanisms that control the interaction between Microseed and relational geometry?",
+          "terminal": false
+        },
+        {
+          "pass": 3,
+          "question": "What are the potential consequences of altering the mechanisms that control the interaction between Microseed and relational geometry?",
+          "disposition": "UNKNOWN_INCOMPLETE",
+          "next": "What specific mechanisms within Microseed interact with relational geometry and determine their impact?",
+          "terminal": true
+        }
+      ],
+      "research_stop": {
+        "arm": "D_CFE",
+        "status": "CSC_REVIEW_TERMINAL__REQUIRES_EXTERNAL_REFRAME",
+        "scientific_closure": false,
+        "passes_completed": 3,
+        "last_valid_next": "What specific mechanisms within Microseed interact with relational geometry and determine their impact?",
+        "csc": {
+          "verdict": "REVIEW",
+          "errors": [],
+          "warnings": [],
+          "strongest_survivor": "None",
+          "strongest_scar": "None",
+          "terminal_supported": false,
+          "authority": "AUDIT_ONLY_NONE_PROMOTION",
+          "model_meta": {
+            "attempt": 1,
+            "usage": {
+              "completion_tokens": 54,
+              "prompt_tokens": 592,
+              "total_tokens": 646,
+              "prompt_tokens_details": {
+                "cached_tokens": 130
+              }
+            },
+            "timings": {
+              "cache_n": 130,
+              "prompt_n": 462,
+              "prompt_ms": 1177.994,
+              "prompt_per_token_ms": 2.5497705627705627,
+              "prompt_per_second": 392.1921503844672,
+              "predicted_n": 54,
+              "predicted_ms": 1646.805,
+              "predicted_per_token_ms": 30.49638888888889,
+              "predicted_per_second": 32.7907675772177
+            },
+            "model": "Qwen2.5-Coder-1.5B-Instruct-abliterated-Q4_K_L.gguf",
+            "fingerprint": "b8831-a279d0f0f",
+            "json_syntax_repaired": false
+          }
+        },
+        "promotion_authority": "NONE"
+      },
+      "legacy_arm_closeout_consistency": {
+        "reported_passes": 2,
+        "matches_total": false
+      },
+      "microseed_delta": []
+    },
+    "E_IDENTITY": {
+      "branch": "research/frontier-e-identity-v1",
+      "head": "a0fcceae96a0eb7a8f70bdaedafa55a22dceb2ec",
+      "remote": "a0fcceae96a0eb7a8f70bdaedafa55a22dceb2ec\trefs/heads/research/frontier-e-identity-v1",
+      "total_admitted_passes": 7,
+      "pass_bundle_sha256": "662acec0359ee5a6f72bfa60e8e4cb34aae46f5657020622946a409fb47c47a8",
+      "chain_ok": true,
+      "passes": [
+        {
+          "pass": 1,
+          "question": "Is any experimentally necessary persistent developmental quantity required beyond reconstructible current operational state and evidence lineage?",
+          "disposition": "RESEARCH_CONTINUE",
+          "next": "What are the minimal persistent developmental quantities required for operational continuity and persistence?",
+          "terminal": false
+        },
+        {
+          "pass": 2,
+          "question": "What are the minimal persistent developmental quantities required for operational continuity and persistence?",
+          "disposition": "RESEARCH_CONTINUE",
+          "next": "How can operational proto-referent continuity survive a noisy old→overlap→new sensor-layout handoff?",
+          "terminal": false
+        },
+        {
+          "pass": 3,
+          "question": "How can operational proto-referent continuity survive a noisy old→overlap→new sensor-layout handoff?",
+          "disposition": "RESEARCH_CONTINUE",
+          "next": "What are the minimal persistent developmental quantities required for operational continuity and persistence?",
+          "terminal": false
+        },
+        {
+          "pass": 4,
+          "question": "What are the minimal persistent developmental quantities required for operational continuity and persistence?",
+          "disposition": "UNKNOWN_INCOMPLETE",
+          "next": "What evidence can lawfully strengthen operational re-association into persistence/identity claims, or toward open representational growth if numerical identity is not required for the first bounded language gate?",
+          "terminal": false
+        },
+        {
+          "pass": 5,
+          "question": "What evidence can lawfully strengthen operational re-association into persistence/identity claims, or toward open representational growth if numerical identity is not required for the first bounded language gate?",
+          "disposition": "UNKNOWN_INCOMPLETE",
+          "next": "How can we overcome the current authority ceiling for operational persistence and determine how to promote operational persistence into numerical identity or semantic reference?",
+          "terminal": false
+        },
+        {
+          "pass": 6,
+          "question": "How can we overcome the current authority ceiling for operational persistence and determine how to promote operational persistence into numerical identity or semantic reference?",
+          "disposition": "UNKNOWN_INCOMPLETE",
+          "next": "What are the specific mechanisms and policies that govern the authority ceiling for operational persistence and its interaction with numerical identity and semantic reference?",
+          "terminal": false
+        },
+        {
+          "pass": 7,
+          "question": "What are the specific mechanisms and policies that govern the authority ceiling for operational persistence and its interaction with numerical identity and semantic reference?",
+          "disposition": "UNKNOWN_INCOMPLETE",
+          "next": "What are the specific mechanisms and policies that govern the authority ceiling for operational persistence and its interaction with numerical identity and semantic reference?",
+          "terminal": true
+        }
+      ],
+      "research_stop": {
+        "arm": "E_IDENTITY",
+        "status": "CSC_REVIEW_TERMINAL__REQUIRES_EXTERNAL_REFRAME",
+        "scientific_closure": false,
+        "passes_completed": 7,
+        "last_valid_next": "What are the specific mechanisms and policies that govern the authority ceiling for operational persistence and its interaction with numerical identity and semantic reference?",
+        "csc": {
+          "verdict": "REVIEW",
+          "errors": [],
+          "warnings": [],
+          "strongest_survivor": "Boundary-coherent proto-referent partitions and overlap-bound continuity.",
+          "strongest_scar": "None identified.",
+          "terminal_supported": true,
+          "authority": "AUDIT_ONLY_NONE_PROMOTION",
+          "model_meta": {
+            "attempt": 1,
+            "usage": {
+              "completion_tokens": 66,
+              "prompt_tokens": 985,
+              "total_tokens": 1051,
+              "prompt_tokens_details": {
+                "cached_tokens": 130
+              }
+            },
+            "timings": {
+              "cache_n": 130,
+              "prompt_n": 855,
+              "prompt_ms": 2240.855,
+              "prompt_per_token_ms": 2.6208830409356727,
+              "prompt_per_second": 381.5507919968048,
+              "predicted_n": 66,
+              "predicted_ms": 1891.735,
+              "predicted_per_token_ms": 28.662651515151513,
+              "predicted_per_second": 34.88860754809738
+            },
+            "model": "Qwen2.5-Coder-1.5B-Instruct-abliterated-Q4_K_L.gguf",
+            "fingerprint": "b8831-a279d0f0f",
+            "json_syntax_repaired": false
+          }
+        },
+        "promotion_authority": "NONE"
+      },
+      "legacy_arm_closeout_consistency": null,
+      "microseed_delta": []
+    },
+    "F_VALUE": {
+      "branch": "research/frontier-f-value-v1",
+      "head": "00c346c7e6a60f3db9efe44de6aede39c66d526b",
+      "remote": "00c346c7e6a60f3db9efe44de6aede39c66d526b\trefs/heads/research/frontier-f-value-v1",
+      "total_admitted_passes": 4,
+      "pass_bundle_sha256": "cbf70e8aa659cf57e2c067f2c5a8034492ba9772b238c6daf15fee7039b7623c",
+      "chain_ok": true,
+      "passes": [
+        {
+          "pass": 1,
+          "question": "Can Microseed resolve or lawfully abstain under simultaneous local and higher-order value pressures without scalar-collapse or central planning?",
+          "disposition": "UNKNOWN_INCOMPLETE",
+          "next": "Can Microseed use existing mechanisms to handle simultaneous local and higher-order value pressures without collapsing or requiring central planning?",
+          "terminal": false
+        },
+        {
+          "pass": 2,
+          "question": "Can Microseed use existing mechanisms to handle simultaneous local and higher-order value pressures without collapsing or requiring central planning?",
+          "disposition": "RESEARCH_CONTINUE",
+          "next": "Can Microseed's current mechanisms, such as HSP, LOOP+, OARR, and PDVER, be used to handle simultaneous local and higher-order value pressures without collapsing or requiring central planning?",
+          "terminal": false
+        },
+        {
+          "pass": 3,
+          "question": "Can Microseed's current mechanisms, such as HSP, LOOP+, OARR, and PDVER, be used to handle simultaneous local and higher-order value pressures without collapsing or requiring central planning?",
+          "disposition": "UNKNOWN_INCOMPLETE",
+          "next": "How can OARR be used to identify and address any weaknesses or limitations in the current mechanisms' ability to handle simultaneous pressures?",
+          "terminal": false
+        },
+        {
+          "pass": 4,
+          "question": "How can OARR be used to identify and address any weaknesses or limitations in the current mechanisms' ability to handle simultaneous pressures?",
+          "disposition": "UNKNOWN_INCOMPLETE",
+          "next": "How can the new system be tested under conditions of simultaneous pressures to confirm its effectiveness?",
+          "terminal": false
+        }
+      ],
+      "research_stop": {
+        "arm": "F_VALUE",
+        "status": "QUESTION_SATURATED__REQUIRES_EXTERNAL_REFRAME",
+        "scientific_closure": false,
+        "passes_completed": 4,
+        "last_valid_next": "How can the new system be tested under conditions of simultaneous pressures to confirm its effectiveness?",
+        "csc": {
+          "verdict": "REVIEW",
+          "errors": [],
+          "warnings": [],
+          "strongest_survivor": "Can Microseed's current mechanisms, such as HSP, LOOP+, OARR, and PDVER, be used to handle simultaneous local and higher-order value pressures without collapsing or requiring central planning?",
+          "strongest_scar": "How can OARR be used to identify and address any weaknesses or limitations in the current mechanisms' ability to handle simultaneous pressures?",
+          "terminal_supported": true,
+          "authority": "AUDIT_ONLY_NONE_PROMOTION",
+          "model_meta": {
+            "attempt": 1,
+            "usage": {
+              "completion_tokens": 114,
+              "prompt_tokens": 815,
+              "total_tokens": 929,
+              "prompt_tokens_details": {
+                "cached_tokens": 122
+              }
+            },
+            "timings": {
+              "cache_n": 122,
+              "prompt_n": 693,
+              "prompt_ms": 1733.517,
+              "prompt_per_token_ms": 2.5014675324675326,
+              "prompt_per_second": 399.7653325580309,
+              "predicted_n": 114,
+              "predicted_ms": 3074.646,
+              "predicted_per_token_ms": 26.970578947368423,
+              "predicted_per_second": 37.0774391588495
+            },
+            "model": "Qwen2.5-Coder-1.5B-Instruct-abliterated-Q4_K_L.gguf",
+            "fingerprint": "b8831-a279d0f0f",
+            "json_syntax_repaired": false
+          }
+        },
+        "promotion_authority": "NONE"
+      },
+      "legacy_arm_closeout_consistency": null,
+      "microseed_delta": []
+    },
+    "G_NAKED": {
+      "branch": "research/frontier-g-naked-v1",
+      "head": "25e3183a2ebad051a5afe7247e48d9f6cf90938c",
+      "remote": "25e3183a2ebad051a5afe7247e48d9f6cf90938c\trefs/heads/research/frontier-g-naked-v1",
+      "total_admitted_passes": 4,
+      "pass_bundle_sha256": "0677ca2b4c91dabf09529ca9561b75788879f144a5e1660505e8c342214f1fbd",
+      "chain_ok": true,
+      "passes": [
+        {
+          "pass": 1,
+          "question": "Under current canonical law, what is the strongest remaining explanation for why a genuinely first unknown-effect action cannot or need not be endogenously authorized?",
+          "disposition": "UNKNOWN_INCOMPLETE",
+          "next": "What are the implications of the current framework for the authorization of unknown-effect actions?",
+          "terminal": false
+        },
+        {
+          "pass": 2,
+          "question": "What are the implications of the current framework for the authorization of unknown-effect actions?",
+          "disposition": "UNKNOWN_INCOMPLETE",
+          "next": "How does the current framework address the issue of unknown-effect actions being authorized by NAKED and language branches crossing-authorize one another?",
+          "terminal": false
+        },
+        {
+          "pass": 3,
+          "question": "How does the current framework address the issue of unknown-effect actions being authorized by NAKED and language branches crossing-authorize one another?",
+          "disposition": "UNKNOWN_INCOMPLETE",
+          "next": "How does the current framework address the issue of unknown-effect actions being authorized by NAKED and language branches crossing-authorize one another?",
+          "terminal": true
+        },
+        {
+          "pass": 4,
+          "question": "How does the current framework address the issue of unknown-effect actions being authorized by NAKED and language branches crossing-authorize one another?",
+          "disposition": "UNKNOWN_INCOMPLETE",
+          "next": "How does the current framework address the issue of unknown-effect actions being authorized by NAKED and language branches crossing-authorize one another?",
+          "terminal": true
+        }
+      ],
+      "research_stop": {
+        "arm": "G_NAKED",
+        "status": "QUESTION_SATURATED__REQUIRES_EXTERNAL_REFRAME",
+        "scientific_closure": false,
+        "passes_completed": 4,
+        "last_valid_next": "How does the current framework address the issue of unknown-effect actions being authorized by NAKED and language branches crossing-authorize one another?",
+        "csc": {
+          "verdict": "REVIEW",
+          "errors": [],
+          "warnings": [],
+          "strongest_survivor": "The one-shot subject is bound to capability ID + epoch + content signature + obligation + operational scope.",
+          "strongest_scar": "NAKED and language branches SHALL NOT cross-authorize one another.",
+          "terminal_supported": true,
+          "authority": "AUDIT_ONLY_NONE_PROMOTION",
+          "model_meta": {
+            "attempt": 1,
+            "usage": {
+              "completion_tokens": 84,
+              "prompt_tokens": 1167,
+              "total_tokens": 1251,
+              "prompt_tokens_details": {
+                "cached_tokens": 122
+              }
+            },
+            "timings": {
+              "cache_n": 122,
+              "prompt_n": 1045,
+              "prompt_ms": 2657.838,
+              "prompt_per_token_ms": 2.5433856459330144,
+              "prompt_per_second": 393.1767097919436,
+              "predicted_n": 84,
+              "predicted_ms": 2538.522,
+              "predicted_per_token_ms": 30.220499999999998,
+              "predicted_per_second": 33.090120944392055
+            },
+            "model": "Qwen2.5-Coder-1.5B-Instruct-abliterated-Q4_K_L.gguf",
+            "fingerprint": "b8831-a279d0f0f",
+            "json_syntax_repaired": false
+          }
+        },
+        "promotion_authority": "NONE"
+      },
+      "legacy_arm_closeout_consistency": null,
+      "microseed_delta": []
+    },
+    "H_LANGUAGE": {
+      "branch": "research/frontier-h-language-v1",
+      "head": "4a04cfb825b5fa2cbf40a74043683fef5c1d0e17",
+      "remote": "4a04cfb825b5fa2cbf40a74043683fef5c1d0e17\trefs/heads/research/frontier-h-language-v1",
+      "total_admitted_passes": 7,
+      "pass_bundle_sha256": "cd7fdd83d22c8d597cbeef8ab997c4ef3b17b8e74a298284fea3e387fd3dd209",
+      "chain_ok": true,
+      "passes": [
+        {
+          "pass": 1,
+          "question": "Which unresolved grounded-language gate distinctions remain unresolved after P1A, N1A, representation growth, and bounded hierarchy became canonical?",
+          "disposition": "UNKNOWN_INCOMPLETE",
+          "next": "Which specific grounded-language gate distinctions remain unresolved after P1A, N1A, representation growth, and bounded hierarchy became canonical?",
+          "terminal": false
+        },
+        {
+          "pass": 2,
+          "question": "Which specific grounded-language gate distinctions remain unresolved after P1A, N1A, representation growth, and bounded hierarchy became canonical?",
+          "disposition": "UNKNOWN_INCOMPLETE",
+          "next": "Which specific grounded-language gate distinctions remain unresolved after P1A, N1A, representation growth, and bounded hierarchy became canonical?",
+          "terminal": true
+        },
+        {
+          "pass": 3,
+          "question": "Which specific grounded-language gate distinctions remain unresolved after P1A, N1A, representation growth, and bounded hierarchy became canonical?",
+          "disposition": "UNKNOWN_INCOMPLETE",
+          "next": "Which specific grounded-language gate distinctions remain unresolved after P1A, N1A, representation growth, and bounded hierarchy became canonical?",
+          "terminal": true
+        },
+        {
+          "pass": 4,
+          "question": "Which specific grounded-language gate distinctions remain unresolved after P1A, N1A, representation growth, and bounded hierarchy became canonical?",
+          "disposition": "UNKNOWN_INCOMPLETE",
+          "next": "Which specific grounded-language gate distinctions remain unresolved after P1A, N1A, representation growth, and bounded hierarchy became canonical?",
+          "terminal": true
+        },
+        {
+          "pass": 5,
+          "question": "Which specific grounded-language gate distinctions remain unresolved after P1A, N1A, representation growth, and bounded hierarchy became canonical?",
+          "disposition": "UNKNOWN_INCOMPLETE",
+          "next": "Which specific grounded-language gate distinctions remain unresolved after P1A, N1A, representation growth, and bounded hierarchy became canonical?",
+          "terminal": true
+        },
+        {
+          "pass": 6,
+          "question": "Which specific grounded-language gate distinctions remain unresolved after P1A, N1A, representation growth, and bounded hierarchy became canonical?",
+          "disposition": "UNKNOWN_INCOMPLETE",
+          "next": "Which specific grounded-language gate distinctions remain unresolved after P1A, N1A, representation growth, and bounded hierarchy became canonical?",
+          "terminal": true
+        },
+        {
+          "pass": 7,
+          "question": "Which specific grounded-language gate distinctions remain unresolved after P1A, N1A, representation growth, and bounded hierarchy became canonical?",
+          "disposition": "UNKNOWN_INCOMPLETE",
+          "next": "What are the specific canonical mechanisms that interact with grounded-language gates and how do they impact representation growth and bounded hierarchy?",
+          "terminal": false
+        }
+      ],
+      "research_stop": {
+        "arm": "H_LANGUAGE",
+        "status": "QUESTION_SATURATED__REQUIRES_EXTERNAL_REFRAME",
+        "scientific_closure": false,
+        "passes_completed": 7,
+        "last_valid_next": "What are the specific canonical mechanisms that interact with grounded-language gates and how do they impact representation growth and bounded hierarchy?",
+        "csc": {
+          "verdict": "REVIEW",
+          "errors": [],
+          "warnings": [],
+          "strongest_survivor": "The interaction between canonical mechanisms and grounded-language gates",
+          "strongest_scar": "The impact of P1A, N1A, representation growth, and bounded hierarchy on grounded-language gate distinctions",
+          "terminal_supported": true,
+          "authority": "AUDIT_ONLY_NONE_PROMOTION",
+          "model_meta": {
+            "attempt": 1,
+            "usage": {
+              "completion_tokens": 83,
+              "prompt_tokens": 1132,
+              "total_tokens": 1215,
+              "prompt_tokens_details": {
+                "cached_tokens": 122
+              }
+            },
+            "timings": {
+              "cache_n": 122,
+              "prompt_n": 1010,
+              "prompt_ms": 2567.973,
+              "prompt_per_token_ms": 2.542547524752475,
+              "prompt_per_second": 393.3063159153153,
+              "predicted_n": 83,
+              "predicted_ms": 2573.786,
+              "predicted_per_token_ms": 31.009469879518072,
+              "predicted_per_second": 32.24821333242158
+            },
+            "model": "Qwen2.5-Coder-1.5B-Instruct-abliterated-Q4_K_L.gguf",
+            "fingerprint": "b8831-a279d0f0f",
+            "json_syntax_repaired": false
+          }
+        },
+        "promotion_authority": "NONE"
+      },
+      "legacy_arm_closeout_consistency": null,
+      "microseed_delta": []
+    },
+    "I_GROWTH": {
+      "branch": "research/frontier-i-growth-v1",
+      "head": "a0a745825103e0909e67e7afcde4efc25528379a",
+      "remote": "a0a745825103e0909e67e7afcde4efc25528379a\trefs/heads/research/frontier-i-growth-v1",
+      "total_admitted_passes": 2,
+      "pass_bundle_sha256": "5e2c293f77af8a4eea3f0af60bd22914983832d4cf8fe29de90ff78fec8323a8",
+      "chain_ok": true,
+      "passes": [
+        {
+          "pass": 1,
+          "question": "Can a whole learned from experience become a later qualified operational unit whose reuse creates genuinely new reachable behavior rather than merely compressing old behavior?",
+          "disposition": "UNKNOWN_INCOMPLETE",
+          "next": "Can a learned operational unit's reuse across different sensor-layout handoffs create genuinely new reachable behavior?",
+          "terminal": false
+        },
+        {
+          "pass": 2,
+          "question": "Can a learned operational unit's reuse across different sensor-layout handoffs create genuinely new reachable behavior?",
+          "disposition": "UNKNOWN_INCOMPLETE",
+          "next": "Can a learned operational unit's reuse across different sensor-layout handoffs create genuinely new reachable behavior?",
+          "terminal": true
+        }
+      ],
+      "research_stop": {
+        "arm": "I_GROWTH",
+        "status": "QUESTION_SATURATED__REQUIRES_EXTERNAL_REFRAME",
+        "scientific_closure": false,
+        "passes_completed": 2,
+        "last_valid_next": "Can a learned operational unit's reuse across different sensor-layout handoffs create genuinely new reachable behavior?",
+        "csc": {
+          "verdict": "REVIEW",
+          "errors": [],
+          "warnings": [],
+          "strongest_survivor": "Currentness and operational continuity mechanisms",
+          "strongest_scar": "Stale learned operational associations that do not create new reachable behavior",
+          "terminal_supported": true,
+          "authority": "AUDIT_ONLY_NONE_PROMOTION",
+          "model_meta": {
+            "attempt": 1,
+            "usage": {
+              "completion_tokens": 70,
+              "prompt_tokens": 522,
+              "total_tokens": 592,
+              "prompt_tokens_details": {
+                "cached_tokens": 122
+              }
+            },
+            "timings": {
+              "cache_n": 122,
+              "prompt_n": 400,
+              "prompt_ms": 1006.624,
+              "prompt_per_token_ms": 2.51656,
+              "prompt_per_second": 397.3678354579267,
+              "predicted_n": 70,
+              "predicted_ms": 1949.538,
+              "predicted_per_token_ms": 27.85054285714286,
+              "predicted_per_second": 35.905942843894294
+            },
+            "model": "Qwen2.5-Coder-1.5B-Instruct-abliterated-Q4_K_L.gguf",
+            "fingerprint": "b8831-a279d0f0f",
+            "json_syntax_repaired": false
+          }
+        },
+        "promotion_authority": "NONE"
+      },
+      "legacy_arm_closeout_consistency": null,
+      "microseed_delta": []
+    },
+    "K_RED_TEAM": {
+      "branch": "research/frontier-k-red-team-v1",
+      "head": "cd40095858b1c8cc5024189f0518b26708973f4c",
+      "remote": "cd40095858b1c8cc5024189f0518b26708973f4c\trefs/heads/research/frontier-k-red-team-v1",
+      "total_admitted_passes": 1,
+      "pass_bundle_sha256": "fc37d08f12b3a9aee90e187498fad9bab6f3ea4d5f198c46ab89b37d27c04d7d",
+      "chain_ok": true,
+      "passes": [
+        {
+          "pass": 1,
+          "question": "For the strongest current survivor, what older owner, supplied assistance, evaluator/semantic leak, search artifact, currentness defect, authority laundering, or publication defect could produce the same apparent result?",
+          "disposition": "UNKNOWN_INCOMPLETE",
+          "next": "What specific older owner, assistance, or defect could produce the same apparent result as the strongest current survivor?",
+          "terminal": false
+        }
+      ],
+      "research_stop": {
+        "arm": "K_RED_TEAM",
+        "status": "QUESTION_SATURATED__REQUIRES_EXTERNAL_REFRAME",
+        "scientific_closure": false,
+        "passes_completed": 1,
+        "last_valid_next": "What specific older owner, assistance, or defect could produce the same apparent result as the strongest current survivor?",
+        "csc": {
+          "verdict": "REVIEW",
+          "errors": [],
+          "warnings": [],
+          "strongest_survivor": "The strongest current survivor",
+          "strongest_scar": "Defects or limitations in the current system",
+          "terminal_supported": false,
+          "authority": "AUDIT_ONLY_NONE_PROMOTION",
+          "model_meta": {
+            "attempt": 1,
+            "usage": {
+              "completion_tokens": 65,
+              "prompt_tokens": 327,
+              "total_tokens": 392,
+              "prompt_tokens_details": {
+                "cached_tokens": 122
+              }
+            },
+            "timings": {
+              "cache_n": 122,
+              "prompt_n": 205,
+              "prompt_ms": 529.507,
+              "prompt_per_token_ms": 2.582960975609756,
+              "prompt_per_second": 387.1525777751758,
+              "predicted_n": 65,
+              "predicted_ms": 1659.798,
+              "predicted_per_token_ms": 25.535353846153846,
+              "predicted_per_second": 39.161391928415384
+            },
+            "model": "Qwen2.5-Coder-1.5B-Instruct-abliterated-Q4_K_L.gguf",
+            "fingerprint": "b8831-a279d0f0f",
+            "json_syntax_repaired": false
+          }
+        },
+        "promotion_authority": "NONE"
+      },
+      "legacy_arm_closeout_consistency": null,
+      "microseed_delta": []
+    }
+  },
+  "laws": [
+    "RESEARCH_STOP != SCIENTIFIC_CLOSURE",
+    "STALE_SUMMARY != AUTHORITATIVE_LINEAGE",
+    "PASS_BUNDLE_HASH_BINDS_ADMITTED_PASS_SET"
+  ]
+}

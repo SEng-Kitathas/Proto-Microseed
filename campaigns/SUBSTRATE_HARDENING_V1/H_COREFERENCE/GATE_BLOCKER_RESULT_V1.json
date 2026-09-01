@@ -1,0 +1,36 @@
+{
+  "campaign": "SUBSTRATE_HARDENING_V1",
+  "arm": "H_COREFERENCE",
+  "status": "VERIFIED_GATE_BLOCKER__RESEARCH_CANDIDATE_CURRENTNESS_INCOMPLETE__NO_PRODUCTION_DEFECT",
+  "parent": "b453df211e45fb1382d51c6a478a3ce1c0f32998",
+  "canonical_microseed_tree": "9d63915e9e0396f39d255df474d8c2849a153e3f",
+  "production_delta": [],
+  "finding": "The current MS2046/H grounded token->operational-referent binding candidate has only structural capability/coordination descriptor currentness. After an external convention reversal with unchanged descriptors, fresh grounded evidence yields a different referent signature while binding_status(old_candidate) still reports CURRENT.",
+  "important_scope": "This does not expose a canonical production bug because the binding is still research-candidate/scratch machinery and language authority remains NONE. It blocks promotion/extension into durable co-reference until empirical grounded-reference currentness is explicitly earned.",
+  "hostile_results": {
+    "combined": "11/11 PASS",
+    "test": "tests\\embodiment\\test_hardening_h_binding_empirical_currentness_boundary.py",
+    "sha256": "71b692bdaa6883b978b002582e84018ec524c4aa0503c838919719bbf0ce2647"
+  },
+  "controls": [
+    "mixed pre/post reversal train-vs-holdout evidence returns DEFER_UNKNOWN / HOLDOUT_REFERENT_BINDING_DISAGREES",
+    "semantic_reference_authority NONE",
+    "token_meaning_authority NONE",
+    "truth_authority NONE",
+    "execution_authority NONE",
+    "language_authority NONE",
+    "no microseed production delta"
+  ],
+  "law": "STRUCTURAL_TOKEN_BINDING_CURRENTNESS != EMPIRICAL_GROUNDED_REFERENCE_CURRENTNESS",
+  "gate": "H_COREFERENCE_REMAINS_BLOCKED_UNTIL_POST_BINDING_GROUNDED_EMPIRICAL_CURRENTNESS_IS_EARNED",
+  "next": "Before co-reference, test whether existing action/outcome/referent evidence can compose a post-binding empirical currentness witness without adding a language/reference manager.",
+  "promotion_authority": "NONE",
+  "pdver": "PROBE -> DERIVE -> VERIFY -> EMBODY -> RECURSE",
+  "timestamp_epoch": 1788277032.6506634,
+  "csc_verdict": "BLOCK",
+  "csc_finding_supported": true,
+  "csc_scope_correct": true,
+  "co_reference_should_remain_blocked": true,
+  "csc_production_defect_field": "REJECTED_CATEGORY_ERROR__DEFICIENT_HELPER_IS_RESEARCH_SCRATCH_NOT_CANONICAL_PRODUCTION",
+  "r1_adjudication": "PRESERVE_BLOCK_AND_GATE_FINDING__DO_NOT_LABEL_CANONICAL_PRODUCTION_DEFECT"
+}

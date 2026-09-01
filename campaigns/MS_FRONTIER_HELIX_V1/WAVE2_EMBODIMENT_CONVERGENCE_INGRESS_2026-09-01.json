@@ -1,0 +1,84 @@
+{
+  "campaign": "MS_FRONTIER_HELIX_V1",
+  "milestone": "WAVE2_EMBODIMENT_CONVERGENCE_INGRESS",
+  "created_epoch": 1788270492.343197,
+  "canonical_parent": "ed2cde491962105b0d853b7fd82d8e8b3d81bd8a",
+  "canonical_microseed_tree": "9d63915e9e0396f39d255df474d8c2849a153e3f",
+  "promotion_authority": "NONE",
+  "branch_heads": {
+    "A_TARGET": "387794702a26e1c8e7e84113e882154c2d961655",
+    "B_DRIFT": "c9c6f0470a0bbc706c4f325a2bcdae4404f7c5d5",
+    "C_SCALE": "e6a313fc01f1f73d6f2065027829b271fa0413d0",
+    "D_CFE": "0b59687d72868c57d3cd664a1236aeceabad54a8",
+    "E_IDENTITY": "edc0f27af94f39450ffea171c7b448997401d652",
+    "F_VALUE": "45e0e45f915990318824f0dd588728ce56fc27e0",
+    "G_NAKED": "e41287c0759a76c051b50fdce99f30b57eca560e",
+    "H_LANGUAGE": "b453df211e45fb1382d51c6a478a3ce1c0f32998",
+    "I_GROWTH": "56ed04a8c8e4a7f2f2b072dd0d1e12c434805689",
+    "K_RED_TEAM": "294da612f3407639a28284db7e44c4926a823e0a"
+  },
+  "arms": {
+    "A_TARGET": {
+      "disposition": "VERIFIED_CSC_PASS",
+      "closed_claim": "bound opaque target atoms compose into caller-free nonexecuting multi-step programs",
+      "next": "new target vocabulary/representation beyond current qualified projection buckets"
+    },
+    "B_DRIFT": {
+      "disposition": "VERIFIED_CSC_PASS",
+      "closed_claim": "persistent subordinate identity not required for hidden unchanged-premise phenotype change in bounded hierarchy",
+      "next": "broader partial/observable replacement and nested currentness"
+    },
+    "C_SCALE": {
+      "disposition": "VERIFIED_CSC_PASS",
+      "closed_claim": "one bounded three-level execution composition from two existing two-level controllers",
+      "next": "three-level end-to-end learning + cross-level currentness after middle drift"
+    },
+    "D_CFE": {
+      "disposition": "VERIFIED_ENVIRONMENTAL_EFFECT_CSC_REVIEW_OPEN",
+      "closed_claim": "external relational co-visibility terrain changes projection discoverability under matched experience/search",
+      "next": "owned terrain provenance/currentness; no internal CFE mechanism authorized"
+    },
+    "E_IDENTITY": {
+      "disposition": "VERIFIED_CSC_PASS",
+      "closed_claim": "persistent entity vs perfect-copy replacement operationally indistinguishable in tested referent lifetime",
+      "next": "global matched-current-state/different-history perturbation"
+    },
+    "F_VALUE": {
+      "disposition": "VERIFIED_CSC_PASS",
+      "closed_claim": "full-frame cross-value path is strict Pareto, rescaling invariant, no hidden weighted-sum arbiter in tested path",
+      "next": "incomparable conflicts remain abstention absent independent constitutional premise"
+    },
+    "G_NAKED": {
+      "disposition": "VERIFIED_CSC_PASS",
+      "closed_claim": "epistemic need/language cue is not execution authority",
+      "next": "future independent normative exploration premise only if separately earned"
+    },
+    "H_LANGUAGE": {
+      "disposition": "VERIFIED_CSC_PASS",
+      "closed_claim": "arbitrary opaque signal handle can ground operational referent index under independent surface permutation with all language/truth/execution authority NONE",
+      "next": "bounded context-sensitive co-reference/coordination"
+    },
+    "I_GROWTH": {
+      "disposition": "VERIFIED_NEGATIVE_GAP_LOCALIZED_CSC_REVIEW_OPEN",
+      "closed_claim": "current whole not atomic fixed-budget unit; stripping dependencies fakes atomicity by currentness laundering",
+      "next": "whether an authority-safe operational equivalence/atom owner is necessary; mechanism not authorized"
+    },
+    "K_RED_TEAM": {
+      "disposition": "VERIFIED_CSC_PASS",
+      "closed_claim": "A/B/G/I exact tests replay on untouched canonical Microseed; arm-specific production-code explanation demoted",
+      "next": "replay C/D/E/F/H/I-v2 and attack converged survivor set"
+    }
+  },
+  "j_gate": {
+    "status": "OPEN",
+    "basis": "sufficient verified cross-arm survivor set now exists; J may synthesize collisions and execute independent cross-arm replay, but may not select/promote architecture"
+  },
+  "model_surface": {
+    "primary_port": 18191,
+    "reviewer_port": 18192,
+    "primary_job": "job-7f0dcbe757dc",
+    "reviewer_job": "job-489435c7630f",
+    "shared_forge_files_allowed": true,
+    "live_process_collision_forbidden": true
+  }
+}

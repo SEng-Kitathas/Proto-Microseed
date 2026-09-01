@@ -1,0 +1,15 @@
+{
+  "default": "NONE unless lawfully inherited",
+  "dimensions": [
+    "truth",
+    "semantic",
+    "execution",
+    "qualification",
+    "safety",
+    "goal",
+    "topology",
+    "local_means",
+    "promotion"
+  ],
+  "entries": []
+}

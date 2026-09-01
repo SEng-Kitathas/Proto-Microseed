@@ -1,0 +1,38 @@
+{
+  "arm": "SH6_NOVEL_VOCABULARY",
+  "authority_gain": "NONE",
+  "breadth_tests": {
+    "cleanup_neutral_harness": "25/25 PASS in 410.18s; PYTEST_RC=0",
+    "harness_caveat": "TemporaryDirectory.cleanup made non-throwing only for Windows cleanup noise; test bodies/assertions unchanged",
+    "raw_run": "20/25 assertion-path pass; 5 inherited MS2061 failures were Windows TemporaryDirectory cleanup / open biography.sqlite3 teardown scar, not visible assertion failure"
+  },
+  "campaign": "MS_SUBSTRATE_HARDENING_V1",
+  "canonical_microseed_tree": "9d63915e9e0396f39d255df474d8c2849a153e3f",
+  "claim": "Existing representation-growth machinery can derive a novel opaque bucket vocabulary candidate without caller-supplied partition identity; externally qualified novel projection buckets can specialize a request channel into fixed opaque request atoms, but those atoms must stale when their derived projection or its source projection ancestry drifts.",
+  "claim_ceiling": "Bounded opaque operational vocabulary only. No semantic desired-state authority, language authority, truth authority, local-means authority, autonomous goal authority, generic symbol authority, or canonical production promotion.",
+  "compileall": "PASS for microseed/runtime/entity.py and SH6 focused test files",
+  "current_branch": "research/hardening-sh6-bounded-disposition-v1",
+  "embodied_repair": "Microseed.change_epistemic_projection now records transitive dependent projection ids before changing the source projection and stales capabilities/contrasts/deficits bound to those dependent projection epochs.",
+  "focused_tests": {
+    "tests/embodiment/test_hardening_sh6_endogenous_opaque_vocabulary_growth.py": "3/3 PASS in 206.11s",
+    "tests/embodiment/test_hardening_sh6_projection_bound_request_currentness_cascade.py": "1/1 PASS in 4.20s"
+  },
+  "hostiles": [
+    "candidate derivation from owned projection-bucket samples without caller-supplied answer partition",
+    "request specialization does not call the base handler or create intents/executions",
+    "bound request target cannot be overridden at runtime",
+    "source projection drift cascades through derived projection to stale bound request specializations",
+    "recursive depth-3/depth-4 opaque representation growth remains bounded and presemantic"
+  ],
+  "observed_wip_failures": [
+    "WIP test expected obsolete boundary keys bound_request_target_token/bound_request_projection_id; live owner uses target_token/target_projection_id identity keys.",
+    "WIP test expected a generic NO_SEMANTIC invariant; live owner carries REQUEST_CHANNEL_EFFECT_NE_SEMANTIC_DESIRED_STATE_AUTHORITY in invariants and NO_SEMANTIC_DESIRED_STATE_AUTHORITY in assistance_ancestry.",
+    "Real currentness seam: source projection P-MS1986-A drift staled derived projection P-SH6-NOVEL but bound request specializations remained current before repair."
+  ],
+  "pdver": "PROBE -> DERIVE -> EMBODY -> VERIFY -> RECURSE",
+  "production_delta": "RESEARCH_BRANCH_ONLY__NOT_CANONICAL",
+  "promotion_authority": "NONE",
+  "release_gate_effect": "SH6_HAS_BOUNDED_DISPOSITION_CANDIDATE_PENDING_BREADTH_AND_FINISH_RECONCILIATION",
+  "source_base": "03adc395",
+  "status": "BOUNDED_DISPOSITION_CANDIDATE__ENDOGENOUS_OPAQUE_VOCABULARY_GROWTH_WITH_PROJECTION_BOUND_REQUEST_CURRENTNESS_REPAIR__NO_PRODUCTION_DELTA"
+}

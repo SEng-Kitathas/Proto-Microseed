@@ -1,0 +1,23 @@
+{
+  "arm": "F_VALUE",
+  "seed_question": "Can Microseed resolve or lawfully abstain under simultaneous local and higher-order value pressures without scalar-collapse or central planning?",
+  "canonical_parent": "ed2cde491962105b0d853b7fd82d8e8b3d81bd8a",
+  "canonical_tag": "prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1",
+  "promotion_authority": "NONE",
+  "status": "PLANNED",
+  "dependencies": [],
+  "loop_plus_neighbors": [
+    "hierarchy",
+    "NAKED",
+    "CFE",
+    "identity"
+  ],
+  "pass_n_plus_1": "MUST_BE_EARNED_FROM_PASS_N",
+  "pdver": [
+    "PROBE",
+    "DERIVE",
+    "VERIFY",
+    "EMBODY",
+    "RECURSE"
+  ]
+}

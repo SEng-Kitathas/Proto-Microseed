@@ -1,0 +1,13 @@
+```json
+{
+  "verdict": "REVIEW",
+  "errors": [],
+  "warnings": [],
+  "claim_supported": true,
+  "claim_ceiling_ok": true,
+  "constitutional_invariant_survives": true,
+  "strongest_survivor": "N1A",
+  "strongest_risk": "Positive frontier capabilities remain scaffold-dependent in specific, now-explicit ways; hardening must reduce assistance gradually rather than relabel current fixtures unscaffolded.",
+  "next_hostile": "N1A"
+}
+```

@@ -1,0 +1,28 @@
+{
+  "arm": "H_COREFERENCE_EMPIRICAL_CURRENTNESS_COMPOSED",
+  "authority_gain": "NONE",
+  "campaign": "SUBSTRATE_HARDENING_V1",
+  "canonical_microseed_tree": "9d63915e9e0396f39d255df474d8c2849a153e3f",
+  "claim": "Bounded operational co-reference can remain query-local and registry-free only when both token->referent binding candidates are empirically current under fresh disjoint grounded-use evidence; structural descriptor currentness alone is insufficient.",
+  "claim_ceiling": "No semantic reference, token meaning, numerical identity, truth, language, or execution authority is granted.",
+  "durable_coreference_registry_warranted": false,
+  "hostile_results": {
+    "adjacent_language_reference_stack": "25/25 PASS",
+    "compileall": "PASS",
+    "focused_empirical_coreference": "14/14 PASS"
+  },
+  "hostiles": [
+    "two empirically current distinct token bindings with one referent signature co-refer operationally",
+    "external convention reversal blocks an old structurally-current binding from co-reference",
+    "empirically current different referent signatures remain an operational distinction",
+    "original qualifying evidence cannot be reused as post-binding empirical currentness"
+  ],
+  "implemented_surface": "scratch.ms2046_grounded_operational_token_referent_binding_quarry.bounded_operational_coreference_status",
+  "parents": [
+    "bde7d61bb4d17ac9eac61fdc507f820a2ac0daed",
+    "d2a68f4294e765fc7a56d0a9e1699a921d86bd4b"
+  ],
+  "production_delta": [],
+  "promotion_authority": "NONE",
+  "status": "BOUNDED_QUERY_LOCAL_COREFERENCE_REPAIRED_WITH_EMPIRICAL_CURRENTNESS__NO_DURABLE_REGISTRY__NO_PRODUCTION_DELTA"
+}

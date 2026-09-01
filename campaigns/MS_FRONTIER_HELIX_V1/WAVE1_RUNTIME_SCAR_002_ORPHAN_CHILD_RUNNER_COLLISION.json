@@ -1,0 +1,18 @@
+{
+  "status": "EXECUTION_PROCESS_TREE_SCAR__NO_SCIENTIFIC_EFFECT",
+  "old_scheduler_job": "job-9aa5b7e270bc",
+  "finding": "terminating scheduler controller PID 28848 did not terminate child arm runner PID 37156; later hardened controller PID 33892 and child 28076 collided with orphan output in A_TARGET worktree",
+  "invalid_artifacts": [
+    "A_TARGET P02/P03 written during process collision; removed before restart"
+  ],
+  "authority_effect": "NONE",
+  "organism_delta": [],
+  "law": "CONTROLLER_TERMINATED != CHILD_RUNNER_TERMINATED",
+  "repair": [
+    "kill both process trees explicitly",
+    "verify no controller/runner processes remain",
+    "reset/clean all arm worktrees to hardened control head",
+    "add committed controller that records child PID",
+    "add resumable pass-chain validation before pilot/relaunch"
+  ]
+}

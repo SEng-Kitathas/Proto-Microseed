@@ -1,0 +1,86 @@
+{
+  "audit": "PROMOTION_ADMISSION_AUDIT_V2",
+  "audit_decision": "ADMISSIBLE_TO_CONTROLLED_PROMOTION_REVIEW",
+  "audit_v1_head": "6d1a57de8a74aca16f05208b32d8e39be7a45542",
+  "authority_ceiling": [
+    "ADMISSION_AUDIT_PASS != CANONICAL_PROMOTION",
+    "RELEASE_GATE_CONDITION_MET != SUBSTRATE_FREEZE_DECLARED",
+    "BLOB_DIGEST_REPAIR != PRIOR_RECEIPT_IDENTITY_RETROACTIVELY_CORRECT",
+    "NARROW_PRODUCTION_DELTA != AUTOMATIC_AUTHORITY_GRANT"
+  ],
+  "campaign": "MS_SUBSTRATE_HARDENING_V1",
+  "canonical_baseline": {
+    "commit": "ed2cde491962105b0d853b7fd82d8e8b3d81bd8a",
+    "microseed_tree": "9d63915e9e0396f39d255df474d8c2849a153e3f",
+    "name": "PRELINGUAL_SUBSTRATE_V1_P1A_N1A_BOUNDED_HIERARCHY_V1"
+  },
+  "ceilings": [
+    "No semantic projection authority.",
+    "No raw projection discovery authority.",
+    "No truth authority.",
+    "No execution authority.",
+    "No language/reference authority.",
+    "No durable vocabulary registry authority.",
+    "No arbitrary desired-state authority.",
+    "No selfhood/numerical identity/exclusive successor authority.",
+    "No canonical promotion or substrate-freeze declaration."
+  ],
+  "digest_regression": {
+    "class": "WORKTREE_CRLF_HASH_USED_WHERE_CROSS_PLATFORM_GIT_BLOB_HASH_REQUIRED",
+    "normalization_rule": "Evidence receipt artifact digests must be SHA-256 over committed Git blob bytes read as REF:path, not local working-tree checkout bytes.",
+    "scar": "FIX_APPLIED_AT_SITE != FIX_APPLIED_TO_PATTERN",
+    "tooling_repair": "tools/receipt_blob_digest.py computes SHA-256 from git show REF:path blob bytes.",
+    "v1_corrected_digests": {
+      "campaigns/MS_SUBSTRATE_HARDENING_V1/PROMOTION_ADMISSION_AUDIT_V1_2026-09-01.json": {
+        "bytes": 3989,
+        "digest_algorithm": "sha256",
+        "normalization_form": "git_committed_blob_bytes_lf_from_REF_path",
+        "previous_claim_matches_crlf_checkout_bytes": true,
+        "previous_claimed_crlf_worktree_sha256": "897d3066f5af36a22f25cb7b22cb3a959fa8caf6f8b1cef19d8c7fccbf49be19",
+        "ref": "6d1a57de8a74aca16f05208b32d8e39be7a45542",
+        "sha256": "69e29755daf232119e7083215f0d19871444085f5a8a555a86cd688c730fca53"
+      },
+      "campaigns/MS_SUBSTRATE_HARDENING_V1/PROMOTION_ADMISSION_AUDIT_V1_2026-09-01.md": {
+        "bytes": 2815,
+        "digest_algorithm": "sha256",
+        "normalization_form": "git_committed_blob_bytes_lf_from_REF_path",
+        "previous_claim_matches_crlf_checkout_bytes": true,
+        "previous_claimed_crlf_worktree_sha256": "68a73437036f3ed67ed3d5af0831ad610edb58c40321119b31518fbf6a192a59",
+        "ref": "6d1a57de8a74aca16f05208b32d8e39be7a45542",
+        "sha256": "e362727ecf59d071ba6081ae365b0b4e7f3328ebe773b4cc57090a0774ed4684"
+      }
+    },
+    "verified": true
+  },
+  "earned_properties": [
+    "Dependent derived projections are discovered before the source projection epoch advances, preserving the old epoch/signature needed to match dependency descriptors.",
+    "The collection is transitive over current dependent projections and does not mark the changed source as its own dependent.",
+    "Capabilities bound to the changed source projection still stale through the existing direct projection-capability owner.",
+    "Capabilities bound to dependent derived projections now stale when source projection ancestry drifts.",
+    "Contrast bindings tied to dependent projection epochs now invalidate alongside direct projection bindings.",
+    "Epistemic deficits whose projection premises point at dependent projections now stale with dependency-qualified reasons.",
+    "The projection-change event packet reports stale_projection_ids as an explicit readback surface.",
+    "The repair composes with existing projection dependency fields; it does not add a new representation/vocabulary/currentness manager."
+  ],
+  "finish_head": "1c42da8e53df54a11615a88150a667f9673dff67",
+  "finish_microseed_tree": "88f5a058cc5a4e92b1006c36d31b95cf727d197f",
+  "production_delta_semantics": {
+    "changed_production_files": [
+      "microseed/runtime/entity.py"
+    ],
+    "mechanism": "transitive dependent projection collection over current EpistemicProjectionRecord dependency_projection_epochs or source_projection_epochs, followed by dependent stale propagation and packet readback via stale_projection_ids",
+    "not_a_mechanism": "not a semantic projection manager, not a planner, not a truth/evidence shortcut, not language admission, not a global currentness authority",
+    "owner": "Microseed.change_epistemic_projection",
+    "semantic_claim": "When a source epistemic projection changes, Microseed now records currently dependent derived projections before advancing the source epoch, then stales capability specializations, contrast bindings, and epistemic deficits bound to those dependent projection epochs. This prevents projection-derived request atoms from remaining current after their source projection ancestry drifts.",
+    "shortstat": "1 file changed, 24 insertions(+), 3 deletions(-)"
+  },
+  "promotion_decision": "NOT_PERFORMED",
+  "status": "ADMISSION_AUDIT_PASS__CONTROLLED_PROMOTION_REVIEW_ADMISSIBLE__DIGEST_SCHEMA_REPAIRED__CANONICAL_PROMOTION_NOT_PERFORMED",
+  "verification_inherited_from_v1": {
+    "canon_identity_guard": "failed as expected due to Microseed subtree delta",
+    "fresh_remote_compileall": "PASS",
+    "fresh_remote_functional_whole_suite": "1003 passed, 1 deselected in 1158.78s; PYTEST_RC=0",
+    "fresh_remote_public_verifier": "PASS",
+    "fresh_remote_release_gate_harness": "73/73 PASS in 459.94s; PYTEST_RC=0"
+  }
+}

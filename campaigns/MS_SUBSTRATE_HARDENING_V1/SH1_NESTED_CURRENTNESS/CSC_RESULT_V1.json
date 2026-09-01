@@ -1,0 +1,14 @@
+{
+  "verdict": "PASS",
+  "errors": [],
+  "warnings": [],
+  "claim_supported": true,
+  "claim_ceiling_ok": true,
+  "constitutional_invariant_survives": true,
+  "strongest_survivor": "ACTUAL_OUTCOME_SOVEREIGNTY",
+  "strongest_risk": "LOCAL_CURRENTNESS_OWNERSHIP",
+  "next_hostile": "BUCKET0_USES_SCOPED_OLD_RELATION__HARDENING_CURRENTNESS_MEASUREMENT_MOVED_TO_BUCKET1_GLOBAL_CURRENT_RELATION",
+  "authority": "AUDIT_ONLY_NONE_PROMOTION",
+  "model": "Qwen2.5-Coder-1.5B-Instruct-abliterated-Q4_K_L.gguf",
+  "review_port": 18192
+}

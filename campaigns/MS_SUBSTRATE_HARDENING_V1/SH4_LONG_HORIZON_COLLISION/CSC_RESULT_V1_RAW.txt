@@ -1,0 +1,13 @@
+```json
+{
+  "verdict": "PASS",
+  "errors": [],
+  "warnings": [],
+  "claim_supported": true,
+  "claim_ceiling_ok": true,
+  "constitutional_invariant_survives": true,
+  "strongest_survivor": "AUTHORITY_DOES_NOT_ACCUMULATE_BY_HISTORY",
+  "strongest_risk": "RUNTIME_REREGISTRATION != AUTHORITY_GAIN",
+  "next_hostile": "REPEATING_THE_IDENTICAL_ROUTED_REHEARSAL_ACROSS_RESTART_HITS_DURABLE_DETERMINISTIC_PROPOSAL_IDENTITY__HARDENING_USED_THE_OTHER_LEARNED_CLASS_RATHER_THAN_ERASING_HISTORY"
+}
+```

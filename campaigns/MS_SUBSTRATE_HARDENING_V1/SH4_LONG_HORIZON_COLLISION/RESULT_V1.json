@@ -1,0 +1,44 @@
+{
+  "front": "SH4_LONG_HORIZON_COLLISION",
+  "status": "VERIFIED_HARDENING_RESULT",
+  "claim": "LEARNED_HIERARCHY_GROUNDED_OPERATIONAL_TOKEN_BINDING_N1A_VALUE_CURRENTNESS_AND_RESTART_CAN_SHARE_ONE_DURABLE_MICROSEED_WITHOUT_AUTHORITY_ACCUMULATION_OR_CROSS_SURFACE_CURRENTNESS_LEAKAGE_IN_THE_TESTED_LONGITUDINAL_PATH",
+  "claim_ceiling": "One durable mixed-owner longitudinal fixture, not a general lifelong-development proof. It establishes coexistence, restart behavior and selective drift isolation for the tested hierarchy/language/N1A/value surfaces.",
+  "pdver": "PROBE -> DERIVE -> VERIFY -> EMBODY -> RECURSE",
+  "focused": {
+    "passed": 1,
+    "failed": 0,
+    "duration_seconds": 4.31
+  },
+  "guard": {
+    "passed": 25,
+    "failed": 0,
+    "duration_seconds": 57.28,
+    "includes_exact_frontiers": [
+      "C_SCALE",
+      "H_LANGUAGE",
+      "G_NAKED"
+    ]
+  },
+  "observed": [
+    "A fully trained hierarchy accepted an independently scoped N1A capability while all hierarchy capabilities were rejected from N1A eligibility by obligation/scope mismatch.",
+    "Grounded token binding was added to the same Microseed and retained semantic/truth/language/execution authority NONE.",
+    "N1A executed EXP-X once, actual outcome was recorded, and the same capability epoch could not regain first-exposure authority.",
+    "Hierarchy routing remained current and executable after language grounding and N1A history accumulated.",
+    "After restart, learned hierarchy lineage persisted but runtime contracts were absent and routing was stale until explicit runtime re-registration.",
+    "Exact runtime descriptor re-registration restored hierarchy routing and grounded token currentness without changing authority ceilings.",
+    "N1A consumption remained durable across restart and did not execute again.",
+    "Invalidating only SIG-X staled only the grounded token binding; hierarchy routing remained current and N1A history remained consumed."
+  ],
+  "hostile_scar": "REPEATING_THE_IDENTICAL_ROUTED_REHEARSAL_ACROSS_RESTART_HITS_DURABLE_DETERMINISTIC_PROPOSAL_IDENTITY__HARDENING_USED_THE_OTHER_LEARNED_CLASS_RATHER_THAN_ERASING_HISTORY",
+  "survivors": [
+    "AUTHORITY_DOES_NOT_ACCUMULATE_BY_HISTORY",
+    "RUNTIME_REREGISTRATION != AUTHORITY_GAIN",
+    "N1A_CONSUMPTION_PERSISTS_ACROSS_RESTART",
+    "LANGUAGE_CURRENTNESS_DRIFT_DOES_NOT_STALE_UNRELATED_HIERARCHY",
+    "LEARNED_HIERARCHY_LINEAGE_PERSISTS_WHILE_EXECUTABLE_CONTRACTS_REQUIRE_CURRENT_REREGISTRATION"
+  ],
+  "production_delta": [],
+  "promotion_authority": "NONE",
+  "test_sha256": "be56d9586d95ef109b596788e76c8d6ade78c6d99c27c4ea150a8fe307e8a575",
+  "timestamp_epoch": 1788275171.7582583
+}

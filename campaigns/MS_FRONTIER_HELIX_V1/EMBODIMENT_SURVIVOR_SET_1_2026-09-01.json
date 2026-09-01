@@ -1,0 +1,74 @@
+{
+  "campaign": "MS_FRONTIER_HELIX_V1",
+  "milestone": "EMBODIMENT_SURVIVOR_SET_1",
+  "created_epoch": 1788267031.878454,
+  "canonical_parent": "ed2cde491962105b0d853b7fd82d8e8b3d81bd8a",
+  "canonical_microseed_tree": "9d63915e9e0396f39d255df474d8c2849a153e3f",
+  "promotion_authority": "NONE",
+  "verified_survivors": {
+    "A_TARGET": {
+      "head": "387794702a26e1c8e7e84113e882154c2d961655",
+      "status": "VERIFIED_RESEARCH_RESULT__CSC_PASS",
+      "claim": "bound opaque request specializations compose into caller-free nonexecuting multi-step programs",
+      "remaining": "new target vocabulary/representation construction beyond current qualified projection buckets"
+    },
+    "B_DRIFT": {
+      "head": "c9c6f0470a0bbc706c4f325a2bcdae4404f7c5d5",
+      "status": "VERIFIED_RESEARCH_RESULT__CSC_PASS",
+      "claim": "bounded parent relation currentness does not require persistent subordinate identity when owned premises unchanged",
+      "remaining": "more severe observable/partial phenotype replacement breadth"
+    },
+    "G_NAKED": {
+      "head": "e41287c0759a76c051b50fdce99f30b57eca560e",
+      "status": "VERIFIED_RESEARCH_RESULT__CSC_PASS",
+      "claim": "epistemic need/language cue is not execution authority source under current canon",
+      "remaining": "any future independent normative exploration premise remains separate research"
+    },
+    "K_RED_TEAM": {
+      "head": "294da612f3407639a28284db7e44c4926a823e0a",
+      "status": "VERIFIED_RED_TEAM_REPRODUCTION__CSC_PASS",
+      "claim": "A/B/G/I exact sealed discriminator results reproduce on same untouched canonical Microseed in K",
+      "remaining": "fixture assistance ceilings and ecological breadth"
+    }
+  },
+  "verified_open_negative": {
+    "I_GROWTH": {
+      "head": "0d52b67e75cd2fff6968d9b8c42586d36ae94661",
+      "status": "VERIFIED_NEGATIVE_RESEARCH_RESULT__CSC_REVIEW__OPEN",
+      "claim": "current qualified whole is reusable but not an atomic fixed-budget reachability-expanding unit in current composer",
+      "remaining": "whether any authority-safe atomic/equivalence owner is warranted; K pressure before mechanism"
+    }
+  },
+  "pending_embodiment": [
+    "D_CFE",
+    "E_IDENTITY",
+    "F_VALUE",
+    "H_LANGUAGE"
+  ],
+  "wave2": {
+    "C_SCALE": {
+      "gate": "OPEN_FOR_BOUNDED_THREE_LEVEL_DISCRIMINATOR_ONLY",
+      "basis": [
+        "A_TARGET CSC PASS",
+        "B_DRIFT CSC PASS",
+        "K_RED_TEAM CSC PASS with c_scale_a_b_gate_pressure_sufficient=true"
+      ],
+      "prohibited_claims": [
+        "general recursive hierarchy",
+        "semantic parent/child identity",
+        "generic hierarchy manager",
+        "new execution authority"
+      ]
+    },
+    "J_CONVERGENCE": {
+      "gate": "CLOSED_UNTIL_MORE_PENDING_ARMS_EMBODIED"
+    }
+  },
+  "model_surface": {
+    "primary_port": 18191,
+    "reviewer_port": 18192,
+    "primary_job": "job-7f0dcbe757dc",
+    "reviewer_job": "job-489435c7630f",
+    "collision_rule": "CFE and Microseed may share immutable Forge model files but SHALL NOT terminate/reuse each others live model ports/jobs/runtime surfaces."
+  }
+}

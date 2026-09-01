@@ -1,0 +1,9 @@
+{
+  "survivors": [],
+  "scars": [],
+  "demotions": [],
+  "unresolved": [
+    "Does canonical two-level hierarchy remain composable when the subordinate controller itself makes a bounded request of a further subordinate controller?"
+  ],
+  "next": "Does canonical two-level hierarchy remain composable when the subordinate controller itself makes a bounded request of a further subordinate controller?"
+}

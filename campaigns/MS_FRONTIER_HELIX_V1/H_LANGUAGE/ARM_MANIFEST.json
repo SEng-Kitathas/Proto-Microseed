@@ -1,0 +1,25 @@
+{
+  "arm": "H_LANGUAGE",
+  "seed_question": "Which unresolved grounded-language gate distinctions remain unresolved after P1A, N1A, representation growth, and bounded hierarchy became canonical?",
+  "canonical_parent": "ed2cde491962105b0d853b7fd82d8e8b3d81bd8a",
+  "canonical_tag": "prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1",
+  "promotion_authority": "NONE",
+  "status": "PLANNED",
+  "dependencies": [],
+  "loop_plus_neighbors": [
+    "target",
+    "co-reference",
+    "social requests",
+    "shared attention",
+    "identity",
+    "NAKED"
+  ],
+  "pass_n_plus_1": "MUST_BE_EARNED_FROM_PASS_N",
+  "pdver": [
+    "PROBE",
+    "DERIVE",
+    "VERIFY",
+    "EMBODY",
+    "RECURSE"
+  ]
+}
