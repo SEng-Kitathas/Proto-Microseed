@@ -1,0 +1,27 @@
+{
+  "arm": "C_SCALE",
+  "seed_question": "Does canonical two-level hierarchy remain composable when the subordinate controller itself makes a bounded request of a further subordinate controller?",
+  "canonical_parent": "ed2cde491962105b0d853b7fd82d8e8b3d81bd8a",
+  "canonical_tag": "prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1",
+  "promotion_authority": "NONE",
+  "status": "PLANNED",
+  "dependencies": [
+    "A_TARGET",
+    "B_DRIFT"
+  ],
+  "loop_plus_neighbors": [
+    "target",
+    "drift",
+    "growth",
+    "identity",
+    "value"
+  ],
+  "pass_n_plus_1": "MUST_BE_EARNED_FROM_PASS_N",
+  "pdver": [
+    "PROBE",
+    "DERIVE",
+    "VERIFY",
+    "EMBODY",
+    "RECURSE"
+  ]
+}

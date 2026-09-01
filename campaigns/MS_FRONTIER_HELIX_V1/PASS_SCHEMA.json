@@ -1,0 +1,28 @@
+{
+  "required": [
+    "question",
+    "evidence_contacted",
+    "measurement_frame",
+    "probe",
+    "derive",
+    "verify",
+    "oarr",
+    "loop_plus",
+    "observed_consequence",
+    "survivors",
+    "scars",
+    "demotions",
+    "unresolved",
+    "attention_reservoir",
+    "disposition",
+    "next"
+  ],
+  "pdver": [
+    "PROBE",
+    "DERIVE",
+    "VERIFY",
+    "EMBODY",
+    "RECURSE"
+  ],
+  "note": "embody may be NO_MUTATION_WARRANTED but must be explicit"
+}

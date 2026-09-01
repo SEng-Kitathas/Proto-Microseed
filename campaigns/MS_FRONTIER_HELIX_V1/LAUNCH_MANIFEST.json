@@ -1,0 +1,25 @@
+{
+  "campaign": "MS_FRONTIER_HELIX_V1",
+  "canonical_parent": "ed2cde491962105b0d853b7fd82d8e8b3d81bd8a",
+  "wave_0": "INFRASTRUCTURE_ONLY",
+  "wave_1": [
+    "A_TARGET",
+    "B_DRIFT",
+    "D_CFE",
+    "E_IDENTITY",
+    "F_VALUE",
+    "G_NAKED",
+    "H_LANGUAGE",
+    "I_GROWTH",
+    "K_RED_TEAM"
+  ],
+  "wave_2": [
+    "C_SCALE",
+    "J_CONVERGENCE",
+    "K_RED_TEAM survivor attacks",
+    "H_LANGUAGE continuation only if H0 earns it"
+  ],
+  "max_parallel_hint": 8,
+  "whole_suite_policy": "Only surviving production candidates after focused+delta+CSC gates",
+  "promotion": "SEPARATE_EXPLICIT_MODE_ONLY"
+}

@@ -1,0 +1,20 @@
+{
+  "arm": "K_RED_TEAM",
+  "seed_question": "For the strongest current survivor, what older owner, supplied assistance, evaluator/semantic leak, search artifact, currentness defect, authority laundering, or publication defect could produce the same apparent result?",
+  "canonical_parent": "ed2cde491962105b0d853b7fd82d8e8b3d81bd8a",
+  "canonical_tag": "prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1",
+  "promotion_authority": "NONE",
+  "status": "PLANNED",
+  "dependencies": [],
+  "loop_plus_neighbors": [
+    "all arms"
+  ],
+  "pass_n_plus_1": "MUST_BE_EARNED_FROM_PASS_N",
+  "pdver": [
+    "PROBE",
+    "DERIVE",
+    "VERIFY",
+    "EMBODY",
+    "RECURSE"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "arm": "G_NAKED",
+  "seed_question": "Under current canonical law, what is the strongest remaining explanation for why a genuinely first unknown-effect action cannot or need not be endogenously authorized?",
+  "canonical_parent": "ed2cde491962105b0d853b7fd82d8e8b3d81bd8a",
+  "canonical_tag": "prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1",
+  "promotion_authority": "NONE",
+  "status": "PLANNED",
+  "dependencies": [],
+  "loop_plus_neighbors": [
+    "value",
+    "active measurement",
+    "reversibility",
+    "developmental necessity"
+  ],
+  "pass_n_plus_1": "MUST_BE_EARNED_FROM_PASS_N",
+  "pdver": [
+    "PROBE",
+    "DERIVE",
+    "VERIFY",
+    "EMBODY",
+    "RECURSE"
+  ]
+}
