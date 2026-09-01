@@ -1,0 +1,40 @@
+{
+  "arm": "E_IDENTITY",
+  "status": "VERIFIED_RESEARCH_RESULT",
+  "claim": "PERSISTENT_ENTITY_AND_PERFECT_COPY_REPLACEMENT_ARE_OPERATIONALLY_INDISTINGUISHABLE_FOR_THE_TESTED_RESTARTED_REFERENT_LIFETIME_WHILE_NUMERICAL_IDENTITY_AUTHORITY_REMAINS_NONE",
+  "claim_ceiling": "This is a bounded anti-identity result for the operational referent/reassociation/lifetime owners tested by MS1959-1969 and MS1993-2004. It does not prove complete organism developmental state is history-independent, nor that no future task can require additional lineage state. It establishes that numerical/persistent entity identity is not necessary for the tested restart, crossing, occlusion, intervention-trace and perfect-copy replacement behavior.",
+  "pdver": "PROBE -> DERIVE -> VERIFY -> EMBODY -> RECURSE",
+  "embodiment": "tests\\embodiment\\test_frontier_e_identity_persistent_vs_copy.py",
+  "test_sha256": "58f94a7be2215f75115e93e0e4ac41c2033f476fa1d2587f144812a970aad9ac",
+  "focused_plus_lineage_result": {
+    "passed": 13,
+    "failed": 0,
+    "duration_seconds": 33.06,
+    "runner": "tools/run_pytest_cleanup_neutral.py"
+  },
+  "observed": [
+    "Persistent and perfect-copy replacement variants produce the same pre/post operational referent signatures and post-reassociation match counts after process restart, crossing/occlusion, gap and reappearance.",
+    "Both variants retain identity_authority=NONE, semantic_reference_authority=NONE and execution_authority=NONE; persistent referent registry remains NONE__EVIDENCE_LEDGER_ONLY.",
+    "Aliased post-reappearance evidence returns UNKNOWN_INCOMPLETE rather than fabricating identity.",
+    "Bounded evidence search returns SEARCH_BUDGET_EXHAUSTED_NOT_SATURATED and succeeds only when the search budget is made complete.",
+    "MS2004 multi-session lifetime policy composes the existing owners without a referent/identity lifecycle manager."
+  ],
+  "oarr": "Rival persistent-identity explanation is not required in this tested operational lifetime because perfect-copy replacement reproduces the same lawful outcomes. This does not eliminate omitted-state/lineage explanations outside the tested current-state surface.",
+  "survivors": [
+    "INTERVENTION_BOUND_CONTINUITY != NUMERICAL_IDENTITY",
+    "MULTIPLE_RETAINED_TRACES != NUMERICAL_IDENTITY",
+    "OPERATIONAL_REFERENT_CLASS != SEMANTIC_REFERENCE",
+    "AMBIGUITY_FAILS_CLOSED",
+    "SEARCH_BUDGET_EXHAUSTION != IDENTITY_EVIDENCE"
+  ],
+  "remaining_seam": "GLOBAL_ORGANISM_MATCHED_CURRENT_STATE_DIFFERENT_DEVELOPMENTAL_HISTORY_PERTURBATION_BEYOND_THE_REFERENT_LIFETIME_SUBSTRATE",
+  "new_core_mechanism_required": "NO_FOR_TESTED_OPERATIONAL_REFERENT_LIFETIME__UNKNOWN_GLOBALLY",
+  "production_delta": [],
+  "promotion_authority": "NONE",
+  "timestamp_epoch": 1788269795.9862516,
+  "csc_result_verdict": "PASS",
+  "csc_claim_supported": true,
+  "csc_claim_ceiling_ok": true,
+  "seal_status": "READY_FOR_RESEARCH_COMMIT",
+  "methodology": "methodology\\MS_FRONTIER_E_IDENTITY_PERSISTENT_VS_COPY_2026-09-01.md"
+}
