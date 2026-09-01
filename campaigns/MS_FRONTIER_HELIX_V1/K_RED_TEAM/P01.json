@@ -1,0 +1,66 @@
+{
+  "question": "For the strongest current survivor, what older owner, supplied assistance, evaluator/semantic leak, search artifact, currentness defect, authority laundering, or publication defect could produce the same apparent result?",
+  "evidence_contacted": [
+    "methodology\\MS1974_MS1975_OWNED_DEEP_HISTORY_CONSTRUCTOR_BRIDGE.md#p36.0",
+    "methodology\\MS1977_MS1978_OWNED_RAW_COORDINATE_PROJECTION_GROWTH.md#p26.0",
+    "methodology\\MS1985_TWO_LEARNED_BUCKET_COMPOSITION_BOUNDARY.md#p17.0",
+    "methodology\\MS1991_EXPLICIT_PROJECTION_SEARCH_BUDGET_COMPLETENESS.md#p33.0",
+    "microseed\\cognition\\research_registry.py#p7.0",
+    "continuity/state/current/CURRENT_STATE.md#p12.0",
+    "continuity/CURRENT_FRONTIER.md#p18.0",
+    "methodology\\MS2059_HIERARCHY_TRANSFER_FACTORIZE_SUBORDINATE_CURRENT_STATE.md#p3.0"
+  ],
+  "measurement_frame": "bounded assistance, external qualification, supplied search grammar, operational causal-role discrimination, decentralized feasibility/refusal, distributed-capability currentness controls",
+  "probe": "Identify the specific older owner, assistance, or defect that could produce the same apparent result as the strongest current survivor.",
+  "derive": "Analyze the evidence to determine the possible older owners, assistance mechanisms, or defects that could produce the same result.",
+  "verify": "Verify the derived hypotheses against the available evidence to ensure they are consistent with the observed results.",
+  "oarr": "Analyze the assistance, defect, or older owner that could produce the same apparent result as the strongest current survivor.",
+  "loop_plus": "Consider alternative explanations for the apparent result, including different older owners, assistance mechanisms, or defects.",
+  "embody": "NO_MUTATION_WARRANTED",
+  "observed_consequence": "SOURCE_EVIDENCE_ONLY__NO_NEW_WORLD_CONSEQUENCE",
+  "survivors": "The strongest current survivor",
+  "scars": "Defects or limitations in the current system",
+  "demotions": "Unresolved issues or limitations in the current system",
+  "unresolved": "The specific older owner, assistance, or defect that could produce the same apparent result as the strongest current survivor",
+  "attention_reservoir": "Neglected evidence or bounded-complete aspects of the current system",
+  "disposition": "UNKNOWN_INCOMPLETE",
+  "next": "What specific older owner, assistance, or defect could produce the same apparent result as the strongest current survivor?",
+  "terminal": false,
+  "pass": 1,
+  "model_meta": {
+    "attempt": 1,
+    "usage": {
+      "completion_tokens": 600,
+      "prompt_tokens": 1765,
+      "total_tokens": 2365,
+      "prompt_tokens_details": {
+        "cached_tokens": 393
+      }
+    },
+    "timings": {
+      "cache_n": 393,
+      "prompt_n": 1372,
+      "prompt_ms": 12917.796,
+      "prompt_per_token_ms": 9.415303206997084,
+      "prompt_per_second": 106.21006865257819,
+      "predicted_n": 600,
+      "predicted_ms": 59577.563,
+      "predicted_per_token_ms": 99.29593833333334,
+      "predicted_per_second": 10.070905384297106
+    },
+    "model": "qwen2.5-coder-7b-instruct-abliterated-q4_k_m.gguf",
+    "fingerprint": "b8831-a279d0f0f"
+  },
+  "source_refs": [
+    "methodology\\MS1974_MS1975_OWNED_DEEP_HISTORY_CONSTRUCTOR_BRIDGE.md#p36.0",
+    "methodology\\MS1977_MS1978_OWNED_RAW_COORDINATE_PROJECTION_GROWTH.md#p26.0",
+    "methodology\\MS1985_TWO_LEARNED_BUCKET_COMPOSITION_BOUNDARY.md#p17.0",
+    "methodology\\MS1991_EXPLICIT_PROJECTION_SEARCH_BUDGET_COMPLETENESS.md#p33.0",
+    "microseed\\cognition\\research_registry.py#p7.0",
+    "continuity/state/current/CURRENT_STATE.md#p12.0",
+    "continuity/CURRENT_FRONTIER.md#p18.0",
+    "methodology\\MS2059_HIERARCHY_TRANSFER_FACTORIZE_SUBORDINATE_CURRENT_STATE.md#p3.0"
+  ],
+  "promotion_authority": "NONE",
+  "production_mutation_allowed": false
+}

@@ -1,0 +1,37 @@
+{
+  "status": "METHOD_REJECTED__NOT_SCIENTIFIC_PASS",
+  "question": "What specific older owner, assistance, or defect could produce the same apparent result as the strongest current survivor?",
+  "errors": [
+    "next_self_loop"
+  ],
+  "candidate": {
+    "question": "What specific older owner, assistance, or defect could produce the same apparent result as the strongest current survivor?",
+    "evidence_contacted": [
+      "continuity/state/current/CURRENT_STATE.md#p12.0",
+      "continuity/state/next_steps/NEXT_STEPS.md#p5.0",
+      "methodology\\MS1945_REPRESENTED_SIGNAL_ALTERNATIVE_SELECTION.md#p35.0",
+      "continuity/SCARS_AND_DO_NOT_REINTRODUCE.md#p135.0",
+      "continuity/state/revisit_ledger/REVISIT_LEDGER.md#p3.0",
+      "continuity/state/current/CURRENT_STATE.md#p8.0",
+      "methodology\\MS1999_HUNDRED_CAPABILITY_SCALE_AND_DEPENDENCY_GROUNDING.md#p21.0",
+      "continuity/state/current/CURRENT_STATE.md#p7.0"
+    ],
+    "measurement_frame": "The strongest current survivor and its apparent result",
+    "probe": "Identify the specific older owner, assistance, or defect that could produce the same apparent result as the strongest current survivor.",
+    "derive": "Analyze the historical context, assistance provided, and defects present in the current system to determine if any older owner, assistance, or defect could have produced the same result.",
+    "verify": "Compare the derived possibilities with the observed result to ensure they are consistent.",
+    "oarr": "An older owner with a history of providing assistance that could have influenced the current system's outcome, or a defect in the current system that could have been present in an older version.",
+    "loop_plus": "Consider the possibility of an older owner with a history of providing assistance that could have influenced the current system's outcome, or a defect in the current system that could have been present in an older version.",
+    "embody": "NO_MUTATION_WARRANTED",
+    "observed_consequence": "SOURCE_EVIDENCE_ONLY__NO_NEW_WORLD_CONSEQUENCE",
+    "survivors": "The strongest current survivor",
+    "scars": "Defects or limitations in the current system",
+    "demotions": "Unresolved issues or limitations in the current system",
+    "unresolved": "The specific older owner, assistance, or defect that could produce the same apparent result as the strongest current survivor",
+    "attention_reservoir": "Neglected evidence or bounded-complete branches",
+    "disposition": "UNKNOWN_INCOMPLETE",
+    "next": "What specific older owner, assistance, or defect could produce the same apparent result as the strongest current survivor?",
+    "terminal": false
+  },
+  "promotion_authority": "NONE"
+}
