@@ -222,6 +222,8 @@ def run_arm(worktree:Path,arm:str,max_passes:int)->dict[str,Any]:
     session_start_count=len(records)
     prev=records[-1] if records else None
     external_path=croot/'V3_EXTERNAL_REFRAMES.json'
+    if not external_path.exists():
+        external_path=PROJECT_ROOT/CAMPAIGN_REL/'V3_EXTERNAL_REFRAMES.json'
     external=(json.loads(external_path.read_text(encoding='utf-8')).get('reframes',{}) if external_path.exists() else {})
     external_question=str(external.get(arm,'')).strip()
     prior_questions={str(r.get('question','')).strip() for r in records}
