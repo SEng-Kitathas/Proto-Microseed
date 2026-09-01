@@ -1,0 +1,92 @@
+{
+  "status": "INVALID_PROCESS_PASS__NOT_SCIENTIFIC_EVIDENCE",
+  "job": "job-9aa5b7e270bc",
+  "arm": "A_TARGET",
+  "attempted_pass": "P01",
+  "reason": [
+    "NEXT punctuation was validated before normalization and produced false next_not_question",
+    "fallback rewrote NEXT to the seed, risking a self-loop",
+    "retrieval over-weighted arm campaign seed/state instead of substantive source evidence",
+    "observed_consequence text exceeded actual no-execution evidence"
+  ],
+  "authority_effect": "NONE",
+  "organism_delta": [],
+  "raw_rejected_pass": {
+    "question": "What is the smallest remaining barrier between canonical fixed learned opaque request-target specialization and genuinely endogenous construction/generalization of useful request targets?",
+    "evidence_contacted": [
+      "SOURCE campaigns\\MS_FRONTIER_HELIX_V1\\A_TARGET\\HELIX.json#p0.0",
+      "SOURCE campaigns\\MS_FRONTIER_HELIX_V1\\A_TARGET\\PASS_LEDGER.md#p1.0",
+      "SOURCE campaigns\\MS_FRONTIER_HELIX_V1\\A_TARGET\\ARM_MANIFEST.json#p0.0",
+      "SOURCE continuity/state/next_steps/NEXT_STEPS.md#p8.0",
+      "SOURCE continuity/state/current/CURRENT_STATE.md#p8.0",
+      "SOURCE continuity/state/current/CURRENT_STATE.md#p17.0",
+      "SOURCE continuity/CURRENT_FRONTIER.md#p26.0",
+      "SOURCE methodology\\MS1995_MULTI_REFERENT_CROSSING_OCCLUSION_REASSOCIATION.md#p40.0"
+    ],
+    "measurement_frame": "The smallest remaining barrier between canonical fixed learned opaque request-target specialization and genuinely endogenous construction/generalization of useful request targets.",
+    "probe": "Investigate the mechanisms by which developmental pressure can construct useful intervention/probe candidates from learned opaque structure and already-qualified primitives without caller-supplied semantic action names, while keeping candidate construction separate from execution permission.",
+    "derive": "Analyze the current bounded two-level learned opaque request-target specialization path and identify the key barriers to genuine endogenous construction/generalization.",
+    "verify": "Test the hypothesis that deeper opaque request-target construction/generalization beyond the finite learned projection-bucket specialization currently promoted is achievable through developmental pressure and endogenous mechanisms.",
+    "oarr": "A real rival or removal mechanism that demonstrates the limitations of the current bounded two-level learned opaque request-target specialization path and shows how genuine endogenous construction/generalization can be achieved.",
+    "loop_plus": "Widen the causal explanation to include the role of developmental pressure and endogenous mechanisms in overcoming the current barriers to genuine endogenous construction/generalization.",
+    "embody": "NO_MUTATION_WARRANTED",
+    "observed_consequence": "The observed consequence of the current bounded two-level learned opaque request-target specialization path is the limitation of genuine endogenous construction/generalization.",
+    "survivors": [],
+    "scars": [],
+    "demotions": [],
+    "unresolved": [
+      "The role of developmental pressure and endogenous mechanisms in overcoming the current barriers to genuine endogenous construction/generalization."
+    ],
+    "attention_reservoir": "The neglected evidence is the lack of a clear mechanism for genuine endogenous construction/generalization beyond the current bounded two-level learned opaque request-target specialization path.",
+    "disposition": "UNKNOWN_INCOMPLETE",
+    "next": "What is the smallest remaining barrier between canonical fixed learned opaque request-target specialization and genuinely endogenous construction/generalization of useful request targets?",
+    "terminal": false,
+    "pass": 1,
+    "model_meta": {
+      "attempt": 1,
+      "usage": {
+        "completion_tokens": 639,
+        "prompt_tokens": 1708,
+        "total_tokens": 2347,
+        "prompt_tokens_details": {
+          "cached_tokens": 3
+        }
+      },
+      "timings": {
+        "cache_n": 3,
+        "prompt_n": 1705,
+        "prompt_ms": 14342.468,
+        "prompt_per_token_ms": 8.412004692082112,
+        "prompt_per_second": 118.87772732001216,
+        "predicted_n": 639,
+        "predicted_ms": 64864.356,
+        "predicted_per_token_ms": 101.50916431924882,
+        "predicted_per_second": 9.85132728366254
+      },
+      "model": "qwen2.5-coder-7b-instruct-abliterated-q4_k_m.gguf",
+      "fingerprint": "b8831-a279d0f0f"
+    },
+    "source_refs": [
+      "campaigns\\MS_FRONTIER_HELIX_V1\\A_TARGET\\HELIX.json#p0.0",
+      "campaigns\\MS_FRONTIER_HELIX_V1\\A_TARGET\\PASS_LEDGER.md#p1.0",
+      "campaigns\\MS_FRONTIER_HELIX_V1\\A_TARGET\\ARM_MANIFEST.json#p0.0",
+      "continuity/state/next_steps/NEXT_STEPS.md#p8.0",
+      "continuity/state/current/CURRENT_STATE.md#p8.0",
+      "methodology\\MS1995_MULTI_REFERENT_CROSSING_OCCLUSION_REASSOCIATION.md#p40.0",
+      "continuity/CURRENT_FRONTIER.md#p26.0",
+      "continuity/state/current/CURRENT_STATE.md#p17.0"
+    ],
+    "promotion_authority": "NONE",
+    "production_mutation_allowed": false,
+    "method_errors": [
+      "next_not_question"
+    ]
+  },
+  "required_repairs": [
+    "exclude self campaign state from evidence corpus",
+    "normalize question punctuation before semantic validation",
+    "reject non-terminal same-question NEXT",
+    "semantic retry before admitting pass",
+    "source-only passes must record no new world consequence"
+  ]
+}

@@ -43,7 +43,7 @@ def add_file(chunks:list[Chunk],p:Path,label:str|None=None):
 def build_corpus(worktree:Path,arm:str)->list[Chunk]:
     chunks=[]
     # Current organism/source/evidence surface.
-    for roots in ['microseed','tests/embodiment','methodology','evidence','campaigns/MS_FRONTIER_HELIX_V1']:
+    for roots in ['microseed','tests/embodiment','methodology','evidence']:
         base=worktree/roots
         if not base.exists():continue
         for p in base.rglob('*'):
@@ -110,7 +110,11 @@ def validate(o:dict[str,Any],question:str)->list[str]:
     if o.get('question')!=question:errors.append('question_not_exact')
     if str(o.get('disposition')) not in TERMINAL|{'RESEARCH_CONTINUE'}:errors.append('bad_disposition')
     nq=str(o.get('next','')).strip()
-    if not bool(o.get('terminal')) and not nq.endswith('?'):errors.append('next_not_question')
+    if not bool(o.get('terminal')):
+        if not nq.endswith('?'):errors.append('next_not_question')
+        if nq==question:errors.append('next_self_loop')
+    for k in ['measurement_frame','probe','derive','verify','oarr','loop_plus']:
+        if len(str(o.get(k,'')).strip())<35: errors.append('too_weak:'+k)
     return errors
 
 def csc(records:list[dict[str,Any]],arm:str,stage:str)->dict[str,Any]:
@@ -133,19 +137,35 @@ def run_arm(worktree:Path,arm:str,max_passes:int)->dict[str,Any]:
         system=(
           'You are one research pass in canonical Microseed MS_FRONTIER_HELIX_V1. Research only; promotion authority NONE; production mutation is forbidden in Wave 1. '
           'PDVER means exactly PROBE -> DERIVE -> VERIFY -> EMBODY -> RECURSE. VERIFY is before EMBODY. '
-          'Pass N earns Pass N+1: do not prewrite later questions. HSP qualifies measurement. OARR must attack with a real rival/removal/altered/counterexample/assistance/old-owner/currentness/authority explanation where meaningful. LOOP+ widens an adjacent plausible causal branch before convergence. '
+          'Pass N earns Pass N+1: do not prewrite later questions. For a non-terminal pass, NEXT must be a DIFFERENT, narrower or higher-information question than the current question. HSP qualifies measurement. OARR must attack with a real rival/removal/altered/counterexample/assistance/old-owner/currentness/authority explanation where meaningful. LOOP+ widens an adjacent plausible causal branch before convergence. '
           'Semantic HELIX explicitly carries survivors, scars, demotions, unresolved. Attention Reservoir names neglected evidence or bounded-complete. '
           'Before claiming new mechanism classify failures among observation/channel/measurement-frame/identifiability/access/basis-representation/scope-context/currentness/search/authority/true-capability. '
-          'EMBODY in Wave 1 may only be NO_MUTATION_WARRANTED or a bounded research artifact/experiment specification; it may NOT modify microseed production. '
+          'EMBODY in Wave 1 may only be NO_MUTATION_WARRANTED or a bounded research artifact/experiment specification; it may NOT modify microseed production. If no new execution occurs, observed_consequence must explicitly say SOURCE_EVIDENCE_ONLY__NO_NEW_WORLD_CONSEQUENCE and must not claim a new observed result. '
           'Return JSON only with exact required keys: question, evidence_contacted, measurement_frame, probe, derive, verify, oarr, loop_plus, embody, observed_consequence, survivors, scars, demotions, unresolved, attention_reservoir, disposition, next, terminal. '
           'disposition must be one of RESEARCH_CONTINUE, RESOLVED_EXISTING_OWNERS, RESOLVED_NEGATIVE, UNKNOWN_INCOMPLETE, MISSING_EVIDENCE, NON_IDENTIFIABLE, MINIMAL_GAP_LOCALIZED, PRODUCTION_CANDIDATE, QUESTION_MALFORMED. terminal is boolean.' )
         predecessor='NONE' if prev is None else json.dumps({k:prev.get(k) for k in ['question','disposition','survivors','scars','demotions','unresolved','next']},ensure_ascii=False)[:1800]
         user=f'ARM {arm}; PASS {pnum}/{max_passes}\nAUTHORITATIVE QUESTION: {question}\n\nPREDECESSOR:\n{predecessor}\n\nRETRIEVED EVIDENCE:\n{evtxt[:7000]}\n\nPROCESS CONTRACT EXCERPT:\n{process[:2500]}\n\nAnswer only what admitted evidence supports. If embodiment is required, specify the smallest discriminating artifact/fixture/test and stop short of production mutation.'
-        obj,meta=chat(PRIMARY,system,user,max_tokens=1050,temp=.22)
+        obj=None; meta=None; errors=[]
+        attempt_user=user
+        for sem_attempt in range(1,4):
+            candidate,meta=chat(PRIMARY,system,attempt_user,max_tokens=1050,temp=.22 if sem_attempt==1 else .08)
+            # Normalize trivial punctuation before semantic validation; do not alter semantic content.
+            nq=str(candidate.get('next','')).strip()
+            if nq and not bool(candidate.get('terminal')) and not nq.endswith('?'):
+                candidate['next']=nq.rstrip('. !')+'?'
+            candidate['evidence_contacted']=[c.source for c in ev]
+            # No execution in autonomous Wave 1 means there is no newly observed world consequence.
+            emb=candidate.get('embody')
+            if emb=='NO_MUTATION_WARRANTED' or (isinstance(emb,dict) and str(emb.get('status','')).upper() in {'NO_MUTATION_WARRANTED','SPEC_ONLY','RESEARCH_ARTIFACT_ONLY'}):
+                candidate['observed_consequence']='SOURCE_EVIDENCE_ONLY__NO_NEW_WORLD_CONSEQUENCE'
+            errors=validate(candidate,question)
+            if not errors:
+                obj=candidate; break
+            writej(adir/f'REJECTED_P{pnum:02d}_ATTEMPT{sem_attempt}.json',{'status':'METHOD_REJECTED__NOT_SCIENTIFIC_PASS','question':question,'errors':errors,'candidate':candidate,'promotion_authority':'NONE'})
+            attempt_user=user+'\n\nMETHOD RETRY: the previous candidate was rejected for '+json.dumps(errors)+'. Correct those defects. Do not repeat the active question as NEXT unless terminal; produce a real OARR and LOOP+ discriminator, and do not claim a new observed consequence without execution.'
+        if obj is None:
+            raise RuntimeError(f'PASS_METHOD_REJECTED {arm} P{pnum:02d}: {errors}')
         obj['pass']=pnum; obj['model_meta']=meta; obj['source_refs']=[c.source for c in ev]; obj['promotion_authority']='NONE'; obj['production_mutation_allowed']=False
-        errors=validate(obj,question)
-        if errors:
-            obj['method_errors']=errors; obj['disposition']='UNKNOWN_INCOMPLETE'; obj['terminal']=False; obj['next']=question
         writej(adir/f'P{pnum:02d}.json',obj)
         ledger += [f'## P{pnum:02d}',f'Question: {question}',f'Disposition: {obj.get("disposition")}',f'OARR: {obj.get("oarr")}',f'LOOP+: {obj.get("loop_plus")}',f'Survivors: {obj.get("survivors")}',f'Scars: {obj.get("scars")}',f'Demotions: {obj.get("demotions")}',f'Next: {obj.get("next")}','']
         records.append(obj); prev=obj
