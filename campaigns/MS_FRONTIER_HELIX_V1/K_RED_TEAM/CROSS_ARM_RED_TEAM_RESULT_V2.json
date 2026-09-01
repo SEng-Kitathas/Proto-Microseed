@@ -1,0 +1,46 @@
+{
+  "arm": "K_RED_TEAM",
+  "status": "VERIFIED_WAVE2_CROSS_ARM_RED_TEAM_REPRODUCTION",
+  "claim": "THE_COMPLETE_CURRENT_A_THROUGH_I_FRONTIER_DISCRIMINATOR_SET_REPLAYS_TOGETHER_ON_KS_UNMODIFIED_CANONICAL_MICROSEED_WITHOUT_CROSS_ARM_PRODUCTION_CODE_INCOMPATIBILITY",
+  "claim_ceiling": "This independently corroborates J coexistence and demotes arm-specific/cross-arm production-code incompatibility as explanations. It does not remove fixture assistance, prove ecological generality, close D or I, or authorize promotion.",
+  "pdver": "PROBE -> DERIVE -> VERIFY -> EMBODY -> RECURSE",
+  "execution": {
+    "passed": 27,
+    "failed": 0,
+    "duration_seconds": 51.22,
+    "runner": "tools/run_pytest_cleanup_neutral.py",
+    "canonical_microseed_tree": "9d63915e9e0396f39d255df474d8c2849a153e3f",
+    "temporary_test_blobs_deleted": true,
+    "k_clean_after_replay": true
+  },
+  "source_heads": {
+    "A_TARGET": "387794702a26e1c8e7e84113e882154c2d961655",
+    "B_DRIFT": "c9c6f0470a0bbc706c4f325a2bcdae4404f7c5d5",
+    "C_SCALE": "e6a313fc01f1f73d6f2065027829b271fa0413d0",
+    "D_CFE": "0b59687d72868c57d3cd664a1236aeceabad54a8",
+    "E_IDENTITY": "edc0f27af94f39450ffea171c7b448997401d652",
+    "F_VALUE": "45e0e45f915990318824f0dd588728ce56fc27e0",
+    "G_NAKED": "e41287c0759a76c051b50fdce99f30b57eca560e",
+    "H_LANGUAGE": "b453df211e45fb1382d51c6a478a3ce1c0f32998",
+    "I_GROWTH": "56ed04a8c8e4a7f2f2b072dd0d1e12c434805689",
+    "J_CONVERGENCE": "8f246a5fe04d931d1e55855ffc6a6166d7fb23d8"
+  },
+  "survivors": [
+    "J_SURVIVOR_SET_COEXISTENCE_REPRODUCES_UNDER_K",
+    "A_B_C_D_E_F_G_H_I_TESTS_SHARE_ONE_CANONICAL_MICROSEED_SUBTREE",
+    "I_NEGATIVE_AND_ATOMIC_WRAPPER_HOSTILE_REPRODUCE_WITHOUT_ERASING_I_CSC_REVIEW",
+    "D_ENVIRONMENTAL_EFFECT_REPRODUCES_WITHOUT_PROMOTING_INTERNAL_CFE_OWNER"
+  ],
+  "remaining_risks": [
+    "fixture assistance ceilings remain arm-specific",
+    "synthetic host worlds and bounded samples limit ecological generality",
+    "D_CFE terrain ownership remains open",
+    "I_GROWTH mechanism remains unauthorized",
+    "C_SCALE is not recursive learning",
+    "H_LANGUAGE is pre-semantic operational indexing only"
+  ],
+  "architecture_authority": "NONE",
+  "promotion_authority": "NONE",
+  "production_delta": [],
+  "timestamp_epoch": 1788270756.9634101
+}

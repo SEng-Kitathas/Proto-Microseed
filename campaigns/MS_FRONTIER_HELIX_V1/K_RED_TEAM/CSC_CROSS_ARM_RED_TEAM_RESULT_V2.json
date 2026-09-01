@@ -1,0 +1,14 @@
+{
+  "verdict": "PASS",
+  "errors": [],
+  "warnings": [],
+  "claim_supported": true,
+  "claim_ceiling_ok": true,
+  "strongest_survivor": "J_SURVIVOR_SET_COEXISTENCE_REPRODUCES_UNDER_K",
+  "strongest_remaining_risk": "fixture assistance ceilings remain arm-specific",
+  "j_convergence_independently_corrobated": true,
+  "promotion_warranted": false,
+  "authority": "AUDIT_ONLY_NONE_PROMOTION",
+  "model": "Qwen2.5-Coder-1.5B-Instruct-abliterated-Q4_K_L.gguf",
+  "review_port": 18192
+}
