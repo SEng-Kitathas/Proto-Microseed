@@ -1,0 +1,21 @@
+{
+  "verdict": "PASS",
+  "errors": [],
+  "warnings": [],
+  "strongest_control": "oracle-sequence positive control",
+  "strongest_risk": "rival prediction",
+  "embodiment_warranted": true,
+  "required_before_embodiment": [
+    "oracle-sequence positive control"
+  ],
+  "authority": "AUDIT_ONLY_NONE_PROMOTION",
+  "model": "Qwen2.5-Coder-1.5B-Instruct-abliterated-Q4_K_L.gguf",
+  "usage": {
+    "completion_tokens": 76,
+    "prompt_tokens": 554,
+    "total_tokens": 630,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  }
+}

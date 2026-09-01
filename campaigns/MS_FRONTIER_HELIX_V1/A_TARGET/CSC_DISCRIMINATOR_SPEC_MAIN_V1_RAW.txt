@@ -1,0 +1,9 @@
+{
+  "verdict": "PASS",
+  "errors": [],
+  "warnings": [],
+  "strongest_control": "oracle-sequence positive control",
+  "strongest_risk": "rival prediction",
+  "embodiment_warranted": true,
+  "required_before_embodiment": ["oracle-sequence positive control"]
+}
