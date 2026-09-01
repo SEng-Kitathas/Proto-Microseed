@@ -4,3 +4,6 @@ Autonomous Wave 1 is research-only. It may inspect and derive, and EMBODY only b
 
 ## Runtime scar 001
 The first attempted A_TARGET P01 under job `job-9aa5b7e270bc` was rejected as process-invalid before any arm commit. A punctuation-order validator defect could rewrite NEXT to the seed and permit a self-loop; retrieval also over-weighted arm campaign state. The controller was terminated deliberately. The rejected pass is preserved in `WAVE1_RUNTIME_SCAR_001_INVALID_A_TARGET_P01.json`; it carries no scientific or authority effect. Runtime was hardened before restart.
+
+## Runtime scar 002
+Terminating the first scheduler controller did not terminate child arm runner PID 37156. A later hardened controller and child therefore collided with the orphan in A_TARGET, creating impossible mixed pass artifacts. Both trees were killed explicitly and all arm worktrees reset/cleaned. Locked execution scar: `CONTROLLER_TERMINATED != CHILD_RUNNER_TERMINATED`. The committed controller now records each child PID, and the arm runner validates/resumes exact existing pass chains rather than overwriting them.

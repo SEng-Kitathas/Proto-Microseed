@@ -125,13 +125,39 @@ def csc(records:list[dict[str,Any]],arm:str,stage:str)->dict[str,Any]:
 
 def writej(p:Path,o:Any):p.write_text(json.dumps(o,indent=2,ensure_ascii=False)+'\n',encoding='utf-8',newline='\n')
 
+def load_existing_chain(adir:Path)->list[dict[str,Any]]:
+    files=sorted(adir.glob('P[0-9][0-9].json'))
+    records=[]
+    expected_pass=1
+    prev=None
+    for f in files:
+        if f.name != f'P{expected_pass:02d}.json':
+            raise RuntimeError(f'NONCONTIGUOUS_EXISTING_CHAIN expected P{expected_pass:02d} got {f.name}')
+        o=json.loads(f.read_text(encoding='utf-8'))
+        if o.get('pass')!=expected_pass: raise RuntimeError(f'PASS_NUMBER_MISMATCH {f.name}')
+        if o.get('method_errors'): raise RuntimeError(f'EXISTING_METHOD_ERRORS {f.name}: {o.get("method_errors")}')
+        errs=validate(o,str(o.get('question','')))
+        if errs: raise RuntimeError(f'INVALID_EXISTING_PASS {f.name}: {errs}')
+        if prev is not None and prev.get('next')!=o.get('question'):
+            raise RuntimeError(f'EXISTING_CHAIN_BREAK P{expected_pass-1:02d}->P{expected_pass:02d}')
+        records.append(o); prev=o; expected_pass+=1
+    return records
+
 def run_arm(worktree:Path,arm:str,max_passes:int)->dict[str,Any]:
     croot=worktree/CAMPAIGN_REL; adir=croot/arm
     manifest=json.loads((adir/'ARM_MANIFEST.json').read_text(encoding='utf-8'))
     process=(croot/'R3_1_PROCESS_CONTRACT.md').read_text(encoding='utf-8')
-    question=manifest['seed_question']; chunks=build_corpus(worktree,arm)
-    records=[]; prev=None; ledger=['# '+arm+' — Pass Ledger','',f'Seed question: {question}','']
-    for pnum in range(1,max_passes+1):
+    chunks=build_corpus(worktree,arm)
+    records=load_existing_chain(adir)
+    prev=records[-1] if records else None
+    question=(str(prev.get('next')).strip() if prev else manifest['seed_question'])
+    if prev and bool(prev.get('terminal')) and str(prev.get('disposition')) in TERMINAL:
+        final_audit=csc(records,arm,'RESUME_ALREADY_TERMINAL'); writej(adir/'CSC_ARM_CLOSEOUT.json',final_audit)
+        return {'arm':arm,'passes_completed':len(records),'final_disposition':prev.get('disposition'),'terminal':True,'next':prev.get('next'),'csc':final_audit,'promotion_authority':'NONE','production_delta':subprocess.check_output(['git','diff','--name-only',CANON+'..HEAD','--','microseed'],cwd=worktree,text=True).splitlines()}
+    ledger=['# '+arm+' — Pass Ledger','',f'Seed question: {manifest["seed_question"]}','']
+    for r in records:
+        ledger += [f'## P{r.get("pass"):02d}',f'Question: {r.get("question")}',f'Disposition: {r.get("disposition")}',f'OARR: {r.get("oarr")}',f'LOOP+: {r.get("loop_plus")}',f'Survivors: {r.get("survivors")}',f'Scars: {r.get("scars")}',f'Demotions: {r.get("demotions")}',f'Next: {r.get("next")}','']
+    for pnum in range(len(records)+1,max_passes+1):
         ev=retrieve(chunks,question,compact_helix(prev),k=8)
         evtxt='\n\n'.join(f'SOURCE {c.source}\n{c.text[:900]}' for c in ev)
         system=(
