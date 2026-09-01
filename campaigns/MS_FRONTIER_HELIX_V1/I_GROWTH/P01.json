@@ -1,0 +1,66 @@
+{
+  "question": "Can a whole learned from experience become a later qualified operational unit whose reuse creates genuinely new reachable behavior rather than merely compressing old behavior?",
+  "evidence_contacted": [
+    "methodology\\MS1968_NOISY_CALIBRATED_REFERENT_HANDOFF.md#p2.0",
+    "methodology\\MS1941_LEARNED_OPAQUE_SIGNAL_RESPONSE_REENTRY.md#p40.0",
+    "methodology\\MS1943_SIGNAL_PREDICTIVE_CURRENTNESS.md#p2.0",
+    "methodology\\MS1947_NAKED_EXPLORATION_NORMATIVE_AUTHORITY_AUDIT.md#p48.0",
+    "methodology\\NAKED_C01_EXPLICIT_EXPERIMENTAL_WARRANT_QUARRY.md#p3.0",
+    "methodology\\MICROSEED_MAIN_DEV_OPERATING_PROFILE_V2_0.md#p5.0",
+    "microseed\\EMBODIMENT_STATUS.md#p8.0",
+    "methodology\\MICROSEED_MAIN_DEV_OPERATING_PROFILE_V1_6.md#p3.0"
+  ],
+  "measurement_frame": "Currentness and operational continuity across sensor-layout handoffs and repeated external outcomes.",
+  "probe": "Investigate how learned operational associations handle repeated external outcomes and sensor-layout handoffs.",
+  "derive": "Determine if existing predictive-currentness machinery can expose stale learned operational associations without inventing new token meanings or rewriting coordination contracts.",
+  "verify": "Check if reactivation and fresh external recurrence requalification can create genuinely new reachable behavior rather than merely compressing old behavior.",
+  "oarr": "A real rival or removal mechanism that challenges the assumption that learned operational units can only reuse old behavior without creating new reachable behavior.",
+  "loop_plus": "Widen the causal explanation to include the role of external qualification and the impact of currentness on operational continuity.",
+  "embody": "NO_MUTATION_WARRANTED",
+  "observed_consequence": "SOURCE_EVIDENCE_ONLY__NO_NEW_WORLD_CONSEQUENCE",
+  "survivors": "Currentness and operational continuity mechanisms.",
+  "scars": "Stale learned operational associations that do not create new reachable behavior.",
+  "demotions": "The assumption that learned operational units can only reuse old behavior without creating new reachable behavior.",
+  "unresolved": "The capability to create genuinely new reachable behavior from learned operational units.",
+  "attention_reservoir": "Bounded neglected evidence regarding the limitations of currentness and operational continuity mechanisms.",
+  "disposition": "UNKNOWN_INCOMPLETE",
+  "next": "Can a learned operational unit's reuse across different sensor-layout handoffs create genuinely new reachable behavior?",
+  "terminal": false,
+  "pass": 1,
+  "model_meta": {
+    "attempt": 1,
+    "usage": {
+      "completion_tokens": 586,
+      "prompt_tokens": 1658,
+      "total_tokens": 2244,
+      "prompt_tokens_details": {
+        "cached_tokens": 393
+      }
+    },
+    "timings": {
+      "cache_n": 393,
+      "prompt_n": 1265,
+      "prompt_ms": 11907.141,
+      "prompt_per_token_ms": 9.412759683794466,
+      "prompt_per_second": 106.23876881948404,
+      "predicted_n": 586,
+      "predicted_ms": 58028.849,
+      "predicted_per_token_ms": 99.02533959044369,
+      "predicted_per_second": 10.09842535391319
+    },
+    "model": "qwen2.5-coder-7b-instruct-abliterated-q4_k_m.gguf",
+    "fingerprint": "b8831-a279d0f0f"
+  },
+  "source_refs": [
+    "methodology\\MS1968_NOISY_CALIBRATED_REFERENT_HANDOFF.md#p2.0",
+    "methodology\\MS1941_LEARNED_OPAQUE_SIGNAL_RESPONSE_REENTRY.md#p40.0",
+    "methodology\\MS1943_SIGNAL_PREDICTIVE_CURRENTNESS.md#p2.0",
+    "methodology\\MS1947_NAKED_EXPLORATION_NORMATIVE_AUTHORITY_AUDIT.md#p48.0",
+    "methodology\\NAKED_C01_EXPLICIT_EXPERIMENTAL_WARRANT_QUARRY.md#p3.0",
+    "methodology\\MICROSEED_MAIN_DEV_OPERATING_PROFILE_V2_0.md#p5.0",
+    "microseed\\EMBODIMENT_STATUS.md#p8.0",
+    "methodology\\MICROSEED_MAIN_DEV_OPERATING_PROFILE_V1_6.md#p3.0"
+  ],
+  "promotion_authority": "NONE",
+  "production_mutation_allowed": false
+}

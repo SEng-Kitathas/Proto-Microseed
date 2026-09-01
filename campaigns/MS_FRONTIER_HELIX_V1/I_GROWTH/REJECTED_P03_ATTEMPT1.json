@@ -1,0 +1,37 @@
+{
+  "status": "METHOD_REJECTED__NOT_SCIENTIFIC_PASS",
+  "question": "Can a learned operational unit's reuse across different sensor-layout handoffs create genuinely new reachable behavior?",
+  "errors": [
+    "next_self_loop"
+  ],
+  "candidate": {
+    "question": "Can a learned operational unit's reuse across different sensor-layout handoffs create genuinely new reachable behavior?",
+    "evidence_contacted": [
+      "methodology\\MS2004_UNIFIED_REFERENT_LIFETIME_POLICY.md#p1.0",
+      "methodology\\MICROSEED_MAIN_DEV_OPERATING_PROFILE_V2_0.md#p5.0",
+      "continuity/state/current/CURRENT_STATE.md#p12.0",
+      "methodology\\MS1941_LEARNED_OPAQUE_SIGNAL_RESPONSE_REENTRY.md#p40.0",
+      "methodology\\MS1943_SIGNAL_PREDICTIVE_CURRENTNESS.md#p2.0",
+      "methodology\\MS1968_NOISY_CALIBRATED_REFERENT_HANDOFF.md#p2.0",
+      "methodology\\MS1981_MS1982_OWNED_TEMPORAL_RAW_CONSTRUCTOR_GROWTH.md#p35.0",
+      "methodology\\MS2042_MODERN_HUNDRED_CAPABILITY_REQUALIFICATION_CYCLE.md#p7.0"
+    ],
+    "measurement_frame": "The ability of learned operational units to reuse across different sensor-layout handoffs and create genuinely new reachable behavior.",
+    "probe": "Investigate the mechanisms by which learned operational units can reuse across sensor-layout handoffs and whether this reuse can lead to genuinely new reachable behavior.",
+    "derive": "Determine if the existing Microseed mechanisms, such as the unified referent lifetime policy and currentness requalification, allow for the reuse of learned operational units across different sensor-layout handoffs and if this reuse can lead to genuinely new reachable behavior.",
+    "verify": "Verify if the existing Microseed mechanisms can indeed allow for the reuse of learned operational units across different sensor-layout handoffs and if this reuse can lead to genuinely new reachable behavior.",
+    "oarr": "A real rival or removal mechanism that can challenge the assumption that learned operational units can only reuse old behavior without creating new reachable behavior.",
+    "loop_plus": "Widen the causal explanation to include the possibility that learned operational units can reuse across sensor-layout handoffs and create genuinely new reachable behavior.",
+    "embody": "NO_MUTATION_WARRANTED",
+    "observed_consequence": "SOURCE_EVIDENCE_ONLY__NO_NEW_WORLD_CONSEQUENCE",
+    "survivors": "Currentness and operational continuity mechanisms",
+    "scars": "Stale learned operational associations that do not create new reachable behavior",
+    "demotions": "The assumption that learned operational units can only reuse old behavior without creating new reachable behavior",
+    "unresolved": "The capability to create genuinely new reachable behavior from learned operational units",
+    "attention_reservoir": "Bounded neglected evidence or branch/anomaly ledger; research governance only.",
+    "disposition": "UNKNOWN_INCOMPLETE",
+    "next": "Can a learned operational unit's reuse across different sensor-layout handoffs create genuinely new reachable behavior?",
+    "terminal": false
+  },
+  "promotion_authority": "NONE"
+}
