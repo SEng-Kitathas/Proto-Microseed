@@ -1,0 +1,37 @@
+{
+  "status": "METHOD_REJECTED__NOT_SCIENTIFIC_PASS",
+  "question": "Holding mechanisms, total experiences, actions, affordances, and outcome distribution controlled, can learner-visible relational geometry alter what Microseed develops?",
+  "errors": [
+    "question_not_exact"
+  ],
+  "candidate": {
+    "question": "Can learner-visible relational geometry alter what Microseed develops?",
+    "evidence_contacted": [
+      "continuity/CURRENT_FRONTIER.md#p12.0",
+      "cfe/research/STARMAP_ARCHAEOLOGY_CFE_EVIDENCE_DELTA_2026-08-31.md#p18.0",
+      "continuity/SCARS_AND_DO_NOT_REINTRODUCE.md#p118.0",
+      "continuity/state/current/CURRENT_STATE.md#p2.0",
+      "continuity/state/current/CURRENT_STATE.md#p3.0",
+      "continuity/state/current/CURRENT_STATE.md#p7.0",
+      "continuity/state/current/CURRENT_STATE.md#p12.0",
+      "cfe/research/STARMAP_ARCHAEOLOGY_CFE_EVIDENCE_DELTA_2026-08-31.md#p13.0"
+    ],
+    "measurement_frame": "Learner-visible relational geometry and its impact on Microseed development",
+    "probe": "Examine how changes in relational geometry affect Microseed's output and development processes",
+    "derive": "Identify the mechanisms by which relational geometry influences Microseed's development",
+    "verify": "Confirm that changes in relational geometry lead to observable alterations in Microseed's development",
+    "oarr": "A rival mechanism that demonstrates how relational geometry can alter Microseed's development without changing its core architecture",
+    "loop_plus": "Widen the causal explanation to include alternative mechanisms by which relational geometry could influence Microseed's development",
+    "embody": "NO_MUTATION_WARRANTED",
+    "observed_consequence": "SOURCE_EVIDENCE_ONLY__NO_NEW_WORLD_CONSEQUENCE",
+    "survivors": "The current architecture and mechanisms of Microseed",
+    "scars": "Any unresolved issues or limitations in the current architecture",
+    "demotions": "Any mechanisms that have been demoted due to their inability to alter Microseed's development",
+    "unresolved": "Any unresolved issues or limitations in the current architecture that could be influenced by relational geometry",
+    "attention_reservoir": "Any neglected evidence or bounded-complete branches that could be relevant to the question",
+    "disposition": "UNKNOWN_INCOMPLETE",
+    "next": "What specific mechanisms can alter Microseed's development through learner-visible relational geometry?",
+    "terminal": false
+  },
+  "promotion_authority": "NONE"
+}

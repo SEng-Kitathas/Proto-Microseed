@@ -1,0 +1,37 @@
+{
+  "status": "METHOD_REJECTED__NOT_SCIENTIFIC_PASS",
+  "question": "Holding mechanisms, total experiences, actions, affordances, and outcome distribution controlled, can learner-visible relational geometry alter what Microseed develops?",
+  "errors": [
+    "question_not_exact"
+  ],
+  "candidate": {
+    "question": "Can learner-visible relational geometry alter what Microseed develops?",
+    "evidence_contacted": [
+      "continuity/CURRENT_FRONTIER.md#p12.0",
+      "cfe/research/STARMAP_ARCHAEOLOGY_CFE_EVIDENCE_DELTA_2026-08-31.md#p18.0",
+      "continuity/SCARS_AND_DO_NOT_REINTRODUCE.md#p118.0",
+      "continuity/state/current/CURRENT_STATE.md#p2.0",
+      "continuity/state/current/CURRENT_STATE.md#p3.0",
+      "continuity/state/current/CURRENT_STATE.md#p7.0",
+      "continuity/state/current/CURRENT_STATE.md#p12.0",
+      "cfe/research/STARMAP_ARCHAEOLOGY_CFE_EVIDENCE_DELTA_2026-08-31.md#p13.0"
+    ],
+    "measurement_frame": "Learner-visible relational geometry and its impact on Microseed development",
+    "probe": "Investigate how changes in learner-visible relational geometry affect Microseed's development process and outcomes",
+    "derive": "Analyze the relationship between relational geometry and Microseed's development, considering both informational elements and the geometry through which they are encountered",
+    "verify": "Confirm that changes in learner-visible relational geometry can indeed alter what Microseed develops by comparing different relational geometry conditions and their outcomes",
+    "oarr": "Consider a scenario where the relational geometry is altered, and observe if Microseed's development process and outcomes change accordingly",
+    "loop_plus": "Widen the investigation to include different types of relational geometry, such as semantic, causal, compositional, analogical, cross-domain, temporal, and contradictory, to understand their individual and combined effects on Microseed's development",
+    "embody": "NO_MUTATION_WARRANTED",
+    "observed_consequence": "SOURCE_EVIDENCE_ONLY__NO_NEW_WORLD_CONSEQUENCE",
+    "survivors": "None",
+    "scars": "None",
+    "demotions": "None",
+    "unresolved": "None",
+    "attention_reservoir": "None",
+    "disposition": "RESEARCH_CONTINUE",
+    "next": "How does the type and complexity of relational geometry affect Microseed's development process and outcomes?",
+    "terminal": false
+  },
+  "promotion_authority": "NONE"
+}
