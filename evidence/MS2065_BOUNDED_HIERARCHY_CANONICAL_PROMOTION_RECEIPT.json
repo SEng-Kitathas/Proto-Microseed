@@ -1,0 +1,37 @@
+{
+  "schema": "ms2065_bounded_hierarchy_canonical_promotion/v1",
+  "status": "PREPROMOTION_GATE_PENDING",
+  "canonical_label": "PRELINGUAL_SUBSTRATE_V1_P1A_N1A_BOUNDED_HIERARCHY_V1",
+  "promotion_tag": "prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1",
+  "canonical_parent": "0312459457223feb79bb2d0d71ab8387fbc28b1c",
+  "research_evidence_head": "a9e4baaa8be3bcab749532160f57ab388839b368",
+  "repaired_whole_tested_research_head": "f005670814511e3f8d5bf3aca33e577c43bca1d1",
+  "tested_research_microseed_tree": "9d63915e9e0396f39d255df474d8c2849a153e3f",
+  "candidate_microseed_tree": "9d63915e9e0396f39d255df474d8c2849a153e3f",
+  "production_delta": [
+    "microseed/development/epistemic.py",
+    "microseed/runtime/entity.py"
+  ],
+  "operator_authority": "DELEGATED_PROCEED_WITH_MICROSEED_AFTER_MS2064_TECHNICAL_READINESS",
+  "preexisting_evidence": {
+    "ms2062": "966/966 PASS in 1110.24s",
+    "ms2063": "970/970 PASS in 861.50s",
+    "ms2064_repaired": "973/973 PASS in 947.49s"
+  },
+  "promotion_focused": {
+    "status": "PENDING"
+  },
+  "promotion_whole_suite": {
+    "status": "PENDING"
+  },
+  "authority_boundary": {
+    "new_effect_authority": false,
+    "semantic_parent_child_authority": false,
+    "semantic_desired_state_authority": false,
+    "local_means_authority_upward": false,
+    "truth_authority_gain": false,
+    "generic_planner_authority": false,
+    "generic_exploration_authority": false
+  },
+  "promotion_commit_binding": "PENDING_FINAL_SEAL_AND_ANNOTATED_TAG"
+}
