@@ -1,0 +1,28 @@
+{
+  "campaign": "SUBSTRATE_HARDENING_V1",
+  "arm": "A_TARGET_MATERIALIZATION",
+  "status": "VERIFIED_SCAFFOLDING_BOUNDARY",
+  "parent_head": "387794702a26e1c8e7e84113e882154c2d961655",
+  "canonical_microseed_tree": "9d63915e9e0396f39d255df474d8c2849a153e3f",
+  "claim": "OPAQUE_TARGET_VOCABULARY_IS_ENDOGENOUSLY_DISCOVERED_AT_THE_PROJECTION_LAYER_AND_PROGRAM_SEQUENCE_IS_CALLER_FREE_AFTER_ATOM_EXISTENCE__BUT_BOUND_EFFECT_TARGET_CAPABILITY_MATERIALIZATION_REMAINS_AN_EXPLICIT_EXACT_BUCKET_SPECIALIZATION_STEP",
+  "claim_ceiling": "This does not prove an autonomous developmental trigger for creating all useful target capabilities. It does demote the idea that semantic target names or caller-supplied program sequences are required. The remaining seam is the trigger/materialization policy for turning a newly qualified operational distinction into one or more bound request capabilities without smuggling preferred-target choice or minting EFFECT authority.",
+  "pdver": "PROBE -> DERIVE -> VERIFY -> EMBODY -> RECURSE",
+  "result": {
+    "passed": 15,
+    "failed": 0,
+    "duration_seconds": 3.97
+  },
+  "test": "tests\\embodiment\\test_hardening_a_target_materialization_assistance.py",
+  "test_sha256": "6da8e8f9f8bb7d70bda375126f3aafc5b410407575a83fef5178e1fce31759e8",
+  "observed": [
+    "Projection discovery produces non-empty opaque bucket vocabulary from learned key_to_bucket structure; projection origin is ENDOGENOUS_PROPOSAL_EXTERNALLY_QUALIFIED and carries no semantic desired-state vocabulary.",
+    "derive_bound_request_specialization requires an explicit exact target_token argument from that current learned vocabulary.",
+    "Qualifying the projection alone does not silently mint target-specialized EFFECT capabilities; materializing one bucket leaves its sibling unmaterialized.",
+    "Once both atoms exist, existing lived-history/program owners reconstruct the multi-step sequence without receiving a preferred target/program sequence and with execution authority NONE."
+  ],
+  "assistance_debt": "EXPLICIT_BOUND_TARGET_SPECIALIZATION_MATERIALIZATION_TRIGGER",
+  "new_core_mechanism_required": "UNKNOWN__DO_NOT_ADD_MANAGER_FROM_THIS_BOUNDARY_ALONE",
+  "production_delta": [],
+  "promotion_authority": "NONE",
+  "timestamp_epoch": 1788278737.9334052
+}

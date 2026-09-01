@@ -1,0 +1,15 @@
+```json
+{
+  "verdict": "PASS",
+  "errors": [],
+  "warnings": [],
+  "claim_supported": true,
+  "claim_ceiling_ok": true,
+  "target_vocabulary_endogenous_at_projection_layer": true,
+  "autonomous_materialization_trigger_established": true,
+  "new_manager_warranted": true,
+  "strongest_survivor": "None",
+  "strongest_remaining_risk": "None",
+  "next_hostile": "None"
+}
+```

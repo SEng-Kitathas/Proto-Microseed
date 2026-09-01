@@ -1,0 +1,12 @@
+{
+  "status": "R1_WIP_ADJUDICATION__NOT_ADMITTED",
+  "observed_boundary": "15/15 reported boundary evidence preserved",
+  "scientific_disposition": "OPAQUE_TARGET_VOCABULARY_ENDOGENOUS_AT_PROJECTION_LAYER__MATERIALIZATION_TRIGGER_REMAINS_EXPLICIT_ASSISTANCE_SEAM",
+  "csc_authority_correction": [
+    "autonomous_materialization_trigger_established=true is not supported by the result claim ceiling",
+    "new_manager_warranted=true is invalid architecture promotion from AUDIT_ONLY_NONE_PROMOTION CSC"
+  ],
+  "mechanism_authority": "NONE",
+  "promotion_authority": "NONE",
+  "note": "Archived on isolated research branch for zero-loss takeover; not part of admitted substrate hardening state."
+}
