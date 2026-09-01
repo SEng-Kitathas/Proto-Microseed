@@ -1,0 +1,61 @@
+{
+  "base": "f6387c91c08b9b045e914057f30b4b24bd08c6e0",
+  "branch": "research/hardening-release-gate-finish-v1",
+  "campaign": "MS_SUBSTRATE_HARDENING_V1",
+  "canonical_microseed_tree": "9d63915e9e0396f39d255df474d8c2849a153e3f",
+  "canonical_parent": "ed2cde491962105b0d853b7fd82d8e8b3d81bd8a",
+  "formal_release_gate": {
+    "SH1_SH4_EXECUTED_HOSTILES": true,
+    "SH5_BOUNDED_DISPOSITION": true,
+    "SH6_BOUNDED_DISPOSITION": true,
+    "SH7_BOUNDED_DISPOSITION": true,
+    "SH8_BOUNDED_DISPOSITION": true,
+    "ceiling": "CONDITION SATISFIED DOES NOT ITSELF AUTHORIZE PRODUCTION FREEZE/PROMOTION; A SEPARATE PROMOTION REVIEW IS REQUIRED",
+    "release_gate_condition_satisfied": true
+  },
+  "included_forensic_readback": {
+    "FORENSIC_LINEAR_READ_REPORT_2026-09-01.md": "bdc720553cb6da25d425cb93a179a2fcb21ab9e82e7a028b84967cc3ad8a7991",
+    "FORENSIC_LINEAR_READ_SECOND_PASS_SYNTHESIS_2026-09-01.md": "3d64304b0a2e6e2ade5ca1431986459b4b35bae48cd0f5f9b5e914ecabd3f897",
+    "linear_coverage_digest": "d8b7442a874cf7762b5c9ae99a4e3c3824d89c8733a363f0187cd5d20f035d29"
+  },
+  "integrated_research_arms": {
+    "H_EMPIRICAL_CURRENTNESS_AND_QUERY_LOCAL_COREFERENCE": {
+      "disposition": "POST_BINDING_EMPIRICAL_CURRENTNESS_EARNED; QUERY_LOCAL_COREFERENCE_REQUIRES_EMPIRICALLY_CURRENT_BINDINGS; NO DURABLE REGISTRY",
+      "heads": [
+        "d542d78fb3da3b89848be527b587b9f21a86d6f2",
+        "bde7d61bb4d17ac9eac61fdc507f820a2ac0daed",
+        "a75de2d470c9e25e8c3982a156f186db78870d63"
+      ]
+    },
+    "SH6_NOVEL_VOCABULARY": {
+      "disposition": "BOUNDED_OPAQUE_VOCABULARY_GROWTH_WITH_PROJECTION_BOUND_REQUEST_CURRENTNESS_REPAIR",
+      "heads": [
+        "03adc395",
+        "7b5d16a042a074353f020c773d4563fb5f6fdf7b"
+      ]
+    },
+    "SH7_GLOBAL_HISTORY": {
+      "disposition": "BOUNDED_NEGATIVE; EXISTING BIOGRAPHY/CONTINUITY WITNESSES SUFFICE IN TESTED MATCHED-CURRENT-STATE/DIFFERENT-HISTORY SURFACE",
+      "head": "c57a9d11143ba60bc55fe640c20bf8ccd750d23c"
+    }
+  },
+  "production_mutation_allowed": false,
+  "promotion_authority": "NONE",
+  "scar_ceiling": [
+    "WIP != RESULT",
+    "RESEARCH_RESULT != CANON",
+    "RELEASE_GATE_CONDITION_MET != SUBSTRATE_FREEZE_DECLARED",
+    "BOUNDED_OPAQUE_VOCABULARY != SEMANTIC_LANGUAGE_AUTHORITY",
+    "BRANCH_RELATIVE_LINEAGE != NUMERICAL_SELF_IDENTITY"
+  ],
+  "status": "RELEASE_GATE_CONDITIONS_SATISFIED_IN_RESEARCH_FINISH_CANDIDATE__NO_SUBSTRATE_FREEZE_DECLARED__NO_PRODUCTION_PROMOTION",
+  "substrate_freeze_declaration": "NOT_MADE",
+  "verification": {
+    "cleanup_harness_caveat": "TemporaryDirectory.cleanup made non-throwing for known Windows SQLite teardown scar; test bodies/assertions unchanged",
+    "compileall": "PASS for microseed and integrated H/SH6/SH7 test files",
+    "missing_requested_files": [
+      "tests/embodiment/test_frontier_h_language_opaque_token_permutation.py"
+    ],
+    "release_gate_harness": "73/73 PASS in 455.96s; PYTEST_RC=0"
+  }
+}
