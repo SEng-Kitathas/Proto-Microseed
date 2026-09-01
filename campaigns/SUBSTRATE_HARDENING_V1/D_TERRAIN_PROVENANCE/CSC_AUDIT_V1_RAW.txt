@@ -1,0 +1,13 @@
+```json
+{
+  "verdict": "PASS",
+  "errors": [],
+  "warnings": [],
+  "claim_supported": true,
+  "claim_ceiling_ok": true,
+  "new_terrain_registry_warranted": false,
+  "strongest_survivor": "DECLARED_MATERIAL_TERRAIN_CHANGE_IS_FRAME_CURRENTNESS",
+  "strongest_remaining_risk": "UNDECLARED_ENVIRONMENT_CHANGE != SUBSTRATE_OBSERVABLE_FACT",
+  "next_hostile": "OPERATIONAL_EQUIVALENCE != SEMANTIC_TERRAIN_IDENTITY"
+}
+```

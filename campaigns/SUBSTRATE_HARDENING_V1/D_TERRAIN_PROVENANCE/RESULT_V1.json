@@ -1,0 +1,43 @@
+{
+  "campaign": "SUBSTRATE_HARDENING_V1",
+  "arm": "D_TERRAIN_PROVENANCE",
+  "status": "VERIFIED_RESEARCH_COMPOSITION_RESULT",
+  "parent_head": "0b59687d72868c57d3cd664a1236aeceabad54a8",
+  "canonical_microseed_tree": "9d63915e9e0396f39d255df474d8c2849a153e3f",
+  "claim": "MATERIAL_DEVELOPMENTAL_TERRAIN_CHANGE_CAN_BE_GOVERNED_BY_EXISTING_OPERATIONAL_FRAME_AND_ENVIRONMENT_CURRENTNESS_WHEN_DECLARED_HONESTLY__NO_SEPARATE_CFE_FIELD_OR_TERRAIN_REGISTRY_IS_REQUIRED_FOR_THE_TESTED_PATH",
+  "claim_ceiling": "The substrate cannot magically detect an undeclared external adapter change that is falsely presented under the same frame contract. This is an environment-contract attribution boundary, not evidence for a hidden terrain detector. The result is bounded to developmental visibility/access changes whose materiality can be represented by existing operational-frame/environment compatibility currentness.",
+  "pdver": "PROBE -> DERIVE -> VERIFY -> EMBODY -> RECURSE",
+  "test": "tests\\embodiment\\test_hardening_d_terrain_frame_provenance.py",
+  "test_sha256": "9a7193c0a57255ad1c0c97b3a3d1686b8d19ebca5abbac17566cfa1d5123728b",
+  "focused_result": {
+    "passed": 3,
+    "failed": 0
+  },
+  "related_guard": {
+    "passed": 23,
+    "failed": 0,
+    "duration_seconds": 127.85
+  },
+  "observed": [
+    "A projection admitted under GOOD_XY remains current if the external adapter secretly switches to BAD_XZ while continuing to declare the same F@0 frame; no internal premise changed, so no lawful detector can infer the hidden fact.",
+    "When the material relational-visibility change is explicitly declared through change_operational_frame(F), existing frame invalidation transitively stales the admitted projection while preserving historical evidence/candidate bytes.",
+    "Operationally equivalent GOOD_XY/GOOD_YX coordinate permutation preserves discovery quality and does not require a semantic terrain identity.",
+    "Existing MS1952/MS1967/MS1973/MS1977/MS1983/MS1984/MS1998 environment/frame/projection lineage remains green."
+  ],
+  "oarr": "A new terrain registry would duplicate already-owned frame/environment currentness unless it carries discriminatory information unavailable in the declared frame contract. The tested hidden-adapter case is intentionally non-identifiable from inside the substrate and therefore cannot justify an internal detector.",
+  "survivors": [
+    "SHAPE_THE_FIELD_CAN_CHANGE_DEVELOPMENT != MICROSEED_OWNS_THE_FIELD",
+    "DECLARED_MATERIAL_TERRAIN_CHANGE_IS_FRAME_CURRENTNESS",
+    "UNDECLARED_ENVIRONMENT_CHANGE != SUBSTRATE_OBSERVABLE_FACT",
+    "OPERATIONAL_EQUIVALENCE != SEMANTIC_TERRAIN_IDENTITY"
+  ],
+  "new_core_mechanism_required": "NO_FOR_TESTED_TERRAIN_PROVENANCE_PATH",
+  "production_delta": [],
+  "promotion_authority": "NONE",
+  "timestamp_epoch": 1788278440.6787875,
+  "csc_verdict": "PASS",
+  "csc_claim_supported": true,
+  "csc_claim_ceiling_ok": true,
+  "new_terrain_registry_warranted": false,
+  "seal_status": "READY_FOR_RESEARCH_COMMIT"
+}
