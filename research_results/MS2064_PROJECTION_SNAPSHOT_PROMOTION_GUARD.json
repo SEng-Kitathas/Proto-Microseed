@@ -1,6 +1,6 @@
 {
   "schema": "ms2064_projection_snapshot_promotion_guard/v1",
-  "status": "REPAIR_SEALED__WHOLE_PENDING",
+  "status": "REPAIR_WHOLE_GREEN__PROMOTION_REVIEW_CAN_CONTINUE",
   "trigger": "promotion review exact production-delta audit after MS2063 whole-suite green",
   "parent_head": "2107e3ec318d1781fc2641ed420166da9554bc84",
   "defect": "EpistemicDeficitRegistry.snapshot incorrectly referenced projection capability_dependents while EpistemicProjectionRegistry.snapshot omitted them",
@@ -21,7 +21,13 @@
     "stderr_bytes": 0
   },
   "whole_suite": {
-    "status": "PENDING"
+    "status": "PASS",
+    "pytest": "973/973 PASS",
+    "duration_seconds": 947.49,
+    "stderr_bytes": 0,
+    "stdout_sha256": "44579cff89e0a0819719d0b3682d5f81d9f16b1bff5ad39e2e4f121c30cf0166",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tested_commit": "f005670814511e3f8d5bf3aca33e577c43bca1d1"
   },
-  "promotion": "BLOCKED_UNTIL_REPAIRED_WHOLE_SUITE_GREEN"
+  "promotion": "REVIEW_CONTINUES__NO_AUTOMATIC_CANONICAL_PROMOTION"
 }

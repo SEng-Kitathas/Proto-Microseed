@@ -35,3 +35,14 @@ Whole cleanup-neutral regression remains required before promotion review can re
 - stderr empty in both runs.
 
 Promotion remains blocked until the repaired committed head passes an authoritative cleanup-neutral whole suite.
+
+## Authoritative whole-suite closeout
+Repaired committed head `f005670814511e3f8d5bf3aca33e577c43bca1d1` completed cleanup-neutral whole regression:
+- **973/973 PASS in 947.49s**;
+- stderr bytes: **0**;
+- stdout SHA-256: `44579cff89e0a0819719d0b3682d5f81d9f16b1bff5ad39e2e4f121c30cf0166`;
+- stderr SHA-256: `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`.
+
+As with MS2063, the controller exit file is empty and is not used as evidence. The persisted pytest output is complete through `[100%]` with a terminal pass line and empty stderr.
+
+Promotion review may continue. Canon remains unchanged.
