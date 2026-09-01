@@ -1,0 +1,51 @@
+{
+  "arm": "I_GROWTH",
+  "status": "VERIFIED_NEGATIVE_RESEARCH_RESULT",
+  "claim": "QUALIFIED_REUSABLE_WHOLE_AS_DEPENDENCY_IS_NOT_A_FIXED_BUDGET_REACHABILITY_EXPANDING_ATOM_IN_THE_CURRENT_RUNTIME_COMPOSER",
+  "claim_ceiling": "Bounded to the current dependency-directed compose_capabilities plan semantics and the tested MS853-877 capability-candidate admission path. This does not prove learned wholes can never expand behavioral reachability through some later lawful owner; it establishes that the current admitted-whole representation is recursively expanded through its prerequisites and therefore does not itself compress the fixed composition-plan budget.",
+  "pdver": "PROBE -> DERIVE -> VERIFY -> EMBODY -> RECURSE",
+  "embodiment": "tests\\embodiment\\test_frontier_i_growth_reusable_whole_reachability.py",
+  "test_sha256": "53924f055158ac8ed785f07444df458590d0ba99f97f9dbceedc9acef06276b8",
+  "focused_result": {
+    "passed": 3,
+    "failed": 0,
+    "duration_seconds": 1.15,
+    "runner": "tools/run_pytest_cleanup_neutral.py"
+  },
+  "related_regression": {
+    "passed": 21,
+    "failed": 0,
+    "duration_seconds": 9.62,
+    "runner": "tools/run_pytest_cleanup_neutral.py"
+  },
+  "historical_replay": {
+    "semantic_result": "all_pass=true",
+    "process_return_code": 1,
+    "classification": "WINDOWS_SQLITE_TEMP_CLEANUP_SCAR_ONLY",
+    "authoritative_verdict_source": "21/21 cleanup-neutral pytest guard"
+  },
+  "observed": [
+    "A recurrent A->B operational motif can still be discovered as proposal-only, independently qualified, and admitted as a current reusable capability whole.",
+    "Direct primitive composition of A,B yields plan (A,B); composing the admitted whole yields (A,B,whole), proving the whole is dependency-expanded rather than atomic in the current composer.",
+    "A primitive target with dependencies A,B,C fits a four-node plan; a target depending on whole,C expands to A,B,whole,C,target and therefore fails the same four-node plan budget while succeeding at five.",
+    "Withholding/staling prerequisite A transitively stales the admitted whole and the second-order dependent target, preserving real dependency/currentness lineage."
+  ],
+  "survivors": [
+    "QUALIFIED_WHOLE_IS_REUSABLE_AS_DEPENDENCY",
+    "QUALIFICATION_REQUIRED_BEFORE_REUSE",
+    "DEPENDENCY_CURRENTNESS_PROPAGATES_TRANSITIVELY",
+    "COMPOSITION_DOES_NOT_STRENGTHEN_AUTHORITY"
+  ],
+  "demotion": "CURRENT_REUSABLE_WHOLE_DOES_NOT_YET_EARN_ATOMIC_REACHABILITY_EXPANSION",
+  "minimal_gap": "AN_AUTHORITY_SAFE_OPERATIONAL_ATOM_OR_EQUIVALENCE_OWNER_WOULD_BE_REQUIRED_BEFORE_A_QUALIFIED_WHOLE_COULD_COUNT_AS_ONE_BOUNDED_COMPOSITION_STEP_WITHOUT_ERASING_DEPENDENCY_CURRENTNESS_LINEAGE",
+  "new_core_mechanism_required": "UNRESOLVED__DO_NOT_IMPLEMENT_FROM_THIS_NEGATIVE_RESULT_ALONE",
+  "production_delta": [],
+  "promotion_authority": "NONE",
+  "timestamp_epoch": 1788266848.3413782,
+  "csc_result_verdict": "REVIEW",
+  "csc_claim_supported": true,
+  "csc_claim_ceiling_ok": true,
+  "seal_status": "VERIFIED_NEGATIVE__CSC_REVIEW__OPEN_FOR_RED_TEAM",
+  "r1_adjudication": "PRESERVE_NEGATIVE_OBSERVATION__DO_NOT_CLOSE_ARM",
+  "methodology": "methodology\\MS_FRONTIER_I_GROWTH_REUSABLE_WHOLE_REACHABILITY_2026-09-01.md"
+}

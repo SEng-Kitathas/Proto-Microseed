@@ -1,0 +1,12 @@
+```json
+{
+  "verdict": "REVIEW",
+  "errors": [],
+  "warnings": [],
+  "claim_supported": true,
+  "claim_ceiling_ok": true,
+  "strongest_survivor": "QUALIFIED_WHOLE_IS_REUSABLE_AS_DEPENDENCY",
+  "strongest_scar": "QUALIFICATION_REQUIRED_BEFORE_REUSE",
+  "next_research_question": "Explore the implications of the dependency-expanded whole on the fixed composition-plan budget and its preservation."
+}
+```
