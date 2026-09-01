@@ -1,0 +1,56 @@
+{
+  "front": "SH3_SCAFFOLDING_STRIP",
+  "status": "VERIFIED_HARDENING_RESULT",
+  "claim": "WHEN_LOAD_BEARING_ASSISTANCE_OR_EVIDENCE_IS_REMOVED_ACROSS_PROGRAM_GENERATION_N1A_GROUNDED_REFERENCE_FULL_FRAME_VALUE_SELECTION_AND_RELATIONAL_TERRAIN_DISCOVERY__CURRENT_MICROSEED_FAILS_CLOSED_INSTEAD_OF_INVENTING_THE_MISSING_STRUCTURE",
+  "claim_ceiling": "This demonstrates fail-closed behavior for five tested assistance classes, not assistance-independence. The positive capabilities still have explicit assistance ceilings and should not be described as unscaffolded cognition.",
+  "pdver": "PROBE -> DERIVE -> VERIFY -> EMBODY -> RECURSE",
+  "matrix_plus_guard": {
+    "passed": 22,
+    "failed": 0,
+    "duration_seconds": 33.28
+  },
+  "strips": [
+    {
+      "surface": "endogenous program generation",
+      "removed": "recurrent lived three-locus history",
+      "result": "ABSTAIN / NO_COHERENT_THREE_LOCUS_CHAIN_MODEL_SURFACE",
+      "authority": "truth/execution NONE"
+    },
+    {
+      "surface": "N1A",
+      "removed": "complete current constitutional value frame",
+      "result": "ABSTAIN / COMPLETE_CURRENT_VALUE_FRAME_REQUIRED",
+      "authority": "execution NONE"
+    },
+    {
+      "surface": "grounded operational token binding",
+      "removed": "grounded signal-use history",
+      "result": "DEFER_UNKNOWN / SUFFICIENT_GROUNDED_USE_HISTORY_REQUIRED",
+      "authority": "semantic/truth/language/execution NONE"
+    },
+    {
+      "surface": "full-frame Pareto value selection",
+      "removed": "complete current value observation",
+      "result": "DEFER_UNKNOWN",
+      "authority": "caller value-frame subset absent"
+    },
+    {
+      "surface": "projection discovery under developmental terrain",
+      "removed": "causal relation from visible coordinate surface while matched nuisance coordinates remain",
+      "result": "no projection candidate",
+      "authority": "no off-surface causal inference"
+    }
+  ],
+  "survivors": [
+    "MISSING_EVIDENCE != PERMISSION_TO_INFER",
+    "MISSING_FRAME != CALLER_SUPPLIED_FRAME",
+    "UNGROUNDED_TOKEN != REFERENCE",
+    "UNKNOWN != PERMITTED",
+    "OFF_SURFACE_CAUSAL_RELATION != DISCOVERED_PROJECTION"
+  ],
+  "strongest_risk": "Positive frontier capabilities remain scaffold-dependent in specific, now-explicit ways; hardening must reduce assistance gradually rather than relabel current fixtures unscaffolded.",
+  "production_delta": [],
+  "promotion_authority": "NONE",
+  "test_sha256": "c64c7bb22cdc05a02a4285a27dde93a6e4c668b23e062ee2d9ce2566ac5b7fac",
+  "timestamp_epoch": 1788274872.9220705
+}
