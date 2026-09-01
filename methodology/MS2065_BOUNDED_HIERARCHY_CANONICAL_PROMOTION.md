@@ -76,3 +76,10 @@ Cleanup-neutral whole suite:
 - stderr SHA-256 `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`.
 
 The missing-exit-code limitation from MS2063/MS2064 is therefore closed for promotion execution. The next operations are governance/evidence seal, annotated tag, remote fast-forward, and fresh-clone verification.
+
+## Publication-byte binding scar and repair
+The first local annotated-tag verifier blocked promotion after the scientific gates were green because Git text normalization changed the committed whole-suite stdout from the exact captured 1168-byte CRLF stream to a 1153-byte LF-normalized blob. The receipt/pointer correctly carried the captured SHA-256 `282ed8993e301a639cd0acbc13e606a37ff6e7178c9895a1e9ece756f42369bb`, while the first seal commit stored a different normalized blob.
+
+Classification: `TEMP_VERIFIED != PUBLISHED_BYTES_VERIFIED` and `WORKTREE_TEXT_BYTES != REPOSITORY_BLOB_BYTES`.
+
+Repair: mark the MS2065 promotion stdout/stderr evidence paths `-text` in `.gitattributes`, restage the exact captured worktree bytes, verify the staged Git blob SHA-256 equals the promotion-controller receipt, then create a new seal/tag. The superseded local-only seal remains in Git history but was never pushed/tagged remotely.
