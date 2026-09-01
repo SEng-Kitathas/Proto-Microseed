@@ -1,0 +1,44 @@
+{
+  "status": "MAIN_REASONING_DISCRIMINATOR_SPEC__CONTROL_INPUT_NOT_EVIDENCE",
+  "arm": "H_LANGUAGE",
+  "created_epoch": 1788263798.763138,
+  "parent_head": "4a04cfb825b5fa2cbf40a74043683fef5c1d0e17",
+  "canonical_parent": "ed2cde491962105b0d853b7fd82d8e8b3d81bd8a",
+  "pdver": "PROBE -> DERIVE -> VERIFY -> EMBODY -> RECURSE",
+  "oarr_required": true,
+  "loop_plus_required": true,
+  "hsp_measurement_required": true,
+  "csc_status": "PENDING_SHADOW_AUDIT",
+  "promotion_authority": "NONE",
+  "production_mutation_allowed": false,
+  "evidence_context_refs": [
+    "continuity/state/current/CURRENT_STATE.md#p12.0",
+    "methodology\\MS1972_PROCESS_BACKED_REPRESENTATION_ALIAS_GROWTH.md#p28.0",
+    "methodology\\MS1981_MS1982_OWNED_TEMPORAL_RAW_CONSTRUCTOR_GROWTH.md#p36.0",
+    "methodology\\MS2054_P1A_STALE_REHEARSAL_CURRENTNESS_CANONICAL_REPAIR.md#p2.0",
+    "continuity/state/next_steps/NEXT_STEPS.md#p5.0",
+    "continuity/CURRENT_FRONTIER.md#p3.0",
+    "continuity/state/revisit_ledger/REVISIT_LEDGER.md#p1.0",
+    "continuity/SCARS_AND_DO_NOT_REINTRODUCE.md#p148.0"
+  ],
+  "spec": {
+    "question": "Can an arbitrary token become a qualified pointer to an already-grounded operational referent and coordinate behavior without the token supplying truth, semantic identity or execution authority?",
+    "incumbent": "Existing grounded referent, opaque representation, currentness and bounded request owners can support token-to-operational-reference association as an index only.",
+    "rival": "Apparent grounding is mere token-frequency/caller-capability indexing or smuggles semantic/execution authority from the token.",
+    "manipulation": "First establish two operational referents without language. Then expose arbitrary tokens T1/T2 paired with those referents under balanced frequency. At test, permute token strings across independent learners and vary context so surface token identity has no stable semantics; use token cue to select the referent for a bounded non-executable request candidate.",
+    "controls": [
+      "balanced token frequency",
+      "token-string permutation",
+      "referent-absent negative control",
+      "token-only/no-grounded-history control",
+      "runtime execution permission withheld",
+      "projection/currentness drift"
+    ],
+    "incumbent_prediction": "Behavior follows the learned token-to-current-operational-referent relation under string permutation, fails without grounded referent history, and cannot execute solely from the token.",
+    "rival_prediction": "Behavior follows token surface/frequency or supplied capability mapping, survives without grounded referent evidence, or token cue grants execution/truth authority.",
+    "measurement": "Token-referent association, context-sensitive selection, currentness/staleness, candidate request identity, execution refusal without separate authority.",
+    "minimal_embodiment": "Research-only language-gate fixture rebased to current canon; no semantic truth layer and no production language admission.",
+    "falsifier": "Token behavior cannot survive opaque string permutation/context controls or gains authority not inherited from the grounded operational substrate.",
+    "loop_plus": "If pointer association succeeds, next distinguish co-reference/communication from mere operational indexing before semantic claims."
+  }
+}
