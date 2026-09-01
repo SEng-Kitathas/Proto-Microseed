@@ -1,0 +1,20 @@
+{
+  "question": "What specific mechanisms within Microseed interact with relational geometry and determine their impact?",
+  "evidence_contacted": ["SOURCE continuity/state/current/CURRENT_STATE.md#p2.0", "SOURCE continuity/CURRENT_FRONTIER.md#p12.0", "SOURCE continuity/CURRENT_FRONTIER.md#p18.0", "SOURCE continuity/SCARS_AND_DO_NOT_REINTRODUCE.md#p113.0"],
+  "measurement_frame": "The interaction between Microseed mechanisms and relational geometry, as observed through developmental predictions and outcomes.",
+  "probe": "Identify the mechanisms within Microseed that interact with relational geometry and determine their impact by manipulating learner-visible relational geometry and comparing developmental predictions.",
+  "derive": "Derive hypotheses about the mechanisms based on the observed developmental predictions and outcomes.",
+  "verify": "Verify the hypotheses by conducting experiments that manipulate learner-visible relational geometry and comparing the resulting developmental predictions and outcomes.",
+  "oarr": "A rival mechanism that could interact with relational geometry and determine its impact, such as an alternative geometry processing algorithm or a different topology intervention.",
+  "loop_plus": "Widen the causal explanation to include the role of topological interventions and their impact on developmental predictions.",
+  "embody": "NO_MUTATION_WARRANTED",
+  "observed_consequence": "SOURCE_EVIDENCE_ONLY__NO_NEW_WORLD_CONSEQUENCE",
+  "survivors": "None",
+  "scars": "None",
+  "demotions": "None",
+  "unresolved": "The specific mechanisms within Microseed that interact with relational geometry and determine their impact remain unresolved.",
+  "attention_reservoir": "None",
+  "disposition": "UNKNOWN_INCOMPLETE",
+  "next": "What specific mechanisms within Microseed interact with relational geometry and determine their impact?",
+  "terminal": true
+}

@@ -1,0 +1,9 @@
+{
+  "runtime": "V3",
+  "purpose": "D_CFE_CANARY_BINDING",
+  "orchestration_head": "078cb6514fdf50ea57c98c062d5a043334aee1a3",
+  "runner_path": "tools/run_ms_frontier_helix_wave1_v3.py",
+  "runner_sha256": "1f7f25311df1e87135c892b4a44925fa7658221b0d0f330ab8a571e83f1c00cc",
+  "promotion_authority": "NONE",
+  "production_mutation_allowed": false
+}
