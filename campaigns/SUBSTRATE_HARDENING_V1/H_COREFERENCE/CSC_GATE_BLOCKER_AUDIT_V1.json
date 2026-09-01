@@ -1,0 +1,15 @@
+{
+  "verdict": "BLOCK",
+  "errors": [],
+  "warnings": [],
+  "finding_supported": true,
+  "scope_correct": true,
+  "co_reference_should_remain_blocked": true,
+  "production_defect": true,
+  "strongest_rival": "H_COREFERENCE_REMAINS_BLOCKED_UNTIL_POST_BINDING_GROUNDED_EMPIRICAL_CURRENTNESS_IS_EARNED",
+  "next_research_question": "Before co-reference, test whether existing action/outcome/referent evidence can compose a post-binding empirical currentness witness without adding a language/reference manager.",
+  "promotion_warranted": false,
+  "authority": "AUDIT_ONLY_NONE_PROMOTION",
+  "model": "Qwen2.5-Coder-1.5B-Instruct-abliterated-Q4_K_L.gguf",
+  "review_port": 18192
+}
