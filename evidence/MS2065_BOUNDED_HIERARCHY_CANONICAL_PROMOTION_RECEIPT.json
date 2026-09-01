@@ -1,6 +1,6 @@
 {
   "schema": "ms2065_bounded_hierarchy_canonical_promotion/v1",
-  "status": "PREPROMOTION_GATE_PENDING",
+  "status": "PROMOTION_COMMIT_PENDING_TAG_PUSH_READBACK",
   "canonical_label": "PRELINGUAL_SUBSTRATE_V1_P1A_N1A_BOUNDED_HIERARCHY_V1",
   "promotion_tag": "prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1",
   "canonical_parent": "0312459457223feb79bb2d0d71ab8387fbc28b1c",
@@ -19,10 +19,26 @@
     "ms2064_repaired": "973/973 PASS in 947.49s"
   },
   "promotion_focused": {
-    "status": "PENDING"
+    "pytest": "18/18 PASS",
+    "duration_seconds": 53.42,
+    "return_code": 0,
+    "stderr_bytes": 0,
+    "stdout_path": "evidence/MS2065_BOUNDED_HIERARCHY_PROMOTION_FOCUSED_STDOUT.log",
+    "stdout_bytes": 100,
+    "stdout_sha256": "f0b125df5dcba37113f960a17383392dbeb13f2fb0ba4c36a6940b0fc5fe088c",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   },
   "promotion_whole_suite": {
-    "status": "PENDING"
+    "pytest": "975/975 PASS",
+    "duration_seconds": 1077.44,
+    "controller_duration_seconds": 1078.13,
+    "return_code": 0,
+    "stderr_bytes": 0,
+    "stdout_path": "evidence/MS2065_BOUNDED_HIERARCHY_PROMOTION_WHOLE_SUITE_STDOUT.log",
+    "stderr_path": "evidence/MS2065_BOUNDED_HIERARCHY_PROMOTION_WHOLE_SUITE_STDERR.log",
+    "stdout_bytes": 1168,
+    "stdout_sha256": "282ed8993e301a639cd0acbc13e606a37ff6e7178c9895a1e9ece756f42369bb",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   },
   "authority_boundary": {
     "new_effect_authority": false,
@@ -33,5 +49,12 @@
     "generic_planner_authority": false,
     "generic_exploration_authority": false
   },
-  "promotion_commit_binding": "PENDING_FINAL_SEAL_AND_ANNOTATED_TAG"
+  "promotion_commit_binding": "VERIFY_PROMOTION_TAG_PEELED_COMMIT_AFTER_TAG_CREATION__RECEIPT_DOES_NOT_SELF_HASH_CONTAINING_COMMIT",
+  "promotion_candidate_head": "13e4a4690b7a219d482160c81445d7382798832a",
+  "failed_pressure_lineage": [
+    "MS2063_EQUIVALENT_RAW_CONTEXTS_COLLAPSE_TO_IDENTICAL_REHEARSAL_PROPOSAL_ID__HARNESS_COLLISION_NOT_NEGATIVE_SCIENCE",
+    "MS2063_RESTART_REQUIRES_EXPLICIT_OPERATIONAL_STRUCTURE_REREGISTRATION__FIXTURE_ERROR_NOT_PERSISTENCE_FAILURE",
+    "WRONG_REGISTRY_SNAPSHOT_PATCH__LATENT_PRODUCTION_DEFECT_FOUND_BY_EXACT_DELTA_REVIEW",
+    "CURRENT_CHANGED_PROJECTION_VERSION != EXTERNALLY_REQUALIFIED_TARGET_VOCABULARY"
+  ]
 }

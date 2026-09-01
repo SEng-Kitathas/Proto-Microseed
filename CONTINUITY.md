@@ -74,3 +74,19 @@ N1A whole regression: `evidence/MS2056_N1A_WHOLE_SUITE_STDOUT.log`
 Promotion remote/fresh-clone readback: `evidence/MS2056_N1A_CANONICAL_PROMOTION_READBACK_RECEIPT.json`
 
 N1A grants only one exact bounded first-unmodeled EFFECT exposure after current qualification, scope, state, complete current value-frame, known-consequence exclusion, and unique-eligibility gates. `UNKNOWN != SAFE`; the warrant is durably consumed before EFFECT and does not create generic exploration authority.
+
+## Active bounded-hierarchy canonical extension
+
+The active repaired/extended canonical substrate is `PRELINGUAL_SUBSTRATE_V1_P1A_N1A_BOUNDED_HIERARCHY_V1`, sealed by annotated tag `prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1` after the dedicated MS2065 promotion gate.
+
+Canonical parent before this extension: `0312459457223feb79bb2d0d71ab8387fbc28b1c` (`PRELINGUAL_SUBSTRATE_V1_P1A_N1A` public docs/evidence head).
+
+Exact production delta:
+- `microseed/development/epistemic.py`;
+- `microseed/runtime/entity.py`.
+
+Promotion receipt: `evidence/MS2065_BOUNDED_HIERARCHY_CANONICAL_PROMOTION_RECEIPT.json`
+
+Promotion whole regression: `evidence/MS2065_BOUNDED_HIERARCHY_PROMOTION_WHOLE_SUITE_STDOUT.log`
+
+The extension promotes only the bounded two-level learned opaque request-target specialization/currentness path. It does not grant recursive hierarchy, semantic Parent/Child authority, arbitrary desired-state construction, generic planning, CFE transfer, or generic exploration authority.

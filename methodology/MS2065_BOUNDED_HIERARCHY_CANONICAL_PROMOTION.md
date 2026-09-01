@@ -58,3 +58,21 @@ After tag/push:
 10. production subtree equals the tested research subtree exactly.
 
 `BOUNDED_TWO_LEVEL_HIERARCHY_TRANSFER_TECHNICALLY_READY != CANONICALLY_PROMOTED` until all gates above complete.
+
+## Dedicated promotion gate — GREEN
+Promotion candidate head `13e4a4690b7a219d482160c81445d7382798832a` preserved the repaired research Microseed subtree exactly.
+
+Focused MS2062–MS2065 gate:
+- **18/18 PASS in 53.42s**;
+- explicit return code **0**;
+- stderr **0 bytes**;
+- stdout SHA-256 `f0b125df5dcba37113f960a17383392dbeb13f2fb0ba4c36a6940b0fc5fe088c`.
+
+Cleanup-neutral whole suite:
+- **975/975 PASS in 1077.44s**;
+- explicit return code **0**;
+- stderr **0 bytes**;
+- stdout SHA-256 `282ed8993e301a639cd0acbc13e606a37ff6e7178c9895a1e9ece756f42369bb`;
+- stderr SHA-256 `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`.
+
+The missing-exit-code limitation from MS2063/MS2064 is therefore closed for promotion execution. The next operations are governance/evidence seal, annotated tag, remote fast-forward, and fresh-clone verification.

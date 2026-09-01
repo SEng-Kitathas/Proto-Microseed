@@ -28,4 +28,4 @@ def test_ms2065_receipt_preserves_authority_ceiling_before_promotion():
     assert r['tested_research_microseed_tree']==git(root,'rev-parse',REPAIRED+':microseed')
     a=r['authority_boundary']
     assert all(v is False for v in a.values())
-    assert r['status'] in {'PREPROMOTION_GATE_PENDING','PROMOTION_GATES_GREEN__SEAL_PENDING','CANONICAL_PROMOTION_SEALED'}
+    assert r['status'] in {'PREPROMOTION_GATE_PENDING','PROMOTION_GATES_GREEN__SEAL_PENDING','PROMOTION_COMMIT_PENDING_TAG_PUSH_READBACK','CANONICAL_PROMOTION_SEALED'}

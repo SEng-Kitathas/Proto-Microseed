@@ -114,26 +114,55 @@
     "n1a": "SUPERSEDED_BY_CANONICAL_N1A_PROMOTION"
   },
   "active_canonical_substrate": {
-    "label": "PRELINGUAL_SUBSTRATE_V1_P1A_N1A",
-    "tag": "prelingual-substrate-v1-p1a-n1a",
-    "tested_research_head": "9caaac51ecfdac7b5e48c98faf585d4b36ed09e8",
-    "p1a_base": "2c3e225fd1fcaa89965da80d6048bc178c521740",
-    "promotion_receipt": "evidence/MS2056_N1A_CANONICAL_PROMOTION_RECEIPT.json",
-    "whole_suite": "926/926 PASS in 913.93s",
-    "whole_suite_stdout_sha256": "a39257a8c0b01edd0c077d53b7220ac135d6ba7ce0206a5ece00f24428be57e4",
-    "historical_v1_remains": "0fa41f1ed4cf2fbd341b5f0b63adbc0034d4ac39",
-    "authority_boundary": [
-      "UNKNOWN != SAFE",
-      "UNKNOWN != SELECTED",
-      "UNKNOWN != PERMITTED",
-      "UNIQUE_ELIGIBILITY_ONLY",
-      "DURABLE_RESERVATION_BEFORE_EFFECT",
-      "ACTUAL_OUTCOME_SOVEREIGNTY"
+    "label": "PRELINGUAL_SUBSTRATE_V1_P1A_N1A_BOUNDED_HIERARCHY_V1",
+    "tag": "prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1",
+    "canonical_parent_public_head": "0312459457223feb79bb2d0d71ab8387fbc28b1c",
+    "n1a_parent_tag": "prelingual-substrate-v1-p1a-n1a",
+    "research_evidence_head": "a9e4baaa8be3bcab749532160f57ab388839b368",
+    "repaired_whole_tested_research_head": "f005670814511e3f8d5bf3aca33e577c43bca1d1",
+    "tested_research_microseed_tree": "9d63915e9e0396f39d255df474d8c2849a153e3f",
+    "promotion_receipt": "evidence/MS2065_BOUNDED_HIERARCHY_CANONICAL_PROMOTION_RECEIPT.json",
+    "promotion_whole_suite": "975/975 PASS in 1077.44s",
+    "promotion_whole_return_code": 0,
+    "promotion_whole_stdout_sha256": "282ed8993e301a639cd0acbc13e606a37ff6e7178c9895a1e9ece756f42369bb",
+    "production_delta": [
+      "microseed/development/epistemic.py",
+      "microseed/runtime/entity.py"
     ],
-    "promotion_commit": "5bbf5a91384bfdd8f749cf6780c77be73aeeafe3",
-    "promotion_tree": "0d9753a5e139d910461e51aa210db3f5834b95d2",
-    "microseed_tree": "b5f7cb091923cff81e74798530dedb01bdc60c1e",
-    "promotion_readback_receipt": "evidence/MS2056_N1A_CANONICAL_PROMOTION_READBACK_RECEIPT.json",
-    "remote_and_fresh_clone_status": "VERIFIED"
+    "authority_boundary": [
+      "NO_NEW_EFFECT_AUTHORITY",
+      "NO_SEMANTIC_PARENT_CHILD_AUTHORITY",
+      "NO_SEMANTIC_DESIRED_STATE_AUTHORITY",
+      "NO_LOCAL_MEANS_AUTHORITY_UPWARD",
+      "NO_GENERIC_PLANNER_AUTHORITY",
+      "NO_GENERIC_EXPLORATION_AUTHORITY"
+    ],
+    "promotion_commit": "PENDING_TAG_SEAL_READBACK",
+    "promotion_readback_receipt": "PENDING"
+  },
+  "canonical_ancestry": {
+    "n1a": {
+      "label": "PRELINGUAL_SUBSTRATE_V1_P1A_N1A",
+      "tag": "prelingual-substrate-v1-p1a-n1a",
+      "tested_research_head": "9caaac51ecfdac7b5e48c98faf585d4b36ed09e8",
+      "p1a_base": "2c3e225fd1fcaa89965da80d6048bc178c521740",
+      "promotion_receipt": "evidence/MS2056_N1A_CANONICAL_PROMOTION_RECEIPT.json",
+      "whole_suite": "926/926 PASS in 913.93s",
+      "whole_suite_stdout_sha256": "a39257a8c0b01edd0c077d53b7220ac135d6ba7ce0206a5ece00f24428be57e4",
+      "historical_v1_remains": "0fa41f1ed4cf2fbd341b5f0b63adbc0034d4ac39",
+      "authority_boundary": [
+        "UNKNOWN != SAFE",
+        "UNKNOWN != SELECTED",
+        "UNKNOWN != PERMITTED",
+        "UNIQUE_ELIGIBILITY_ONLY",
+        "DURABLE_RESERVATION_BEFORE_EFFECT",
+        "ACTUAL_OUTCOME_SOVEREIGNTY"
+      ],
+      "promotion_commit": "5bbf5a91384bfdd8f749cf6780c77be73aeeafe3",
+      "promotion_tree": "0d9753a5e139d910461e51aa210db3f5834b95d2",
+      "microseed_tree": "b5f7cb091923cff81e74798530dedb01bdc60c1e",
+      "promotion_readback_receipt": "evidence/MS2056_N1A_CANONICAL_PROMOTION_READBACK_RECEIPT.json",
+      "remote_and_fresh_clone_status": "VERIFIED"
+    }
   }
 }

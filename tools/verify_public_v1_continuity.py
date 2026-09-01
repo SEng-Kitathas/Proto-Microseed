@@ -26,7 +26,7 @@ def git_bytes(*args):
 issues=[]
 # Single-branch clones do not necessarily contain tags that point at off-main genesis commits.
 # Fetch only the exact public tags required for verification when they are absent locally.
-for tag in ('prelingual-substrate-v1','naked-authority-design-v1-genesis','grounded-language-reference-v1-genesis','prelingual-substrate-v1-p1a-repair','prelingual-substrate-v1-p1a-n1a'):
+for tag in ('prelingual-substrate-v1','naked-authority-design-v1-genesis','grounded-language-reference-v1-genesis','prelingual-substrate-v1-p1a-repair','prelingual-substrate-v1-p1a-n1a','prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1'):
     probe=subprocess.run(['git','rev-parse','--verify','--quiet',tag+'^{}'],cwd=ROOT,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
     if probe.returncode != 0:
         fetch=subprocess.run(['git','fetch','--quiet','origin','tag',tag],cwd=ROOT,text=True,capture_output=True)
@@ -88,6 +88,25 @@ if active.get('label')=='PRELINGUAL_SUBSTRATE_V1_P1A_N1A':
     if n1a_receipt.get('whole_suite',{}).get('stdout_sha256')!=n1a_stdout_sha: issues.append('N1A_WHOLE_STDOUT_HASH')
     if active.get('whole_suite_stdout_sha256')!=n1a_stdout_sha: issues.append('POINTER_N1A_WHOLE_STDOUT_HASH')
     if b'926 passed in 913.93s' not in n1a_log_blob: issues.append('N1A_WHOLE_VERDICT')
+# If current public canon advertises the bounded hierarchy extension, verify exact ancestry, production delta, and promotion evidence.
+if active.get('label')=='PRELINGUAL_SUBSTRATE_V1_P1A_N1A_BOUNDED_HIERARCHY_V1':
+    htag=git('rev-parse','prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1^{}')
+    n1a_tag=git('rev-parse','prelingual-substrate-v1-p1a-n1a^{}')
+    if subprocess.run(['git','merge-base','--is-ancestor',htag,head],cwd=ROOT).returncode != 0: issues.append('HEAD_NOT_DESCENDANT_OF_BOUNDED_HIERARCHY_TAG')
+    hdelta=git('diff','--name-only',n1a_tag+'..'+htag,'--','microseed').splitlines()
+    expected_h=['microseed/development/epistemic.py','microseed/runtime/entity.py']
+    if hdelta != expected_h: issues.append('BOUNDED_HIERARCHY_PRODUCTION_DELTA_NOT_EXACT')
+    hreceipt_blob=git_bytes('show','HEAD:evidence/MS2065_BOUNDED_HIERARCHY_CANONICAL_PROMOTION_RECEIPT.json')
+    hlog_blob=git_bytes('show','HEAD:evidence/MS2065_BOUNDED_HIERARCHY_PROMOTION_WHOLE_SUITE_STDOUT.log')
+    hreceipt=json.loads(hreceipt_blob.decode('utf-8'))
+    hstdout_sha=hashlib.sha256(hlog_blob).hexdigest()
+    if hreceipt.get('promotion_whole_suite',{}).get('stdout_sha256')!=hstdout_sha: issues.append('BOUNDED_HIERARCHY_WHOLE_STDOUT_HASH')
+    if active.get('promotion_whole_stdout_sha256')!=hstdout_sha: issues.append('POINTER_BOUNDED_HIERARCHY_WHOLE_STDOUT_HASH')
+    if hreceipt.get('promotion_whole_suite',{}).get('return_code')!=0: issues.append('BOUNDED_HIERARCHY_WHOLE_RETURN_CODE')
+    if b'975 passed in 1077.44s' not in hlog_blob: issues.append('BOUNDED_HIERARCHY_WHOLE_VERDICT')
+    tested=hreceipt.get('repaired_whole_tested_research_head')
+    if tested and git('rev-parse',htag+':microseed')!=git('rev-parse',tested+':microseed'): issues.append('BOUNDED_HIERARCHY_TESTED_PRODUCTION_IDENTITY')
+
 # Confirm branch-genesis metadata in both the public pointer and the copied operator receipt.
 g=pointer.get('research_branch_genesis',{})
 if g.get('naked',{}).get('genesis_commit')!=NAKED or g.get('naked',{}).get('parent')!=V1: issues.append('POINTER_NAKED_GENESIS')
