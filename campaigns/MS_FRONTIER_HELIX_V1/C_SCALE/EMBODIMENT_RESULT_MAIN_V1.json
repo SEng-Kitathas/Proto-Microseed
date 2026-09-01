@@ -1,0 +1,57 @@
+{
+  "arm": "C_SCALE",
+  "status": "VERIFIED_RESEARCH_RESULT",
+  "claim": "TWO_INDEPENDENT_CANONICAL_TWO_LEVEL_CONTROLLERS_COMPOSE_INTO_ONE_BOUNDED_THREE_LEVEL_EXECUTION_CHAIN_WITHOUT_A_NEW_HIERARCHY_MANAGER_OR_UPWARD_TRANSFER_OF_LEAF_LOCAL_MEANS",
+  "claim_ceiling": "ONE_BOUNDED_THREE_LEVEL_EXECUTION_COMPOSITION != GENERAL_RECURSIVE_HIERARCHY != THREE_LEVEL_END_TO_END_LEARNING. Both controllers are already trained/qualified two-level controllers, and the harness supplies an opaque mapping from the L2 request token to an L1 current context. The middle controller independently chooses the L0 request. Cross-level learning/currentness propagation after internal middle drift is not established here.",
+  "pdver": "PROBE -> DERIVE -> VERIFY -> EMBODY -> RECURSE",
+  "upstream_gate_heads": [
+    "387794702a26e1c8e7e84113e882154c2d961655",
+    "c9c6f0470a0bbc706c4f325a2bcdae4404f7c5d5",
+    "294da612f3407639a28284db7e44c4926a823e0a"
+  ],
+  "embodiment": "tests\\embodiment\\test_frontier_c_scale_nested_three_level_execution.py",
+  "test_sha256": "418ec35f44883db3764d01ba8064868b58599dbfaeaa73b6598c533b5209be43",
+  "focused_result": {
+    "passed": 2,
+    "failed": 0,
+    "duration_seconds": 18.72,
+    "runner": "tools/run_pytest_cleanup_neutral.py"
+  },
+  "related_regression": {
+    "passed": 44,
+    "failed": 0,
+    "duration_seconds": 67.76,
+    "runner": "tools/run_pytest_cleanup_neutral.py",
+    "scope": "frontier C + MS2057..MS2063 hierarchy lineage"
+  },
+  "harness_scar": {
+    "first_run": "1/2",
+    "classification": "HARNESS_EXPECTED_EARLY_REFUSAL_BUT_MIDDLE_CORRECTLY_ABSTAINED_AT_ITS_OWN_INTENT_GATE",
+    "repair": "assert lawful MIDDLE_ABSTAIN rather than MIDDLE_NO_CURRENT_PROPOSAL; no production/mechanism change"
+  },
+  "observed": [
+    "Flattened two-level control and nested three-level execution both produced the same top request choices and +2 top observable consequence for the two learned query classes.",
+    "Inside each top request handler the middle Microseed independently ran current_proposal, nominated its own bounded action intent, and executed its own bound L0 request; L2 never supplied the leaf request token.",
+    "Top handler receipt hid leaf target/local mean; leaf details existed only in a separate red-team log. Top and middle maintained separate capability-registry contract objects even where content-addressed IDs coincided.",
+    "No hierarchy_manager, parent_manager, or desired_state_registry emerged in either controller.",
+    "When the required middle leaf target was REFUSED, the middle controller produced a proposal but ABSTAINED at its own bounded-intent gate; no leaf world receipt occurred while the top request itself remained an ordinary emitted request."
+  ],
+  "oarr": "Flattened direct two-level handler is observationally equivalent at the top boundary; therefore the nested level does not by itself justify a new recursive hierarchy mechanism.",
+  "survivors": [
+    "SELECTION_AUTHORITY != EXECUTION_AUTHORITY",
+    "PARENT_REQUEST != CHILD_EXECUTION",
+    "PARENT_PREDICTS_REQUEST_EFFECT != SUBORDINATE_EXECUTION_AUTHORITY",
+    "SUBORDINATE_REFUSAL_REMAINS_BINDING",
+    "COMPOSITION_CAN_NEST_EXISTING_REQUEST_EFFECT_CONTROLLERS_ONE_LEVEL"
+  ],
+  "remaining_seam": "THREE_LEVEL_END_TO_END_LEARNING_AND_CROSS_LEVEL_CURRENTNESS_PROPAGATION_AFTER_INTERNAL_MIDDLE_DRIFT",
+  "new_core_mechanism_required": "NO_FOR_THIS_BOUNDED_NESTED_EXECUTION_COMPOSITION",
+  "production_delta": [],
+  "promotion_authority": "NONE",
+  "timestamp_epoch": 1788267425.3056483,
+  "csc_result_verdict": "PASS",
+  "csc_claim_supported": true,
+  "csc_claim_ceiling_ok": true,
+  "seal_status": "READY_FOR_RESEARCH_COMMIT",
+  "methodology": "methodology\\MS_FRONTIER_C_SCALE_BOUNDED_THREE_LEVEL_EXECUTION_2026-09-01.md"
+}
