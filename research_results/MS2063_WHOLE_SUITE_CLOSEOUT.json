@@ -1,0 +1,15 @@
+{
+  "schema": "ms2063_whole_suite_closeout/v1",
+  "research_commit": "ae56c9a722707b42a81518bfebd48f9b2c43d248",
+  "ms2062_production_commit": "930ae22132e19a5439a473796e6055276dac791f",
+  "pytest": "970/970 PASS",
+  "duration_seconds": 861.5,
+  "stdout_sha256": "e03acfbcd65b303ef10d919f0399f495bff8f2e3f2f1ae339951a62b2b718740",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_bytes": 0,
+  "terminal_summary_present": true,
+  "process_terminal": true,
+  "controller_exit_receipt": "UNAVAILABLE_EMPTY_FILE",
+  "canonical_promotion": "NONE",
+  "next": "PROMOTION_REVIEW_ONLY"
+}
