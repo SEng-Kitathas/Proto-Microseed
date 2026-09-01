@@ -1,0 +1,15 @@
+{
+  "verdict": "REVIEW",
+  "errors": [],
+  "warnings": [],
+  "claim_supported": true,
+  "claim_ceiling_ok": true,
+  "gap_localized": true,
+  "mechanism_authorized": true,
+  "strongest_survivor": "QUALIFIED_WHOLE_IS_REUSABLE_AS_DEPENDENCY",
+  "strongest_scar": "QUALIFICATION_REQUIRED_BEFORE_REUSE",
+  "next_research_question": "How can we further optimize the dependency-free atomic wrapper to reduce the apparent plan budget while preserving the causal/currentness lineage?",
+  "authority": "AUDIT_ONLY_NONE_PROMOTION",
+  "model": "Qwen2.5-Coder-1.5B-Instruct-abliterated-Q4_K_L.gguf",
+  "review_port": 18192
+}

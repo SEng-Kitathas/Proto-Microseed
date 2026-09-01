@@ -1,0 +1,59 @@
+{
+  "arm": "I_GROWTH",
+  "status": "VERIFIED_NEGATIVE_RESEARCH_RESULT_WITH_GAP_LOCALIZATION",
+  "claim": "CURRENT_QUALIFIED_WHOLE_IS_NOT_AN_ATOMIC_FIXED_BUDGET_REACHABILITY_UNIT_AND_NAIVE_ATOMICITY_BY_STRIPPING_DEPENDENCY_ANCESTRY_LAUNDERS_CURRENTNESS",
+  "claim_ceiling": "Bounded to current capability admission/currentness and dependency-directed composer. It establishes both the negative fixed-budget result and why a dependency-free wrapper is not a lawful repair. It does not authorize a new atomic-whole mechanism; any future owner must preserve exact prerequisite/currentness ancestry while defining lawful operational-step equivalence.",
+  "pdver": "PROBE -> DERIVE -> VERIFY -> EMBODY -> RECURSE",
+  "embodiment": "tests\\embodiment\\test_frontier_i_growth_reusable_whole_reachability.py",
+  "test_sha256": "53924f055158ac8ed785f07444df458590d0ba99f97f9dbceedc9acef06276b8",
+  "focused_result": {
+    "passed": 5,
+    "failed": 0,
+    "note": "3 original reusable-whole tests + 2 atomic-wrapper OARR hostiles"
+  },
+  "related_regression": {
+    "passed": 23,
+    "failed": 0,
+    "duration_seconds": 10.0,
+    "runner": "tools/run_pytest_cleanup_neutral.py"
+  },
+  "historical_replay": {
+    "semantic_result": "all_pass=true",
+    "process_return_code": 1,
+    "classification": "WINDOWS_SQLITE_TEMP_CLEANUP_SCAR_ONLY",
+    "authoritative_verdict_source": "21/21 cleanup-neutral pytest guard"
+  },
+  "observed": [
+    "A recurrent A->B operational motif can still be discovered as proposal-only, independently qualified, and admitted as a current reusable capability whole.",
+    "Direct primitive composition of A,B yields plan (A,B); composing the admitted whole yields (A,B,whole), proving the whole is dependency-expanded rather than atomic in the current composer.",
+    "A primitive target with dependencies A,B,C fits a four-node plan; a target depending on whole,C expands to A,B,whole,C,target and therefore fails the same four-node plan budget while succeeding at five.",
+    "Withholding/staling prerequisite A transitively stales the admitted whole and the second-order dependent target, preserving real dependency/currentness lineage."
+  ],
+  "survivors": [
+    "QUALIFIED_WHOLE_IS_REUSABLE_AS_DEPENDENCY",
+    "QUALIFICATION_REQUIRED_BEFORE_REUSE",
+    "DEPENDENCY_CURRENTNESS_PROPAGATES_TRANSITIVELY",
+    "COMPOSITION_DOES_NOT_STRENGTHEN_AUTHORITY"
+  ],
+  "demotion": "DEPENDENCY_STRIPPING_AS_ATOMIC_REUSE_IS_CURRENTNESS_LAUNDERING",
+  "minimal_gap": "A_FUTURE_ATOMIC_OR_OPERATIONAL_EQUIVALENCE_OWNER_IF_EVER_JUSTIFIED_MUST_COUNT_A_QUALIFIED_WHOLE_AS_ONE_OPERATIONAL_STEP_WHILE_RETAINING_EXACT_TRANSITIVE_PREREQUISITE_CURRENTNESS_AND_AUTHORITY_ANCESTRY",
+  "new_core_mechanism_required": "LOCALIZED_BUT_NOT_AUTHORIZED",
+  "production_delta": [],
+  "promotion_authority": "NONE",
+  "timestamp_epoch": 1788270397.1317234,
+  "csc_result_verdict": "REVIEW",
+  "csc_claim_supported": true,
+  "csc_claim_ceiling_ok": true,
+  "seal_status": "VERIFIED_NEGATIVE_GAP_LOCALIZED__CSC_REVIEW__OPEN",
+  "r1_adjudication": "PRESERVE_NEGATIVE_AND_GAP_LOCALIZATION__REJECT_MECHANISM_AUTHORIZATION__ARM_OPEN",
+  "methodology": "methodology\\MS_FRONTIER_I_GROWTH_ATOMIC_WRAPPER_OARR_2026-09-01.md",
+  "oarr_update": [
+    "Dependency-free FAKE-ATOMIC-AB compresses the apparent plan budget but remains current after primitive A drift, proving the shortcut severs causal/currentness lineage.",
+    "A wrapper that honestly depends on the admitted whole remains transitively stale-correct but recursively expands to an even longer plan; naming a wrapper does not create atomic semantics."
+  ],
+  "second_hostile_test": "tests/embodiment/test_frontier_i_growth_atomic_wrapper_hostile.py",
+  "second_hostile_sha256": "eb83952409b344cb6eb775aeccddc49d2f317edc607472b4eb0ff602fab3adaa",
+  "gap_localized": true,
+  "mechanism_authorized": "NONE__CSC_FIELD_REJECTED_AS_AUTHORITY_VIOLATION",
+  "csc_authority_violation": "CSC_OUTPUT_CANNOT_SELF_EXPAND_CSC_AUTHORITY"
+}
