@@ -28,3 +28,10 @@ No hierarchy semantics, authority, currentness rule, or request-specialization b
 - production delta is exactly `microseed/development/epistemic.py` relative to the MS2063 evidence head, and the effective production candidate remains the MS2062 two-file carrier plus this one-lineage snapshot correction.
 
 Whole cleanup-neutral regression remains required before promotion review can resume.
+
+## Pre-whole-suite verification
+- Directly affected MS2062 + MS2063 + MS2064 surfaces: **16/16 PASS in 46.34s**.
+- Broader historical-owner + P1A/N1A + MS2057-MS2064 guard: **102/102 PASS in 131.84s**.
+- stderr empty in both runs.
+
+Promotion remains blocked until the repaired committed head passes an authoritative cleanup-neutral whole suite.

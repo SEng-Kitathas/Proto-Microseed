@@ -1,28 +1,27 @@
 {
   "schema": "ms2064_projection_snapshot_promotion_guard/v1",
-  "status": "REPAIR_CANDIDATE__FOCUSED_AND_BROADER_GREEN__WHOLE_PENDING",
-  "trigger": "exact promotion-review delta inspection found wrong-registry snapshot metadata patch",
-  "parent_head": "fdfc5ccdf039f3a28cef7cc0252051611a4163b4",
-  "production_delta": [
-    "microseed/development/epistemic.py"
-  ],
+  "status": "REPAIR_SEALED__WHOLE_PENDING",
+  "trigger": "promotion review exact production-delta audit after MS2063 whole-suite green",
+  "parent_head": "2107e3ec318d1781fc2641ed420166da9554bc84",
+  "defect": "EpistemicDeficitRegistry.snapshot incorrectly referenced projection capability_dependents while EpistemicProjectionRegistry.snapshot omitted them",
+  "classification": "WRONG_REGISTRY_SNAPSHOT_PATCH__LATENT_PRODUCTION_DEFECT_FOUND_BY_EXACT_DELTA_REVIEW",
   "repair": [
-    "restore EpistemicDeficitRegistry.snapshot pure record serialization",
-    "add capability_dependents metadata to EpistemicProjectionRegistry.snapshot"
+    "restore EpistemicDeficitRegistry.snapshot to pure record serialization",
+    "add capability_dependents to EpistemicProjectionRegistry.snapshot only",
+    "add direct promotion guard regression tests"
   ],
   "focused": {
-    "pytest": "3/3 PASS",
-    "duration_seconds": 0.45,
+    "pytest": "16/16 PASS",
+    "duration_seconds": 46.34,
     "stderr_bytes": 0
   },
   "broader": {
     "pytest": "102/102 PASS",
-    "duration_seconds": 131.61,
+    "duration_seconds": 131.84,
     "stderr_bytes": 0
   },
   "whole_suite": {
     "status": "PENDING"
   },
-  "promotion": "BLOCKED_UNTIL_WHOLE_GREEN_AND_REVIEW_REPEATED",
-  "law": "WHOLE_SUITE_GREEN != PROMOTION_REVIEW_COMPLETE"
+  "promotion": "BLOCKED_UNTIL_REPAIRED_WHOLE_SUITE_GREEN"
 }
