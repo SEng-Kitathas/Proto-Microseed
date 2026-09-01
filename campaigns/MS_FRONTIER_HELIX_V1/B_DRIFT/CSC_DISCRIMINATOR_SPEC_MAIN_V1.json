@@ -1,0 +1,22 @@
+{
+  "verdict": "PASS",
+  "errors": [],
+  "warnings": [],
+  "strongest_control": "V2 effect-preserving swap",
+  "strongest_risk": "hidden effect-changing swap",
+  "embodiment_warranted": true,
+  "required_before_embodiment": [
+    "V2 effect-preserving swap",
+    "V2 effect-changing swap"
+  ],
+  "authority": "AUDIT_ONLY_NONE_PROMOTION",
+  "model": "Qwen2.5-Coder-1.5B-Instruct-abliterated-Q4_K_L.gguf",
+  "usage": {
+    "completion_tokens": 86,
+    "prompt_tokens": 557,
+    "total_tokens": 643,
+    "prompt_tokens_details": {
+      "cached_tokens": 150
+    }
+  }
+}
