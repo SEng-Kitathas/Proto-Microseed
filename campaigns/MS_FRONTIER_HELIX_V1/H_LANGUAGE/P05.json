@@ -1,0 +1,72 @@
+{
+  "question": "Which specific grounded-language gate distinctions remain unresolved after P1A, N1A, representation growth, and bounded hierarchy became canonical?",
+  "evidence_contacted": [
+    "continuity/state/current/CURRENT_STATE.md#p12.0",
+    "methodology\\MS1972_PROCESS_BACKED_REPRESENTATION_ALIAS_GROWTH.md#p28.0",
+    "methodology\\MS1981_MS1982_OWNED_TEMPORAL_RAW_CONSTRUCTOR_GROWTH.md#p36.0",
+    "methodology\\MS2054_P1A_STALE_REHEARSAL_CURRENTNESS_CANONICAL_REPAIR.md#p2.0",
+    "continuity/state/next_steps/NEXT_STEPS.md#p5.0",
+    "continuity/CURRENT_FRONTIER.md#p3.0",
+    "continuity/state/revisit_ledger/REVISIT_LEDGER.md#p1.0",
+    "continuity/SCARS_AND_DO_NOT_REINTRODUCE.md#p148.0"
+  ],
+  "measurement_frame": "The interaction between canonical mechanisms and grounded-language gates, and their impact on representation growth and bounded hierarchy.",
+  "probe": "Identify the specific grounded-language gate distinctions that remain unresolved after P1A, N1A, representation growth, and bounded hierarchy became canonical.",
+  "derive": "Analyze the evidence to determine the root causes of the unresolved distinctions.",
+  "verify": "Verify the derived conclusions through additional evidence and analysis.",
+  "oarr": "A rival mechanism that demonstrates how grounded-language gates can interact with canonical mechanisms without fully resolving the distinctions.",
+  "loop_plus": "Widen the causal explanation to include the role of bounded hierarchy and representation growth in shaping the interaction between canonical mechanisms and grounded-language gates.",
+  "embody": "NO_MUTATION_WARRANTED",
+  "observed_consequence": "SOURCE_EVIDENCE_ONLY__NO_NEW_WORLD_CONSEQUENCE",
+  "survivors": [
+    "The interaction between canonical mechanisms and grounded-language gates",
+    "The impact of P1A, N1A, representation growth, and bounded hierarchy on grounded-language gate distinctions"
+  ],
+  "scars": [],
+  "demotions": [],
+  "unresolved": [
+    "The interaction between canonical mechanisms and grounded-language gates",
+    "The impact of P1A, N1A, representation growth, and bounded hierarchy on grounded-language gate distinctions"
+  ],
+  "attention_reservoir": "Neglected evidence or bounded-complete branches related to the interaction between canonical mechanisms and grounded-language gates.",
+  "disposition": "UNKNOWN_INCOMPLETE",
+  "next": "Which specific grounded-language gate distinctions remain unresolved after P1A, N1A, representation growth, and bounded hierarchy became canonical?",
+  "terminal": true,
+  "pass": 5,
+  "model_meta": {
+    "attempt": 1,
+    "usage": {
+      "completion_tokens": 583,
+      "prompt_tokens": 2067,
+      "total_tokens": 2650,
+      "prompt_tokens_details": {
+        "cached_tokens": 2010
+      }
+    },
+    "timings": {
+      "cache_n": 2010,
+      "prompt_n": 57,
+      "prompt_ms": 806.48,
+      "prompt_per_token_ms": 14.148771929824562,
+      "prompt_per_second": 70.67751215157227,
+      "predicted_n": 583,
+      "predicted_ms": 58451.761,
+      "predicted_per_token_ms": 100.26031046312178,
+      "predicted_per_second": 9.974036539292632
+    },
+    "model": "qwen2.5-coder-7b-instruct-abliterated-q4_k_m.gguf",
+    "fingerprint": "b8831-a279d0f0f"
+  },
+  "source_refs": [
+    "continuity/state/current/CURRENT_STATE.md#p12.0",
+    "methodology\\MS1972_PROCESS_BACKED_REPRESENTATION_ALIAS_GROWTH.md#p28.0",
+    "methodology\\MS1981_MS1982_OWNED_TEMPORAL_RAW_CONSTRUCTOR_GROWTH.md#p36.0",
+    "methodology\\MS2054_P1A_STALE_REHEARSAL_CURRENTNESS_CANONICAL_REPAIR.md#p2.0",
+    "continuity/state/next_steps/NEXT_STEPS.md#p5.0",
+    "continuity/CURRENT_FRONTIER.md#p3.0",
+    "continuity/state/revisit_ledger/REVISIT_LEDGER.md#p1.0",
+    "continuity/SCARS_AND_DO_NOT_REINTRODUCE.md#p148.0"
+  ],
+  "promotion_authority": "NONE",
+  "production_mutation_allowed": false
+}
