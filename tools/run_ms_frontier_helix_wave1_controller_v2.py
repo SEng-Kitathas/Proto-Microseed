@@ -4,11 +4,11 @@ from pathlib import Path
 import subprocess,sys,json,time,urllib.request,traceback,os
 ORCHESTRATION=Path(__file__).resolve().parents[1]
 ROOT=Path(__file__).resolve().parents[3]
-RUNTIME=ROOT/'.pcmmad_sync_runs'/'frontier_helix_runtime'
+RUNTIME=ROOT/'.pcmmad_sync_runs'/'frontier_helix_runtime_v2'
 ARMS=['A_TARGET','B_DRIFT','D_CFE','E_IDENTITY','F_VALUE','G_NAKED','H_LANGUAGE','I_GROWTH','K_RED_TEAM']
 PY=r'C:\Users\ancal\AppData\Local\Programs\Python\Python312\python.exe'
 CANON='ed2cde491962105b0d853b7fd82d8e8b3d81bd8a'
-CONTROL='408c265bfdc8052a614b6cb4cbe51a60673a73eb'
+CONTROL='2cd60e268543091030c6c4eaf6655d6ef103e36c'
 def health(port):
     try:
         with urllib.request.urlopen(f'http://127.0.0.1:{port}/health',timeout=5) as r:return r.status==200
