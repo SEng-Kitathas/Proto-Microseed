@@ -20,3 +20,11 @@ This blocks promotion until repaired and re-verified.
 - add direct regression tests for both registries.
 
 No hierarchy semantics, authority, currentness rule, or request-specialization behavior changes.
+
+## Pre-whole verification
+- focused direct snapshot guards: **3/3 PASS in 0.45s**;
+- broader hierarchy/projection/currentness guard: **102/102 PASS in 131.61s**;
+- stderr empty;
+- production delta is exactly `microseed/development/epistemic.py` relative to the MS2063 evidence head, and the effective production candidate remains the MS2062 two-file carrier plus this one-lineage snapshot correction.
+
+Whole cleanup-neutral regression remains required before promotion review can resume.

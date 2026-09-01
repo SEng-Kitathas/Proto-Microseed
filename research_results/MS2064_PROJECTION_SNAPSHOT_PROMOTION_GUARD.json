@@ -1,0 +1,28 @@
+{
+  "schema": "ms2064_projection_snapshot_promotion_guard/v1",
+  "status": "REPAIR_CANDIDATE__FOCUSED_AND_BROADER_GREEN__WHOLE_PENDING",
+  "trigger": "exact promotion-review delta inspection found wrong-registry snapshot metadata patch",
+  "parent_head": "fdfc5ccdf039f3a28cef7cc0252051611a4163b4",
+  "production_delta": [
+    "microseed/development/epistemic.py"
+  ],
+  "repair": [
+    "restore EpistemicDeficitRegistry.snapshot pure record serialization",
+    "add capability_dependents metadata to EpistemicProjectionRegistry.snapshot"
+  ],
+  "focused": {
+    "pytest": "3/3 PASS",
+    "duration_seconds": 0.45,
+    "stderr_bytes": 0
+  },
+  "broader": {
+    "pytest": "102/102 PASS",
+    "duration_seconds": 131.61,
+    "stderr_bytes": 0
+  },
+  "whole_suite": {
+    "status": "PENDING"
+  },
+  "promotion": "BLOCKED_UNTIL_WHOLE_GREEN_AND_REVIEW_REPEATED",
+  "law": "WHOLE_SUITE_GREEN != PROMOTION_REVIEW_COMPLETE"
+}
