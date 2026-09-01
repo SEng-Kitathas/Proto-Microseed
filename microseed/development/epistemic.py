@@ -222,13 +222,7 @@ class EpistemicDeficitRegistry:
         ))
 
     def snapshot(self) -> dict[str, dict[str, Any]]:
-        return {
-            k: {
-                **v.serializable(),
-                "capability_dependents": sorted(self.capability_dependents.get(k, ())),
-            }
-            for k, v in sorted(self.records.items())
-        }
+        return {k: v.serializable() for k, v in sorted(self.records.items())}
 
 
 def _sha256_token(value: str, *, error: str) -> str:
@@ -496,7 +490,13 @@ class EpistemicProjectionRegistry:
         return True
 
     def snapshot(self) -> dict[str, dict[str, Any]]:
-        return {k: v.serializable() for k, v in sorted(self.records.items())}
+        return {
+            k: {
+                **v.serializable(),
+                "capability_dependents": sorted(self.capability_dependents.get(k, ())),
+            }
+            for k, v in sorted(self.records.items())
+        }
 
 
 @dataclass(frozen=True)

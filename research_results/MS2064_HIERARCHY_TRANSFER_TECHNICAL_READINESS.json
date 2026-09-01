@@ -1,0 +1,35 @@
+{
+  "schema": "ms2064_hierarchy_transfer_technical_readiness/v1",
+  "verdict": "TECHNICALLY_READY_FOR_OPERATOR_PROMOTION_REVIEW",
+  "canonical_promotion": "NONE",
+  "canonical_parent": "0312459457223feb79bb2d0d71ab8387fbc28b1c",
+  "production_candidate": "930ae22132e19a5439a473796e6055276dac791f",
+  "evidence_head": "c3708843a1665fd4e826f9bbff41ebf1d8216c04",
+  "production_delta": [
+    "microseed/development/epistemic.py",
+    "microseed/runtime/entity.py"
+  ],
+  "production_diff": "152 insertions / 3 deletions",
+  "ms2062": {
+    "focused": "9/9 PASS",
+    "broader": "95/95 PASS",
+    "whole": "966/966 PASS in 1110.24s",
+    "stderr_bytes": 0
+  },
+  "ms2063": {
+    "focused": "4/4 PASS in 31.11s",
+    "broader": "128/128 PASS in 109.85s",
+    "whole": "970/970 PASS in 861.50s by complete terminal pytest summary",
+    "stderr_bytes": 0,
+    "controller_exit_receipt": "UNAVAILABLE_EMPTY_FILE"
+  },
+  "fresh_clone": {
+    "head": "c3708843a1665fd4e826f9bbff41ebf1d8216c04",
+    "tree": "e0df43cf68bfde16c8889aeb7afc05b5910769fa",
+    "focused": "13/13 PASS in 47.36s",
+    "fsck": "PASS",
+    "clean": true
+  },
+  "promotion_requirement": "DEDICATED_PROMOTION_RERUN_WITH_EXPLICIT_RETURN_CODE_AND_CANONICAL_COMMIT_TAG_PUSH_FRESH_CLONE_READBACK",
+  "next": "OPERATOR_PROMOTION_ADJUDICATION"
+}
