@@ -1,0 +1,15 @@
+{
+  "verdict": "REVIEW",
+  "errors": [],
+  "warnings": [],
+  "claim_supported": true,
+  "claim_ceiling_ok": true,
+  "missing_atomic_mechanism_currently_warranted": true,
+  "anti_dependency_laundering_result_survives": true,
+  "strongest_survivor": "QUALIFIED_WHOLE_IS_REUSABLE_AS_DEPENDENCY",
+  "strongest_remaining_risk": "DEPENDENCY_CURRENTNESS_PROPAGATES_TRANSITIVELY",
+  "next_hostile": "DEPENDENCY_STRIPPING_AS_ATOMIC_REUSE_IS_CURRENTNESS_LAUNDERING",
+  "authority": "AUDIT_ONLY_NONE_PROMOTION",
+  "model": "Qwen2.5-Coder-1.5B-Instruct-abliterated-Q4_K_L.gguf",
+  "review_port": 18192
+}

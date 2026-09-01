@@ -1,0 +1,41 @@
+{
+  "campaign": "SUBSTRATE_HARDENING_V1",
+  "arm": "I_ATOMICITY_MEASUREMENT",
+  "status": "VERIFIED_RESEARCH_DEMOTION_RESULT",
+  "parent_head": "56ed04a8c8e4a7f2f2b072dd0d1e12c434805689",
+  "canonical_microseed_tree": "9d63915e9e0396f39d255df474d8c2849a153e3f",
+  "claim": "CURRENT_LEARNED_WHOLE_ATOMICITY_IS_UNEARNED_RATHER_THAN_A_PROVEN_MISSING_SUBSTRATE_MECHANISM__THE_FIXED_PLAN_NODE_BUDGET_USED_IN_FRONTIER_I_IS_EXTERNAL_EVALUATOR_ASSISTANCE_NOT_AN_ORGANISM_OWNED_RESOURCE_OR_EXECUTION_LAW",
+  "claim_ceiling": "The current composer genuinely dependency-expands admitted wholes and they are not one-step executable EFFECT actions. This result does not prove atomic behavioral reuse is unnecessary forever. It demotes only the inference that current plan-length behavior establishes a missing substrate primitive. A future atomic/equivalence mechanism would require a real operational resource, timing, reachability, or behavioral pressure that cannot be represented by existing owners.",
+  "pdver": "PROBE -> DERIVE -> VERIFY -> EMBODY -> RECURSE",
+  "test": "tests\\embodiment\\test_hardening_i_atomicity_measurement_boundary.py",
+  "test_sha256": "6bfe13341867437f5e8cc1a1561664e7420eecdf9b2c8bd51d885e875db57b0a",
+  "result": {
+    "passed": 27,
+    "failed": 0,
+    "duration_seconds": 25.15
+  },
+  "observed": [
+    "compose_capabilities takes only contracts/goals; it exposes no budget, max_nodes, cost, or execution-horizon input.",
+    "Capability resource metadata does not affect composition status in the current composer.",
+    "The admitted learned whole is DERIVED_READ_ONLY, has dependencies A/B, no handler, and carries discovery score/support rather than one-step execution semantics.",
+    "The same exact composed plan is externally classified unreachable under threshold 4 and reachable under threshold 5 without any Microseed state/action/evidence change.",
+    "Dependency stripping still creates a fake-current atom after primitive A drift, so the anti-currentness-laundering result remains valid."
+  ],
+  "oarr": "Rival missing-macro interpretation is not yet warranted because the discriminator budget is outside the substrate. A real future need must be grounded in owned operational resource/horizon/behavior evidence rather than evaluator node count.",
+  "survivors": [
+    "QUALIFIED_WHOLE_IS_REUSABLE_AS_DEPENDENCY",
+    "DEPENDENCY_CURRENTNESS_PROPAGATES_TRANSITIVELY",
+    "DEPENDENCY_STRIPPING_AS_ATOMIC_REUSE_IS_CURRENTNESS_LAUNDERING"
+  ],
+  "demotion": "MISSING_ATOMIC_WHOLE_MECHANISM_NOT_YET_PROVEN",
+  "new_core_mechanism_required": "NO_CURRENT_WARRANT",
+  "production_delta": [],
+  "promotion_authority": "NONE",
+  "timestamp_epoch": 1788278597.2087743,
+  "csc_verdict": "REVIEW",
+  "csc_claim_supported": true,
+  "csc_claim_ceiling_ok": true,
+  "csc_missing_atomic_mechanism_opinion": true,
+  "r1_adjudication": "NO_CURRENT_MECHANISM_WARRANT__SUBSTRATE_OWNED_OPERATIONAL_PRESSURE_NOT_ESTABLISHED",
+  "seal_status": "VERIFIED_DEMOTION__CSC_REVIEW__OPEN"
+}
