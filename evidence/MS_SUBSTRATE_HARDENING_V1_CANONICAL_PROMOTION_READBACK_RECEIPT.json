@@ -16,25 +16,25 @@
   "promotion_commit": "0f6cf0b3d660c8a4bb9561a65d7f1fd95e1b99f7",
   "promotion_commit_microseed_tree": "88f5a058cc5a4e92b1006c36d31b95cf727d197f",
   "promotion_tag": "prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1-ms-substrate-hardening-v1",
-  "public_main_movement": "PERFORMED_NON_FORCE_FAST_FORWARD_MERGE_FROM_PREVIOUS_MAIN",
-  "public_main_movement_reason": "origin/main was reconciled by a merge commit whose first parent was previous origin/main; push to main was fast-forward, not force/non-fast-forward",
+  "public_main_movement": "PERFORMED_NON_FORCE_FAST_FORWARD_MERGE_CONFIRMED",
+  "public_main_movement_reason": "origin/main was fast-forwarded to a reconciliation lineage that has previous main as ancestor and promotion branch as merged parent; no force/non-fast-forward update was performed",
   "public_main_reconciliation": {
-    "branch": "promotion/public-main-reconcile-hardening-v1",
+    "confirmed_remote_main_before_final_readback_commit": "e276b83119d62791507815b9386f13e6bd55641e",
     "final_public_main_head": "VERIFY_REMOTE_HEAD_AFTER_PUSH__RECEIPT_DOES_NOT_SELF_BIND_CONTAINING_COMMIT",
     "merge_commit": "d5dac81558ae72fd5c0b28b0b7f22ac1a95b0869",
     "previous_public_main": "3ec008b9f1f44c3871c28aee19d823ff68680cc7",
-    "promotion_branch": "promotion/hardening-release-gate-canon-v1",
     "promotion_branch_head": "933635a0e56b72701e42d47f72966e060bc020a0",
     "tag": "prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1-ms-substrate-hardening-v1",
     "tag_commit": "0f6cf0b3d660c8a4bb9561a65d7f1fd95e1b99f7"
   },
   "remote_readback": {
     "origin/main": "3ec008b9f1f44c3871c28aee19d823ff68680cc7",
+    "origin/main_before_final_readback_commit": "e276b83119d62791507815b9386f13e6bd55641e",
     "origin/promotion/hardening-release-gate-canon-v1": "3208cefaba378655531ff1352def2c2567bfd113",
     "origin/tag/prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1-ms-substrate-hardening-v1": "0f6cf0b3d660c8a4bb9561a65d7f1fd95e1b99f7"
   },
   "schema": "ms_substrate_hardening_v1_canonical_promotion_readback/v1",
-  "status": "CANONICAL_TAG_PROMOTION_BRANCH_AND_PUBLIC_MAIN_RECONCILIATION_REMOTE_READBACK_PENDING_FINAL_HEAD",
+  "status": "CANONICAL_TAG_PROMOTION_BRANCH_AND_PUBLIC_MAIN_RECONCILIATION_CONFIRMED",
   "verification_to_complete_after_push": [
     "remote tag readback",
     "remote branch readback",
