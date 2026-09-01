@@ -1,0 +1,42 @@
+{
+  "arm": "G_NAKED",
+  "status": "QUESTION_SATURATED__REQUIRES_EXTERNAL_REFRAME",
+  "scientific_closure": false,
+  "passes_completed": 4,
+  "last_valid_next": "How does the current framework address the issue of unknown-effect actions being authorized by NAKED and language branches crossing-authorize one another?",
+  "csc": {
+    "verdict": "REVIEW",
+    "errors": [],
+    "warnings": [],
+    "strongest_survivor": "The one-shot subject is bound to capability ID + epoch + content signature + obligation + operational scope.",
+    "strongest_scar": "NAKED and language branches SHALL NOT cross-authorize one another.",
+    "terminal_supported": true,
+    "authority": "AUDIT_ONLY_NONE_PROMOTION",
+    "model_meta": {
+      "attempt": 1,
+      "usage": {
+        "completion_tokens": 84,
+        "prompt_tokens": 1167,
+        "total_tokens": 1251,
+        "prompt_tokens_details": {
+          "cached_tokens": 122
+        }
+      },
+      "timings": {
+        "cache_n": 122,
+        "prompt_n": 1045,
+        "prompt_ms": 2657.838,
+        "prompt_per_token_ms": 2.5433856459330144,
+        "prompt_per_second": 393.1767097919436,
+        "predicted_n": 84,
+        "predicted_ms": 2538.522,
+        "predicted_per_token_ms": 30.220499999999998,
+        "predicted_per_second": 33.090120944392055
+      },
+      "model": "Qwen2.5-Coder-1.5B-Instruct-abliterated-Q4_K_L.gguf",
+      "fingerprint": "b8831-a279d0f0f",
+      "json_syntax_repaired": false
+    }
+  },
+  "promotion_authority": "NONE"
+}
