@@ -1,0 +1,13 @@
+{
+  "verdict": "REVIEW",
+  "errors": [],
+  "warnings": [],
+  "claim_supported": true,
+  "claim_ceiling_ok": true,
+  "strongest_survivor": "OWNED_DEVELOPMENTAL_TERRAIN_PROVENANCE_AND_CURRENTNESS_IF_CFE_STYLE_ENVIRONMENTAL_GEOMETRY_IS_TO_BECOME_A_FIRST_CLASS_EXPERIMENTAL_DEPENDENCY",
+  "strongest_scar": "NO_FOR_EXTERNAL_TERRAIN_EFFECT__UNKNOWN_FOR_OWNED_TERRAIN_PROVENANCE_CURRENTNESS",
+  "next_research_question": "What is the next research question to address the issue of CFE integration into Microseed?",
+  "authority": "AUDIT_ONLY_NONE_PROMOTION",
+  "model": "Qwen2.5-Coder-1.5B-Instruct-abliterated-Q4_K_L.gguf",
+  "review_port": 18192
+}

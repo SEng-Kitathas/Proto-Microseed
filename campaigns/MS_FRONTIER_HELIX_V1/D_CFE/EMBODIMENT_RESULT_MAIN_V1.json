@@ -1,0 +1,49 @@
+{
+  "arm": "D_CFE",
+  "status": "VERIFIED_RESEARCH_RESULT",
+  "claim": "EXTERNALLY_SUPPLIED_RELATIONAL_COVISIBILITY_TERRAIN_CAUSALLY_CHANGES_EXISTING_MICROSEED_PROJECTION_DISCOVERY_UNDER_MATCHED_EXPERIENCE_AND_SEARCH_BUDGET",
+  "claim_ceiling": "This establishes a developmental-environment effect, not a CFE mechanism inside Microseed. The terrain adapter externally determines which raw-coordinate relation is jointly visible while episode count/order, action/effect stream, opaque marginal exposures and projection search budget remain matched. Current Microseed has no owned terrain/topology/currentness surface, so the geometry itself is not an organism-owned causal object and cannot yet be staled/qualified as terrain.",
+  "pdver": "PROBE -> DERIVE -> VERIFY -> EMBODY -> RECURSE",
+  "embodiment": "tests\\embodiment\\test_frontier_d_cfe_relational_visibility_terrain.py",
+  "test_sha256": "4c8945fd15dad356984c7e86fb46e022824c91ec9face20001f31c6fccb7132f",
+  "focused_result": {
+    "passed": 3,
+    "failed": 0,
+    "duration_seconds": 0.9,
+    "runner": "tools/run_pytest_cleanup_neutral.py"
+  },
+  "related_regression": {
+    "passed": 19,
+    "failed": 0,
+    "duration_seconds": 41.79,
+    "runner": "tools/run_pytest_cleanup_neutral.py",
+    "scope": "raw-coordinate/projection/composition/search-budget lineage MS1977-1991"
+  },
+  "observed": [
+    "GOOD_XY and BAD_XZ conditions used the exact same underlying event IDs/order, action tokens, effect tokens, sample count and fixed ProjectionDiscoveryConfig search budget.",
+    "The two visible-coordinate channels had identical opaque marginal counts (96/96 for each token in each coordinate); only which relation was co-visible changed.",
+    "Causal GOOD_XY terrain produced an exact two-coordinate candidate at validation accuracy 1.0 with strong lift; matched BAD_XZ and BAD_ZY terrains produced no qualified candidate.",
+    "Pure coordinate permutation GOOD_XY -> GOOD_YX preserved discovery, so the effect is not coordinate order/label identity.",
+    "Removing then restoring causal co-visibility removed then restored discovery with no organism mutation or extra experience budget.",
+    "No developmental_geometry, terrain_topology, relational_visibility_graph, or cfe_field owner exists on current Microseed."
+  ],
+  "oarr": "Incumbent geometry-invariant explanation is falsified only for externally controlled relation co-visibility. Rival interpretation that this is merely evidence/access topology remains valid and is explicitly the transfer boundary; no internal CFE geometry mechanism is inferred.",
+  "survivors": [
+    "ENGINEER_THE_TERRAIN_NOT_THE_ANIMAL_IS_COMPATIBLE_WITH_CURRENT_MICROSEED_DEVELOPMENT",
+    "SHAPE_THE_FIELD != PRESCRIBE_THE_ORGANISM",
+    "COORDINATE_LABEL_PERMUTATION_IS_NOT_THE_CAUSAL_EFFECT",
+    "SEARCH_BUDGET_MATCHED"
+  ],
+  "remaining_seam": "OWNED_DEVELOPMENTAL_TERRAIN_PROVENANCE_AND_CURRENTNESS_IF_CFE_STYLE_ENVIRONMENTAL_GEOMETRY_IS_TO_BECOME_A_FIRST_CLASS_EXPERIMENTAL_DEPENDENCY",
+  "new_core_mechanism_required": "NO_FOR_EXTERNAL_TERRAIN_EFFECT__UNKNOWN_FOR_OWNED_TERRAIN_PROVENANCE_CURRENTNESS",
+  "cfe_transfer_status": "HOST_SYSTEM_REALITY_CONTACT_ESTABLISHED__ENVIRONMENTAL_TERRAIN_EFFECT_VERIFIED__NO_CFE_PRODUCTION_INTEGRATION",
+  "production_delta": [],
+  "promotion_authority": "NONE",
+  "timestamp_epoch": 1788269659.1869817,
+  "csc_result_verdict": "REVIEW",
+  "csc_claim_supported": true,
+  "csc_claim_ceiling_ok": true,
+  "seal_status": "VERIFIED_ENVIRONMENTAL_TERRAIN_EFFECT__CSC_REVIEW__OPEN",
+  "r1_adjudication": "PRESERVE_VERIFIED_EFFECT__DO_NOT_PROMOTE_INTERNAL_CFE_OWNER",
+  "methodology": "methodology\\MS_FRONTIER_D_CFE_RELATIONAL_VISIBILITY_TERRAIN_2026-09-01.md"
+}
