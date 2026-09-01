@@ -297,6 +297,85 @@ def binding_status(ms: Microseed, candidate: dict[str, object]) -> dict[str, obj
     return {"status": "CURRENT_OPERATIONAL_TOKEN_REFERENT_BINDING_CANDIDATE", "reason": "BOUND_CURRENTNESS_DESCRIPTORS_MATCH"}
 
 
+def empirical_binding_currentness_status(
+    ms: Microseed,
+    candidate: dict[str, object],
+    current_episodes: tuple[dict[str, object], ...],
+    current_holdouts: tuple[dict[str, object], ...],
+) -> dict[str, object]:
+    """Check grounded-reference currentness using fresh post-binding grounded-use evidence.
+
+    This composes the existing grounded-use and binding-candidate derivation. Structural
+    capability/coordination currentness remains necessary, but it is not sufficient:
+    a binding is empirically current only when disjoint fresh use+holdout episodes still
+    earn the same opaque operational-referent signature. No language/reference/truth or
+    execution authority is granted.
+    """
+    base = {
+        "semantic_reference_authority": "NONE",
+        "token_meaning_authority": "NONE",
+        "numerical_identity_authority": "NONE",
+        "truth_authority": "NONE",
+        "execution_authority": "NONE",
+        "language_authority": "NONE",
+        "authority_gain": "NONE",
+    }
+    structural = binding_status(ms, candidate)
+    if structural["status"] != "CURRENT_OPERATIONAL_TOKEN_REFERENT_BINDING_CANDIDATE":
+        return {**base, "status": "STALE_OPERATIONAL_TOKEN_REFERENT_BINDING_CANDIDATE", "reason": structural["reason"], "structural_currentness": structural}
+    b = candidate["binding"]
+    prior_sources = {
+        *tuple(str(x) for x in b.get("training_episode_sha256", ())),
+        *tuple(str(x) for x in b.get("holdout_episode_sha256", ())),
+    }
+    current_sources = tuple(
+        str(row.get("episode_sha256")) for row in tuple(current_episodes) + tuple(current_holdouts)
+        if row.get("status") == "CURRENT_GROUNDED_SIGNAL_USE_EPISODE"
+    )
+    if not current_sources:
+        return {**base, "status": "UNKNOWN_INCOMPLETE", "reason": "FRESH_GROUNDED_USE_EVIDENCE_REQUIRED", "structural_currentness": structural}
+    if any(src in prior_sources for src in current_sources):
+        return {**base, "status": "UNKNOWN_INCOMPLETE", "reason": "POST_BINDING_EMPIRICAL_EVIDENCE_MUST_BE_DISJOINT", "structural_currentness": structural}
+    fresh = derive_binding_candidate(
+        ms,
+        tuple(current_episodes),
+        tuple(current_holdouts),
+        signal_id=str(b["signal_capability_id"]),
+    )
+    if fresh.get("status") != "QUALIFIED_OPERATIONAL_TOKEN_REFERENT_BINDING_CANDIDATE":
+        return {
+            **base,
+            "status": "UNKNOWN_INCOMPLETE",
+            "reason": "FRESH_GROUNDED_BINDING_CURRENTNESS_EVIDENCE_NOT_QUALIFIED",
+            "fresh_reason": fresh.get("reason"),
+            "fresh_candidate_status": fresh.get("status"),
+            "structural_currentness": structural,
+        }
+    fresh_binding = fresh["binding"]
+    original_sig = str(b["operational_referent_signature_sha256"])
+    fresh_sig = str(fresh_binding["operational_referent_signature_sha256"])
+    if fresh_sig != original_sig:
+        return {
+            **base,
+            "status": "STALE_OPERATIONAL_TOKEN_REFERENT_BINDING_CANDIDATE",
+            "reason": "EMPIRICAL_GROUNDED_REFERENT_SIGNATURE_DRIFT",
+            "structural_currentness": structural,
+            "fresh_binding_id": fresh["binding_id"],
+            "old_operational_referent_signature_sha256": original_sig,
+            "fresh_operational_referent_signature_sha256": fresh_sig,
+            "fresh_source_episode_sha256": fresh["source_episode_sha256"],
+        }
+    return {
+        **base,
+        "status": "CURRENT_EMPIRICALLY_GROUNDED_TOKEN_REFERENT_BINDING_CANDIDATE",
+        "reason": "FRESH_DISJOINT_GROUNDED_USE_HISTORY_REEARNS_SAME_OPERATIONAL_REFERENT_SIGNATURE",
+        "structural_currentness": structural,
+        "fresh_binding_id": fresh["binding_id"],
+        "operational_referent_signature_sha256": original_sig,
+        "fresh_source_episode_sha256": fresh["source_episode_sha256"],
+    }
+
+
 def _history(ms: Microseed, world: GroundedReferenceWorld, *, train_mode: str = "P", hold_mode: str = "P", alias: bool = False):
     world.configure_alias(alias)
     world.configure_signal_mode(train_mode)
@@ -417,15 +496,41 @@ def run_convention_reversal_hostile() -> dict[str, object]:
             ms.biography.close(); ms.evidence.conn.close(); ms.store.conn.close()
 
 
+def run_empirical_currentness_repair() -> dict[str, object]:
+    with tempfile.TemporaryDirectory(prefix="ms2046-empirical-current-") as td:
+        ms, world = _build(Path(td))
+        try:
+            train, hold = _history(ms, world, train_mode="P", hold_mode="P")
+            old = derive_binding_candidate(ms, train, hold)
+            world.configure_signal_mode("P"); world.configure_layout("A")
+            fresh_train = tuple(_use_episode(ms, world, "SIG-X", 1200 + i) for i in range(10))
+            world.configure_layout("B")
+            fresh_hold = tuple(_use_episode(ms, world, "SIG-X", 1300 + i) for i in range(6))
+            still_current = empirical_binding_currentness_status(ms, old, fresh_train, fresh_hold)
+            assert still_current["status"] == "CURRENT_EMPIRICALLY_GROUNDED_TOKEN_REFERENT_BINDING_CANDIDATE", still_current
+            world.configure_signal_mode("Q"); world.configure_layout("A")
+            reversed_train = tuple(_use_episode(ms, world, "SIG-X", 1400 + i) for i in range(10))
+            world.configure_layout("B")
+            reversed_hold = tuple(_use_episode(ms, world, "SIG-X", 1500 + i) for i in range(6))
+            stale = empirical_binding_currentness_status(ms, old, reversed_train, reversed_hold)
+            assert stale["status"] == "STALE_OPERATIONAL_TOKEN_REFERENT_BINDING_CANDIDATE", stale
+            assert stale["reason"] == "EMPIRICAL_GROUNDED_REFERENT_SIGNATURE_DRIFT"
+            return {"status": "PASS", "same_convention": still_current, "reversed_convention": stale}
+        finally:
+            ms.biography.close(); ms.evidence.conn.close(); ms.store.conn.close()
+
+
 def run_ms2046() -> dict[str, object]:
     return {
         "status": "GROUNDED_OPERATIONAL_TOKEN_REFERENT_BINDING_CANDIDATE_EARNED",
         "positive": run_positive_and_permutation(),
         "ambiguity": run_ambiguous_and_alias_hostiles(),
         "currentness": run_currentness_hostiles(),
+        "empirical_currentness": run_empirical_currentness_repair(),
         "copy_and_fluency": run_perfect_copy_and_readable_token(),
         "convention_reversal": run_convention_reversal_hostile(),
         "earned": "REPEATED_CURRENT_SIGNAL_USE_PLUS_REFERENT_LOCALIZED_COUNTERPARTY_EFFECT_CAN_SUPPORT_A_QUALIFIED_OPERATIONAL_TOKEN_REFERENT_BINDING_CANDIDATE_WITHOUT_SEMANTIC_REFERENCE_AUTHORITY",
+        "empirical_currentness_law": "STRUCTURAL_TOKEN_BINDING_CURRENTNESS != EMPIRICAL_GROUNDED_REFERENCE_CURRENTNESS",
         "gate_law": "GROUNDING_CANDIDATE != LANGUAGE_GATE_ADMISSION",
         "semantic_reference_authority": "NONE",
         "language_authority": "NONE",
