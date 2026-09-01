@@ -1,0 +1,43 @@
+{
+  "arm": "A_TARGET",
+  "status": "VERIFIED_RESEARCH_RESULT",
+  "claim": "BOUND_OPAQUE_REQUEST_SPECIALIZATIONS_ARE_COMPOSABLE_INTO_CALLER_FREE_NONEXECUTING_MULTI_STEP_PROGRAMS_BY_EXISTING_ENDOGENOUS_PROGRAM_OWNERS",
+  "claim_ceiling": "This does not establish arbitrary new request-target vocabulary construction. The tested target atoms are still exact current tokens from an endogenous externally-qualified opaque projection. It establishes that once such bound target atoms exist, existing lived-history/program owners can construct multi-step request programs without caller-supplied sequence identity, semantic labels, or execution authority.",
+  "pdver": "PROBE -> DERIVE -> VERIFY -> EMBODY -> RECURSE",
+  "embodiment": "tests\\embodiment\\test_frontier_a_target_bound_request_program_construction.py",
+  "test_sha256": "beca2cdf377d4b4dde593b97585108c3da1eed4239fb38036fef51e0a6e8aae3",
+  "focused_result": {
+    "passed": 1,
+    "failed": 0,
+    "duration_seconds": 1.05,
+    "runner": "tools/run_pytest_cleanup_neutral.py"
+  },
+  "related_regression": {
+    "passed": 19,
+    "failed": 0,
+    "duration_seconds": 33.58,
+    "runner": "tools/run_pytest_cleanup_neutral.py"
+  },
+  "observed": [
+    "Two independently built fixtures used different opaque request-base IDs, different projection candidate digests, different target tokens, and different bound-specialization IDs/signatures.",
+    "Each fixture reconstructed the same abstract [0,1,0] three-step request program from recurrent organism-owned history without receiving a program sequence or preferred target at generation time.",
+    "Generated candidates carried truth/execution authority NONE and added zero action intents/executions; bound request handlers were never called during construction.",
+    "Projection drift staled the bound request atoms and removed the prior program from the current generator surface."
+  ],
+  "survivors": [
+    "CALLER_SUPPLIED_SEQUENCE != ENDOGENOUS_PROGRAM_CONSTRUCTION",
+    "SPECIALIZING_QUALIFIED_EFFECT_CHANNEL != MINTING_AUTHORITY",
+    "PROGRAM_PROPOSAL != EXECUTION_AUTHORITY",
+    "CURRENTNESS_PROPAGATES_FROM_LEARNED_TARGET_REPRESENTATION_TO_BOUND_ATOM_TO_PROGRAM_SURFACE"
+  ],
+  "remaining_seam": "NEW_TARGET_VOCABULARY_OR_REPRESENTATION_CONSTRUCTION_BEYOND_CURRENT_QUALIFIED_PROJECTION_BUCKETS",
+  "new_core_mechanism_required": "NO_FOR_MULTI_STEP_BOUND_TARGET_PROGRAM_COMPOSITION__UNKNOWN_FOR_NEW_TARGET_VOCABULARY",
+  "production_delta": [],
+  "promotion_authority": "NONE",
+  "timestamp_epoch": 1788266481.246261,
+  "csc_result_verdict": "PASS",
+  "csc_claim_supported": true,
+  "csc_claim_ceiling_ok": true,
+  "seal_status": "READY_FOR_RESEARCH_COMMIT",
+  "methodology": "methodology\\MS_FRONTIER_A_TARGET_BOUND_REQUEST_PROGRAM_CONSTRUCTION_2026-09-01.md"
+}
