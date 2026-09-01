@@ -1,0 +1,33 @@
+{
+  "verdict": "REVIEW",
+  "errors": [],
+  "warnings": [],
+  "strongest_survivor": "The one-shot subject is bound to capability ID + epoch + content signature + obligation + operational scope.",
+  "strongest_scar": "NAKED and language branches SHALL NOT cross-authorize one another.",
+  "terminal_supported": true,
+  "authority": "AUDIT_ONLY_NONE_PROMOTION",
+  "model_meta": {
+    "attempt": 1,
+    "usage": {
+      "completion_tokens": 84,
+      "prompt_tokens": 917,
+      "total_tokens": 1001,
+      "prompt_tokens_details": {
+        "cached_tokens": 122
+      }
+    },
+    "timings": {
+      "cache_n": 122,
+      "prompt_n": 795,
+      "prompt_ms": 1628.404,
+      "prompt_per_token_ms": 2.048306918238994,
+      "prompt_per_second": 488.20808595409983,
+      "predicted_n": 84,
+      "predicted_ms": 2220.148,
+      "predicted_per_token_ms": 26.430333333333333,
+      "predicted_per_second": 37.83531548347227
+    },
+    "model": "Qwen2.5-Coder-1.5B-Instruct-abliterated-Q4_K_L.gguf",
+    "fingerprint": "b8831-a279d0f0f"
+  }
+}

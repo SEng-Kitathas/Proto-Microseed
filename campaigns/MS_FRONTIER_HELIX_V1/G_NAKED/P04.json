@@ -1,0 +1,75 @@
+{
+  "question": "How does the current framework address the issue of unknown-effect actions being authorized by NAKED and language branches crossing-authorize one another?",
+  "evidence_contacted": [
+    "continuity/SCARS_AND_DO_NOT_REINTRODUCE.md#p144.0",
+    "methodology\\MS2055_N1A_CONSTITUTIONAL_EXPERIMENTAL_AUTHORITY_EMBODIMENT.md#p8.0",
+    "methodology\\CROSS_BRANCH_EVIDENCE_BRIDGE_PROTOCOL_V1.md#p4.0",
+    "methodology\\MS2053_OPERATOR_PROMOTION_AND_RESEARCH_GATE_OPENING.md#p19.0",
+    "methodology\\MS2053_OPERATOR_PROMOTION_AND_RESEARCH_GATE_OPENING.md#p6.0",
+    "methodology\\MS2002_MULTIRESTART_LIFETIME_AND_PERSISTED_OPERATIONAL_REFERENT_CLASSES.md#p12.0",
+    "methodology\\MS2053_OPERATOR_PROMOTION_AND_RESEARCH_GATE_OPENING.md#p25.0",
+    "methodology\\CROSS_BRANCH_EVIDENCE_BRIDGE_PROTOCOL_V1.md#p1.0"
+  ],
+  "measurement_frame": "The framework's design ensures that NAKED and language branches operate independently and do not cross-authorize one another.",
+  "probe": "The framework's design ensures that NAKED and language branches operate independently and do not cross-authorize one another.",
+  "derive": "The framework's design ensures that NAKED and language branches operate independently and do not cross-authorize one another.",
+  "verify": "The framework's design ensures that NAKED and language branches operate independently and do not cross-authorize one another.",
+  "oarr": "The framework's design ensures that NAKED and language branches operate independently and do not cross-authorize one another.",
+  "loop_plus": "The framework's design ensures that NAKED and language branches operate independently and do not cross-authorize one another.",
+  "embody": "NO_MUTATION_WARRANTED",
+  "observed_consequence": "SOURCE_EVIDENCE_ONLY__NO_NEW_WORLD_CONSEQUENCE",
+  "survivors": [
+    "The one-shot subject is bound to capability ID + epoch + content signature + obligation + operational scope."
+  ],
+  "scars": [
+    "TECHNICAL_REVIEW_READY != CANONICALLY_PROMOTED",
+    "Branch opening != authority grant",
+    "Language research admission != language competence != semantic/reference/truth/value/execution authority",
+    "NAKED and language branches SHALL NOT cross-authorize one another",
+    "Neither branch self-promotes to canonical main",
+    "Historical continuity statements SHALL remain chronological"
+  ],
+  "demotions": [],
+  "unresolved": [],
+  "attention_reservoir": "The framework's design ensures that NAKED and language branches operate independently and do not cross-authorize one another.",
+  "disposition": "UNKNOWN_INCOMPLETE",
+  "next": "How does the current framework address the issue of unknown-effect actions being authorized by NAKED and language branches crossing-authorize one another?",
+  "terminal": true,
+  "pass": 4,
+  "model_meta": {
+    "attempt": 1,
+    "usage": {
+      "completion_tokens": 524,
+      "prompt_tokens": 1772,
+      "total_tokens": 2296,
+      "prompt_tokens_details": {
+        "cached_tokens": 400
+      }
+    },
+    "timings": {
+      "cache_n": 400,
+      "prompt_n": 1372,
+      "prompt_ms": 12978.375,
+      "prompt_per_token_ms": 9.459456997084548,
+      "prompt_per_second": 105.71431323258884,
+      "predicted_n": 524,
+      "predicted_ms": 51810.403,
+      "predicted_per_token_ms": 98.87481488549618,
+      "predicted_per_second": 10.113798960413414
+    },
+    "model": "qwen2.5-coder-7b-instruct-abliterated-q4_k_m.gguf",
+    "fingerprint": "b8831-a279d0f0f"
+  },
+  "source_refs": [
+    "continuity/SCARS_AND_DO_NOT_REINTRODUCE.md#p144.0",
+    "methodology\\MS2055_N1A_CONSTITUTIONAL_EXPERIMENTAL_AUTHORITY_EMBODIMENT.md#p8.0",
+    "methodology\\CROSS_BRANCH_EVIDENCE_BRIDGE_PROTOCOL_V1.md#p4.0",
+    "methodology\\MS2053_OPERATOR_PROMOTION_AND_RESEARCH_GATE_OPENING.md#p19.0",
+    "methodology\\MS2053_OPERATOR_PROMOTION_AND_RESEARCH_GATE_OPENING.md#p6.0",
+    "methodology\\MS2002_MULTIRESTART_LIFETIME_AND_PERSISTED_OPERATIONAL_REFERENT_CLASSES.md#p12.0",
+    "methodology\\MS2053_OPERATOR_PROMOTION_AND_RESEARCH_GATE_OPENING.md#p25.0",
+    "methodology\\CROSS_BRANCH_EVIDENCE_BRIDGE_PROTOCOL_V1.md#p1.0"
+  ],
+  "promotion_authority": "NONE",
+  "production_mutation_allowed": false
+}
