@@ -1,9 +1,8 @@
 {
-  "survivors": [],
-  "scars": [],
-  "demotions": [],
-  "unresolved": [
-    "Holding mechanisms, total experiences, actions, affordances, and outcome distribution controlled, can learner-visible relational geometry alter what Microseed develops?"
-  ],
-  "next": "Holding mechanisms, total experiences, actions, affordances, and outcome distribution controlled, can learner-visible relational geometry alter what Microseed develops?"
+  "survivors": "None",
+  "scars": "None",
+  "demotions": "None",
+  "unresolved": "The specific mechanisms within Microseed that interact with relational geometry and determine their impact remain unresolved.",
+  "next": "What are the potential consequences of altering the mechanisms that control the interaction between Microseed and relational geometry?",
+  "passes_completed": 2
 }

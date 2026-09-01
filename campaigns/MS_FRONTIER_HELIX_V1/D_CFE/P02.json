@@ -1,0 +1,67 @@
+{
+  "question": "What specific mechanisms within Microseed interact with relational geometry and determine their impact?",
+  "evidence_contacted": [
+    "continuity/state/current/CURRENT_STATE.md#p3.0",
+    "methodology\\MS1989_SELECTED_DEPENDENCY_LINEAGE_WITH_FULL_BASIS_PROVENANCE.md#p44.0",
+    "methodology\\MS1992_NAKED_FIRST_PROBE_REPLAY_REMAINS_AUTHORITY_BLOCKED.md#p31.0",
+    "cfe/research/STARMAP_ARCHAEOLOGY_CFE_EVIDENCE_DELTA_2026-08-31.md#p36.0",
+    "methodology\\MS2064_PROMOTION_REVIEW_PROJECTION_SNAPSHOT_REPAIR.md#p9.0",
+    "continuity/state/current/CURRENT_STATE.md#p9.0",
+    "tests\\embodiment\\test_ms1904_1905_endogenous_direct_probe_program.py#p3.0",
+    "continuity/CURRENT_FRONTIER.md#p12.0"
+  ],
+  "measurement_frame": "The interaction between Microseed's mechanisms and relational geometry, focusing on how these interactions determine the development and outcomes of Microseed.",
+  "probe": "Identify the specific mechanisms within Microseed that interact with relational geometry and analyze how these interactions influence Microseed's development and outcomes.",
+  "derive": "Determine the mechanisms that control the interaction between Microseed and relational geometry, and how these mechanisms are derived from the source-basis positions selected by the learned candidate.",
+  "verify": "Verify that the derived mechanisms accurately reflect the interaction between Microseed and relational geometry, and that these mechanisms determine the development and outcomes of Microseed.",
+  "oarr": "A rival mechanism that could alter the interaction between Microseed and relational geometry, or a removal of the current mechanism that controls this interaction.",
+  "loop_plus": "Consider the broader context of Microseed's development and how the interaction between Microseed and relational geometry fits into this context.",
+  "embody": "NO_MUTATION_WARRANTED",
+  "observed_consequence": "SOURCE_EVIDENCE_ONLY__NO_NEW_WORLD_CONSEQUENCE",
+  "survivors": "None",
+  "scars": "None",
+  "demotions": "None",
+  "unresolved": "The specific mechanisms within Microseed that interact with relational geometry and determine their impact remain unresolved.",
+  "attention_reservoir": "None",
+  "disposition": "UNKNOWN_INCOMPLETE",
+  "next": "What are the potential consequences of altering the mechanisms that control the interaction between Microseed and relational geometry?",
+  "terminal": false,
+  "pass": 2,
+  "model_meta": {
+    "attempt": 1,
+    "usage": {
+      "completion_tokens": 557,
+      "prompt_tokens": 2033,
+      "total_tokens": 2590,
+      "prompt_tokens_details": {
+        "cached_tokens": 399
+      }
+    },
+    "timings": {
+      "cache_n": 399,
+      "prompt_n": 1634,
+      "prompt_ms": 17705.568,
+      "prompt_per_token_ms": 10.835720930232558,
+      "prompt_per_second": 92.28735276947909,
+      "predicted_n": 557,
+      "predicted_ms": 58722.162,
+      "predicted_per_token_ms": 105.42578456014363,
+      "predicted_per_second": 9.485345583835963
+    },
+    "model": "qwen2.5-coder-7b-instruct-abliterated-q4_k_m.gguf",
+    "fingerprint": "b8831-a279d0f0f",
+    "json_syntax_repaired": false
+  },
+  "source_refs": [
+    "continuity/state/current/CURRENT_STATE.md#p3.0",
+    "methodology\\MS1989_SELECTED_DEPENDENCY_LINEAGE_WITH_FULL_BASIS_PROVENANCE.md#p44.0",
+    "methodology\\MS1992_NAKED_FIRST_PROBE_REPLAY_REMAINS_AUTHORITY_BLOCKED.md#p31.0",
+    "cfe/research/STARMAP_ARCHAEOLOGY_CFE_EVIDENCE_DELTA_2026-08-31.md#p36.0",
+    "methodology\\MS2064_PROMOTION_REVIEW_PROJECTION_SNAPSHOT_REPAIR.md#p9.0",
+    "continuity/state/current/CURRENT_STATE.md#p9.0",
+    "tests\\embodiment\\test_ms1904_1905_endogenous_direct_probe_program.py#p3.0",
+    "continuity/CURRENT_FRONTIER.md#p12.0"
+  ],
+  "promotion_authority": "NONE",
+  "production_mutation_allowed": false
+}

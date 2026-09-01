@@ -1,0 +1,26 @@
+{
+  "question": "Can learner-visible relational geometry alter what Microseed develops?",
+  "evidence_contacted": [
+    "STARMAP_ARCHAEOLOGY_CFE_EVIDENCE_DELTA_2026-08-31.md#p18.0",
+    "CURRENT_FRONTIER.md#p12.0",
+    "CURRENT_STATE.md#p3.0",
+    "CURRENT_STATE.md#p2.0",
+    "CURRENT_STATE.md#p9.0"
+  ],
+  "measurement_frame": "Learner-visible relational geometry and its impact on Microseed development",
+  "probe": "Examine how changes in relational geometry affect Microseed's output and decision-making processes",
+  "derive": "Identify the specific mechanisms within Microseed that interact with relational geometry and determine their impact",
+  "verify": "Test the hypothesis by modifying relational geometry and observing the changes in Microseed's output",
+  "oarr": "Consider alternative explanations for the relationship between relational geometry and Microseed's development, such as changes in the input data or the architecture of the system",
+  "loop_plus": "Explore the broader implications of relational geometry on the development of Microseed, including its impact on learning and decision-making processes",
+  "embody": "NO_MUTATION_WARRANTED",
+  "observed_consequence": "SOURCE_EVIDENCE_ONLY__NO_NEW_WORLD_CONSEQUENCE",
+  "survivors": "None",
+  "scars": "None",
+  "demotions": "None",
+  "unresolved": "The relationship between relational geometry and Microseed's development remains unresolved",
+  "attention_reservoir": "None",
+  "disposition": "UNKNOWN_INCOMPLETE",
+  "next": "What specific mechanisms within Microseed interact with relational geometry and determine their impact?",
+  "terminal": false
+}
