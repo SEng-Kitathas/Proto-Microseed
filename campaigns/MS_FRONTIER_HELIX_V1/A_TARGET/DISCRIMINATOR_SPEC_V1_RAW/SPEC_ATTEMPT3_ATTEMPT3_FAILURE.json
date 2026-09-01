@@ -1,0 +1,6 @@
+{
+  "status": "MODEL_FORMAT_OR_TRANSPORT_REJECTED__NOT_SCIENTIFIC_EVIDENCE",
+  "attempt": 3,
+  "error": "URLError(ConnectionRefusedError(10061, 'No connection could be made because the target machine actively refused it', None, 10061, None))",
+  "raw_content_file": null
+}

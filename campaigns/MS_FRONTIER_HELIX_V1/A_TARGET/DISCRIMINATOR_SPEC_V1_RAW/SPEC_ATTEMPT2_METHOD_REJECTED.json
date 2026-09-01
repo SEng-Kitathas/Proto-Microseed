@@ -1,0 +1,48 @@
+{
+  "errors": [
+    "missing:manipulation",
+    "too_weak:manipulation"
+  ],
+  "candidate": {
+    "arm": "A_TARGET",
+    "authoritative_question": "What minimal representation, currentness, and content bindings would let a multi-step epistemic intervention program be constructed as a non-executable candidate object from learned opaque structure, and what control would distinguish genuine construction from caller-supplied sequence encoding?",
+    "claim_class": "Experiment Specification",
+    "measurement_frame": "Developmental pressure utilizing learned opaque structure and already-qualified primitive capabilities",
+    "probe": "Can Microseed construct and arbitrate a useful multi-step epistemic intervention/program from organism-owned opaque action/outcome history and currently qualified primitive capabilities without the caller naming the preferred action or program sequence?",
+    "derive": "Microseed can construct and arbitrate useful multi-step epistemic interventions/programs by leveraging learned opaque structure and already-qualified primitives, decoupling candidate construction from execution permission.",
+    "verify": "The construction of useful multi-step epistemic interventions/programs from learned opaque structure and primitives is verified through the demonstration of candidate construction and arbitration mechanisms.",
+    "oarr": "A rival mechanism could involve developing a new algorithm that incorporates both learned opaque structure and primitive capabilities to construct and arbitrate interventions/programs without caller-supplied action names.",
+    "loop_plus": "Widening the causal explanation to include the role of developmental pressure in shaping the construction and arbitration of interventions/programs.",
+    "embody": "NO_MUTATION_WARRANTED",
+    "matched_controls": [
+      "methodology\\MS1996_ENDOGENOUS_PROGRAM_CALLER_CHOICE_ELIMINATION.md#p2.0",
+      "methodology\\MS1995_MULTI_REFERENT_CROSSING_OCCLUSION_REASSOCIATION.md#p40.0",
+      "methodology\\MS2009_OWNED_CURRENT_REFERENT_PROBE_PREFIX_RECONSTRUCTION.md#p1.0"
+    ],
+    "incumbent_hypothesis": "Microseed can construct and arbitrate useful multi-step epistemic interventions/programs from learned opaque structure and primitives without the caller naming the preferred action or program sequence.",
+    "rival_hypothesis": "A new algorithm that incorporates both learned opaque structure and primitive capabilities can construct and arbitrate interventions/programs without caller-supplied action names.",
+    "incumbent_prediction": "Microseed will construct and arbitrate useful multi-step epistemic interventions/programs from learned opaque structure and primitives without the caller naming the preferred action or program sequence.",
+    "rival_prediction": "The new algorithm will construct and arbitrate interventions/programs from learned opaque structure and primitives without the caller naming the preferred action or program sequence.",
+    "measurement": "The effectiveness of Microseed's construction and arbitration mechanisms compared to the new algorithm in generating useful multi-step epistemic interventions/programs.",
+    "falsifier": "The new algorithm will outperform Microseed in generating useful multi-step epistemic interventions/programs.",
+    "assistance_controls": [
+      "methodology\\MS1997_AUTHENTICATED_LIVED_HISTORY_TO_ENDOGENOUS_PROGRAM_BRIDGE.md#p35.0"
+    ],
+    "authority_controls": [
+      "methodology\\MS1995_MULTI_REFERENT_CROSSING_OCCLUSION_REASSOCIATION.md#p40.0"
+    ],
+    "currentness_restart_controls": [
+      "methodology\\MS2009_OWNED_CURRENT_REFERENT_PROBE_PREFIX_RECONSTRUCTION.md#p1.0"
+    ],
+    "minimal_embodiment": "A new algorithm that incorporates both learned opaque structure and primitive capabilities to construct and arbitrate interventions/programs without caller-supplied action names.",
+    "expected_files": [
+      "new_algorithm_code.py",
+      "microseed_comparison_results.txt"
+    ],
+    "stop_condition": "The new algorithm consistently outperforms Microseed in generating useful multi-step epistemic interventions/programs.",
+    "next_if_incumbent": "How can Microseed ensure that the constructed interventions/programs are decoupled from execution permission while still being useful and effective?",
+    "next_if_rival": "How can the new algorithm be optimized to further improve its performance in generating useful multi-step epistemic interventions/programs?",
+    "next_if_nonidentifiable": "How can the performance of both Microseed and the new algorithm be compared in a more rigorous and controlled environment?",
+    "pdver": "PROBE -> DERIVE -> VERIFY -> EMBODY -> RECURSE"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "status": "MAIN_REASONING_DISCRIMINATOR_SPEC__CONTROL_INPUT_NOT_EVIDENCE",
+  "arm": "A_TARGET",
+  "created_epoch": 1788263787.7118742,
+  "parent_head": "c41f710ee82f1419cd7c5588bb4cbdd1ac2bff76",
+  "canonical_parent": "ed2cde491962105b0d853b7fd82d8e8b3d81bd8a",
+  "pdver": "PROBE -> DERIVE -> VERIFY -> EMBODY -> RECURSE",
+  "oarr_required": true,
+  "loop_plus_required": true,
+  "hsp_measurement_required": true,
+  "csc_status": "PENDING_SHADOW_AUDIT",
+  "promotion_authority": "NONE",
+  "production_mutation_allowed": false,
+  "evidence_context_refs": [
+    "methodology\\MS1995_MULTI_REFERENT_CROSSING_OCCLUSION_REASSOCIATION.md#p40.0",
+    "continuity/state/next_steps/NEXT_STEPS.md#p8.0",
+    "methodology\\MS1981_MS1982_OWNED_TEMPORAL_RAW_CONSTRUCTOR_GROWTH.md#p36.0",
+    "methodology\\MS1996_ENDOGENOUS_PROGRAM_CALLER_CHOICE_ELIMINATION.md#p42.0",
+    "continuity/CURRENT_FRONTIER.md#p3.0",
+    "methodology\\MS1944_SIGNAL_REPLACEMENT_QUALIFICATION_BOUNDARY.md#p2.0",
+    "continuity/state/current/CURRENT_STATE.md#p8.0",
+    "continuity/state/current/CURRENT_STATE.md#p17.0",
+    "continuity/state/revisit_ledger/REVISIT_LEDGER.md#p1.0",
+    "methodology\\MS1996_ENDOGENOUS_PROGRAM_CALLER_CHOICE_ELIMINATION.md#p2.0",
+    "methodology\\MS2003_OWNED_OPERATIONAL_REFERENT_CONTEXT_POLICY.md#p1.0",
+    "methodology\\MS1945_REPRESENTED_SIGNAL_ALTERNATIVE_SELECTION.md#p2.0",
+    "methodology\\MS2009_OWNED_CURRENT_REFERENT_PROBE_PREFIX_RECONSTRUCTION.md#p1.0",
+    "continuity/CURRENT_FRONTIER.md#p26.0",
+    "methodology\\MS1997_AUTHENTICATED_LIVED_HISTORY_TO_ENDOGENOUS_PROGRAM_BRIDGE.md#p35.0"
+  ],
+  "spec": {
+    "question": "Can Microseed construct a non-executable multi-step epistemic program from organism-owned opaque learned structure without caller-supplied sequence identity, while preserving exact authority/currentness boundaries?",
+    "incumbent": "Existing learned-relation, opaque-projection, program-construction, qualification and currentness owners are sufficient to construct a candidate program as a non-executable object.",
+    "rival": "Apparent endogenous program construction depends on caller/fixture leakage of sequence identity or semantic action labels.",
+    "manipulation": "Build matched fixtures with identical learned action/outcome relational structure and qualified primitive capabilities, but independently permute opaque primitive IDs and the hidden successful sequence; remove all caller-supplied sequence/semantic names before candidate construction.",
+    "controls": [
+      "oracle-sequence positive control",
+      "shuffled-history negative control",
+      "opaque-ID permutation across seeds",
+      "execution permission withheld in every research condition",
+      "stale one primitive capability epoch after candidate construction"
+    ],
+    "incumbent_prediction": "The same relationally implied program structure is reconstructed under opaque-ID permutations, remains non-executable without separate authorization, and stales when a bound primitive dependency stales.",
+    "rival_prediction": "Construction collapses to chance, changes with surface labels, or requires the oracle/caller sequence; alternatively the candidate remains executable/current after permission/dependency removal.",
+    "measurement": "Exact candidate program step structure modulo opaque-ID permutation; provenance/dependency bindings; authorization bit/ability to invoke; stale/current state after primitive epoch drift.",
+    "minimal_embodiment": "Research-only fixture/test around existing endogenous-program and bound-request owners; no production code changes. Reuse existing program/history constructors where possible.",
+    "falsifier": "Failure to reconstruct under opaque permutation without oracle sequence, or any execution authority acquired solely by candidate construction.",
+    "loop_plus": "If construction fails, distinguish missing representation/program owner from search-budget or evidence-access failure before proposing mechanism."
+  }
+}

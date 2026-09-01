@@ -1,0 +1,6 @@
+{
+  "status": "MODEL_FORMAT_OR_TRANSPORT_REJECTED__NOT_SCIENTIFIC_EVIDENCE",
+  "attempt": 1,
+  "error": "ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)",
+  "raw_content_file": null
+}
