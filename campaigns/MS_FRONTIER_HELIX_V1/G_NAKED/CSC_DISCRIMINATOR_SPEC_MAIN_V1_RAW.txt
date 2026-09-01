@@ -1,0 +1,9 @@
+{
+  "verdict": "PASS",
+  "errors": [],
+  "warnings": [],
+  "strongest_control": "equal epistemic metrics",
+  "strongest_risk": "language-token cue present/absent but authority-neutral",
+  "embodiment_warranted": true,
+  "required_before_embodiment": ["equal epistemic metrics", "opaque action-ID permutation", "warrant removed", "warrant currentness drift", "language-token cue present/absent but authority-neutral"]
+}

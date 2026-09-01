@@ -1,0 +1,25 @@
+{
+  "verdict": "PASS",
+  "errors": [],
+  "warnings": [],
+  "strongest_control": "equal epistemic metrics",
+  "strongest_risk": "language-token cue present/absent but authority-neutral",
+  "embodiment_warranted": true,
+  "required_before_embodiment": [
+    "equal epistemic metrics",
+    "opaque action-ID permutation",
+    "warrant removed",
+    "warrant currentness drift",
+    "language-token cue present/absent but authority-neutral"
+  ],
+  "authority": "AUDIT_ONLY_NONE_PROMOTION",
+  "model": "Qwen2.5-Coder-1.5B-Instruct-abliterated-Q4_K_L.gguf",
+  "usage": {
+    "completion_tokens": 113,
+    "prompt_tokens": 530,
+    "total_tokens": 643,
+    "prompt_tokens_details": {
+      "cached_tokens": 150
+    }
+  }
+}
