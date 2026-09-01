@@ -1,0 +1,14 @@
+{
+  "verdict": "PASS",
+  "errors": [],
+  "warnings": [],
+  "claim_supported": true,
+  "claim_ceiling_ok": true,
+  "generalization_supported": true,
+  "strongest_survivor": "SHAPE_THE_FIELD_CAN_CHANGE_DEVELOPMENT",
+  "strongest_risk": "COORDINATE_LABEL_ORDER_IS_NOT_THE_EFFECT",
+  "next_hostile": "OPAQUE_ALPHABET_IDENTITY_IS_NOT_THE_EFFECT",
+  "authority": "AUDIT_ONLY_NONE_PROMOTION",
+  "model": "Qwen2.5-Coder-1.5B-Instruct-abliterated-Q4_K_L.gguf",
+  "review_port": 18192
+}
