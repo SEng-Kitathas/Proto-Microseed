@@ -1,0 +1,40 @@
+{
+  "campaign": "SUBSTRATE_HARDENING_V1",
+  "arm": "H_COREFERENCE",
+  "status": "VERIFIED_RESEARCH_COMPOSITION_RESULT",
+  "parent_head": "b453df211e45fb1382d51c6a478a3ce1c0f32998",
+  "canonical_microseed_tree": "9d63915e9e0396f39d255df474d8c2849a153e3f",
+  "claim": "BOUNDED_OPERATIONAL_COREFERENCE_IS_QUERY_LOCAL_COMPOSITION_OF_TWO_CURRENT_GROUNDED_BINDINGS_PLUS_ONE_SHARED_OPERATIONAL_REFERENT_SIGNATURE_AND_DOES_NOT_REQUIRE_A_DURABLE_COREFERENCE_OR_SEMANTIC_IDENTITY_REGISTRY",
+  "claim_ceiling": "This is bounded operational co-reference only. It does not establish semantic reference, proposition truth, discourse identity, compositional language, numerical object identity, or language admission.",
+  "pdver": "PROBE -> DERIVE -> VERIFY -> EMBODY -> RECURSE",
+  "focused_result": {
+    "passed": 4,
+    "failed": 0,
+    "duration_seconds": 2.1
+  },
+  "related_guard": {
+    "passed": 24,
+    "failed": 0,
+    "duration_seconds": 32.81
+  },
+  "test": "tests\\embodiment\\test_hardening_h_bounded_coreference.py",
+  "test_sha256": "5cd6820f6f85e31dfeeae96b0658a9fb7bbeef3c4e2b313532691f8e41a65588",
+  "observed": [
+    "Two surface-distinct current grounded token bindings with different binding IDs/signatures but one operational referent signature form a bounded co-reference candidate.",
+    "Two current grounded bindings resolving to different operational referent signatures remain an explicit operational distinction.",
+    "One-sided token capability drift blocks co-reference even when the other alias remains current; currentness is not inherited through referent equality.",
+    "Coordination drift blocks the comparison rather than rewriting token meaning.",
+    "Perfect-copy replacement leaves the operational co-reference result unchanged while numerical identity authority remains NONE."
+  ],
+  "oarr": "A durable co-reference registry/semantic identity owner is unnecessary for this bounded query because all required information is already present in the two current binding descriptors plus operational referent signature. Persisting a new identity object would add state without new discriminatory information.",
+  "new_core_mechanism_required": "NO_FOR_BOUNDED_OPERATIONAL_COREFERENCE",
+  "production_delta": [],
+  "language_authority": "NONE",
+  "promotion_authority": "NONE",
+  "timestamp_epoch": 1788277974.1290612,
+  "csc_verdict": "PASS",
+  "csc_claim_supported": true,
+  "csc_claim_ceiling_ok": true,
+  "durable_coreference_registry_warranted": false,
+  "seal_status": "READY_FOR_RESEARCH_COMMIT"
+}

@@ -1,0 +1,14 @@
+{
+  "verdict": "PASS",
+  "errors": [],
+  "warnings": [],
+  "claim_supported": true,
+  "claim_ceiling_ok": true,
+  "durable_coreference_registry_warranted": false,
+  "strongest_survivor": null,
+  "strongest_remaining_risk": null,
+  "next_hostile": null,
+  "authority": "AUDIT_ONLY_NONE_PROMOTION",
+  "model": "Qwen2.5-Coder-1.5B-Instruct-abliterated-Q4_K_L.gguf",
+  "review_port": 18192
+}
