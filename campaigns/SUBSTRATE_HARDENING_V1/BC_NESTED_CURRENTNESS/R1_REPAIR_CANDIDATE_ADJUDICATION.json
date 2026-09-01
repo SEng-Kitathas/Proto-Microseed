@@ -1,0 +1,37 @@
+{
+  "status": "R1_RESEARCH_REPAIR_CANDIDATE__NOT_ADMITTED__PRODUCTION_FREEZE",
+  "defects_preserved": [
+    "V1 scoped post-binding empirical staleness laundering",
+    "V2 cross-bucket masking",
+    "V3 durable routed proposal currentness laundering"
+  ],
+  "candidate": "V2 bucket-lineage repair via optional exact routing+bucket ancestry on existing CounterfactualRehearsalProposal lineage",
+  "reported_verification": [
+    "60/60 projection-routing lineage",
+    "2/2 legacy serialization identity",
+    "bucket isolation/migration 3/3",
+    "durable proposal 1/1"
+  ],
+  "blocking_checks": [
+    "whole-suite not rerun on V2/V3 candidate",
+    "fresh-clone replay not run",
+    "runtime cost not pressure-qualified",
+    "other substrate hardening axes remain open"
+  ],
+  "production_delta": [
+    "microseed/development/rehearsal.py",
+    "microseed/runtime/entity.py"
+  ],
+  "mechanism_authority": "RESEARCH_CANDIDATE_ONLY",
+  "promotion_authority": "NONE",
+  "canonical_mutation": false,
+  "note": "Commit exists solely to preserve exact research specimen on isolated branch; it SHALL NOT be merged/promoted without explicit later gate.",
+  "archive_normalization": {
+    "files": [
+      "tests/embodiment/test_hardening_projection_routing_bucket_currentness_isolation.py",
+      "tests/embodiment/test_hardening_projection_routing_empirical_currentness_repair.py"
+    ],
+    "change": "removed extra blank line at EOF to satisfy git diff --check",
+    "original_bytes_preserved_in": "Proto-Microseed-RD-Continuity/reincarnation/FULL_TAKEOVER_WAVE2_HARDENING/LIVE_PRIMARY_SUPPLEMENT_2026-09-01/WORKTREE_SPECIMENS/BC_NESTED_CURRENTNESS_REPAIR_WIP"
+  }
+}

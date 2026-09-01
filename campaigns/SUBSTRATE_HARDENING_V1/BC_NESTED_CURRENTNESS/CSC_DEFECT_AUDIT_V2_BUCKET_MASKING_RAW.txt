@@ -1,0 +1,14 @@
+```json
+{
+  "verdict": "REVIEW",
+  "errors": [],
+  "warnings": [],
+  "defect_supported": true,
+  "claim_ceiling_ok": true,
+  "repair_v1_demoted": true,
+  "exact_missing_ancestry": [],
+  "repair_embodiment_warranted": true,
+  "mechanism_authorized": true,
+  "strongest_risk": "The repair V1 pools outcomes across qualified buckets that share one relation, but it does not mask a drifted projection bucket with good outcomes from another bucket using the same relation. This further localizes the scoped routing currentness defect, but it does not invalidate unrelated substrate capabilities or authorize promotion. Repair V1 whole-suite 983/983 is explicitly insufficient."
+}
+```

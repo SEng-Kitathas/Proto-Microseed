@@ -1,0 +1,47 @@
+{
+  "status": "VERIFIED_SUBSTRATE_DEFECT_V2__REPAIR_V1_DEMOTED",
+  "campaign": "SUBSTRATE_HARDENING_V1",
+  "arm": "BC_NESTED_CURRENTNESS",
+  "parent_defect_artifact": "DEFECT_RESULT_V1.json",
+  "failed_repair_artifact": "REPAIR_RESULT_CANDIDATE_V1.json",
+  "canonical_parent": "e6a313fc01f1f73d6f2065027829b271fa0413d0",
+  "canonical_microseed_tree": "9d63915e9e0396f39d255df474d8c2849a153e3f",
+  "claim": "REPAIR_V1_POOLS_POST_BINDING_CURRENTNESS_BY_BINDING_PLUS_RELATION_AND_CAN_MASK_A_DRIFTED_PROJECTION_BUCKET_WITH_GOOD_OUTCOMES_FROM_ANOTHER_BUCKET_USING_THE_SAME_RELATION",
+  "hostile_test": "tests\\embodiment\\test_hardening_projection_routing_bucket_currentness_isolation.py",
+  "hostile_test_sha256": "2039c8c5fdf86b8f8c953f4075bd1dadb39996bdc8b3b835d3ce162fdaf1ec32",
+  "hostile_result": {
+    "pytest": "1 failed as expected at final constitutional assertion",
+    "pooled_windows": [
+      0.75,
+      0.75,
+      0.75,
+      0.75,
+      0.75,
+      0.75,
+      0.75,
+      0.75
+    ],
+    "pooled_status": "CURRENT_WITHIN_BOUNDS",
+    "bad_bucket_windows": [
+      0.0,
+      0.0
+    ],
+    "bad_bucket_status": "DRIFT_WITNESS",
+    "routing_status": "CURRENT_PROJECTION_CONDITIONED_ROUTING"
+  },
+  "exact_cause": "CounterfactualRehearsalProposal does not persist projection_routing_id or selected projection_bucket_id. Routed relation digest is binding-specific through binding qualification evidence but not bucket-specific. Repair V1 therefore reconstructs descendants by binding+relation and pools outcomes across qualified buckets that share one relation.",
+  "required_repair_property": "Persist exact routed selection ancestry on the existing durable proposal lineage at minimum binding ID + selected projection bucket, and evaluate empirical currentness independently for each qualified bucket/action routed relation. One stale bucket may fail the whole binding closed; another bucket may not mask it.",
+  "forbidden_shortcuts": [
+    "global relation stale check",
+    "post-hoc inference of bucket from current world state",
+    "semantic regime/bucket identity manager",
+    "new cross-level currentness manager",
+    "using assistance_ancestry as operational provenance"
+  ],
+  "repair_direction": "COMPOSITION_FIRST__EXTEND_EXISTING_COUNTERFACTUAL_REHEARSAL_PROPOSAL_PROVENANCE_OPTIONALLY_AND_BACKWARD_COMPATIBLY",
+  "claim_ceiling": "This further localizes the scoped routing currentness defect. It does not invalidate unrelated substrate capabilities or authorize promotion. Repair V1 whole-suite 983/983 is explicitly insufficient.",
+  "scar": "WHOLE_SUITE_GREEN != HARDENING_COMPLETE",
+  "mechanism_authority": "NONE_PENDING_V2_REPAIR_EMBODIMENT",
+  "promotion_authority": "NONE",
+  "timestamp_epoch": 1788278243.5283253
+}
