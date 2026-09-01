@@ -1,0 +1,46 @@
+{
+  "schema": "ms2063_end_to_end_two_level_hierarchy_transfer/v1",
+  "status": "RESEARCH_RESULT__FOCUSED_AND_BROADER_GREEN__WHOLE_PENDING",
+  "parent_research_head": "625066a57cf01400bcdd2c261884399b3e28b305",
+  "ms2062_production_commit": "930ae22132e19a5439a473796e6055276dac791f",
+  "production_delta_from_ms2062": [],
+  "focused": {
+    "pytest": "4/4 PASS",
+    "duration_seconds": 31.11,
+    "stderr_bytes": 0
+  },
+  "broader": {
+    "pytest": "128/128 PASS",
+    "duration_seconds": 109.85,
+    "stderr_bytes": 0
+  },
+  "integrated_survivors": [
+    "endogenous opaque target projection externally qualified then bound through MS2062 specialization",
+    "child-local means remain outside parent capability registry",
+    "actual observed higher-level outcomes train request-effect relations",
+    "empirical drift creates durable stale old relations and fresh replacement relations",
+    "owned raw observation/action-outcome history learns higher-context + child-state projection while ignoring nuisances",
+    "externally qualified projection routing can reuse globally stale old relation only in its narrow qualified bucket",
+    "query derives current bucket from exactly one owned raw receipt; caller supplies no bucket, routed relation, request target or predicted effect",
+    "REFUSED/UNKNOWN and unseen child context fail closed",
+    "target/context/base-request currentness drift stales only lawful dependent surfaces without history erasure",
+    "restart preserves evidence/projection/relation/routing lineage but executable runtime structure requires explicit re-registration and deterministic specialization re-derivation"
+  ],
+  "authority": {
+    "semantic_parent_child_authority": "NONE",
+    "semantic_desired_state_authority": "NONE",
+    "local_means_authority_upward": "NONE",
+    "truth_authority_gain": "NONE",
+    "execution_authority_gain": "NONE",
+    "canonical_promotion": "NONE"
+  },
+  "scars": [
+    "equivalent raw contexts mapping to same qualified bucket collided with deterministic duplicate rehearsal proposal ID; historical known harness collision, not negative science",
+    "restart fixture initially attempted to bind OBS before explicitly restoring frame/value/episode runtime structure",
+    "first broader guard invocation used nonexistent historical test filename and stopped before collection"
+  ],
+  "whole_suite": {
+    "status": "PENDING"
+  },
+  "next_if_whole_green": "PROMOTION_REVIEW_ONLY__NO_AUTOMATIC_CANONICAL_PROMOTION"
+}
