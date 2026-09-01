@@ -1,0 +1,29 @@
+{
+  "question": "What specific mechanisms within Microseed interact with relational geometry and determine their impact?",
+  "evidence_contacted": [
+    "continuity/CURRENT_FRONTIER.md#p12.0",
+    "continuity/state/current/CURRENT_STATE.md#p2.0",
+    "methodology/MS1955_MULTI_ACTION_SHADOW_SUBSTRATE_CHOICE.md#p2.0",
+    "tests/embodiment/test_ms2055_n1a_constitutional_experimental_authority.py#p7.0",
+    "tests/embodiment/test_ms2055_n1a_constitutional_experimental_authority.py#p9.0",
+    "tests/embodiment/test_ms1904_1905_endogenous_direct_probe_program.py#p3.0",
+    "continuity/CURRENT_FRONTIER.md#p18.0",
+    "continuity/SCARS_AND_DO_NOT_REINTRODUCE.md#p113.0"
+  ],
+  "measurement_frame": "The interaction between Microseed and relational geometry, including the mechanisms that control this interaction.",
+  "probe": "Identify the specific mechanisms within Microseed that interact with relational geometry and determine their impact.",
+  "derive": "Determine the potential consequences of altering these mechanisms.",
+  "verify": "Verify the accuracy of the derived consequences through empirical evidence and logical analysis.",
+  "oarr": "A rival mechanism or counterexample that demonstrates the impact of altering the interaction between Microseed and relational geometry.",
+  "loop_plus": "Explore alternative causal explanations for the interaction between Microseed and relational geometry, such as the role of external stimuli or internal state changes.",
+  "embody": "NO_MUTATION_WARRANTED",
+  "observed_consequence": "SOURCE_EVIDENCE_ONLY__NO_NEW_WORLD_CONSEQUENCE",
+  "survivors": "None",
+  "scars": "None",
+  "demotions": "None",
+  "unresolved": "The specific mechanisms within Microseed that interact with relational geometry and determine their impact remain unresolved.",
+  "attention_reservoir": "None",
+  "disposition": "UNKNOWN_INCOMPLETE",
+  "next": "What specific mechanisms within Microseed interact with relational geometry and determine their impact?",
+  "terminal": true
+}

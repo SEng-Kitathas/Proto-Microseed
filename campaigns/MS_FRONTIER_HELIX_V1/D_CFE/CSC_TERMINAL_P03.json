@@ -1,0 +1,34 @@
+{
+  "verdict": "REVIEW",
+  "errors": [],
+  "warnings": [],
+  "strongest_survivor": "None",
+  "strongest_scar": "None",
+  "terminal_supported": true,
+  "authority": "AUDIT_ONLY_NONE_PROMOTION",
+  "model_meta": {
+    "attempt": 1,
+    "usage": {
+      "completion_tokens": 54,
+      "prompt_tokens": 592,
+      "total_tokens": 646,
+      "prompt_tokens_details": {
+        "cached_tokens": 130
+      }
+    },
+    "timings": {
+      "cache_n": 130,
+      "prompt_n": 462,
+      "prompt_ms": 1218.393,
+      "prompt_per_token_ms": 2.6372142857142857,
+      "prompt_per_second": 379.1879959914412,
+      "predicted_n": 54,
+      "predicted_ms": 1418.992,
+      "predicted_per_token_ms": 26.27762962962963,
+      "predicted_per_second": 38.055182834011745
+    },
+    "model": "Qwen2.5-Coder-1.5B-Instruct-abliterated-Q4_K_L.gguf",
+    "fingerprint": "b8831-a279d0f0f",
+    "json_syntax_repaired": false
+  }
+}
