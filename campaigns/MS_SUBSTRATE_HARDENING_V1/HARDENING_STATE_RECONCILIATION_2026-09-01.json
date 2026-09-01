@@ -1,0 +1,77 @@
+{
+  "campaign": "MS_SUBSTRATE_HARDENING_V1",
+  "status": "HARDENING_RECONCILED_AFTER_SH1_SH5_AND_ADJACENT_D_H_I_RESULTS",
+  "canonical_parent": "ed2cde491962105b0d853b7fd82d8e8b3d81bd8a",
+  "canonical_microseed_tree": "9d63915e9e0396f39d255df474d8c2849a153e3f",
+  "production_mutation_allowed": false,
+  "promotion_authority": "NONE",
+  "executed_fronts": {
+    "SH1_NESTED_CURRENTNESS": {
+      "commit": "581a936",
+      "verdict": "CSC PASS",
+      "status": "VERIFIED_HARDENING_RESULT"
+    },
+    "SH2_COREFERENCE": {
+      "commit": "ae969a7",
+      "verdict": "CSC REVIEW claim_supported/ceiling true",
+      "status": "REPRESENTABILITY_RESULT__SUBSEQUENT_EMPIRICAL_CURRENTNESS_BLOCKER_CONTROLS_EXTENSION"
+    },
+    "SH3_SCAFFOLDING_STRIP": {
+      "commit": "c941020",
+      "verdict": "CSC REVIEW claim_supported/ceiling true",
+      "status": "VERIFIED_FAIL_CLOSED__ASSISTANCE_CEILINGS_EXPLICIT"
+    },
+    "SH4_LONG_HORIZON_COLLISION": {
+      "commit": "26b3a10",
+      "verdict": "CSC PASS",
+      "status": "VERIFIED_HARDENING_RESULT"
+    },
+    "SH5_TERRAIN_GENERALIZATION": {
+      "commit": "233d21b",
+      "verdict": "CSC PASS",
+      "status": "VERIFIED_HARDENING_RESULT"
+    }
+  },
+  "adjacent_hardening": {
+    "D_TERRAIN_PROVENANCE": {
+      "branch": "research/hardening-d-terrain-provenance-v1",
+      "head": "adeb08e4e4bcc1e40ef096befdfe48f34f3bd9a4",
+      "verdict": "CSC PASS",
+      "disposition": "NO_SEPARATE_TERRAIN_REGISTRY_WARRANTED_FOR_DECLARED_FRAME_CURRENTNESS_PATH"
+    },
+    "H_EMPIRICAL_CURRENTNESS_BLOCKER": {
+      "branch": "research/hardening-h-coreference-v1",
+      "head": "d542d78fb3da3b89848be527b587b9f21a86d6f2",
+      "verdict": "CSC BLOCK",
+      "law": "STRUCTURAL_TOKEN_BINDING_CURRENTNESS != EMPIRICAL_GROUNDED_REFERENCE_CURRENTNESS",
+      "gate": "H_COREFERENCE_REMAINS_BLOCKED_UNTIL_POST_BINDING_GROUNDED_EMPIRICAL_CURRENTNESS_IS_EARNED"
+    },
+    "H_QUERY_LOCAL_CANDIDATE": {
+      "branch": "research/hardening-h-coreference-query-local-candidate-v1",
+      "head": "d2a68f4294e765fc7a56d0a9e1699a921d86bd4b",
+      "verdict": "CSC PASS",
+      "disposition": "CONDITIONAL_COMPOSITION_RESULT__ADMISSIBLE_ONLY_AFTER_EMPIRICAL_BINDING_CURRENTNESS_GATE"
+    },
+    "I_ATOMICITY_MEASUREMENT": {
+      "branch": "research/hardening-i-operational-equivalence-v1",
+      "head": "2db5d7ec0cd02d0de991f8ca036e65121b2dee89",
+      "verdict": "CSC REVIEW claim_supported/ceiling true",
+      "disposition": "MISSING_ATOMIC_WHOLE_MECHANISM_NOT_YET_PROVEN__NO_CURRENT_MECHANISM_WARRANT"
+    }
+  },
+  "release_gate_progress": {
+    "SH1_SH4_EXECUTED_HOSTILES": true,
+    "SH5_BOUNDED_DISPOSITION": true,
+    "SH6_BOUNDED_DISPOSITION": false,
+    "SH7_BOUNDED_DISPOSITION": false,
+    "SH8_BOUNDED_DISPOSITION": true,
+    "release_gate_met": false,
+    "reason": "SH6 and SH7 remain without bounded dispositions; H empirical-currentness blocker also remains active for co-reference extension."
+  },
+  "local_wip_not_admitted": [
+    "SH6 novel-vocabulary test material exists uncommitted and is not a result.",
+    "B/C deeper currentness repair worktree contains uncommitted production experiments and is not admitted under production freeze."
+  ],
+  "prime_directive": "TRY_TO_DISQUALIFY_THE_SUBSTRATE_BEFORE_CALLING_IT_A_SUBSTRATE",
+  "release_gate": "NO_SUBSTRATE_FREEZE_DECLARATION_UNTIL_SH1_SH4_HAVE_EXECUTED_HOSTILES_AND_SH5_SH8_HAVE_BOUNDED_DISPOSITIONS"
+}
