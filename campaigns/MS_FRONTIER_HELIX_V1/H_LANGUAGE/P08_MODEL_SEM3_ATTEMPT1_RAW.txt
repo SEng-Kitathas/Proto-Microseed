@@ -1,0 +1,20 @@
+{
+  "question": "What specific canonical mechanisms interact with grounded-language gates and how do they impact representation growth and bounded hierarchy?",
+  "evidence_contacted": ["SOURCE continuity/CURRENT_FRONTIER.md#p3.0", "SOURCE continuity/state/revisit_ledger/REVISIT_LEDGER.md#p1.0", "SOURCE continuity/SCARS_AND_DO_NOT_REINTRODUCE.md#p148.0", "SOURCE methodology/MS1970_AFFORDANCE_SPLIT_NOT_GENEALOGY.md#p27.0", "SOURCE methodology/MS1981_MS1982_OWNED_TEMPORAL_RAW_CONSTRUCTOR_GROWTH.md#p2.0", "SOURCE methodology/MS1981_MS1982_OWNED_TEMPORAL_RAW_CONSTRUCTOR_GROWTH.md#p36.0", "SOURCE methodology/MS2052_OPERATOR_DECISION_BOUNDARY_AFTER_TECHNICAL_GATES.md#p4.0", "SOURCE methodology/MS2053_OPERATOR_PROMOTION_AND_RESEARCH_GATE_OPENING.md#p25.0"],
+  "measurement_frame": "The interaction between canonical mechanisms and grounded-language gates, and their impact on representation growth and bounded hierarchy.",
+  "probe": "Identify the specific canonical mechanisms that interact with grounded-language gates and analyze their impact on representation growth and bounded hierarchy.",
+  "derive": "Derive the mechanisms by examining the evidence and understanding the relationships between canonical mechanisms and grounded-language gates.",
+  "verify": "Verify the derived mechanisms by testing them against the evidence and ensuring they accurately represent the interaction between canonical mechanisms and grounded-language gates.",
+  "oarr": "A rival mechanism that challenges the current understanding of the interaction between canonical mechanisms and grounded-language gates, and proposes an alternative explanation for their impact on representation growth and bounded hierarchy.",
+  "loop_plus": "Widen the causal explanation to include the role of grounded-language gates in shaping the bounded hierarchy and representation growth.",
+  "embody": "NO_MUTATION_WARRANTED",
+  "observed_consequence": "SOURCE_EVIDENCE_ONLY__NO_NEW_WORLD_CONSEQUENCE",
+  "survivors": ["The interaction between canonical mechanisms and grounded-language gates", "The impact of P1A, N1A, representation growth, and bounded hierarchy on grounded-language gate distinctions"],
+  "scars": [],
+  "demotions": [],
+  "unresolved": ["The interaction between canonical mechanisms and grounded-language gates", "The impact of P1A, N1A, representation growth, and bounded hierarchy on grounded-language gate distinctions"],
+  "attention_reservoir": ["The role of grounded-language gates in shaping the bounded hierarchy and representation growth"],
+  "disposition": "UNKNOWN_INCOMPLETE",
+  "next": "What are the specific canonical mechanisms that interact with grounded-language gates and how do they impact representation growth and bounded hierarchy?",
+  "terminal": false
+}

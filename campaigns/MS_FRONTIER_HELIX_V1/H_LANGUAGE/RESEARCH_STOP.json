@@ -1,0 +1,42 @@
+{
+  "arm": "H_LANGUAGE",
+  "status": "QUESTION_SATURATED__REQUIRES_EXTERNAL_REFRAME",
+  "scientific_closure": false,
+  "passes_completed": 7,
+  "last_valid_next": "What are the specific canonical mechanisms that interact with grounded-language gates and how do they impact representation growth and bounded hierarchy?",
+  "csc": {
+    "verdict": "REVIEW",
+    "errors": [],
+    "warnings": [],
+    "strongest_survivor": "The interaction between canonical mechanisms and grounded-language gates",
+    "strongest_scar": "The impact of P1A, N1A, representation growth, and bounded hierarchy on grounded-language gate distinctions",
+    "terminal_supported": true,
+    "authority": "AUDIT_ONLY_NONE_PROMOTION",
+    "model_meta": {
+      "attempt": 1,
+      "usage": {
+        "completion_tokens": 83,
+        "prompt_tokens": 1132,
+        "total_tokens": 1215,
+        "prompt_tokens_details": {
+          "cached_tokens": 122
+        }
+      },
+      "timings": {
+        "cache_n": 122,
+        "prompt_n": 1010,
+        "prompt_ms": 2567.973,
+        "prompt_per_token_ms": 2.542547524752475,
+        "prompt_per_second": 393.3063159153153,
+        "predicted_n": 83,
+        "predicted_ms": 2573.786,
+        "predicted_per_token_ms": 31.009469879518072,
+        "predicted_per_second": 32.24821333242158
+      },
+      "model": "Qwen2.5-Coder-1.5B-Instruct-abliterated-Q4_K_L.gguf",
+      "fingerprint": "b8831-a279d0f0f",
+      "json_syntax_repaired": false
+    }
+  },
+  "promotion_authority": "NONE"
+}
