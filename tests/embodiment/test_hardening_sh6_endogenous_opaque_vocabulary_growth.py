@@ -91,9 +91,10 @@ def test_externally_qualified_new_opaque_representation_can_supply_bound_request
         assert len(m.action_closure.intents)==before_intents
         assert len(m.action_closure.executions)==before_exec
         for x,b in zip(bound,buckets):
-            assert x.boundary['bound_request_target_token']==b
-            assert x.boundary['bound_request_projection_id']==rec.projection_id
-            assert 'NO_SEMANTIC' in ' '.join(x.invariants)
+            assert x.boundary['target_token']==b
+            assert x.boundary['target_projection_id']==rec.projection_id
+            assert 'REQUEST_CHANNEL_EFFECT_NE_SEMANTIC_DESIRED_STATE_AUTHORITY' in x.invariants
+            assert 'NO_SEMANTIC_DESIRED_STATE_AUTHORITY' in x.assistance_ancestry
         # The generated vocabulary remains exact-currentness-bound to the representation lineage.
         m.change_epistemic_projection('P-MS1986-A',new_signature_sha256='a'*64,reason='SH6-SOURCE-PROJECTION-DRIFT')
         assert not m.epistemic_projections.records[rec.projection_id].current
