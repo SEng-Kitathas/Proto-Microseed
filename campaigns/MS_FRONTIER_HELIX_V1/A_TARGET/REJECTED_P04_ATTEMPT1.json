@@ -1,0 +1,37 @@
+{
+  "status": "METHOD_REJECTED__NOT_SCIENTIFIC_PASS",
+  "question": "How can developmental pressure construct useful intervention/probe candidates from learned opaque structure and already-qualified primitives without caller-supplied semantic action names, while keeping candidate construction separate from execution permission?",
+  "errors": [
+    "next_self_loop"
+  ],
+  "candidate": {
+    "question": "How can developmental pressure construct useful intervention/probe candidates from learned opaque structure and already-qualified primitives without caller-supplied semantic action names, while keeping candidate construction separate from execution permission?",
+    "evidence_contacted": [
+      "methodology\\MS1995_MULTI_REFERENT_CROSSING_OCCLUSION_REASSOCIATION.md#p40.0",
+      "continuity/state/next_steps/NEXT_STEPS.md#p8.0",
+      "methodology\\MS1981_MS1982_OWNED_TEMPORAL_RAW_CONSTRUCTOR_GROWTH.md#p36.0",
+      "methodology\\MS1996_ENDOGENOUS_PROGRAM_CALLER_CHOICE_ELIMINATION.md#p42.0",
+      "continuity/CURRENT_FRONTIER.md#p3.0",
+      "methodology\\MS1944_SIGNAL_REPLACEMENT_QUALIFICATION_BOUNDARY.md#p2.0",
+      "continuity/state/current/CURRENT_STATE.md#p8.0",
+      "continuity/state/current/CURRENT_STATE.md#p17.0"
+    ],
+    "measurement_frame": "Developmental pressure, learned opaque structure, already-qualified primitives, intervention/probe candidates, execution permission, semantic action names, candidate construction, separation",
+    "probe": "Investigate how developmental pressure can construct useful intervention/probe candidates from learned opaque structure and already-qualified primitives without caller-supplied semantic action names, while keeping candidate construction separate from execution permission.",
+    "derive": "Develop a theoretical framework that explains how developmental pressure can construct useful intervention/probe candidates from learned opaque structure and already-qualified primitives without caller-supplied semantic action names, while keeping candidate construction separate from execution permission.",
+    "verify": "Verify the theoretical framework by testing it with a bounded research artifact/experiment specification that demonstrates how developmental pressure can construct useful intervention/probe candidates from learned opaque structure and already-qualified primitives without caller-supplied semantic action names, while keeping candidate construction separate from execution permission.",
+    "oarr": "A real rival, removal, altered mechanism, counterexample, assistance-leak, old-owner, search-artifact, currentness, or authority-laundering discriminator where meaningful.",
+    "loop_plus": "Deliberately widen to at least one adjacent plausible causal explanation before local closure where such an explanation exists.",
+    "embody": "NO_MUTATION_WARRANTED",
+    "observed_consequence": "SOURCE_EVIDENCE_ONLY__NO_NEW_WORLD_CONSEQUENCE",
+    "survivors": "Canonical fixed learned opaque request-target specialization",
+    "scars": "Rich-world lifetime composition",
+    "demotions": "Child/subordinate developmental replacement and relation requalification",
+    "unresolved": "Deeper opaque request-target construction/generalization",
+    "attention_reservoir": "Bounded neglected evidence/branch/anomaly ledger; research governance only.",
+    "disposition": "RESEARCH_CONTINUE",
+    "next": "How can developmental pressure construct useful intervention/probe candidates from learned opaque structure and already-qualified primitives without caller-supplied semantic action names, while keeping candidate construction separate from execution permission?",
+    "terminal": false
+  },
+  "promotion_authority": "NONE"
+}

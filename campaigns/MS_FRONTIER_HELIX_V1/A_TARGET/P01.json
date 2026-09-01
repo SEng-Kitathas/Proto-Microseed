@@ -1,0 +1,66 @@
+{
+  "question": "What is the smallest remaining barrier between canonical fixed learned opaque request-target specialization and genuinely endogenous construction/generalization of useful request targets?",
+  "evidence_contacted": [
+    "continuity/state/next_steps/NEXT_STEPS.md#p8.0",
+    "continuity/state/current/CURRENT_STATE.md#p8.0",
+    "methodology\\MS1995_MULTI_REFERENT_CROSSING_OCCLUSION_REASSOCIATION.md#p40.0",
+    "continuity/CURRENT_FRONTIER.md#p26.0",
+    "continuity/state/current/CURRENT_STATE.md#p17.0",
+    "methodology\\MS1996_ENDOGENOUS_PROGRAM_CALLER_CHOICE_ELIMINATION.md#p42.0",
+    "methodology\\MS2064_HIERARCHY_TRANSFER_TECHNICAL_READINESS_CLOSED.md#p6.0",
+    "continuity/CURRENT_FRONTIER.md#p3.0"
+  ],
+  "measurement_frame": "Developmental pressure and rich-world lifetime composition",
+  "probe": "CFE developmental-geometry ablation on the now-canonical bounded two-level path",
+  "derive": "Deeper opaque request-target construction/generalization beyond the finite learned projection-bucket specialization currently promoted",
+  "verify": "Child/subordinate developmental replacement and relation requalification under more severe phenotype drift",
+  "oarr": "Rich-world lifetime composition as the largest remaining falsifier",
+  "loop_plus": "Widen to include learned representations and recursive composition, persistent/re-associated external referents, and delayed/stochastic consequences",
+  "embody": "NO_MUTATION_WARRANTED",
+  "observed_consequence": "SOURCE_EVIDENCE_ONLY__NO_NEW_WORLD_CONSEQUENCE",
+  "survivors": "Canonical fixed learned opaque request-target specialization",
+  "scars": "Rich-world lifetime composition",
+  "demotions": "Child/subordinate developmental replacement and relation requalification",
+  "unresolved": "Deeper opaque request-target construction/generalization",
+  "attention_reservoir": "Bounded neglected evidence/branch/anomaly ledger",
+  "disposition": "RESEARCH_CONTINUE",
+  "next": "What are the mechanisms by which developmental pressure can construct useful intervention/probe candidates from learned opaque structure and already-qualified primitives without caller-supplied semantic action names?",
+  "terminal": false,
+  "pass": 1,
+  "model_meta": {
+    "attempt": 2,
+    "usage": {
+      "completion_tokens": 508,
+      "prompt_tokens": 1618,
+      "total_tokens": 2126,
+      "prompt_tokens_details": {
+        "cached_tokens": 386
+      }
+    },
+    "timings": {
+      "cache_n": 386,
+      "prompt_n": 1232,
+      "prompt_ms": 13265.766,
+      "prompt_per_token_ms": 10.767667207792208,
+      "prompt_per_second": 92.87062654354072,
+      "predicted_n": 508,
+      "predicted_ms": 52568.457,
+      "predicted_per_token_ms": 103.48121456692914,
+      "predicted_per_second": 9.66358970741713
+    },
+    "model": "qwen2.5-coder-7b-instruct-abliterated-q4_k_m.gguf",
+    "fingerprint": "b8831-a279d0f0f"
+  },
+  "source_refs": [
+    "continuity/state/next_steps/NEXT_STEPS.md#p8.0",
+    "continuity/state/current/CURRENT_STATE.md#p8.0",
+    "methodology\\MS1995_MULTI_REFERENT_CROSSING_OCCLUSION_REASSOCIATION.md#p40.0",
+    "continuity/CURRENT_FRONTIER.md#p26.0",
+    "continuity/state/current/CURRENT_STATE.md#p17.0",
+    "methodology\\MS1996_ENDOGENOUS_PROGRAM_CALLER_CHOICE_ELIMINATION.md#p42.0",
+    "methodology\\MS2064_HIERARCHY_TRANSFER_TECHNICAL_READINESS_CLOSED.md#p6.0",
+    "continuity/CURRENT_FRONTIER.md#p3.0"
+  ],
+  "promotion_authority": "NONE",
+  "production_mutation_allowed": false
+}

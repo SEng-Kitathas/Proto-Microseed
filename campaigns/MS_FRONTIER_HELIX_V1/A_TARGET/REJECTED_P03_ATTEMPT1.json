@@ -1,0 +1,37 @@
+{
+  "status": "METHOD_REJECTED__NOT_SCIENTIFIC_PASS",
+  "question": "How can developmental pressure construct useful intervention/probe candidates from learned opaque structure and already-qualified primitives without caller-supplied semantic action names?",
+  "errors": [
+    "next_self_loop"
+  ],
+  "candidate": {
+    "question": "How can developmental pressure construct useful intervention/probe candidates from learned opaque structure and already-qualified primitives without caller-supplied semantic action names?",
+    "evidence_contacted": [
+      "methodology\\MS1995_MULTI_REFERENT_CROSSING_OCCLUSION_REASSOCIATION.md#p40.0",
+      "continuity/state/next_steps/NEXT_STEPS.md#p8.0",
+      "methodology\\MS1981_MS1982_OWNED_TEMPORAL_RAW_CONSTRUCTOR_GROWTH.md#p36.0",
+      "continuity/CURRENT_FRONTIER.md#p3.0",
+      "continuity/state/current/CURRENT_STATE.md#p17.0",
+      "continuity/state/revisit_ledger/REVISIT_LEDGER.md#p1.0",
+      "continuity/state/current/CURRENT_STATE.md#p8.0",
+      "methodology\\MS1944_SIGNAL_REPLACEMENT_QUALIFICATION_BOUNDARY.md#p2.0"
+    ],
+    "measurement_frame": "Developmental pressure constructing intervention/probe candidates from learned opaque structure and already-qualified primitives without caller-supplied semantic action names",
+    "probe": "Can developmental pressure construct useful intervention/probe candidates from learned opaque structure and already-qualified primitives without caller-supplied semantic action names?",
+    "derive": "Developmental pressure can construct useful intervention/probe candidates from learned opaque structure and already-qualified primitives without caller-supplied semantic action names by leveraging learned opaque request-target specialization and already-qualified primitives.",
+    "verify": "The evidence suggests that developmental pressure can construct useful intervention/probe candidates from learned opaque structure and already-qualified primitives without caller-supplied semantic action names.",
+    "oarr": "A rival mechanism could be a different approach to constructing intervention/probe candidates that does not rely on learned opaque structure and already-qualified primitives.",
+    "loop_plus": "The next plausible causal explanation could be that developmental pressure can construct useful intervention/probe candidates from learned opaque structure and already-qualified primitives without caller-supplied semantic action names by using a different method of learning and specialization.",
+    "embody": "NO_MUTATION_WARRANTED",
+    "observed_consequence": "SOURCE_EVIDENCE_ONLY__NO_NEW_WORLD_CONSEQUENCE",
+    "survivors": "Canonical fixed learned opaque request-target specialization",
+    "scars": "Rich-world lifetime composition",
+    "demotions": "Child/subordinate developmental replacement and relation requalification",
+    "unresolved": "Deeper opaque request-target construction/generalization",
+    "attention_reservoir": "Bounded neglected evidence/branch/anomaly ledger; research governance only",
+    "disposition": "RESEARCH_CONTINUE",
+    "next": "How can developmental pressure construct useful intervention/probe candidates from learned opaque structure and already-qualified primitives without caller-supplied semantic action names?",
+    "terminal": false
+  },
+  "promotion_authority": "NONE"
+}

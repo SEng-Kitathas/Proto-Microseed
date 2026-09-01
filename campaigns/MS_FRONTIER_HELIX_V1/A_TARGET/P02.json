@@ -1,0 +1,66 @@
+{
+  "question": "What are the mechanisms by which developmental pressure can construct useful intervention/probe candidates from learned opaque structure and already-qualified primitives without caller-supplied semantic action names?",
+  "evidence_contacted": [
+    "methodology\\MS1995_MULTI_REFERENT_CROSSING_OCCLUSION_REASSOCIATION.md#p40.0",
+    "continuity/state/next_steps/NEXT_STEPS.md#p8.0",
+    "methodology\\MS1981_MS1982_OWNED_TEMPORAL_RAW_CONSTRUCTOR_GROWTH.md#p36.0",
+    "continuity/CURRENT_FRONTIER.md#p3.0",
+    "continuity/state/current/CURRENT_STATE.md#p17.0",
+    "continuity/state/revisit_ledger/REVISIT_LEDGER.md#p1.0",
+    "continuity/state/current/CURRENT_STATE.md#p8.0",
+    "methodology\\MS1944_SIGNAL_REPLACEMENT_QUALIFICATION_BOUNDARY.md#p2.0"
+  ],
+  "measurement_frame": "Developmental pressure and learned opaque structure",
+  "probe": "How can developmental pressure construct useful intervention/probe candidates from learned opaque structure and already-qualified primitives without caller-supplied semantic action names?",
+  "derive": "The mechanisms involve leveraging learned opaque structure and already-qualified primitives to construct intervention/probe candidates through developmental pressure, without requiring caller-supplied semantic action names.",
+  "verify": "The mechanisms can be verified through experiments that demonstrate the ability to construct useful intervention/probe candidates from learned opaque structure and already-qualified primitives without caller-supplied semantic action names.",
+  "oarr": "A rival mechanism could involve caller-supplied semantic action names, which would complicate the construction of useful intervention/probe candidates from learned opaque structure and already-qualified primitives.",
+  "loop_plus": "Widening the causal explanation to include the role of learned opaque structure and already-qualified primitives in the construction of intervention/probe candidates through developmental pressure.",
+  "embody": "NO_MUTATION_WARRANTED",
+  "observed_consequence": "SOURCE_EVIDENCE_ONLY__NO_NEW_WORLD_CONSEQUENCE",
+  "survivors": "Canonical fixed learned opaque request-target specialization",
+  "scars": "Rich-world lifetime composition",
+  "demotions": "Child/subordinate developmental replacement and relation requalification",
+  "unresolved": "Deeper opaque request-target construction/generalization",
+  "attention_reservoir": "Bounded neglected evidence/branch/anomaly ledger; research governance only.",
+  "disposition": "RESEARCH_CONTINUE",
+  "next": "How can developmental pressure construct useful intervention/probe candidates from learned opaque structure and already-qualified primitives without caller-supplied semantic action names?",
+  "terminal": false,
+  "pass": 2,
+  "model_meta": {
+    "attempt": 1,
+    "usage": {
+      "completion_tokens": 567,
+      "prompt_tokens": 1946,
+      "total_tokens": 2513,
+      "prompt_tokens_details": {
+        "cached_tokens": 1945
+      }
+    },
+    "timings": {
+      "cache_n": 1945,
+      "prompt_n": 1,
+      "prompt_ms": 106.66,
+      "prompt_per_token_ms": 106.66,
+      "prompt_per_second": 9.375585974123384,
+      "predicted_n": 567,
+      "predicted_ms": 59776.404,
+      "predicted_per_token_ms": 105.42575661375662,
+      "predicted_per_second": 9.485348098222838
+    },
+    "model": "qwen2.5-coder-7b-instruct-abliterated-q4_k_m.gguf",
+    "fingerprint": "b8831-a279d0f0f"
+  },
+  "source_refs": [
+    "methodology\\MS1995_MULTI_REFERENT_CROSSING_OCCLUSION_REASSOCIATION.md#p40.0",
+    "continuity/state/next_steps/NEXT_STEPS.md#p8.0",
+    "methodology\\MS1981_MS1982_OWNED_TEMPORAL_RAW_CONSTRUCTOR_GROWTH.md#p36.0",
+    "continuity/CURRENT_FRONTIER.md#p3.0",
+    "continuity/state/current/CURRENT_STATE.md#p17.0",
+    "continuity/state/revisit_ledger/REVISIT_LEDGER.md#p1.0",
+    "continuity/state/current/CURRENT_STATE.md#p8.0",
+    "methodology\\MS1944_SIGNAL_REPLACEMENT_QUALIFICATION_BOUNDARY.md#p2.0"
+  ],
+  "promotion_authority": "NONE",
+  "production_mutation_allowed": false
+}

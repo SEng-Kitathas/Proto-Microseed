@@ -1,0 +1,33 @@
+{
+  "verdict": "REVIEW",
+  "errors": [],
+  "warnings": [],
+  "strongest_survivor": "Canonical fixed learned opaque request-target specialization",
+  "strongest_scar": "Rich-world lifetime composition",
+  "terminal_supported": true,
+  "authority": "AUDIT_ONLY_NONE_PROMOTION",
+  "model_meta": {
+    "attempt": 1,
+    "usage": {
+      "completion_tokens": 63,
+      "prompt_tokens": 714,
+      "total_tokens": 777,
+      "prompt_tokens_details": {
+        "cached_tokens": 3
+      }
+    },
+    "timings": {
+      "cache_n": 3,
+      "prompt_n": 711,
+      "prompt_ms": 1732.657,
+      "prompt_per_token_ms": 2.436929676511955,
+      "prompt_per_second": 410.35242405161557,
+      "predicted_n": 63,
+      "predicted_ms": 1745.337,
+      "predicted_per_token_ms": 27.703761904761905,
+      "predicted_per_second": 36.096180852179266
+    },
+    "model": "Qwen2.5-Coder-1.5B-Instruct-abliterated-Q4_K_L.gguf",
+    "fingerprint": "b8831-a279d0f0f"
+  }
+}
