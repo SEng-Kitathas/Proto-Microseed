@@ -1,0 +1,14 @@
+{
+  "verdict": "PASS",
+  "errors": [],
+  "warnings": [],
+  "claim_supported": true,
+  "claim_ceiling_ok": true,
+  "survivor_set_coherent": true,
+  "strongest_cross_arm_law": "COMPOSITION_FIRST_SURVIVES: A target sequencing and C one-level nesting are achieved by composing already-qualified owners rather than adding generic target/hierarchy managers.",
+  "strongest_remaining_gap": "three-level end-to-end learning and cross-level currentness after middle drift",
+  "promotion_warranted": false,
+  "authority": "AUDIT_ONLY_NONE_PROMOTION",
+  "model": "Qwen2.5-Coder-1.5B-Instruct-abliterated-Q4_K_L.gguf",
+  "review_port": 18192
+}

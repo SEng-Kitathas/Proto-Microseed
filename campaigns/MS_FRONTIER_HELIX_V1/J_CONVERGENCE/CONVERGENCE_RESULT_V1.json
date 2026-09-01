@@ -1,0 +1,106 @@
+{
+  "arm": "J_CONVERGENCE",
+  "status": "VERIFIED_CROSS_ARM_CONVERGENCE_RESULT",
+  "claim": "CURRENT_FRONTIER_SURVIVORS_COEXIST_ON_ONE_UNMODIFIED_CANONICAL_MICROSEED_AND_CONVERGE_PRIMARILY_BY_COMPOSITION_AND_AUTHORITY_SEPARATION_RATHER_THAN_BY_A_NEW_CENTRAL_MANAGER",
+  "claim_ceiling": "This is a cross-arm coexistence/convergence result over the exact bounded discriminator claims. It does not promote any frontier result into canon, prove ecological generality, or claim that all open seams can be solved without new mechanisms. D_CFE and I_GROWTH remain open; C_SCALE remains bounded; H remains pre-semantic; unresolved successor questions remain real.",
+  "pdver": "PROBE -> DERIVE -> VERIFY -> EMBODY -> RECURSE",
+  "replay": {
+    "status": "PASS",
+    "passed": 27,
+    "failed": 0,
+    "duration_seconds": 51.18,
+    "runner": "tools/run_pytest_cleanup_neutral.py",
+    "canonical_microseed_tree": "9d63915e9e0396f39d255df474d8c2849a153e3f",
+    "source_manifest": {
+      "A_TARGET": {
+        "head": "387794702a26e1c8e7e84113e882154c2d961655",
+        "tests": {
+          "test_frontier_a_target_bound_request_program_construction.py": "beca2cdf377d4b4dde593b97585108c3da1eed4239fb38036fef51e0a6e8aae3"
+        }
+      },
+      "B_DRIFT": {
+        "head": "c9c6f0470a0bbc706c4f325a2bcdae4404f7c5d5",
+        "tests": {
+          "test_frontier_b_drift_hidden_subordinate_phenotype.py": "36c738e9c41bb89224f6ece46a01964a2a7b6283323eee228781e993e411f26f"
+        }
+      },
+      "C_SCALE": {
+        "head": "e6a313fc01f1f73d6f2065027829b271fa0413d0",
+        "tests": {
+          "test_frontier_c_scale_nested_three_level_execution.py": "418ec35f44883db3764d01ba8064868b58599dbfaeaa73b6598c533b5209be43"
+        }
+      },
+      "D_CFE": {
+        "head": "0b59687d72868c57d3cd664a1236aeceabad54a8",
+        "tests": {
+          "test_frontier_d_cfe_relational_visibility_terrain.py": "4c8945fd15dad356984c7e86fb46e022824c91ec9face20001f31c6fccb7132f"
+        }
+      },
+      "E_IDENTITY": {
+        "head": "edc0f27af94f39450ffea171c7b448997401d652",
+        "tests": {
+          "test_frontier_e_identity_persistent_vs_copy.py": "58f94a7be2215f75115e93e0e4ac41c2033f476fa1d2587f144812a970aad9ac"
+        }
+      },
+      "F_VALUE": {
+        "head": "45e0e45f915990318824f0dd588728ce56fc27e0",
+        "tests": {
+          "test_frontier_f_value_non_scalar_full_frame_pareto.py": "490cfec475c878405482a454d39c6ac3d64db7fba2fd1d50e9191e7e676965c4"
+        }
+      },
+      "G_NAKED": {
+        "head": "e41287c0759a76c051b50fdce99f30b57eca560e",
+        "tests": {
+          "test_frontier_g_naked_epistemic_need_not_authority.py": "ff8eb997140829dc5e2c0e035753defde8c858ac21a80e155981e43e8c53cfd5"
+        }
+      },
+      "H_LANGUAGE": {
+        "head": "b453df211e45fb1382d51c6a478a3ce1c0f32998",
+        "tests": {
+          "test_frontier_h_language_opaque_token_permutation.py": "b6e0cdf9189b8b0e6daf34e9e4af5329d9b3b78014abffce10d653caeddd5178"
+        }
+      },
+      "I_GROWTH": {
+        "head": "56ed04a8c8e4a7f2f2b072dd0d1e12c434805689",
+        "tests": {
+          "test_frontier_i_growth_reusable_whole_reachability.py": "53924f055158ac8ed785f07444df458590d0ba99f97f9dbceedc9acef06276b8",
+          "test_frontier_i_growth_atomic_wrapper_hostile.py": "eb83952409b344cb6eb775aeccddc49d2f317edc607472b4eb0ff602fab3adaa"
+        }
+      }
+    },
+    "temporary_test_blobs_deleted": true,
+    "j_worktree_clean_after_replay": true
+  },
+  "converged_survivor_laws": [
+    "COMPOSITION_FIRST_SURVIVES: A target sequencing and C one-level nesting are achieved by composing already-qualified owners rather than adding generic target/hierarchy managers.",
+    "AUTHORITY_SEPARATION_SURVIVES_ACROSS_VALUE_NAKED_LANGUAGE_HIERARCHY: selection, information, grounded token indexing and parent request prediction do not become execution authority.",
+    "IDENTITY_PRESSURE_CONVERGES_NEGATIVE_IN_TESTED_BOUNDS: B hidden-phenotype drift and E perfect-copy lifetime both work without semantic/numerical identity primitives.",
+    "ENVIRONMENT_CAN_SHAPE_DEVELOPMENT_WITHOUT_BECOMING_ORGANISM_AUTHORITY: D terrain co-visibility changes discovery while field ownership remains external.",
+    "VALUE_CONFLICT_NEED_NOT_COLLAPSE_TO_SCALAR_ARBITRATION: F full-frame Pareto path abstains on incomparability and survives positive coordinate rescaling.",
+    "LEARNED_WHOLE_REUSE_AND_ATOMIC_REACHABILITY_ARE_DISTINCT: I preserves reusable dependency/currentness but current composer does not treat that whole as one atomic budget step; dependency stripping is laundering.",
+    "GROUNDING_PRECEDES_LANGUAGE: H earns surface-invariant operational indexing while G prevents token/epistemic cue from acquiring execution authority."
+  ],
+  "mechanism_collisions_demoted": [
+    "generic target-program manager",
+    "persistent child/self identity for bounded tested cases",
+    "generic hierarchy manager for one nested execution level",
+    "hidden weighted-sum arbiter in current full-frame path",
+    "curiosity/information-gain execution authority",
+    "token surface meaning",
+    "dependency-free macro as lawful atomic learned whole",
+    "internal CFE field owner inferred merely from external terrain effect"
+  ],
+  "remaining_nonredundant_gaps": [
+    "new target vocabulary/representation construction beyond current qualified buckets",
+    "three-level end-to-end learning and cross-level currentness after middle drift",
+    "owned terrain provenance/currentness if environmental geometry must become first-class experimental dependency",
+    "whole-organism developmental-history dependence beyond referent lifetime",
+    "lawful response to non-Pareto incomparable pressures absent independent constitutional premise",
+    "bounded context-sensitive co-reference beyond one grounded operational index",
+    "authority-safe operational atomic/equivalence semantics for learned wholes, if justified"
+  ],
+  "architecture_selection_authority": "NONE",
+  "promotion_authority": "NONE",
+  "production_delta": [],
+  "timestamp_epoch": 1788270631.4870837
+}
