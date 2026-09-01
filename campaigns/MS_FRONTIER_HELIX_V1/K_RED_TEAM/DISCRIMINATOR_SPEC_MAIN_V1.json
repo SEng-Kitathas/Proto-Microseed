@@ -1,0 +1,44 @@
+{
+  "status": "MAIN_REASONING_DISCRIMINATOR_SPEC__CONTROL_INPUT_NOT_EVIDENCE",
+  "arm": "K_RED_TEAM",
+  "created_epoch": 1788263802.3116424,
+  "parent_head": "cd40095858b1c8cc5024189f0518b26708973f4c",
+  "canonical_parent": "ed2cde491962105b0d853b7fd82d8e8b3d81bd8a",
+  "pdver": "PROBE -> DERIVE -> VERIFY -> EMBODY -> RECURSE",
+  "oarr_required": true,
+  "loop_plus_required": true,
+  "hsp_measurement_required": true,
+  "csc_status": "PENDING_SHADOW_AUDIT",
+  "promotion_authority": "NONE",
+  "production_mutation_allowed": false,
+  "evidence_context_refs": [
+    "methodology\\MS1974_MS1975_OWNED_DEEP_HISTORY_CONSTRUCTOR_BRIDGE.md#p36.0",
+    "methodology\\MS1977_MS1978_OWNED_RAW_COORDINATE_PROJECTION_GROWTH.md#p26.0",
+    "methodology\\MS1985_TWO_LEARNED_BUCKET_COMPOSITION_BOUNDARY.md#p17.0",
+    "methodology\\MS1991_EXPLICIT_PROJECTION_SEARCH_BUDGET_COMPLETENESS.md#p33.0",
+    "microseed\\cognition\\research_registry.py#p7.0",
+    "continuity/state/current/CURRENT_STATE.md#p12.0",
+    "continuity/CURRENT_FRONTIER.md#p18.0",
+    "methodology\\MS2059_HIERARCHY_TRANSFER_FACTORIZE_SUBORDINATE_CURRENT_STATE.md#p3.0"
+  ],
+  "spec": {
+    "question": "What broad hostile control can most efficiently detect fixture assistance, semantic leakage, or old-owner misattribution across the frontier campaign?",
+    "incumbent": "Frontier effects survive opaque relabeling and removal of oracle/caller assistance because they are grounded in operational relations and existing lawful owners.",
+    "rival": "One or more apparent advances depend on human-readable labels, supplied candidate/sequence structure, evaluator leakage, or an older owner already sufficient for the behavior.",
+    "manipulation": "Apply a common hostile wrapper to each embodied arm: independently randomize all non-causal names/IDs/orderings, remove oracle candidate/sequence hints, and run an existing-owner-only baseline under identical budgets before the proposed arm mechanism/spec.",
+    "controls": [
+      "identity/permutation seeds",
+      "oracle-on positive control",
+      "oracle-off target condition",
+      "existing-owner-only baseline",
+      "matched search/experience budget",
+      "evaluation code blind to semantic labels"
+    ],
+    "incumbent_prediction": "Valid frontier effects preserve outcome modulo opaque permutation and exceed the existing-owner-only baseline only where a genuinely new distinction is required.",
+    "rival_prediction": "Effects collapse under relabeling/oracle removal or are reproduced by existing owners, demoting the claimed frontier advance.",
+    "measurement": "Effect size across permutations, oracle dependence, existing-owner baseline parity, assistance ledger, authority trace.",
+    "minimal_embodiment": "Reusable test harness/wrapper applied to research fixtures only; owns no Microseed architecture.",
+    "falsifier": "Any claimed advance is fully reproduced by older owners or disappears when non-causal assistance is removed.",
+    "loop_plus": "Use failures to route back to the affected arm; K never proposes replacement architecture."
+  }
+}
