@@ -20,10 +20,10 @@
     "production_delta": [
       "microseed/runtime/entity.py"
     ],
-    "promotion_commit": "PENDING_TAG_SEAL_READBACK",
+    "promotion_commit": "0f6cf0b3d660c8a4bb9561a65d7f1fd95e1b99f7",
     "promotion_functional_whole_return_code": 0,
     "promotion_functional_whole_suite": "1003 passed, 1 deselected in 1158.78s",
-    "promotion_readback_receipt": "PENDING",
+    "promotion_readback_receipt": "evidence/MS_SUBSTRATE_HARDENING_V1_CANONICAL_PROMOTION_READBACK_RECEIPT.json",
     "promotion_receipt": "evidence/MS_SUBSTRATE_HARDENING_V1_CANONICAL_PROMOTION_RECEIPT.json",
     "promotion_release_gate": "73/73 PASS in 459.94s",
     "tag": "prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1-ms-substrate-hardening-v1",

@@ -1,0 +1,25 @@
+{
+  "admission_audit_v2_head": "aaabf382f98bddc0bdcdfc84ffa11a8a942798d1",
+  "authority_boundary": [
+    "BC_REPAIR_NOT_ADMITTED",
+    "NO_SEMANTIC_REFERENCE_LANGUAGE_TRUTH_EXECUTION_SELFHOOD_AUTHORITY_GAIN"
+  ],
+  "bc_overlap_decision": "research/hardening-bc-nested-currentness-v1 quarantined/excluded from this promotion",
+  "canonical_label": "PRELINGUAL_SUBSTRATE_V1_P1A_N1A_BOUNDED_HIERARCHY_V1_MS_SUBSTRATE_HARDENING_V1",
+  "finish_head": "1c42da8e53df54a11615a88150a667f9673dff67",
+  "previous_canonical_commit": "ed2cde491962105b0d853b7fd82d8e8b3d81bd8a",
+  "previous_canonical_microseed_tree": "9d63915e9e0396f39d255df474d8c2849a153e3f",
+  "production_delta": [
+    "microseed/runtime/entity.py"
+  ],
+  "promotion_commit": "0f6cf0b3d660c8a4bb9561a65d7f1fd95e1b99f7",
+  "promotion_commit_microseed_tree": "88f5a058cc5a4e92b1006c36d31b95cf727d197f",
+  "promotion_tag": "prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1-ms-substrate-hardening-v1",
+  "schema": "ms_substrate_hardening_v1_canonical_promotion_readback/v1",
+  "status": "LOCAL_TAG_SEALED__REMOTE_PUSH_PENDING",
+  "verification_to_complete_after_push": [
+    "remote tag readback",
+    "remote branch readback",
+    "fresh verifier after remote fetch"
+  ]
+}

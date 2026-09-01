@@ -36,7 +36,15 @@
   "production_delta": [
     "microseed/runtime/entity.py"
   ],
+  "promotion_commit": "0f6cf0b3d660c8a4bb9561a65d7f1fd95e1b99f7",
   "promotion_commit_binding": "VERIFY_PROMOTION_TAG_PEELED_COMMIT_AFTER_TAG_CREATION__RECEIPT_DOES_NOT_SELF_HASH_CONTAINING_COMMIT",
+  "promotion_commit_microseed_tree": "88f5a058cc5a4e92b1006c36d31b95cf727d197f",
+  "promotion_readback": {
+    "microseed_tree": "88f5a058cc5a4e92b1006c36d31b95cf727d197f",
+    "peeled_commit": "0f6cf0b3d660c8a4bb9561a65d7f1fd95e1b99f7",
+    "remote_push": "PENDING",
+    "tag": "prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1-ms-substrate-hardening-v1"
+  },
   "promotion_tag": "prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1-ms-substrate-hardening-v1",
   "receipt_digest_normalization": "git_committed_blob_bytes__not_worktree_checkout_bytes",
   "schema": "ms_substrate_hardening_v1_canonical_promotion/v1",
@@ -48,7 +56,7 @@
     "owner": "Microseed.change_epistemic_projection",
     "shortstat": "1 file changed, 24 insertions(+), 3 deletions(-)"
   },
-  "status": "PROMOTION_CANDIDATE_SEALED__TAG_PUSH_READBACK_PENDING",
+  "status": "CANONICAL_PROMOTION_SEALED__LOCAL_TAG_CREATED__REMOTE_PUSH_PENDING",
   "tested_research_microseed_tree": "88f5a058cc5a4e92b1006c36d31b95cf727d197f",
   "verification": {
     "canon_identity_guard": "OLD_GUARD_FAILED_AS_EXPECTED_BEFORE_PROMOTION_BECAUSE_FINISH_TREE_DIFFERS_FROM_PREVIOUS_CANON",
