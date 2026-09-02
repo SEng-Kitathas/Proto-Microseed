@@ -1,0 +1,20 @@
+{
+  "command": "pytest.main cleanup-neutral captured output",
+  "elapsed_seconds": 1215.519,
+  "pytest_args": [
+    "-q",
+    "tests/embodiment",
+    "--deselect",
+    "tests/embodiment/test_ms2065_bounded_hierarchy_promotion_candidate.py::test_current_promotion_candidate_preserves_tested_microseed_bytes_and_exact_delta"
+  ],
+  "pytest_return_code": 0,
+  "schema": "microseed.bc_whole_suite_clean_confirm.v1",
+  "stderr_bytes": 0,
+  "stderr_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_bc_admission_clean_confirm_20260901/evidence/BC_NESTED_CURRENTNESS_WHOLE_SUITE_CLEAN_CONFIRM_STDERR.log",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_tail": "",
+  "stdout_bytes": 1451,
+  "stdout_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_bc_admission_clean_confirm_20260901/evidence/BC_NESTED_CURRENTNESS_WHOLE_SUITE_CLEAN_CONFIRM_STDOUT.log",
+  "stdout_sha256": "79f42242cbd9696da223d66f9d7d54a509d09109f76c09a9cd1ee4cc2dd29276",
+  "stdout_tail": "........................ [  7%]\n........................................................................ [ 14%]\n........................................................................ [ 21%]\n........................................................................ [ 28%]\n........................................................................ [ 35%]\n........................................................................ [ 42%]\n........................................................................ [ 49%]\n........................................................................ [ 56%]\n........................................................................ [ 63%]\n........................................................................ [ 70%]\n........................................................................ [ 78%]\n........................................................................ [ 85%]\n........................................................................ [ 92%]\n........................................................................ [ 99%]\n.......                                                                  [100%]\n1015 passed, 1 deselected in 1215.22s (0:20:15)\n"
+}

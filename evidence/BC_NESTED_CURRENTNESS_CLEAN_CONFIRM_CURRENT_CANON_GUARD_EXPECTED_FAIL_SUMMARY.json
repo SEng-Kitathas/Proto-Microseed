@@ -1,0 +1,19 @@
+{
+  "command": [
+    "python",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/embodiment/test_ms2065_bounded_hierarchy_promotion_candidate.py"
+  ],
+  "name": "CURRENT_CANON_GUARD_EXPECTED_FAIL",
+  "return_code": 1,
+  "stderr_bytes": 0,
+  "stderr_path": "evidence/BC_NESTED_CURRENTNESS_CLEAN_CONFIRM_CURRENT_CANON_GUARD_EXPECTED_FAIL_STDERR.log",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_tail": "",
+  "stdout_bytes": 1039,
+  "stdout_path": "evidence/BC_NESTED_CURRENTNESS_CLEAN_CONFIRM_CURRENT_CANON_GUARD_EXPECTED_FAIL_STDOUT.log",
+  "stdout_sha256": "4cba31cdd62ff94fa84f1277c744d70f9866e507d0c0f4be6e71fcfbd3c42a51",
+  "stdout_tail": "F.                                                                       [100%]\n================================== FAILURES ===================================\n_ test_current_promotion_candidate_preserves_tested_microseed_bytes_and_exact_delta _\n\n    def test_current_promotion_candidate_preserves_tested_microseed_bytes_and_exact_delta():\n        root=Path(__file__).resolve().parents[2]\n>       assert git(root,'rev-parse','HEAD:microseed')==EXPECTED_MICROSEED_TREE\nE       AssertionError: assert '4c8051563279...b3305b039e771' == '88f5a058cc5a...b95cf727d197f'\nE         \nE         - 88f5a058cc5a4e92b1006c36d31b95cf727d197f\nE         + 4c8051563279d20f2ea555d21d7b3305b039e771\n\ntests\\embodiment\\test_ms2065_bounded_hierarchy_promotion_candidate.py:18: AssertionError\n=========================== short test summary info ===========================\nFAILED tests/embodiment/test_ms2065_bounded_hierarchy_promotion_candidate.py::test_current_promotion_candidate_preserves_tested_microseed_bytes_and_exact_delta\n1 failed, 1 passed in 0.37s\n"
+}

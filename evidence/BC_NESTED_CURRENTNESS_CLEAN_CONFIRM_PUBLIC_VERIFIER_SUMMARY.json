@@ -1,0 +1,16 @@
+{
+  "command": [
+    "python",
+    "tools/verify_public_v1_continuity.py"
+  ],
+  "name": "PUBLIC_VERIFIER",
+  "return_code": 0,
+  "stderr_bytes": 0,
+  "stderr_path": "evidence/BC_NESTED_CURRENTNESS_CLEAN_CONFIRM_PUBLIC_VERIFIER_STDERR.log",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_tail": "",
+  "stdout_bytes": 543,
+  "stdout_path": "evidence/BC_NESTED_CURRENTNESS_CLEAN_CONFIRM_PUBLIC_VERIFIER_STDOUT.log",
+  "stdout_sha256": "a9f8ca5418f92c60e33cc0d9ffbd3eb9f3a15c391dcfe467180bd2ee65123c31",
+  "stdout_tail": "{\n  \"status\": \"PASS\",\n  \"head\": \"f205c2fc4fce1d56d870b8ec05c575f2cd63a891\",\n  \"canonical_v1\": \"0fa41f1ed4cf2fbd341b5f0b63adbc0034d4ac39\",\n  \"canonical_tree\": \"88a4014db5838848b1e36b904b96e55b2a5f670e\",\n  \"head_microseed_tree\": \"4c8051563279d20f2ea555d21d7b3305b039e771\",\n  \"v1_microseed_tree\": \"0ce2b39d48bad3c34a56f95fbfefa17de9cbe922\",\n  \"public_receipt_sha256\": \"c0f3ea96bbfa59fdfe75910120285654797afff028d8044bc0633e647ef3a43d\",\n  \"suite_stdout_sha256\": \"5432c11be80077a62e11b2918d0e4af667c045bcb98746a80ca8b96e1ad08edc\",\n  \"issues\": []\n}\n"
+}

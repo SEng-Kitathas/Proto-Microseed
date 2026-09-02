@@ -1,0 +1,20 @@
+{
+  "command": [
+    "python",
+    "-m",
+    "compileall",
+    "-q",
+    "microseed",
+    "tests/embodiment"
+  ],
+  "name": "COMPILEALL",
+  "return_code": 0,
+  "stderr_bytes": 0,
+  "stderr_path": "evidence/BC_NESTED_CURRENTNESS_CLEAN_CONFIRM_COMPILEALL_STDERR.log",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_tail": "",
+  "stdout_bytes": 0,
+  "stdout_path": "evidence/BC_NESTED_CURRENTNESS_CLEAN_CONFIRM_COMPILEALL_STDOUT.log",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_tail": ""
+}

@@ -1,0 +1,16 @@
+F.                                                                       [100%]
+================================== FAILURES ===================================
+_ test_current_promotion_candidate_preserves_tested_microseed_bytes_and_exact_delta _
+
+    def test_current_promotion_candidate_preserves_tested_microseed_bytes_and_exact_delta():
+        root=Path(__file__).resolve().parents[2]
+>       assert git(root,'rev-parse','HEAD:microseed')==EXPECTED_MICROSEED_TREE
+E       AssertionError: assert '4c8051563279...b3305b039e771' == '88f5a058cc5a...b95cf727d197f'
+E         
+E         - 88f5a058cc5a4e92b1006c36d31b95cf727d197f
+E         + 4c8051563279d20f2ea555d21d7b3305b039e771
+
+tests\embodiment\test_ms2065_bounded_hierarchy_promotion_candidate.py:18: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/embodiment/test_ms2065_bounded_hierarchy_promotion_candidate.py::test_current_promotion_candidate_preserves_tested_microseed_bytes_and_exact_delta
+1 failed, 1 passed in 0.37s

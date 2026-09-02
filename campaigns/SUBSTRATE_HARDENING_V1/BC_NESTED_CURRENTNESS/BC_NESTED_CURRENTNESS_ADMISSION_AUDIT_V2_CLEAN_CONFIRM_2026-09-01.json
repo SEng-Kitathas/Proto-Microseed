@@ -1,0 +1,110 @@
+{
+  "audit_base_head_before_v2_commit": "f205c2fc4fce1d56d870b8ec05c575f2cd63a891",
+  "audit_v1_branch": "research/hardening-bc-admission-audit-v1",
+  "audit_v1_head": "f205c2fc4fce1d56d870b8ec05c575f2cd63a891",
+  "base_public_main": "28489c6feaa9d1d777b8bca0cca2ec3e35042144",
+  "branch": "research/hardening-bc-admission-audit-v2",
+  "candidate_microseed_tree": "4c8051563279d20f2ea555d21d7b3305b039e771",
+  "ceilings": [
+    "No semantic/reference/language/truth/execution/selfhood authority",
+    "No durable global currentness manager",
+    "No automatic admission from cherry-pick auto-merge",
+    "Current-canon guard failure remains explicit until promotion",
+    "Initial long tool-call timeout recorded; not hidden"
+  ],
+  "clean_confirmation": {
+    "compact_summary_validator": "PASS; issues empty; stdout/stderr hashes match summary; stderr empty; expected green pytest summary present",
+    "initial_long_call_transport": "TIMEOUT_ERROR_AT_TOOL_CALL_SURFACE__SERVER_PROCESS_CONTINUED_TO_COMPLETION__NOT_A_PYTEST_FAILURE",
+    "supersedes_v1_supervision_lost_caveat": true,
+    "whole_suite_cleanup_neutral_captured": {
+      "elapsed_seconds": 1215.519,
+      "pytest_return_code": 0,
+      "stderr_bytes": 0,
+      "stderr_path": "evidence/BC_NESTED_CURRENTNESS_WHOLE_SUITE_CLEAN_CONFIRM_STDERR.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 1451,
+      "stdout_path": "evidence/BC_NESTED_CURRENTNESS_WHOLE_SUITE_CLEAN_CONFIRM_STDOUT.log",
+      "stdout_sha256": "79f42242cbd9696da223d66f9d7d54a509d09109f76c09a9cd1ee4cc2dd29276",
+      "verdict": "1015 passed, 1 deselected"
+    }
+  },
+  "confirmation_captures": {
+    "compileall": {
+      "command": [
+        "python",
+        "-m",
+        "compileall",
+        "-q",
+        "microseed",
+        "tests/embodiment"
+      ],
+      "name": "COMPILEALL",
+      "return_code": 0,
+      "stderr_bytes": 0,
+      "stderr_path": "evidence/BC_NESTED_CURRENTNESS_CLEAN_CONFIRM_COMPILEALL_STDERR.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_tail": "",
+      "stdout_bytes": 0,
+      "stdout_path": "evidence/BC_NESTED_CURRENTNESS_CLEAN_CONFIRM_COMPILEALL_STDOUT.log",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_tail": ""
+    },
+    "current_canon_guard": {
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/embodiment/test_ms2065_bounded_hierarchy_promotion_candidate.py"
+      ],
+      "name": "CURRENT_CANON_GUARD_EXPECTED_FAIL",
+      "return_code": 1,
+      "stderr_bytes": 0,
+      "stderr_path": "evidence/BC_NESTED_CURRENTNESS_CLEAN_CONFIRM_CURRENT_CANON_GUARD_EXPECTED_FAIL_STDERR.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_tail": "",
+      "stdout_bytes": 1039,
+      "stdout_path": "evidence/BC_NESTED_CURRENTNESS_CLEAN_CONFIRM_CURRENT_CANON_GUARD_EXPECTED_FAIL_STDOUT.log",
+      "stdout_sha256": "4cba31cdd62ff94fa84f1277c744d70f9866e507d0c0f4be6e71fcfbd3c42a51",
+      "stdout_tail": "F.                                                                       [100%]\n================================== FAILURES ===================================\n_ test_current_promotion_candidate_preserves_tested_microseed_bytes_and_exact_delta _\n\n    def test_current_promotion_candidate_preserves_tested_microseed_bytes_and_exact_delta():\n        root=Path(__file__).resolve().parents[2]\n>       assert git(root,'rev-parse','HEAD:microseed')==EXPECTED_MICROSEED_TREE\nE       AssertionError: assert '4c8051563279...b3305b039e771' == '88f5a058cc5a...b95cf727d197f'\nE         \nE         - 88f5a058cc5a4e92b1006c36d31b95cf727d197f\nE         + 4c8051563279d20f2ea555d21d7b3305b039e771\n\ntests\\embodiment\\test_ms2065_bounded_hierarchy_promotion_candidate.py:18: AssertionError\n=========================== short test summary info ===========================\nFAILED tests/embodiment/test_ms2065_bounded_hierarchy_promotion_candidate.py::test_current_promotion_candidate_preserves_tested_microseed_bytes_and_exact_delta\n1 failed, 1 passed in 0.37s\n"
+    },
+    "public_verifier": {
+      "command": [
+        "python",
+        "tools/verify_public_v1_continuity.py"
+      ],
+      "name": "PUBLIC_VERIFIER",
+      "return_code": 0,
+      "stderr_bytes": 0,
+      "stderr_path": "evidence/BC_NESTED_CURRENTNESS_CLEAN_CONFIRM_PUBLIC_VERIFIER_STDERR.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_tail": "",
+      "stdout_bytes": 543,
+      "stdout_path": "evidence/BC_NESTED_CURRENTNESS_CLEAN_CONFIRM_PUBLIC_VERIFIER_STDOUT.log",
+      "stdout_sha256": "a9f8ca5418f92c60e33cc0d9ffbd3eb9f3a15c391dcfe467180bd2ee65123c31",
+      "stdout_tail": "{\n  \"status\": \"PASS\",\n  \"head\": \"f205c2fc4fce1d56d870b8ec05c575f2cd63a891\",\n  \"canonical_v1\": \"0fa41f1ed4cf2fbd341b5f0b63adbc0034d4ac39\",\n  \"canonical_tree\": \"88a4014db5838848b1e36b904b96e55b2a5f670e\",\n  \"head_microseed_tree\": \"4c8051563279d20f2ea555d21d7b3305b039e771\",\n  \"v1_microseed_tree\": \"0ce2b39d48bad3c34a56f95fbfefa17de9cbe922\",\n  \"public_receipt_sha256\": \"c0f3ea96bbfa59fdfe75910120285654797afff028d8044bc0633e647ef3a43d\",\n  \"suite_stdout_sha256\": \"5432c11be80077a62e11b2918d0e4af667c045bcb98746a80ca8b96e1ad08edc\",\n  \"issues\": []\n}\n"
+    }
+  },
+  "current_canon": {
+    "commit": "0f6cf0b3d660c8a4bb9561a65d7f1fd95e1b99f7",
+    "label": "PRELINGUAL_SUBSTRATE_V1_P1A_N1A_BOUNDED_HIERARCHY_V1_MS_SUBSTRATE_HARDENING_V1",
+    "microseed_tree": "88f5a058cc5a4e92b1006c36d31b95cf727d197f",
+    "tag": "prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1-ms-substrate-hardening-v1"
+  },
+  "decision": "ADMISSIBLE_TO_CONTROLLED_PROMOTION_REVIEW_WITH_CLEAN_CAPTURED_WHOLE_SUITE_CONFIRMATION",
+  "identity_guard_boundary": "CURRENT_CANON_GUARD_EXPECTED_FAIL__candidate_microseed_tree_differs_from_current_canon",
+  "interaction_audit": "unchanged from V1: hardening V1 projection-currentness stale cascade composes with B/C route/bucket scoped currentness at tested surfaces without adding a global currentness manager",
+  "non_decision": [
+    "NOT_CANON",
+    "NOT_PROMOTED"
+  ],
+  "production_delta_from_current_canon": [
+    "microseed/development/rehearsal.py",
+    "microseed/runtime/entity.py"
+  ],
+  "production_delta_shortstat": "2 files changed, 151 insertions(+), 3 deletions(-)",
+  "schema": "microseed.bc_nested_currentness_admission_audit.v2_clean_confirm",
+  "serialized_research_branch": "research/hardening-bc-nested-currentness-rebased-on-hardening-canon-v1",
+  "serialized_research_head": "2df02b159edde474e4d21f8ca9748e3e0058a96d",
+  "status": "ADMISSION_AUDIT_PASS__CLEAN_CAPTURED_WHOLE_SUITE_CONFIRMATION__CONTROLLED_PROMOTION_REVIEW_ADMISSIBLE__NOT_CANON__NOT_PROMOTED"
+}
