@@ -1,0 +1,85 @@
+{
+  "admission_audit_v1_head": "f205c2fc4fce1d56d870b8ec05c575f2cd63a891",
+  "admission_audit_v2_head": "461e59a2f5ea2daf838542ea0463777a0588f512",
+  "authority_boundary": {
+    "arbitrary_desired_state_authority": false,
+    "durable_global_currentness_manager": false,
+    "execution_authority_gain": false,
+    "language_reference_authority_gain": false,
+    "raw_projection_discovery_authority": false,
+    "selfhood_or_numerical_identity_authority": false,
+    "semantic_projection_authority": false,
+    "truth_authority_gain": false
+  },
+  "base_public_main": "28489c6feaa9d1d777b8bca0cca2ec3e35042144",
+  "candidate_microseed_tree": "4c8051563279d20f2ea555d21d7b3305b039e771",
+  "canonical_label": "PRELINGUAL_SUBSTRATE_V1_P1A_N1A_BOUNDED_HIERARCHY_V1_MS_SUBSTRATE_HARDENING_V1_BC_NESTED_CURRENTNESS_V1",
+  "earned_properties": [
+    "Routed proposals carry exact projection_routing_id and projection_bucket_id ancestry on durable rehearsal carriers.",
+    "Rehearsal reentry fails closed if persisted routed ancestry lacks bucket selection.",
+    "Projection-conditioned binding currentness checks structural relation premises and per-bucket empirical post-binding drift.",
+    "Bad bucket outcomes cannot be masked by good outcomes from another qualified bucket using the same relation.",
+    "Historical globally stale relations may remain lawfully reusable inside an exactly qualified bucket when scoped currentness evidence supports them.",
+    "Scoped empirical drift remains stale after restart and exact runtime re-registration.",
+    "Candidate composes with previous hardening canon at adjacent and whole-suite tested surfaces."
+  ],
+  "operator_authority": "USER_PROCEED_AFTER_BC_ADMISSION_AUDIT_V2_CLEAN_CONFIRMATION",
+  "previous_canonical_commit": "0f6cf0b3d660c8a4bb9561a65d7f1fd95e1b99f7",
+  "previous_canonical_label": "PRELINGUAL_SUBSTRATE_V1_P1A_N1A_BOUNDED_HIERARCHY_V1_MS_SUBSTRATE_HARDENING_V1",
+  "previous_canonical_microseed_tree": "88f5a058cc5a4e92b1006c36d31b95cf727d197f",
+  "previous_canonical_tag": "prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1-ms-substrate-hardening-v1",
+  "production_delta": [
+    "microseed/development/rehearsal.py",
+    "microseed/runtime/entity.py"
+  ],
+  "production_delta_shortstat": "2 files changed, 151 insertions(+), 3 deletions(-)",
+  "promotion_branch": "promotion/bc-nested-currentness-canon-v1",
+  "promotion_commit": "PENDING_TAG_SEAL_READBACK",
+  "promotion_decision": "CONTROLLED_PROMOTION_CANDIDATE__TAG_PENDING",
+  "promotion_tag": "prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1-ms-substrate-hardening-v1-bc-nested-currentness-v1",
+  "receipt_digest_normalization": "git_committed_blob_bytes__not_worktree_checkout_bytes",
+  "schema": "microseed.bc_nested_currentness_v1_canonical_promotion/v1",
+  "semantic_delta": {
+    "claim": "admit B/C scoped routed-currentness repair: routed rehearsal proposals preserve projection_routing_id and projection_bucket_id ancestry; projection-conditioned relation currentness is revalidated by exact binding, selected bucket, routed relation, and post-binding routed actual outcomes; ambiguous legacy routed descendants fail closed",
+    "composition_with_previous_canon": "composes with MS Substrate Hardening V1 transitive dependent-projection stale cascade without adding a global currentness manager",
+    "owner_files": [
+      "microseed/development/rehearsal.py",
+      "microseed/runtime/entity.py"
+    ]
+  },
+  "serialized_research_head": "2df02b159edde474e4d21f8ca9748e3e0058a96d",
+  "status": "PROMOTION_CANDIDATE_SEALED__TAG_PUSH_READBACK_PENDING",
+  "tested_research_microseed_tree": "4c8051563279d20f2ea555d21d7b3305b039e771",
+  "verification": {
+    "admission_audit_v2": {
+      "audit_json_sha256": "fe5239d637fafeda39dca8f6fa41595362b630c87275ea23292351c427811ae2",
+      "audit_md_sha256": "db7839342230a12ef149ee9cf1e7a4e608f6cd5cca2a517a0e67dda89f7f97fe",
+      "decision": "ADMISSIBLE_TO_CONTROLLED_PROMOTION_REVIEW_WITH_CLEAN_CAPTURED_WHOLE_SUITE_CONFIRMATION",
+      "head": "461e59a2f5ea2daf838542ea0463777a0588f512"
+    },
+    "fresh_remote_v2": {
+      "compileall": "PASS for microseed and tests/embodiment",
+      "current_canon_identity_guard": "EXPECTED_FAIL_BEFORE_PROMOTION__candidate_microseed_tree_differs_from_previous_canon",
+      "expected_guard_fail_stdout_sha256": "4cba31cdd62ff94fa84f1277c744d70f9866e507d0c0f4be6e71fcfbd3c42a51",
+      "public_verifier": "PASS, issues empty",
+      "public_verifier_stdout_sha256": "a9f8ca5418f92c60e33cc0d9ffbd3eb9f3a15c391dcfe467180bd2ee65123c31"
+    },
+    "whole_suite_clean_confirmation": {
+      "compact_validator": "PASS",
+      "elapsed_seconds": 1215.519,
+      "initial_long_tool_call": "TIMEOUT_ERROR_AT_TOOL_CALL_SURFACE__SERVER_PROCESS_CONTINUED_TO_COMPLETION__NOT_A_PYTEST_FAILURE",
+      "pytest_return_code": 0,
+      "stderr_bytes": 0,
+      "stderr_path": "evidence/BC_NESTED_CURRENTNESS_WHOLE_SUITE_CLEAN_CONFIRM_STDERR.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 1451,
+      "stdout_path": "evidence/BC_NESTED_CURRENTNESS_WHOLE_SUITE_CLEAN_CONFIRM_STDOUT.log",
+      "stdout_sha256": "79f42242cbd9696da223d66f9d7d54a509d09109f76c09a9cd1ee4cc2dd29276",
+      "summary_bytes": 2338,
+      "summary_path": "evidence/BC_NESTED_CURRENTNESS_WHOLE_SUITE_CLEAN_CONFIRM_SUMMARY.json",
+      "summary_sha256": "0f1efe9bcb0cdcee049a527a9340f8ffbfdb02645834a5ab5556a1c968689f29",
+      "v1_supervision_lost_caveat": "SUPERSEDED_BY_V2_CLEAN_CAPTURED_CONFIRMATION",
+      "verdict": "1015 passed, 1 deselected"
+    }
+  }
+}

@@ -26,7 +26,7 @@ def git_bytes(*args):
 issues=[]
 # Single-branch clones do not necessarily contain tags that point at off-main genesis commits.
 # Fetch only the exact public tags required for verification when they are absent locally.
-for tag in ('prelingual-substrate-v1','naked-authority-design-v1-genesis','grounded-language-reference-v1-genesis','prelingual-substrate-v1-p1a-repair','prelingual-substrate-v1-p1a-n1a','prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1','prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1-ms-substrate-hardening-v1'):
+for tag in ('prelingual-substrate-v1','naked-authority-design-v1-genesis','grounded-language-reference-v1-genesis','prelingual-substrate-v1-p1a-repair','prelingual-substrate-v1-p1a-n1a','prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1','prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1-ms-substrate-hardening-v1','prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1-ms-substrate-hardening-v1-bc-nested-currentness-v1'):
     probe=subprocess.run(['git','rev-parse','--verify','--quiet',tag+'^{}'],cwd=ROOT,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
     if probe.returncode != 0:
         fetch=subprocess.run(['git','fetch','--quiet','origin','tag',tag],cwd=ROOT,text=True,capture_output=True)
@@ -128,6 +128,33 @@ if active.get('label')=='PRELINGUAL_SUBSTRATE_V1_P1A_N1A_BOUNDED_HIERARCHY_V1_MS
     if sreceipt.get('bc_overlap_decision',{}).get('research_hardening_bc_nested_currentness_v1')!='QUARANTINED_EXCLUDED_FROM_THIS_PROMOTION': issues.append('BC_OVERLAP_NOT_EXCLUDED')
     if b'1003 passed, 1 deselected' not in slog_blob: issues.append('MS_SUBSTRATE_HARDENING_WHOLE_VERDICT')
     if b'73 passed' not in rlog_blob: issues.append('MS_SUBSTRATE_HARDENING_RELEASE_GATE_VERDICT')
+
+
+# If current public canon advertises B/C nested currentness V1, verify exact ancestry, production delta, receipt/log hashes, and tag binding.
+if active.get('label')=='PRELINGUAL_SUBSTRATE_V1_P1A_N1A_BOUNDED_HIERARCHY_V1_MS_SUBSTRATE_HARDENING_V1_BC_NESTED_CURRENTNESS_V1':
+    btag=git('rev-parse','prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1-ms-substrate-hardening-v1-bc-nested-currentness-v1^{}')
+    prev=git('rev-parse','prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1-ms-substrate-hardening-v1^{}')
+    if subprocess.run(['git','merge-base','--is-ancestor',btag,head],cwd=ROOT).returncode != 0: issues.append('HEAD_NOT_DESCENDANT_OF_BC_NESTED_CURRENTNESS_TAG')
+    bdelta=git('diff','--name-only',prev+'..'+btag,'--','microseed').splitlines()
+    expected_b=['microseed/development/rehearsal.py', 'microseed/runtime/entity.py']
+    if bdelta != expected_b: issues.append('BC_NESTED_CURRENTNESS_PRODUCTION_DELTA_NOT_EXACT')
+    breceipt_blob=git_bytes('show','HEAD:evidence/BC_NESTED_CURRENTNESS_V1_CANONICAL_PROMOTION_RECEIPT.json')
+    blog_blob=git_bytes('show','HEAD:evidence/BC_NESTED_CURRENTNESS_WHOLE_SUITE_CLEAN_CONFIRM_STDOUT.log')
+    berr_blob=git_bytes('show','HEAD:evidence/BC_NESTED_CURRENTNESS_WHOLE_SUITE_CLEAN_CONFIRM_STDERR.log')
+    bsummary_blob=git_bytes('show','HEAD:evidence/BC_NESTED_CURRENTNESS_WHOLE_SUITE_CLEAN_CONFIRM_SUMMARY.json')
+    baudit_json_blob=git_bytes('show','HEAD:campaigns/SUBSTRATE_HARDENING_V1/BC_NESTED_CURRENTNESS/BC_NESTED_CURRENTNESS_ADMISSION_AUDIT_V2_CLEAN_CONFIRM_2026-09-01.json')
+    breceipt=json.loads(breceipt_blob.decode('utf-8'))
+    blog_sha=hashlib.sha256(blog_blob).hexdigest(); berr_sha=hashlib.sha256(berr_blob).hexdigest(); bsummary_sha=hashlib.sha256(bsummary_blob).hexdigest(); baudit_json_sha=hashlib.sha256(baudit_json_blob).hexdigest()
+    if breceipt.get('verification',{}).get('whole_suite_clean_confirmation',{}).get('stdout_sha256')!=blog_sha: issues.append('BC_NESTED_CURRENTNESS_WHOLE_STDOUT_HASH')
+    if breceipt.get('verification',{}).get('whole_suite_clean_confirmation',{}).get('stderr_sha256')!=berr_sha: issues.append('BC_NESTED_CURRENTNESS_WHOLE_STDERR_HASH')
+    if breceipt.get('verification',{}).get('whole_suite_clean_confirmation',{}).get('summary_sha256')!=bsummary_sha: issues.append('BC_NESTED_CURRENTNESS_WHOLE_SUMMARY_HASH')
+    if breceipt.get('verification',{}).get('admission_audit_v2',{}).get('audit_json_sha256')!=baudit_json_sha: issues.append('BC_NESTED_CURRENTNESS_AUDIT_JSON_HASH')
+    if breceipt.get('candidate_microseed_tree')!=git('rev-parse',btag+':microseed'): issues.append('BC_NESTED_CURRENTNESS_RECEIPT_TREE')
+    if active.get('tested_research_microseed_tree')!=git('rev-parse',btag+':microseed'): issues.append('POINTER_BC_NESTED_CURRENTNESS_TREE')
+    if active.get('promotion_whole_stdout_sha256')!=blog_sha: issues.append('POINTER_BC_NESTED_CURRENTNESS_WHOLE_STDOUT_HASH')
+    if active.get('promotion_whole_stderr_sha256')!=berr_sha: issues.append('POINTER_BC_NESTED_CURRENTNESS_WHOLE_STDERR_HASH')
+    if b'1015 passed, 1 deselected' not in blog_blob: issues.append('BC_NESTED_CURRENTNESS_WHOLE_VERDICT')
+    if berr_blob != b'': issues.append('BC_NESTED_CURRENTNESS_WHOLE_STDERR_NOT_EMPTY')
 
 # Confirm branch-genesis metadata in both the public pointer and the copied operator receipt.
 g=pointer.get('research_branch_genesis',{})

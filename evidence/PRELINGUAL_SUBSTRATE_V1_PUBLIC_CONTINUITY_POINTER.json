@@ -1,42 +1,40 @@
 {
   "active_canonical_substrate": {
-    "admission_audit_v2_head": "aaabf382f98bddc0bdcdfc84ffa11a8a942798d1",
+    "admission_audit_v1_head": "f205c2fc4fce1d56d870b8ec05c575f2cd63a891",
+    "admission_audit_v2_head": "461e59a2f5ea2daf838542ea0463777a0588f512",
     "authority_boundary": [
       "NO_SEMANTIC_PROJECTION_AUTHORITY",
       "NO_RAW_PROJECTION_DISCOVERY_AUTHORITY",
       "NO_TRUTH_AUTHORITY_GAIN",
       "NO_EXECUTION_AUTHORITY_GAIN",
       "NO_LANGUAGE_REFERENCE_AUTHORITY_GAIN",
-      "NO_SELFHOOD_OR_NUMERICAL_IDENTITY_AUTHORITY",
-      "BC_REPAIR_NOT_ADMITTED"
+      "NO_DURABLE_GLOBAL_CURRENTNESS_MANAGER",
+      "NO_SELFHOOD_OR_NUMERICAL_IDENTITY_AUTHORITY"
     ],
-    "bc_overlap_decision": "research/hardening-bc-nested-currentness-v1 quarantined/excluded from this promotion",
-    "candidate_microseed_tree": "88f5a058cc5a4e92b1006c36d31b95cf727d197f",
-    "finish_head": "1c42da8e53df54a11615a88150a667f9673dff67",
-    "label": "PRELINGUAL_SUBSTRATE_V1_P1A_N1A_BOUNDED_HIERARCHY_V1_MS_SUBSTRATE_HARDENING_V1",
-    "previous_canonical_commit": "ed2cde491962105b0d853b7fd82d8e8b3d81bd8a",
-    "previous_canonical_label": "PRELINGUAL_SUBSTRATE_V1_P1A_N1A_BOUNDED_HIERARCHY_V1",
-    "previous_canonical_tag": "prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1",
-    "previous_public_main": "3ec008b9f1f44c3871c28aee19d823ff68680cc7",
+    "base_public_main": "28489c6feaa9d1d777b8bca0cca2ec3e35042144",
+    "candidate_microseed_tree": "4c8051563279d20f2ea555d21d7b3305b039e771",
+    "label": "PRELINGUAL_SUBSTRATE_V1_P1A_N1A_BOUNDED_HIERARCHY_V1_MS_SUBSTRATE_HARDENING_V1_BC_NESTED_CURRENTNESS_V1",
+    "previous_canonical_commit": "0f6cf0b3d660c8a4bb9561a65d7f1fd95e1b99f7",
+    "previous_canonical_label": "PRELINGUAL_SUBSTRATE_V1_P1A_N1A_BOUNDED_HIERARCHY_V1_MS_SUBSTRATE_HARDENING_V1",
+    "previous_canonical_microseed_tree": "88f5a058cc5a4e92b1006c36d31b95cf727d197f",
+    "previous_canonical_tag": "prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1-ms-substrate-hardening-v1",
     "production_delta": [
+      "microseed/development/rehearsal.py",
       "microseed/runtime/entity.py"
     ],
-    "promotion_branch": "promotion/hardening-release-gate-canon-v1",
-    "promotion_branch_head": "933635a0e56b72701e42d47f72966e060bc020a0",
-    "promotion_commit": "0f6cf0b3d660c8a4bb9561a65d7f1fd95e1b99f7",
-    "promotion_functional_whole_return_code": 0,
-    "promotion_functional_whole_suite": "1003 passed, 1 deselected in 1158.78s",
-    "promotion_readback_receipt": "evidence/MS_SUBSTRATE_HARDENING_V1_CANONICAL_PROMOTION_READBACK_RECEIPT.json",
-    "promotion_receipt": "evidence/MS_SUBSTRATE_HARDENING_V1_CANONICAL_PROMOTION_RECEIPT.json",
-    "promotion_release_gate": "73/73 PASS in 459.94s",
-    "public_main_confirmed_remote_head_before_final_readback_commit": "e276b83119d62791507815b9386f13e6bd55641e",
-    "public_main_final_head": "VERIFY_REMOTE_HEAD_AFTER_PUSH__RECEIPT_DOES_NOT_SELF_BIND_CONTAINING_COMMIT",
-    "public_main_movement": "PERFORMED_NON_FORCE_FAST_FORWARD_MERGE_CONFIRMED",
-    "public_main_reconciliation_branch": "promotion/public-main-reconcile-hardening-v1",
-    "public_main_reconciliation_merge_commit": "d5dac81558ae72fd5c0b28b0b7f22ac1a95b0869",
-    "remote_tag_peel": "0f6cf0b3d660c8a4bb9561a65d7f1fd95e1b99f7",
-    "tag": "prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1-ms-substrate-hardening-v1",
-    "tested_research_microseed_tree": "88f5a058cc5a4e92b1006c36d31b95cf727d197f"
+    "promotion_branch": "promotion/bc-nested-currentness-canon-v1",
+    "promotion_branch_head": "PENDING_PUSH_READBACK",
+    "promotion_commit": "PENDING_TAG_SEAL_READBACK",
+    "promotion_readback_receipt": "evidence/BC_NESTED_CURRENTNESS_V1_CANONICAL_PROMOTION_READBACK_RECEIPT.json",
+    "promotion_receipt": "evidence/BC_NESTED_CURRENTNESS_V1_CANONICAL_PROMOTION_RECEIPT.json",
+    "promotion_whole_return_code": 0,
+    "promotion_whole_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "promotion_whole_stdout_sha256": "79f42242cbd9696da223d66f9d7d54a509d09109f76c09a9cd1ee4cc2dd29276",
+    "promotion_whole_suite": "1015 passed, 1 deselected in 1215.22s",
+    "public_main_movement": "PENDING_NON_FORCE_FAST_FORWARD_AFTER_VERIFICATION",
+    "serialized_research_head": "2df02b159edde474e4d21f8ca9748e3e0058a96d",
+    "tag": "prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1-ms-substrate-hardening-v1-bc-nested-currentness-v1",
+    "tested_research_microseed_tree": "4c8051563279d20f2ea555d21d7b3305b039e771"
   },
   "active_post_v1_canonical_repair": {
     "candidate_commit": "c036ab55dca2bca057c0f84ca6d5c8bc3e313fa7",
@@ -57,6 +55,13 @@
     "repository": "SEng-Kitathas/Proto-Microseed-RD-Continuity"
   },
   "canonical_ancestry": {
+    "ms_substrate_hardening_v1": {
+      "label": "PRELINGUAL_SUBSTRATE_V1_P1A_N1A_BOUNDED_HIERARCHY_V1_MS_SUBSTRATE_HARDENING_V1",
+      "microseed_tree": "88f5a058cc5a4e92b1006c36d31b95cf727d197f",
+      "promotion_commit": "0f6cf0b3d660c8a4bb9561a65d7f1fd95e1b99f7",
+      "status": "CANONICAL_ANCESTOR_AFTER_BC_PROMOTION",
+      "tag": "prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1-ms-substrate-hardening-v1"
+    },
     "n1a": {
       "authority_boundary": [
         "UNKNOWN != SAFE",
