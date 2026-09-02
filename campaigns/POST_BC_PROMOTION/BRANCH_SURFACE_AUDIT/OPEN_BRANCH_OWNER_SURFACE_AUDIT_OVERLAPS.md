@@ -1,0 +1,454 @@
+# Open Branch Owner/File Overlap Audit — 2026-09-01
+
+## Exact file overlaps
+- `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/ARM_CLOSEOUT.json`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/CSC_ARM_CLOSEOUT.json`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/CSC_DISCRIMINATOR_SPEC_MAIN_V1.json`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/CSC_DISCRIMINATOR_SPEC_MAIN_V1_RAW.txt`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/CSC_EMBODIMENT_RESULT_MAIN_V1.json`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/CSC_EMBODIMENT_RESULT_MAIN_V1_RAW.txt`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/CSC_P05.json`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/DISCRIMINATOR_LOCAL_GENERATOR_STOP.json`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/DISCRIMINATOR_SPEC_MAIN_V1.json`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/DISCRIMINATOR_SPEC_V1_RAW/SPEC_ATTEMPT1_ATTEMPT1_RAW.txt`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/DISCRIMINATOR_SPEC_V1_RAW/SPEC_ATTEMPT1_METHOD_REJECTED.json`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/DISCRIMINATOR_SPEC_V1_RAW/SPEC_ATTEMPT2_ATTEMPT1_RAW.txt`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/DISCRIMINATOR_SPEC_V1_RAW/SPEC_ATTEMPT2_METHOD_REJECTED.json`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/DISCRIMINATOR_SPEC_V1_RAW/SPEC_ATTEMPT3_ATTEMPT1_FAILURE.json`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/DISCRIMINATOR_SPEC_V1_RAW/SPEC_ATTEMPT3_ATTEMPT2_FAILURE.json`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/DISCRIMINATOR_SPEC_V1_RAW/SPEC_ATTEMPT3_ATTEMPT3_FAILURE.json`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/EMBODIMENT_RESULT_MAIN_V1.json`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/HELIX.json`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/P01.json`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/P02.json`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/P03.json`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/P04.json`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/P05.json`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/P05_MODEL_SEM1_ATTEMPT1_RAW.txt`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/P05_MODEL_SEM2_ATTEMPT1_RAW.txt`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/P06.json`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/P06_MODEL_SEM1_ATTEMPT1_RAW.txt`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/P06_MODEL_SEM2_ATTEMPT1_RAW.txt`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/P07_MODEL_SEM1_ATTEMPT1_RAW.txt`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/P07_MODEL_SEM2_ATTEMPT1_RAW.txt`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/P07_MODEL_SEM3_ATTEMPT1_RAW.txt`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/PASS_LEDGER.md`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/REFRAME_AFTER_P06_ATTEMPT1_RAW.txt`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/REJECTED_P02_ATTEMPT1.json`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/REJECTED_P02_ATTEMPT2.json`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/REJECTED_P03_ATTEMPT1.json`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/REJECTED_P04_ATTEMPT1.json`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/REJECTED_P05_ATTEMPT1.json`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/REJECTED_P05_ATTEMPT2.json`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/REJECTED_P05_ATTEMPT3.json`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/RESEARCH_STOP.json`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/RESERVOIR.json`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/V2_REJECTED_P05_ATTEMPT1.json`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/V2_REJECTED_P06_ATTEMPT1.json`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/V2_REJECTED_P07_ATTEMPT1.json`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/V2_REJECTED_P07_ATTEMPT2.json`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/V2_REJECTED_P07_ATTEMPT3.json`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/CSC_DISCRIMINATOR_SPEC_MAIN_V1.json`: `origin/research/frontier-c-scale-v1`, `origin/research/hardening-bc-nested-currentness-baseline-repro`, `origin/research/hardening-bc-nested-currentness-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/CSC_DISCRIMINATOR_SPEC_MAIN_V1_RAW.txt`: `origin/research/frontier-c-scale-v1`, `origin/research/hardening-bc-nested-currentness-baseline-repro`, `origin/research/hardening-bc-nested-currentness-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/CSC_EMBODIMENT_RESULT_MAIN_V1.json`: `origin/research/frontier-c-scale-v1`, `origin/research/hardening-bc-nested-currentness-baseline-repro`, `origin/research/hardening-bc-nested-currentness-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/CSC_EMBODIMENT_RESULT_MAIN_V1_RAW.txt`: `origin/research/frontier-c-scale-v1`, `origin/research/hardening-bc-nested-currentness-baseline-repro`, `origin/research/hardening-bc-nested-currentness-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/DISCRIMINATOR_SPEC_MAIN_V1.json`: `origin/research/frontier-c-scale-v1`, `origin/research/hardening-bc-nested-currentness-baseline-repro`, `origin/research/hardening-bc-nested-currentness-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/EMBODIMENT_RESULT_MAIN_V1.json`: `origin/research/frontier-c-scale-v1`, `origin/research/hardening-bc-nested-currentness-baseline-repro`, `origin/research/hardening-bc-nested-currentness-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/D_CFE/ARM_CLOSEOUT.json`: `origin/research/frontier-d-cfe-v1`, `origin/research/hardening-d-terrain-provenance-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/D_CFE/ARM_STATE_V3.json`: `origin/research/frontier-d-cfe-v1`, `origin/research/hardening-d-terrain-provenance-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/D_CFE/CSC_ARM_CLOSEOUT.json`: `origin/research/frontier-d-cfe-v1`, `origin/research/hardening-d-terrain-provenance-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/D_CFE/CSC_DISCRIMINATOR_SPEC_MAIN_V1.json`: `origin/research/frontier-d-cfe-v1`, `origin/research/hardening-d-terrain-provenance-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/D_CFE/CSC_DISCRIMINATOR_SPEC_MAIN_V1_RAW.txt`: `origin/research/frontier-d-cfe-v1`, `origin/research/hardening-d-terrain-provenance-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/D_CFE/CSC_EMBODIMENT_RESULT_MAIN_V1.json`: `origin/research/frontier-d-cfe-v1`, `origin/research/hardening-d-terrain-provenance-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/D_CFE/CSC_EMBODIMENT_RESULT_MAIN_V1_RAW.txt`: `origin/research/frontier-d-cfe-v1`, `origin/research/hardening-d-terrain-provenance-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/D_CFE/CSC_P05.json`: `origin/research/frontier-d-cfe-v1`, `origin/research/hardening-d-terrain-provenance-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/D_CFE/CSC_TERMINAL_P03.json`: `origin/research/frontier-d-cfe-v1`, `origin/research/hardening-d-terrain-provenance-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/D_CFE/CSC_TERMINAL_P05.json`: `origin/research/frontier-d-cfe-v1`, `origin/research/hardening-d-terrain-provenance-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/D_CFE/DISCRIMINATOR_SPEC_MAIN_V1.json`: `origin/research/frontier-d-cfe-v1`, `origin/research/hardening-d-terrain-provenance-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/D_CFE/EMBODIMENT_RESULT_MAIN_V1.json`: `origin/research/frontier-d-cfe-v1`, `origin/research/hardening-d-terrain-provenance-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/D_CFE/HELIX.json`: `origin/research/frontier-d-cfe-v1`, `origin/research/hardening-d-terrain-provenance-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/D_CFE/HELIX_V3.json`: `origin/research/frontier-d-cfe-v1`, `origin/research/hardening-d-terrain-provenance-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/D_CFE/P01.json`: `origin/research/frontier-d-cfe-v1`, `origin/research/hardening-d-terrain-provenance-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/D_CFE/P01_MODEL_SEM1_ATTEMPT1_RAW.txt`: `origin/research/frontier-d-cfe-v1`, `origin/research/hardening-d-terrain-provenance-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/D_CFE/P02.json`: `origin/research/frontier-d-cfe-v1`, `origin/research/hardening-d-terrain-provenance-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/D_CFE/P02_MODEL_SEM1_ATTEMPT1_RAW.txt`: `origin/research/frontier-d-cfe-v1`, `origin/research/hardening-d-terrain-provenance-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/D_CFE/P03.json`: `origin/research/frontier-d-cfe-v1`, `origin/research/hardening-d-terrain-provenance-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/D_CFE/P03_MODEL_SEM1_ATTEMPT1_RAW.txt`: `origin/research/frontier-d-cfe-v1`, `origin/research/hardening-d-terrain-provenance-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/D_CFE/P04.json`: `origin/research/frontier-d-cfe-v1`, `origin/research/hardening-d-terrain-provenance-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/D_CFE/P05.json`: `origin/research/frontier-d-cfe-v1`, `origin/research/hardening-d-terrain-provenance-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/D_CFE/PASS_LEDGER.md`: `origin/research/frontier-d-cfe-v1`, `origin/research/hardening-d-terrain-provenance-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/D_CFE/REFRAME_AFTER_P03_ATTEMPT1_RAW.txt`: `origin/research/frontier-d-cfe-v1`, `origin/research/hardening-d-terrain-provenance-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/D_CFE/REFRAME_AFTER_P05_ATTEMPT1_RAW.txt`: `origin/research/frontier-d-cfe-v1`, `origin/research/hardening-d-terrain-provenance-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/D_CFE/REFRAME_SATURATION_AFTER_P03.json`: `origin/research/frontier-d-cfe-v1`, `origin/research/hardening-d-terrain-provenance-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/D_CFE/REJECTED_P01_ATTEMPT1.json`: `origin/research/frontier-d-cfe-v1`, `origin/research/hardening-d-terrain-provenance-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/D_CFE/REJECTED_P01_ATTEMPT2.json`: `origin/research/frontier-d-cfe-v1`, `origin/research/hardening-d-terrain-provenance-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/D_CFE/REJECTED_P01_ATTEMPT3.json`: `origin/research/frontier-d-cfe-v1`, `origin/research/hardening-d-terrain-provenance-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/D_CFE/RESEARCH_STOP.json`: `origin/research/frontier-d-cfe-v1`, `origin/research/hardening-d-terrain-provenance-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/D_CFE/RESEARCH_STOP_V3.json`: `origin/research/frontier-d-cfe-v1`, `origin/research/hardening-d-terrain-provenance-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/D_CFE/RESERVOIR.json`: `origin/research/frontier-d-cfe-v1`, `origin/research/hardening-d-terrain-provenance-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/D_CFE/V3_EXTERNAL_REFRAME_ACCEPTED.json`: `origin/research/frontier-d-cfe-v1`, `origin/research/hardening-d-terrain-provenance-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/D_CFE/V3_P04_MODEL_SEM1_ATTEMPT1_RAW.txt`: `origin/research/frontier-d-cfe-v1`, `origin/research/hardening-d-terrain-provenance-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/D_CFE/V3_P05_MODEL_SEM1_ATTEMPT1_RAW.txt`: `origin/research/frontier-d-cfe-v1`, `origin/research/hardening-d-terrain-provenance-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/D_CFE/V3_RUNNER_BINDING.json`: `origin/research/frontier-d-cfe-v1`, `origin/research/hardening-d-terrain-provenance-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/D_CFE/V3_SESSION_RECEIPT.json`: `origin/research/frontier-d-cfe-v1`, `origin/research/hardening-d-terrain-provenance-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/CSC_DISCRIMINATOR_SPEC_MAIN_V1.json`: `origin/research/frontier-h-language-v1`, `origin/research/hardening-h-coreference-query-local-candidate-v1`, `origin/research/hardening-h-coreference-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/CSC_DISCRIMINATOR_SPEC_MAIN_V1_RAW.txt`: `origin/research/frontier-h-language-v1`, `origin/research/hardening-h-coreference-query-local-candidate-v1`, `origin/research/hardening-h-coreference-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/CSC_EMBODIMENT_RESULT_MAIN_V1.json`: `origin/research/frontier-h-language-v1`, `origin/research/hardening-h-coreference-query-local-candidate-v1`, `origin/research/hardening-h-coreference-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/CSC_EMBODIMENT_RESULT_MAIN_V1_RAW.txt`: `origin/research/frontier-h-language-v1`, `origin/research/hardening-h-coreference-query-local-candidate-v1`, `origin/research/hardening-h-coreference-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/CSC_P05.json`: `origin/research/frontier-h-language-v1`, `origin/research/hardening-h-coreference-query-local-candidate-v1`, `origin/research/hardening-h-coreference-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/CSC_TERMINAL_P02.json`: `origin/research/frontier-h-language-v1`, `origin/research/hardening-h-coreference-query-local-candidate-v1`, `origin/research/hardening-h-coreference-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/CSC_TERMINAL_P03.json`: `origin/research/frontier-h-language-v1`, `origin/research/hardening-h-coreference-query-local-candidate-v1`, `origin/research/hardening-h-coreference-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/CSC_TERMINAL_P04.json`: `origin/research/frontier-h-language-v1`, `origin/research/hardening-h-coreference-query-local-candidate-v1`, `origin/research/hardening-h-coreference-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/CSC_TERMINAL_P05.json`: `origin/research/frontier-h-language-v1`, `origin/research/hardening-h-coreference-query-local-candidate-v1`, `origin/research/hardening-h-coreference-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/CSC_TERMINAL_P06.json`: `origin/research/frontier-h-language-v1`, `origin/research/hardening-h-coreference-query-local-candidate-v1`, `origin/research/hardening-h-coreference-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/DISCRIMINATOR_SPEC_MAIN_V1.json`: `origin/research/frontier-h-language-v1`, `origin/research/hardening-h-coreference-query-local-candidate-v1`, `origin/research/hardening-h-coreference-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/EMBODIMENT_RESULT_MAIN_V1.json`: `origin/research/frontier-h-language-v1`, `origin/research/hardening-h-coreference-query-local-candidate-v1`, `origin/research/hardening-h-coreference-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/P01.json`: `origin/research/frontier-h-language-v1`, `origin/research/hardening-h-coreference-query-local-candidate-v1`, `origin/research/hardening-h-coreference-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/P02.json`: `origin/research/frontier-h-language-v1`, `origin/research/hardening-h-coreference-query-local-candidate-v1`, `origin/research/hardening-h-coreference-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/P03.json`: `origin/research/frontier-h-language-v1`, `origin/research/hardening-h-coreference-query-local-candidate-v1`, `origin/research/hardening-h-coreference-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/P04.json`: `origin/research/frontier-h-language-v1`, `origin/research/hardening-h-coreference-query-local-candidate-v1`, `origin/research/hardening-h-coreference-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/P05.json`: `origin/research/frontier-h-language-v1`, `origin/research/hardening-h-coreference-query-local-candidate-v1`, `origin/research/hardening-h-coreference-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/P06.json`: `origin/research/frontier-h-language-v1`, `origin/research/hardening-h-coreference-query-local-candidate-v1`, `origin/research/hardening-h-coreference-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/P07.json`: `origin/research/frontier-h-language-v1`, `origin/research/hardening-h-coreference-query-local-candidate-v1`, `origin/research/hardening-h-coreference-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/P08_MODEL_SEM1_ATTEMPT1_RAW.txt`: `origin/research/frontier-h-language-v1`, `origin/research/hardening-h-coreference-query-local-candidate-v1`, `origin/research/hardening-h-coreference-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/P08_MODEL_SEM2_ATTEMPT1_RAW.txt`: `origin/research/frontier-h-language-v1`, `origin/research/hardening-h-coreference-query-local-candidate-v1`, `origin/research/hardening-h-coreference-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/P08_MODEL_SEM3_ATTEMPT1_RAW.txt`: `origin/research/frontier-h-language-v1`, `origin/research/hardening-h-coreference-query-local-candidate-v1`, `origin/research/hardening-h-coreference-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/REFRAME_AFTER_P07_ATTEMPT1_RAW.txt`: `origin/research/frontier-h-language-v1`, `origin/research/hardening-h-coreference-query-local-candidate-v1`, `origin/research/hardening-h-coreference-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/REJECTED_P05_ATTEMPT1.json`: `origin/research/frontier-h-language-v1`, `origin/research/hardening-h-coreference-query-local-candidate-v1`, `origin/research/hardening-h-coreference-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/REJECTED_P07_ATTEMPT1.json`: `origin/research/frontier-h-language-v1`, `origin/research/hardening-h-coreference-query-local-candidate-v1`, `origin/research/hardening-h-coreference-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/REJECTED_P08_ATTEMPT1.json`: `origin/research/frontier-h-language-v1`, `origin/research/hardening-h-coreference-query-local-candidate-v1`, `origin/research/hardening-h-coreference-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/REJECTED_P08_ATTEMPT2.json`: `origin/research/frontier-h-language-v1`, `origin/research/hardening-h-coreference-query-local-candidate-v1`, `origin/research/hardening-h-coreference-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/REJECTED_P08_ATTEMPT3.json`: `origin/research/frontier-h-language-v1`, `origin/research/hardening-h-coreference-query-local-candidate-v1`, `origin/research/hardening-h-coreference-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/RESEARCH_STOP.json`: `origin/research/frontier-h-language-v1`, `origin/research/hardening-h-coreference-query-local-candidate-v1`, `origin/research/hardening-h-coreference-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/V2_REJECTED_P08_ATTEMPT1.json`: `origin/research/frontier-h-language-v1`, `origin/research/hardening-h-coreference-query-local-candidate-v1`, `origin/research/hardening-h-coreference-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/V2_REJECTED_P08_ATTEMPT2.json`: `origin/research/frontier-h-language-v1`, `origin/research/hardening-h-coreference-query-local-candidate-v1`, `origin/research/hardening-h-coreference-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/V2_REJECTED_P08_ATTEMPT3.json`: `origin/research/frontier-h-language-v1`, `origin/research/hardening-h-coreference-query-local-candidate-v1`, `origin/research/hardening-h-coreference-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/I_GROWTH/CSC_DISCRIMINATOR_SPEC_MAIN_V1.json`: `origin/research/frontier-i-growth-v1`, `origin/research/hardening-i-operational-equivalence-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/I_GROWTH/CSC_DISCRIMINATOR_SPEC_MAIN_V1_RAW.txt`: `origin/research/frontier-i-growth-v1`, `origin/research/hardening-i-operational-equivalence-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/I_GROWTH/CSC_EMBODIMENT_RESULT_MAIN_V1.json`: `origin/research/frontier-i-growth-v1`, `origin/research/hardening-i-operational-equivalence-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/I_GROWTH/CSC_EMBODIMENT_RESULT_MAIN_V1_RAW.txt`: `origin/research/frontier-i-growth-v1`, `origin/research/hardening-i-operational-equivalence-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/I_GROWTH/CSC_EMBODIMENT_RESULT_MAIN_V2.json`: `origin/research/frontier-i-growth-v1`, `origin/research/hardening-i-operational-equivalence-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/I_GROWTH/CSC_EMBODIMENT_RESULT_MAIN_V2_RAW.txt`: `origin/research/frontier-i-growth-v1`, `origin/research/hardening-i-operational-equivalence-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/I_GROWTH/CSC_TERMINAL_P02.json`: `origin/research/frontier-i-growth-v1`, `origin/research/hardening-i-operational-equivalence-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/I_GROWTH/DISCRIMINATOR_SPEC_MAIN_V1.json`: `origin/research/frontier-i-growth-v1`, `origin/research/hardening-i-operational-equivalence-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/I_GROWTH/EMBODIMENT_RESULT_MAIN_V1.json`: `origin/research/frontier-i-growth-v1`, `origin/research/hardening-i-operational-equivalence-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/I_GROWTH/EMBODIMENT_RESULT_MAIN_V2.json`: `origin/research/frontier-i-growth-v1`, `origin/research/hardening-i-operational-equivalence-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/I_GROWTH/P01.json`: `origin/research/frontier-i-growth-v1`, `origin/research/hardening-i-operational-equivalence-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/I_GROWTH/P02.json`: `origin/research/frontier-i-growth-v1`, `origin/research/hardening-i-operational-equivalence-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/I_GROWTH/REFRAME_AFTER_P02_ATTEMPT1_RAW.txt`: `origin/research/frontier-i-growth-v1`, `origin/research/hardening-i-operational-equivalence-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/I_GROWTH/REJECTED_P03_ATTEMPT1.json`: `origin/research/frontier-i-growth-v1`, `origin/research/hardening-i-operational-equivalence-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/I_GROWTH/REJECTED_P03_ATTEMPT2.json`: `origin/research/frontier-i-growth-v1`, `origin/research/hardening-i-operational-equivalence-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/I_GROWTH/REJECTED_P03_ATTEMPT3.json`: `origin/research/frontier-i-growth-v1`, `origin/research/hardening-i-operational-equivalence-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/I_GROWTH/RESEARCH_STOP.json`: `origin/research/frontier-i-growth-v1`, `origin/research/hardening-i-operational-equivalence-v1`
+- `campaigns/MS_FRONTIER_HELIX_V1/WAVE1_RECOVERY_V2.md`: `origin/research/frontier-a-target-v1`, `origin/research/frontier-b-drift-v1`, `origin/research/frontier-d-cfe-v1`, `origin/research/frontier-e-identity-v1`, `origin/research/frontier-f-value-v1`, `origin/research/frontier-g-naked-v1`, `origin/research/frontier-h-language-v1`, `origin/research/frontier-i-growth-v1`, `origin/research/frontier-k-red-team-v1`, `origin/research/hardening-a-target-vocabulary-v1`, `origin/research/hardening-d-terrain-provenance-v1`, `origin/research/hardening-h-coreference-query-local-candidate-v1`, `origin/research/hardening-h-coreference-v1`, `origin/research/hardening-i-operational-equivalence-v1`
+- `methodology/CROSS_BRANCH_EVIDENCE_BRIDGE_PROTOCOL_V1.md`: `origin/research/grounded-language-reference-v1`, `origin/research/naked-authority-design-v1`
+- `methodology/MS_FRONTIER_A_TARGET_BOUND_REQUEST_PROGRAM_CONSTRUCTION_2026-09-01.md`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `methodology/MS_FRONTIER_C_SCALE_BOUNDED_THREE_LEVEL_EXECUTION_2026-09-01.md`: `origin/research/frontier-c-scale-v1`, `origin/research/hardening-bc-nested-currentness-baseline-repro`, `origin/research/hardening-bc-nested-currentness-v1`
+- `methodology/MS_FRONTIER_D_CFE_RELATIONAL_VISIBILITY_TERRAIN_2026-09-01.md`: `origin/research/frontier-d-cfe-v1`, `origin/research/hardening-d-terrain-provenance-v1`
+- `methodology/MS_FRONTIER_H_LANGUAGE_OPAQUE_TOKEN_REFERENT_INDEX_2026-09-01.md`: `origin/research/frontier-h-language-v1`, `origin/research/hardening-h-coreference-query-local-candidate-v1`, `origin/research/hardening-h-coreference-v1`
+- `methodology/MS_FRONTIER_I_GROWTH_ATOMIC_WRAPPER_OARR_2026-09-01.md`: `origin/research/frontier-i-growth-v1`, `origin/research/hardening-i-operational-equivalence-v1`
+- `methodology/MS_FRONTIER_I_GROWTH_REUSABLE_WHOLE_REACHABILITY_2026-09-01.md`: `origin/research/frontier-i-growth-v1`, `origin/research/hardening-i-operational-equivalence-v1`
+- `microseed/runtime/entity.py`: `origin/research/hardening-bc-nested-currentness-v1`, `origin/research/v1-developmental-soak-001`
+- `tests/embodiment/test_frontier_a_target_bound_request_program_construction.py`: `origin/research/frontier-a-target-v1`, `origin/research/hardening-a-target-vocabulary-v1`
+- `tests/embodiment/test_frontier_c_scale_nested_three_level_execution.py`: `origin/research/frontier-c-scale-v1`, `origin/research/hardening-bc-nested-currentness-baseline-repro`, `origin/research/hardening-bc-nested-currentness-v1`
+- `tests/embodiment/test_frontier_d_cfe_relational_visibility_terrain.py`: `origin/research/frontier-d-cfe-v1`, `origin/research/hardening-d-terrain-provenance-v1`
+- `tests/embodiment/test_frontier_h_language_opaque_token_permutation.py`: `origin/research/frontier-h-language-v1`, `origin/research/hardening-h-coreference-query-local-candidate-v1`, `origin/research/hardening-h-coreference-v1`
+- `tests/embodiment/test_frontier_i_growth_atomic_wrapper_hostile.py`: `origin/research/frontier-i-growth-v1`, `origin/research/hardening-i-operational-equivalence-v1`
+- `tests/embodiment/test_frontier_i_growth_reusable_whole_reachability.py`: `origin/research/frontier-i-growth-v1`, `origin/research/hardening-i-operational-equivalence-v1`
+- `tools/run_ms_frontier_helix_wave1_controller_v2.py`: `origin/research/frontier-a-target-v1`, `origin/research/frontier-b-drift-v1`, `origin/research/frontier-d-cfe-v1`, `origin/research/frontier-e-identity-v1`, `origin/research/frontier-f-value-v1`, `origin/research/frontier-g-naked-v1`, `origin/research/frontier-h-language-v1`, `origin/research/frontier-i-growth-v1`, `origin/research/frontier-k-red-team-v1`, `origin/research/hardening-a-target-vocabulary-v1`, `origin/research/hardening-d-terrain-provenance-v1`, `origin/research/hardening-h-coreference-query-local-candidate-v1`, `origin/research/hardening-h-coreference-v1`, `origin/research/hardening-i-operational-equivalence-v1`
+- `tools/run_ms_frontier_helix_wave1_v2.py`: `origin/research/frontier-a-target-v1`, `origin/research/frontier-b-drift-v1`, `origin/research/frontier-d-cfe-v1`, `origin/research/frontier-e-identity-v1`, `origin/research/frontier-f-value-v1`, `origin/research/frontier-g-naked-v1`, `origin/research/frontier-h-language-v1`, `origin/research/frontier-i-growth-v1`, `origin/research/frontier-k-red-team-v1`, `origin/research/hardening-a-target-vocabulary-v1`, `origin/research/hardening-d-terrain-provenance-v1`, `origin/research/hardening-h-coreference-query-local-candidate-v1`, `origin/research/hardening-h-coreference-v1`, `origin/research/hardening-i-operational-equivalence-v1`
+
+## Pairwise exact overlaps
+- `origin/research/frontier-a-target-v1` x `origin/research/hardening-a-target-vocabulary-v1`: 52 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/ARM_CLOSEOUT.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/CSC_ARM_CLOSEOUT.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/CSC_DISCRIMINATOR_SPEC_MAIN_V1.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/CSC_DISCRIMINATOR_SPEC_MAIN_V1_RAW.txt`
+  - `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/CSC_EMBODIMENT_RESULT_MAIN_V1.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/CSC_EMBODIMENT_RESULT_MAIN_V1_RAW.txt`
+  - `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/CSC_P05.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/DISCRIMINATOR_LOCAL_GENERATOR_STOP.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/DISCRIMINATOR_SPEC_MAIN_V1.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/A_TARGET/DISCRIMINATOR_SPEC_V1_RAW/SPEC_ATTEMPT1_ATTEMPT1_RAW.txt`
+  - ... 30 more
+- `origin/research/frontier-d-cfe-v1` x `origin/research/hardening-d-terrain-provenance-v1`: 42 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/D_CFE/ARM_CLOSEOUT.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/D_CFE/ARM_STATE_V3.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/D_CFE/CSC_ARM_CLOSEOUT.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/D_CFE/CSC_DISCRIMINATOR_SPEC_MAIN_V1.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/D_CFE/CSC_DISCRIMINATOR_SPEC_MAIN_V1_RAW.txt`
+  - `campaigns/MS_FRONTIER_HELIX_V1/D_CFE/CSC_EMBODIMENT_RESULT_MAIN_V1.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/D_CFE/CSC_EMBODIMENT_RESULT_MAIN_V1_RAW.txt`
+  - `campaigns/MS_FRONTIER_HELIX_V1/D_CFE/CSC_P05.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/D_CFE/CSC_TERMINAL_P03.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/D_CFE/CSC_TERMINAL_P05.json`
+  - ... 30 more
+- `origin/research/frontier-h-language-v1` x `origin/research/hardening-h-coreference-query-local-candidate-v1`: 37 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/CSC_DISCRIMINATOR_SPEC_MAIN_V1.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/CSC_DISCRIMINATOR_SPEC_MAIN_V1_RAW.txt`
+  - `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/CSC_EMBODIMENT_RESULT_MAIN_V1.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/CSC_EMBODIMENT_RESULT_MAIN_V1_RAW.txt`
+  - `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/CSC_P05.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/CSC_TERMINAL_P02.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/CSC_TERMINAL_P03.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/CSC_TERMINAL_P04.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/CSC_TERMINAL_P05.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/CSC_TERMINAL_P06.json`
+  - ... 27 more
+- `origin/research/frontier-h-language-v1` x `origin/research/hardening-h-coreference-v1`: 37 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/CSC_DISCRIMINATOR_SPEC_MAIN_V1.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/CSC_DISCRIMINATOR_SPEC_MAIN_V1_RAW.txt`
+  - `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/CSC_EMBODIMENT_RESULT_MAIN_V1.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/CSC_EMBODIMENT_RESULT_MAIN_V1_RAW.txt`
+  - `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/CSC_P05.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/CSC_TERMINAL_P02.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/CSC_TERMINAL_P03.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/CSC_TERMINAL_P04.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/CSC_TERMINAL_P05.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/CSC_TERMINAL_P06.json`
+  - ... 27 more
+- `origin/research/hardening-h-coreference-query-local-candidate-v1` x `origin/research/hardening-h-coreference-v1`: 37 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/CSC_DISCRIMINATOR_SPEC_MAIN_V1.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/CSC_DISCRIMINATOR_SPEC_MAIN_V1_RAW.txt`
+  - `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/CSC_EMBODIMENT_RESULT_MAIN_V1.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/CSC_EMBODIMENT_RESULT_MAIN_V1_RAW.txt`
+  - `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/CSC_P05.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/CSC_TERMINAL_P02.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/CSC_TERMINAL_P03.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/CSC_TERMINAL_P04.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/CSC_TERMINAL_P05.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/H_LANGUAGE/CSC_TERMINAL_P06.json`
+  - ... 27 more
+- `origin/research/frontier-i-growth-v1` x `origin/research/hardening-i-operational-equivalence-v1`: 24 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/I_GROWTH/CSC_DISCRIMINATOR_SPEC_MAIN_V1.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/I_GROWTH/CSC_DISCRIMINATOR_SPEC_MAIN_V1_RAW.txt`
+  - `campaigns/MS_FRONTIER_HELIX_V1/I_GROWTH/CSC_EMBODIMENT_RESULT_MAIN_V1.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/I_GROWTH/CSC_EMBODIMENT_RESULT_MAIN_V1_RAW.txt`
+  - `campaigns/MS_FRONTIER_HELIX_V1/I_GROWTH/CSC_EMBODIMENT_RESULT_MAIN_V2.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/I_GROWTH/CSC_EMBODIMENT_RESULT_MAIN_V2_RAW.txt`
+  - `campaigns/MS_FRONTIER_HELIX_V1/I_GROWTH/CSC_TERMINAL_P02.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/I_GROWTH/DISCRIMINATOR_SPEC_MAIN_V1.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/I_GROWTH/EMBODIMENT_RESULT_MAIN_V1.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/I_GROWTH/EMBODIMENT_RESULT_MAIN_V2.json`
+  - ... 14 more
+- `origin/research/frontier-c-scale-v1` x `origin/research/hardening-bc-nested-currentness-baseline-repro`: 8 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/CSC_DISCRIMINATOR_SPEC_MAIN_V1.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/CSC_DISCRIMINATOR_SPEC_MAIN_V1_RAW.txt`
+  - `campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/CSC_EMBODIMENT_RESULT_MAIN_V1.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/CSC_EMBODIMENT_RESULT_MAIN_V1_RAW.txt`
+  - `campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/DISCRIMINATOR_SPEC_MAIN_V1.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/EMBODIMENT_RESULT_MAIN_V1.json`
+  - `methodology/MS_FRONTIER_C_SCALE_BOUNDED_THREE_LEVEL_EXECUTION_2026-09-01.md`
+  - `tests/embodiment/test_frontier_c_scale_nested_three_level_execution.py`
+- `origin/research/frontier-c-scale-v1` x `origin/research/hardening-bc-nested-currentness-v1`: 8 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/CSC_DISCRIMINATOR_SPEC_MAIN_V1.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/CSC_DISCRIMINATOR_SPEC_MAIN_V1_RAW.txt`
+  - `campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/CSC_EMBODIMENT_RESULT_MAIN_V1.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/CSC_EMBODIMENT_RESULT_MAIN_V1_RAW.txt`
+  - `campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/DISCRIMINATOR_SPEC_MAIN_V1.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/EMBODIMENT_RESULT_MAIN_V1.json`
+  - `methodology/MS_FRONTIER_C_SCALE_BOUNDED_THREE_LEVEL_EXECUTION_2026-09-01.md`
+  - `tests/embodiment/test_frontier_c_scale_nested_three_level_execution.py`
+- `origin/research/hardening-bc-nested-currentness-baseline-repro` x `origin/research/hardening-bc-nested-currentness-v1`: 8 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/CSC_DISCRIMINATOR_SPEC_MAIN_V1.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/CSC_DISCRIMINATOR_SPEC_MAIN_V1_RAW.txt`
+  - `campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/CSC_EMBODIMENT_RESULT_MAIN_V1.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/CSC_EMBODIMENT_RESULT_MAIN_V1_RAW.txt`
+  - `campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/DISCRIMINATOR_SPEC_MAIN_V1.json`
+  - `campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/EMBODIMENT_RESULT_MAIN_V1.json`
+  - `methodology/MS_FRONTIER_C_SCALE_BOUNDED_THREE_LEVEL_EXECUTION_2026-09-01.md`
+  - `tests/embodiment/test_frontier_c_scale_nested_three_level_execution.py`
+- `origin/research/frontier-a-target-v1` x `origin/research/frontier-b-drift-v1`: 3 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/WAVE1_RECOVERY_V2.md`
+  - `tools/run_ms_frontier_helix_wave1_controller_v2.py`
+  - `tools/run_ms_frontier_helix_wave1_v2.py`
+- `origin/research/frontier-a-target-v1` x `origin/research/frontier-d-cfe-v1`: 3 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/WAVE1_RECOVERY_V2.md`
+  - `tools/run_ms_frontier_helix_wave1_controller_v2.py`
+  - `tools/run_ms_frontier_helix_wave1_v2.py`
+- `origin/research/frontier-a-target-v1` x `origin/research/frontier-e-identity-v1`: 3 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/WAVE1_RECOVERY_V2.md`
+  - `tools/run_ms_frontier_helix_wave1_controller_v2.py`
+  - `tools/run_ms_frontier_helix_wave1_v2.py`
+- `origin/research/frontier-a-target-v1` x `origin/research/frontier-f-value-v1`: 3 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/WAVE1_RECOVERY_V2.md`
+  - `tools/run_ms_frontier_helix_wave1_controller_v2.py`
+  - `tools/run_ms_frontier_helix_wave1_v2.py`
+- `origin/research/frontier-a-target-v1` x `origin/research/frontier-g-naked-v1`: 3 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/WAVE1_RECOVERY_V2.md`
+  - `tools/run_ms_frontier_helix_wave1_controller_v2.py`
+  - `tools/run_ms_frontier_helix_wave1_v2.py`
+- `origin/research/frontier-a-target-v1` x `origin/research/frontier-h-language-v1`: 3 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/WAVE1_RECOVERY_V2.md`
+  - `tools/run_ms_frontier_helix_wave1_controller_v2.py`
+  - `tools/run_ms_frontier_helix_wave1_v2.py`
+- `origin/research/frontier-a-target-v1` x `origin/research/frontier-i-growth-v1`: 3 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/WAVE1_RECOVERY_V2.md`
+  - `tools/run_ms_frontier_helix_wave1_controller_v2.py`
+  - `tools/run_ms_frontier_helix_wave1_v2.py`
+- `origin/research/frontier-a-target-v1` x `origin/research/frontier-k-red-team-v1`: 3 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/WAVE1_RECOVERY_V2.md`
+  - `tools/run_ms_frontier_helix_wave1_controller_v2.py`
+  - `tools/run_ms_frontier_helix_wave1_v2.py`
+- `origin/research/frontier-a-target-v1` x `origin/research/hardening-d-terrain-provenance-v1`: 3 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/WAVE1_RECOVERY_V2.md`
+  - `tools/run_ms_frontier_helix_wave1_controller_v2.py`
+  - `tools/run_ms_frontier_helix_wave1_v2.py`
+- `origin/research/frontier-a-target-v1` x `origin/research/hardening-h-coreference-query-local-candidate-v1`: 3 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/WAVE1_RECOVERY_V2.md`
+  - `tools/run_ms_frontier_helix_wave1_controller_v2.py`
+  - `tools/run_ms_frontier_helix_wave1_v2.py`
+- `origin/research/frontier-a-target-v1` x `origin/research/hardening-h-coreference-v1`: 3 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/WAVE1_RECOVERY_V2.md`
+  - `tools/run_ms_frontier_helix_wave1_controller_v2.py`
+  - `tools/run_ms_frontier_helix_wave1_v2.py`
+- `origin/research/frontier-a-target-v1` x `origin/research/hardening-i-operational-equivalence-v1`: 3 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/WAVE1_RECOVERY_V2.md`
+  - `tools/run_ms_frontier_helix_wave1_controller_v2.py`
+  - `tools/run_ms_frontier_helix_wave1_v2.py`
+- `origin/research/frontier-b-drift-v1` x `origin/research/frontier-d-cfe-v1`: 3 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/WAVE1_RECOVERY_V2.md`
+  - `tools/run_ms_frontier_helix_wave1_controller_v2.py`
+  - `tools/run_ms_frontier_helix_wave1_v2.py`
+- `origin/research/frontier-b-drift-v1` x `origin/research/frontier-e-identity-v1`: 3 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/WAVE1_RECOVERY_V2.md`
+  - `tools/run_ms_frontier_helix_wave1_controller_v2.py`
+  - `tools/run_ms_frontier_helix_wave1_v2.py`
+- `origin/research/frontier-b-drift-v1` x `origin/research/frontier-f-value-v1`: 3 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/WAVE1_RECOVERY_V2.md`
+  - `tools/run_ms_frontier_helix_wave1_controller_v2.py`
+  - `tools/run_ms_frontier_helix_wave1_v2.py`
+- `origin/research/frontier-b-drift-v1` x `origin/research/frontier-g-naked-v1`: 3 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/WAVE1_RECOVERY_V2.md`
+  - `tools/run_ms_frontier_helix_wave1_controller_v2.py`
+  - `tools/run_ms_frontier_helix_wave1_v2.py`
+- `origin/research/frontier-b-drift-v1` x `origin/research/frontier-h-language-v1`: 3 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/WAVE1_RECOVERY_V2.md`
+  - `tools/run_ms_frontier_helix_wave1_controller_v2.py`
+  - `tools/run_ms_frontier_helix_wave1_v2.py`
+- `origin/research/frontier-b-drift-v1` x `origin/research/frontier-i-growth-v1`: 3 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/WAVE1_RECOVERY_V2.md`
+  - `tools/run_ms_frontier_helix_wave1_controller_v2.py`
+  - `tools/run_ms_frontier_helix_wave1_v2.py`
+- `origin/research/frontier-b-drift-v1` x `origin/research/frontier-k-red-team-v1`: 3 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/WAVE1_RECOVERY_V2.md`
+  - `tools/run_ms_frontier_helix_wave1_controller_v2.py`
+  - `tools/run_ms_frontier_helix_wave1_v2.py`
+- `origin/research/frontier-b-drift-v1` x `origin/research/hardening-a-target-vocabulary-v1`: 3 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/WAVE1_RECOVERY_V2.md`
+  - `tools/run_ms_frontier_helix_wave1_controller_v2.py`
+  - `tools/run_ms_frontier_helix_wave1_v2.py`
+- `origin/research/frontier-b-drift-v1` x `origin/research/hardening-d-terrain-provenance-v1`: 3 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/WAVE1_RECOVERY_V2.md`
+  - `tools/run_ms_frontier_helix_wave1_controller_v2.py`
+  - `tools/run_ms_frontier_helix_wave1_v2.py`
+- `origin/research/frontier-b-drift-v1` x `origin/research/hardening-h-coreference-query-local-candidate-v1`: 3 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/WAVE1_RECOVERY_V2.md`
+  - `tools/run_ms_frontier_helix_wave1_controller_v2.py`
+  - `tools/run_ms_frontier_helix_wave1_v2.py`
+- `origin/research/frontier-b-drift-v1` x `origin/research/hardening-h-coreference-v1`: 3 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/WAVE1_RECOVERY_V2.md`
+  - `tools/run_ms_frontier_helix_wave1_controller_v2.py`
+  - `tools/run_ms_frontier_helix_wave1_v2.py`
+- `origin/research/frontier-b-drift-v1` x `origin/research/hardening-i-operational-equivalence-v1`: 3 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/WAVE1_RECOVERY_V2.md`
+  - `tools/run_ms_frontier_helix_wave1_controller_v2.py`
+  - `tools/run_ms_frontier_helix_wave1_v2.py`
+- `origin/research/frontier-d-cfe-v1` x `origin/research/frontier-e-identity-v1`: 3 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/WAVE1_RECOVERY_V2.md`
+  - `tools/run_ms_frontier_helix_wave1_controller_v2.py`
+  - `tools/run_ms_frontier_helix_wave1_v2.py`
+- `origin/research/frontier-d-cfe-v1` x `origin/research/frontier-f-value-v1`: 3 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/WAVE1_RECOVERY_V2.md`
+  - `tools/run_ms_frontier_helix_wave1_controller_v2.py`
+  - `tools/run_ms_frontier_helix_wave1_v2.py`
+- `origin/research/frontier-d-cfe-v1` x `origin/research/frontier-g-naked-v1`: 3 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/WAVE1_RECOVERY_V2.md`
+  - `tools/run_ms_frontier_helix_wave1_controller_v2.py`
+  - `tools/run_ms_frontier_helix_wave1_v2.py`
+- `origin/research/frontier-d-cfe-v1` x `origin/research/frontier-h-language-v1`: 3 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/WAVE1_RECOVERY_V2.md`
+  - `tools/run_ms_frontier_helix_wave1_controller_v2.py`
+  - `tools/run_ms_frontier_helix_wave1_v2.py`
+- `origin/research/frontier-d-cfe-v1` x `origin/research/frontier-i-growth-v1`: 3 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/WAVE1_RECOVERY_V2.md`
+  - `tools/run_ms_frontier_helix_wave1_controller_v2.py`
+  - `tools/run_ms_frontier_helix_wave1_v2.py`
+- `origin/research/frontier-d-cfe-v1` x `origin/research/frontier-k-red-team-v1`: 3 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/WAVE1_RECOVERY_V2.md`
+  - `tools/run_ms_frontier_helix_wave1_controller_v2.py`
+  - `tools/run_ms_frontier_helix_wave1_v2.py`
+- `origin/research/frontier-d-cfe-v1` x `origin/research/hardening-a-target-vocabulary-v1`: 3 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/WAVE1_RECOVERY_V2.md`
+  - `tools/run_ms_frontier_helix_wave1_controller_v2.py`
+  - `tools/run_ms_frontier_helix_wave1_v2.py`
+- `origin/research/frontier-d-cfe-v1` x `origin/research/hardening-h-coreference-query-local-candidate-v1`: 3 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/WAVE1_RECOVERY_V2.md`
+  - `tools/run_ms_frontier_helix_wave1_controller_v2.py`
+  - `tools/run_ms_frontier_helix_wave1_v2.py`
+- `origin/research/frontier-d-cfe-v1` x `origin/research/hardening-h-coreference-v1`: 3 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/WAVE1_RECOVERY_V2.md`
+  - `tools/run_ms_frontier_helix_wave1_controller_v2.py`
+  - `tools/run_ms_frontier_helix_wave1_v2.py`
+- `origin/research/frontier-d-cfe-v1` x `origin/research/hardening-i-operational-equivalence-v1`: 3 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/WAVE1_RECOVERY_V2.md`
+  - `tools/run_ms_frontier_helix_wave1_controller_v2.py`
+  - `tools/run_ms_frontier_helix_wave1_v2.py`
+- `origin/research/frontier-e-identity-v1` x `origin/research/frontier-f-value-v1`: 3 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/WAVE1_RECOVERY_V2.md`
+  - `tools/run_ms_frontier_helix_wave1_controller_v2.py`
+  - `tools/run_ms_frontier_helix_wave1_v2.py`
+- `origin/research/frontier-e-identity-v1` x `origin/research/frontier-g-naked-v1`: 3 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/WAVE1_RECOVERY_V2.md`
+  - `tools/run_ms_frontier_helix_wave1_controller_v2.py`
+  - `tools/run_ms_frontier_helix_wave1_v2.py`
+- `origin/research/frontier-e-identity-v1` x `origin/research/frontier-h-language-v1`: 3 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/WAVE1_RECOVERY_V2.md`
+  - `tools/run_ms_frontier_helix_wave1_controller_v2.py`
+  - `tools/run_ms_frontier_helix_wave1_v2.py`
+- `origin/research/frontier-e-identity-v1` x `origin/research/frontier-i-growth-v1`: 3 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/WAVE1_RECOVERY_V2.md`
+  - `tools/run_ms_frontier_helix_wave1_controller_v2.py`
+  - `tools/run_ms_frontier_helix_wave1_v2.py`
+- `origin/research/frontier-e-identity-v1` x `origin/research/frontier-k-red-team-v1`: 3 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/WAVE1_RECOVERY_V2.md`
+  - `tools/run_ms_frontier_helix_wave1_controller_v2.py`
+  - `tools/run_ms_frontier_helix_wave1_v2.py`
+- `origin/research/frontier-e-identity-v1` x `origin/research/hardening-a-target-vocabulary-v1`: 3 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/WAVE1_RECOVERY_V2.md`
+  - `tools/run_ms_frontier_helix_wave1_controller_v2.py`
+  - `tools/run_ms_frontier_helix_wave1_v2.py`
+- `origin/research/frontier-e-identity-v1` x `origin/research/hardening-d-terrain-provenance-v1`: 3 file(s)
+  - `campaigns/MS_FRONTIER_HELIX_V1/WAVE1_RECOVERY_V2.md`
+  - `tools/run_ms_frontier_helix_wave1_controller_v2.py`
+  - `tools/run_ms_frontier_helix_wave1_v2.py`
+
+## Microseed-touching open branches
+- `origin/research/hardening-bc-nested-currentness-v1` @ `4188e40dce4c560726b0bdaa6661c031b8ddc0e0`, merge-base `1089839abdb7f2a0d811523555fcd3b6427d2dae`
+  - `microseed/development/rehearsal.py`
+  - `microseed/runtime/entity.py`
+- `origin/research/v1-developmental-soak-001` @ `3e95bb520307b5b2a0dc4d292655f0d9c3a76014`, merge-base `0fa41f1ed4cf2fbd341b5f0b63adbc0034d4ac39`
+  - `microseed/runtime/entity.py`
+
+## Zero-microseed open branches
+- `origin/continuity/reincarnation-2026-08-30`
+- `origin/research/frontier-a-target-v1`
+- `origin/research/frontier-b-drift-v1`
+- `origin/research/frontier-c-scale-v1`
+- `origin/research/frontier-d-cfe-v1`
+- `origin/research/frontier-e-identity-v1`
+- `origin/research/frontier-f-value-v1`
+- `origin/research/frontier-g-naked-v1`
+- `origin/research/frontier-h-language-v1`
+- `origin/research/frontier-i-growth-v1`
+- `origin/research/frontier-j-convergence-v1`
+- `origin/research/frontier-k-red-team-v1`
+- `origin/research/grounded-language-reference-v1`
+- `origin/research/hardening-a-target-vocabulary-v1`
+- `origin/research/hardening-bc-nested-currentness-baseline-repro`
+- `origin/research/hardening-d-terrain-provenance-v1`
+- `origin/research/hardening-h-coreference-query-local-candidate-v1`
+- `origin/research/hardening-h-coreference-v1`
+- `origin/research/hardening-i-operational-equivalence-v1`
+- `origin/research/hardening-sh6-vocabulary-wip-archive-2026-09-01`
+- `origin/research/naked-authority-design-v1`

@@ -1,0 +1,15 @@
+{
+  "branch_surface_audit": "campaigns/POST_BC_PROMOTION/BRANCH_SURFACE_AUDIT/POST_BC_PROMOTION_OPEN_BRANCH_OWNER_SURFACE_AUDIT_V1_2026-09-01.json",
+  "canon_label": "PRELINGUAL_SUBSTRATE_V1_P1A_N1A_BOUNDED_HIERARCHY_V1_MS_SUBSTRATE_HARDENING_V1_BC_NESTED_CURRENTNESS_V1",
+  "compileall": "PASS",
+  "evidence_validator": "PASS",
+  "head": "7b58444745186d3d98b015622d5ca3ce045e1ce9",
+  "microseed_tree": "4c8051563279d20f2ea555d21d7b3305b039e771",
+  "promotion_guard": "2/2 PASS",
+  "public_verifier": "PASS",
+  "rd_checkpoint": "PASS",
+  "schema": "microseed.post_bc_promotion_reentry_audit.v1",
+  "status": "PASS",
+  "tag": "prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1-ms-substrate-hardening-v1-bc-nested-currentness-v1",
+  "tag_commit": "9e5df16ac60c0edaf8833b54e42d8e38d724fc4c"
+}

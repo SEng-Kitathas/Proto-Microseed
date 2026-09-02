@@ -1,0 +1,358 @@
+{
+  "current_main_microseed_tree": "4c8051563279d20f2ea555d21d7b3305b039e771",
+  "current_origin_main": "7b58444745186d3d98b015622d5ca3ce045e1ce9",
+  "merged_remote_branches": [
+    {
+      "branch": "origin",
+      "changed_count": 0,
+      "microseed_count": 0,
+      "sha": "7b58444745186d3d98b015622d5ca3ce045e1ce9"
+    },
+    {
+      "branch": "origin/promotion/bc-nested-currentness-canon-v1",
+      "changed_count": 0,
+      "microseed_count": 0,
+      "sha": "7b58444745186d3d98b015622d5ca3ce045e1ce9"
+    },
+    {
+      "branch": "origin/promotion/hardening-release-gate-canon-v1",
+      "changed_count": 0,
+      "microseed_count": 0,
+      "sha": "933635a0e56b72701e42d47f72966e060bc020a0"
+    },
+    {
+      "branch": "origin/promotion/p1a-stale-currentness-repair",
+      "changed_count": 0,
+      "microseed_count": 0,
+      "sha": "2c3e225fd1fcaa89965da80d6048bc178c521740"
+    },
+    {
+      "branch": "origin/promotion/public-main-reconcile-hardening-v1",
+      "changed_count": 0,
+      "microseed_count": 0,
+      "sha": "28489c6feaa9d1d777b8bca0cca2ec3e35042144"
+    },
+    {
+      "branch": "origin/research/hardening-bc-admission-audit-v1",
+      "changed_count": 0,
+      "microseed_count": 0,
+      "sha": "f205c2fc4fce1d56d870b8ec05c575f2cd63a891"
+    },
+    {
+      "branch": "origin/research/hardening-bc-admission-audit-v2",
+      "changed_count": 0,
+      "microseed_count": 0,
+      "sha": "461e59a2f5ea2daf838542ea0463777a0588f512"
+    },
+    {
+      "branch": "origin/research/hardening-bc-nested-currentness-rebased-on-hardening-canon-v1",
+      "changed_count": 0,
+      "microseed_count": 0,
+      "sha": "2df02b159edde474e4d21f8ca9748e3e0058a96d"
+    },
+    {
+      "branch": "origin/research/hardening-release-gate-admission-audit-v1",
+      "changed_count": 0,
+      "microseed_count": 0,
+      "sha": "6d1a57de8a74aca16f05208b32d8e39be7a45542"
+    },
+    {
+      "branch": "origin/research/hardening-release-gate-admission-audit-v2",
+      "changed_count": 0,
+      "microseed_count": 0,
+      "sha": "aaabf382f98bddc0bdcdfc84ffa11a8a942798d1"
+    },
+    {
+      "branch": "origin/research/hardening-release-gate-finish-v1",
+      "changed_count": 0,
+      "microseed_count": 0,
+      "sha": "1c42da8e53df54a11615a88150a667f9673dff67"
+    },
+    {
+      "branch": "origin/research/hierarchy-solution-transfer-v1",
+      "changed_count": 0,
+      "microseed_count": 0,
+      "sha": "a9e4baaa8be3bcab749532160f57ab388839b368"
+    },
+    {
+      "branch": "origin/research/ms-frontier-helix-v1",
+      "changed_count": 0,
+      "microseed_count": 0,
+      "sha": "4f9447ae3d4221a5d5a7fdb7aba707f6786557a6"
+    },
+    {
+      "branch": "origin/research/ms-substrate-hardening-v1",
+      "changed_count": 0,
+      "microseed_count": 0,
+      "sha": "f6387c91c08b9b045e914057f30b4b24bd08c6e0"
+    },
+    {
+      "branch": "origin/research/ms1888-replay",
+      "changed_count": 0,
+      "microseed_count": 0,
+      "sha": "0312459457223feb79bb2d0d71ab8387fbc28b1c"
+    },
+    {
+      "branch": "origin/research/naked-authority-design-v1-p1a-n1a",
+      "changed_count": 0,
+      "microseed_count": 0,
+      "sha": "0312459457223feb79bb2d0d71ab8387fbc28b1c"
+    }
+  ],
+  "microseed_exact_file_overlap": {
+    "microseed/runtime/entity.py": [
+      "origin/research/hardening-bc-nested-currentness-v1",
+      "origin/research/v1-developmental-soak-001"
+    ]
+  },
+  "microseed_owner_overlap": {
+    "microseed/runtime/entity.py": [
+      "origin/research/hardening-bc-nested-currentness-v1",
+      "origin/research/v1-developmental-soak-001"
+    ]
+  },
+  "open_branches": [
+    {
+      "branch": "origin/continuity/reincarnation-2026-08-30",
+      "changed_count": 132,
+      "evidence_count": 0,
+      "main_is_ancestor": false,
+      "microseed_count": 0,
+      "microseed_files": [],
+      "sha": "8fd4a1df09305dc390fab7ed8a73c4a4a942fb39",
+      "test_count": 0
+    },
+    {
+      "branch": "origin/research/frontier-a-target-v1",
+      "changed_count": 52,
+      "evidence_count": 48,
+      "main_is_ancestor": false,
+      "microseed_count": 0,
+      "microseed_files": [],
+      "sha": "387794702a26e1c8e7e84113e882154c2d961655",
+      "test_count": 1
+    },
+    {
+      "branch": "origin/research/frontier-b-drift-v1",
+      "changed_count": 23,
+      "evidence_count": 19,
+      "main_is_ancestor": false,
+      "microseed_count": 0,
+      "microseed_files": [],
+      "sha": "c9c6f0470a0bbc706c4f325a2bcdae4404f7c5d5",
+      "test_count": 1
+    },
+    {
+      "branch": "origin/research/frontier-c-scale-v1",
+      "changed_count": 8,
+      "evidence_count": 6,
+      "main_is_ancestor": false,
+      "microseed_count": 0,
+      "microseed_files": [],
+      "sha": "e6a313fc01f1f73d6f2065027829b271fa0413d0",
+      "test_count": 1
+    },
+    {
+      "branch": "origin/research/frontier-d-cfe-v1",
+      "changed_count": 42,
+      "evidence_count": 38,
+      "main_is_ancestor": false,
+      "microseed_count": 0,
+      "microseed_files": [],
+      "sha": "0b59687d72868c57d3cd664a1236aeceabad54a8",
+      "test_count": 1
+    },
+    {
+      "branch": "origin/research/frontier-e-identity-v1",
+      "changed_count": 30,
+      "evidence_count": 26,
+      "main_is_ancestor": false,
+      "microseed_count": 0,
+      "microseed_files": [],
+      "sha": "edc0f27af94f39450ffea171c7b448997401d652",
+      "test_count": 1
+    },
+    {
+      "branch": "origin/research/frontier-f-value-v1",
+      "changed_count": 26,
+      "evidence_count": 22,
+      "main_is_ancestor": false,
+      "microseed_count": 0,
+      "microseed_files": [],
+      "sha": "45e0e45f915990318824f0dd588728ce56fc27e0",
+      "test_count": 1
+    },
+    {
+      "branch": "origin/research/frontier-g-naked-v1",
+      "changed_count": 20,
+      "evidence_count": 16,
+      "main_is_ancestor": false,
+      "microseed_count": 0,
+      "microseed_files": [],
+      "sha": "e41287c0759a76c051b50fdce99f30b57eca560e",
+      "test_count": 1
+    },
+    {
+      "branch": "origin/research/frontier-h-language-v1",
+      "changed_count": 37,
+      "evidence_count": 33,
+      "main_is_ancestor": false,
+      "microseed_count": 0,
+      "microseed_files": [],
+      "sha": "b453df211e45fb1382d51c6a478a3ce1c0f32998",
+      "test_count": 1
+    },
+    {
+      "branch": "origin/research/frontier-i-growth-v1",
+      "changed_count": 24,
+      "evidence_count": 18,
+      "main_is_ancestor": false,
+      "microseed_count": 0,
+      "microseed_files": [],
+      "sha": "56ed04a8c8e4a7f2f2b072dd0d1e12c434805689",
+      "test_count": 2
+    },
+    {
+      "branch": "origin/research/frontier-j-convergence-v1",
+      "changed_count": 5,
+      "evidence_count": 4,
+      "main_is_ancestor": false,
+      "microseed_count": 0,
+      "microseed_files": [],
+      "sha": "8f246a5fe04d931d1e55855ffc6a6166d7fb23d8",
+      "test_count": 0
+    },
+    {
+      "branch": "origin/research/frontier-k-red-team-v1",
+      "changed_count": 26,
+      "evidence_count": 22,
+      "main_is_ancestor": false,
+      "microseed_count": 0,
+      "microseed_files": [],
+      "sha": "48f6ff173df1fa38737247eac7223b2f191c4fc0",
+      "test_count": 0
+    },
+    {
+      "branch": "origin/research/grounded-language-reference-v1",
+      "changed_count": 18,
+      "evidence_count": 0,
+      "main_is_ancestor": false,
+      "microseed_count": 0,
+      "microseed_files": [],
+      "sha": "5e1543d5563f2d18e79a0a1d60ea5a51dfa53168",
+      "test_count": 5
+    },
+    {
+      "branch": "origin/research/hardening-a-target-vocabulary-v1",
+      "changed_count": 57,
+      "evidence_count": 52,
+      "main_is_ancestor": false,
+      "microseed_count": 0,
+      "microseed_files": [],
+      "sha": "cdee37b828137cb2dbb5ba5099235ae7e24e61d8",
+      "test_count": 2
+    },
+    {
+      "branch": "origin/research/hardening-bc-nested-currentness-baseline-repro",
+      "changed_count": 9,
+      "evidence_count": 6,
+      "main_is_ancestor": false,
+      "microseed_count": 0,
+      "microseed_files": [],
+      "sha": "f944b0b9cde8fc966de2052f19b022972d014eab",
+      "test_count": 2
+    },
+    {
+      "branch": "origin/research/hardening-bc-nested-currentness-v1",
+      "changed_count": 35,
+      "evidence_count": 20,
+      "main_is_ancestor": false,
+      "microseed_count": 2,
+      "microseed_files": [
+        "microseed/development/rehearsal.py",
+        "microseed/runtime/entity.py"
+      ],
+      "sha": "4188e40dce4c560726b0bdaa6661c031b8ddc0e0",
+      "test_count": 6
+    },
+    {
+      "branch": "origin/research/hardening-d-terrain-provenance-v1",
+      "changed_count": 47,
+      "evidence_count": 41,
+      "main_is_ancestor": false,
+      "microseed_count": 0,
+      "microseed_files": [],
+      "sha": "adeb08e4e4bcc1e40ef096befdfe48f34f3bd9a4",
+      "test_count": 2
+    },
+    {
+      "branch": "origin/research/hardening-h-coreference-query-local-candidate-v1",
+      "changed_count": 42,
+      "evidence_count": 36,
+      "main_is_ancestor": false,
+      "microseed_count": 0,
+      "microseed_files": [],
+      "sha": "d2a68f4294e765fc7a56d0a9e1699a921d86bd4b",
+      "test_count": 2
+    },
+    {
+      "branch": "origin/research/hardening-h-coreference-v1",
+      "changed_count": 42,
+      "evidence_count": 36,
+      "main_is_ancestor": false,
+      "microseed_count": 0,
+      "microseed_files": [],
+      "sha": "d542d78fb3da3b89848be527b587b9f21a86d6f2",
+      "test_count": 2
+    },
+    {
+      "branch": "origin/research/hardening-i-operational-equivalence-v1",
+      "changed_count": 29,
+      "evidence_count": 21,
+      "main_is_ancestor": false,
+      "microseed_count": 0,
+      "microseed_files": [],
+      "sha": "2db5d7ec0cd02d0de991f8ca036e65121b2dee89",
+      "test_count": 3
+    },
+    {
+      "branch": "origin/research/hardening-sh6-vocabulary-wip-archive-2026-09-01",
+      "changed_count": 2,
+      "evidence_count": 1,
+      "main_is_ancestor": false,
+      "microseed_count": 0,
+      "microseed_files": [],
+      "sha": "03adc395bf5002d71108d817cf10ffeeac68dbd5",
+      "test_count": 1
+    },
+    {
+      "branch": "origin/research/naked-authority-design-v1",
+      "changed_count": 15,
+      "evidence_count": 0,
+      "main_is_ancestor": false,
+      "microseed_count": 0,
+      "microseed_files": [],
+      "sha": "3a7facdf88865e28a9a5208181c94385f3827860",
+      "test_count": 4
+    },
+    {
+      "branch": "origin/research/v1-developmental-soak-001",
+      "changed_count": 11,
+      "evidence_count": 0,
+      "main_is_ancestor": false,
+      "microseed_count": 1,
+      "microseed_files": [
+        "microseed/runtime/entity.py"
+      ],
+      "sha": "3e95bb520307b5b2a0dc4d292655f0d9c3a76014",
+      "test_count": 4
+    }
+  ],
+  "open_family_counts": {
+    "frontier": 11,
+    "hardening": 8,
+    "other": 4
+  },
+  "open_unmerged_branch_count": 23,
+  "remote_branch_count_excluding_main": 39
+}
