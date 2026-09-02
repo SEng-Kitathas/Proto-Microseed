@@ -1,0 +1,30 @@
+{
+  "admission_audit_v2_head": "461e59a2f5ea2daf838542ea0463777a0588f512",
+  "authority_boundary": [
+    "NO_SEMANTIC_REFERENCE_LANGUAGE_TRUTH_EXECUTION_SELFHOOD_AUTHORITY",
+    "NO_DURABLE_GLOBAL_CURRENTNESS_MANAGER"
+  ],
+  "base_public_main": "28489c6feaa9d1d777b8bca0cca2ec3e35042144",
+  "canonical_label": "PRELINGUAL_SUBSTRATE_V1_P1A_N1A_BOUNDED_HIERARCHY_V1_MS_SUBSTRATE_HARDENING_V1_BC_NESTED_CURRENTNESS_V1",
+  "previous_canonical_commit": "0f6cf0b3d660c8a4bb9561a65d7f1fd95e1b99f7",
+  "previous_canonical_label": "PRELINGUAL_SUBSTRATE_V1_P1A_N1A_BOUNDED_HIERARCHY_V1_MS_SUBSTRATE_HARDENING_V1",
+  "previous_canonical_microseed_tree": "88f5a058cc5a4e92b1006c36d31b95cf727d197f",
+  "previous_canonical_tag": "prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1-ms-substrate-hardening-v1",
+  "production_delta": [
+    "microseed/development/rehearsal.py",
+    "microseed/runtime/entity.py"
+  ],
+  "promotion_branch": "promotion/bc-nested-currentness-canon-v1",
+  "promotion_commit": "9e5df16ac60c0edaf8833b54e42d8e38d724fc4c",
+  "promotion_commit_microseed_tree": "4c8051563279d20f2ea555d21d7b3305b039e771",
+  "promotion_tag": "prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1-ms-substrate-hardening-v1-bc-nested-currentness-v1",
+  "schema": "microseed.bc_nested_currentness_v1_canonical_promotion_readback/v1",
+  "status": "LOCAL_TAG_SEALED__REMOTE_PUSH_PENDING",
+  "verification_to_complete_after_push": [
+    "remote tag readback",
+    "remote promotion branch readback",
+    "remote public main readback after fast-forward",
+    "fresh verifier on origin/main"
+  ],
+  "whole_suite_clean_confirmation": "1015 passed, 1 deselected; pytest return code 0; stderr empty"
+}

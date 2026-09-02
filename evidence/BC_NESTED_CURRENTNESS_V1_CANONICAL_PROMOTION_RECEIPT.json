@@ -34,8 +34,16 @@
   ],
   "production_delta_shortstat": "2 files changed, 151 insertions(+), 3 deletions(-)",
   "promotion_branch": "promotion/bc-nested-currentness-canon-v1",
-  "promotion_commit": "PENDING_TAG_SEAL_READBACK",
-  "promotion_decision": "CONTROLLED_PROMOTION_CANDIDATE__TAG_PENDING",
+  "promotion_commit": "9e5df16ac60c0edaf8833b54e42d8e38d724fc4c",
+  "promotion_commit_microseed_tree": "4c8051563279d20f2ea555d21d7b3305b039e771",
+  "promotion_decision": "CANONICAL_PROMOTION_SEALED_LOCALLY__REMOTE_PUSH_PENDING",
+  "promotion_readback": {
+    "microseed_tree": "4c8051563279d20f2ea555d21d7b3305b039e771",
+    "peeled_commit": "9e5df16ac60c0edaf8833b54e42d8e38d724fc4c",
+    "public_main_fast_forward": "PENDING",
+    "remote_push": "PENDING",
+    "tag": "prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1-ms-substrate-hardening-v1-bc-nested-currentness-v1"
+  },
   "promotion_tag": "prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1-ms-substrate-hardening-v1-bc-nested-currentness-v1",
   "receipt_digest_normalization": "git_committed_blob_bytes__not_worktree_checkout_bytes",
   "schema": "microseed.bc_nested_currentness_v1_canonical_promotion/v1",
@@ -48,7 +56,7 @@
     ]
   },
   "serialized_research_head": "2df02b159edde474e4d21f8ca9748e3e0058a96d",
-  "status": "PROMOTION_CANDIDATE_SEALED__TAG_PUSH_READBACK_PENDING",
+  "status": "CANONICAL_PROMOTION_SEALED__LOCAL_TAG_CREATED__REMOTE_PUSH_PENDING",
   "tested_research_microseed_tree": "4c8051563279d20f2ea555d21d7b3305b039e771",
   "verification": {
     "admission_audit_v2": {

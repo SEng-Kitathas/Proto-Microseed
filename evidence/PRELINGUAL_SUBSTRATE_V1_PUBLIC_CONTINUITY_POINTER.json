@@ -24,7 +24,8 @@
     ],
     "promotion_branch": "promotion/bc-nested-currentness-canon-v1",
     "promotion_branch_head": "PENDING_PUSH_READBACK",
-    "promotion_commit": "PENDING_TAG_SEAL_READBACK",
+    "promotion_commit": "9e5df16ac60c0edaf8833b54e42d8e38d724fc4c",
+    "promotion_commit_microseed_tree": "4c8051563279d20f2ea555d21d7b3305b039e771",
     "promotion_readback_receipt": "evidence/BC_NESTED_CURRENTNESS_V1_CANONICAL_PROMOTION_READBACK_RECEIPT.json",
     "promotion_receipt": "evidence/BC_NESTED_CURRENTNESS_V1_CANONICAL_PROMOTION_RECEIPT.json",
     "promotion_whole_return_code": 0,
@@ -32,6 +33,7 @@
     "promotion_whole_stdout_sha256": "79f42242cbd9696da223d66f9d7d54a509d09109f76c09a9cd1ee4cc2dd29276",
     "promotion_whole_suite": "1015 passed, 1 deselected in 1215.22s",
     "public_main_movement": "PENDING_NON_FORCE_FAST_FORWARD_AFTER_VERIFICATION",
+    "remote_tag_peel": "9e5df16ac60c0edaf8833b54e42d8e38d724fc4c",
     "serialized_research_head": "2df02b159edde474e4d21f8ca9748e3e0058a96d",
     "tag": "prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1-ms-substrate-hardening-v1-bc-nested-currentness-v1",
     "tested_research_microseed_tree": "4c8051563279d20f2ea555d21d7b3305b039e771"
