@@ -1,0 +1,22 @@
+{
+  "command": [
+    "python",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/embodiment/test_ms2065_bounded_hierarchy_promotion_candidate.py"
+  ],
+  "elapsed_seconds": 0.812,
+  "kind": "subprocess",
+  "name": "FRONTIER_B_DRIFT_ADMISSION_PROMOTION_GUARD",
+  "return_code": 0,
+  "schema": "microseed.command_capture.v1",
+  "stderr_bytes": 0,
+  "stderr_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_b_drift_admission_audit_20260902/evidence/FRONTIER_B_DRIFT_ADMISSION_PROMOTION_GUARD_STDERR.log",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_tail": "",
+  "stdout_bytes": 98,
+  "stdout_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_b_drift_admission_audit_20260902/evidence/FRONTIER_B_DRIFT_ADMISSION_PROMOTION_GUARD_STDOUT.log",
+  "stdout_sha256": "bab70b6bbd9479a9d94ec8ea0388e7542f0a09cdf670c0f5874e907f024ca6d0",
+  "stdout_tail": "..                                                                       [100%]\n2 passed in 0.42s\n"
+}

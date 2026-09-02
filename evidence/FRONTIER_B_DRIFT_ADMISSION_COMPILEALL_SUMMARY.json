@@ -1,0 +1,24 @@
+{
+  "command": [
+    "python",
+    "-m",
+    "compileall",
+    "-q",
+    "microseed",
+    "tests/embodiment/test_frontier_b_drift_hidden_subordinate_phenotype.py",
+    "tools/verify_public_v1_continuity.py"
+  ],
+  "elapsed_seconds": 0.153,
+  "kind": "subprocess",
+  "name": "FRONTIER_B_DRIFT_ADMISSION_COMPILEALL",
+  "return_code": 0,
+  "schema": "microseed.command_capture.v1",
+  "stderr_bytes": 0,
+  "stderr_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_b_drift_admission_audit_20260902/evidence/FRONTIER_B_DRIFT_ADMISSION_COMPILEALL_STDERR.log",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_tail": "",
+  "stdout_bytes": 0,
+  "stdout_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_b_drift_admission_audit_20260902/evidence/FRONTIER_B_DRIFT_ADMISSION_COMPILEALL_STDOUT.log",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_tail": ""
+}

@@ -1,0 +1,268 @@
+FFF                                                                      [100%]
+================================== FAILURES ===================================
+_ test_hidden_effect_preserving_subordinate_swap_needs_no_identity_primitive __
+
+path = 'C:\\Users\\ancal\\AppData\\Local\\Temp\\microseed-ms2063-e2e-hierarchy-shsohk2h'
+onexc = <function TemporaryDirectory._rmtree.<locals>.onexc at 0x0000017DE5346E80>
+
+    def _rmtree_unsafe(path, onexc):
+        def onerror(err):
+            onexc(os.scandir, err.filename, err)
+        results = os.walk(path, topdown=False, onerror=onerror, followlinks=os._walk_symlinks_as_files)
+        for dirpath, dirnames, filenames in results:
+            for name in dirnames:
+                fullname = os.path.join(dirpath, name)
+                try:
+                    os.rmdir(fullname)
+                except OSError as err:
+                    onexc(os.rmdir, fullname, err)
+            for name in filenames:
+                fullname = os.path.join(dirpath, name)
+                try:
+>                   os.unlink(fullname)
+E                   PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\ancal\\AppData\\Local\\Temp\\microseed-ms2063-e2e-hierarchy-shsohk2h\\biography.sqlite3'
+
+C:\Users\ancal\AppData\Local\Programs\Python\Python312\Lib\shutil.py:633: PermissionError
+
+During handling of the above exception, another exception occurred:
+
+    def test_hidden_effect_preserving_subordinate_swap_needs_no_identity_primitive() -> None:
+        m = _ms2063()
+        fx = m.build_integrated(); ms = fx['ms']; world = fx['world']
+        try:
+            cid, rid = _current_relation_for_phase1(fx)
+            base_sig = ms.capabilities.contracts['REQ-BASE'].computed_signature_sha256()
+            bound_sig = ms.capabilities.contracts[cid].computed_signature_sha256()
+            assert ms.action_outcome_predictive_relation_status(rid)['status'] == 'CURRENT_PREDICTIVE_RELATION'
+            assert ms.projection_conditioned_relation_routing_status(fx['routing_id'])['status'] == 'CURRENT_PROJECTION_CONDITIONED_ROUTING'
+    
+            _install_hidden_phenotype(world, preserve_effect=True)
+            before = len(world.receipts)
+            for i, raw in enumerate(m.phase_rows(1, 16), start=3000):
+                receipt, _ = m.execute_episode(ms, world, cid, raw, i)
+                assert receipt['local_mean'] in {'Z0', 'Z1'}
+                assert receipt['hidden_phenotype'] == 'V2-PRESERVE'
+            assert len(world.receipts) > before
+    
+            # Parent-visible operational premises did not change.
+            assert ms.capabilities.contracts['REQ-BASE'].computed_signature_sha256() == base_sig
+            assert ms.capabilities.contracts[cid].computed_signature_sha256() == bound_sig
+            witness = ms.assess_action_outcome_predictive_currentness(rid)
+            assert witness['status'] == 'CURRENT_WITHIN_BOUNDS'
+            assert witness['witness']['window_accuracies'] == [1.0, 1.0]
+            assert ms.action_outcome_predictive_relation_status(rid)['status'] == 'CURRENT_PREDICTIVE_RELATION'
+            assert ms.projection_conditioned_relation_routing_status(fx['routing_id'])['status'] == 'CURRENT_PROJECTION_CONDITIONED_ROUTING'
+            assert not hasattr(ms, 'subordinate_identity_registry')
+        finally:
+>           fx['td'].cleanup()
+
+tests\embodiment\test_frontier_b_drift_hidden_subordinate_phenotype.py:88: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\ancal\AppData\Local\Programs\Python\Python312\Lib\tempfile.py:954: in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+C:\Users\ancal\AppData\Local\Programs\Python\Python312\Lib\tempfile.py:934: in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+C:\Users\ancal\AppData\Local\Programs\Python\Python312\Lib\shutil.py:781: in rmtree
+    return _rmtree_unsafe(path, onexc)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\ancal\AppData\Local\Programs\Python\Python312\Lib\shutil.py:635: in _rmtree_unsafe
+    onexc(os.unlink, fullname, err)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+func = <built-in function unlink>
+path = 'C:\\Users\\ancal\\AppData\\Local\\Temp\\microseed-ms2063-e2e-hierarchy-shsohk2h\\biography.sqlite3'
+exc = PermissionError(13, 'The process cannot access the file because it is being used by another process')
+
+    def onexc(func, path, exc):
+        if isinstance(exc, PermissionError):
+            if repeated and path == name:
+                if ignore_errors:
+                    return
+                raise
+    
+            try:
+                if path != name:
+                    _resetperms(_os.path.dirname(path))
+                _resetperms(path)
+    
+                try:
+>                   _os.unlink(path)
+E                   PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\ancal\\AppData\\Local\\Temp\\microseed-ms2063-e2e-hierarchy-shsohk2h\\biography.sqlite3'
+
+C:\Users\ancal\AppData\Local\Programs\Python\Python312\Lib\tempfile.py:909: PermissionError
+_ test_hidden_effect_changing_swap_is_not_preobservable_but_actual_outcomes_stale_relation _
+
+path = 'C:\\Users\\ancal\\AppData\\Local\\Temp\\microseed-ms2063-e2e-hierarchy-mpuden3t'
+onexc = <function TemporaryDirectory._rmtree.<locals>.onexc at 0x0000017DE5346FC0>
+
+    def _rmtree_unsafe(path, onexc):
+        def onerror(err):
+            onexc(os.scandir, err.filename, err)
+        results = os.walk(path, topdown=False, onerror=onerror, followlinks=os._walk_symlinks_as_files)
+        for dirpath, dirnames, filenames in results:
+            for name in dirnames:
+                fullname = os.path.join(dirpath, name)
+                try:
+                    os.rmdir(fullname)
+                except OSError as err:
+                    onexc(os.rmdir, fullname, err)
+            for name in filenames:
+                fullname = os.path.join(dirpath, name)
+                try:
+>                   os.unlink(fullname)
+E                   PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\ancal\\AppData\\Local\\Temp\\microseed-ms2063-e2e-hierarchy-mpuden3t\\biography.sqlite3'
+
+C:\Users\ancal\AppData\Local\Programs\Python\Python312\Lib\shutil.py:633: PermissionError
+
+During handling of the above exception, another exception occurred:
+
+    def test_hidden_effect_changing_swap_is_not_preobservable_but_actual_outcomes_stale_relation() -> None:
+        m = _ms2063()
+        fx = m.build_integrated(); ms = fx['ms']; world = fx['world']
+        try:
+            cid, rid = _current_relation_for_phase1(fx)
+            base_sig = ms.capabilities.contracts['REQ-BASE'].computed_signature_sha256()
+            bound_sig = ms.capabilities.contracts[cid].computed_signature_sha256()
+            # Hidden replacement alone cannot be observed through any owned premise.
+            _install_hidden_phenotype(world, preserve_effect=False)
+            assert ms.capabilities.contracts['REQ-BASE'].computed_signature_sha256() == base_sig
+            assert ms.capabilities.contracts[cid].computed_signature_sha256() == bound_sig
+            assert ms.action_outcome_predictive_relation_status(rid)['status'] == 'CURRENT_PREDICTIVE_RELATION'
+            assert ms.projection_conditioned_relation_routing_status(fx['routing_id'])['status'] == 'CURRENT_PROJECTION_CONDITIONED_ROUTING'
+    
+            # Actual post-swap outcomes supply the missing reality contact. Two full
+            # eight-row failure windows are enough for the existing empirical owner.
+            for i, raw in enumerate(m.phase_rows(1, 16), start=4000):
+                receipt, _ = m.execute_episode(ms, world, cid, raw, i)
+                assert receipt['hidden_phenotype'] == 'V2-FLIP'
+                assert receipt['local_mean'] in {'Z0', 'Z1'}
+            witness = ms.assess_action_outcome_predictive_currentness(rid)
+            assert witness['status'] == 'DRIFT_WITNESS'
+            assert witness['witness']['window_accuracies'] == [0.0, 0.0]
+            assert witness['witness']['drift_cause_authority'] == 'NONE'
+            status = ms.action_outcome_predictive_relation_status(rid)
+            assert status['status'] == 'STALE_PREDICTIVE_RELATION'
+            assert status['reason'] == 'EMPIRICAL_DRIFT_WITNESS'
+            # The evidence says the relation is stale; it does not identify a child,
+            # phenotype, regime, or replacement cause.
+            replacements = ms.nominate_action_outcome_replacement_candidates(
+                rid, witness['witness']['witness_id']
+            )
+            assert len(replacements) == 1
+            assert replacements[0].capability_id == cid
+        finally:
+>           fx['td'].cleanup()
+
+tests\embodiment\test_frontier_b_drift_hidden_subordinate_phenotype.py:126: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\ancal\AppData\Local\Programs\Python\Python312\Lib\tempfile.py:954: in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+C:\Users\ancal\AppData\Local\Programs\Python\Python312\Lib\tempfile.py:934: in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+C:\Users\ancal\AppData\Local\Programs\Python\Python312\Lib\shutil.py:781: in rmtree
+    return _rmtree_unsafe(path, onexc)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\ancal\AppData\Local\Programs\Python\Python312\Lib\shutil.py:635: in _rmtree_unsafe
+    onexc(os.unlink, fullname, err)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+func = <built-in function unlink>
+path = 'C:\\Users\\ancal\\AppData\\Local\\Temp\\microseed-ms2063-e2e-hierarchy-mpuden3t\\biography.sqlite3'
+exc = PermissionError(13, 'The process cannot access the file because it is being used by another process')
+
+    def onexc(func, path, exc):
+        if isinstance(exc, PermissionError):
+            if repeated and path == name:
+                if ignore_errors:
+                    return
+                raise
+    
+            try:
+                if path != name:
+                    _resetperms(_os.path.dirname(path))
+                _resetperms(path)
+    
+                try:
+>                   _os.unlink(path)
+E                   PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\ancal\\AppData\\Local\\Temp\\microseed-ms2063-e2e-hierarchy-mpuden3t\\biography.sqlite3'
+
+C:\Users\ancal\AppData\Local\Programs\Python\Python312\Lib\tempfile.py:909: PermissionError
+_ test_explicit_request_channel_dependency_drift_stales_immediately_before_new_outcome _
+
+path = 'C:\\Users\\ancal\\AppData\\Local\\Temp\\microseed-ms2063-e2e-hierarchy-zltkteh7'
+onexc = <function TemporaryDirectory._rmtree.<locals>.onexc at 0x0000017DE4E68A40>
+
+    def _rmtree_unsafe(path, onexc):
+        def onerror(err):
+            onexc(os.scandir, err.filename, err)
+        results = os.walk(path, topdown=False, onerror=onerror, followlinks=os._walk_symlinks_as_files)
+        for dirpath, dirnames, filenames in results:
+            for name in dirnames:
+                fullname = os.path.join(dirpath, name)
+                try:
+                    os.rmdir(fullname)
+                except OSError as err:
+                    onexc(os.rmdir, fullname, err)
+            for name in filenames:
+                fullname = os.path.join(dirpath, name)
+                try:
+>                   os.unlink(fullname)
+E                   PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\ancal\\AppData\\Local\\Temp\\microseed-ms2063-e2e-hierarchy-zltkteh7\\biography.sqlite3'
+
+C:\Users\ancal\AppData\Local\Programs\Python\Python312\Lib\shutil.py:633: PermissionError
+
+During handling of the above exception, another exception occurred:
+
+    def test_explicit_request_channel_dependency_drift_stales_immediately_before_new_outcome() -> None:
+        m = _ms2063()
+        fx = m.build_integrated(); ms = fx['ms']
+        try:
+            cid, rid = _current_relation_for_phase1(fx)
+            assert ms.action_outcome_predictive_relation_status(rid)['status'] == 'CURRENT_PREDICTIVE_RELATION'
+            stale = ms.change_capability_dependency('REQ-BASE', reason='FRONTIER-B-OBSERVABLE-REQUEST-CHANNEL-DRIFT')
+            assert cid in stale
+            rel = ms.action_outcome_predictive_relation_status(rid)
+            assert rel['status'] == 'STALE_PREDICTIVE_RELATION'
+            assert ms.projection_conditioned_relation_routing_status(fx['routing_id'])['status'] == 'STALE_PROJECTION_CONDITIONED_ROUTING'
+        finally:
+>           fx['td'].cleanup()
+
+tests\embodiment\test_frontier_b_drift_hidden_subordinate_phenotype.py:141: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\ancal\AppData\Local\Programs\Python\Python312\Lib\tempfile.py:954: in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+C:\Users\ancal\AppData\Local\Programs\Python\Python312\Lib\tempfile.py:934: in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+C:\Users\ancal\AppData\Local\Programs\Python\Python312\Lib\shutil.py:781: in rmtree
+    return _rmtree_unsafe(path, onexc)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\ancal\AppData\Local\Programs\Python\Python312\Lib\shutil.py:635: in _rmtree_unsafe
+    onexc(os.unlink, fullname, err)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+func = <built-in function unlink>
+path = 'C:\\Users\\ancal\\AppData\\Local\\Temp\\microseed-ms2063-e2e-hierarchy-zltkteh7\\biography.sqlite3'
+exc = PermissionError(13, 'The process cannot access the file because it is being used by another process')
+
+    def onexc(func, path, exc):
+        if isinstance(exc, PermissionError):
+            if repeated and path == name:
+                if ignore_errors:
+                    return
+                raise
+    
+            try:
+                if path != name:
+                    _resetperms(_os.path.dirname(path))
+                _resetperms(path)
+    
+                try:
+>                   _os.unlink(path)
+E                   PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\ancal\\AppData\\Local\\Temp\\microseed-ms2063-e2e-hierarchy-zltkteh7\\biography.sqlite3'
+
+C:\Users\ancal\AppData\Local\Programs\Python\Python312\Lib\tempfile.py:909: PermissionError
+=========================== short test summary info ===========================
+FAILED tests/embodiment/test_frontier_b_drift_hidden_subordinate_phenotype.py::test_hidden_effect_preserving_subordinate_swap_needs_no_identity_primitive
+FAILED tests/embodiment/test_frontier_b_drift_hidden_subordinate_phenotype.py::test_hidden_effect_changing_swap_is_not_preobservable_but_actual_outcomes_stale_relation
+FAILED tests/embodiment/test_frontier_b_drift_hidden_subordinate_phenotype.py::test_explicit_request_channel_dependency_drift_stales_immediately_before_new_outcome
+3 failed in 11.47s

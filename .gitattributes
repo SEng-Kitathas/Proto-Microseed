@@ -37,3 +37,8 @@ campaigns/MS_FRONTIER_HELIX_V1/B_DRIFT/REPLAY_ON_BC_CANON/*.md text eol=lf
 evidence/FRONTIER_B_DRIFT_*_STDOUT.log binary
 evidence/FRONTIER_B_DRIFT_*_STDERR.log binary
 evidence/FRONTIER_B_DRIFT_*_SUMMARY.json text eol=lf
+campaigns/MS_FRONTIER_HELIX_V1/B_DRIFT/ADMISSION_AUDIT/*.json text eol=lf
+campaigns/MS_FRONTIER_HELIX_V1/B_DRIFT/ADMISSION_AUDIT/*.md text eol=lf
+evidence/FRONTIER_B_DRIFT_ADMISSION_*_STDOUT.log binary
+evidence/FRONTIER_B_DRIFT_ADMISSION_*_STDERR.log binary
+evidence/FRONTIER_B_DRIFT_ADMISSION_*_SUMMARY.json text eol=lf

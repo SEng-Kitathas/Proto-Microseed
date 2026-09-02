@@ -1,0 +1,224 @@
+{
+  "admitted_evidence_claim": "BOUNDED_PARENT_RELATION_CURRENTNESS_DOES_NOT_REQUIRE_A_PERSISTENT_SUBORDINATE_IDENTITY_PRIMITIVE_WHEN_ALL_PARENT_OWNED_OPERATIONAL_PREMISES_ARE_UNCHANGED",
+  "admitted_observations": [
+    "effect_preserving_hidden_subordinate_phenotype_swap_remains_current_with_two_perfect_accuracy_windows",
+    "effect_changing_hidden_subordinate_phenotype_swap_is_not_preobservable_but_post_swap_outcomes_generate_drift_witness_and_stale_relation",
+    "explicit_owned_request_channel_dependency_drift_stales_relation_and_projection_conditioned_routing_immediately",
+    "drift_witness_has_no_drift_cause_or_identity_authority"
+  ],
+  "audit_branch": "audit/frontier-b-drift-evidence-admission-v1",
+  "audit_issues": [],
+  "base_public_main": "f2102e72e47f07eecacee453aef556126baf81fe",
+  "ceilings": [
+    "NON_CANONICAL_EVIDENCE_RESULT_ONLY",
+    "NO_PRODUCTION_BEHAVIOR_ADMITTED",
+    "NO_MICROSEED_DELTA",
+    "NO_PERSISTENT_SUBORDINATE_IDENTITY_PRIMITIVE_ADDED",
+    "DOES_NOT_PROVE_ALL_DEVELOPMENTAL_REPLACEMENT_IS_MANAGEABLE_WITHOUT_IDENTITY_LIKE_STATE",
+    "DOES_NOT_IDENTIFY_CHILD_PHENOTYPE_REGIME_OR_REPLACEMENT_CAUSE_FROM_DRIFT_WITNESS",
+    "NO_SEMANTIC_REFERENCE_LANGUAGE_TRUTH_EXECUTION_SELFHOOD_AUTHORITY",
+    "NO_DURABLE_GLOBAL_CURRENTNESS_MANAGER"
+  ],
+  "current_canon": {
+    "label": "PRELINGUAL_SUBSTRATE_V1_P1A_N1A_BOUNDED_HIERARCHY_V1_MS_SUBSTRATE_HARDENING_V1_BC_NESTED_CURRENTNESS_V1",
+    "microseed_tree": "4c8051563279d20f2ea555d21d7b3305b039e771",
+    "tag": "prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1-ms-substrate-hardening-v1-bc-nested-currentness-v1",
+    "tag_commit": "9e5df16ac60c0edaf8833b54e42d8e38d724fc4c"
+  },
+  "decision": "ADMIT_B_DRIFT_AS_BOUNDED_NON_CANONICAL_EVIDENCE_RESULT__NO_CANON_CHANGE__NO_PRODUCTION_CHANGE",
+  "methodology_caveat": {
+    "current_replay_or_admission_evidence_reports_26_of_26_adjacent_pass": true,
+    "historical_source_line_reports_42_of_42_pass": true,
+    "interpretation": "Treat the imported 42/42 line as historical source-branch context, not current replay/admission evidence. Current admitted pass surface is focused 3/3 and adjacent 26/26 cleanup-neutral.",
+    "methodology_contains_current_26_of_26": false
+  },
+  "microseed_tree_after_audit": "4c8051563279d20f2ea555d21d7b3305b039e771",
+  "mode": "AUDIT_TO_EVIDENCE_ADMISSION",
+  "production_delta_from_b_c_canon": [],
+  "recommended_next": "Replay E_IDENTITY or F_VALUE with shared-overlap guards, unless promoting B evidence into a higher-level frontier synthesis ledger first.",
+  "replay_artifact_hashes": {
+    "campaigns/MS_FRONTIER_HELIX_V1/B_DRIFT/REPLAY_ON_BC_CANON/FRONTIER_B_DRIFT_REPLAY_ON_BC_CANON_V1_2026-09-02.json": {
+      "bytes": 23073,
+      "sha256": "8a73eaaec292fa128175b3c1613b0ddabeeca2b2d65b81a87d50da35aa6a4ae5"
+    },
+    "campaigns/MS_FRONTIER_HELIX_V1/B_DRIFT/REPLAY_ON_BC_CANON/FRONTIER_B_DRIFT_REPLAY_ON_BC_CANON_V1_2026-09-02.md": {
+      "bytes": 4424,
+      "sha256": "8d51e846aa60e80ca73a4e2023c6e2caffd11871960da851787940e56b04f909"
+    },
+    "methodology/MS_FRONTIER_B_DRIFT_HIDDEN_SUBORDINATE_PHENOTYPE_2026-09-01.md": {
+      "bytes": 2035,
+      "sha256": "21a7f71e1a36472383e2f3e4baac8e439f798dfb26b4422fc212796e62995595"
+    },
+    "tests/embodiment/test_frontier_b_drift_hidden_subordinate_phenotype.py": {
+      "bytes": 7114,
+      "sha256": "36c738e9c41bb89224f6ece46a01964a2a7b6283323eee228781e993e411f26f"
+    }
+  },
+  "replay_branch": "research/frontier-b-drift-replayed-on-bc-canon-v1",
+  "replay_head": "f2102e72e47f07eecacee453aef556126baf81fe",
+  "schema": "microseed.frontier_b_drift_evidence_admission_audit.v1",
+  "source_branch": "research/frontier-b-drift-v1",
+  "source_branch_state": "STALE_FRONTIER_LINEAGE__DO_NOT_MERGE_DIRECTLY",
+  "source_head": "c9c6f0470a0bbc706c4f325a2bcdae4404f7c5d5",
+  "source_merge_base_with_current_main": "408c265bfdc8052a614b6cb4cbe51a60673a73eb",
+  "status": "EVIDENCE_RESULT_ADMITTED_WITH_CEILINGS__NON_CANONICAL__NO_PRODUCTION_DELTA",
+  "test_structure": {
+    "required_tokens_present": [
+      "CURRENT_WITHIN_BOUNDS",
+      "DRIFT_WITNESS",
+      "drift_cause_authority",
+      "NONE",
+      "STALE_PROJECTION_CONDITIONED_ROUTING",
+      "subordinate_identity_registry"
+    ],
+    "test_count": 3,
+    "test_names": [
+      "test_hidden_effect_preserving_subordinate_swap_needs_no_identity_primitive",
+      "test_hidden_effect_changing_swap_is_not_preobservable_but_actual_outcomes_stale_relation",
+      "test_explicit_request_channel_dependency_drift_stales_immediately_before_new_outcome"
+    ]
+  },
+  "verification": {
+    "adjacent_cleanup_neutral": "26/26 PASS",
+    "captures": {
+      "FRONTIER_B_DRIFT_ADMISSION_ADJACENT_CLEANUP_NEUTRAL": {
+        "args": [
+          "-q",
+          "tests/embodiment/test_frontier_b_drift_hidden_subordinate_phenotype.py",
+          "tests/embodiment/test_ms2063_end_to_end_two_level_hierarchy_transfer.py",
+          "tests/embodiment/test_ms2054_p1a_stale_rehearsal_currentness_promotion.py",
+          "tests/embodiment/test_ms1943_signal_predictive_currentness.py",
+          "tests/embodiment/test_ms1452_integration.py",
+          "tests/embodiment/test_ms2065_bounded_hierarchy_promotion_candidate.py"
+        ],
+        "cleanup_neutral": true,
+        "elapsed_seconds": 64.501,
+        "kind": "pytest",
+        "name": "FRONTIER_B_DRIFT_ADMISSION_ADJACENT_CLEANUP_NEUTRAL",
+        "return_code": 0,
+        "schema": "microseed.command_capture.v1",
+        "stderr_bytes": 0,
+        "stderr_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_b_drift_admission_audit_20260902/evidence/FRONTIER_B_DRIFT_ADMISSION_ADJACENT_CLEANUP_NEUTRAL_STDERR.log",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_tail": "",
+        "stdout_bytes": 164,
+        "stdout_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_b_drift_admission_audit_20260902/evidence/FRONTIER_B_DRIFT_ADMISSION_ADJACENT_CLEANUP_NEUTRAL_STDOUT.log",
+        "stdout_sha256": "11b0de695797d8081dbd43b0b4780f4ecf90eba6fd766601cde90851c2341600",
+        "stdout_tail": "FRONTIER_B_DRIFT_ADMISSION_ADJACENT_CLEANUP_NEUTRAL=1\n..........................                                               [100%]\n26 passed in 64.31s (0:01:04)\n"
+      },
+      "FRONTIER_B_DRIFT_ADMISSION_COMPILEALL": {
+        "command": [
+          "python",
+          "-m",
+          "compileall",
+          "-q",
+          "microseed",
+          "tests/embodiment/test_frontier_b_drift_hidden_subordinate_phenotype.py",
+          "tools/verify_public_v1_continuity.py"
+        ],
+        "elapsed_seconds": 0.153,
+        "kind": "subprocess",
+        "name": "FRONTIER_B_DRIFT_ADMISSION_COMPILEALL",
+        "return_code": 0,
+        "schema": "microseed.command_capture.v1",
+        "stderr_bytes": 0,
+        "stderr_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_b_drift_admission_audit_20260902/evidence/FRONTIER_B_DRIFT_ADMISSION_COMPILEALL_STDERR.log",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_tail": "",
+        "stdout_bytes": 0,
+        "stdout_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_b_drift_admission_audit_20260902/evidence/FRONTIER_B_DRIFT_ADMISSION_COMPILEALL_STDOUT.log",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_tail": ""
+      },
+      "FRONTIER_B_DRIFT_ADMISSION_DIRECT_PRECHECK": {
+        "command": [
+          "python",
+          "-m",
+          "pytest",
+          "-q",
+          "tests/embodiment/test_frontier_b_drift_hidden_subordinate_phenotype.py"
+        ],
+        "elapsed_seconds": 11.908,
+        "kind": "subprocess",
+        "name": "FRONTIER_B_DRIFT_ADMISSION_DIRECT_PRECHECK",
+        "return_code": 1,
+        "schema": "microseed.command_capture.v1",
+        "stderr_bytes": 0,
+        "stderr_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_b_drift_admission_audit_20260902/evidence/FRONTIER_B_DRIFT_ADMISSION_DIRECT_PRECHECK_STDERR.log",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_tail": "",
+        "stdout_bytes": 15242,
+        "stdout_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_b_drift_admission_audit_20260902/evidence/FRONTIER_B_DRIFT_ADMISSION_DIRECT_PRECHECK_STDOUT.log",
+        "stdout_sha256": "974cba128a98138923e37f82882df5e2e975d99d887965f1bace3fb7f01b0866",
+        "stdout_tail": " = _current_relation_for_phase1(fx)\n            assert ms.action_outcome_predictive_relation_status(rid)['status'] == 'CURRENT_PREDICTIVE_RELATION'\n            stale = ms.change_capability_dependency('REQ-BASE', reason='FRONTIER-B-OBSERVABLE-REQUEST-CHANNEL-DRIFT')\n            assert cid in stale\n            rel = ms.action_outcome_predictive_relation_status(rid)\n            assert rel['status'] == 'STALE_PREDICTIVE_RELATION'\n            assert ms.projection_conditioned_relation_routing_status(fx['routing_id'])['status'] == 'STALE_PROJECTION_CONDITIONED_ROUTING'\n        finally:\n>           fx['td'].cleanup()\n\ntests\\embodiment\\test_frontier_b_drift_hidden_subordinate_phenotype.py:141: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\nC:\\Users\\ancal\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\tempfile.py:954: in cleanup\n    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)\nC:\\Users\\ancal\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\tempfile.py:934: in _rmtree\n    _shutil.rmtree(name, onexc=onexc)\nC:\\Users\\ancal\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\shutil.py:781: in rmtree\n    return _rmtree_unsafe(path, onexc)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nC:\\Users\\ancal\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\shutil.py:635: in _rmtree_unsafe\n    onexc(os.unlink, fullname, err)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nfunc = <built-in function unlink>\npath = 'C:\\\\Users\\\\ancal\\\\AppData\\\\Local\\\\Temp\\\\microseed-ms2063-e2e-hierarchy-zltkteh7\\\\biography.sqlite3'\nexc = PermissionError(13, 'The process cannot access the file because it is being used by another process')\n\n    def onexc(func, path, exc):\n        if isinstance(exc, PermissionError):\n            if repeated and path == name:\n                if ignore_errors:\n                    return\n                raise\n    \n            try:\n                if path != name:\n                    _resetperms(_os.path.dirname(path))\n                _resetperms(path)\n    \n                try:\n>                   _os.unlink(path)\nE                   PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\\\Users\\\\ancal\\\\AppData\\\\Local\\\\Temp\\\\microseed-ms2063-e2e-hierarchy-zltkteh7\\\\biography.sqlite3'\n\nC:\\Users\\ancal\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\tempfile.py:909: PermissionError\n=========================== short test summary info ===========================\nFAILED tests/embodiment/test_frontier_b_drift_hidden_subordinate_phenotype.py::test_hidden_effect_preserving_subordinate_swap_needs_no_identity_primitive\nFAILED tests/embodiment/test_frontier_b_drift_hidden_subordinate_phenotype.py::test_hidden_effect_changing_swap_is_not_preobservable_but_actual_outcomes_stale_relation\nFAILED tests/embodiment/test_frontier_b_drift_hidden_subordinate_phenotype.py::test_explicit_request_channel_dependency_drift_stales_immediately_before_new_outcome\n3 failed in 11.47s\n"
+      },
+      "FRONTIER_B_DRIFT_ADMISSION_FOCUSED_CLEANUP_NEUTRAL": {
+        "args": [
+          "-q",
+          "tests/embodiment/test_frontier_b_drift_hidden_subordinate_phenotype.py"
+        ],
+        "cleanup_neutral": true,
+        "elapsed_seconds": 11.815,
+        "kind": "pytest",
+        "name": "FRONTIER_B_DRIFT_ADMISSION_FOCUSED_CLEANUP_NEUTRAL",
+        "return_code": 0,
+        "schema": "microseed.command_capture.v1",
+        "stderr_bytes": 0,
+        "stderr_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_b_drift_admission_audit_20260902/evidence/FRONTIER_B_DRIFT_ADMISSION_FOCUSED_CLEANUP_NEUTRAL_STDERR.log",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_tail": "",
+        "stdout_bytes": 152,
+        "stdout_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_b_drift_admission_audit_20260902/evidence/FRONTIER_B_DRIFT_ADMISSION_FOCUSED_CLEANUP_NEUTRAL_STDOUT.log",
+        "stdout_sha256": "86776f8c0ad896aa32d2f6443ba74026a58e367a24fe25f09a3860b92183179f",
+        "stdout_tail": "FRONTIER_B_DRIFT_ADMISSION_FOCUSED_CLEANUP_NEUTRAL=1\n...                                                                      [100%]\n3 passed in 11.55s\n"
+      },
+      "FRONTIER_B_DRIFT_ADMISSION_PROMOTION_GUARD": {
+        "command": [
+          "python",
+          "-m",
+          "pytest",
+          "-q",
+          "tests/embodiment/test_ms2065_bounded_hierarchy_promotion_candidate.py"
+        ],
+        "elapsed_seconds": 0.812,
+        "kind": "subprocess",
+        "name": "FRONTIER_B_DRIFT_ADMISSION_PROMOTION_GUARD",
+        "return_code": 0,
+        "schema": "microseed.command_capture.v1",
+        "stderr_bytes": 0,
+        "stderr_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_b_drift_admission_audit_20260902/evidence/FRONTIER_B_DRIFT_ADMISSION_PROMOTION_GUARD_STDERR.log",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_tail": "",
+        "stdout_bytes": 98,
+        "stdout_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_b_drift_admission_audit_20260902/evidence/FRONTIER_B_DRIFT_ADMISSION_PROMOTION_GUARD_STDOUT.log",
+        "stdout_sha256": "bab70b6bbd9479a9d94ec8ea0388e7542f0a09cdf670c0f5874e907f024ca6d0",
+        "stdout_tail": "..                                                                       [100%]\n2 passed in 0.42s\n"
+      },
+      "FRONTIER_B_DRIFT_ADMISSION_PUBLIC_VERIFIER": {
+        "command": [
+          "python",
+          "tools/verify_public_v1_continuity.py"
+        ],
+        "elapsed_seconds": 1.161,
+        "kind": "subprocess",
+        "name": "FRONTIER_B_DRIFT_ADMISSION_PUBLIC_VERIFIER",
+        "return_code": 0,
+        "schema": "microseed.command_capture.v1",
+        "stderr_bytes": 0,
+        "stderr_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_b_drift_admission_audit_20260902/evidence/FRONTIER_B_DRIFT_ADMISSION_PUBLIC_VERIFIER_STDERR.log",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_tail": "",
+        "stdout_bytes": 543,
+        "stdout_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_b_drift_admission_audit_20260902/evidence/FRONTIER_B_DRIFT_ADMISSION_PUBLIC_VERIFIER_STDOUT.log",
+        "stdout_sha256": "e0db54f02edcb4429a16f339fc57f031f92db8898eb348d8c8598233d5b1d6af",
+        "stdout_tail": "{\n  \"status\": \"PASS\",\n  \"head\": \"f2102e72e47f07eecacee453aef556126baf81fe\",\n  \"canonical_v1\": \"0fa41f1ed4cf2fbd341b5f0b63adbc0034d4ac39\",\n  \"canonical_tree\": \"88a4014db5838848b1e36b904b96e55b2a5f670e\",\n  \"head_microseed_tree\": \"4c8051563279d20f2ea555d21d7b3305b039e771\",\n  \"v1_microseed_tree\": \"0ce2b39d48bad3c34a56f95fbfefa17de9cbe922\",\n  \"public_receipt_sha256\": \"c0f3ea96bbfa59fdfe75910120285654797afff028d8044bc0633e647ef3a43d\",\n  \"suite_stdout_sha256\": \"5432c11be80077a62e11b2918d0e4af667c045bcb98746a80ca8b96e1ad08edc\",\n  \"issues\": []\n}\n"
+      }
+    },
+    "compileall": "PASS",
+    "direct_b_precheck": "EXPECTED_WINDOWS_SQLITE_TEMPORARYDIRECTORY_CLEANUP_FAILURE_ONLY",
+    "focused_cleanup_neutral": "3/3 PASS",
+    "promotion_guard": "2/2 PASS",
+    "public_verifier": "PASS_ISSUES_EMPTY",
+    "rd_checkpoint_before_audit": "PASS_ISSUES_EMPTY"
+  }
+}
