@@ -1,0 +1,72 @@
+{
+  "admission_decision": "ADMISSIBLE_TO_CONTROLLED_PROMOTION_REVIEW_WITH_SUPERVISION_LOST_CAVEAT",
+  "audit_head_before_commit": "2df02b159edde474e4d21f8ca9748e3e0058a96d",
+  "base_public_main": "28489c6feaa9d1d777b8bca0cca2ec3e35042144",
+  "base_serialized_research_branch": "research/hardening-bc-nested-currentness-rebased-on-hardening-canon-v1",
+  "branch": "research/hardening-bc-admission-audit-v1",
+  "candidate_microseed_tree": "4c8051563279d20f2ea555d21d7b3305b039e771",
+  "ceilings": [
+    "Not canon.",
+    "Not promoted.",
+    "Whole-suite evidence carries SUPERVISION_LOST wrapper caveat despite green pytest stdout.",
+    "No semantic/reference/language/truth/execution/selfhood authority.",
+    "No durable global currentness manager.",
+    "No automatic admission from cherry-pick auto-merge.",
+    "No current-canon guard laundering; guard failure is explicit."
+  ],
+  "current_canon": {
+    "commit": "0f6cf0b3d660c8a4bb9561a65d7f1fd95e1b99f7",
+    "label": "PRELINGUAL_SUBSTRATE_V1_P1A_N1A_BOUNDED_HIERARCHY_V1_MS_SUBSTRATE_HARDENING_V1",
+    "microseed_tree": "88f5a058cc5a4e92b1006c36d31b95cf727d197f",
+    "tag": "prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1-ms-substrate-hardening-v1"
+  },
+  "earned_properties": [
+    "B/C focused surface remains green after rebase onto current hardening canon.",
+    "Adjacent H/SH6/projection/routing/hierarchy tests remain green under cleanup-neutral execution.",
+    "Full functional suite stdout reports green with only current-canon identity guard deselected.",
+    "Current-canon identity guard fails for the expected subtree-delta reason when run separately.",
+    "B/C is now based on current public main and no longer rewinds hardening promotion evidence.",
+    "Production delta is explicit and bounded to rehearsal/routing/currentness owners.",
+    "No public main movement or tag movement occurred in this audit."
+  ],
+  "interaction_audit": {
+    "bc_owner": "routed rehearsal and projection-conditioned binding currentness over exact routing/bucket/post-binding evidence ancestry",
+    "composition_claim": "B/C composes with hardening V1 by preserving route/bucket ancestry at rehearsal proposal creation and revalidating routed descendants at use time; hardening V1 separately stales projection-bound artifacts when source projection ancestry drifts.",
+    "hardening_v1_owner": "Microseed.change_epistemic_projection transitive dependent projection stale cascade",
+    "risk_boundary": "No full semantic proof of all future projection-routed histories; admission decision is to controlled promotion review, not immediate canon."
+  },
+  "production_delta_from_current_canon": [
+    "microseed/development/rehearsal.py",
+    "microseed/runtime/entity.py"
+  ],
+  "production_delta_shortstat": "2 files changed, 151 insertions(+), 3 deletions(-)",
+  "promotion_decision": "NOT_PERFORMED",
+  "schema": "microseed.bc_nested_currentness_admission_audit.v1",
+  "serialized_research_head": "2df02b159edde474e4d21f8ca9748e3e0058a96d",
+  "status": "ADMISSION_AUDIT_PASS_WITH_SUPERVISION_LOST_CAVEAT__CONTROLLED_PROMOTION_REVIEW_ADMISSIBLE__NOT_CANON__NOT_PROMOTED",
+  "verification": {
+    "adjacent_cleanup_neutral": {
+      "duration_seconds": 532.35,
+      "job_id": "job-086a6806159d",
+      "return_code": 0,
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "df9ee0e79d3331e74718c0af9e70338da42c85e29fc899f3a4fe2bf784b5c50f",
+      "verdict": "76/76 PASS"
+    },
+    "compileall": "PASS for microseed and tests/embodiment",
+    "current_canon_identity_guard": "1 failed, 1 passed as expected because candidate Microseed tree differs from active canon",
+    "public_verifier": "PASS, issues empty; continuity check only",
+    "whole_suite_cleanup_neutral_with_current_canon_identity_guard_deselected": {
+      "execution_wrapper_status": "FAILED",
+      "failure_kind": "SUPERVISION_LOST",
+      "interpretation": "pytest summary in stdout is complete and green, but server wrapper lost supervision and therefore this evidence carries an explicit transport/supervision caveat",
+      "job_id": "job-9570355b6ef5",
+      "return_code_observed_by_wrapper": null,
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "51e5bf5bbf88caa12756ed31230c630af8d8308f5414f54233fd825fec188e7e",
+      "stdout_verdict": "1015 passed, 1 deselected in 1207.66s; PYTEST_RC=0"
+    }
+  }
+}
