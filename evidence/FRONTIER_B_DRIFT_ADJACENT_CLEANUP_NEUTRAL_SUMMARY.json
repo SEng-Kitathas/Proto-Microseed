@@ -1,0 +1,25 @@
+{
+  "args": [
+    "-q",
+    "tests/embodiment/test_frontier_b_drift_hidden_subordinate_phenotype.py",
+    "tests/embodiment/test_ms2063_end_to_end_two_level_hierarchy_transfer.py",
+    "tests/embodiment/test_ms2054_p1a_stale_rehearsal_currentness_promotion.py",
+    "tests/embodiment/test_ms1943_signal_predictive_currentness.py",
+    "tests/embodiment/test_ms1452_integration.py",
+    "tests/embodiment/test_ms2065_bounded_hierarchy_promotion_candidate.py"
+  ],
+  "cleanup_neutral": true,
+  "elapsed_seconds": 67.081,
+  "kind": "pytest",
+  "name": "FRONTIER_B_DRIFT_ADJACENT_CLEANUP_NEUTRAL",
+  "return_code": 0,
+  "schema": "microseed.command_capture.v1",
+  "stderr_bytes": 0,
+  "stderr_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_reentry_frontier_select_20260902/evidence/FRONTIER_B_DRIFT_ADJACENT_CLEANUP_NEUTRAL_STDERR.log",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_tail": "",
+  "stdout_bytes": 154,
+  "stdout_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_reentry_frontier_select_20260902/evidence/FRONTIER_B_DRIFT_ADJACENT_CLEANUP_NEUTRAL_STDOUT.log",
+  "stdout_sha256": "657a041fdb9c1e2da1cc5e8b55a2f8c16c78c30f97ee21340fc4d86bb261bab9",
+  "stdout_tail": "FRONTIER_B_DRIFT_ADJACENT_CLEANUP_NEUTRAL=1\n..........................                                               [100%]\n26 passed in 66.83s (0:01:06)\n"
+}

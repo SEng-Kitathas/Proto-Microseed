@@ -1,0 +1,43 @@
+{
+  "status": "MAIN_REASONING_DISCRIMINATOR_SPEC__CONTROL_INPUT_NOT_EVIDENCE",
+  "arm": "B_DRIFT",
+  "created_epoch": 1788263789.7808802,
+  "parent_head": "24571298b7182d9ba615abf7fae2108e821a110b",
+  "canonical_parent": "ed2cde491962105b0d853b7fd82d8e8b3d81bd8a",
+  "pdver": "PROBE -> DERIVE -> VERIFY -> EMBODY -> RECURSE",
+  "oarr_required": true,
+  "loop_plus_required": true,
+  "hsp_measurement_required": true,
+  "csc_status": "PENDING_SHADOW_AUDIT",
+  "promotion_authority": "NONE",
+  "production_mutation_allowed": false,
+  "evidence_context_refs": [
+    "continuity/CURRENT_FRONTIER.md#p11.0",
+    "continuity/CURRENT_FRONTIER.md#p19.0",
+    "continuity/CURRENT_FRONTIER.md#p26.0",
+    "continuity/state/next_steps/NEXT_STEPS.md#p5.0",
+    "continuity/state/current/CURRENT_STATE.md#p12.0",
+    "methodology\\MS1943_SIGNAL_PREDICTIVE_CURRENTNESS.md#p15.0",
+    "methodology\\MS1964_MS1966_NOISY_OBSERVATION_FRAME_BOUNDARY.md#p27.0",
+    "methodology\\MS2058_HIERARCHY_TRANSFER_C1_RELATION_BACKED_CANDIDATE_IDENTIFICATION.md#p8.0"
+  ],
+  "spec": {
+    "question": "Does severe subordinate phenotype drift require a persistent identity primitive, or are observable dependency/currentness plus subsequent actual outcomes sufficient?",
+    "incumbent": "Higher-level request-effect knowledge should stale only when an owned observable premise changes; hidden subordinate phenotype change with unchanged qualified request-channel premises is not pre-observably identifiable and should be corrected by subsequent actual outcomes.",
+    "rival": "A persistent subordinate identity/phenotype owner is required to invalidate higher-level relations before any changed outcome is observed.",
+    "manipulation": "Learn a parent request-effect relation against subordinate V1. Replace the subordinate with V2 while preserving outward request handle metadata in one condition and changing capability epoch/signature in another; independently vary whether V2 preserves or changes actual request consequence.",
+    "controls": [
+      "V2 effect-preserving swap",
+      "V2 effect-changing swap",
+      "explicit request-channel epoch/signature drift positive stale control",
+      "identical no-swap control",
+      "restart after swap"
+    ],
+    "incumbent_prediction": "Explicit observable dependency drift stales immediately; hidden effect-preserving swap does not; hidden effect-changing swap remains provisionally current until actual outcome evidence updates/demotes it. No identity primitive is needed.",
+    "rival_prediction": "Any severe phenotype replacement must invalidate/reidentify the relation before outcome contact even when all owned observable premises are identical.",
+    "measurement": "Relation current/stale status before first post-swap outcome, request selection, actual outcome, learned relation update after outcome, restart behavior.",
+    "minimal_embodiment": "Two-level hierarchy fixture only; swap subordinate handlers/state mappings without production changes.",
+    "falsifier": "A hidden phenotype change that is observationally identical to current owners causes lawful pre-outcome invalidation via an existing non-identity dependency, or currentness fails to stale when an explicitly owned dependency changes.",
+    "loop_plus": "If divergence exists, audit whether an omitted operational dependency—not numerical identity—explains it."
+  }
+}

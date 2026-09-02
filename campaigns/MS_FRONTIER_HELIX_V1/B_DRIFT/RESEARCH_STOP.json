@@ -1,0 +1,42 @@
+{
+  "arm": "B_DRIFT",
+  "status": "QUESTION_SATURATED__REQUIRES_EXTERNAL_REFRAME",
+  "scientific_closure": false,
+  "passes_completed": 4,
+  "last_valid_next": "What are the specific mechanisms by which subordinate developmental change affects the accuracy and reliability of higher-level learned request-effect relations?",
+  "csc": {
+    "verdict": "REVIEW",
+    "errors": [],
+    "warnings": [],
+    "strongest_survivor": "Subordinate-request -> higher-level consequence relations can tolerate a certain amount of subordinate developmental change before reidentification or relearning is necessary.",
+    "strongest_scar": "Stale current use can affect the accuracy of higher-level learned request-effect relations.",
+    "terminal_supported": true,
+    "authority": "AUDIT_ONLY_NONE_PROMOTION",
+    "model_meta": {
+      "attempt": 1,
+      "usage": {
+        "completion_tokens": 92,
+        "prompt_tokens": 1049,
+        "total_tokens": 1141,
+        "prompt_tokens_details": {
+          "cached_tokens": 122
+        }
+      },
+      "timings": {
+        "cache_n": 122,
+        "prompt_n": 927,
+        "prompt_ms": 2409.783,
+        "prompt_per_token_ms": 2.5995501618122976,
+        "prompt_per_second": 384.68194024109226,
+        "predicted_n": 92,
+        "predicted_ms": 2863.083,
+        "predicted_per_token_ms": 31.12046739130435,
+        "predicted_per_second": 32.13319348408691
+      },
+      "model": "Qwen2.5-Coder-1.5B-Instruct-abliterated-Q4_K_L.gguf",
+      "fingerprint": "b8831-a279d0f0f",
+      "json_syntax_repaired": false
+    }
+  },
+  "promotion_authority": "NONE"
+}

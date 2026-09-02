@@ -1,0 +1,20 @@
+{
+  "args": [
+    "-q",
+    "tests/embodiment/test_frontier_b_drift_hidden_subordinate_phenotype.py"
+  ],
+  "cleanup_neutral": true,
+  "elapsed_seconds": 25.056,
+  "kind": "pytest",
+  "name": "FRONTIER_B_DRIFT_FOCUSED_CLEANUP_NEUTRAL",
+  "return_code": 0,
+  "schema": "microseed.command_capture.v1",
+  "stderr_bytes": 0,
+  "stderr_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_reentry_frontier_select_20260902/evidence/FRONTIER_B_DRIFT_FOCUSED_CLEANUP_NEUTRAL_STDERR.log",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_tail": "",
+  "stdout_bytes": 142,
+  "stdout_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_reentry_frontier_select_20260902/evidence/FRONTIER_B_DRIFT_FOCUSED_CLEANUP_NEUTRAL_STDOUT.log",
+  "stdout_sha256": "2bd46bdcbdcbc08f0e69136fb86c1d7de560e1aecd990316e3258b70de656d64",
+  "stdout_tail": "FRONTIER_B_DRIFT_FOCUSED_CLEANUP_NEUTRAL=1\n...                                                                      [100%]\n3 passed in 24.46s\n"
+}

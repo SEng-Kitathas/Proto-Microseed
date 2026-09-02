@@ -1,0 +1,13 @@
+{
+  "verdict": "PASS",
+  "errors": [],
+  "warnings": [],
+  "claim_supported": true,
+  "claim_ceiling_ok": true,
+  "strongest_survivor": "REMEMBERED_SUBORDINATE_MODEL != CURRENT_SUBORDINATE_CAPABILITY",
+  "strongest_scar": "ACTUAL_OUTCOME_SOVEREIGNTY",
+  "next_research_question": "How can we further investigate the impact of hidden change on the relationship/routing in the B_DRIFT microseed research?",
+  "authority": "AUDIT_ONLY_NONE_PROMOTION",
+  "model": "Qwen2.5-Coder-1.5B-Instruct-abliterated-Q4_K_L.gguf",
+  "review_port": 18192
+}

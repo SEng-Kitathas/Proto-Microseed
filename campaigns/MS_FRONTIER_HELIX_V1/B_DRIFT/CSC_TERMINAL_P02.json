@@ -1,0 +1,33 @@
+{
+  "verdict": "REVIEW",
+  "errors": [],
+  "warnings": [],
+  "strongest_survivor": "Subordinate-request -> higher-level consequence relations can tolerate a certain amount of subordinate developmental change before reidentification or relearning is necessary.",
+  "strongest_scar": "Stale current use can affect the accuracy of higher-level learned request-effect relations.",
+  "terminal_supported": true,
+  "authority": "AUDIT_ONLY_NONE_PROMOTION",
+  "model_meta": {
+    "attempt": 1,
+    "usage": {
+      "completion_tokens": 92,
+      "prompt_tokens": 601,
+      "total_tokens": 693,
+      "prompt_tokens_details": {
+        "cached_tokens": 122
+      }
+    },
+    "timings": {
+      "cache_n": 122,
+      "prompt_n": 479,
+      "prompt_ms": 1320.827,
+      "prompt_per_token_ms": 2.7574676409185805,
+      "prompt_per_second": 362.65158116846493,
+      "predicted_n": 92,
+      "predicted_ms": 2948.757,
+      "predicted_per_token_ms": 32.05170652173913,
+      "predicted_per_second": 31.199586808950347
+    },
+    "model": "Qwen2.5-Coder-1.5B-Instruct-abliterated-Q4_K_L.gguf",
+    "fingerprint": "b8831-a279d0f0f"
+  }
+}

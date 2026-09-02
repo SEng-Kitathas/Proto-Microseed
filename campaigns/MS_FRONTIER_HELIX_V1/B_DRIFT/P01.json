@@ -1,0 +1,76 @@
+{
+  "question": "How much subordinate developmental change can occur before higher-level learned request-effect relations must abstain, reidentify, or relearn rather than merely stale/requalify?",
+  "evidence_contacted": [
+    "continuity/CURRENT_FRONTIER.md#p11.0",
+    "methodology\\MS2058_HIERARCHY_TRANSFER_C1_RELATION_BACKED_CANDIDATE_IDENTIFICATION.md#p8.0",
+    "continuity/CURRENT_FRONTIER.md#p19.0",
+    "continuity/CURRENT_FRONTIER.md#p26.0",
+    "continuity/SCARS_AND_DO_NOT_REINTRODUCE.md#p142.0",
+    "methodology\\MICROSEED_MAIN_DEV_OPERATING_PROFILE_V2_5.md#p11.0",
+    "methodology\\MS1944_SIGNAL_REPLACEMENT_QUALIFICATION_BOUNDARY.md#p25.0",
+    "methodology\\MS1989_SELECTED_DEPENDENCY_LINEAGE_WITH_FULL_BASIS_PROVENANCE.md#p3.0"
+  ],
+  "measurement_frame": "Subordinate developmental change and its impact on higher-level learned request-effect relations.",
+  "probe": "Test the resilience of learned subordinate-request -> higher-level consequence relations under conditions of drift and stale current use.",
+  "derive": "Identify the threshold of subordinate developmental change beyond which higher-level relations must be reidentified or relearned.",
+  "verify": "Confirm that Microseed can learn and maintain subordinate-request -> higher-level consequence relations despite subordinate drift and stale current use.",
+  "oarr": "A rival mechanism that demonstrates how higher-level relations can be reidentified or relearned without affecting subordinate feasibility or authority.",
+  "loop_plus": "Widen the causal explanation to include the impact of subordinate drift on higher-level relations and the mechanisms by which these relations can be maintained or relearned.",
+  "embody": "NO_MUTATION_WARRANTED",
+  "observed_consequence": "SOURCE_EVIDENCE_ONLY__NO_NEW_WORLD_CONSEQUENCE",
+  "survivors": [
+    "Subordinate-request -> higher-level consequence relations can tolerate a certain amount of subordinate developmental change before reidentification or relearning is necessary."
+  ],
+  "scars": [
+    "Stale current use can affect the accuracy of higher-level learned request-effect relations."
+  ],
+  "demotions": [
+    "Reidentification or relearning of higher-level relations may be necessary when subordinate developmental change exceeds a certain threshold."
+  ],
+  "unresolved": [
+    "The exact threshold of subordinate developmental change that requires reidentification or relearning of higher-level relations is not yet determined."
+  ],
+  "attention_reservoir": [
+    "The impact of subordinate drift on higher-level learned request-effect relations and the mechanisms by which these relations can be maintained or relearned."
+  ],
+  "disposition": "UNKNOWN_INCOMPLETE",
+  "next": "How does the rate of subordinate developmental change affect the accuracy and reliability of higher-level learned request-effect relations?",
+  "terminal": false,
+  "pass": 1,
+  "model_meta": {
+    "attempt": 1,
+    "usage": {
+      "completion_tokens": 626,
+      "prompt_tokens": 1576,
+      "total_tokens": 2202,
+      "prompt_tokens_details": {
+        "cached_tokens": 393
+      }
+    },
+    "timings": {
+      "cache_n": 393,
+      "prompt_n": 1183,
+      "prompt_ms": 14650.331,
+      "prompt_per_token_ms": 12.38404987320372,
+      "prompt_per_second": 80.74902881033883,
+      "predicted_n": 626,
+      "predicted_ms": 69579.516,
+      "predicted_per_token_ms": 111.14938658146966,
+      "predicted_per_second": 8.996900754526662
+    },
+    "model": "qwen2.5-coder-7b-instruct-abliterated-q4_k_m.gguf",
+    "fingerprint": "b8831-a279d0f0f"
+  },
+  "source_refs": [
+    "continuity/CURRENT_FRONTIER.md#p11.0",
+    "methodology\\MS2058_HIERARCHY_TRANSFER_C1_RELATION_BACKED_CANDIDATE_IDENTIFICATION.md#p8.0",
+    "continuity/CURRENT_FRONTIER.md#p19.0",
+    "continuity/CURRENT_FRONTIER.md#p26.0",
+    "continuity/SCARS_AND_DO_NOT_REINTRODUCE.md#p142.0",
+    "methodology\\MICROSEED_MAIN_DEV_OPERATING_PROFILE_V2_5.md#p11.0",
+    "methodology\\MS1944_SIGNAL_REPLACEMENT_QUALIFICATION_BOUNDARY.md#p25.0",
+    "methodology\\MS1989_SELECTED_DEPENDENCY_LINEAGE_WITH_FULL_BASIS_PROVENANCE.md#p3.0"
+  ],
+  "promotion_authority": "NONE",
+  "production_mutation_allowed": false
+}

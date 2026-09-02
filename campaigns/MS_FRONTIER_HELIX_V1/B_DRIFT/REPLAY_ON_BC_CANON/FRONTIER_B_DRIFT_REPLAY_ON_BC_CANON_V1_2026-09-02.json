@@ -1,0 +1,428 @@
+{
+  "base_public_main": "d3a1b4e1a6f44dec7dfcb10bbd351f88a8010457",
+  "branch": "research/frontier-b-drift-replayed-on-bc-canon-v1",
+  "claim_ceiling": [
+    "Does not prove all developmental replacement is manageable without identity-like state",
+    "Does not identify a child, phenotype, regime, or replacement cause from drift witness",
+    "Does not add semantic/reference/language/truth/execution/selfhood authority",
+    "Does not introduce a durable global currentness manager",
+    "No production behavior admitted by this replay"
+  ],
+  "current_canon": {
+    "label": "PRELINGUAL_SUBSTRATE_V1_P1A_N1A_BOUNDED_HIERARCHY_V1_MS_SUBSTRATE_HARDENING_V1_BC_NESTED_CURRENTNESS_V1",
+    "microseed_tree": "4c8051563279d20f2ea555d21d7b3305b039e771",
+    "tag": "prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1-ms-substrate-hardening-v1-bc-nested-currentness-v1",
+    "tag_commit": "9e5df16ac60c0edaf8833b54e42d8e38d724fc4c"
+  },
+  "decision": "SERIALIZATION_REPLAY_ONLY__NO_CANON_CHANGE__NO_PRODUCTION_CHANGE",
+  "frontier_selection_basis": {
+    "chosen_reason": "B_DRIFT has zero microseed delta, an embodiment discriminator, only three shared-overlap files that can be skipped, and directly pressures the subordinate-identity primitive question after B/C currentness work.",
+    "open_unmerged_count": 23,
+    "refresh_path": "campaigns/FRONTIER_SELECTION/2026-09-02/FRONTIER_SELECTION_BRANCH_SURFACE_REFRESH.json",
+    "remote_branch_count_excluding_main": 41,
+    "top_score_tie": [
+      "origin/research/frontier-b-drift-v1",
+      "origin/research/frontier-e-identity-v1",
+      "origin/research/frontier-f-value-v1"
+    ]
+  },
+  "imported_file_identities": {
+    "campaigns/MS_FRONTIER_HELIX_V1/B_DRIFT/CSC_DISCRIMINATOR_SPEC_MAIN_V1.json": {
+      "index_blob": {
+        "bytes": 567,
+        "sha256": "fcc7e4cce8995dfa6ebfdb1dd4b56792231591ae9cfa9b09298031cfbab84ae5"
+      },
+      "same_blob": true,
+      "source_blob": {
+        "bytes": 567,
+        "sha256": "fcc7e4cce8995dfa6ebfdb1dd4b56792231591ae9cfa9b09298031cfbab84ae5"
+      }
+    },
+    "campaigns/MS_FRONTIER_HELIX_V1/B_DRIFT/CSC_DISCRIMINATOR_SPEC_MAIN_V1_RAW.txt": {
+      "index_blob": {
+        "bytes": 283,
+        "sha256": "62e2e6bc51c0c146d1e2a1e266c9c310f29fa321bd3845d01f6018ace9fc5a8d"
+      },
+      "same_blob": true,
+      "source_blob": {
+        "bytes": 283,
+        "sha256": "62e2e6bc51c0c146d1e2a1e266c9c310f29fa321bd3845d01f6018ace9fc5a8d"
+      }
+    },
+    "campaigns/MS_FRONTIER_HELIX_V1/B_DRIFT/CSC_EMBODIMENT_RESULT_MAIN_V1.json": {
+      "index_blob": {
+        "bytes": 540,
+        "sha256": "82d2dd8878caee8e15c9b9a3ed2e933c6e3224fbd435ae2777db3fcb2a0610f6"
+      },
+      "same_blob": true,
+      "source_blob": {
+        "bytes": 540,
+        "sha256": "82d2dd8878caee8e15c9b9a3ed2e933c6e3224fbd435ae2777db3fcb2a0610f6"
+      }
+    },
+    "campaigns/MS_FRONTIER_HELIX_V1/B_DRIFT/CSC_EMBODIMENT_RESULT_MAIN_V1_RAW.txt": {
+      "index_blob": {
+        "bytes": 418,
+        "sha256": "61dfecd552764661afcf8c1fdb9811bf12a85b268250cc4693a876a1c3f72d2c"
+      },
+      "same_blob": true,
+      "source_blob": {
+        "bytes": 418,
+        "sha256": "61dfecd552764661afcf8c1fdb9811bf12a85b268250cc4693a876a1c3f72d2c"
+      }
+    },
+    "campaigns/MS_FRONTIER_HELIX_V1/B_DRIFT/CSC_TERMINAL_P02.json": {
+      "index_blob": {
+        "bytes": 1127,
+        "sha256": "f75bd89c9d8d37e83fe298276ecb7f08623cb9a0c27bb1fa43ed2fe3d8a10480"
+      },
+      "same_blob": true,
+      "source_blob": {
+        "bytes": 1127,
+        "sha256": "f75bd89c9d8d37e83fe298276ecb7f08623cb9a0c27bb1fa43ed2fe3d8a10480"
+      }
+    },
+    "campaigns/MS_FRONTIER_HELIX_V1/B_DRIFT/CSC_TERMINAL_P04.json": {
+      "index_blob": {
+        "bytes": 1126,
+        "sha256": "689528cc25c66334f202fc4ad0664cabd9f4a4bdb528df007ac778c5f80eb2b2"
+      },
+      "same_blob": true,
+      "source_blob": {
+        "bytes": 1126,
+        "sha256": "689528cc25c66334f202fc4ad0664cabd9f4a4bdb528df007ac778c5f80eb2b2"
+      }
+    },
+    "campaigns/MS_FRONTIER_HELIX_V1/B_DRIFT/DISCRIMINATOR_SPEC_MAIN_V1.json": {
+      "index_blob": {
+        "bytes": 3382,
+        "sha256": "221e2c3827c224830e4ead50fb1d151abee8c5609c34d02c162d7b3658ee81e3"
+      },
+      "same_blob": true,
+      "source_blob": {
+        "bytes": 3382,
+        "sha256": "221e2c3827c224830e4ead50fb1d151abee8c5609c34d02c162d7b3658ee81e3"
+      }
+    },
+    "campaigns/MS_FRONTIER_HELIX_V1/B_DRIFT/EMBODIMENT_RESULT_MAIN_V1.json": {
+      "index_blob": {
+        "bytes": 2803,
+        "sha256": "7e4869dcdecae8d5c7f34d61223cb9d30da30f65d5232d8d973635a43fafe88f"
+      },
+      "same_blob": true,
+      "source_blob": {
+        "bytes": 2803,
+        "sha256": "7e4869dcdecae8d5c7f34d61223cb9d30da30f65d5232d8d973635a43fafe88f"
+      }
+    },
+    "campaigns/MS_FRONTIER_HELIX_V1/B_DRIFT/P01.json": {
+      "index_blob": {
+        "bytes": 4202,
+        "sha256": "f911c1ea42ed8e7a4690db4143534f4ab755712ffebf3f58705fd3a27e47c89f"
+      },
+      "same_blob": true,
+      "source_blob": {
+        "bytes": 4202,
+        "sha256": "f911c1ea42ed8e7a4690db4143534f4ab755712ffebf3f58705fd3a27e47c89f"
+      }
+    },
+    "campaigns/MS_FRONTIER_HELIX_V1/B_DRIFT/P02.json": {
+      "index_blob": {
+        "bytes": 4183,
+        "sha256": "4ccbec5eba12b6fbc531b0dd96fb4935ce4c34164c2d722daea5dbb2fc10c9a5"
+      },
+      "same_blob": true,
+      "source_blob": {
+        "bytes": 4183,
+        "sha256": "4ccbec5eba12b6fbc531b0dd96fb4935ce4c34164c2d722daea5dbb2fc10c9a5"
+      }
+    },
+    "campaigns/MS_FRONTIER_HELIX_V1/B_DRIFT/P03.json": {
+      "index_blob": {
+        "bytes": 4184,
+        "sha256": "8cd0e3cb16611744bf6145eea00b640d3456c2d5f94da0715d5560a043255c62"
+      },
+      "same_blob": true,
+      "source_blob": {
+        "bytes": 4184,
+        "sha256": "8cd0e3cb16611744bf6145eea00b640d3456c2d5f94da0715d5560a043255c62"
+      }
+    },
+    "campaigns/MS_FRONTIER_HELIX_V1/B_DRIFT/P04.json": {
+      "index_blob": {
+        "bytes": 4103,
+        "sha256": "94a8fd5c333e924c7bdcf64e60077e24f395b92ad70ebe1349cda6f3ec1a8f05"
+      },
+      "same_blob": true,
+      "source_blob": {
+        "bytes": 4103,
+        "sha256": "94a8fd5c333e924c7bdcf64e60077e24f395b92ad70ebe1349cda6f3ec1a8f05"
+      }
+    },
+    "campaigns/MS_FRONTIER_HELIX_V1/B_DRIFT/REFRAME_AFTER_P04_ATTEMPT1_RAW.txt": {
+      "index_blob": {
+        "bytes": 74,
+        "sha256": "6e7a741f4dcff32a4a705c31ccd0322169eb48b2e6ec65b20365955b68120046"
+      },
+      "same_blob": true,
+      "source_blob": {
+        "bytes": 74,
+        "sha256": "6e7a741f4dcff32a4a705c31ccd0322169eb48b2e6ec65b20365955b68120046"
+      }
+    },
+    "campaigns/MS_FRONTIER_HELIX_V1/B_DRIFT/REJECTED_P04_ATTEMPT1.json": {
+      "index_blob": {
+        "bytes": 3239,
+        "sha256": "6dbbc648e965587546858f2dfb4615fc07c0c142fed6c312fdad16ce161f325a"
+      },
+      "same_blob": true,
+      "source_blob": {
+        "bytes": 3239,
+        "sha256": "6dbbc648e965587546858f2dfb4615fc07c0c142fed6c312fdad16ce161f325a"
+      }
+    },
+    "campaigns/MS_FRONTIER_HELIX_V1/B_DRIFT/REJECTED_P05_ATTEMPT1.json": {
+      "index_blob": {
+        "bytes": 3425,
+        "sha256": "94af09fa6bd0305b45d21719caba7e5a1c1e3988d6ee97b2bb998d88587e6a0c"
+      },
+      "same_blob": true,
+      "source_blob": {
+        "bytes": 3425,
+        "sha256": "94af09fa6bd0305b45d21719caba7e5a1c1e3988d6ee97b2bb998d88587e6a0c"
+      }
+    },
+    "campaigns/MS_FRONTIER_HELIX_V1/B_DRIFT/REJECTED_P05_ATTEMPT2.json": {
+      "index_blob": {
+        "bytes": 4035,
+        "sha256": "2e0e9b5fd18e1aa65be3d3fe16e50e42ec2c83416ad46208cad555e253f8c9a9"
+      },
+      "same_blob": true,
+      "source_blob": {
+        "bytes": 4035,
+        "sha256": "2e0e9b5fd18e1aa65be3d3fe16e50e42ec2c83416ad46208cad555e253f8c9a9"
+      }
+    },
+    "campaigns/MS_FRONTIER_HELIX_V1/B_DRIFT/REJECTED_P05_ATTEMPT3.json": {
+      "index_blob": {
+        "bytes": 3827,
+        "sha256": "12f59afaf5e3bcbc9101d426e6c2e99a7eaa2b89fa3aeba28b8ea3c3048e8274"
+      },
+      "same_blob": true,
+      "source_blob": {
+        "bytes": 3827,
+        "sha256": "12f59afaf5e3bcbc9101d426e6c2e99a7eaa2b89fa3aeba28b8ea3c3048e8274"
+      }
+    },
+    "campaigns/MS_FRONTIER_HELIX_V1/B_DRIFT/RESEARCH_STOP.json": {
+      "index_blob": {
+        "bytes": 1598,
+        "sha256": "f48aad0ea93678c41dcbc76f8e76aab93c82c08b69ba57a08f5d72d406392119"
+      },
+      "same_blob": true,
+      "source_blob": {
+        "bytes": 1598,
+        "sha256": "f48aad0ea93678c41dcbc76f8e76aab93c82c08b69ba57a08f5d72d406392119"
+      }
+    },
+    "methodology/MS_FRONTIER_B_DRIFT_HIDDEN_SUBORDINATE_PHENOTYPE_2026-09-01.md": {
+      "index_blob": {
+        "bytes": 2035,
+        "sha256": "21a7f71e1a36472383e2f3e4baac8e439f798dfb26b4422fc212796e62995595"
+      },
+      "same_blob": true,
+      "source_blob": {
+        "bytes": 2035,
+        "sha256": "21a7f71e1a36472383e2f3e4baac8e439f798dfb26b4422fc212796e62995595"
+      }
+    },
+    "tests/embodiment/test_frontier_b_drift_hidden_subordinate_phenotype.py": {
+      "index_blob": {
+        "bytes": 7114,
+        "sha256": "36c738e9c41bb89224f6ece46a01964a2a7b6283323eee228781e993e411f26f"
+      },
+      "same_blob": true,
+      "source_blob": {
+        "bytes": 7114,
+        "sha256": "36c738e9c41bb89224f6ece46a01964a2a7b6283323eee228781e993e411f26f"
+      }
+    }
+  },
+  "imported_files": [
+    "campaigns/MS_FRONTIER_HELIX_V1/B_DRIFT/CSC_DISCRIMINATOR_SPEC_MAIN_V1.json",
+    "campaigns/MS_FRONTIER_HELIX_V1/B_DRIFT/CSC_DISCRIMINATOR_SPEC_MAIN_V1_RAW.txt",
+    "campaigns/MS_FRONTIER_HELIX_V1/B_DRIFT/CSC_EMBODIMENT_RESULT_MAIN_V1.json",
+    "campaigns/MS_FRONTIER_HELIX_V1/B_DRIFT/CSC_EMBODIMENT_RESULT_MAIN_V1_RAW.txt",
+    "campaigns/MS_FRONTIER_HELIX_V1/B_DRIFT/CSC_TERMINAL_P02.json",
+    "campaigns/MS_FRONTIER_HELIX_V1/B_DRIFT/CSC_TERMINAL_P04.json",
+    "campaigns/MS_FRONTIER_HELIX_V1/B_DRIFT/DISCRIMINATOR_SPEC_MAIN_V1.json",
+    "campaigns/MS_FRONTIER_HELIX_V1/B_DRIFT/EMBODIMENT_RESULT_MAIN_V1.json",
+    "campaigns/MS_FRONTIER_HELIX_V1/B_DRIFT/P01.json",
+    "campaigns/MS_FRONTIER_HELIX_V1/B_DRIFT/P02.json",
+    "campaigns/MS_FRONTIER_HELIX_V1/B_DRIFT/P03.json",
+    "campaigns/MS_FRONTIER_HELIX_V1/B_DRIFT/P04.json",
+    "campaigns/MS_FRONTIER_HELIX_V1/B_DRIFT/REFRAME_AFTER_P04_ATTEMPT1_RAW.txt",
+    "campaigns/MS_FRONTIER_HELIX_V1/B_DRIFT/REJECTED_P04_ATTEMPT1.json",
+    "campaigns/MS_FRONTIER_HELIX_V1/B_DRIFT/REJECTED_P05_ATTEMPT1.json",
+    "campaigns/MS_FRONTIER_HELIX_V1/B_DRIFT/REJECTED_P05_ATTEMPT2.json",
+    "campaigns/MS_FRONTIER_HELIX_V1/B_DRIFT/REJECTED_P05_ATTEMPT3.json",
+    "campaigns/MS_FRONTIER_HELIX_V1/B_DRIFT/RESEARCH_STOP.json",
+    "methodology/MS_FRONTIER_B_DRIFT_HIDDEN_SUBORDINATE_PHENOTYPE_2026-09-01.md",
+    "tests/embodiment/test_frontier_b_drift_hidden_subordinate_phenotype.py"
+  ],
+  "microseed_tree_after_replay": "4c8051563279d20f2ea555d21d7b3305b039e771",
+  "production_delta_from_current_main": [],
+  "recommended_next": "Either run a bounded admission/continuity audit over the B_DRIFT replay as evidence-only frontier result, or replay the next top zero-microseed frontier (E_IDENTITY or F_VALUE) on current canon with shared-overlap guards.",
+  "schema": "microseed.frontier_b_drift_replay_on_bc_canon.v1",
+  "semantic_claim": "In the bounded two-level hierarchy case, parent relation currentness does not require a persistent subordinate identity primitive when all parent-owned operational premises are unchanged: hidden effect-preserving child phenotype changes remain current; hidden effect-changing changes are not pre-observable but are staled by actual outcome drift; explicit request-channel dependency drift stales immediately.",
+  "skipped_shared_overlap_files": [
+    "campaigns/MS_FRONTIER_HELIX_V1/WAVE1_RECOVERY_V2.md",
+    "tools/run_ms_frontier_helix_wave1_controller_v2.py",
+    "tools/run_ms_frontier_helix_wave1_v2.py"
+  ],
+  "source_branch": "origin/research/frontier-b-drift-v1",
+  "source_branch_state": "STALE_FRONTIER_LINEAGE__REPLAYED_SELECTIVELY_ON_CURRENT_CANON",
+  "source_head": "c9c6f0470a0bbc706c4f325a2bcdae4404f7c5d5",
+  "source_merge_base_with_current_main": "408c265bfdc8052a614b6cb4cbe51a60673a73eb",
+  "status": "REPLAYED_ON_CURRENT_BC_CANON__NO_PRODUCTION_DELTA__FOCUSED_AND_ADJACENT_CLEANUP_NEUTRAL_PASS__NOT_CANONICAL",
+  "verification": {
+    "adjacent_cleanup_neutral": "26/26 PASS",
+    "adjacent_cleanup_neutral_capture": {
+      "args": [
+        "-q",
+        "tests/embodiment/test_frontier_b_drift_hidden_subordinate_phenotype.py",
+        "tests/embodiment/test_ms2063_end_to_end_two_level_hierarchy_transfer.py",
+        "tests/embodiment/test_ms2054_p1a_stale_rehearsal_currentness_promotion.py",
+        "tests/embodiment/test_ms1943_signal_predictive_currentness.py",
+        "tests/embodiment/test_ms1452_integration.py",
+        "tests/embodiment/test_ms2065_bounded_hierarchy_promotion_candidate.py"
+      ],
+      "cleanup_neutral": true,
+      "elapsed_seconds": 67.081,
+      "kind": "pytest",
+      "name": "FRONTIER_B_DRIFT_ADJACENT_CLEANUP_NEUTRAL",
+      "return_code": 0,
+      "schema": "microseed.command_capture.v1",
+      "stderr_bytes": 0,
+      "stderr_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_reentry_frontier_select_20260902/evidence/FRONTIER_B_DRIFT_ADJACENT_CLEANUP_NEUTRAL_STDERR.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_tail": "",
+      "stdout_bytes": 154,
+      "stdout_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_reentry_frontier_select_20260902/evidence/FRONTIER_B_DRIFT_ADJACENT_CLEANUP_NEUTRAL_STDOUT.log",
+      "stdout_sha256": "657a041fdb9c1e2da1cc5e8b55a2f8c16c78c30f97ee21340fc4d86bb261bab9",
+      "stdout_tail": "FRONTIER_B_DRIFT_ADJACENT_CLEANUP_NEUTRAL=1\n..........................                                               [100%]\n26 passed in 66.83s (0:01:06)\n"
+    },
+    "compileall": "PASS",
+    "compileall_capture": {
+      "command": [
+        "python",
+        "-m",
+        "compileall",
+        "-q",
+        "microseed",
+        "tests/embodiment/test_frontier_b_drift_hidden_subordinate_phenotype.py",
+        "tools/verify_public_v1_continuity.py"
+      ],
+      "elapsed_seconds": 0.151,
+      "kind": "subprocess",
+      "name": "FRONTIER_B_DRIFT_COMPILEALL",
+      "return_code": 0,
+      "schema": "microseed.command_capture.v1",
+      "stderr_bytes": 0,
+      "stderr_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_reentry_frontier_select_20260902/evidence/FRONTIER_B_DRIFT_COMPILEALL_STDERR.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_tail": "",
+      "stdout_bytes": 0,
+      "stdout_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_reentry_frontier_select_20260902/evidence/FRONTIER_B_DRIFT_COMPILEALL_STDOUT.log",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_tail": ""
+    },
+    "direct_b_precheck": "EXPECTED_WINDOWS_TEMPORARYDIRECTORY_SQLITE_CLEANUP_FAILURE_ONLY",
+    "direct_b_precheck_capture": {
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/embodiment/test_frontier_b_drift_hidden_subordinate_phenotype.py"
+      ],
+      "elapsed_seconds": 25.9,
+      "kind": "subprocess",
+      "name": "FRONTIER_B_DRIFT_DIRECT_PRECHECK",
+      "return_code": 1,
+      "schema": "microseed.command_capture.v1",
+      "stderr_bytes": 0,
+      "stderr_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_reentry_frontier_select_20260902/evidence/FRONTIER_B_DRIFT_DIRECT_PRECHECK_STDERR.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_tail": "",
+      "stdout_bytes": 15242,
+      "stdout_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_reentry_frontier_select_20260902/evidence/FRONTIER_B_DRIFT_DIRECT_PRECHECK_STDOUT.log",
+      "stdout_sha256": "55fbbb14dfa4ac17ffc8c0f076d4076d29d2bb49bfbef70080815803d7e4d959",
+      "stdout_tail": "['td'].cleanup()\n\ntests\\embodiment\\test_frontier_b_drift_hidden_subordinate_phenotype.py:141: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\nC:\\Users\\ancal\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\tempfile.py:954: in cleanup\n    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)\nC:\\Users\\ancal\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\tempfile.py:934: in _rmtree\n    _shutil.rmtree(name, onexc=onexc)\nC:\\Users\\ancal\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\shutil.py:781: in rmtree\n    return _rmtree_unsafe(path, onexc)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nC:\\Users\\ancal\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\shutil.py:635: in _rmtree_unsafe\n    onexc(os.unlink, fullname, err)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nfunc = <built-in function unlink>\npath = 'C:\\\\Users\\\\ancal\\\\AppData\\\\Local\\\\Temp\\\\microseed-ms2063-e2e-hierarchy-pidq6k1p\\\\biography.sqlite3'\nexc = PermissionError(13, 'The process cannot access the file because it is being used by another process')\n\n    def onexc(func, path, exc):\n        if isinstance(exc, PermissionError):\n            if repeated and path == name:\n                if ignore_errors:\n                    return\n                raise\n    \n            try:\n                if path != name:\n                    _resetperms(_os.path.dirname(path))\n                _resetperms(path)\n    \n                try:\n>                   _os.unlink(path)\nE                   PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\\\Users\\\\ancal\\\\AppData\\\\Local\\\\Temp\\\\microseed-ms2063-e2e-hierarchy-pidq6k1p\\\\biography.sqlite3'\n\nC:\\Users\\ancal\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\tempfile.py:909: PermissionError\n=========================== short test summary info ===========================\nFAILED tests/embodiment/test_frontier_b_drift_hidden_subordinate_phenotype.py::test_hidden_effect_preserving_subordinate_swap_needs_no_identity_primitive\nFAILED tests/embodiment/test_frontier_b_drift_hidden_subordinate_phenotype.py::test_hidden_effect_changing_swap_is_not_preobservable_but_actual_outcomes_stale_relation\nFAILED tests/embodiment/test_frontier_b_drift_hidden_subordinate_phenotype.py::test_explicit_request_channel_dependency_drift_stales_immediately_before_new_outcome\n3 failed in 24.57s\n"
+    },
+    "focused_cleanup_neutral": "3/3 PASS",
+    "focused_cleanup_neutral_capture": {
+      "args": [
+        "-q",
+        "tests/embodiment/test_frontier_b_drift_hidden_subordinate_phenotype.py"
+      ],
+      "cleanup_neutral": true,
+      "elapsed_seconds": 25.056,
+      "kind": "pytest",
+      "name": "FRONTIER_B_DRIFT_FOCUSED_CLEANUP_NEUTRAL",
+      "return_code": 0,
+      "schema": "microseed.command_capture.v1",
+      "stderr_bytes": 0,
+      "stderr_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_reentry_frontier_select_20260902/evidence/FRONTIER_B_DRIFT_FOCUSED_CLEANUP_NEUTRAL_STDERR.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_tail": "",
+      "stdout_bytes": 142,
+      "stdout_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_reentry_frontier_select_20260902/evidence/FRONTIER_B_DRIFT_FOCUSED_CLEANUP_NEUTRAL_STDOUT.log",
+      "stdout_sha256": "2bd46bdcbdcbc08f0e69136fb86c1d7de560e1aecd990316e3258b70de656d64",
+      "stdout_tail": "FRONTIER_B_DRIFT_FOCUSED_CLEANUP_NEUTRAL=1\n...                                                                      [100%]\n3 passed in 24.46s\n"
+    },
+    "promotion_guard": "2/2 PASS",
+    "promotion_guard_capture": {
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/embodiment/test_ms2065_bounded_hierarchy_promotion_candidate.py"
+      ],
+      "elapsed_seconds": 0.829,
+      "kind": "subprocess",
+      "name": "FRONTIER_B_DRIFT_PROMOTION_GUARD",
+      "return_code": 0,
+      "schema": "microseed.command_capture.v1",
+      "stderr_bytes": 0,
+      "stderr_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_reentry_frontier_select_20260902/evidence/FRONTIER_B_DRIFT_PROMOTION_GUARD_STDERR.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_tail": "",
+      "stdout_bytes": 98,
+      "stdout_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_reentry_frontier_select_20260902/evidence/FRONTIER_B_DRIFT_PROMOTION_GUARD_STDOUT.log",
+      "stdout_sha256": "aad379e7b2a64858e712e62619e117bec18395755c8c673c8e0ff100744c7455",
+      "stdout_tail": "..                                                                       [100%]\n2 passed in 0.43s\n"
+    },
+    "public_verifier": "PASS, issues empty",
+    "public_verifier_capture": {
+      "command": [
+        "python",
+        "tools/verify_public_v1_continuity.py"
+      ],
+      "elapsed_seconds": 1.153,
+      "kind": "subprocess",
+      "name": "FRONTIER_B_DRIFT_PUBLIC_VERIFIER",
+      "return_code": 0,
+      "schema": "microseed.command_capture.v1",
+      "stderr_bytes": 0,
+      "stderr_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_reentry_frontier_select_20260902/evidence/FRONTIER_B_DRIFT_PUBLIC_VERIFIER_STDERR.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_tail": "",
+      "stdout_bytes": 543,
+      "stdout_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_reentry_frontier_select_20260902/evidence/FRONTIER_B_DRIFT_PUBLIC_VERIFIER_STDOUT.log",
+      "stdout_sha256": "19db4772d3b1a3c4418c13a573b10bfbfeccd8d3fa565004b2c7cba001690274",
+      "stdout_tail": "{\n  \"status\": \"PASS\",\n  \"head\": \"d3a1b4e1a6f44dec7dfcb10bbd351f88a8010457\",\n  \"canonical_v1\": \"0fa41f1ed4cf2fbd341b5f0b63adbc0034d4ac39\",\n  \"canonical_tree\": \"88a4014db5838848b1e36b904b96e55b2a5f670e\",\n  \"head_microseed_tree\": \"4c8051563279d20f2ea555d21d7b3305b039e771\",\n  \"v1_microseed_tree\": \"0ce2b39d48bad3c34a56f95fbfefa17de9cbe922\",\n  \"public_receipt_sha256\": \"c0f3ea96bbfa59fdfe75910120285654797afff028d8044bc0633e647ef3a43d\",\n  \"suite_stdout_sha256\": \"5432c11be80077a62e11b2918d0e4af667c045bcb98746a80ca8b96e1ad08edc\",\n  \"issues\": []\n}\n"
+    }
+  }
+}

@@ -26,3 +26,14 @@ campaigns/V1_SOAK_001/SERIALIZATION/*.md text eol=lf
 evidence/V1_SOAK_SERIALIZATION_*_STDOUT.log binary
 evidence/V1_SOAK_SERIALIZATION_*_STDERR.log binary
 evidence/V1_SOAK_SERIALIZATION_*_SUMMARY.json text eol=lf
+campaigns/MS_FRONTIER_HELIX_V1/B_DRIFT/*.json text eol=lf
+campaigns/MS_FRONTIER_HELIX_V1/B_DRIFT/*.txt text eol=lf
+methodology/MS_FRONTIER_B_DRIFT_HIDDEN_SUBORDINATE_PHENOTYPE_2026-09-01.md text eol=lf
+tests/embodiment/test_frontier_b_drift_hidden_subordinate_phenotype.py text eol=lf
+campaigns/FRONTIER_SELECTION/2026-09-02/*.json text eol=lf
+campaigns/FRONTIER_SELECTION/2026-09-02/*.md text eol=lf
+campaigns/MS_FRONTIER_HELIX_V1/B_DRIFT/REPLAY_ON_BC_CANON/*.json text eol=lf
+campaigns/MS_FRONTIER_HELIX_V1/B_DRIFT/REPLAY_ON_BC_CANON/*.md text eol=lf
+evidence/FRONTIER_B_DRIFT_*_STDOUT.log binary
+evidence/FRONTIER_B_DRIFT_*_STDERR.log binary
+evidence/FRONTIER_B_DRIFT_*_SUMMARY.json text eol=lf

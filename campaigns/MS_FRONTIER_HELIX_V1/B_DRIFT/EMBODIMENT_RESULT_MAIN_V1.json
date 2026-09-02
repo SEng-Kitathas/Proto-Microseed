@@ -1,0 +1,44 @@
+{
+  "arm": "B_DRIFT",
+  "status": "VERIFIED_RESEARCH_RESULT",
+  "claim": "BOUNDED_PARENT_RELATION_CURRENTNESS_DOES_NOT_REQUIRE_A_PERSISTENT_SUBORDINATE_IDENTITY_PRIMITIVE_WHEN_ALL_OWNED_OPERATIONAL_PREMISES_ARE_UNCHANGED",
+  "claim_ceiling": "Bounded to the tested two-level request/effect fixture. It does not prove that every severe developmental replacement is manageable without identity-like state. It establishes that hidden phenotype change which leaves all parent-owned operational premises unchanged is not pre-observably distinguishable; effect-preserving change need not stale; effect-changing change is caught by actual outcomes; explicit owned-premise drift stales immediately.",
+  "pdver": "PROBE -> DERIVE -> VERIFY -> EMBODY -> RECURSE",
+  "embodiment": "tests\\embodiment\\test_frontier_b_drift_hidden_subordinate_phenotype.py",
+  "test_sha256": "36c738e9c41bb89224f6ece46a01964a2a7b6283323eee228781e993e411f26f",
+  "focused_result": {
+    "passed": 3,
+    "failed": 0,
+    "duration_seconds": 12.26,
+    "runner": "tools/run_pytest_cleanup_neutral.py"
+  },
+  "related_regression": {
+    "passed": 42,
+    "failed": 0,
+    "duration_seconds": 60.03,
+    "runner": "tools/run_pytest_cleanup_neutral.py"
+  },
+  "observed": [
+    "Hidden subordinate local means changed M0/M1 -> Z0/Z1 while request-channel and bound-specialization signatures remained unchanged.",
+    "When higher-level effect was preserved, two post-admission eight-row windows remained 1.0/1.0 accurate and relation/routing stayed current.",
+    "When higher-level effect flipped under the same visible premises, relation/routing were current before new world contact; two actual-outcome failure windows then produced DRIFT_WITNESS with 0.0/0.0 accuracy and staled the relation.",
+    "The drift witness grants no drift-cause, semantic-regime, model-switch, or identity authority; one replacement candidate is merely nominated from lived evidence.",
+    "Explicit REQ-BASE dependency drift staled the bound request specialization and projection-conditioned routing immediately before any new outcome."
+  ],
+  "survivors": [
+    "REMEMBERED_SUBORDINATE_MODEL != CURRENT_SUBORDINATE_CAPABILITY",
+    "ACTUAL_OUTCOME_SOVEREIGNTY",
+    "HIDDEN_CHANGE_WITH_UNCHANGED_OWNED_PREMISES_IS_NOT_PREOBSERVABLE",
+    "OBSERVABLE_DEPENDENCY_DRIFT_STALES_IMMEDIATELY",
+    "EMPIRICAL_EFFECT_DRIFT_REQUIRES_ACTUAL_OUTCOME_EVIDENCE"
+  ],
+  "new_core_mechanism_required": "NO_IN_THIS_BOUNDED_CASE",
+  "production_delta": [],
+  "promotion_authority": "NONE",
+  "timestamp_epoch": 1788266261.2918983,
+  "csc_result_verdict": "PASS",
+  "csc_claim_supported": true,
+  "csc_claim_ceiling_ok": true,
+  "seal_status": "READY_FOR_RESEARCH_COMMIT",
+  "methodology": "methodology\\MS_FRONTIER_B_DRIFT_HIDDEN_SUBORDINATE_PHENOTYPE_2026-09-01.md"
+}
