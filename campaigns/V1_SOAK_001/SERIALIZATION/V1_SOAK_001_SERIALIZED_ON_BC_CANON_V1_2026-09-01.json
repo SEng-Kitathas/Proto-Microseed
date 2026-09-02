@@ -1,0 +1,226 @@
+{
+  "already_present_from_current_lineage": {
+    "microseed/runtime/entity.py": {
+      "head_blob": {
+        "bytes": 591416,
+        "sha256": "9c38f44b9d37069201e38cb6f8e43d58a3878a950cca9129808a193c75179d51"
+      },
+      "same_blob": false,
+      "source_blob": {
+        "bytes": 557811,
+        "sha256": "a00b426b549ae745afcf04f881f4d6e4f353b9057aa51b92bdc6f1015a7721ba"
+      }
+    },
+    "scratch/v1_soak_001_stale_rehearsal_reuse_violation.py": {
+      "head_blob": {
+        "bytes": 8674,
+        "sha256": "fd603c16c227929f020280287c50f9970607e0fa2f4c18e9934adb823edc5b79"
+      },
+      "same_blob": true,
+      "source_blob": {
+        "bytes": 8674,
+        "sha256": "fd603c16c227929f020280287c50f9970607e0fa2f4c18e9934adb823edc5b79"
+      }
+    },
+    "tests/embodiment/test_v1_soak_001_stale_rehearsal_reuse_violation.py": {
+      "head_blob": {
+        "bytes": 853,
+        "sha256": "340282adc3c9a5e3a2755e36494b64aa15b2a1f04da3bb3c57148036890fb6a2"
+      },
+      "same_blob": true,
+      "source_blob": {
+        "bytes": 853,
+        "sha256": "340282adc3c9a5e3a2755e36494b64aa15b2a1f04da3bb3c57148036890fb6a2"
+      }
+    }
+  },
+  "base_public_main": "6c9c9a54de8269902438916ea00a81caed5e8913",
+  "branch": "research/v1-developmental-soak-rebased-on-bc-canon-v1",
+  "current_canon": {
+    "label": "PRELINGUAL_SUBSTRATE_V1_P1A_N1A_BOUNDED_HIERARCHY_V1_MS_SUBSTRATE_HARDENING_V1_BC_NESTED_CURRENTNESS_V1",
+    "microseed_tree": "4c8051563279d20f2ea555d21d7b3305b039e771",
+    "tag": "prelingual-substrate-v1-p1a-n1a-bounded-hierarchy-v1-ms-substrate-hardening-v1-bc-nested-currentness-v1",
+    "tag_commit": "9e5df16ac60c0edaf8833b54e42d8e38d724fc4c"
+  },
+  "decision": "SERIALIZATION_ONLY__NO_CANON_CHANGE__NO_PRODUCTION_CHANGE",
+  "imported_file_identities": {
+    "methodology/V1_SOAK_001_NOVEL_WORLD_LONG_HORIZON_DEVELOPMENTAL_SOAK.md": {
+      "source_blob": {
+        "bytes": 22308,
+        "sha256": "4390d293fbd3f3da803015e938fd9c766780b5dfa3fc975da9c3a3784681b3bc"
+      },
+      "working_file": {
+        "bytes": 22654,
+        "sha256": "5148c955d9266046cdf88595567d4a995e3954d1e6dd9fc0dbce0fca61a41c34"
+      }
+    },
+    "research_results/V1_SOAK_001_1200_EPISODE_RESULT.json": {
+      "source_blob": {
+        "bytes": 6136,
+        "sha256": "5cb1e5dd9a3c4d201145ae7c466c1310899cdd541a1f1bfd1a9aede864b4647a"
+      },
+      "working_file": {
+        "bytes": 6347,
+        "sha256": "ed6e0a47f14946b1d2843a747474c82d7beda755558b4c18736c58b619ce7659"
+      }
+    },
+    "research_results/V1_SOAK_001_ARTIFACT_POINTERS.md": {
+      "source_blob": {
+        "bytes": 375,
+        "sha256": "c063eea01029af69abf3a6f37cd106bd6405fdba1d73b15ad813dc17d5b32e57"
+      },
+      "working_file": {
+        "bytes": 380,
+        "sha256": "97de78d19aaa0dfe5e13db6489160e62352410942f29c2bf3c427328d3e3e049"
+      }
+    },
+    "research_results/V1_SOAK_001_REPAIR_PROMOTION_READINESS.json": {
+      "source_blob": {
+        "bytes": 2158,
+        "sha256": "9db4b8cec38ae3a73692b335fabc29c3b6cbaf45ae6fd9877ff9a095327d2eae"
+      },
+      "working_file": {
+        "bytes": 2212,
+        "sha256": "1049a88e7d0ec51843d98e575f4a1764596ccf55d26a2e2df1a9e3f8e2b00ae6"
+      }
+    },
+    "scratch/v1_soak_001_novel_world_long_horizon.py": {
+      "source_blob": {
+        "bytes": 33139,
+        "sha256": "4bfd0937825867942cfe34b98655df0bca94add4e81c8e2607b31191cc9040a5"
+      },
+      "working_file": {
+        "bytes": 33630,
+        "sha256": "51b58a94550207886bfa31890c20bcbc4a4a3ee8d036f583503d52f21b49759c"
+      }
+    },
+    "tests/embodiment/test_v1_soak_001_smoke.py": {
+      "source_blob": {
+        "bytes": 1432,
+        "sha256": "f6528751bb801d6ad359a1f99a178e0fa85100c18de28226133f0becafeeb415"
+      },
+      "working_file": {
+        "bytes": 1463,
+        "sha256": "e581a15a6e64917baa928e69888b2fee5115e11d57eea654ecfd6e579d464098"
+      }
+    }
+  },
+  "imported_files": [
+    "methodology/V1_SOAK_001_NOVEL_WORLD_LONG_HORIZON_DEVELOPMENTAL_SOAK.md",
+    "research_results/V1_SOAK_001_1200_EPISODE_RESULT.json",
+    "research_results/V1_SOAK_001_ARTIFACT_POINTERS.md",
+    "research_results/V1_SOAK_001_REPAIR_PROMOTION_READINESS.json",
+    "scratch/v1_soak_001_novel_world_long_horizon.py",
+    "tests/embodiment/test_v1_soak_001_smoke.py"
+  ],
+  "mechanism_status": "PRODUCTION_REPAIR_ALREADY_PRESENT_IN_CURRENT_MAIN_VIA_MS2054_P1A",
+  "microseed_tree_after_serialization": "4c8051563279d20f2ea555d21d7b3305b039e771",
+  "production_delta_from_current_main": [],
+  "production_repair_introduced_by_current_lineage": [
+    "c036ab5 MS2054 P1A: promote stale rehearsal currentness repair candidate"
+  ],
+  "recommended_next": "Either run a bounded admission audit over the serialized long-horizon evidence, or select the next frontier; do not merge the stale origin/research/v1-developmental-soak-001 branch directly.",
+  "schema": "microseed.v1_soak_001_serialized_on_bc_canon.v1",
+  "semantic_claim": "Preserve V1-SOAK-001 long-horizon developmental-soak evidence and smoke harness on current B/C canon. No new production behavior is admitted here because stale learned-relation durable-rehearsal invalidation was already canonical via MS2054 P1A.",
+  "source_branch": "origin/research/v1-developmental-soak-001",
+  "source_branch_state": "STALE_LINEAGE__DO_NOT_MERGE_DIRECTLY",
+  "source_head": "3e95bb520307b5b2a0dc4d292655f0d9c3a76014",
+  "source_merge_base_with_current_main": "0fa41f1ed4cf2fbd341b5f0b63adbc0034d4ac39",
+  "status": "SERIALIZED_ON_CURRENT_BC_CANON__NO_PRODUCTION_DELTA__EVIDENCE_AND_HARNESS_ONLY__NOT_NEW_CANON",
+  "verification": {
+    "compileall": "PASS",
+    "compileall_capture": {
+      "command": [
+        "python",
+        "-m",
+        "compileall",
+        "-q",
+        "microseed",
+        "scratch/v1_soak_001_novel_world_long_horizon.py",
+        "tests/embodiment/test_v1_soak_001_smoke.py"
+      ],
+      "elapsed_seconds": 0.082,
+      "kind": "subprocess",
+      "name": "V1_SOAK_SERIALIZATION_COMPILEALL",
+      "return_code": 0,
+      "schema": "microseed.command_capture.v1",
+      "stderr_bytes": 0,
+      "stderr_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_soak_serialization_20260901/evidence/V1_SOAK_SERIALIZATION_COMPILEALL_STDERR.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_tail": "",
+      "stdout_bytes": 0,
+      "stdout_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_soak_serialization_20260901/evidence/V1_SOAK_SERIALIZATION_COMPILEALL_STDOUT.log",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_tail": ""
+    },
+    "direct_unpatched_precheck": "8 passed, 11 failed from known Windows SQLite TemporaryDirectory cleanup only; rerun cleanup-neutral passed 19/19",
+    "focused_cleanup_neutral": "19/19 PASS; pytest rc 0; stderr empty",
+    "focused_cleanup_neutral_capture": {
+      "args": [
+        "-q",
+        "tests/embodiment/test_v1_soak_001_smoke.py",
+        "tests/embodiment/test_v1_soak_001_stale_rehearsal_reuse_violation.py",
+        "tests/embodiment/test_ms2054_p1a_stale_rehearsal_currentness_promotion.py",
+        "tests/embodiment/test_ms1452_integration.py",
+        "tests/embodiment/test_ms1943_signal_predictive_currentness.py"
+      ],
+      "cleanup_neutral": true,
+      "elapsed_seconds": 40.96,
+      "kind": "pytest",
+      "name": "V1_SOAK_SERIALIZATION_FOCUSED_CLEANUP_NEUTRAL",
+      "return_code": 0,
+      "schema": "microseed.command_capture.v1",
+      "stderr_bytes": 0,
+      "stderr_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_soak_serialization_20260901/evidence/V1_SOAK_SERIALIZATION_FOCUSED_CLEANUP_NEUTRAL_STDERR.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_tail": "",
+      "stdout_bytes": 100,
+      "stdout_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_soak_serialization_20260901/evidence/V1_SOAK_SERIALIZATION_FOCUSED_CLEANUP_NEUTRAL_STDOUT.log",
+      "stdout_sha256": "8da23d5f595f55cf4ba4c7dde76af7c7b08e43f738f23b084cc2c3d7abdc1d1d",
+      "stdout_tail": "...................                                                      [100%]\n19 passed in 40.72s\n"
+    },
+    "promotion_guard": "2/2 PASS",
+    "promotion_guard_capture": {
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/embodiment/test_ms2065_bounded_hierarchy_promotion_candidate.py"
+      ],
+      "elapsed_seconds": 0.92,
+      "kind": "subprocess",
+      "name": "V1_SOAK_SERIALIZATION_PROMOTION_GUARD",
+      "return_code": 0,
+      "schema": "microseed.command_capture.v1",
+      "stderr_bytes": 0,
+      "stderr_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_soak_serialization_20260901/evidence/V1_SOAK_SERIALIZATION_PROMOTION_GUARD_STDERR.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_tail": "",
+      "stdout_bytes": 98,
+      "stdout_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_soak_serialization_20260901/evidence/V1_SOAK_SERIALIZATION_PROMOTION_GUARD_STDOUT.log",
+      "stdout_sha256": "aad379e7b2a64858e712e62619e117bec18395755c8c673c8e0ff100744c7455",
+      "stdout_tail": "..                                                                       [100%]\n2 passed in 0.43s\n"
+    },
+    "public_verifier": "PASS, issues empty",
+    "public_verifier_capture": {
+      "command": [
+        "python",
+        "tools/verify_public_v1_continuity.py"
+      ],
+      "elapsed_seconds": 1.182,
+      "kind": "subprocess",
+      "name": "V1_SOAK_SERIALIZATION_PUBLIC_VERIFIER",
+      "return_code": 0,
+      "schema": "microseed.command_capture.v1",
+      "stderr_bytes": 0,
+      "stderr_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_soak_serialization_20260901/evidence/V1_SOAK_SERIALIZATION_PUBLIC_VERIFIER_STDERR.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_tail": "",
+      "stdout_bytes": 543,
+      "stdout_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_soak_serialization_20260901/evidence/V1_SOAK_SERIALIZATION_PUBLIC_VERIFIER_STDOUT.log",
+      "stdout_sha256": "867a584acaa3b605e0a598b967ad96ffabea18255798511f3a19e958bd08fcd9",
+      "stdout_tail": "{\n  \"status\": \"PASS\",\n  \"head\": \"6c9c9a54de8269902438916ea00a81caed5e8913\",\n  \"canonical_v1\": \"0fa41f1ed4cf2fbd341b5f0b63adbc0034d4ac39\",\n  \"canonical_tree\": \"88a4014db5838848b1e36b904b96e55b2a5f670e\",\n  \"head_microseed_tree\": \"4c8051563279d20f2ea555d21d7b3305b039e771\",\n  \"v1_microseed_tree\": \"0ce2b39d48bad3c34a56f95fbfefa17de9cbe922\",\n  \"public_receipt_sha256\": \"c0f3ea96bbfa59fdfe75910120285654797afff028d8044bc0633e647ef3a43d\",\n  \"suite_stdout_sha256\": \"5432c11be80077a62e11b2918d0e4af667c045bcb98746a80ca8b96e1ad08edc\",\n  \"issues\": []\n}\n"
+    }
+  }
+}

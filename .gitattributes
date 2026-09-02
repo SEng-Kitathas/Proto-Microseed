@@ -16,3 +16,13 @@ evidence/BC_NESTED_CURRENTNESS_CLEAN_CONFIRM_*_SUMMARY.json text eol=lf
 campaigns/POST_BC_PROMOTION/BRANCH_SURFACE_AUDIT/*.json text eol=lf
 campaigns/POST_BC_PROMOTION/BRANCH_SURFACE_AUDIT/*.md text eol=lf
 evidence/POST_BC_PROMOTION_REENTRY_AUDIT_V1_2026-09-01.json text eol=lf
+methodology/V1_SOAK_001_NOVEL_WORLD_LONG_HORIZON_DEVELOPMENTAL_SOAK.md text eol=lf
+research_results/V1_SOAK_001_*.json text eol=lf
+research_results/V1_SOAK_001_ARTIFACT_POINTERS.md text eol=lf
+scratch/v1_soak_001_novel_world_long_horizon.py text eol=lf
+tests/embodiment/test_v1_soak_001_smoke.py text eol=lf
+campaigns/V1_SOAK_001/SERIALIZATION/*.json text eol=lf
+campaigns/V1_SOAK_001/SERIALIZATION/*.md text eol=lf
+evidence/V1_SOAK_SERIALIZATION_*_STDOUT.log binary
+evidence/V1_SOAK_SERIALIZATION_*_STDERR.log binary
+evidence/V1_SOAK_SERIALIZATION_*_SUMMARY.json text eol=lf

@@ -1,0 +1,24 @@
+{
+  "args": [
+    "-q",
+    "tests/embodiment/test_v1_soak_001_smoke.py",
+    "tests/embodiment/test_v1_soak_001_stale_rehearsal_reuse_violation.py",
+    "tests/embodiment/test_ms2054_p1a_stale_rehearsal_currentness_promotion.py",
+    "tests/embodiment/test_ms1452_integration.py",
+    "tests/embodiment/test_ms1943_signal_predictive_currentness.py"
+  ],
+  "cleanup_neutral": true,
+  "elapsed_seconds": 40.96,
+  "kind": "pytest",
+  "name": "V1_SOAK_SERIALIZATION_FOCUSED_CLEANUP_NEUTRAL",
+  "return_code": 0,
+  "schema": "microseed.command_capture.v1",
+  "stderr_bytes": 0,
+  "stderr_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_soak_serialization_20260901/evidence/V1_SOAK_SERIALIZATION_FOCUSED_CLEANUP_NEUTRAL_STDERR.log",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_tail": "",
+  "stdout_bytes": 100,
+  "stdout_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_soak_serialization_20260901/evidence/V1_SOAK_SERIALIZATION_FOCUSED_CLEANUP_NEUTRAL_STDOUT.log",
+  "stdout_sha256": "8da23d5f595f55cf4ba4c7dde76af7c7b08e43f738f23b084cc2c3d7abdc1d1d",
+  "stdout_tail": "...................                                                      [100%]\n19 passed in 40.72s\n"
+}

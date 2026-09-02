@@ -1,0 +1,22 @@
+{
+  "command": [
+    "python",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/embodiment/test_ms2065_bounded_hierarchy_promotion_candidate.py"
+  ],
+  "elapsed_seconds": 0.92,
+  "kind": "subprocess",
+  "name": "V1_SOAK_SERIALIZATION_PROMOTION_GUARD",
+  "return_code": 0,
+  "schema": "microseed.command_capture.v1",
+  "stderr_bytes": 0,
+  "stderr_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_soak_serialization_20260901/evidence/V1_SOAK_SERIALIZATION_PROMOTION_GUARD_STDERR.log",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_tail": "",
+  "stdout_bytes": 98,
+  "stdout_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_soak_serialization_20260901/evidence/V1_SOAK_SERIALIZATION_PROMOTION_GUARD_STDOUT.log",
+  "stdout_sha256": "aad379e7b2a64858e712e62619e117bec18395755c8c673c8e0ff100744c7455",
+  "stdout_tail": "..                                                                       [100%]\n2 passed in 0.43s\n"
+}

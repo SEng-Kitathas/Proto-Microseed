@@ -1,0 +1,54 @@
+{
+  "status": "TECHNICALLY_PROMOTION_READY_NOT_CANONICALLY_PROMOTED",
+  "canonical_v1": "0fa41f1ed4cf2fbd341b5f0b63adbc0034d4ac39",
+  "research_branch": "research/v1-developmental-soak-001",
+  "research_head_before_receipt": "5d94a8431b08b0c36dd3cbf5dd365b10dc065fa1",
+  "production_delta": [
+    "microseed/runtime/entity.py"
+  ],
+  "production_delta_scope": "ONE_EXISTING_OWNER_ONLY__COUNTERFACTUAL_REHEARSAL_STATUS_CURRENTNESS_PROPAGATION",
+  "focused_cleanup_neutral": {
+    "result": "17/17 PASS",
+    "tests": [
+      "MS1452 integration",
+      "MS1943 signal predictive currentness",
+      "V1 soak stale-rehearsal regression",
+      "V1 soak smoke"
+    ]
+  },
+  "long_soak": {
+    "job_id": "job-fc7a1d158877",
+    "result": "PASS",
+    "episodes": 1200,
+    "ordinary_episode_coverage": "1200/1200 each with 3 action effects"
+  },
+  "applicable_whole_regression": {
+    "job_id": "job-e2d21972fa9f",
+    "result": "912 PASS / 1 DESELECTED",
+    "duration_seconds": 693.37,
+    "stderr_bytes": 0,
+    "deselected": "MS2050 historical canonical production-byte identity guard"
+  },
+  "canonical_identity_guard": {
+    "result": "EXPECTED_FAIL_ON_RESEARCH_PRODUCTION_DELTA",
+    "reason": "research HEAD intentionally differs from frozen canonical V1 microseed bytes",
+    "preserved_not_rewritten": true
+  },
+  "plain_pytest_misleading_gate": {
+    "job_id": "job-7b4628ef7391",
+    "reported": "497 failed / 416 passed",
+    "triage": "dominated by 996 WinError-32 biography.sqlite3 teardown exceptions; substantive assertions were MS1452 stale recovery fixture and expected MS2050 canonical identity guard",
+    "status": "DEMOTED_AS_FUNCTIONAL_REGRESSION_SIGNAL"
+  },
+  "repair_law": "DURABLE_REHEARSAL_REUSE_DOES_NOT_OUTLIVE_THE_CURRENTNESS_OF_ITS_OWNED_LEARNED_TRANSITION_PREMISE",
+  "fixture_law": "RECOVERY_OBSERVATION_COLLECTION != STALE_MODEL_EXECUTION_AUTHORITY",
+  "promotion_authority": "OPERATOR_EXPLICIT_PROMOTION_REQUIRED",
+  "claim_ceiling": [
+    "NOT_CANONICAL_V1",
+    "NOT_OPEN_ENDED_DEVELOPMENT",
+    "NOT_SELF_QUALIFICATION",
+    "NOT_NAKED_AUTONOMY",
+    "NOT_AGI"
+  ],
+  "created_at_utc": "2026-08-31T10:29:45.094100+00:00"
+}

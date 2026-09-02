@@ -1,0 +1,211 @@
+{
+  "status": "PASS",
+  "job_id": "job-fc7a1d158877",
+  "job_return_code": 0,
+  "job_stderr_bytes": 0,
+  "run_subject": "V1_REPAIR_DESCENDANT_AFTER_STALE_REHEARSAL_VIOLATION",
+  "canonical_v1": "0fa41f1ed4cf2fbd341b5f0b63adbc0034d4ac39",
+  "research_head_at_launch": "0847bd6df4baa0881315a998e90750ac44c171ac",
+  "episodes_requested": 1200,
+  "ordinary_episode_coverage": "1200/1200_EACH_WITH_3_ACTION_EFFECTS",
+  "ordinary_execution_count": 3716,
+  "ordinary_outcome_count": 3716,
+  "telemetry_rows": 3651,
+  "run_failure_count": 0,
+  "run_end_count": 1,
+  "intent_block_count": 1,
+  "intent_block_classification": "ONE_EXPECTED_STALE_R41_FAIL_CLOSED_CHECK",
+  "localized_drift": {
+    "K-17": "CURRENT_WITHIN_BOUNDS",
+    "M-23": "CURRENT_WITHIN_BOUNDS",
+    "R-41": "DRIFT_WITNESS"
+  },
+  "final_old_relation_status": {
+    "K-17": "CURRENT_PREDICTIVE_RELATION",
+    "M-23": "CURRENT_PREDICTIVE_RELATION",
+    "R-41": "STALE_PREDICTIVE_RELATION"
+  },
+  "final_active_relation_status": {
+    "K-17": "CURRENT_PREDICTIVE_RELATION",
+    "M-23": "CURRENT_PREDICTIVE_RELATION",
+    "R-41": "CURRENT_PREDICTIVE_RELATION"
+  },
+  "final_active_proposal_status": {
+    "s0": "CURRENT_REHEARSAL_PROPOSAL",
+    "s1": "CURRENT_REHEARSAL_PROPOSAL",
+    "s2": "CURRENT_REHEARSAL_PROPOSAL"
+  },
+  "replacement_r_relation_id": "ACTION-LAW-12b9bb9c8d418c683a79",
+  "restart_count": 3,
+  "restart_pre_attach_not_current": true,
+  "restart_post_attach_current": true,
+  "referent_trajectory": [
+    {
+      "episode": 0,
+      "phase": "FULL_A",
+      "sample_width": 16,
+      "class_count": 8
+    },
+    {
+      "episode": 100,
+      "phase": "FULL_A",
+      "sample_width": 16,
+      "class_count": 8
+    },
+    {
+      "episode": 200,
+      "phase": "FULL_A",
+      "sample_width": 16,
+      "class_count": 8
+    },
+    {
+      "episode": 300,
+      "phase": "CROSS",
+      "sample_width": 16,
+      "class_count": 8
+    },
+    {
+      "episode": 400,
+      "phase": "CROSS",
+      "sample_width": 16,
+      "class_count": 8
+    },
+    {
+      "episode": 500,
+      "phase": "OCCLUDE_25",
+      "sample_width": 12,
+      "class_count": 6
+    },
+    {
+      "episode": 600,
+      "phase": "POST",
+      "sample_width": 16,
+      "class_count": 8
+    },
+    {
+      "episode": 700,
+      "phase": "POST",
+      "sample_width": 16,
+      "class_count": 8
+    },
+    {
+      "episode": 800,
+      "phase": "ALIAS_67",
+      "sample_width": 16,
+      "class_count": 7
+    },
+    {
+      "episode": 900,
+      "phase": "ALIAS_67",
+      "sample_width": 16,
+      "class_count": 7
+    },
+    {
+      "episode": 1000,
+      "phase": "POST_2",
+      "sample_width": 16,
+      "class_count": 8
+    },
+    {
+      "episode": 1100,
+      "phase": "POST_2",
+      "sample_width": 16,
+      "class_count": 8
+    }
+  ],
+  "watchdog_max_rss_mb": 497.61328125,
+  "watchdog_max_runtime_disk_mb": 67.18222045898438,
+  "program_diagnostics": [
+    {
+      "chain_count": 0,
+      "episode": -1,
+      "generated_status": "ABSTAIN",
+      "generated_steps": [],
+      "hypothesis_count": 0,
+      "surface_status": "NO_COHERENT_THREE_LOCUS_CHAIN_MODEL_SURFACE"
+    },
+    {
+      "chain_count": 0,
+      "episode": 300,
+      "generated_status": "ABSTAIN",
+      "generated_steps": [],
+      "hypothesis_count": 0,
+      "surface_status": "NO_COHERENT_THREE_LOCUS_CHAIN_MODEL_SURFACE"
+    },
+    {
+      "chain_count": 0,
+      "episode": 700,
+      "generated_status": "ABSTAIN",
+      "generated_steps": [],
+      "hypothesis_count": 2,
+      "surface_status": "NO_COHERENT_THREE_LOCUS_CHAIN_MODEL_SURFACE"
+    },
+    {
+      "chain_count": 0,
+      "episode": 1199,
+      "generated_status": "ABSTAIN",
+      "generated_steps": [],
+      "hypothesis_count": 2,
+      "surface_status": "NO_COHERENT_THREE_LOCUS_CHAIN_MODEL_SURFACE"
+    }
+  ],
+  "program_generation_verdict": "NOT_DEMONSTRATED__NO_COHERENT_THREE_LOCUS_CHAIN_MODEL_SURFACE",
+  "effect_capability_ids": [
+    "K-17",
+    "M-23",
+    "R-41"
+  ],
+  "language_branch_mechanism_present": "NO",
+  "naked_branch_mechanism_present": "NO",
+  "new_core_manager": "NO",
+  "midrun_external_qualification_assistance": "R_REPLACEMENT_ONLY__EXPLICIT_EQUIPPED_FEDERATED_BOUNDARY",
+  "referent_probe_schedule_assistance": "FORKED_WORLD_DIAGNOSTIC_ONLY",
+  "artifacts": {
+    "config.json": {
+      "bytes": 338,
+      "sha256": "921c3da115f78e9c34193bdfe41b3162098abaccbf99db494d7db22b83a6ad89"
+    },
+    "result_summary.json": {
+      "bytes": 22410,
+      "sha256": "27c9aa51bcd5f77adebc2cb07cf5ae99226edd61405adf2deb2a29ce76769e2f"
+    },
+    "telemetry.jsonl": {
+      "bytes": 7069105,
+      "sha256": "225ec86a60d88cc4a8110342b009765d498486b5b8517fd57ff71e44a52f0497"
+    },
+    "snapshots/snapshot-e00300-s00.zip": {
+      "bytes": 1971541,
+      "sha256": "cd08bf25a1e847681639d3169cdfc5fa90aa776599ad39c6b17c7de0ef32af1f"
+    },
+    "snapshots/snapshot-e00600-s01.zip": {
+      "bytes": 3663471,
+      "sha256": "46fd2785a38812c7f6ff17d52199bee2bbe114427ee05448300db3c70dd1b563"
+    },
+    "snapshots/snapshot-e00900-s02.zip": {
+      "bytes": 5519730,
+      "sha256": "8555476dd336562a022dd0c465951291c09ba2491335f0ac9dc495354672b41b"
+    },
+    "runtime/biography.sqlite3": {
+      "bytes": 34205696,
+      "sha256": "74606ca57bf186a490010a8ab9c598acd89470203156942f1a168d7827404e9a"
+    },
+    "runtime/evidence.sqlite3": {
+      "bytes": 5595136,
+      "sha256": "70049f224d3dac0e24be68b2e7d61d637351aa148062b25481771f8fa288ece1"
+    },
+    "runtime/state.sqlite3": {
+      "bytes": 23498752,
+      "sha256": "76aa23a49f35f76a9187c1a7ccda1d0876cc469c5d864affb7846068d68720fa"
+    }
+  },
+  "earned": "REPAIRED_V1_DESCENDANT_MAINTAINED_LONG_HORIZON_DURABLE_ZERO_ROW_OPERATION_ACROSS_RESTARTS_AND_REFERENT_GEOMETRY_PRESSURE_THEN_LOCALIZED_TERMINAL_CAUSAL_DRIFT_STALED_ONLY_R41_BLOCKED_ITS_DURABLE_REHEARSAL_AND_RESUMED_AFTER_EXPLICIT_REPLACEMENT_QUALIFICATION_WITHOUT_GLOBAL_RESET",
+  "not_earned": [
+    "CANONICAL_V1_PROMOTION",
+    "OPEN_ENDED_DEVELOPMENT",
+    "SELF_QUALIFICATION",
+    "NAKED_AUTONOMY",
+    "LANGUAGE_COMPETENCE",
+    "AGI"
+  ],
+  "created_at_utc": "2026-08-31T05:52:48.572244+00:00"
+}

@@ -1,0 +1,24 @@
+{
+  "command": [
+    "python",
+    "-m",
+    "compileall",
+    "-q",
+    "microseed",
+    "scratch/v1_soak_001_novel_world_long_horizon.py",
+    "tests/embodiment/test_v1_soak_001_smoke.py"
+  ],
+  "elapsed_seconds": 0.082,
+  "kind": "subprocess",
+  "name": "V1_SOAK_SERIALIZATION_COMPILEALL",
+  "return_code": 0,
+  "schema": "microseed.command_capture.v1",
+  "stderr_bytes": 0,
+  "stderr_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_soak_serialization_20260901/evidence/V1_SOAK_SERIALIZATION_COMPILEALL_STDERR.log",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_tail": "",
+  "stdout_bytes": 0,
+  "stdout_path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_soak_serialization_20260901/evidence/V1_SOAK_SERIALIZATION_COMPILEALL_STDOUT.log",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_tail": ""
+}
