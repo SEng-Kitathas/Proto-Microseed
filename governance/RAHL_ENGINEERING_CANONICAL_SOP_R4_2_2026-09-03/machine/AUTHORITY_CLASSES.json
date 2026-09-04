@@ -1,0 +1,19 @@
+{
+  "classes": [
+    "ADMISSIBILITY_CONSTRAINT",
+    "STANDING_OBLIGATION",
+    "QUALIFICATION_RULE",
+    "DEFAULT",
+    "HEURISTIC",
+    "TRIGGER",
+    "SCAR",
+    "RESEARCH_CANDIDATE"
+  ],
+  "guards": [
+    "DEFAULT != ADMISSIBILITY_CONSTRAINT",
+    "HEURISTIC != ACCEPTANCE_CRITERION",
+    "SCAR != PROHIBITION",
+    "RESEARCH_SURVIVOR != UNIVERSAL_LAW"
+  ],
+  "schema": "rahl.sop.authority-classes.v1"
+}

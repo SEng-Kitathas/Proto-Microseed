@@ -1,5 +1,9 @@
 # Proto-Microseed
 
+## Governing engineering / research process
+
+This project adopts **Rahl Engineering Canonical SOP R4.2** as its governing engineering/research process authority for the duration of the project unless explicitly superseded by the project owner. Start at [`GOVERNING_ENGINEERING_SOP.md`](GOVERNING_ENGINEERING_SOP.md). The sealed adopted ZIP is SHA-256 `eb167543e9ceb2ae01449f421d2916e61b7dd924270ea2e83e3364c9d808ce9a`. This process adoption does not modify Microseed scientific canon or grant domain/product/architecture authority.
+
 Proto-Microseed is an experimental developmental cognitive runtime focused on a narrow question: how much cognition can be earned through grounded operational mechanisms and lawful composition before a large supplied semantic ontology or generic planner becomes necessary?
 
 This repository carries historical **`PRELINGUAL_SUBSTRATE_V1`** plus the operator-promoted repaired/extended canonical substrate **`PRELINGUAL_SUBSTRATE_V1_P1A_N1A_BOUNDED_HIERARCHY_V1`**. Historical V1 remains immutable at its original tag; P1A repaired stale rehearsal-currentness authority, N1A adds one exact bounded first-unmodeled-effect constitutional warrant under residual uncertainty, and the bounded-hierarchy promotion adds only the authority-attenuating learned opaque request-target carrier/currentness path earned by MS2057–MS2065. See `methodology/MS2054_P1A_STALE_REHEARSAL_CURRENTNESS_CANONICAL_REPAIR.md`, `methodology/MS2055_N1A_CONSTITUTIONAL_EXPERIMENTAL_AUTHORITY_EMBODIMENT.md`, `methodology/MS2056_N1A_CANONICAL_PROMOTION.md`, and `methodology/MS2065_BOUNDED_HIERARCHY_CANONICAL_PROMOTION.md`.

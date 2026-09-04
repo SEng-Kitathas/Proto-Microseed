@@ -1,0 +1,21 @@
+{
+  "guards": [
+    "BASE_TIER_FUNCTIONAL_OBLIGATIONS != OPTIONAL_FOR_NONTRIVIAL_WORK",
+    "METHOD_STACK_REFERENCE != MANDATORY_LINEAR_PIPELINE",
+    "PROPORTIONALITY != DISPENSATION_FROM_ENGINEERING_DISCIPLINE",
+    "TRIVIAL_TASK != FULL_CEREMONY",
+    "AI_BREADTH != TRUTH_AUTHORITY"
+  ],
+  "schema": "rahl.sop.base-tier-engineering-metabolism.v1",
+  "scope": "nontrivial_engineering_research_architecture_diagnosis_implementation_audit_synthesis",
+  "standing_functions": {
+    "AI_coprocessor": "additive search/synthesis/blind-spot/isomorphism/cross-domain/recomputation/embodiment/incidental-signal capacity",
+    "Attention_Reservoir": "neglected-hypothesis and deferred-signal breadth pressure",
+    "CSC": "bounded cross-surface/cross-system review",
+    "Loop+": "outer source-expansion/isomorphism/translation/control-update/experiment/replay loop",
+    "OARR": "adversarial observation/attack/replay/revision",
+    "PDVER": "Probe -> Derive -> Verify -> Embody -> Recurse",
+    "Semantic_Helix": "next-discriminator and meaning-integration pressure",
+    "hostile_engineering": "attack strongest plausible survivor; isolate failure; mutate/re-derive; verify; embody; read back; attack again"
+  }
+}

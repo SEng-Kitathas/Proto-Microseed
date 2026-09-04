@@ -42,3 +42,10 @@ campaigns/MS_FRONTIER_HELIX_V1/B_DRIFT/ADMISSION_AUDIT/*.md text eol=lf
 evidence/FRONTIER_B_DRIFT_ADMISSION_*_STDOUT.log binary
 evidence/FRONTIER_B_DRIFT_ADMISSION_*_STDERR.log binary
 evidence/FRONTIER_B_DRIFT_ADMISSION_*_SUMMARY.json text eol=lf
+governance/RAHL_ENGINEERING_CANONICAL_SOP_R4_2_2026-09-03.zip -text
+governance/RAHL_ENGINEERING_CANONICAL_SOP_R4_2_2026-09-03/** -text
+governance/RAHL_ENGINEERING_CANONICAL_SOP_R4_2_ADOPTION_2026-09-04.md text eol=lf
+governance/RAHL_ENGINEERING_CANONICAL_SOP_R4_2_SEMANTIC_READ_RECEIPT_2026-09-04.json text eol=lf
+evidence/governance/RAHL_R4_2_ADOPTION_QUALIFICATION_2026-09-04.json text eol=lf
+GOVERNING_ENGINEERING_SOP.md text eol=lf
+tools/verify_rahl_r4_2_adoption.py text eol=lf

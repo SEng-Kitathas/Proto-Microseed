@@ -1,0 +1,25 @@
+{
+  "candidate": "pcmmad.continuity-envelope.v1",
+  "status": "qualified isolated candidate; not promoted",
+  "source_snapshot_tree_sha256": "36b57da825f993b33ccf5fd1ebe755bb65d66a9a6f854ec43f4eb1f652e2b8f7",
+  "candidate_tree_sha256": "d96102ffbf4d721d1d88ed0568bc1353d12036b8d6a0a8db542a3693667cefce",
+  "candidate_files": 62,
+  "changed_existing_files": [
+    "app_factory.py",
+    "control_plane_models.py",
+    "lab_tools.py"
+  ],
+  "added_files": [
+    "continuity_envelope.py",
+    "tests/test_continuity_envelope.py"
+  ],
+  "patch_sha256": "59fef362ce36896a20379d1514ae865aad547b3ce57705fad9b8add382bc106a",
+  "qualification_report_sha256": "5a8d50cf7dcd95722756116db786dae32944efb7360d1cf7f47ad37e88115aa7",
+  "tests": "11/11 PASS",
+  "compileall": "PASS",
+  "read_side_nonmutation": "100 builds -> identical state/continuity/protocol digest",
+  "concurrency": "256 builds / 32 workers -> one fingerprint",
+  "representative_envelope_chars": 2343,
+  "warmed_mean_build_ms": 3.795,
+  "live_receiver_mutated": false
+}

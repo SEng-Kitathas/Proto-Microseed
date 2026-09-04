@@ -1,0 +1,29 @@
+{
+  "adjacent": [
+    "current_state",
+    "next_steps",
+    "doctrine_snapshot",
+    "revisit_ledger",
+    "trace_matrix"
+  ],
+  "core_shadows": {
+    "design_thread_stream": {
+      "authority": "continuity_only",
+      "purpose": "chronological forensic recovery"
+    },
+    "live_shadow": {
+      "authority": "continuity_only",
+      "purpose": "minimum active operational state"
+    },
+    "research_epistemic_shadow": {
+      "authority": "research_continuity_not_doctrine",
+      "purpose": "cumulative interpreted research understanding"
+    }
+  },
+  "laws": [
+    "CONTINUITY != PROOF",
+    "RES_CONTENT != GOVERNING_DOCTRINE",
+    "REMEMBERED_POINTER != CURRENT_STATE_EVIDENCE"
+  ],
+  "schema": "rahl.sop.continuity-instruments.v1"
+}

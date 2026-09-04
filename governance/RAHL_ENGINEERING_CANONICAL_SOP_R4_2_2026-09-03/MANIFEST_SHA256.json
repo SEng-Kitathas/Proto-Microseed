@@ -1,0 +1,154 @@
+{
+  "files": {
+    "00_READ_ME_FIRST.md": {
+      "bytes": 6013,
+      "sha256": "7dd77f056803fcbf48e631d612f6f595e180a12cc2ecbbec86f9169335f14e5e"
+    },
+    "01_AUTHORITY_CLASSES_AND_CONFLICT_RESOLUTION.md": {
+      "bytes": 2086,
+      "sha256": "008390e0c69c64e744d11826451dde7dca25abf38dcefc4ddb8cca6b1fe92dd4"
+    },
+    "02_ENGINEERING_AUTHORITY_SURFACE.md": {
+      "bytes": 9339,
+      "sha256": "217a1cef5535b7907d3549624c3445dc308994d4ee13cc01f538445010978ef8"
+    },
+    "03_PROJECT_OBLIGATION_INTERFACE.md": {
+      "bytes": 905,
+      "sha256": "59326c29a598e6eee4f66be943fd453a3d9a15d433da2807c98e0282f1278ade"
+    },
+    "04_RESEARCH_GOVERNANCE.md": {
+      "bytes": 6878,
+      "sha256": "957c97abfe0701f7097de188e92caae335940b5a9720c400bdfde2f018b34029"
+    },
+    "05_RESEARCH_MACHINERY_AND_MODES.md": {
+      "bytes": 6599,
+      "sha256": "775fc6e9b2853f9c35f520e86e07efa46e8c85a4ac57b743cba3222a105dc2e4"
+    },
+    "06A_SERVER_EXECUTION_METHODOLOGY_FOR_UNRELIABLE_PLANES.md": {
+      "bytes": 7314,
+      "sha256": "6c30134b3e213bb088ac4ec13651c205439ee8cab8824e848fe16ab93dffb1f0"
+    },
+    "06_EXECUTION_RELEASE_AND_ENVIRONMENT_DISCIPLINE.md": {
+      "bytes": 8117,
+      "sha256": "2b950b70afb5f9f172b72c253875c2c9dc12586af082b59192025208699ffb93"
+    },
+    "07A_LIVE_SHADOW_PROTOCOL.md": {
+      "bytes": 958,
+      "sha256": "05c191e6b49ceaee0fe290e94827b204f91f0ad9cb136284aa37134d74b674f1"
+    },
+    "07B_DESIGN_THREAD_STREAM_PROTOCOL.md": {
+      "bytes": 771,
+      "sha256": "9a0ef949c13aecba346af93e5f497ae1e9b3e828e6bb5359ec130ff134c12df3"
+    },
+    "07C_RESEARCH_EPISTEMIC_SHADOW_PROTOCOL.md": {
+      "bytes": 3354,
+      "sha256": "d49bb28773d17a79abdc848624f3cbe3a7a60025ce7301bede4d7746e7e2963e"
+    },
+    "07_CONTINUITY_SYSTEM.md": {
+      "bytes": 4056,
+      "sha256": "b917a7f76ded842000cac50e761e61e8704c0916c3228ff615e8b773724a9da9"
+    },
+    "08_STATE_INSTRUMENTS_PROMOTION_AND_APPEND_ONLY.md": {
+      "bytes": 2245,
+      "sha256": "a2ec3946cd97048f84e9b42269920ea7dc79277468082657a7ce0dc1ec349381"
+    },
+    "09_UNKNOWN_TRACE_AND_RECOVERY_RULE.md": {
+      "bytes": 1611,
+      "sha256": "ee36bddcfaa6f9219fcf3909c39bcbe3f7bc91e35bee514443859047e3147bfc"
+    },
+    "10_SUBSTRATE_PROFILE_ACTIVATION.md": {
+      "bytes": 620,
+      "sha256": "bc7750f08dca9d8721df55dd2d84f6d4166a8576abc43622e229d2d2068d0e7c"
+    },
+    "11_ACTIVE_SCAR_INDEX.md": {
+      "bytes": 3660,
+      "sha256": "4eac2b61a9d78436539cd93bc49529f4d668a8a3212250ead30de61349847c45"
+    },
+    "12_COLD_START_PROTOCOL.md": {
+      "bytes": 3614,
+      "sha256": "f287ccce983ec3aaec56c0311ab296a0c9291e6cc2d12fc971814d0d7553ed82"
+    },
+    "13_PACKAGE_ARCHIVE_AND_PROVENANCE.md": {
+      "bytes": 2542,
+      "sha256": "01fc04d6a730a67defc36d0fc87d30f6e29bb389df02a63a58d7692b8040e22d"
+    },
+    "14_CHANGELOG_AND_CULL_LEDGER.md": {
+      "bytes": 6673,
+      "sha256": "6fa8118e23238d2ddc59e2921e3ff9542e627cb886d15fa1bd0d2d4cbcd7909d"
+    },
+    "15_CLAIM_CEILING_AND_NONCLAIMS.md": {
+      "bytes": 1978,
+      "sha256": "6defda6a1102134792e3f453357931292f7545d919ad5d2135b37a2221c84cbe"
+    },
+    "PROMOTION_RECEIPT.md": {
+      "bytes": 2016,
+      "sha256": "34510f26a0a210bf45ee9552a1c489e2018d4be318b79edc92908ce07ba744d5"
+    },
+    "RELEASE_VERIFICATION.md": {
+      "bytes": 2441,
+      "sha256": "bfa82add12f72c0760504765309e1588d04100367ddd6b36c9a7e509ef0722e3"
+    },
+    "VERIFY_CANONICAL_SOP.py": {
+      "bytes": 10795,
+      "sha256": "a2a579602b3fe007a8cbed29df89202ec99474c607c2f50c3c8f9982ce6c95d2"
+    },
+    "ancestry/RAHL_ENGINEERING_CANONICAL_SOP_R4_0_2026-09-02.zip": {
+      "bytes": 152456,
+      "sha256": "020fcfb642a304869f2d266080f4dcf21959ca09c5fa14f60c0ec06616273f0a"
+    },
+    "ancestry/RAHL_ENGINEERING_CANONICAL_SOP_R4_1_2026-09-03.zip": {
+      "bytes": 309036,
+      "sha256": "af4364fbcf8e5d33aa2ad06e4da9c4669d4be2ffcbc332e416742bec1543f4d2"
+    },
+    "ancestry/RAHL_ENGINEERING_IN_HOUSE_SOP_SPLIT_CANDIDATE_R3_1_2026-08-29.zip": {
+      "bytes": 104946,
+      "sha256": "4d205becc2413889bdb37c6b6ff7513d6f759a7dff1d9f9b8fddaddd8235a278"
+    },
+    "evidence/README.md": {
+      "bytes": 505,
+      "sha256": "efc1079c8d5eb0e8836ecc96e96a5dd7d3d02e15f204258868687fc0fa560af4"
+    },
+    "evidence/receiver_continuity_qualification/CANDIDATE_SEAL.json": {
+      "bytes": 1024,
+      "sha256": "16c04f9460a1dcad12485db00ee6639f63f8382862262eadf26ea5af7829fdea"
+    },
+    "evidence/receiver_continuity_qualification/CONTINUITY_ENVELOPE_V0_1.patch": {
+      "bytes": 24649,
+      "sha256": "59fef362ce36896a20379d1514ae865aad547b3ce57705fad9b8add382bc106a"
+    },
+    "evidence/receiver_continuity_qualification/QUALIFICATION_REPORT.md": {
+      "bytes": 7642,
+      "sha256": "5a8d50cf7dcd95722756116db786dae32944efb7360d1cf7f47ad37e88115aa7"
+    },
+    "evidence/receiver_continuity_qualification/SOURCE_SNAPSHOT_MANIFEST.json": {
+      "bytes": 9609,
+      "sha256": "20c83018ee217de05e714edaaef3b97ce49899d4d18db2cb6601f0d01c83d24f"
+    },
+    "machine/AUTHORITY_CLASSES.json": {
+      "bytes": 408,
+      "sha256": "e2bc24ab821c12041d3ee88602696bf3591125e733a96b5dadc95d5dddd40eee"
+    },
+    "machine/BASE_TIER_ENGINEERING_METABOLISM.json": {
+      "bytes": 1211,
+      "sha256": "acafb6c28563be79d17dd888cdd45d332c5f06dc6dc12a47844432509f01830f"
+    },
+    "machine/CONTINUITY_INSTRUMENTS.json": {
+      "bytes": 745,
+      "sha256": "c3e6491615b86615f583a1d90c79da866a37c8cad3478549f2289561a96110f1"
+    },
+    "machine/EXECUTION_AND_ENVIRONMENT.json": {
+      "bytes": 3177,
+      "sha256": "1665c54176d87554d509c6629bae082292d78307b15daa3aeabff2559e088986"
+    },
+    "machine/SCARS.json": {
+      "bytes": 4108,
+      "sha256": "30499d259f1930a66a0964af36fcc327ab3d9bffe83be453a9d6d8c7ebd07102"
+    },
+    "tests/RUN_HOSTILE_TESTS.py": {
+      "bytes": 7794,
+      "sha256": "60a2de566fb9442e0527024204e1b2048c0258ea89af32484e71f9b51e187eb5"
+    }
+  },
+  "package_id": "RAHL_ENGINEERING_CANONICAL_SOP_R4_2_2026-09-03",
+  "schema": "rahl.sop.package-manifest.v1"
+}

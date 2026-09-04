@@ -1,0 +1,94 @@
+{
+  "degraded_plane_methodology": {
+    "assistant_side_convenience_sufficient": false,
+    "assistant_side_exception": "materially better or faster for the specific step; exception explicit",
+    "core_rule": "use strongest surviving plane, not prettiest plane",
+    "default_locality": "operator-side/local/server when available and sufficient",
+    "execution_truth_surfaces": [
+      "job/execution id",
+      "pid when applicable",
+      "stdout/stderr paths",
+      "durable output artifacts",
+      "structured result/summary",
+      "repository/remote state",
+      "task-appropriate hashes/identities"
+    ],
+    "fallback_bypasses_authority": false,
+    "long_operation_preferences": [
+      "incremental progress",
+      "durable flush/checkpoints",
+      "resume",
+      "per-item failure capture",
+      "clear partial/completion state"
+    ],
+    "plane_preference": [
+      "server-native project execution",
+      "direct server-side subprocess or Python",
+      "durable project-local script executed server-side",
+      "ad hoc bridge/chat execution when stronger routes are unavailable or materially inferior"
+    ]
+  },
+  "environment_identity_fields": [
+    "subject",
+    "authoritative_representation",
+    "admissible_transformations",
+    "consequence_bearing_environment",
+    "assurance_class",
+    "residuals"
+  ],
+  "execution_plane": {
+    "bulk_data_plane": false,
+    "control_plane_primary_roles": [
+      "authorize",
+      "dispatch",
+      "monitor",
+      "inspect_exceptions",
+      "receive_compact_receipts"
+    ],
+    "finite_deterministic_preference": "bounded durable local/server operation or job wherever practical",
+    "first_transport_failure_action": "reroute architecture unless concrete interactive/capability constraint justifies bridge repetition",
+    "response_loss_action": "inspect consequence-bearing local state before rerun",
+    "scar": "DO THE WORK WHERE THE STATE LIVES; RETURN ONLY THE EVIDENCE NEEDED TO CONTROL IT."
+  },
+  "non_equivalences": [
+    "SUBMITTED != STARTED",
+    "STARTED != COMPLETED",
+    "COMPLETED != REGISTERED",
+    "ARTIFACT_REGISTERED != CHAT_RENDERED",
+    "CONTROL_PLANE_RESPONSE_FAILURE != LOCAL_EXECUTION_FAILURE",
+    "CONTROL_PLANE_MINIMIZATION != SEMANTIC_READ_SKIPPING",
+    "AUTOMATED_CHECKS != LINEAR_SEMANTIC_READ",
+    "CONTROL_PLANE != BULK_DATA_PLANE",
+    "STRONGEST_SURVIVING_PLANE != PRETTIEST_PLANE",
+    "OPERATOR_SIDE_DEFAULT != ASSISTANT_SIDE_PROHIBITED",
+    "ASSISTANT_SIDE_CONVENIENCE != MATERIAL_ADVANTAGE",
+    "EXECUTION_PLANE_FALLBACK != AUTHORITY_BYPASS"
+  ],
+  "schema": "rahl.sop.execution-obligations.v3",
+  "semantic_admission": {
+    "automated_checks_substitute": false,
+    "exact_hash_receipt_reuse_requires": [
+      "exact_bytes_unchanged",
+      "governing_scope_unchanged"
+    ],
+    "meaningfully_readable_artifact_requires_complete_linear_read_before": [
+      "promoted",
+      "sealed",
+      "published",
+      "admitted",
+      "load_bearing"
+    ]
+  },
+  "states": [
+    "planned",
+    "submitted",
+    "started",
+    "completed",
+    "persisted",
+    "read_back",
+    "registered",
+    "rendered",
+    "synchronized",
+    "published"
+  ]
+}

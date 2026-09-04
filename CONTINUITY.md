@@ -1,5 +1,9 @@
 # Current Continuity / External Audit Entry Point
 
+## Governing process authority
+
+Before continuity re-entry, read [`GOVERNING_ENGINEERING_SOP.md`](GOVERNING_ENGINEERING_SOP.md). Rahl Engineering Canonical SOP R4.2 is adopted as project engineering/research process authority; continuity pointers remain navigation rather than current-state proof.
+
 ## Read this before using any branch named `continuity/*`
 
 The branch `continuity/reincarnation-2026-08-30` inside this repository is a **historical MS2003-era continuity package**. It is intentionally preserved for lineage and is **not the current continuity authority**.

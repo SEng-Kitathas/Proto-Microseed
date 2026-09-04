@@ -1,0 +1,658 @@
+--- source/app_factory.py
++++ candidate/app_factory.py
+@@ -6,9 +6,11 @@
+ from importlib import import_module
+ from typing import Callable
+ 
+-from flask import Blueprint, Flask
++from flask import Blueprint, Flask, request
+ 
+ from control_plane_models import BlueprintFailureSpec, BootReport, BootRuntimeStatus
++from continuity_envelope import build_continuity_envelope, project_and_session_from_request
++from shared_core import require_valid_api_key
+ 
+ 
+ class RequiredBlueprintLoadError(RuntimeError):
+@@ -111,10 +113,62 @@
+         setattr(status, spec.error_field, f"{type(exc).__name__}: {exc}")
+ 
+ 
++def _install_continuity_response_envelope(app: Flask) -> None:
++    @app.after_request
++    def attach_project_continuity(response):  # type: ignore[no-untyped-def]
++        try:
++            require_valid_api_key(request.headers)
++        except PermissionError:
++            return response
++        request_payload = request.get_json(silent=True)
++        if not isinstance(request_payload, dict):
++            request_payload = {}
++        response_payload = response.get_json(silent=True) if response.is_json else None
++        response_mapping = response_payload if isinstance(response_payload, dict) else {}
++        project_id, session_id = project_and_session_from_request(
++            request_payload,
++            response_mapping,
++            header_session_id=request.headers.get("X-PCMMAD-Session-ID"),
++        )
++        if not project_id:
++            project_id = str(request.args.get("project_id", "")).strip() or None
++        if not project_id:
++            return response
++        try:
++            continuity = build_continuity_envelope(project_id, session_id=session_id)
++        except (OSError, RuntimeError, ValueError, TypeError, KeyError):
++            return response
++
++        if isinstance(response_payload, dict):
++            if "continuity" in response_payload:
++                return response
++            response_payload["continuity"] = continuity
++        elif response.status_code >= 400 and request.path.startswith(("/project/", "/lab/")):
++            response_payload = {
++                "ok": False,
++                "error_code": (
++                    "UNSTRUCTURED_SERVER_ERROR"
++                    if response.status_code >= 500
++                    else "UNSTRUCTURED_ERROR_RESPONSE"
++                ),
++                "message": "Request failed before a structured JSON response was produced.",
++                "status_code": response.status_code,
++                "continuity": continuity,
++            }
++            response.content_type = "application/json"
++        else:
++            return response
++
++        response.set_data(app.json.dumps(response_payload))
++        response.content_length = len(response.get_data())
++        return response
++
++
+ def create_app() -> Flask:
+     """Create one receiver app; required route-family failures are never silently degraded."""
+ 
+     app = Flask(__name__)
++    _install_continuity_response_envelope(app)
+     boot_report = BootReport()
+     for spec in BLUEPRINTS:
+         _register_blueprint(app, spec, boot_report)
+--- source/control_plane_models.py
++++ candidate/control_plane_models.py
+@@ -738,11 +738,14 @@
+     time: str
+     result: JsonObject
+     warning: str | None = None
++    continuity: JsonObject | None = None
+ 
+     def to_dict(self) -> JsonObject:
+         data = asdict(self)
+         if self.warning is None:
+             data.pop("warning", None)
++        if self.continuity is None:
++            data.pop("continuity", None)
+         return data
+ 
+ 
+--- source/lab_tools.py
++++ candidate/lab_tools.py
+@@ -103,6 +103,7 @@
+     register_package as sop_register_package,
+     reset_ingestion as sop_reset_ingestion,
+ )
++from continuity_envelope import build_continuity_envelope
+ from control_plane_models import (
+     CapabilityFamilyCard,
+     CompactControlSurfaceDescriptor,
+@@ -363,6 +364,16 @@
+         _validate_payload_schema(tool_name, spec.input_schema, payload)
+     decision = _dispatch_decision(tool_name, spec, payload)
+     protocol_decision = _dispatch_protocol_decision(tool_name, spec, payload)
++    continuity = None
++    project_id = str(payload.get("project_id", "")).strip()
++    if project_id:
++        try:
++            continuity = build_continuity_envelope(
++                project_id,
++                session_id=str(payload.get("session_id", "")).strip() or None,
++            )
++        except (OSError, RuntimeError, ValueError, TypeError, KeyError):
++            continuity = None
+     return ToolResultEnvelope(
+         ok=True,
+         tool=tool_name,
+@@ -372,6 +383,7 @@
+         time=utc_now(),
+         result=_dispatch_result(tool_name, spec, payload),
+         warning=_merge_warnings(decision.warning, protocol_decision.warning),
++        continuity=continuity,
+     ).to_dict()
+ 
+ 
+--- /dev/null
++++ candidate/continuity_envelope.py
+@@ -0,0 +1,340 @@
++"""Compact, read-only continuity envelope derived from locally persisted project state.
++
++The envelope is intentionally presentation-layer agnostic. It does not assume why a caller
++lost context; it only provides enough verified local state to recover deterministically.
++"""
++
++from __future__ import annotations
++
++import hashlib
++import json
++import re
++from pathlib import Path
++from typing import Any, Mapping
++
++from protocol_store import protocol_status
++from shared_core import get_project_root, sha256_file, validate_project_id
++
++JsonObject = dict[str, Any]
++
++CONTINUITY_SCHEMA = "pcmmad.continuity-envelope.v1"
++MAX_RESUME_CHARS = 800
++MAX_OPEN_LOOPS = 3
++MAX_OPEN_LOOP_CHARS = 260
++MAX_ANCHOR_HASH_BYTES = 1_048_576
++
++_ANCHOR_CANDIDATES: tuple[tuple[str, tuple[str, ...]], ...] = (
++    (
++        "live_shadow",
++        (
++            "continuity/live_shadow/LIVE_SHADOW.md",
++            "continuity/LIVE_SHADOW.md",
++            "continuity/live_shadow.md",
++        ),
++    ),
++    (
++        "current_state",
++        (
++            "state/current/CURRENT_STATE.md",
++            "state/CURRENT_STATE.md",
++            "state/current_state.md",
++        ),
++    ),
++    (
++        "next_steps",
++        (
++            "state/next_steps/NEXT_STEPS.md",
++            "state/NEXT_STEPS.md",
++            "state/next_steps.md",
++        ),
++    ),
++    (
++        "design_thread_stream",
++        (
++            "continuity/design_thread_stream/DESIGN_THREAD_STREAM.md",
++            "continuity/DESIGN_THREAD_STREAM.md",
++            "continuity/design_thread_stream.md",
++        ),
++    ),
++)
++
++
++def _bounded_text(value: object, limit: int) -> str:
++    text = " ".join(str(value or "").split())
++    if len(text) <= limit:
++        return text
++    return text[: max(0, limit - 1)].rstrip() + "…"
++
++
++def _markdown_section(text: str, heading: str) -> str:
++    pattern = re.compile(
++        rf"(?ims)^##\s+{re.escape(heading)}\s*$\n(.*?)(?=^##\s+|\Z)"
++    )
++    match = pattern.search(text)
++    return match.group(1).strip() if match else ""
++
++
++def _markdown_bullets(section: str) -> list[str]:
++    items: list[str] = []
++    for raw in section.splitlines():
++        stripped = raw.strip()
++        match = re.match(r"^(?:[-*+]\s+|\d+[.)]\s+)(.+)$", stripped)
++        if not match:
++            continue
++        item = _bounded_text(match.group(1), MAX_OPEN_LOOP_CHARS)
++        if item:
++            items.append(item)
++        if len(items) >= MAX_OPEN_LOOPS:
++            break
++    return items
++
++
++def _safe_read_text(path: Path, max_bytes: int = 64_000) -> str:
++    with path.open("rb") as handle:
++        data = handle.read(max_bytes)
++    return data.decode("utf-8", errors="replace")
++
++
++def _anchor_record(root: Path, candidates: tuple[str, ...]) -> JsonObject | None:
++    for rel in candidates:
++        path = (root / rel).resolve()
++        if root.resolve() not in [path, *path.parents] or not path.is_file():
++            continue
++        stat = path.stat()
++        record: JsonObject = {
++            "path": rel,
++            "bytes": int(stat.st_size),
++        }
++        is_design_stream = rel.lower().endswith("design_thread_stream.md")
++        if not is_design_stream and stat.st_size <= MAX_ANCHOR_HASH_BYTES:
++            record["sha256"] = sha256_file(path)
++        elif not is_design_stream:
++            record["sha256"] = None
++            record["hash_omitted_reason"] = "anchor exceeds bounded hash size"
++        return record
++    return None
++
++
++def _anchor_path(root: Path, anchor: Mapping[str, object] | None) -> Path | None:
++    if not anchor:
++        return None
++    rel = str(anchor.get("path", "")).strip()
++    if not rel:
++        return None
++    path = (root / rel).resolve()
++    if root.resolve() not in [path, *path.parents] or not path.is_file():
++        return None
++    return path
++
++
++def _protocol_snapshot(project_id: str) -> JsonObject:
++    try:
++        raw = protocol_status(project_id, initialize=False)
++    except (OSError, RuntimeError, ValueError, TypeError, KeyError):
++        return {}
++    state = raw.get("state") if isinstance(raw, dict) else None
++    if not isinstance(state, dict):
++        return {}
++    event_count = int(state.get("event_count") or 0)
++    head_hash = state.get("head_hash")
++    initialized = bool(event_count > 0 or head_hash)
++    return {
++        "ledger_ok": bool(raw.get("ok", False)),
++        "initialized": initialized,
++        "mode": state.get("current_mode") if initialized else None,
++        "default_mode": state.get("current_mode") if not initialized else None,
++        "head_hash": head_hash,
++        "event_count": event_count,
++        "updated_at": state.get("updated_at"),
++        "objective": state.get("objective"),
++        "continuity": state.get("continuity") if isinstance(state.get("continuity"), list) else [],
++    }
++
++
++def _latest_protocol_continuity(snapshot: Mapping[str, object]) -> JsonObject | None:
++    rows = snapshot.get("continuity")
++    if not isinstance(rows, list):
++        return None
++    for row in reversed(rows):
++        if isinstance(row, dict):
++            return dict(row)
++    return None
++
++
++def _resume_from_files(root: Path, anchors: Mapping[str, Mapping[str, object]]) -> tuple[str, list[str]]:
++    live_path = _anchor_path(root, anchors.get("live_shadow"))
++    if live_path is not None:
++        text = _safe_read_text(live_path)
++        authoritative = _markdown_section(text, "Current Authoritative State")
++        immediate = _markdown_section(text, "Immediate Next Step")
++        objective = _markdown_section(text, "Active User Intent")
++        parts = [part for part in (authoritative, immediate, objective) if part]
++        summary = _bounded_text(" | ".join(parts), MAX_RESUME_CHARS)
++        loops = _markdown_bullets(_markdown_section(text, "Open Loops"))
++        if summary or loops:
++            return summary, loops
++
++    state_path = _anchor_path(root, anchors.get("current_state"))
++    if state_path is not None:
++        summary = _bounded_text(_safe_read_text(state_path, max_bytes=12_000), MAX_RESUME_CHARS)
++        return summary, []
++    return "", []
++
++
++def _mode_hint_from_files(root: Path, anchors: Mapping[str, Mapping[str, object]]) -> str | None:
++    for kind in ("live_shadow", "current_state"):
++        path = _anchor_path(root, anchors.get(kind))
++        if path is None:
++            continue
++        text = _safe_read_text(path, max_bytes=16_000)
++        match = re.search(r"(?im)^\s*-\s*Mode:\s*(.+?)\s*$", text)
++        if match:
++            return _bounded_text(match.group(1), 160) or None
++    return None
++
++
++def _canonical_fingerprint(material: Mapping[str, object]) -> str:
++    raw = json.dumps(material, sort_keys=True, separators=(",", ":"), ensure_ascii=False)
++    return hashlib.sha256(raw.encode("utf-8")).hexdigest()
++
++
++def build_continuity_envelope(
++    project_id: str,
++    *,
++    session_id: str | None = None,
++) -> JsonObject:
++    """Build a compact continuity manifest without mutating project/protocol state."""
++
++    pid = validate_project_id(project_id)
++    root = get_project_root(pid).resolve()
++    anchors: dict[str, JsonObject] = {}
++    for kind, candidates in _ANCHOR_CANDIDATES:
++        record = _anchor_record(root, candidates)
++        if record is not None:
++            anchors[kind] = record
++
++    protocol = _protocol_snapshot(pid)
++    latest = _latest_protocol_continuity(protocol)
++    resume_summary = ""
++    open_loops: list[str] = []
++    if latest:
++        resume_summary = _bounded_text(latest.get("summary"), MAX_RESUME_CHARS)
++        raw_loops = latest.get("open_loops")
++        if isinstance(raw_loops, list):
++            open_loops = [
++                _bounded_text(item, MAX_OPEN_LOOP_CHARS)
++                for item in raw_loops[:MAX_OPEN_LOOPS]
++                if _bounded_text(item, MAX_OPEN_LOOP_CHARS)
++            ]
++    if not resume_summary:
++        resume_summary, file_loops = _resume_from_files(root, anchors)
++        if not open_loops:
++            open_loops = file_loops
++
++    objective = protocol.get("objective")
++    objective_statement = None
++    if isinstance(objective, dict):
++        objective_statement = _bounded_text(objective.get("statement"), 500) or None
++
++    fingerprint_material = {
++        "project_id": pid,
++        "protocol_head": protocol.get("head_hash"),
++        "protocol_events": protocol.get("event_count"),
++        "anchors": {
++            key: {
++                "path": value.get("path"),
++                "sha256": value.get("sha256"),
++                "bytes": value.get("bytes"),
++            }
++            for key, value in sorted(anchors.items())
++        },
++        "latest_continuity_id": latest.get("continuity_id") if latest else None,
++    }
++    fingerprint = _canonical_fingerprint(fingerprint_material)
++
++    topic_parts = [
++        "current authoritative state",
++        "live shadow",
++        "next steps",
++        "open loops",
++        "latest continuity recovery point",
++    ]
++    if objective_statement:
++        topic_parts.append(objective_statement)
++
++    mode_hint = _mode_hint_from_files(root, anchors)
++    result: JsonObject = {
++        "schema": CONTINUITY_SCHEMA,
++        "project_id": pid,
++        "session_id": session_id or None,
++        "state_fingerprint": fingerprint,
++        "protocol": {
++            "ledger_ok": protocol.get("ledger_ok"),
++            "initialized": bool(protocol.get("initialized", False)),
++            "mode": protocol.get("mode"),
++            "head_hash": protocol.get("head_hash"),
++            "event_count": protocol.get("event_count"),
++            "updated_at": protocol.get("updated_at"),
++        },
++        "active_mode_hint": mode_hint,
++        "objective": objective_statement,
++        "resume_summary": resume_summary or None,
++        "open_loops": open_loops,
++        "anchors": anchors,
++        "rehydrate": {
++            "compact_action": "rehydrateProjectContext",
++            "server_tool": "project.context.rehydrate",
++            "topic": _bounded_text("; ".join(topic_parts), 900),
++            "budget_bytes": 40_000,
++        },
++        "plane_note": (
++            "This envelope proves only locally readable continuity state. "
++            "Assistant readback and chat rendering are not observable from the server."
++        ),
++    }
++    if result["session_id"] is None:
++        result.pop("session_id")
++    if result["objective"] is None:
++        result.pop("objective")
++    if result["resume_summary"] is None:
++        result.pop("resume_summary")
++    if result["active_mode_hint"] is None:
++        result.pop("active_mode_hint")
++    return result
++
++
++def project_and_session_from_request(
++    request_payload: Mapping[str, object] | None,
++    response_payload: Mapping[str, object] | None = None,
++    *,
++    header_session_id: str | None = None,
++) -> tuple[str | None, str | None]:
++    """Extract project/session identity from direct or /lab/dispatch shaped payloads."""
++
++    def _mapping(value: object) -> Mapping[str, object] | None:
++        return value if isinstance(value, Mapping) else None
++
++    request_payload = request_payload or {}
++    response_payload = response_payload or {}
++    nested = _mapping(request_payload.get("payload")) or {}
++    result = _mapping(response_payload.get("result")) or {}
++
++    candidates = (
++        request_payload.get("project_id"),
++        nested.get("project_id"),
++        response_payload.get("project_id"),
++        result.get("project_id"),
++    )
++    project_id = next((str(item).strip() for item in candidates if str(item or "").strip()), None)
++
++    session_candidates = (
++        request_payload.get("session_id"),
++        nested.get("session_id"),
++        response_payload.get("session_id"),
++        result.get("session_id"),
++        header_session_id,
++    )
++    session_id = next(
++        (str(item).strip() for item in session_candidates if str(item or "").strip()), None
++    )
++    return project_id, session_id
+--- /dev/null
++++ candidate/tests/test_continuity_envelope.py
+@@ -0,0 +1,182 @@
++from __future__ import annotations
++
++import json
++import os
++import sys
++import unittest
++from pathlib import Path
++
++ROOT = Path(__file__).resolve().parents[1]
++if str(ROOT) not in sys.path:
++    sys.path.insert(0, str(ROOT))
++
++from app_factory import create_app
++from continuity_envelope import (
++    build_continuity_envelope,
++    project_and_session_from_request,
++)
++from control_plane_models import ToolResultEnvelope
++
++
++PROJECT_ID = "pcmmad-receiver-continuity-envelope-v0-1"
++API_KEY = "continuity-test-key"
++
++
++class ContinuityEnvelopeUnitTests(unittest.TestCase):
++    def test_extracts_direct_and_nested_identity(self) -> None:
++        self.assertEqual(
++            ("alpha", "s1"),
++            project_and_session_from_request(
++                {"project_id": "alpha", "session_id": "s1"}, {}
++            ),
++        )
++        self.assertEqual(
++            ("beta", "s2"),
++            project_and_session_from_request(
++                {"tool_name": "x", "payload": {"project_id": "beta", "session_id": "s2"}},
++                {},
++            ),
++        )
++        self.assertEqual(
++            ("gamma", "header-session"),
++            project_and_session_from_request(
++                {}, {"project_id": "gamma"}, header_session_id="header-session"
++            ),
++        )
++
++    def test_tool_result_envelope_omits_or_carries_continuity(self) -> None:
++        base = dict(
++            ok=True,
++            tool="project.files.list",
++            danger_tier="low",
++            policy_mode="NORMAL",
++            approved=True,
++            time="t",
++            result={"ok": True},
++        )
++        plain = ToolResultEnvelope(**base).to_dict()
++        self.assertNotIn("continuity", plain)
++        enriched = ToolResultEnvelope(
++            **base, continuity={"schema": "pcmmad.continuity-envelope.v1"}
++        ).to_dict()
++        self.assertEqual(
++            "pcmmad.continuity-envelope.v1", enriched["continuity"]["schema"]
++        )
++
++    def test_candidate_project_builds_bounded_recovery_state(self) -> None:
++        envelope = build_continuity_envelope(PROJECT_ID, session_id="unit-session")
++        self.assertEqual("pcmmad.continuity-envelope.v1", envelope["schema"])
++        self.assertEqual(PROJECT_ID, envelope["project_id"])
++        self.assertEqual("unit-session", envelope["session_id"])
++        self.assertEqual(64, len(envelope["state_fingerprint"]))
++        self.assertIn("live_shadow", envelope["anchors"])
++        self.assertIn("current_state", envelope["anchors"])
++        self.assertIn("next_steps", envelope["anchors"])
++        self.assertLessEqual(len(envelope.get("resume_summary", "")), 800)
++        self.assertLessEqual(len(envelope.get("open_loops", [])), 3)
++        self.assertEqual("rehydrateProjectContext", envelope["rehydrate"]["compact_action"])
++        self.assertIn("Assistant readback", envelope["plane_note"])
++
++    def test_uninitialized_protocol_default_does_not_claim_mode_authority(self) -> None:
++        envelope = build_continuity_envelope("hsp")
++        self.assertFalse(envelope["protocol"]["initialized"])
++        self.assertIsNone(envelope["protocol"]["mode"])
++        self.assertIn("BUILD-COMMIT", envelope.get("active_mode_hint", ""))
++
++    def test_fingerprint_changes_when_live_shadow_changes_and_read_does_not_mutate(self) -> None:
++        project_root = Path(r"E:\new pc\AI_Pushes_Sandbox\projects") / PROJECT_ID
++        live_shadow = project_root / "continuity" / "live_shadow" / "LIVE_SHADOW.md"
++        original = live_shadow.read_bytes()
++        before_stat = live_shadow.stat()
++        first = build_continuity_envelope(PROJECT_ID)
++        after_read_stat = live_shadow.stat()
++        self.assertEqual(before_stat.st_size, after_read_stat.st_size)
++        self.assertEqual(before_stat.st_mtime_ns, after_read_stat.st_mtime_ns)
++        try:
++            live_shadow.write_bytes(original + b"\n<!-- fingerprint-test-delta -->\n")
++            second = build_continuity_envelope(PROJECT_ID)
++            self.assertNotEqual(first["state_fingerprint"], second["state_fingerprint"])
++        finally:
++            live_shadow.write_bytes(original)
++
++
++class ContinuityEnvelopeHttpTests(unittest.TestCase):
++    @classmethod
++    def setUpClass(cls) -> None:
++        os.environ["GITHOME_API_KEY"] = API_KEY
++        cls.app = create_app()
++        cls.client = cls.app.test_client()
++        cls.headers = {"X-GitHome-Key": API_KEY}
++
++    def test_authenticated_direct_action_gets_continuity(self) -> None:
++        response = self.client.post(
++            "/project/info", json={"project_id": "hsp"}, headers=self.headers
++        )
++        self.assertEqual(200, response.status_code)
++        body = response.get_json()
++        self.assertEqual("hsp", body["continuity"]["project_id"])
++
++    def test_unauthenticated_response_does_not_leak_continuity(self) -> None:
++        response = self.client.post("/project/info", json={"project_id": "hsp"})
++        self.assertEqual(401, response.status_code)
++        body = response.get_json()
++        self.assertNotIn("continuity", body)
++
++    def test_native_lab_dispatch_uses_same_top_level_envelope(self) -> None:
++        response = self.client.post(
++            "/lab/dispatch",
++            json={
++                "tool_name": "project.files.list",
++                "payload": {"project_id": "hsp", "path": "state", "limit": 3},
++            },
++            headers=self.headers,
++        )
++        self.assertEqual(200, response.status_code)
++        body = response.get_json()
++        self.assertIn("continuity", body)
++        self.assertNotIn("continuity", body.get("result", {}))
++        self.assertEqual("hsp", body["continuity"]["project_id"])
++
++    def test_structured_error_still_carries_continuity(self) -> None:
++        response = self.client.post(
++            "/project/files/read",
++            json={"project_id": "hsp", "path": "definitely-missing.txt", "max_bytes": 100},
++            headers=self.headers,
++        )
++        self.assertEqual(404, response.status_code)
++        body = response.get_json()
++        self.assertEqual("NOT_FOUND", body["error_code"])
++        self.assertEqual("hsp", body["continuity"]["project_id"])
++
++    def test_unstructured_500_is_normalized_and_carries_continuity(self) -> None:
++        response = self.client.post(
++            "/project/files/read",
++            json={
++                "project_id": "hsp",
++                "path": "state/current/CURRENT_STATE.md",
++                "start_line": 1,
++                "end_line": 2,
++                "max_bytes": 100,
++            },
++            headers=self.headers,
++        )
++        self.assertEqual(500, response.status_code)
++        self.assertTrue(response.is_json)
++        body = response.get_json()
++        self.assertEqual("UNSTRUCTURED_SERVER_ERROR", body["error_code"])
++        self.assertEqual("hsp", body["continuity"]["project_id"])
++        self.assertEqual(
++            "rehydrateProjectContext", body["continuity"]["rehydrate"]["compact_action"]
++        )
++
++    def test_envelope_serialized_size_is_bounded(self) -> None:
++        response = self.client.post(
++            "/project/info", json={"project_id": "hsp"}, headers=self.headers
++        )
++        envelope = response.get_json()["continuity"]
++        encoded = json.dumps(envelope, ensure_ascii=False, separators=(",", ":"))
++        self.assertLessEqual(len(encoded), 3000)
++
++
++if __name__ == "__main__":
++    unittest.main()
