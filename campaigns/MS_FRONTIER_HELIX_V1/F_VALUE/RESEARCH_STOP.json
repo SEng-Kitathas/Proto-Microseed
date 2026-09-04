@@ -1,0 +1,42 @@
+{
+  "arm": "F_VALUE",
+  "status": "QUESTION_SATURATED__REQUIRES_EXTERNAL_REFRAME",
+  "scientific_closure": false,
+  "passes_completed": 4,
+  "last_valid_next": "How can the new system be tested under conditions of simultaneous pressures to confirm its effectiveness?",
+  "csc": {
+    "verdict": "REVIEW",
+    "errors": [],
+    "warnings": [],
+    "strongest_survivor": "Can Microseed's current mechanisms, such as HSP, LOOP+, OARR, and PDVER, be used to handle simultaneous local and higher-order value pressures without collapsing or requiring central planning?",
+    "strongest_scar": "How can OARR be used to identify and address any weaknesses or limitations in the current mechanisms' ability to handle simultaneous pressures?",
+    "terminal_supported": true,
+    "authority": "AUDIT_ONLY_NONE_PROMOTION",
+    "model_meta": {
+      "attempt": 1,
+      "usage": {
+        "completion_tokens": 114,
+        "prompt_tokens": 815,
+        "total_tokens": 929,
+        "prompt_tokens_details": {
+          "cached_tokens": 122
+        }
+      },
+      "timings": {
+        "cache_n": 122,
+        "prompt_n": 693,
+        "prompt_ms": 1733.517,
+        "prompt_per_token_ms": 2.5014675324675326,
+        "prompt_per_second": 399.7653325580309,
+        "predicted_n": 114,
+        "predicted_ms": 3074.646,
+        "predicted_per_token_ms": 26.970578947368423,
+        "predicted_per_second": 37.0774391588495
+      },
+      "model": "Qwen2.5-Coder-1.5B-Instruct-abliterated-Q4_K_L.gguf",
+      "fingerprint": "b8831-a279d0f0f",
+      "json_syntax_repaired": false
+    }
+  },
+  "promotion_authority": "NONE"
+}

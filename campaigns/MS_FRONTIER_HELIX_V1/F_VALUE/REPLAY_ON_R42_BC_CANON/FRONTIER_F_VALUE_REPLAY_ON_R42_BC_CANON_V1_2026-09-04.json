@@ -1,0 +1,76 @@
+{
+  "audit_issues": [],
+  "authority_ceiling": [
+    "RESEARCH_ONLY",
+    "NO_PROMOTION_AUTHORITY",
+    "NO_CANON_CHANGE",
+    "NO_PRODUCTION_BEHAVIOR_ADMITTED",
+    "SELECTION_AUTHORITY_NE_EXECUTION_AUTHORITY"
+  ],
+  "base_public_main": "809318630f656e712cde612e9ec3378af8872329",
+  "date": "2026-09-04",
+  "decision": "KEEP_AS_REPLAYED_RESEARCH_EVIDENCE__DO_NOT_MOVE_MAIN",
+  "identity_caveat": "WORKTREE_HASH != GIT_BLOB_EVIDENCE_IDENTITY. Source and replay staged Git blobs exactly match historical test SHA; worktree bytes differ due checkout/newline normalization and are non-authoritative for cross-repo evidence identity.",
+  "production_delta": [],
+  "replay_branch": "research/frontier-f-value-replayed-on-r42-bc-canon-v1",
+  "replay_test_staged_git_blob_sha256": "490cfec475c878405482a454d39c6ac3d64db7fba2fd1d50e9191e7e676965c4",
+  "replay_test_worktree_sha256": "620c3af3b7970dffa5c271f2d0d2036af0fc56583236b6a2fce9686789f2c720",
+  "schema": "microseed.frontier_f_value_replay_on_r42_bc_canon.v1",
+  "selection_context": {
+    "exploratory_model": "Qwen3.5-35B-A3B Claude-distilled Q4_K_M + Q4_K_M MTP n_max=2",
+    "model_role": "NON_AUTHORITATIVE_RESEARCH_COPROCESSOR",
+    "model_triage": "F_VALUE ranked over E_IDENTITY at 0.78 confidence due lower redundancy with admitted B_DRIFT and sharper falsifier; this is provisional context only."
+  },
+  "shared_overlap_policy": "Only F_VALUE campaign directory + F methodology + F embodiment test replayed. Shared WAVE1_RECOVERY/controller files intentionally excluded.",
+  "source_branch": "research/frontier-f-value-v1",
+  "source_claim": "CURRENT_FULL_FRAME_CROSS_VALUE_SELECTION_USES_STRICT_PARETO_DOMINANCE_AND_DOES_NOT_REQUIRE_OR_REVEAL_A_HIDDEN_WEIGHTED_SUM_ARBITER_IN_THE_TESTED_PATH",
+  "source_claim_ceiling": "Bounded to the current owned-referent full-frame cross-deficit/value selection surface and MS2034-2041 lifecycle. It does not prove every future multi-scale value conflict is resolvable, nor that no scalar quantity exists anywhere in Microseed. It establishes that this cross-value selection path abstains on incomparable tradeoffs, selects only strict complete-frame dominance, is invariant to positive coordinate rescaling/order/opaque labels, and preserves execution authority NONE at the read-only selection stage.",
+  "source_head": "45e0e45f915990318824f0dd588728ce56fc27e0",
+  "source_test_git_blob_sha256": "490cfec475c878405482a454d39c6ac3d64db7fba2fd1d50e9191e7e676965c4",
+  "source_test_worktree_sha256": "620c3af3b7970dffa5c271f2d0d2036af0fc56583236b6a2fce9686789f2c720",
+  "status": "REPLAY_VERIFIED_RESEARCH_ONLY__NO_CANON_CHANGE__NO_PRODUCTION_DELTA",
+  "verification": {
+    "aggregate": "30/30 PASS",
+    "bounded_batches": [
+      {
+        "duration_seconds": 45.18,
+        "name": "frontier_f_plus_ms2034_ms2035",
+        "result": "12/12 PASS",
+        "stdout": {
+          "bytes": 102,
+          "path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_b_drift_admission_audit_20260902/evidence/FRONTIER_F_VALUE_REPLAY_BATCH1_STDOUT.log",
+          "sha256": "8e02afb3a28b4fbe116790fa9389645fbc953c827e1f0c9ccd2a8f0ab3cf7344"
+        }
+      },
+      {
+        "duration_seconds": 32.59,
+        "name": "ms2036_ms2037_ms2038",
+        "result": "10/10 PASS",
+        "stdout": {
+          "bytes": 102,
+          "path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_b_drift_admission_audit_20260902/evidence/FRONTIER_F_VALUE_REPLAY_BATCH2_STDOUT.log",
+          "sha256": "54d090b41bc73b8c521305b16d15b10778ba3866f47981f51222edcb7f04144c"
+        }
+      },
+      {
+        "duration_seconds": 20.18,
+        "name": "ms2039_ms2040_ms2041",
+        "result": "8/8 PASS",
+        "stdout": {
+          "bytes": 101,
+          "path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_b_drift_admission_audit_20260902/evidence/FRONTIER_F_VALUE_REPLAY_BATCH3_STDOUT.log",
+          "sha256": "85cc29c3cffdf169391b0b87e21391113030bcadacd4ae20ef7502b798b70ce6"
+        }
+      }
+    ],
+    "monolithic_attempt": {
+      "status": "CONTROL_PLANE_TIMEOUT_KILLED_AFTER_16_PASS_DOTS__INCOMPLETE_NOT_FAILURE_VERDICT",
+      "stdout": {
+        "bytes": 16,
+        "path": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/.pcmmad_sync_runs/wt_b_drift_admission_audit_20260902/evidence/FRONTIER_F_VALUE_REPLAY_MONOLITHIC_TIMEOUT_STDOUT.log",
+        "sha256": "3784a47f2cd20fa090fb9a92c7f302fe1b4edcdf7b0246f46157490e703f56e2"
+      },
+      "timeout_seconds": 150
+    }
+  }
+}

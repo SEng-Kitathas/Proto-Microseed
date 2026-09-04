@@ -1,0 +1,20 @@
+{
+  "question": "What specific tests or experiments can be designed to evaluate the new system's effectiveness under simultaneous pressures?",
+  "evidence_contacted": ["continuity/CURRENT_FRONTIER.md#p3.0", "continuity/SCARS_AND_DO_NOT_REINTRODUCE.md#p76.0", "continuity/state/current/CURRENT_STATE.md#p9.0", "continuity/SCARS_AND_DO_NOT_REINTRODUCE.md#p144.0", "continuity/state/current/CURRENT_STATE.md#p7.0", "methodology/MICROSEED_MAIN_DEV_OPERATING_PROFILE_V1_3.md#p2.0", "methodology/MS1940_OPAQUE_SIGNALING_BY_COMPOSITION.md#p18.0", "methodology/MS1940_OPAQUE_SIGNALING_BY_COMPOSITION.md#p7.0"],
+  "measurement_frame": "Simultaneous pressures",
+  "probe": "Identify and address weaknesses or limitations in the current mechanisms' ability to handle simultaneous pressures",
+  "derive": "Design specific tests or experiments to evaluate the new system's effectiveness under simultaneous pressures",
+  "verify": "Ensure that the tests or experiments are designed to accurately evaluate the new system's effectiveness under simultaneous pressures",
+  "oarr": "A real rival or removal mechanism that can alter the claim of the new system's effectiveness under simultaneous pressures",
+  "loop_plus": "Deliberately widen to at least one adjacent plausible causal explanation before local closure where such an explanation exists",
+  "embody": "NO_MUTATION_WARRANTED",
+  "observed_consequence": "SOURCE_EVIDENCE_ONLY__NO_NEW_WORLD_CONSEQUENCE",
+  "survivors": [],
+  "scars": [],
+  "demotions": [],
+  "unresolved": [],
+  "attention_reservoir": "Bounded neglected evidence or branch/anomaly ledger; research governance only",
+  "disposition": "UNKNOWN_INCOMPLETE",
+  "next": "What specific tests or experiments can be designed to evaluate the new system's effectiveness under simultaneous pressures?",
+  "terminal": false
+}

@@ -1,0 +1,9 @@
+{
+  "verdict": "PASS",
+  "errors": [],
+  "warnings": [],
+  "strongest_control": "magnitude rescaling",
+  "strongest_risk": "no-feasible-joint-action abstention case",
+  "embodiment_warranted": true,
+  "required_before_embodiment": ["single-pressure A-only and B-only positives", "no-feasible-joint-action abstention case", "magnitude rescaling", "label permutation", "one Pareto-dominant action condition"]
+}

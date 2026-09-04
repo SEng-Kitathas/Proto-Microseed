@@ -1,0 +1,41 @@
+{
+  "arm": "F_VALUE",
+  "status": "VERIFIED_RESEARCH_RESULT",
+  "claim": "CURRENT_FULL_FRAME_CROSS_VALUE_SELECTION_USES_STRICT_PARETO_DOMINANCE_AND_DOES_NOT_REQUIRE_OR_REVEAL_A_HIDDEN_WEIGHTED_SUM_ARBITER_IN_THE_TESTED_PATH",
+  "claim_ceiling": "Bounded to the current owned-referent full-frame cross-deficit/value selection surface and MS2034-2041 lifecycle. It does not prove every future multi-scale value conflict is resolvable, nor that no scalar quantity exists anywhere in Microseed. It establishes that this cross-value selection path abstains on incomparable tradeoffs, selects only strict complete-frame dominance, is invariant to positive coordinate rescaling/order/opaque labels, and preserves execution authority NONE at the read-only selection stage.",
+  "pdver": "PROBE -> DERIVE -> VERIFY -> EMBODY -> RECURSE",
+  "embodiment": "tests\\embodiment\\test_frontier_f_value_non_scalar_full_frame_pareto.py",
+  "test_sha256": "490cfec475c878405482a454d39c6ac3d64db7fba2fd1d50e9191e7e676965c4",
+  "focused_plus_lineage_result": {
+    "passed": 30,
+    "failed": 0,
+    "duration_seconds": 107.47,
+    "runner": "tools/run_pytest_cleanup_neutral.py",
+    "scope": "frontier hostile + MS2034-2041 full-frame Pareto/currentness/effect-time lineage"
+  },
+  "observed": [
+    "Full-frame tradeoff vectors [V=0.0,W=0.5] and [V=0.5,W=0.0] return NO_STRICT_PARETO_SELECTION.",
+    "Applying positive coordinate scaling V×1000/W×0.001, reversing opportunity order and renaming probe IDs leaves the tradeoff unselected.",
+    "Strict dominator [0.0,0.0] over [0.5,0.5] remains the unique winner under V×0.0001/W×10000, order reversal and opaque renaming.",
+    "Runtime full-frame surface is read-only, owns the complete current value frame, and exposes no caller-selected value subset; tradeoff selection authority and execution authority remain NONE.",
+    "Missing/stale value observations and effect-time frame changes fail closed in the adjacent MS2034-2041 lineage."
+  ],
+  "oarr": "Hidden weighted-sum/central-arbiter rival is not needed for this path: positive coordinate rescaling cannot change Pareto order and incomparable tradeoffs abstain. A caller-selected subset was historically shown capable of false dominance and is explicitly blocked by the organism-owned complete frame.",
+  "survivors": [
+    "NO_STRICT_PARETO_DOMINATOR => ABSTAIN",
+    "COMPLETE_CURRENT_VALUE_FRAME_IS_ORGANISM_OWNED",
+    "POSITIVE_COORDINATE_RESCALING_DOES_NOT_CREATE_PREFERENCE",
+    "SELECTION_AUTHORITY != EXECUTION_AUTHORITY",
+    "CALLER_SELECTED_VALUE_SUBSET_CAN_CREATE_FALSE_DOMINANCE_AND_IS_BLOCKED"
+  ],
+  "remaining_seam": "CONFLICTS_NOT_REPRESENTABLE_AS_COMPLETE_CURRENT_CONSEQUENCE_VECTORS_OR_CASES_WITH_NO_STRICT_PARETO_ORDER_REMAIN_LAWFUL_ABSTENTION_UNLESS_AN_INDEPENDENT_CONSTITUTIONAL_PREMISE_IS_EARNED",
+  "new_core_mechanism_required": "NO_FOR_TESTED_FULL_FRAME_PARETO_PATH",
+  "production_delta": [],
+  "promotion_authority": "NONE",
+  "timestamp_epoch": 1788270055.5658875,
+  "csc_result_verdict": "PASS",
+  "csc_claim_supported": true,
+  "csc_claim_ceiling_ok": true,
+  "seal_status": "READY_FOR_RESEARCH_COMMIT",
+  "methodology": "methodology\\MS_FRONTIER_F_VALUE_NON_SCALAR_FULL_FRAME_PARETO_2026-09-01.md"
+}

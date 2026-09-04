@@ -1,0 +1,13 @@
+{
+  "verdict": "PASS",
+  "errors": [],
+  "warnings": [],
+  "claim_supported": true,
+  "claim_ceiling_ok": true,
+  "strongest_survivor": "NO_STRICT_PARETO_DOMINATOR => ABSTAIN",
+  "strongest_scar": "COMPLETE_CURRENT_VALUE_FRAME_IS_ORGANISM_OWNED",
+  "next_research_question": "Explore the impact of different coordinate scaling methods on the tradeoff selection process.",
+  "authority": "AUDIT_ONLY_NONE_PROMOTION",
+  "model": "Qwen2.5-Coder-1.5B-Instruct-abliterated-Q4_K_L.gguf",
+  "review_port": 18192
+}

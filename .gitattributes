@@ -49,3 +49,6 @@ governance/RAHL_ENGINEERING_CANONICAL_SOP_R4_2_SEMANTIC_READ_RECEIPT_2026-09-04.
 evidence/governance/RAHL_R4_2_ADOPTION_QUALIFICATION_2026-09-04.json text eol=lf
 GOVERNING_ENGINEERING_SOP.md text eol=lf
 tools/verify_rahl_r4_2_adoption.py text eol=lf
+evidence/FRONTIER_F_VALUE_REPLAY_*_STDOUT.log binary
+campaigns/MS_FRONTIER_HELIX_V1/F_VALUE/REPLAY_ON_R42_BC_CANON/*.json text eol=lf
+campaigns/MS_FRONTIER_HELIX_V1/F_VALUE/REPLAY_ON_R42_BC_CANON/*.md text eol=lf
