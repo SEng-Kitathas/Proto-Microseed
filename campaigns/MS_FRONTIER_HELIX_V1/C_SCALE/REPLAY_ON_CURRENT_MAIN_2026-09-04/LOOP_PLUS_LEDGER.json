@@ -1,0 +1,54 @@
+{
+  "schema": "r42.loop_plus.c_scale_replay.v1",
+  "steps": [
+    {
+      "done": [
+        "C source methodology/test/result"
+      ],
+      "step": "primary_source_pass"
+    },
+    {
+      "done": [
+        "current MS2063/MS2065 hierarchy surfaces",
+        "frontier breadth comparison"
+      ],
+      "step": "discovery_expansion"
+    },
+    {
+      "done": [
+        "composition uses existing request-effect controllers only"
+      ],
+      "step": "implementation_clue"
+    },
+    {
+      "done": [
+        "nested request-effect composition resembles function/controller composition without central manager"
+      ],
+      "step": "isomorphism_hunting"
+    },
+    {
+      "done": [
+        "bounded three-level execution != recursive hierarchy"
+      ],
+      "step": "native_translation"
+    },
+    {
+      "done": [
+        "replay packet + Helix/Reservoir/OARR/CSC/hostile"
+      ],
+      "step": "control_update"
+    },
+    {
+      "done": [
+        "2 direct + 6 current hierarchy + public verifier"
+      ],
+      "step": "experiment_pressure"
+    },
+    {
+      "done": [
+        "historical 44/44 not promoted; next seam middle drift/currentness"
+      ],
+      "step": "recursive_replay"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "status": "MAIN_REASONING_DISCRIMINATOR_SPEC__CONTROL_INPUT_NOT_EVIDENCE",
+  "arm": "C_SCALE",
+  "created_epoch": 1788267186.075009,
+  "canonical_parent": "ed2cde491962105b0d853b7fd82d8e8b3d81bd8a",
+  "pdver": "PROBE -> DERIVE -> VERIFY -> EMBODY -> RECURSE",
+  "promotion_authority": "NONE",
+  "production_mutation_allowed": false,
+  "upstream_gate_heads": [
+    "387794702a26e1c8e7e84113e882154c2d961655",
+    "c9c6f0470a0bbc706c4f325a2bcdae4404f7c5d5",
+    "294da612f3407639a28284db7e44c4926a823e0a"
+  ],
+  "spec": {
+    "question": "Can two independently qualified canonical two-level request/effect controllers compose at execution time into one bounded three-level chain, with L2 requesting L1, L1 independently choosing/requesting L0, and no upward acquisition of L0 local means or generic hierarchy-manager authority?",
+    "incumbent": "The canonical two-level request/effect/currentness architecture is composable one execution level deeper by treating a qualified middle controller as an opaque subordinate handler; no new hierarchy manager or semantic role identity is needed.",
+    "rival": "The apparent third level is either a flattened direct L2→L0 fixture in disguise, or nesting requires the top harness to choose the leaf request / import lower-level means, or introduces new cross-level execution authority.",
+    "manipulation": "Build two independent MS2063 integrated controllers on the same canonical code. Keep the top controller’s learned request/routing state unchanged, but replace its opaque subordinate request handler with a nested handler that maps only the top request token to one middle current raw context. The middle Microseed must then call its own qualified current_proposal, nominate its own bounded intent, and execute its own bound L0 request. Execute one distinct top request from each top learned class. Compare top-level observed consequences with an ordinary flattened MS2063 control.",
+    "matched_controls": [
+      "ordinary flattened MS2063 top controller under the same two query classes",
+      "two independent middle classes so no duplicate-proposal reuse",
+      "top and middle capability registries inspected for namespace separation",
+      "no leaf target passed into top current_proposal or top handler input",
+      "no semantic Parent/Child labels used in routing"
+    ],
+    "incumbent_prediction": "Each top class selects its own bound L1 request; inside that handler the middle controller independently selects the correct bound L0 request for the requested middle class and executes it; top observation remains HIGHER-GOOD/+2 and matches flattened control; top registry never contains middle bound L0 capability IDs or leaf local means; no hierarchy_manager/parent_manager/desired_state_registry appears.",
+    "rival_prediction": "The nested case needs the harness/top controller to supply a leaf request, exposes/installs L0 means in the top registry, fails to preserve top consequence, or requires a new manager/authority surface not present in the two-level components.",
+    "measurement": "Top proposal sequence/target and observed effect; middle proposal sequence/leaf target and local mean; capability-registry separation; action intent/execution counts at each layer; forbidden manager/semantic-authority surfaces; flattened-vs-nested top observable equivalence.",
+    "falsifier": "Any leaf target is supplied by L2/harness as part of the top request decision, any L0 local mean/capability enters L2’s capability registry, nested execution cannot produce the same top consequence through middle-owned selection, or nesting requires a new cross-level manager/authority object.",
+    "assistance_controls": [
+      "Middle raw context corresponding to the L1 request is harness-supplied operational structure and remains an explicit assistance ceiling.",
+      "Both controllers are pre-trained/qualified two-level controllers; this test does not establish three-level end-to-end learning."
+    ],
+    "authority_controls": [
+      "L2 sees only its own bound request token and handler receipt; no L0 target or local mean is an L2 execution premise.",
+      "Middle proposal/action authority remains ordinary current Microseed authority; no authority is inherited upward from leaf execution."
+    ],
+    "currentness_restart_controls": [
+      "Not claimed in this first nested-execution discriminator; cross-level propagation after middle internal drift remains a successor seam."
+    ],
+    "minimal_embodiment": "Research-only test composing two existing MS2063 fixtures; no microseed production changes.",
+    "claim_ceiling": "ONE_BOUNDED_THREE_LEVEL_EXECUTION_COMPOSITION != GENERAL_RECURSIVE_HIERARCHY != THREE_LEVEL_END_TO_END_LEARNING",
+    "loop_plus": "If nesting succeeds, next pressure cross-level currentness/actual-outcome propagation after internal middle drift before any broader recursion claim."
+  }
+}

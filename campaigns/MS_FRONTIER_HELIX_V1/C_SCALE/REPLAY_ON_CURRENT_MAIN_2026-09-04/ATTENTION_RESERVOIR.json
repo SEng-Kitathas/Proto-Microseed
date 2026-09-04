@@ -1,0 +1,36 @@
+{
+  "items": [
+    {
+      "id": "C-AR-01",
+      "priority": "P0",
+      "signal": "Controllers are already trained/qualified; replay does not establish three-level end-to-end learning.",
+      "state": "LOAD_BEARING_CAVEAT"
+    },
+    {
+      "id": "C-AR-02",
+      "priority": "P0",
+      "signal": "Opaque L2-request -> L1-current-context mapping is supplied by the harness.",
+      "state": "LIVE"
+    },
+    {
+      "id": "C-AR-03",
+      "priority": "P0",
+      "signal": "Internal middle drift/currentness propagation remains untested on current main.",
+      "state": "LIVE"
+    },
+    {
+      "id": "C-AR-04",
+      "priority": "P1",
+      "signal": "Nested composition is observationally equivalent to a flattened top-boundary handler at the tested surface; nesting alone does not justify a new hierarchy mechanism.",
+      "state": "LIVE"
+    },
+    {
+      "id": "C-AR-05",
+      "priority": "P2",
+      "signal": "E provenance, F value-conflict, and model hardware-fit seams remain orthogonal.",
+      "state": "LIVE"
+    }
+  ],
+  "schema": "r42.attention_reservoir.c_scale_replay.v1",
+  "status": "ACTIVE"
+}

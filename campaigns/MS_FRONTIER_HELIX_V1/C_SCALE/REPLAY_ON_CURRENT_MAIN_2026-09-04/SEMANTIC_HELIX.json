@@ -1,0 +1,15 @@
+{
+  "next_discriminator": "C-SCALE-DRIFT-02: internal middle-controller drift/currentness change while top-level request-effect relation remains provisionally current; test whether stale propagation is local, boundary-observed, or requires new cross-level mechanism.",
+  "promotion": "NONE",
+  "resolved": {
+    "id": "C-SCALE-EXEC-01",
+    "not_earned": [
+      "GENERAL_RECURSIVE_HIERARCHY",
+      "THREE_LEVEL_END_TO_END_LEARNING",
+      "CROSS_LEVEL_CURRENTNESS_PROPAGATION_AFTER_INTERNAL_MIDDLE_DRIFT"
+    ],
+    "result": "ONE_BOUNDED_THREE_LEVEL_EXECUTION_COMPOSITION_REPLAYS_CLEANLY_ON_CURRENT_MAIN"
+  },
+  "schema": "r42.semantic_helix.c_scale_replay.v1",
+  "status": "DISCRIMINATOR_RESOLVED_BOUNDED"
+}

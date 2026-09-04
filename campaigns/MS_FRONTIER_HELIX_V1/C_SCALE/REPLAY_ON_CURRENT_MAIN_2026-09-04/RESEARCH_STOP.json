@@ -1,0 +1,7 @@
+{
+  "authority": "RESEARCH_ONLY",
+  "next": "C-SCALE-DRIFT-02 only if selected by future breadth/Helix pressure",
+  "reason": "CURRENT_MAIN_SERIALIZATION_REPLAY_CLEAN",
+  "schema": "microseed.frontier_c_scale.current_main_replay_stop.v1",
+  "status": "STOP_BOUNDED_RESULT_EARNED"
+}

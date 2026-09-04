@@ -1,0 +1,56 @@
+{
+  "audit_issues": [],
+  "authority_ceiling": [
+    "RESEARCH_ONLY",
+    "NO_GENERAL_RECURSIVE_HIERARCHY_AUTHORITY",
+    "NO_THREE_LEVEL_END_TO_END_LEARNING_CLAIM",
+    "NO_HIERARCHY_MANAGER",
+    "NO_UPWARD_LEAF_LOCAL_MEANS",
+    "NO_MAIN_MOVEMENT",
+    "NO_CANON_PROMOTION",
+    "NO_PRODUCTION_MICROSEED_MUTATION"
+  ],
+  "base_public_main": "dac28bba6cad4fb8edeae2a361cb47caad8e3a2f",
+  "branch": "research/frontier-c-scale-replayed-on-current-main-v1",
+  "claim": "TWO_INDEPENDENT_CANONICAL_TWO_LEVEL_CONTROLLERS_COMPOSE_INTO_ONE_BOUNDED_THREE_LEVEL_EXECUTION_CHAIN_WITHOUT_A_NEW_HIERARCHY_MANAGER_OR_UPWARD_TRANSFER_OF_LEAF_LOCAL_MEANS",
+  "claim_ceiling": "ONE_BOUNDED_THREE_LEVEL_EXECUTION_COMPOSITION != GENERAL_RECURSIVE_HIERARCHY != THREE_LEVEL_END_TO_END_LEARNING. Both controllers are already trained/qualified two-level controllers, and the harness supplies an opaque mapping from the L2 request token to an L1 current context. The middle controller independently chooses the L0 request. Cross-level learning/currentness propagation after internal middle drift is not established here.",
+  "date": "2026-09-04",
+  "decision": "SERIALIZATION_REPLAY_VERIFIED__KEEP_AS_BOUNDED_RESEARCH_EVIDENCE__NO_CANON_CHANGE__NO_PRODUCTION_CHANGE",
+  "historical_context": {
+    "focused": "2/2 PASS",
+    "note": "Historical 44/44 is source-branch context only; current replay directly verified 2/2 C plus 6/6 current hierarchy guards.",
+    "related_regression": "44/44 PASS"
+  },
+  "production_delta": [],
+  "remaining_seam": "THREE_LEVEL_END_TO_END_LEARNING_AND_CROSS_LEVEL_CURRENTNESS_PROPAGATION_AFTER_INTERNAL_MIDDLE_DRIFT",
+  "schema": "microseed.frontier_c_scale.current_main_replay.v1",
+  "source_branch": "origin/research/frontier-c-scale-v1",
+  "source_git_blob_sha256": {
+    "methodology/MS_FRONTIER_C_SCALE_BOUNDED_THREE_LEVEL_EXECUTION_2026-09-01.md": "e80d472f37b49a8aa702b53252bda90cd47e953485968b8d12991c457f67c254",
+    "tests/embodiment/test_frontier_c_scale_nested_three_level_execution.py": "418ec35f44883db3764d01ba8064868b58599dbfaeaa73b6598c533b5209be43"
+  },
+  "source_head": "e6a313fc01f1f73d6f2065027829b271fa0413d0",
+  "status": "PASS_RESEARCH_ONLY",
+  "verification": {
+    "captures": {
+      "current_hierarchy": {
+        "bytes": 101,
+        "path": "campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/REPLAY_ON_CURRENT_MAIN_2026-09-04/evidence/C_SCALE_REPLAY_CURRENT_HIERARCHY_STDOUT.log",
+        "sha256": "6fb9747f410171124f77eaa320e64e6fbb3a0e1f28779e097b31b26e45ddcbfc"
+      },
+      "direct": {
+        "bytes": 101,
+        "path": "campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/REPLAY_ON_CURRENT_MAIN_2026-09-04/evidence/C_SCALE_REPLAY_DIRECT_STDOUT.log",
+        "sha256": "3db644f6c4598063b8505785dceb664454950951ac003d9519180aa2eff1931a"
+      },
+      "public_verifier": {
+        "bytes": 554,
+        "path": "campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/REPLAY_ON_CURRENT_MAIN_2026-09-04/evidence/C_SCALE_REPLAY_PUBLIC_VERIFIER_STDOUT.log",
+        "sha256": "a749617b0563961afafdad4036d6ff197b83ebbc937846e22138272487f3564f"
+      }
+    },
+    "current_ms2063_ms2065": "6/6 PASS",
+    "direct_c_scale": "2/2 PASS",
+    "public_verifier": "PASS issues empty"
+  }
+}

@@ -1,0 +1,11 @@
+```json
+{
+  "verdict": "REVIEW",
+  "errors": [],
+  "warnings": [],
+  "embodiment_warranted": true,
+  "claim_ceiling_ok": true,
+  "strongest_control": "middle raw context corresponding to the L1 request is harness-supplied operational structure and remains an explicit assistance ceiling.",
+  "strongest_risk": "The nested case needs the harness/top controller to supply a leaf request, exposes/installs L0 means in the top registry, fails to preserve top consequence, or requires a new manager/authority surface not present in the two-level components."
+}
+```

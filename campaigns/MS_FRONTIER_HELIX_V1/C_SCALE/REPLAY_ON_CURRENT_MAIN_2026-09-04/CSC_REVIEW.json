@@ -1,0 +1,31 @@
+{
+  "reviews": [
+    {
+      "finding": "middle independently selects/refuses leaf request",
+      "interface": "top request <-> middle execution",
+      "status": "PASS"
+    },
+    {
+      "finding": "leaf-local target/means remain hidden from top",
+      "interface": "middle leaf means <-> top receipt",
+      "status": "PASS"
+    },
+    {
+      "finding": "no hierarchy manager/new production owner appears",
+      "interface": "nested execution <-> hierarchy authority",
+      "status": "NO_AUTHORITY_PROMOTION"
+    },
+    {
+      "finding": "current replay uses 2 direct + 6 current hierarchy tests; historical 44/44 retained only as context",
+      "interface": "historical evidence <-> current replay",
+      "status": "PASS"
+    },
+    {
+      "finding": "zero microseed delta and public verifier PASS",
+      "interface": "research replay <-> public canon",
+      "status": "PASS"
+    }
+  ],
+  "schema": "r42.csc.c_scale_replay.v1",
+  "status": "PASS_BOUNDED"
+}

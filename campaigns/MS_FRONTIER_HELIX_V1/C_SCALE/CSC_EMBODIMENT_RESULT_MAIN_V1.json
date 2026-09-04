@@ -1,0 +1,13 @@
+{
+  "verdict": "PASS",
+  "errors": [],
+  "warnings": [],
+  "claim_supported": true,
+  "claim_ceiling_ok": true,
+  "strongest_survivor": "SELECTION_AUTHORITY != EXECUTION_AUTHORITY",
+  "strongest_scar": "PARENT_REQUEST != CHILD_EXECUTION",
+  "next_research_question": "Explore the implications of the absence of hierarchy_manager, parent_manager, and desired_state_registry in the nested three-level execution.",
+  "authority": "AUDIT_ONLY_NONE_PROMOTION",
+  "model": "Qwen2.5-Coder-1.5B-Instruct-abliterated-Q4_K_L.gguf",
+  "review_port": 18192
+}
