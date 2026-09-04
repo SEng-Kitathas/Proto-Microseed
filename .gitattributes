@@ -52,3 +52,5 @@ tools/verify_rahl_r4_2_adoption.py text eol=lf
 evidence/FRONTIER_F_VALUE_REPLAY_*_STDOUT.log binary
 campaigns/MS_FRONTIER_HELIX_V1/F_VALUE/REPLAY_ON_R42_BC_CANON/*.json text eol=lf
 campaigns/MS_FRONTIER_HELIX_V1/F_VALUE/REPLAY_ON_R42_BC_CANON/*.md text eol=lf
+campaigns/MS_FRONTIER_HELIX_V1/F_VALUE/ADMISSION_AUDIT/*.json text eol=lf
+campaigns/MS_FRONTIER_HELIX_V1/F_VALUE/ADMISSION_AUDIT/*.md text eol=lf
