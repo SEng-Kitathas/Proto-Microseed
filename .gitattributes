@@ -56,3 +56,9 @@ campaigns/MS_FRONTIER_HELIX_V1/F_VALUE/ADMISSION_AUDIT/*.json text eol=lf
 campaigns/MS_FRONTIER_HELIX_V1/F_VALUE/ADMISSION_AUDIT/*.md text eol=lf
 campaigns/MS_FRONTIER_HELIX_V1/E_IDENTITY/REPLAY_ON_R42_CURRENT_MAIN_OVERNIGHT/*.json text eol=lf
 campaigns/MS_FRONTIER_HELIX_V1/E_IDENTITY/REPLAY_ON_R42_CURRENT_MAIN_OVERNIGHT/*.md text eol=lf
+scratch/frontier_e_identity_developmental_history.py text eol=lf
+tests/embodiment/test_frontier_e_identity_developmental_history.py text eol=lf
+methodology/MS_FRONTIER_E_IDENTITY_DEVELOPMENTAL_HISTORY_2026-09-04.md text eol=lf
+campaigns/MS_FRONTIER_HELIX_V1/E_IDENTITY/DEVELOPMENTAL_HISTORY/*.json text eol=lf
+campaigns/MS_FRONTIER_HELIX_V1/E_IDENTITY/DEVELOPMENTAL_HISTORY/*.md text eol=lf
+campaigns/MS_FRONTIER_HELIX_V1/E_IDENTITY/DEVELOPMENTAL_HISTORY/evidence/*.log binary

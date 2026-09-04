@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "head": "e87ae9ce1e59afccb4b3c5b730202d76bdf7e7e9",
+  "canonical_v1": "0fa41f1ed4cf2fbd341b5f0b63adbc0034d4ac39",
+  "canonical_tree": "88a4014db5838848b1e36b904b96e55b2a5f670e",
+  "head_microseed_tree": "4c8051563279d20f2ea555d21d7b3305b039e771",
+  "v1_microseed_tree": "0ce2b39d48bad3c34a56f95fbfefa17de9cbe922",
+  "public_receipt_sha256": "c0f3ea96bbfa59fdfe75910120285654797afff028d8044bc0633e647ef3a43d",
+  "suite_stdout_sha256": "5432c11be80077a62e11b2918d0e4af667c045bcb98746a80ca8b96e1ad08edc",
+  "issues": []
+}

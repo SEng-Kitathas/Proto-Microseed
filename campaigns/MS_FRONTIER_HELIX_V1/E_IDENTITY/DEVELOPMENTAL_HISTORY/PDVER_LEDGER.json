@@ -1,0 +1,32 @@
+{
+  "derive": [
+    "define a current-surface equality contract that excludes provenance itself",
+    "construct historyful and fresh-current roots with same current surface",
+    "preserve zero authority"
+  ],
+  "embody": [
+    "scratch/frontier_e_identity_developmental_history.py",
+    "tests/embodiment/test_frontier_e_identity_developmental_history.py",
+    "methodology/MS_FRONTIER_E_IDENTITY_DEVELOPMENTAL_HISTORY_2026-09-04.md",
+    "campaign machinery packet"
+  ],
+  "probe": [
+    "direct E says perfect-copy persistence can be operationally indistinguishable",
+    "MS2009 proves authenticated predecessor chain can survive restart",
+    "question: matched present observables, different history"
+  ],
+  "recurse": [
+    "demote any blanket current-state-sufficiency reading",
+    "retain no-numerical-identity conclusion",
+    "next: test history effect on currentness/admissibility without action authority"
+  ],
+  "schema": "r42.pdver.identity_dev_03.v1",
+  "verify": [
+    "dry-run surface equality true",
+    "3/3 new hostile tests",
+    "7/7 adjacent",
+    "1/1 SH4",
+    "public verifier PASS",
+    "B/C guard 2/2"
+  ]
+}

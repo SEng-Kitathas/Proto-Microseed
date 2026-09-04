@@ -1,0 +1,42 @@
+{
+  "items": [
+    {
+      "id": "E-AR-01",
+      "priority": "P0",
+      "signal": "Matched surface is deliberately bounded; equality of every hidden internal field is not claimed.",
+      "state": "LIVE"
+    },
+    {
+      "id": "E-AR-02",
+      "priority": "P0",
+      "signal": "Read-only provenance difference != numerical identity or selfhood.",
+      "state": "LOAD_BEARING_CAVEAT"
+    },
+    {
+      "id": "E-AR-03",
+      "priority": "P0",
+      "signal": "Read-only provenance difference does not yet justify different action selection or execution.",
+      "state": "LIVE"
+    },
+    {
+      "id": "E-AR-04",
+      "priority": "P1",
+      "signal": "Evidence IDs are excluded from current-surface equality because they are provenance carriers, not present observable state.",
+      "state": "LIVE"
+    },
+    {
+      "id": "E-AR-05",
+      "priority": "P1",
+      "signal": "Fresh-current branch has a durable current receipt but no predecessor chain; restart preserves that absence.",
+      "state": "SUPPORTED"
+    },
+    {
+      "id": "E-AR-06",
+      "priority": "P2",
+      "signal": "F_VALUE incomparable conflict and model-runtime seams remain orthogonal; E work must not monopolize frontier attention.",
+      "state": "DEFERRED_BUT_LIVE"
+    }
+  ],
+  "schema": "r42.attention_reservoir.identity_dev_03.v1",
+  "status": "ACTIVE"
+}

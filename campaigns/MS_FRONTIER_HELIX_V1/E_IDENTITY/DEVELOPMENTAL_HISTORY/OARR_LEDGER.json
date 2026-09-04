@@ -1,0 +1,23 @@
+{
+  "attack": [
+    "current surfaces might not actually match",
+    "history label might be caller supplied",
+    "evidence IDs/database size might smuggle answer",
+    "provenance difference might be mistaken for identity"
+  ],
+  "observe": [
+    "same s2/current raw sample/current contract epochs after restart",
+    "historyful reconstructs P0,P1; fresh-current reconstructs none"
+  ],
+  "replay": [
+    "restart both roots",
+    "re-run direct mechanism",
+    "compose with MS2007/MS2009/frontier E/SH4"
+  ],
+  "revise": [
+    "current-state sufficiency demoted at read-only provenance surface",
+    "numerical identity remains unearned",
+    "next discriminator targets currentness/admissibility rather than identity label"
+  ],
+  "schema": "r42.oarr.identity_dev_03.v1"
+}

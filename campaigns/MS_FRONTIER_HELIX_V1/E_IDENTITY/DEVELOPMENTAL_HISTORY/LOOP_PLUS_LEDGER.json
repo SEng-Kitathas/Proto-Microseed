@@ -1,0 +1,56 @@
+{
+  "schema": "r42.loop_plus.identity_dev_03.v1",
+  "steps": [
+    {
+      "done": [
+        "Frontier E direct test",
+        "MS2007 owned history ambiguity",
+        "MS2009 owned probe-prefix reconstruction",
+        "SH4 long-horizon developmental history"
+      ],
+      "step": "primary_source_pass"
+    },
+    {
+      "done": [
+        "searched related history/provenance/restart tests before new embodiment"
+      ],
+      "step": "discovery_expansion"
+    },
+    {
+      "done": [
+        "reused owned raw receipt + action/outcome predecessor chain; no new production owner"
+      ],
+      "step": "implementation_clue"
+    },
+    {
+      "done": [
+        "developmental history behaves like provenance/currentness state, not numerical identity"
+      ],
+      "step": "isomorphism_hunting"
+    },
+    {
+      "done": [
+        "matched current surface + different authenticated history"
+      ],
+      "step": "native_translation"
+    },
+    {
+      "done": [
+        "Helix/Reservoir/OARR/CSC/hostile/PDVER packet"
+      ],
+      "step": "control_update"
+    },
+    {
+      "done": [
+        "3 hostile tests plus adjacent/SH4/canon guards"
+      ],
+      "step": "experiment_pressure"
+    },
+    {
+      "done": [
+        "revised current-state-sufficiency interpretation while retaining identity authority ceiling"
+      ],
+      "step": "recursive_replay"
+    }
+  ]
+}

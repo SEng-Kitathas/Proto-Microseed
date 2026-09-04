@@ -1,0 +1,104 @@
+{
+  "caller_supplied_history_label": "NO",
+  "claim_ceiling": "AUTHENTICATED_DEVELOPMENTAL_PROVENANCE_CAN_BE_OPERATIONALLY_READABLE_ACROSS_RESTART_WHEN_CURRENT_OBSERVABLE_SURFACES_MATCH__THIS_DOES_NOT_ESTABLISH_NUMERICAL_IDENTITY_OR_SELFHOOD",
+  "current_surface": {
+    "capability_epochs": {
+      "BASIS": 0,
+      "OBS": 0,
+      "P0": 0,
+      "P1": 0
+    },
+    "control_state_authority": "OBSERVATION_ONLY",
+    "control_state_id": "s2",
+    "current_raw_sample": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "episode_epochs": {
+      "EP": 0
+    },
+    "frame_epochs": {
+      "F": 0
+    },
+    "value_snapshot": {
+      "V": {
+        "capability_dependents": [],
+        "contract": {
+          "assistance_ancestry": [],
+          "authority": "REFERENCE_ONLY",
+          "currentness": "CURRENT",
+          "hazards": [],
+          "invariants": [],
+          "lineage": [
+            "MS2009"
+          ],
+          "purpose": "reg",
+          "qualification": "SHADOW_QUALIFIED",
+          "signature_sha256": "vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv",
+          "value_id": "V",
+          "viable_high": 3.0,
+          "viable_low": 2.0
+        },
+        "episode_dependents": [
+          "EP"
+        ],
+        "epoch": 0,
+        "latest": null
+      }
+    }
+  },
+  "current_surface_equal": true,
+  "discriminator": "MATCHED_CURRENT_SURFACE_DIFFERENT_AUTHENTICATED_DEVELOPMENTAL_HISTORY",
+  "execution_authority": "NONE",
+  "fresh_current": {
+    "history_basis": "AUTHENTICATED_CURRENT_RAW_RECEIPTS_PLUS_ACTION_OUTCOME_PREDECESSOR_CHAIN",
+    "opaque_action_sequence": [],
+    "raw_samples": [
+      [
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    ],
+    "step_count": 0
+  },
+  "history_sensitive_read_only_difference": true,
+  "historyful": {
+    "history_basis": "AUTHENTICATED_CURRENT_RAW_RECEIPTS_PLUS_ACTION_OUTCOME_PREDECESSOR_CHAIN",
+    "opaque_action_sequence": [
+      "P0",
+      "P1"
+    ],
+    "raw_samples": [
+      [
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "1",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    ],
+    "step_count": 2
+  },
+  "identity_primitive_added": "NO",
+  "numerical_identity_required": "NOT_SHOWN",
+  "selection_authority": "NONE",
+  "semantic_coordinate_authority": "NONE",
+  "semantic_referent_authority": "NONE",
+  "status": "PASS",
+  "truth_authority": "NONE"
+}

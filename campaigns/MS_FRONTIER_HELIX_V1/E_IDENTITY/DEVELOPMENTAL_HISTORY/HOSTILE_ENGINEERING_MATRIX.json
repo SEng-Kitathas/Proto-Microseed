@@ -1,0 +1,30 @@
+{
+  "attacks": [
+    {
+      "claim": "historyful and fresh-current states are actually different in present observables",
+      "countermeasure": "explicit current-surface dict equality assertion",
+      "result": "REJECTED"
+    },
+    {
+      "claim": "test supplies a hidden history/identity label",
+      "countermeasure": "no caller history label and no identity manager; derivation walks owned receipts/outcomes",
+      "result": "REJECTED"
+    },
+    {
+      "claim": "evidence IDs make the current surface unequal",
+      "countermeasure": "evidence IDs are intentionally provenance, excluded from present observable match; current raw content/state/contracts are matched",
+      "result": "BOUNDED_DISTINCTION_ACCEPTED"
+    },
+    {
+      "claim": "different reconstructed history proves same/different entity identity",
+      "countermeasure": "all semantic/truth/selection/execution authorities remain NONE; numerical identity field explicitly NOT_SHOWN",
+      "result": "REJECTED_AS_OVERCLAIM"
+    },
+    {
+      "claim": "history difference should immediately change behavior",
+      "countermeasure": "no action-selection experiment performed",
+      "result": "UNTESTED_NEXT_SEAM"
+    }
+  ],
+  "schema": "r42.hostile_engineering.identity_dev_03.v1"
+}
