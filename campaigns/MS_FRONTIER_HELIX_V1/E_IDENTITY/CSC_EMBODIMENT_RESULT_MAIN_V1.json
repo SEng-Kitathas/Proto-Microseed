@@ -1,0 +1,13 @@
+{
+  "verdict": "PASS",
+  "errors": [],
+  "warnings": [],
+  "claim_supported": true,
+  "claim_ceiling_ok": true,
+  "strongest_survivor": "INTERVENTION_BOUND_CONTINUITY != NUMERICAL_IDENTITY",
+  "strongest_scar": "MULTIPLE_RETAINED_TRACES != NUMERICAL_IDENTITY",
+  "next_research_question": "Further investigation into the impact of numerical/persistent entity identity on the tested restart, crossing, occlusion, intervention-trace and perfect-copy replacement behavior.",
+  "authority": "AUDIT_ONLY_NONE_PROMOTION",
+  "model": "Qwen2.5-Coder-1.5B-Instruct-abliterated-Q4_K_L.gguf",
+  "review_port": 18192
+}

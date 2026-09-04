@@ -1,0 +1,37 @@
+{
+  "status": "METHOD_REJECTED__NOT_SCIENTIFIC_PASS",
+  "question": "What are the minimal persistent developmental quantities required for operational continuity and persistence?",
+  "errors": [
+    "question_not_exact"
+  ],
+  "candidate": {
+    "question": "What is the minimal persistent developmental quantity required for operational continuity and persistence?",
+    "evidence_contacted": [
+      "continuity/state/current/CURRENT_STATE.md#p12.0",
+      "methodology\\MS1959_MS1961_AFFORDANCE_RELATIVE_PROTO_REFERENCE.md#p29.0",
+      "methodology\\MS1970_AFFORDANCE_SPLIT_NOT_GENEALOGY.md#p27.0",
+      "methodology\\MS1992_NAKED_FIRST_PROBE_REPLAY_REMAINS_AUTHORITY_BLOCKED.md#p31.0",
+      "continuity/state/next_steps/NEXT_STEPS.md#p5.0",
+      "methodology\\MS1962_MS1963_REFERENT_CONTINUITY_BOUNDARIES.md#p22.0",
+      "methodology\\MS1968_NOISY_CALIBRATED_REFERENT_HANDOFF.md#p2.0",
+      "methodology\\MS1969_GAP_REAPPEARANCE_IDENTITY_BOUNDARY.md#p15.0"
+    ],
+    "measurement_frame": "Operational continuity and persistence in the context of developmental quantities.",
+    "probe": "Identify the minimal persistent developmental quantities that are necessary for operational continuity and persistence.",
+    "derive": "Determine the core operational and evidential requirements that must be maintained to ensure persistence.",
+    "verify": "Verify that the identified quantities can indeed support operational continuity and persistence without introducing new assumptions or contradictions.",
+    "oarr": "A rival mechanism or counterexample that demonstrates the necessity of the identified quantities for operational continuity and persistence.",
+    "loop_plus": "Widen the causal explanation to include external operational persistence as the next unblocked substrate seam.",
+    "embody": "NO_MUTATION_WARRANTED",
+    "observed_consequence": "SOURCE_EVIDENCE_ONLY__NO_NEW_WORLD_CONSEQUENCE",
+    "survivors": "The identified persistent developmental quantities are necessary for operational continuity and persistence.",
+    "scars": "None identified.",
+    "demotions": "None identified.",
+    "unresolved": "None identified.",
+    "attention_reservoir": "Neglected evidence or bounded-complete branches related to the operational continuity and persistence of developmental quantities.",
+    "disposition": "RESEARCH_CONTINUE",
+    "next": "What mechanisms can ensure the operational continuity and persistence of these minimal persistent developmental quantities?",
+    "terminal": false
+  },
+  "promotion_authority": "NONE"
+}

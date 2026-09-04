@@ -1,0 +1,47 @@
+{
+  "status": "MAIN_REASONING_DISCRIMINATOR_SPEC__CONTROL_INPUT_NOT_EVIDENCE",
+  "arm": "E_IDENTITY",
+  "created_epoch": 1788263793.350764,
+  "parent_head": "a0fcceae96a0eb7a8f70bdaedafa55a22dceb2ec",
+  "canonical_parent": "ed2cde491962105b0d853b7fd82d8e8b3d81bd8a",
+  "pdver": "PROBE -> DERIVE -> VERIFY -> EMBODY -> RECURSE",
+  "oarr_required": true,
+  "loop_plus_required": true,
+  "hsp_measurement_required": true,
+  "csc_status": "PENDING_SHADOW_AUDIT",
+  "promotion_authority": "NONE",
+  "production_mutation_allowed": false,
+  "evidence_context_refs": [
+    "methodology\\MS1970_AFFORDANCE_SPLIT_NOT_GENEALOGY.md#p27.0",
+    "methodology\\MS1969_GAP_REAPPEARANCE_IDENTITY_BOUNDARY.md#p15.0",
+    "methodology\\MS1993_INTERVENTION_BOUND_OPERATIONAL_PERSISTENCE.md#p20.0",
+    "methodology\\MS1993_INTERVENTION_BOUND_OPERATIONAL_PERSISTENCE.md#p4.0",
+    "methodology\\MS1994_MULTIPLE_INTERVENTION_TRACE_PERSISTENCE_CONFLICT.md#p2.0",
+    "methodology\\MS1994_MULTIPLE_INTERVENTION_TRACE_PERSISTENCE_CONFLICT.md#p31.0",
+    "methodology\\MS1995_MULTI_REFERENT_CROSSING_OCCLUSION_REASSOCIATION.md#p36.0",
+    "microseed\\cognition\\research_registry.py#p5.0",
+    "methodology\\MS1962_MS1963_REFERENT_CONTINUITY_BOUNDARIES.md#p19.0",
+    "methodology\\MS1968_NOISY_CALIBRATED_REFERENT_HANDOFF.md#p18.0",
+    "methodology\\MS1970_AFFORDANCE_SPLIT_NOT_GENEALOGY.md#p22.0",
+    "methodology\\MS2003_OWNED_OPERATIONAL_REFERENT_CONTEXT_POLICY.md#p23.0"
+  ],
+  "spec": {
+    "question": "Is any persistent developmental identity quantity necessary beyond a complete reconstructible current operational state and evidence lineage?",
+    "incumbent": "Complete current operational state, dependency/currentness state and evidence lineage are sufficient; numerical/persistent identity is not an additional causal primitive.",
+    "rival": "Different developmental histories can produce behaviorally different futures despite exactly matched reconstructible current operational state, requiring an additional persistent identity quantity.",
+    "manipulation": "Construct two instances with deliberately different developmental histories, then normalize/persist them to byte-equivalent or field-equivalent current operational state across capabilities, projections, current relations, obligations/scopes and dependency state. Apply the same novel perturbation after restart.",
+    "controls": [
+      "same-history clone",
+      "different-history matched-current-state pair",
+      "field-by-field snapshot equality receipt",
+      "RNG seed control",
+      "restart/no-restart pair"
+    ],
+    "incumbent_prediction": "Post-restart perturbation responses, candidate relations, qualifications and actions are identical modulo opaque IDs; any difference traces to an omitted current dependency.",
+    "rival_prediction": "Matched current state still diverges systematically as a function of developmental lineage.",
+    "measurement": "Snapshot equality, post-perturbation proposals/relations/currentness/actions, dependency traces, divergence location.",
+    "minimal_embodiment": "Snapshot/restart fixture and equality verifier only; no self/identity object added.",
+    "falsifier": "Reproducible divergence after verified complete current-state equality that cannot be traced to RNG or omitted persisted dependency.",
+    "loop_plus": "If divergence appears, classify omitted memory/dependency before naming identity."
+  }
+}

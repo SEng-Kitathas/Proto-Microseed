@@ -1,0 +1,37 @@
+{
+  "status": "METHOD_REJECTED__NOT_SCIENTIFIC_PASS",
+  "question": "What are the minimal persistent developmental quantities required for operational continuity and persistence?",
+  "errors": [
+    "question_not_exact"
+  ],
+  "candidate": {
+    "question": "What evidence can lawfully strengthen operational re-association into persistence/identity claims, or toward open representational growth if numerical identity is not required for the first bounded language gate?",
+    "evidence_contacted": [
+      "methodology\\MS1992_NAKED_FIRST_PROBE_REPLAY_REMAINS_AUTHORITY_BLOCKED.md#p32.0",
+      "methodology\\MS1993_INTERVENTION_BOUND_OPERATIONAL_PERSISTENCE.md#p4.0",
+      "continuity/state/current/CURRENT_STATE.md#p12.0",
+      "methodology\\MS1959_MS1961_AFFORDANCE_RELATIVE_PROTO_REFERENCE.md#p29.0",
+      "methodology\\MS1968_NOISY_CALIBRATED_REFERENT_HANDOFF.md#p2.0",
+      "methodology\\MS1970_AFFORDANCE_SPLIT_NOT_GENEALOGY.md#p27.0",
+      "continuity/state/next_steps/NEXT_STEPS.md#p5.0",
+      "methodology\\MS1958_WITHIN_SESSION_PROTO_REFERENT_BOUNDARY_COHERENCE.md#p2.0"
+    ],
+    "measurement_frame": "Calibrated noisy handoff with separate calibration frames for each sensor-layout",
+    "probe": "How can operational proto-referent continuity survive a noisy old→overlap→new sensor-layout handoff when each layout is governed by a separately qualified/current calibration frame?",
+    "derive": "The key challenge is to ensure that operational re-association can persist and be strengthened across different calibration frames without promoting numerical identity.",
+    "verify": "The evidence from MS1968 suggests that operational continuity can be maintained through re-association, but it does not explicitly address how persistence and identity claims can be strengthened.",
+    "oarr": "A rival mechanism could involve developing a protocol that explicitly tracks and strengthens re-association across calibration frames without promoting numerical identity.",
+    "loop_plus": "Widen the causal explanation to include the role of calibration frames in maintaining operational continuity and identity claims.",
+    "embody": "NO_MUTATION_WARRANTED",
+    "observed_consequence": "SOURCE_EVIDENCE_ONLY__NO_NEW_WORLD_CONSEQUENCE",
+    "survivors": "Boundary-coherent proto-referent partitions and overlap-bound continuity.",
+    "scars": "None identified.",
+    "demotions": "None identified.",
+    "unresolved": "How can persistence and identity claims be strengthened across different calibration frames without promoting numerical identity?",
+    "attention_reservoir": "Neglected evidence: The role of calibration frames in maintaining operational continuity and identity claims.",
+    "disposition": "RESEARCH_CONTINUE",
+    "next": "What protocol can explicitly track and strengthen re-association across calibration frames without promoting numerical identity?",
+    "terminal": false
+  },
+  "promotion_authority": "NONE"
+}

@@ -1,0 +1,22 @@
+{
+  "verdict": "PASS",
+  "errors": [],
+  "warnings": [],
+  "strongest_control": "same-history clone",
+  "strongest_risk": "different developmental histories",
+  "embodiment_warranted": true,
+  "required_before_embodiment": [
+    "same-history clone",
+    "different-history matched-current-state pair"
+  ],
+  "authority": "AUDIT_ONLY_NONE_PROMOTION",
+  "model": "Qwen2.5-Coder-1.5B-Instruct-abliterated-Q4_K_L.gguf",
+  "usage": {
+    "completion_tokens": 80,
+    "prompt_tokens": 488,
+    "total_tokens": 568,
+    "prompt_tokens_details": {
+      "cached_tokens": 150
+    }
+  }
+}

@@ -1,0 +1,219 @@
+{
+  "authority": "RESEARCH_ONLY__NO_MAIN_MOVEMENT__NO_PROMOTION_AUTHORITY",
+  "base_public_main": "dac28bba6cad4fb8edeae2a361cb47caad8e3a2f",
+  "bc_guard": {
+    "cmd": [
+      "C:\\Users\\ancal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "-m",
+      "pytest",
+      "-q",
+      "tests/embodiment/test_ms2065_bounded_hierarchy_promotion_candidate.py"
+    ],
+    "duration_seconds": 0.797,
+    "return_code": 0,
+    "stderr": "E:\\new pc\\AI_Pushes_Sandbox\\projects\\protoagi_microseed_reincarnation_20260827\\campaigns\\OVERNIGHT_2026-09-04_QWEN36_E_IDENTITY\\logs\\e_bc_guard.stderr.log",
+    "stdout": "E:\\new pc\\AI_Pushes_Sandbox\\projects\\protoagi_microseed_reincarnation_20260827\\campaigns\\OVERNIGHT_2026-09-04_QWEN36_E_IDENTITY\\logs\\e_bc_guard.stdout.log",
+    "timed_out": false
+  },
+  "branch": "research/overnight-e-identity-replay-r42-20260904",
+  "decision": "REPLAY_VERIFIED_RESEARCH_ONLY__DO_NOT_MOVE_MAIN",
+  "direct_test_source_git_blob_sha256": "58f94a7be2215f75115e93e0e4ac41c2033f476fa1d2587f144812a970aad9ac",
+  "direct_test_staged_git_blob_sha256": "58f94a7be2215f75115e93e0e4ac41c2033f476fa1d2587f144812a970aad9ac",
+  "fresh_replay_surface": {
+    "batch_count": 7,
+    "batches": [
+      {
+        "batch": 1,
+        "cmd": [
+          "C:\\Users\\ancal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "tools/run_pytest_cleanup_neutral.py",
+          "-q",
+          "tests/embodiment/test_frontier_e_identity_persistent_vs_copy.py",
+          "tests/embodiment/test_ms1959_ms1961_affordance_relative_proto_reference.py",
+          "tests/embodiment/test_ms1962_ms1963_referent_continuity_boundaries.py"
+        ],
+        "duration_seconds": 14.811,
+        "files": [
+          "tests/embodiment/test_frontier_e_identity_persistent_vs_copy.py",
+          "tests/embodiment/test_ms1959_ms1961_affordance_relative_proto_reference.py",
+          "tests/embodiment/test_ms1962_ms1963_referent_continuity_boundaries.py"
+        ],
+        "passed": 9,
+        "return_code": 0,
+        "stderr": "E:\\new pc\\AI_Pushes_Sandbox\\projects\\protoagi_microseed_reincarnation_20260827\\campaigns\\OVERNIGHT_2026-09-04_QWEN36_E_IDENTITY\\logs\\e_batch_01.stderr.log",
+        "stdout": "E:\\new pc\\AI_Pushes_Sandbox\\projects\\protoagi_microseed_reincarnation_20260827\\campaigns\\OVERNIGHT_2026-09-04_QWEN36_E_IDENTITY\\logs\\e_batch_01.stdout.log",
+        "timed_out": false
+      },
+      {
+        "batch": 2,
+        "cmd": [
+          "C:\\Users\\ancal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "tools/run_pytest_cleanup_neutral.py",
+          "-q",
+          "tests/embodiment/test_ms1964_ms1966_noisy_observation_frame_boundary.py",
+          "tests/embodiment/test_ms1967_calibrated_observation_frame_currentness.py",
+          "tests/embodiment/test_ms1968_noisy_calibrated_referent_handoff.py"
+        ],
+        "duration_seconds": 1.349,
+        "files": [
+          "tests/embodiment/test_ms1964_ms1966_noisy_observation_frame_boundary.py",
+          "tests/embodiment/test_ms1967_calibrated_observation_frame_currentness.py",
+          "tests/embodiment/test_ms1968_noisy_calibrated_referent_handoff.py"
+        ],
+        "passed": 5,
+        "return_code": 0,
+        "stderr": "E:\\new pc\\AI_Pushes_Sandbox\\projects\\protoagi_microseed_reincarnation_20260827\\campaigns\\OVERNIGHT_2026-09-04_QWEN36_E_IDENTITY\\logs\\e_batch_02.stderr.log",
+        "stdout": "E:\\new pc\\AI_Pushes_Sandbox\\projects\\protoagi_microseed_reincarnation_20260827\\campaigns\\OVERNIGHT_2026-09-04_QWEN36_E_IDENTITY\\logs\\e_batch_02.stdout.log",
+        "timed_out": false
+      },
+      {
+        "batch": 3,
+        "cmd": [
+          "C:\\Users\\ancal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "tools/run_pytest_cleanup_neutral.py",
+          "-q",
+          "tests/embodiment/test_ms1969_gap_reappearance_identity_boundary.py",
+          "tests/embodiment/test_ms1993_intervention_bound_operational_persistence.py",
+          "tests/embodiment/test_ms1994_multiple_trace_persistence_conflict.py"
+        ],
+        "duration_seconds": 1.324,
+        "files": [
+          "tests/embodiment/test_ms1969_gap_reappearance_identity_boundary.py",
+          "tests/embodiment/test_ms1993_intervention_bound_operational_persistence.py",
+          "tests/embodiment/test_ms1994_multiple_trace_persistence_conflict.py"
+        ],
+        "passed": 3,
+        "return_code": 0,
+        "stderr": "E:\\new pc\\AI_Pushes_Sandbox\\projects\\protoagi_microseed_reincarnation_20260827\\campaigns\\OVERNIGHT_2026-09-04_QWEN36_E_IDENTITY\\logs\\e_batch_03.stderr.log",
+        "stdout": "E:\\new pc\\AI_Pushes_Sandbox\\projects\\protoagi_microseed_reincarnation_20260827\\campaigns\\OVERNIGHT_2026-09-04_QWEN36_E_IDENTITY\\logs\\e_batch_03.stdout.log",
+        "timed_out": false
+      },
+      {
+        "batch": 4,
+        "cmd": [
+          "C:\\Users\\ancal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "tools/run_pytest_cleanup_neutral.py",
+          "-q",
+          "tests/embodiment/test_ms1995_crossing_occlusion_reassociation.py",
+          "tests/embodiment/test_ms1996_endogenous_program_caller_choice_elimination.py",
+          "tests/embodiment/test_ms1997_lived_history_to_endogenous_program.py"
+        ],
+        "duration_seconds": 2.413,
+        "files": [
+          "tests/embodiment/test_ms1995_crossing_occlusion_reassociation.py",
+          "tests/embodiment/test_ms1996_endogenous_program_caller_choice_elimination.py",
+          "tests/embodiment/test_ms1997_lived_history_to_endogenous_program.py"
+        ],
+        "passed": 4,
+        "return_code": 0,
+        "stderr": "E:\\new pc\\AI_Pushes_Sandbox\\projects\\protoagi_microseed_reincarnation_20260827\\campaigns\\OVERNIGHT_2026-09-04_QWEN36_E_IDENTITY\\logs\\e_batch_04.stderr.log",
+        "stdout": "E:\\new pc\\AI_Pushes_Sandbox\\projects\\protoagi_microseed_reincarnation_20260827\\campaigns\\OVERNIGHT_2026-09-04_QWEN36_E_IDENTITY\\logs\\e_batch_04.stdout.log",
+        "timed_out": false
+      },
+      {
+        "batch": 5,
+        "cmd": [
+          "C:\\Users\\ancal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "tools/run_pytest_cleanup_neutral.py",
+          "-q",
+          "tests/embodiment/test_ms1998_observable_context_assistance_removal.py",
+          "tests/embodiment/test_ms1998_owned_raw_context_reenters_rehearsal.py",
+          "tests/embodiment/test_ms1999_hundred_capability_scale_and_dependency_grounding.py"
+        ],
+        "duration_seconds": 21.649,
+        "files": [
+          "tests/embodiment/test_ms1998_observable_context_assistance_removal.py",
+          "tests/embodiment/test_ms1998_owned_raw_context_reenters_rehearsal.py",
+          "tests/embodiment/test_ms1999_hundred_capability_scale_and_dependency_grounding.py"
+        ],
+        "passed": 6,
+        "return_code": 0,
+        "stderr": "E:\\new pc\\AI_Pushes_Sandbox\\projects\\protoagi_microseed_reincarnation_20260827\\campaigns\\OVERNIGHT_2026-09-04_QWEN36_E_IDENTITY\\logs\\e_batch_05.stderr.log",
+        "stdout": "E:\\new pc\\AI_Pushes_Sandbox\\projects\\protoagi_microseed_reincarnation_20260827\\campaigns\\OVERNIGHT_2026-09-04_QWEN36_E_IDENTITY\\logs\\e_batch_05.stdout.log",
+        "timed_out": false
+      },
+      {
+        "batch": 6,
+        "cmd": [
+          "C:\\Users\\ancal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "tools/run_pytest_cleanup_neutral.py",
+          "-q",
+          "tests/embodiment/test_ms2000_same_identity_capability_requalification.py",
+          "tests/embodiment/test_ms2001_multirestart_observable_context_lifetime.py",
+          "tests/embodiment/test_ms2002_persisted_operational_referent_class.py"
+        ],
+        "duration_seconds": 21.933,
+        "files": [
+          "tests/embodiment/test_ms2000_same_identity_capability_requalification.py",
+          "tests/embodiment/test_ms2001_multirestart_observable_context_lifetime.py",
+          "tests/embodiment/test_ms2002_persisted_operational_referent_class.py"
+        ],
+        "passed": 3,
+        "return_code": 0,
+        "stderr": "E:\\new pc\\AI_Pushes_Sandbox\\projects\\protoagi_microseed_reincarnation_20260827\\campaigns\\OVERNIGHT_2026-09-04_QWEN36_E_IDENTITY\\logs\\e_batch_06.stderr.log",
+        "stdout": "E:\\new pc\\AI_Pushes_Sandbox\\projects\\protoagi_microseed_reincarnation_20260827\\campaigns\\OVERNIGHT_2026-09-04_QWEN36_E_IDENTITY\\logs\\e_batch_06.stdout.log",
+        "timed_out": false
+      },
+      {
+        "batch": 7,
+        "cmd": [
+          "C:\\Users\\ancal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "tools/run_pytest_cleanup_neutral.py",
+          "-q",
+          "tests/embodiment/test_ms2003_owned_operational_referent_context_policy.py",
+          "tests/embodiment/test_ms2004_unified_referent_lifetime_policy.py"
+        ],
+        "duration_seconds": 13.1,
+        "files": [
+          "tests/embodiment/test_ms2003_owned_operational_referent_context_policy.py",
+          "tests/embodiment/test_ms2004_unified_referent_lifetime_policy.py"
+        ],
+        "passed": 4,
+        "return_code": 0,
+        "stderr": "E:\\new pc\\AI_Pushes_Sandbox\\projects\\protoagi_microseed_reincarnation_20260827\\campaigns\\OVERNIGHT_2026-09-04_QWEN36_E_IDENTITY\\logs\\e_batch_07.stderr.log",
+        "stdout": "E:\\new pc\\AI_Pushes_Sandbox\\projects\\protoagi_microseed_reincarnation_20260827\\campaigns\\OVERNIGHT_2026-09-04_QWEN36_E_IDENTITY\\logs\\e_batch_07.stdout.log",
+        "timed_out": false
+      }
+    ],
+    "file_count": 20,
+    "files": [
+      "tests/embodiment/test_frontier_e_identity_persistent_vs_copy.py",
+      "tests/embodiment/test_ms1959_ms1961_affordance_relative_proto_reference.py",
+      "tests/embodiment/test_ms1962_ms1963_referent_continuity_boundaries.py",
+      "tests/embodiment/test_ms1964_ms1966_noisy_observation_frame_boundary.py",
+      "tests/embodiment/test_ms1967_calibrated_observation_frame_currentness.py",
+      "tests/embodiment/test_ms1968_noisy_calibrated_referent_handoff.py",
+      "tests/embodiment/test_ms1969_gap_reappearance_identity_boundary.py",
+      "tests/embodiment/test_ms1993_intervention_bound_operational_persistence.py",
+      "tests/embodiment/test_ms1994_multiple_trace_persistence_conflict.py",
+      "tests/embodiment/test_ms1995_crossing_occlusion_reassociation.py",
+      "tests/embodiment/test_ms1996_endogenous_program_caller_choice_elimination.py",
+      "tests/embodiment/test_ms1997_lived_history_to_endogenous_program.py",
+      "tests/embodiment/test_ms1998_observable_context_assistance_removal.py",
+      "tests/embodiment/test_ms1998_owned_raw_context_reenters_rehearsal.py",
+      "tests/embodiment/test_ms1999_hundred_capability_scale_and_dependency_grounding.py",
+      "tests/embodiment/test_ms2000_same_identity_capability_requalification.py",
+      "tests/embodiment/test_ms2001_multirestart_observable_context_lifetime.py",
+      "tests/embodiment/test_ms2002_persisted_operational_referent_class.py",
+      "tests/embodiment/test_ms2003_owned_operational_referent_context_policy.py",
+      "tests/embodiment/test_ms2004_unified_referent_lifetime_policy.py"
+    ],
+    "total_passed_parsed": 34
+  },
+  "historical_source_result": "13/13 PASS but exact historical command list not preserved",
+  "microseed_delta": [],
+  "public_verifier": {
+    "cmd": [
+      "C:\\Users\\ancal\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "tools/verify_public_v1_continuity.py"
+    ],
+    "duration_seconds": 1.169,
+    "return_code": 0,
+    "stderr": "E:\\new pc\\AI_Pushes_Sandbox\\projects\\protoagi_microseed_reincarnation_20260827\\campaigns\\OVERNIGHT_2026-09-04_QWEN36_E_IDENTITY\\logs\\e_public_verifier.stderr.log",
+    "stdout": "E:\\new pc\\AI_Pushes_Sandbox\\projects\\protoagi_microseed_reincarnation_20260827\\campaigns\\OVERNIGHT_2026-09-04_QWEN36_E_IDENTITY\\logs\\e_public_verifier.stdout.log",
+    "timed_out": false
+  },
+  "schema": "microseed.e_identity_overnight_replay.v1",
+  "source_head": "edc0f27af94f39450ffea171c7b448997401d652",
+  "status": "PASS"
+}

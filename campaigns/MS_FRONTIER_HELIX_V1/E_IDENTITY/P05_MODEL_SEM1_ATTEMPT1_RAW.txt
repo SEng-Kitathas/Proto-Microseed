@@ -1,0 +1,29 @@
+{
+    "question": "What evidence can lawfully strengthen operational re-association into persistence/identity claims, or toward open representational growth if numerical identity is not required for the first bounded language gate?",
+    "evidence_contacted": [
+        "methodology\\MS1970_AFFORDANCE_SPLIT_NOT_GENEALOGY.md#p27.0",
+        "methodology\\MS1969_GAP_REAPPEARANCE_IDENTITY_BOUNDARY.md#p15.0",
+        "methodology\\MS1993_INTERVENTION_BOUND_OPERATIONAL_PERSISTENCE.md#p20.0",
+        "methodology\\MS1993_INTERVENTION_BOUND_OPERATIONAL_PERSISTENCE.md#p4.0",
+        "methodology\\MS1994_MULTIPLE_INTERVENTION_TRACE_PERSISTENCE_CONFLICT.md#p2.0",
+        "methodology\\MS1994_MULTIPLE_INTERVENTION_TRACE_PERSISTENCE_CONFLICT.md#p31.0",
+        "methodology\\MS1995_MULTI_REFERENT_CROSSING_OCCLUSION_REASSOCIATION.md#p36.0",
+        "microseed\\cognition\\research_registry.py#p5.0"
+    ],
+    "measurement_frame": "The measurement frame is the operational re-association authority, which is `AFFORDANCE_RELATIVE_ONLY`. This authority ceiling restricts the ability to promote operational persistence into numerical identity or semantic reference.",
+    "probe": "We need to explore how multiple independently bound interventions can strengthen operational persistence without collapsing mixed evidence into a score or promoting numerical identity.",
+    "derive": "Based on the evidence, multiple independently bound interventions can strengthen operational persistence by preserving mixed evidence without promoting numerical identity. This is because the authority ceiling for operational persistence is `TRACE_RELATIVE_ONLY`, which allows for the preservation of mixed evidence.",
+    "verify": "The evidence supports the idea that multiple independently bound interventions can strengthen operational persistence without collapsing mixed evidence into a score or promoting numerical identity. However, further research is needed to determine the exact mechanisms and conditions under which this occurs.",
+    "oarr": "The OARR for this question is the possibility that the current authority ceiling for operational persistence may be too restrictive, and that further research is needed to determine how to overcome this limitation.",
+    "loop_plus": "We need to explore how to overcome the current authority ceiling for operational persistence and determine how to promote operational persistence into numerical identity or semantic reference.",
+    "embody": "NO_MUTATION_WARRANTED",
+    "observed_consequence": "SOURCE_EVIDENCE_ONLY__NO_NEW_WORLD_CONSEQUENCE",
+    "survivors": "None identified.",
+    "scars": "None identified.",
+    "demotions": "None identified.",
+    "unresolved": "None identified.",
+    "attention_reservoir": "None identified.",
+    "disposition": "UNKNOWN_INCOMPLETE",
+    "next": "How can we overcome the current authority ceiling for operational persistence and determine how to promote operational persistence into numerical identity or semantic reference?",
+    "terminal": false
+}
