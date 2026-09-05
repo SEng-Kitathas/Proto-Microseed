@@ -1,0 +1,48 @@
+{
+  "items": [
+    {
+      "id": "GROW-AR-01",
+      "priority": "P0",
+      "signal": "top policy/replacement/routing can develop from nested outcomes without flat-pretrained top",
+      "state": "EARNED"
+    },
+    {
+      "id": "GROW-AR-02",
+      "priority": "P0",
+      "signal": "top request token -> middle current context mapping is evaluator supplied",
+      "state": "LIVE_ASSISTANCE"
+    },
+    {
+      "id": "GROW-AR-03",
+      "priority": "P0",
+      "signal": "middle is independently developed before top growth starts",
+      "state": "LIVE_ASSISTANCE"
+    },
+    {
+      "id": "GROW-AR-04",
+      "priority": "P0",
+      "signal": "projection train/validation split must not depend on opaque sample ID/order; outcome label excluded from repaired ordering key",
+      "state": "SCAR"
+    },
+    {
+      "id": "GROW-AR-05",
+      "priority": "P1",
+      "signal": "learned whole atomicity remains unearned; do not reinterpret staged growth as macro atomicity",
+      "state": "SCAR"
+    },
+    {
+      "id": "GROW-AR-06",
+      "priority": "P1",
+      "signal": "F_VALUE incomparable conflict remains open",
+      "state": "LIVE_ORTHOGONAL"
+    },
+    {
+      "id": "GROW-AR-07",
+      "priority": "P2",
+      "signal": "simultaneous top/middle co-development waits behind 03B",
+      "state": "DEFERRED"
+    }
+  ],
+  "schema": "r42.attention_reservoir.c_scale_growth_03a.v1",
+  "status": "ACTIVE"
+}

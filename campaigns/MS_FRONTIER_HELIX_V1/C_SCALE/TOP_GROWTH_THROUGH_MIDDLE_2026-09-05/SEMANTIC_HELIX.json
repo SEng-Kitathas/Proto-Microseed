@@ -1,0 +1,34 @@
+{
+  "active": [
+    {
+      "authority": "RESEARCH_ONLY",
+      "id": "C-SCALE-LEARN-03B",
+      "question": "Can the top-request -> middle-current-context binding be discovered/owned by the middle or shared developmental substrate instead of supplied by evaluator mapping?"
+    },
+    {
+      "authority": "RESEARCH_ONLY",
+      "id": "F-VALUE-CONFLICT",
+      "question": "What lawful response exists for incomplete/non-vectorizable conflict beyond strict Pareto, if any?"
+    }
+  ],
+  "deferred": [
+    {
+      "id": "C-SCALE-LEARN-03C",
+      "question": "Can top and middle co-develop simultaneously from initially unqualified higher relations?",
+      "reason": "03B mapping assistance must be pressured first"
+    }
+  ],
+  "resolved": [
+    {
+      "id": "C-SCALE-DRIFT-02",
+      "result": "CLOSED_BY_SH1_CONVERGENCE"
+    },
+    {
+      "id": "C-SCALE-LEARN-03A",
+      "result": "TOP_POLICY_AND_ROUTING_GROW_FROM_NESTED_OUTCOMES_THROUGH_PREDEVELOPED_MIDDLE",
+      "verification": "3/3 focused + 12/12 adjacent"
+    }
+  ],
+  "schema": "r42.semantic_helix.c_scale_growth_03a.v1",
+  "status": "ACTIVE"
+}

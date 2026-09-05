@@ -1,0 +1,25 @@
+{
+  "derive": [
+    "remove flat-pretrained top while preserving learned middle and explicit qualifications",
+    "train top only from actual nested outcomes"
+  ],
+  "embody": [
+    "research test + methodology/result/report + exact scars/logs"
+  ],
+  "probe": [
+    "C_SCALE prequalified-top assistance",
+    "MS2063 developmental builder",
+    "I_GROWTH anti-atomicity scar"
+  ],
+  "recurse": [
+    "route to 03B evaluator-owned context-coupling removal before simultaneous co-development"
+  ],
+  "schema": "r42.pdver.c_scale_growth_03a.v1",
+  "verify": [
+    "focused 3/3",
+    "adjacent hierarchy/currentness 12/12",
+    "public verifier PASS",
+    "zero production delta",
+    "semantic flat/nested evidence multiset equality"
+  ]
+}

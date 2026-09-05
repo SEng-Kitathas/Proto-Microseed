@@ -1,0 +1,150 @@
+{
+  "semantic_sorted_split_results": {
+    "nested": [
+      {
+        "positions": [
+          0
+        ],
+        "validation_accuracy": 1.0,
+        "lift": 0.6,
+        "id": "proj-cand-54e7cd5fee47f8353113"
+      },
+      {
+        "positions": [
+          3
+        ],
+        "validation_accuracy": 1.0,
+        "lift": 0.6,
+        "id": "proj-cand-2e6596761d55fa1c9e99"
+      },
+      {
+        "positions": [
+          0,
+          1
+        ],
+        "validation_accuracy": 1.0,
+        "lift": 0.6,
+        "id": "proj-cand-471dfadecaba5313a908"
+      },
+      {
+        "positions": [
+          0,
+          2
+        ],
+        "validation_accuracy": 1.0,
+        "lift": 0.6,
+        "id": "proj-cand-e6307cb7ca68929947be"
+      },
+      {
+        "positions": [
+          0,
+          3
+        ],
+        "validation_accuracy": 1.0,
+        "lift": 0.6,
+        "id": "proj-cand-8e54ea1a8b5022e29fa3"
+      },
+      {
+        "positions": [
+          1,
+          2
+        ],
+        "validation_accuracy": 1.0,
+        "lift": 0.6,
+        "id": "proj-cand-f139c713d45a66694b35"
+      },
+      {
+        "positions": [
+          1,
+          3
+        ],
+        "validation_accuracy": 1.0,
+        "lift": 0.6,
+        "id": "proj-cand-62a8e72e3cb27ed5ff56"
+      },
+      {
+        "positions": [
+          2,
+          3
+        ],
+        "validation_accuracy": 1.0,
+        "lift": 0.6,
+        "id": "proj-cand-b94984ea467ecc355d0a"
+      }
+    ],
+    "flat_reprobe": [
+      {
+        "positions": [
+          0
+        ],
+        "validation_accuracy": 1.0,
+        "lift": 0.55,
+        "id": "proj-cand-54e7cd5fee47f8353113"
+      },
+      {
+        "positions": [
+          3
+        ],
+        "validation_accuracy": 1.0,
+        "lift": 0.55,
+        "id": "proj-cand-2e6596761d55fa1c9e99"
+      },
+      {
+        "positions": [
+          0,
+          1
+        ],
+        "validation_accuracy": 1.0,
+        "lift": 0.55,
+        "id": "proj-cand-471dfadecaba5313a908"
+      },
+      {
+        "positions": [
+          0,
+          2
+        ],
+        "validation_accuracy": 1.0,
+        "lift": 0.55,
+        "id": "proj-cand-e6307cb7ca68929947be"
+      },
+      {
+        "positions": [
+          0,
+          3
+        ],
+        "validation_accuracy": 1.0,
+        "lift": 0.55,
+        "id": "proj-cand-8e54ea1a8b5022e29fa3"
+      },
+      {
+        "positions": [
+          1,
+          2
+        ],
+        "validation_accuracy": 1.0,
+        "lift": 0.55,
+        "id": "proj-cand-f139c713d45a66694b35"
+      },
+      {
+        "positions": [
+          1,
+          3
+        ],
+        "validation_accuracy": 1.0,
+        "lift": 0.55,
+        "id": "proj-cand-62a8e72e3cb27ed5ff56"
+      },
+      {
+        "positions": [
+          2,
+          3
+        ],
+        "validation_accuracy": 1.0,
+        "lift": 0.55,
+        "id": "proj-cand-b94984ea467ecc355d0a"
+      }
+    ]
+  },
+  "nested_has_exact_HC": true,
+  "flat_has_exact_HC": true
+}

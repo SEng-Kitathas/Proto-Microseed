@@ -62,3 +62,7 @@ tests/embodiment/test_frontier_c_scale_nested_three_level_execution.py text eol=
 campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/CURRENTNESS_CONVERGENCE_2026-09-05/*.json text eol=lf
 campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/CURRENTNESS_CONVERGENCE_2026-09-05/*.md text eol=lf
 campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/CURRENTNESS_CONVERGENCE_2026-09-05/evidence/*.log binary
+tests/embodiment/test_frontier_c_scale_top_growth_through_learned_middle.py text eol=lf
+campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/TOP_GROWTH_THROUGH_MIDDLE_2026-09-05/*.json text eol=lf
+campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/TOP_GROWTH_THROUGH_MIDDLE_2026-09-05/*.md text eol=lf
+campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/TOP_GROWTH_THROUGH_MIDDLE_2026-09-05/evidence/*.log binary

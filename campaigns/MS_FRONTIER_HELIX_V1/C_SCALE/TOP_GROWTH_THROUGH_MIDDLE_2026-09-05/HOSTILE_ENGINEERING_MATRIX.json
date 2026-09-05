@@ -1,0 +1,29 @@
+{
+  "attacks": [
+    {
+      "claim": "top growth only works because flat top relations were copied in",
+      "result": "REJECTED; hard control starts with zero top action/outcome relations and zero routing bindings"
+    },
+    {
+      "claim": "duplicate proposal failure means repeated hierarchical learning is impossible",
+      "result": "REJECTED; one-shot proposal path was out of regime; lawful unique execution episodes preserve registry invariant"
+    },
+    {
+      "claim": "context discovery failure proves nested training loses information",
+      "result": "REJECTED; flat/nested owned semantic sample multisets are identical"
+    },
+    {
+      "claim": "ID-invariant split leaks the expected outcome",
+      "result": "REJECTED; split key explicitly excludes effect_token and retains original thresholds"
+    },
+    {
+      "claim": "result proves full three-level end-to-end learning",
+      "result": "REJECTED; middle prequalification and evaluator-owned context coupling remain"
+    },
+    {
+      "claim": "result needs atomic learned whole",
+      "result": "REJECTED; existing learning/currentness/routing mechanisms suffice"
+    }
+  ],
+  "schema": "r42.hostile_engineering.c_scale_growth_03a.v1"
+}

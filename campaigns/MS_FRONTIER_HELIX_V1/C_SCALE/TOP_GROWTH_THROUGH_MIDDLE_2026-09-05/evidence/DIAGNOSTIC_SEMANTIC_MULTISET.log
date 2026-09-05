@@ -1,0 +1,56 @@
+{
+  "flat_count": 64,
+  "nested_count": 64,
+  "multiset_equal": true,
+  "ordered_equal": false,
+  "only_flat_count": 0,
+  "only_nested_count": 0,
+  "only_flat_examples": [],
+  "only_nested_examples": [],
+  "flat_ctx_candidate": {
+    "positions": [
+      1,
+      2
+    ],
+    "validation_accuracy": 1.0,
+    "lift": 0.55
+  },
+  "flat_cap_ids": [
+    "bound-request-2da1acb80b4afee53cc1",
+    "bound-request-171c1cbd6041805578d4"
+  ],
+  "nested_cap_ids": [
+    "bound-request-2da1acb80b4afee53cc1",
+    "bound-request-171c1cbd6041805578d4"
+  ],
+  "cap_ids_equal": true,
+  "flat_target_tokens": [
+    "bucket-f723e751d034bc64",
+    "bucket-df09647b77af53a9"
+  ],
+  "nested_target_tokens": [
+    "bucket-f723e751d034bc64",
+    "bucket-df09647b77af53a9"
+  ],
+  "target_tokens_equal": true,
+  "first_flat_ids": [
+    "OWNED-RAW-PROJECTION-SAMPLE-fe8ea86c1b5e5cc4b84f",
+    "OWNED-RAW-PROJECTION-SAMPLE-a5e19d839d0c3386924b",
+    "OWNED-RAW-PROJECTION-SAMPLE-446031b55902a0ea3fd6",
+    "OWNED-RAW-PROJECTION-SAMPLE-49abf696d637819585cc",
+    "OWNED-RAW-PROJECTION-SAMPLE-58517eaf86ecd8d2f61b",
+    "OWNED-RAW-PROJECTION-SAMPLE-b7d575d666d010d8cd5c",
+    "OWNED-RAW-PROJECTION-SAMPLE-b65803dfb6ef8c75d2f6",
+    "OWNED-RAW-PROJECTION-SAMPLE-5d89f6fd8b1037facfff"
+  ],
+  "first_nested_ids": [
+    "OWNED-RAW-PROJECTION-SAMPLE-991a2c488289785081c0",
+    "OWNED-RAW-PROJECTION-SAMPLE-2be13e7e37146a8e50f6",
+    "OWNED-RAW-PROJECTION-SAMPLE-7f3eb240f2e731936fe8",
+    "OWNED-RAW-PROJECTION-SAMPLE-b0d27d49f4c35ffc647c",
+    "OWNED-RAW-PROJECTION-SAMPLE-583b83d3d83e156bc04f",
+    "OWNED-RAW-PROJECTION-SAMPLE-449c09340345dca8c3b0",
+    "OWNED-RAW-PROJECTION-SAMPLE-3733cccae709d9812047",
+    "OWNED-RAW-PROJECTION-SAMPLE-50dd8392d8483753ac86"
+  ]
+}

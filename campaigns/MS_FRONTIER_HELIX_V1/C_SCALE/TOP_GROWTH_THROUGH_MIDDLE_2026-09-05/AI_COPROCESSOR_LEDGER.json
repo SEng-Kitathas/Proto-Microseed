@@ -1,0 +1,12 @@
+{
+  "authority": "NONE",
+  "note": "AI reasoning proposed and localized tests; executable outcomes and Git evidence own conclusions.",
+  "schema": "r42.ai_coprocessor.c_scale_growth_03a.v1",
+  "status": "ADDITIVE_ONLY",
+  "uses": [
+    "mechanism decomposition",
+    "failure localization",
+    "flat-vs-nested sample geometry comparison",
+    "claim-ceiling review"
+  ]
+}

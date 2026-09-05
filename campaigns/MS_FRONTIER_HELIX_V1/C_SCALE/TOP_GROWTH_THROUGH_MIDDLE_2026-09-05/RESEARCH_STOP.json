@@ -1,0 +1,12 @@
+{
+  "authority": "RESEARCH_ONLY",
+  "earned": "STAGED_TOP_POLICY_GROWTH_THROUGH_PREDEVELOPED_MIDDLE",
+  "next": "C-SCALE-LEARN-03B",
+  "not_earned": [
+    "FULL_SIMULTANEOUS_THREE_LEVEL_LEARNING",
+    "MIDDLE_BINDING_DISCOVERY",
+    "SELF_QUALIFICATION"
+  ],
+  "schema": "microseed.frontier_c_scale.learn_03a_stop.v1",
+  "status": "STOP_03A_BOUNDED_RESULT_EARNED"
+}

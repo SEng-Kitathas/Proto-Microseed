@@ -1,0 +1,115 @@
+FF                                                                       [100%]
+================================== FAILURES ===================================
+_ test_top_request_effect_policy_and_context_routing_can_grow_from_actual_nested_experience _
+
+    def test_top_request_effect_policy_and_context_routing_can_grow_from_actual_nested_experience():
+        c = _load("test_frontier_c_scale_nested_three_level_execution.py")
+        m = c._m()
+        middle = m.build_integrated()
+        top = None
+        try:
+>           top, nested_log = _grow_top_through_middle(c, m, middle)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\embodiment\test_frontier_c_scale_top_growth_through_learned_middle.py:210: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\embodiment\test_frontier_c_scale_top_growth_through_learned_middle.py:175: in _grow_top_through_middle
+    owned, ctx_rec, ctx_candidate, b0, b1 = m.discover_context_projection(ms)
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+ms = <microseed.runtime.entity.Microseed object at 0x000001EC69BB0A40>
+
+    def discover_context_projection(ms):
+        owned=ms.derive_admitted_projection_samples_from_owned_raw_observations()
+        assert owned['status']=='ADMITTED_OWNED_RAW_PROJECTION_SAMPLES'
+        assert owned['sample_count']>=64
+        assert not owned['receipt_rejections'] and not owned['sample_rejections']
+        rows=list(owned['samples']); random.Random(2063001).shuffle(rows)
+        cut=44
+        found=ms.discover_epistemic_projection_candidates(
+            tuple(rows[:cut]),tuple(rows[cut:]),ProjectionDiscoveryConfig(
+                max_subset=2,min_train_support=32,min_key_action_support=4,
+                min_validation_accuracy=.95,min_lift_over_action_baseline=.35,min_scope_accuracy=.90,max_candidates=12,
+            )
+        )
+>       assert found
+               ^^^^^
+E       AssertionError
+
+tests\embodiment\test_ms2063_end_to_end_two_level_hierarchy_transfer.py:241: AssertionError
+_ test_growth_claim_stays_bounded_to_top_policy_not_full_unassisted_three_level_learning _
+
+    def test_growth_claim_stays_bounded_to_top_policy_not_full_unassisted_three_level_learning():
+        c = _load("test_frontier_c_scale_nested_three_level_execution.py")
+        m = c._m()
+        middle = m.build_integrated()
+        top = None
+        try:
+>           top, nested_log = _grow_top_through_middle(c, m, middle)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\embodiment\test_frontier_c_scale_top_growth_through_learned_middle.py:256: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\embodiment\test_frontier_c_scale_top_growth_through_learned_middle.py:175: in _grow_top_through_middle
+    owned, ctx_rec, ctx_candidate, b0, b1 = m.discover_context_projection(ms)
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+ms = <microseed.runtime.entity.Microseed object at 0x000001EC6B6CF2F0>
+
+    def discover_context_projection(ms):
+        owned=ms.derive_admitted_projection_samples_from_owned_raw_observations()
+        assert owned['status']=='ADMITTED_OWNED_RAW_PROJECTION_SAMPLES'
+        assert owned['sample_count']>=64
+        assert not owned['receipt_rejections'] and not owned['sample_rejections']
+        rows=list(owned['samples']); random.Random(2063001).shuffle(rows)
+        cut=44
+        found=ms.discover_epistemic_projection_candidates(
+            tuple(rows[:cut]),tuple(rows[cut:]),ProjectionDiscoveryConfig(
+                max_subset=2,min_train_support=32,min_key_action_support=4,
+                min_validation_accuracy=.95,min_lift_over_action_baseline=.35,min_scope_accuracy=.90,max_candidates=12,
+            )
+        )
+>       assert found
+               ^^^^^
+E       AssertionError
+
+tests\embodiment\test_ms2063_end_to_end_two_level_hierarchy_transfer.py:241: AssertionError
+============================== warnings summary ===============================
+tests/embodiment/test_frontier_c_scale_top_growth_through_learned_middle.py::test_growth_claim_stays_bounded_to_top_policy_not_full_unassisted_three_level_learning
+  C:\Users\ancal\AppData\Local\Programs\Python\Python312\Lib\site-packages\_pytest\unraisableexception.py:67: PytestUnraisableExceptionWarning: Exception ignored in: <finalize object at 0x1ec69ff7b20; dead>
+  
+  Traceback (most recent call last):
+    File "C:\Users\ancal\AppData\Local\Programs\Python\Python312\Lib\shutil.py", line 633, in _rmtree_unsafe
+      os.unlink(fullname)
+  PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\ancal\\AppData\\Local\\Temp\\microseed-ms2063-e2e-hierarchy-yqsew0oz\\biography.sqlite3'
+  
+  During handling of the above exception, another exception occurred:
+  
+  Traceback (most recent call last):
+    File "C:\Users\ancal\AppData\Local\Programs\Python\Python312\Lib\weakref.py", line 590, in __call__
+      return info.func(*info.args, **(info.kwargs or {}))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "C:\Users\ancal\AppData\Local\Programs\Python\Python312\Lib\tempfile.py", line 939, in _cleanup
+      cls._rmtree(name, ignore_errors=ignore_errors)
+    File "C:\Users\ancal\AppData\Local\Programs\Python\Python312\Lib\tempfile.py", line 934, in _rmtree
+      _shutil.rmtree(name, onexc=onexc)
+    File "C:\Users\ancal\AppData\Local\Programs\Python\Python312\Lib\shutil.py", line 781, in rmtree
+      return _rmtree_unsafe(path, onexc)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "C:\Users\ancal\AppData\Local\Programs\Python\Python312\Lib\shutil.py", line 635, in _rmtree_unsafe
+      onexc(os.unlink, fullname, err)
+    File "C:\Users\ancal\AppData\Local\Programs\Python\Python312\Lib\tempfile.py", line 909, in onexc
+      _os.unlink(path)
+  PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\ancal\\AppData\\Local\\Temp\\microseed-ms2063-e2e-hierarchy-yqsew0oz\\biography.sqlite3'
+  
+  Enable tracemalloc to get traceback where the object was allocated.
+  See https://docs.pytest.org/en/stable/how-to/capture-warnings.html#resource-warnings for more info.
+    warnings.warn(pytest.PytestUnraisableExceptionWarning(msg))
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/embodiment/test_frontier_c_scale_top_growth_through_learned_middle.py::test_top_request_effect_policy_and_context_routing_can_grow_from_actual_nested_experience
+FAILED tests/embodiment/test_frontier_c_scale_top_growth_through_learned_middle.py::test_growth_claim_stays_bounded_to_top_policy_not_full_unassisted_three_level_learning
+2 failed, 1 warning in 17.17s

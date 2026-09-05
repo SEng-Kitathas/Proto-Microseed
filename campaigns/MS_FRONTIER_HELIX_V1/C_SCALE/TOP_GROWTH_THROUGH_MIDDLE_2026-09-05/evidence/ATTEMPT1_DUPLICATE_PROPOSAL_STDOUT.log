@@ -1,0 +1,141 @@
+FF                                                                       [100%]
+================================== FAILURES ===================================
+_ test_top_request_effect_policy_and_context_routing_can_grow_from_actual_nested_experience _
+
+    def test_top_request_effect_policy_and_context_routing_can_grow_from_actual_nested_experience():
+        c = _load("test_frontier_c_scale_nested_three_level_execution.py")
+        m = c._m()
+        middle = m.build_integrated()
+        top = None
+        try:
+>           top, nested_log = _grow_top_through_middle(c, m, middle)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\embodiment\test_frontier_c_scale_top_growth_through_learned_middle.py:119: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\embodiment\test_frontier_c_scale_top_growth_through_learned_middle.py:49: in _grow_top_through_middle
+    receipt, _ = m.execute_episode(ms, world, cid, raw, idx)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\embodiment\test_ms2063_end_to_end_two_level_hierarchy_transfer.py:189: in execute_episode
+    ex=ms.execute_bounded_action(intent['intent']['intent_id'],act_ob()); assert ex['status']=='ACTION_EXECUTED'
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+microseed\runtime\entity.py:2348: in execute_bounded_action
+    result=self.capabilities.invoke(intent.capability_id,obligation,**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+microseed\runtime\capabilities.py:222: in invoke
+    value = c.handler(**kwargs)
+            ^^^^^^^^^^^^^^^^^^^
+microseed\runtime\entity.py:7325: in bound_handler
+    return base_handler(target=token)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\embodiment\test_ms2063_end_to_end_two_level_hierarchy_transfer.py:105: in request_handler
+    return world.request(target)
+           ^^^^^^^^^^^^^^^^^^^^^
+tests\embodiment\test_frontier_c_scale_nested_three_level_execution.py:56: in nested_request
+    proposal = m.current_proposal(middle_fx, middle_raw, tag)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\embodiment\test_ms2063_end_to_end_two_level_hierarchy_transfer.py:354: in current_proposal
+    return fx['ms'].nominate_current_raw_projection_conditioned_rehearsal(
+microseed\runtime\entity.py:676: in nominate_current_raw_projection_conditioned_rehearsal
+    return self.nominate_counterfactual_rehearsal(
+microseed\runtime\entity.py:630: in nominate_counterfactual_rehearsal
+    self.counterfactual_rehearsals.add(proposal)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <microseed.development.rehearsal.CounterfactualRehearsalRegistry object at 0x00000217601C03B0>
+proposal = CounterfactualRehearsalProposal(proposal_id='REHEARSAL-a66559d7a53b55215c0f', start_state_id='ALIAS', sequence=('bound...Y', semantic_goal_authority='NONE', truth_authority='NONE', execution_authority='NONE', qualification_authority='NONE')
+
+    def add(self, proposal: CounterfactualRehearsalProposal) -> None:
+        if proposal.proposal_id in self.proposals:
+>           raise ValueError("duplicate counterfactual rehearsal proposal")
+E           ValueError: duplicate counterfactual rehearsal proposal
+
+microseed\development\rehearsal.py:236: ValueError
+_ test_growth_claim_stays_bounded_to_top_policy_not_full_unassisted_three_level_learning _
+
+    def test_growth_claim_stays_bounded_to_top_policy_not_full_unassisted_three_level_learning():
+        c = _load("test_frontier_c_scale_nested_three_level_execution.py")
+        m = c._m()
+        middle = m.build_integrated()
+        top = None
+        try:
+>           top, nested_log = _grow_top_through_middle(c, m, middle)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\embodiment\test_frontier_c_scale_top_growth_through_learned_middle.py:165: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\embodiment\test_frontier_c_scale_top_growth_through_learned_middle.py:49: in _grow_top_through_middle
+    receipt, _ = m.execute_episode(ms, world, cid, raw, idx)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\embodiment\test_ms2063_end_to_end_two_level_hierarchy_transfer.py:189: in execute_episode
+    ex=ms.execute_bounded_action(intent['intent']['intent_id'],act_ob()); assert ex['status']=='ACTION_EXECUTED'
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+microseed\runtime\entity.py:2348: in execute_bounded_action
+    result=self.capabilities.invoke(intent.capability_id,obligation,**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+microseed\runtime\capabilities.py:222: in invoke
+    value = c.handler(**kwargs)
+            ^^^^^^^^^^^^^^^^^^^
+microseed\runtime\entity.py:7325: in bound_handler
+    return base_handler(target=token)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\embodiment\test_ms2063_end_to_end_two_level_hierarchy_transfer.py:105: in request_handler
+    return world.request(target)
+           ^^^^^^^^^^^^^^^^^^^^^
+tests\embodiment\test_frontier_c_scale_nested_three_level_execution.py:56: in nested_request
+    proposal = m.current_proposal(middle_fx, middle_raw, tag)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\embodiment\test_ms2063_end_to_end_two_level_hierarchy_transfer.py:354: in current_proposal
+    return fx['ms'].nominate_current_raw_projection_conditioned_rehearsal(
+microseed\runtime\entity.py:676: in nominate_current_raw_projection_conditioned_rehearsal
+    return self.nominate_counterfactual_rehearsal(
+microseed\runtime\entity.py:630: in nominate_counterfactual_rehearsal
+    self.counterfactual_rehearsals.add(proposal)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <microseed.development.rehearsal.CounterfactualRehearsalRegistry object at 0x000002176092A810>
+proposal = CounterfactualRehearsalProposal(proposal_id='REHEARSAL-a66559d7a53b55215c0f', start_state_id='ALIAS', sequence=('bound...Y', semantic_goal_authority='NONE', truth_authority='NONE', execution_authority='NONE', qualification_authority='NONE')
+
+    def add(self, proposal: CounterfactualRehearsalProposal) -> None:
+        if proposal.proposal_id in self.proposals:
+>           raise ValueError("duplicate counterfactual rehearsal proposal")
+E           ValueError: duplicate counterfactual rehearsal proposal
+
+microseed\development\rehearsal.py:236: ValueError
+============================== warnings summary ===============================
+tests/embodiment/test_frontier_c_scale_top_growth_through_learned_middle.py::test_growth_claim_stays_bounded_to_top_policy_not_full_unassisted_three_level_learning
+  C:\Users\ancal\AppData\Local\Programs\Python\Python312\Lib\site-packages\_pytest\unraisableexception.py:67: PytestUnraisableExceptionWarning: Exception ignored in: <finalize object at 0x217606c0240; dead>
+  
+  Traceback (most recent call last):
+    File "C:\Users\ancal\AppData\Local\Programs\Python\Python312\Lib\shutil.py", line 633, in _rmtree_unsafe
+      os.unlink(fullname)
+  PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\ancal\\AppData\\Local\\Temp\\microseed-ms2063-e2e-hierarchy-vcdzb_v8\\biography.sqlite3'
+  
+  During handling of the above exception, another exception occurred:
+  
+  Traceback (most recent call last):
+    File "C:\Users\ancal\AppData\Local\Programs\Python\Python312\Lib\weakref.py", line 590, in __call__
+      return info.func(*info.args, **(info.kwargs or {}))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "C:\Users\ancal\AppData\Local\Programs\Python\Python312\Lib\tempfile.py", line 939, in _cleanup
+      cls._rmtree(name, ignore_errors=ignore_errors)
+    File "C:\Users\ancal\AppData\Local\Programs\Python\Python312\Lib\tempfile.py", line 934, in _rmtree
+      _shutil.rmtree(name, onexc=onexc)
+    File "C:\Users\ancal\AppData\Local\Programs\Python\Python312\Lib\shutil.py", line 781, in rmtree
+      return _rmtree_unsafe(path, onexc)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "C:\Users\ancal\AppData\Local\Programs\Python\Python312\Lib\shutil.py", line 635, in _rmtree_unsafe
+      onexc(os.unlink, fullname, err)
+    File "C:\Users\ancal\AppData\Local\Programs\Python\Python312\Lib\tempfile.py", line 909, in onexc
+      _os.unlink(path)
+  PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\ancal\\AppData\\Local\\Temp\\microseed-ms2063-e2e-hierarchy-vcdzb_v8\\biography.sqlite3'
+  
+  Enable tracemalloc to get traceback where the object was allocated.
+  See https://docs.pytest.org/en/stable/how-to/capture-warnings.html#resource-warnings for more info.
+    warnings.warn(pytest.PytestUnraisableExceptionWarning(msg))
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/embodiment/test_frontier_c_scale_top_growth_through_learned_middle.py::test_top_request_effect_policy_and_context_routing_can_grow_from_actual_nested_experience
+FAILED tests/embodiment/test_frontier_c_scale_top_growth_through_learned_middle.py::test_growth_claim_stays_bounded_to_top_policy_not_full_unassisted_three_level_learning
+2 failed, 1 warning in 7.90s

@@ -1,0 +1,26 @@
+{
+  "laws": [
+    "DETERMINISTIC_EQUIVALENT_REHEARSAL_ID_REUSE_REQUIRES_UNIQUE_EXPOSURE_PATH",
+    "SAMPLE_ID_ORDER != DEVELOPMENTAL_SIGNAL",
+    "EXPECTED_LABEL != SPLIT_ORDER",
+    "ATOMIC_WRAPPER != LAWFUL_OPERATIONAL_REUSE"
+  ],
+  "scars": [
+    {
+      "id": "DETERMINISTIC_REHEARSAL_DUPLICATE",
+      "repair": "select current middle capability once per class, then gather repeated actual outcomes via unique execute_episode path as in SH1",
+      "result": "first harness illegally reused identical middle current_proposal repeatedly; registry correctly rejected duplicate proposal ID"
+    },
+    {
+      "id": "OPAQUE_SAMPLE_ID_ORDER_SPLIT",
+      "repair": "make research train/validation ordering invariant to sample ID using raw/action/scope/frame metadata only, explicitly excluding effect_token label, then apply same seeded shuffle and unchanged thresholds",
+      "result": "nested and flat top produced identical 64-sample semantic projection multisets but different opaque sample IDs/order; original registry-order shuffle failed to discover context candidate"
+    },
+    {
+      "id": "STALE_LOG_ASSERTION",
+      "repair": "assert middle_capability_id; no scientific mechanism change",
+      "result": "ceiling test referenced one-shot middle_proposal_id after repeated-execution helper changed log schema"
+    }
+  ],
+  "schema": "microseed.c_scale_growth_03a.scar_ledger.v1"
+}

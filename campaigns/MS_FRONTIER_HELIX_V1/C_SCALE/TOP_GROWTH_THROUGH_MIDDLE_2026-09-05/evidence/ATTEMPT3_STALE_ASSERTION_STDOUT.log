@@ -1,0 +1,36 @@
+.F                                                                       [100%]
+================================== FAILURES ===================================
+_ test_growth_claim_stays_bounded_to_top_policy_not_full_unassisted_three_level_learning _
+
+    def test_growth_claim_stays_bounded_to_top_policy_not_full_unassisted_three_level_learning():
+        c = _load("test_frontier_c_scale_nested_three_level_execution.py")
+        m = c._m()
+        middle = m.build_integrated()
+        top = None
+        try:
+            top, nested_log = _grow_top_through_middle(c, m, middle)
+    
+            # The middle existed as a separately learned/current controller before top
+            # development began.  The harness also still maps each top request token to
+            # one opaque current middle context.  Those assistance surfaces are explicit
+            # and prevent promotion to full simultaneous three-level end-to-end learning.
+            assert middle["routing_id"] in middle["ms"].action_outcome_learning.projection_conditioned_bindings
+            assert top["routing_id"] in top["ms"].action_outcome_learning.projection_conditioned_bindings
+            assert len(nested_log) == 64
+            assert all("middle_raw" in row for row in nested_log)
+>           assert all(row["middle_proposal_id"] for row in nested_log)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\embodiment\test_frontier_c_scale_top_growth_through_learned_middle.py:332: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+.0 = <list_iterator object at 0x000002249736E020>
+
+>   assert all(row["middle_proposal_id"] for row in nested_log)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: 'middle_proposal_id'
+
+tests\embodiment\test_frontier_c_scale_top_growth_through_learned_middle.py:332: KeyError
+=========================== short test summary info ===========================
+FAILED tests/embodiment/test_frontier_c_scale_top_growth_through_learned_middle.py::test_growth_claim_stays_bounded_to_top_policy_not_full_unassisted_three_level_learning
+1 failed, 1 passed in 17.47s

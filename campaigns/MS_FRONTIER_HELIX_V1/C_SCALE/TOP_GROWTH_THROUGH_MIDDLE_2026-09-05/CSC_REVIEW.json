@@ -1,0 +1,31 @@
+{
+  "reviews": [
+    {
+      "finding": "top evidence comes from actual nested outcomes through middle; no flat top relations/routing preloaded",
+      "interface": "top learning <-> middle execution",
+      "status": "PASS"
+    },
+    {
+      "finding": "leaf target/local means remain below opaque middle receipt",
+      "interface": "leaf means <-> top boundary",
+      "status": "PASS"
+    },
+    {
+      "finding": "semantic evidence multiset preserved; repaired split excludes outcome label and sample ID",
+      "interface": "projection evidence <-> split ordering",
+      "status": "PASS_WITH_RESEARCH_HARNESS_SCAR"
+    },
+    {
+      "finding": "no dependency stripping/atomic whole/one-step macro claim introduced",
+      "interface": "growth <-> I_GROWTH atomicity",
+      "status": "PASS"
+    },
+    {
+      "finding": "no production Microseed mutation",
+      "interface": "research <-> production",
+      "status": "PASS"
+    }
+  ],
+  "schema": "r42.csc.c_scale_growth_03a.v1",
+  "status": "PASS_BOUNDED"
+}

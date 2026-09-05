@@ -1,0 +1,107 @@
+{
+  "adjacent_verification": "12/12 PASS",
+  "assistance_ceiling": [
+    "MIDDLE_CONTROLLER_IS_ALREADY_INDEPENDENTLY_DEVELOPED_AND_CURRENT_BEFORE_TOP_GROWTH",
+    "OPAQUE_TARGET_TOKEN_PROJECTION_AND_RELATION_ROUTING_QUALIFICATIONS_REMAIN_EXTERNAL",
+    "HARNESS_STILL_MAPS_EACH_TOP_REQUEST_TOKEN_TO_ONE_OPAQUE_MIDDLE_CURRENT_CONTEXT",
+    "NOT_SIMULTANEOUS_TOP_AND_MIDDLE_CO_DEVELOPMENT",
+    "NOT_SELF_QUALIFICATION"
+  ],
+  "audit_issues": [],
+  "authority_ceiling": [
+    "RESEARCH_ONLY",
+    "NO_FULL_THREE_LEVEL_END_TO_END_LEARNING_CLAIM",
+    "NO_SIMULTANEOUS_CODEVELOPMENT_CLAIM",
+    "NO_HIERARCHY_MANAGER",
+    "NO_ATOMIC_WHOLE",
+    "NO_SELF_QUALIFICATION",
+    "NO_CANON_PROMOTION",
+    "NO_PRODUCTION_MICROSEED_MUTATION"
+  ],
+  "base_convergence_head": "151487639619dd3df7cd383657e8af5f2bcde6e0",
+  "branch": "research/frontier-c-scale-top-growth-through-middle-v1",
+  "captures": {
+    "adjacent_12pass": {
+      "bytes": 112,
+      "path": "campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/TOP_GROWTH_THROUGH_MIDDLE_2026-09-05/evidence/ADJACENT_12PASS.log",
+      "sha256": "f3bc1787fc7d6b5e20e98e003c98258bfb5e41a6c3fc58c4b208b204451eb8f8"
+    },
+    "attempt1_duplicate_proposal_stderr": {
+      "bytes": 1780,
+      "path": "campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/TOP_GROWTH_THROUGH_MIDDLE_2026-09-05/evidence/ATTEMPT1_DUPLICATE_PROPOSAL_STDERR.log",
+      "sha256": "11ac4eeedbd113c14f7944f744b73cbba01c5368cd01fbe577986015df7f3718"
+    },
+    "attempt1_duplicate_proposal_stdout": {
+      "bytes": 9591,
+      "path": "campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/TOP_GROWTH_THROUGH_MIDDLE_2026-09-05/evidence/ATTEMPT1_DUPLICATE_PROPOSAL_STDOUT.log",
+      "sha256": "7f8f09e79f50fd39acce01047419061d1c0087a206bcaaa9b8c5af86a5213adb"
+    },
+    "attempt2_sample_order_stdout": {
+      "bytes": 7176,
+      "path": "campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/TOP_GROWTH_THROUGH_MIDDLE_2026-09-05/evidence/ATTEMPT2_SAMPLE_ORDER_STDOUT.log",
+      "sha256": "8e3e15c2f5a407a6ab01ecac34ad2dc0d64ee1463ee521537845fcc81b76e794"
+    },
+    "attempt3_stale_assertion_stdout": {
+      "bytes": 2173,
+      "path": "campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/TOP_GROWTH_THROUGH_MIDDLE_2026-09-05/evidence/ATTEMPT3_STALE_ASSERTION_STDOUT.log",
+      "sha256": "7ae75a4e96542de8ebd9b6d0cf7374e713d6fa2911e96939ce8d4dd458508a3c"
+    },
+    "diagnostic_sample_id_invariant_split": {
+      "bytes": 3140,
+      "path": "campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/TOP_GROWTH_THROUGH_MIDDLE_2026-09-05/evidence/DIAGNOSTIC_SAMPLE_ID_INVARIANT_SPLIT.log",
+      "sha256": "5f58ae468353a4371174d01f2e8f4e38d9a769842ce13b2b7fb819e082878fb4"
+    },
+    "diagnostic_semantic_multiset": {
+      "bytes": 1794,
+      "path": "campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/TOP_GROWTH_THROUGH_MIDDLE_2026-09-05/evidence/DIAGNOSTIC_SEMANTIC_MULTISET.log",
+      "sha256": "0ba66b7ebbe3298b4701068d0c7a166f7413eddb05015a1e6112ec27659424f1"
+    },
+    "focused_final": {
+      "bytes": 101,
+      "path": "campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/TOP_GROWTH_THROUGH_MIDDLE_2026-09-05/evidence/FOCUSED_FINAL.log",
+      "sha256": "012e4c0ee6b76a574fe0ec2c64f151ab624a6c78e8a6870768a2148abe6aa138"
+    },
+    "public_verifier": {
+      "bytes": 554,
+      "path": "campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/TOP_GROWTH_THROUGH_MIDDLE_2026-09-05/evidence/PUBLIC_VERIFIER.log",
+      "sha256": "7da6e910c0db66a6a107ee3954040201d25687345169b8d27727c81317407bd4"
+    }
+  },
+  "date": "2026-09-05",
+  "diagnostic_fact": "FLAT_AND_NESTED_TOP_OWNED_RAW_PROJECTION_EVIDENCE_ARE_SEMANTICALLY_IDENTICAL_MULTISETS_WHILE_OPAQUE_SAMPLE_IDS_AND_ORDER_DIFFER",
+  "earned_claim": "TOP_REQUEST_EFFECT_POLICY_DRIFT_REPLACEMENTS_AND_CONTEXT_ROUTING_CAN_BE_DEVELOPMENTALLY_ACQUIRED_FROM_ACTUAL_NESTED_OUTCOMES_THROUGH_AN_ALREADY_QUALIFIED_MIDDLE_WITHOUT_A_FLAT_PRETRAINED_TOP_OR_NEW_HIERARCHY_MANAGER",
+  "focused_verification": "3/3 PASS",
+  "mechanism": [
+    "top begins with runtime/request interface plus externally qualified opaque target projection and bound request specializations but no learned action-outcome relations or routing binding",
+    "actual nested executions through the learned middle generate top-owned bounded raw observations and top-boundary action outcomes",
+    "top learns phase-0 predictive relations, detects lived phase-1 drift, qualifies replacements, discovers context projection, qualifies routing, then acts correctly through the same middle",
+    "middle leaf-local means remain opaque at the top boundary and no hierarchy manager/recursive planner/atomic hierarchy whole appears"
+  ],
+  "microseed_tree": "4c8051563279d20f2ea555d21d7b3305b039e771",
+  "next_discriminator": "C-SCALE-LEARN-03B__REMOVE_EVALUATOR_OWNED_TOP_REQUEST_TO_MIDDLE_CURRENT_CONTEXT_MAPPING_AND_TEST_MIDDLE_OWNED_BINDING_DISCOVERY",
+  "production_delta": [],
+  "public_continuity": "PASS issues empty",
+  "public_main": "dac28bba6cad4fb8edeae2a361cb47caad8e3a2f",
+  "scars": [
+    {
+      "id": "DETERMINISTIC_REHEARSAL_DUPLICATE",
+      "repair": "select current middle capability once per class, then gather repeated actual outcomes via unique execute_episode path as in SH1",
+      "result": "first harness illegally reused identical middle current_proposal repeatedly; registry correctly rejected duplicate proposal ID"
+    },
+    {
+      "id": "OPAQUE_SAMPLE_ID_ORDER_SPLIT",
+      "repair": "make research train/validation ordering invariant to sample ID using raw/action/scope/frame metadata only, explicitly excluding effect_token label, then apply same seeded shuffle and unchanged thresholds",
+      "result": "nested and flat top produced identical 64-sample semantic projection multisets but different opaque sample IDs/order; original registry-order shuffle failed to discover context candidate"
+    },
+    {
+      "id": "STALE_LOG_ASSERTION",
+      "repair": "assert middle_capability_id; no scientific mechanism change",
+      "result": "ceiling test referenced one-shot middle_proposal_id after repeated-execution helper changed log schema"
+    }
+  ],
+  "schema": "microseed.frontier_c_scale.top_growth_through_middle.v1",
+  "status": "PASS_BOUNDED_STAGED_HIERARCHICAL_GROWTH",
+  "test_identity_note": "Git-blob SHA is authoritative for committed test evidence; worktree/source SHA happened to match in this case.",
+  "test_staged_git_blob_sha256": "b985485d27343527ae6aa05f94c6dc48e9fbdebb7e94154196c6e38c13531f97",
+  "test_worktree_sha256_before_staging": "b985485d27343527ae6aa05f94c6dc48e9fbdebb7e94154196c6e38c13531f97"
+}
