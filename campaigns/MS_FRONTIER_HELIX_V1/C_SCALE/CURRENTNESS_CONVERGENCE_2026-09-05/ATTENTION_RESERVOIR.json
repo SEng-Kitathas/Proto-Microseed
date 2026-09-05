@@ -1,0 +1,36 @@
+{
+  "items": [
+    {
+      "id": "AR-C-01",
+      "priority": "P0",
+      "signal": "C-SCALE currentness seam was stale frontier bookkeeping; SH1 already answered it in branch ancestry.",
+      "state": "RESOLVED"
+    },
+    {
+      "id": "AR-C-02",
+      "priority": "P0",
+      "signal": "Hidden subordinate drift does not grant parent clairvoyance; parent currentness changes through own boundary evidence.",
+      "state": "LOAD_BEARING"
+    },
+    {
+      "id": "AR-C-03",
+      "priority": "P0",
+      "signal": "Three-level end-to-end learning remains unearned; current C composition starts from two prequalified two-level controllers and harness mapping.",
+      "state": "LIVE"
+    },
+    {
+      "id": "AR-C-04",
+      "priority": "P1",
+      "signal": "F_VALUE incomparable/non-vectorizable conflict remains open.",
+      "state": "LIVE_ORTHOGONAL"
+    },
+    {
+      "id": "AR-C-05",
+      "priority": "P2",
+      "signal": "E identity developmental follow-on remains deferred after bounded stop.",
+      "state": "DEFERRED"
+    }
+  ],
+  "schema": "r42.attention_reservoir.c_scale_sh1_convergence.v1",
+  "status": "ACTIVE"
+}

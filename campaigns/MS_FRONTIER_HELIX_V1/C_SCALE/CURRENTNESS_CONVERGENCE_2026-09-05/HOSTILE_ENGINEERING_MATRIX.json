@@ -1,0 +1,25 @@
+{
+  "attacks": [
+    {
+      "claim": "middle drift must instantly invalidate parent",
+      "result": "REJECTED_BY_SH1; hidden drift alone gives parent no evidence"
+    },
+    {
+      "claim": "cross-level currentness requires hierarchy/currentness manager",
+      "result": "REJECTED; existing local currentness composes"
+    },
+    {
+      "claim": "SH1 cannot close C because it is a different topology",
+      "result": "REJECTED; same integrated top/middle composition substrate and SH1 is ancestor of C replay head"
+    },
+    {
+      "claim": "effect-preserving hidden implementation change should stale relations",
+      "result": "REJECTED; SH1 remains 1.0/1.0 current after reality contact"
+    },
+    {
+      "claim": "closing drift seam earns end-to-end three-level learning",
+      "result": "REJECTED; controllers remain prequalified and mapping remains assisted"
+    }
+  ],
+  "schema": "r42.hostile_engineering.c_scale_sh1_convergence.v1"
+}

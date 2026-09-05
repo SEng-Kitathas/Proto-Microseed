@@ -1,0 +1,26 @@
+{
+  "derive": [
+    "test whether C-SCALE-DRIFT-02 is a missing experiment or stale frontier bookkeeping",
+    "map composition and currentness ownership surfaces"
+  ],
+  "embody": [
+    "convergence result/report + exact logs + machinery"
+  ],
+  "probe": [
+    "C_SCALE replay remaining seam",
+    "SH1 canonical nested-currentness methodology/test",
+    "commit ancestry"
+  ],
+  "recurse": [
+    "close C-SCALE-DRIFT-02",
+    "retain only end-to-end learning seam in C line",
+    "compare next scientific seam against F_VALUE before widening"
+  ],
+  "schema": "r42.pdver.c_scale_sh1_convergence.v1",
+  "verify": [
+    "SH1 commit ancestor of C replay head",
+    "joint C_SCALE+SH1 5/5 PASS",
+    "public verifier PASS",
+    "zero production delta"
+  ]
+}

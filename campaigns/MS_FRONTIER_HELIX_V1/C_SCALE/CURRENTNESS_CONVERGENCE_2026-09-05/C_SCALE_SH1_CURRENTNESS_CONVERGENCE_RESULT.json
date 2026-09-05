@@ -1,0 +1,73 @@
+{
+  "audit_issues": [],
+  "authority_ceiling": [
+    "RESEARCH_CONVERGENCE_EVIDENCE_ONLY",
+    "NO_NEW_PRODUCTION_MECHANISM",
+    "NO_GLOBAL_CURRENTNESS_MANAGER",
+    "NO_PARENT_CLAIRVOYANCE",
+    "NO_GENERAL_RECURSIVE_HIERARCHY",
+    "NO_THREE_LEVEL_END_TO_END_LEARNING_CLAIM",
+    "NO_CANON_PROMOTION_FROM_THIS_PACKET_ALONE"
+  ],
+  "base_c_scale_replay_head": "37fc31bf640880738762857952a8445cde15fd5e",
+  "branch": "research/frontier-c-scale-sh1-currentness-convergence-v1",
+  "date": "2026-09-05",
+  "decision": "CLOSE_C_SCALE_DRIFT_02_AS_ALREADY_EARNED_BY_SH1__NO_NEW_MECHANISM__RETAIN_ONLY_END_TO_END_LEARNING_SEAM",
+  "earned_claims": [
+    "BOUNDED_THREE_LEVEL_EXECUTION_COMPOSITION_AND_EVIDENCE_LOCAL_NESTED_CURRENTNESS_COMPOSE_ON_THE_SAME_CURRENT_BRANCH_WITHOUT_A_NEW_HIERARCHY_OR_CURRENTNESS_MANAGER",
+    "HIDDEN_MIDDLE_EFFECT_DRIFT_DOES_NOT_CLAIRVOYANTLY_STALE_THE_TOP_RELATION_BEFORE_POST_DRIFT_REALITY_CONTACT",
+    "REPEATED_ACTUAL_NESTED_OUTCOME_FAILURES_CAN_EARN_INDEPENDENT_MIDDLE_AND_TOP_DRIFT_WITNESSES_FROM_THE_SAME_REALITY_EVENTS",
+    "EFFECT_PRESERVING_HIDDEN_MIDDLE_PHENOTYPE_CHANGE_REMAINS_CURRENT_AT_BOTH_LAYERS_AFTER_REALITY_CONTACT",
+    "EXPLICIT_MIDDLE_DEPENDENCY_DRIFT_BLOCKS_THE_MIDDLE_IMMEDIATELY_BUT_TOP_CURRENTNESS_CHANGES_ONLY_AFTER_TOP_BOUNDARY_OUTCOME_EVIDENCE"
+  ],
+  "frontier_correction": {
+    "remaining_c_scale_seam": "THREE_LEVEL_END_TO_END_LEARNING_FROM_UNQUALIFIED_CONTROLLERS_OR_EQUIVALENT_DEVELOPMENTAL_GROWTH",
+    "resolution": "CLOSED_BY_EXISTING_CANONICAL_SH1_ANCESTOR_EVIDENCE_PLUS_FRESH_JOINT_REPLAY",
+    "stale_open_seam": "C-SCALE-DRIFT-02 / cross-level currentness propagation after internal middle drift"
+  },
+  "joint_replay": {
+    "c_scale_plus_sh1": "5/5 PASS",
+    "captures": {
+      "joint_pytest": {
+        "bytes": 101,
+        "path": "campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/CURRENTNESS_CONVERGENCE_2026-09-05/evidence/JOINT_PYTEST.log",
+        "sha256": "ee36dba526c58feaf74f4ee283bfa3210ca437b85ba95d77b86d1b0d20966113"
+      },
+      "public_verifier": {
+        "bytes": 554,
+        "path": "campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/CURRENTNESS_CONVERGENCE_2026-09-05/evidence/PUBLIC_VERIFIER.log",
+        "sha256": "b1fd2c99c09093e355b8b0ec39d70e5e6c83271468be529514290b0a0a8979cb"
+      }
+    },
+    "public_continuity": "PASS issues empty"
+  },
+  "microseed_tree": "4c8051563279d20f2ea555d21d7b3305b039e771",
+  "production_delta": [],
+  "public_main": "dac28bba6cad4fb8edeae2a361cb47caad8e3a2f",
+  "schema": "microseed.frontier_c_scale.sh1_currentness_convergence.v1",
+  "sh1_commit": "581a93634ab0415ec81e08cb604308b1cbe25290",
+  "sh1_is_ancestor_of_c_scale_replay_head": true,
+  "source_identities": {
+    "c_report": {
+      "bytes": 2189,
+      "git_blob_sha256": "f8285bef1fa2b8a73c4b6bba0fbb465b0a6b203f432e1ac71e23ddaa2865297e",
+      "path": "campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/REPLAY_ON_CURRENT_MAIN_2026-09-04/C_SCALE_CURRENT_MAIN_REPLAY_REPORT.md"
+    },
+    "c_test": {
+      "bytes": 8672,
+      "git_blob_sha256": "418ec35f44883db3764d01ba8064868b58599dbfaeaa73b6598c533b5209be43",
+      "path": "tests/embodiment/test_frontier_c_scale_nested_three_level_execution.py"
+    },
+    "sh1_methodology": {
+      "bytes": 1033,
+      "git_blob_sha256": "5ba6be2841f5078cd1cc9f035a31d589f79267ba0b8faba4412c0c497a25729d",
+      "path": "methodology/MS_SUBSTRATE_HARDENING_SH1_NESTED_CURRENTNESS_2026-09-01.md"
+    },
+    "sh1_test": {
+      "bytes": 10135,
+      "git_blob_sha256": "54e0118711da86ad854c9aa0adb94498ce2e184b1d05b8affdc387ec23dc1d81",
+      "path": "tests/embodiment/test_hardening_sh1_nested_cross_level_currentness.py"
+    }
+  },
+  "status": "PASS_CONVERGENCE_ALREADY_PRESENT_IN_ANCESTRY"
+}

@@ -1,0 +1,11 @@
+{
+  "authority": "NONE",
+  "note": "AI synthesis proposed convergence; Git ancestry and executable tests, not model judgment, carry evidence.",
+  "schema": "r42.ai_coprocessor.c_scale_sh1_convergence.v1",
+  "status": "ADDITIVE_ONLY",
+  "uses": [
+    "cross-file mechanism comparison",
+    "ancestry contradiction detection",
+    "frontier-seam localization"
+  ]
+}

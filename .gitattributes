@@ -59,3 +59,6 @@ campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/REPLAY_ON_CURRENT_MAIN_2026-09-04/*.md te
 campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/REPLAY_ON_CURRENT_MAIN_2026-09-04/evidence/*.log binary
 methodology/MS_FRONTIER_C_SCALE_BOUNDED_THREE_LEVEL_EXECUTION_2026-09-01.md text eol=lf
 tests/embodiment/test_frontier_c_scale_nested_three_level_execution.py text eol=lf
+campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/CURRENTNESS_CONVERGENCE_2026-09-05/*.json text eol=lf
+campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/CURRENTNESS_CONVERGENCE_2026-09-05/*.md text eol=lf
+campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/CURRENTNESS_CONVERGENCE_2026-09-05/evidence/*.log binary

@@ -1,0 +1,54 @@
+{
+  "schema": "r42.loop_plus.c_scale_sh1_convergence.v1",
+  "steps": [
+    {
+      "done": [
+        "C_SCALE direct test/report",
+        "SH1 methodology/test"
+      ],
+      "step": "primary_source_pass"
+    },
+    {
+      "done": [
+        "commit ancestry and shared MS2063 substrate"
+      ],
+      "step": "discovery_expansion"
+    },
+    {
+      "done": [
+        "no cross-level authority channel; outcome evidence is already local"
+      ],
+      "step": "implementation_clue"
+    },
+    {
+      "done": [
+        "C bounded composition and SH1 nested currentness are same causal topology under different pressure"
+      ],
+      "step": "isomorphism_hunting"
+    },
+    {
+      "done": [
+        "close stale seam rather than add mechanism"
+      ],
+      "step": "native_translation"
+    },
+    {
+      "done": [
+        "Helix/Reservoir frontier correction"
+      ],
+      "step": "control_update"
+    },
+    {
+      "done": [
+        "joint 5/5 + public verifier"
+      ],
+      "step": "experiment_pressure"
+    },
+    {
+      "done": [
+        "remaining C seam narrowed to end-to-end learning only"
+      ],
+      "step": "recursive_replay"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "active_candidates": [
+    {
+      "authority": "RESEARCH_ONLY",
+      "id": "C-SCALE-LEARN-03",
+      "question": "Can bounded three-level organization be grown end-to-end from unqualified components without evaluator-owned hierarchy mapping or a manager?"
+    },
+    {
+      "authority": "RESEARCH_ONLY",
+      "id": "F-VALUE-CONFLICT",
+      "question": "What lawful mechanism, if any, handles incomplete/non-vectorizable conflict beyond strict Pareto dominance without a hidden scalar arbiter?"
+    }
+  ],
+  "resolved": [
+    {
+      "fresh_replay": "5/5 PASS",
+      "id": "C-SCALE-DRIFT-02",
+      "law": "CROSS_LEVEL_CURRENTNESS_REMAINS_LOCAL_UNTIL_REALITY_CONTACT",
+      "result": "CLOSED_BY_EXISTING_SH1_ANCESTOR_EVIDENCE"
+    }
+  ],
+  "schema": "r42.semantic_helix.c_scale_sh1_convergence.v1",
+  "selection_rule": "DO_NOT_DUPLICATE_SOLVED_CURRENTNESS; NEXT_HELIX_SELECTION_REQUIRES_BREADTH/NECESSITY_PRESSURE",
+  "status": "ACTIVE_AFTER_CONVERGENCE"
+}
