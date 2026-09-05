@@ -1,0 +1,56 @@
+{
+  "schema": "r44.loop_plus.c_scale_growth_03b.v1",
+  "steps": [
+    {
+      "done": [
+        "03A assistance surface",
+        "MS1940/41 opaque signaling",
+        "MS2063 hierarchy/routing",
+        "R4.4 currentness/semantic-read rules"
+      ],
+      "step": "primary_source_pass"
+    },
+    {
+      "done": [
+        "identified evaluator context lookup as removable assistance, not missing hierarchy primitive"
+      ],
+      "step": "discovery_expansion"
+    },
+    {
+      "done": [
+        "reuse exact opaque token as observed signal and existing projection/routing machinery"
+      ],
+      "step": "implementation_clue"
+    },
+    {
+      "done": [
+        "MS1941 learned signal-response association maps natively onto middle-owned cross-level request response without semantics"
+      ],
+      "step": "isomorphism_hunting"
+    },
+    {
+      "done": [
+        "middle-owned opaque response binding, not semantic command interpretation"
+      ],
+      "step": "native_translation"
+    },
+    {
+      "done": [
+        "03B resolved; direct channel + staged development + external qualification remain"
+      ],
+      "step": "control_update"
+    },
+    {
+      "done": [
+        "convention reversal + unseen signal + 25-test composition stack"
+      ],
+      "step": "experiment_pressure"
+    },
+    {
+      "done": [
+        "reran after byte mutation under STALE_GREEN != CURRENT_EVIDENCE; next selection competes with F_VALUE"
+      ],
+      "step": "recursive_replay"
+    }
+  ]
+}

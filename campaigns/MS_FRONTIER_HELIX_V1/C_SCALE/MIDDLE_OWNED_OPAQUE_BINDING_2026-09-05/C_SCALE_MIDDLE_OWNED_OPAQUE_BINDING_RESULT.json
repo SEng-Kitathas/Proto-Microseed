@@ -1,0 +1,88 @@
+{
+  "adjacent_current_verification": "25/25 PASS",
+  "assistance_ceiling": [
+    "THE_DIRECT_PHYSICAL_TRANSPORT_CHANNEL_FROM_TOP_REQUEST_TOKEN_TO_MIDDLE_RAW_OBSERVATION_IS_HARNESS_SUPPLIED",
+    "TOP_OPAQUE_REQUEST_TOKENS_AND_REQUEST_INTERFACE_EXIST_BEFORE_MIDDLE_LEARNING",
+    "MIDDLE_RESPONSE_BINDING_IS_DEVELOPED_BEFORE_TOP_POLICY_GROWTH; NOT_SIMULTANEOUS_CODEVELOPMENT",
+    "OPAQUE_PROJECTION_AND_ROUTING_QUALIFICATIONS_REMAIN_EXTERNAL",
+    "LOCAL_CHILD_STATE_EXPOSURE_IS_ENVIRONMENT_HARNESS_SUPPLIED",
+    "NO_ENDOGENOUS_CHANNEL_INVENTION",
+    "NO_SIGNAL_MEANING_OR_REFERENCE_AUTHORITY",
+    "NO_SELF_QUALIFICATION"
+  ],
+  "audit_issues": [],
+  "authority_ceiling": [
+    "RESEARCH_ONLY",
+    "NO_TOKEN_MEANING",
+    "NO_REFERENCE_AUTHORITY",
+    "NO_ENDOGENOUS_COMMUNICATION_CHANNEL_CLAIM",
+    "NO_FULL_SIMULTANEOUS_THREE_LEVEL_CODEVELOPMENT",
+    "NO_SELF_QUALIFICATION",
+    "NO_HIERARCHY_MANAGER",
+    "NO_CANON_PROMOTION",
+    "NO_PRODUCTION_MICROSEED_MUTATION"
+  ],
+  "base_03a_head": "ef633d7dc8dcd7e576d69a329b9f22b2ef57d950",
+  "branch": "research/frontier-c-scale-middle-owned-opaque-binding-v1",
+  "breadth_competitor": "F_VALUE_INCOMPARABLE_NON_VECTORIZABLE_CONFLICT",
+  "captures": {
+    "adjacent_current_25pass": {
+      "bytes": 113,
+      "current": true,
+      "path": "campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/MIDDLE_OWNED_OPAQUE_BINDING_2026-09-05/evidence/ADJACENT_CURRENT_25PASS.log",
+      "sha256": "dc4031c1c05421278f1eb134a5364e36221d7d64e1eb5d026357d98c55d5af87"
+    },
+    "adjacent_superseded_24pass": {
+      "bytes": 113,
+      "current": false,
+      "path": "campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/MIDDLE_OWNED_OPAQUE_BINDING_2026-09-05/evidence/ADJACENT_SUPERSEDED_24PASS.log",
+      "sha256": "f02fb74f62ab27dfa8dabade1477066dd9ca0c9e7b9cd8a0c77c305896f75818"
+    },
+    "focused_current_3pass": {
+      "bytes": 101,
+      "current": true,
+      "path": "campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/MIDDLE_OWNED_OPAQUE_BINDING_2026-09-05/evidence/FOCUSED_CURRENT_3PASS.log",
+      "sha256": "e1f32b032d5590bd5a21afcab696dcf9e62f83b0e0fce3e768812565f171a798"
+    },
+    "focused_superseded_2pass": {
+      "bytes": 101,
+      "current": false,
+      "path": "campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/MIDDLE_OWNED_OPAQUE_BINDING_2026-09-05/evidence/FOCUSED_SUPERSEDED_2PASS.log",
+      "sha256": "eda279b2bf4845411fe9ba149b85b831e26ddd61bb51a0f9818d7cf6f3aecc91"
+    },
+    "public_verifier_current": {
+      "bytes": 554,
+      "current": true,
+      "path": "campaigns/MS_FRONTIER_HELIX_V1/C_SCALE/MIDDLE_OWNED_OPAQUE_BINDING_2026-09-05/evidence/PUBLIC_VERIFIER_CURRENT.log",
+      "sha256": "a43e670ef662fd83fe08b8198d294af0829e3bdf3e59417a0f8714f60de7d33b"
+    }
+  },
+  "composition_claim": "AFTER_THE_MIDDLE_OPAQUE_RESPONSE_BINDING_IS_CURRENT_THE_PREVIOUSLY_UNQUALIFIED_TOP_POLICY_CAN_DEVELOP_FROM_NESTED_OUTCOMES_THROUGH_THAT_BINDING_WITH_LEAF_LOCAL_MEANS_REMAINING_BELOW_THE_MIDDLE_BOUNDARY",
+  "date": "2026-09-05",
+  "earned_claim": "AN_ALREADY_AVAILABLE_OPAQUE_TOP_REQUEST_TOKEN_CAN_BE_TRANSPORTED_UNCHANGED_INTO_A_MIDDLE_RAW_OBSERVATION_AND_THE_MIDDLE_CAN_DEVELOP_ITS_OWN_SIGNAL_PLUS_LOCAL_STATE_TO_CURRENT_LEAF_RESPONSE_PROJECTION_AND_ROUTING_FROM_ACTUAL_OUTCOMES_WITHOUT_AN_EVALUATOR_TOKEN_TO_MIDDLE_CONTEXT_LOOKUP_TABLE",
+  "focused_current_verification": "3/3 PASS",
+  "hostile_claim": "REVERSING_THE_OPAQUE_SIGNAL_CONVENTION_BEFORE_MIDDLE_LEARNING_REMAINS_LEARNABLE_FROM_OUTCOMES_WHILE_UNSEEN_SIGNALS_FAIL_CLOSED",
+  "mechanism": [
+    "top opaque request tokens exist as interface symbols before top policy learning",
+    "the middle begins with no learned action-outcome relations and no signal-conditioned routing",
+    "the exact top request token is physically transported unchanged into one middle raw-observation coordinate; no evaluator lookup chooses a middle context",
+    "middle learns request/effect relations, drift replacements, a projection over opaque signal plus local child state, and current projection-conditioned routing from its own actual outcomes",
+    "top then learns its own request/effect policy from nested outcomes through this learned middle binding using 03A machinery",
+    "unknown signals produce no proposal and convention reversal is learned rather than semantically hard-coded"
+  ],
+  "microseed_tree": "4c8051563279d20f2ea555d21d7b3305b039e771",
+  "next_candidate": "C-SCALE-LEARN-03C__INTERLEAVE_MIDDLE_RESPONSE_BINDING_AND_TOP_POLICY_DEVELOPMENT_WITHOUT_REQUIRING_A_FULLY_QUALIFIED_MIDDLE_BEFORE_TOP_EVIDENCE_ACCUMULATES",
+  "process_authority": {
+    "current": "RAHL_R4_4_PLUS_QUALIFIED_ICF_CS_V1_0",
+    "project_adoption_receipt_sha256": "28d2f5d373cc4e1be466ed925e0c7826eb184526891d17dd9980452a11b7babf"
+  },
+  "production_delta": [],
+  "public_continuity": "PASS issues empty",
+  "public_main": "dac28bba6cad4fb8edeae2a361cb47caad8e3a2f",
+  "r44_currentness_note": "The earlier 2/2 focused and 24/24 adjacent greens were superseded when the hostile convention-reversal test changed the verified bytes. Current evidence was rerun as 3/3 and 25/25 under STALE_GREEN != CURRENT_EVIDENCE.",
+  "schema": "microseed.frontier_c_scale.middle_owned_opaque_binding.v1",
+  "status": "PASS_BOUNDED_MIDDLE_OWNED_OPAQUE_RESPONSE_BINDING",
+  "test_identity_note": "Worktree/source SHA and staged Git-blob SHA match exactly on the current LF-normalized test bytes.",
+  "test_staged_git_blob_sha256": "49253edf0d5e4297e97e373753ff07458b0c1410ab06528c323310f67a51963b",
+  "test_worktree_sha256_before_staging": "49253edf0d5e4297e97e373753ff07458b0c1410ab06528c323310f67a51963b"
+}

@@ -1,0 +1,32 @@
+{
+  "active_candidates": [
+    {
+      "id": "C-SCALE-LEARN-03C",
+      "question": "Can middle response binding and top policy development be interleaved so top evidence begins before the middle is fully qualified/current?",
+      "risk": "causal-credit/currentness coupling may require a new discriminator but not necessarily a new primitive"
+    },
+    {
+      "id": "F-VALUE-CONFLICT",
+      "question": "What lawful mechanism, if any, handles incomplete/non-vectorizable conflict beyond strict Pareto without a hidden scalar arbiter?",
+      "risk": "orthogonal unresolved constitutional/value seam"
+    }
+  ],
+  "resolved": [
+    {
+      "id": "C-SCALE-DRIFT-02",
+      "result": "CLOSED_BY_SH1_CONVERGENCE"
+    },
+    {
+      "id": "C-SCALE-LEARN-03A",
+      "result": "TOP_POLICY_GROWS_FROM_NESTED_OUTCOMES_THROUGH_PREDEVELOPED_MIDDLE"
+    },
+    {
+      "id": "C-SCALE-LEARN-03B",
+      "result": "MIDDLE_LEARNS_OPAQUE_TOP_SIGNAL_PLUS_LOCAL_STATE_RESPONSE_BINDING_WITHOUT_EVALUATOR_CONTEXT_LOOKUP",
+      "verification": "3/3 focused + 25/25 adjacent + public PASS"
+    }
+  ],
+  "schema": "r44.semantic_helix.c_scale_growth_03b.v1",
+  "selection_rule": "ATTENTION_RESERVOIR_BREADTH_PRESSURE_BEFORE_CONTINUING_RECENT_C_SCALE_GREEN_STREAK",
+  "status": "ACTIVE_AFTER_03B"
+}

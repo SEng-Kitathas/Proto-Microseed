@@ -1,0 +1,33 @@
+{
+  "attacks": [
+    {
+      "claim": "middle response works only because evaluator selects context from top token",
+      "result": "REJECTED; token is transported unchanged and middle projection/routing chooses response"
+    },
+    {
+      "claim": "top token order provides fixed semantic meaning",
+      "result": "REJECTED; reversed convention is learned from outcomes"
+    },
+    {
+      "claim": "unknown signal can inherit a default response",
+      "result": "REJECTED; current_proposal returns None"
+    },
+    {
+      "claim": "middle learning leaks leaf-local means upward",
+      "result": "REJECTED; top receipt remains opaque and has no leaf_target/leaf_local_mean"
+    },
+    {
+      "claim": "03B proves communication-channel invention",
+      "result": "REJECTED; physical transport path is harness supplied"
+    },
+    {
+      "claim": "03B proves simultaneous co-development",
+      "result": "REJECTED; middle binding is developed before top policy growth"
+    },
+    {
+      "claim": "earlier green tests stay current after adding hostile case",
+      "result": "REJECTED under R4.4; complete current-byte rerun performed"
+    }
+  ],
+  "schema": "r44.hostile_engineering.c_scale_growth_03b.v1"
+}

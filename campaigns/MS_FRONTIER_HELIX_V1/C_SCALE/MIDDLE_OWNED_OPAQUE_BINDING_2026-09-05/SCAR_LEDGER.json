@@ -1,0 +1,27 @@
+{
+  "inherited": [
+    "SAMPLE_ID_ORDER != DEVELOPMENTAL_SIGNAL",
+    "DETERMINISTIC_EQUIVALENT_REHEARSAL_ID_REUSE_REQUIRES_UNIQUE_EXPOSURE_PATH"
+  ],
+  "scars": [
+    {
+      "evidence": "2/2 + 24/24 became historical after convention-reversal test changed bytes; rerun earned 3/3 + 25/25",
+      "id": "STALE_GREEN_AFTER_TEST_MUTATION",
+      "law": "STALE_GREEN != CURRENT_EVIDENCE",
+      "status": "ACTIVE_PROJECT_SCAR"
+    },
+    {
+      "evidence": "convention reversal learnable; unknown fails closed; no meaning/reference registry",
+      "id": "OPAQUE_SIGNAL_OPERATIONAL_NOT_SEMANTIC",
+      "law": "LEARNED_SIGNAL_RESPONSE != SIGNAL_MEANING",
+      "status": "ACTIVE"
+    },
+    {
+      "evidence": "top token -> middle raw coordinate physical path remains harness supplied",
+      "id": "DIRECT_TRANSPORT_ASSISTANCE",
+      "law": "LEARNED_RESPONSE_BINDING != ENDOGENOUS_CHANNEL_INVENTION",
+      "status": "ACTIVE_CEILING"
+    }
+  ],
+  "schema": "microseed.c_scale_growth_03b.scar_ledger.v1"
+}

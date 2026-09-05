@@ -1,0 +1,29 @@
+{
+  "derive": [
+    "replace lookup table with unchanged opaque-token transport into middle raw observation",
+    "let middle learn signal+local-state response projection/routing from outcomes",
+    "add convention-reversal and unseen-signal hostile controls"
+  ],
+  "embody": [
+    "research test + methodology/result/report + exact evidence + R4.4 machinery"
+  ],
+  "probe": [
+    "03A evaluator token->middle-context assistance",
+    "MS1940/1941 opaque signal response principle",
+    "MS2063 projection/routing hierarchy substrate",
+    "R4.4 stale-green/currentness law"
+  ],
+  "recurse": [
+    "stop 03B bounded",
+    "compare 03C interleaved development vs F_VALUE before widening"
+  ],
+  "schema": "r44.pdver.c_scale_growth_03b.v1",
+  "verify": [
+    "3/3 focused current bytes",
+    "25/25 adjacent current bytes",
+    "public verifier PASS",
+    "convention reversal PASS",
+    "unknown signal fails closed",
+    "zero production delta"
+  ]
+}

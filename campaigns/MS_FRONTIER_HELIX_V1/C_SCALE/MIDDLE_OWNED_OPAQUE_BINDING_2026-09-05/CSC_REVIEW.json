@@ -1,0 +1,36 @@
+{
+  "reviews": [
+    {
+      "finding": "exact opaque token transported unchanged; no evaluator context lookup",
+      "interface": "top request token <-> middle observation",
+      "status": "PASS"
+    },
+    {
+      "finding": "middle projection uses positions (signal, child state) and current routing learned from own outcomes",
+      "interface": "middle signal binding <-> local state",
+      "status": "PASS"
+    },
+    {
+      "finding": "leaf target/local means remain absent from top handler receipt",
+      "interface": "middle leaf means <-> top boundary",
+      "status": "PASS"
+    },
+    {
+      "finding": "convention reversal/unknown fail-closed support operational association without meaning/reference promotion",
+      "interface": "opaque signaling <-> semantic authority",
+      "status": "PASS_BOUNDED"
+    },
+    {
+      "finding": "post-mutation rerun performed; stale 2/2 and 24/24 retained only historically",
+      "interface": "verification bytes <-> green receipts",
+      "status": "PASS_R44_CURRENTNESS"
+    },
+    {
+      "finding": "no Microseed production mutation",
+      "interface": "research <-> production",
+      "status": "PASS"
+    }
+  ],
+  "schema": "r44.csc.c_scale_growth_03b.v1",
+  "status": "PASS_BOUNDED"
+}

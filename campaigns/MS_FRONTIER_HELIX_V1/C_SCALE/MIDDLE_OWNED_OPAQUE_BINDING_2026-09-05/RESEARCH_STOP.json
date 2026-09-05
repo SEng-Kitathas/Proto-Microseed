@@ -1,0 +1,17 @@
+{
+  "authority": "RESEARCH_ONLY",
+  "earned": "MIDDLE_OWNED_OPAQUE_SIGNAL_RESPONSE_BINDING_WITHOUT_EVALUATOR_CONTEXT_LOOKUP",
+  "next_candidates": [
+    "C-SCALE-LEARN-03C",
+    "F-VALUE-CONFLICT"
+  ],
+  "not_earned": [
+    "ENDOGENOUS_CHANNEL_INVENTION",
+    "SIGNAL_MEANING_OR_REFERENCE",
+    "SIMULTANEOUS_TOP_MIDDLE_CODEVELOPMENT",
+    "SELF_QUALIFICATION"
+  ],
+  "schema": "microseed.frontier_c_scale.learn_03b_stop.v1",
+  "selection_rule": "BREADTH_PRESSURE_BEFORE_AUTOMATIC_C_SCALE_CONTINUATION",
+  "status": "STOP_03B_BOUNDED_RESULT_EARNED"
+}

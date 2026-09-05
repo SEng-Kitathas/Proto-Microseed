@@ -1,0 +1,54 @@
+{
+  "items": [
+    {
+      "id": "03B-AR-01",
+      "priority": "P0",
+      "signal": "middle learns opaque signal+local-state -> current leaf-response routing from outcomes without evaluator token->context table",
+      "state": "EARNED"
+    },
+    {
+      "id": "03B-AR-02",
+      "priority": "P0",
+      "signal": "convention reversal remains learnable and unseen signals fail closed; fixed token meaning is not required",
+      "state": "EARNED"
+    },
+    {
+      "id": "03B-AR-03",
+      "priority": "P0",
+      "signal": "physical transport of top token into middle observation remains supplied",
+      "state": "LIVE_ASSISTANCE"
+    },
+    {
+      "id": "03B-AR-04",
+      "priority": "P0",
+      "signal": "middle response binding becomes fully qualified before top policy learning begins",
+      "state": "LIVE_ASSISTANCE"
+    },
+    {
+      "id": "03B-AR-05",
+      "priority": "P0",
+      "signal": "projection/routing qualifications remain external",
+      "state": "LIVE_ASSISTANCE"
+    },
+    {
+      "id": "03B-AR-06",
+      "priority": "P0",
+      "signal": "changed test bytes invalidate earlier greens; 2/2 and 24/24 are historical after convention-reversal addition",
+      "state": "PROCESS_SCAR"
+    },
+    {
+      "id": "03B-AR-07",
+      "priority": "P1",
+      "signal": "F_VALUE incomparable/non-vectorizable conflict remains open and should compete with 03C for next selection",
+      "state": "LIVE_ORTHOGONAL"
+    },
+    {
+      "id": "03B-AR-08",
+      "priority": "P2",
+      "signal": "endogenous channel invention/semantic reference are distinct later seams and are not implied by 03B",
+      "state": "DEFERRED"
+    }
+  ],
+  "schema": "r44.attention_reservoir.c_scale_growth_03b.v1",
+  "status": "ACTIVE"
+}
