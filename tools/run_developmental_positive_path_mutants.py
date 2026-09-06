@@ -76,6 +76,13 @@ MUTANTS = {
         "new": "    return {**NONE, \"status\": \"DEFER_UNKNOWN\", \"opaque_token\": str(opaque_token), ",
         "loss_class": "NATIVE_OPAQUE_TOKEN_REFERENT_RESOLUTION_SUPPRESSED",
     },
+    "SUPPRESS_C08G_NATIVE_B2_ORDERED_COMPOSITION": {
+        "target": "scratch/lang_c08g_native_b2_ordered_composition.py",
+        "test": "tests/embodiment/test_lang_c08g_native_b2_ordered_composition.py",
+        "old": "        \"status\": \"CURRENT_NATIVE_B2_ORDERED_OPERATIONAL_REFERENCE_COMPOSITION_RECORDED\",\n",
+        "new": "        \"status\": \"DEFER_UNKNOWN\",\n",
+        "loss_class": "NATIVE_B2_ORDERED_COMPOSITION_SUPPRESSED",
+    },
 }
 
 

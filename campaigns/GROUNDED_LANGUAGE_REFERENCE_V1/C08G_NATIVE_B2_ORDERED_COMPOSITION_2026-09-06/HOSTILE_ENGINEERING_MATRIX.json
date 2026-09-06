@@ -1,0 +1,61 @@
+{
+  "checks": [
+    {
+      "check": "new Microseed mechanism required",
+      "result": "NO__ZERO_MICROSEED_DELTA"
+    },
+    {
+      "check": "old SIG-X/SIG-Y executable token capabilities used",
+      "result": "NO"
+    },
+    {
+      "check": "caller supplies token operands",
+      "result": "NO"
+    },
+    {
+      "check": "caller supplies operand order",
+      "result": "NO"
+    },
+    {
+      "check": "caller supplies grammar roles",
+      "result": "NO"
+    },
+    {
+      "check": "XY versus YX",
+      "result": "DISTINCT_COMPOSITION_DIGESTS"
+    },
+    {
+      "check": "duplicate referent operands",
+      "result": "FAIL_CLOSED"
+    },
+    {
+      "check": "unseen token operand",
+      "result": "FAIL_CLOSED"
+    },
+    {
+      "check": "restart without fresh referent profiles",
+      "result": "FAIL_CLOSED"
+    },
+    {
+      "check": "fresh post-restart native profiles",
+      "result": "SAME_ORDERED_DIGESTS_REDERIVED"
+    },
+    {
+      "check": "token surface permutation",
+      "result": "PASS_GROUNDED_DIGEST_INVARIANT"
+    },
+    {
+      "check": "sensor permutation/sign inversion",
+      "result": "PASS_GROUNDED_DIGEST_INVARIANT"
+    },
+    {
+      "check": "positive-path deletion mutant",
+      "result": "KILLED"
+    },
+    {
+      "check": "semantic predication/grammar/systematic recombination",
+      "result": "NOT_EARNED"
+    }
+  ],
+  "schema": "microseed.lang-c08g-hostile-matrix.v1"
+}

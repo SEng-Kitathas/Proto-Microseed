@@ -1,0 +1,58 @@
+{
+  "caller_supplied_grammar_roles": "NO",
+  "caller_supplied_operand_order": "NO",
+  "caller_supplied_referent_identity": "NO",
+  "caller_supplied_token_operands": "NO",
+  "composition_operator": "ORDERED_EVIDENCE_TUPLE",
+  "duplicate_operands": {
+    "reason": "INDEPENDENT_NATIVE_REFERENT_OPERANDS_REQUIRED",
+    "status": "DEFER_UNKNOWN"
+  },
+  "execution_authority": "NONE",
+  "grammar_authority": "NONE",
+  "identity_scope": "OPERATIONAL_EQUIVALENCE_CLASS_ONLY",
+  "language_authority": "NONE",
+  "microseed_delta_required": [],
+  "new_microseed_action_contracts_registered": [],
+  "not_earned": [
+    "SEMANTIC_PREDICATION",
+    "GRAMMAR",
+    "PROPOSITION",
+    "NUMERICAL_OBJECT_IDENTITY",
+    "SYSTEMATIC_RECOMBINATION",
+    "LANGUAGE_COMPETENCE",
+    "ENDOGENOUS_QUALIFICATION",
+    "GENERIC_CAPABILITY_FACULTY",
+    "CANON_PROMOTION"
+  ],
+  "numerical_identity_authority": "NONE",
+  "operand_selection_basis": "LATEST_TWO_CURRENT_RUNTIME_OPAQUE_TOKEN_OBSERVATIONS",
+  "order_sensitive": true,
+  "ordering_basis": "CURRENT_RUNTIME_OPAQUE_TOKEN_EVIDENCE_APPEND_ORDER",
+  "post_restart_xy": "CURRENT_NATIVE_B2_ORDERED_OPERATIONAL_REFERENCE_COMPOSITION_RECORDED",
+  "post_restart_yx": "CURRENT_NATIVE_B2_ORDERED_OPERATIONAL_REFERENCE_COMPOSITION_RECORDED",
+  "predicate_authority": "NONE",
+  "qualification_ancestry": "EXTERNAL_RESEARCH_TRAIN_HOLDOUT_PARTITION_ONLY",
+  "restart_without_fresh_profiles": {
+    "reason": "CURRENT_NATIVE_REFERENT_PROFILE_REQUIRED",
+    "status": "DEFER_UNKNOWN"
+  },
+  "semantic_reference_authority": "NONE",
+  "status": "C08G_NATIVE_B2_ORDERED_COMPOSITION_REEMBODIED",
+  "technical_name": "Current-evidence ordered composition of opaque observed-token-resolved operational referent equivalence classes",
+  "truth_authority": "NONE",
+  "unseen_operand": {
+    "reason": "EVERY_OBSERVED_TOKEN_OPERAND_MUST_HAVE_NATIVE_REFERENT_BINDING",
+    "status": "DEFER_UNKNOWN"
+  },
+  "xy_composition_digest_sha256": "caf1aa025e05ccfed1638eac805439e8a6a792c53f4959b735f8777cfead46fc",
+  "xy_ordered_referent_signatures": [
+    "ad794b785133a51ead7597d6b6a8807841182588167f97a6e0bcf85f7738af4e",
+    "46fcb6a924c53cd78cacedc6f10706967d090b9fb1b625eb21f6fdbf1224e922"
+  ],
+  "yx_composition_digest_sha256": "4a1c9a1ce9b306d01e5638d7a3df8a3aca06066f807b9c62c5ff8db899cd2cf0",
+  "yx_ordered_referent_signatures": [
+    "46fcb6a924c53cd78cacedc6f10706967d090b9fb1b625eb21f6fdbf1224e922",
+    "ad794b785133a51ead7597d6b6a8807841182588167f97a6e0bcf85f7738af4e"
+  ]
+}

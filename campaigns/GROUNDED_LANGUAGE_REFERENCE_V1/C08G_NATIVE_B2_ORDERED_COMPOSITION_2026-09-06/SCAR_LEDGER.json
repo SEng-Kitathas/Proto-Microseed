@@ -1,0 +1,25 @@
+{
+  "scars": [
+    {
+      "law": "TOKEN_OBSERVATION != TOKEN_EFFECT_CAPABILITY",
+      "scar": "HISTORICAL_C03_OPERAND_SUBSTRATE_CAPABILITY_BACKED",
+      "status": "REPAIRED_BY_C08G_OVER_C08F"
+    },
+    {
+      "law": "BOUNDED_ORDER_SENSITIVITY != SYSTEMATIC_RECOMBINATION",
+      "scar": "ORDERED_TUPLE_OVERCLAIM_RISK",
+      "status": "ACTIVE_CEILING"
+    },
+    {
+      "law": "ORDERED_COMPOSITION != SEMANTIC_PREDICATION",
+      "scar": "SEMANTIC_PROMOTION_RISK",
+      "status": "ACTIVE_CEILING"
+    },
+    {
+      "law": "LEDGER_ORDERED_PAIRING != TAMPER_EVIDENT_SEQUENCE_PROOF",
+      "scar": "LEDGER_SEQUENCE_INTEGRITY_CEILING",
+      "status": "OPEN_SUPPORT_SEAM"
+    }
+  ],
+  "schema": "microseed.lang-c08g-scar-ledger.v1"
+}

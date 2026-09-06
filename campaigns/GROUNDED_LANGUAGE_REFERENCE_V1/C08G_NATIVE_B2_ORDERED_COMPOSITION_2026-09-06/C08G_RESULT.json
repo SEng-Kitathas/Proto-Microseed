@@ -1,0 +1,80 @@
+{
+  "base_head": "3bd625208bb37f7401636b89c6d23cbd0d013225",
+  "bounded_claim": "TWO_CURRENT_OBSERVED_OPAQUE_TOKENS_CAN_BE_RESOLVED_THROUGH_C08F_NATIVE_REFERENT_BINDINGS_AND_COMPOSED_IN_THEIR_EVIDENCE_APPEND_ORDER_INTO_A_RESTART_SAFE_ORDER_SENSITIVE_B2_OPERATIONAL_REFERENCE_TUPLE_WITHOUT_EXECUTABLE_TOKEN_CAPABILITIES_CALLER_SUPPLIED_OPERANDS_OR_ORDER_GRAMMAR_ROLES_SEMANTIC_PREDICATION_NUMERICAL_OBJECT_IDENTITY_OR_NEW_MICROSEED_MECHANISM",
+  "branch": "research/grounded-language-native-b2-composition-v1",
+  "capture_receipts": {
+    "focused_c08g_c08f_c03_7_pass.log": {
+      "bytes": 101,
+      "sha256": "bb3b6913b7834c49c55201e167310d19bb6f4d7ed40cf172ca7d31b3f548fa9d"
+    },
+    "language_adjacent_29_pass.log": {
+      "bytes": 102,
+      "sha256": "f11743709f2fa8fb799a22ea05cf4adad66a275ec3449834ad380618cec13dd4"
+    },
+    "live_c08g_result.log": {
+      "bytes": 2546,
+      "sha256": "41396c5c4dfa515d9c2ccbb0d61f0f448a7d5d18125b6f9cde8b636b1786e104"
+    },
+    "native_currentness_restart_15_pass.log": {
+      "bytes": 102,
+      "sha256": "4ee2c631574a16f786dd439e29a4f99b9ccccde38e3444b2e6c12fdcfc977d1c"
+    },
+    "positive_path_mutants_9_killed.log": {
+      "bytes": 674,
+      "sha256": "bf915cfc8d02d01a5e4cef035ac6ffc2ee35cdc87947554635a3e67d3abaea32"
+    }
+  },
+  "composition_operator": "ORDERED_EVIDENCE_TUPLE",
+  "date": "2026-09-06",
+  "execution_authority": "NONE",
+  "expected_research_microseed_delta": [],
+  "focused_adjacent": {
+    "failed": 0,
+    "passed": 7
+  },
+  "grammar_authority": "NONE",
+  "identity_scope": "OPERATIONAL_EQUIVALENCE_CLASS_ONLY",
+  "language_adjacent_ms2046_c01_c08g": {
+    "failed": 0,
+    "passed": 29
+  },
+  "language_authority": "NONE",
+  "native_currentness_restart_regression": {
+    "failed": 0,
+    "passed": 15
+  },
+  "next": "REVIEW_NATIVE_RELATION_COMPOSITION_AND_SYSTEMATIC_RECOMBINATION_VS_ENDOGENOUS_QUALIFICATION_AFTER_C08G",
+  "not_earned": [
+    "SEMANTIC_PREDICATION",
+    "GRAMMAR",
+    "PROPOSITION",
+    "NUMERICAL_OBJECT_IDENTITY",
+    "SYSTEMATIC_RECOMBINATION",
+    "LANGUAGE_COMPETENCE",
+    "ENDOGENOUS_QUALIFICATION",
+    "GENERIC_CAPABILITY_FACULTY",
+    "TAMPER_EVIDENT_LEDGER_SEQUENCE",
+    "CANON_PROMOTION"
+  ],
+  "numerical_identity_authority": "NONE",
+  "operand_selection_basis": "LATEST_TWO_CURRENT_RUNTIME_OPAQUE_TOKEN_OBSERVATIONS",
+  "order_sensitive": true,
+  "ordering_basis": "CURRENT_RUNTIME_OPAQUE_TOKEN_EVIDENCE_APPEND_ORDER",
+  "positive_mutant_receipt_sha256": "41ca0c684a5e4d37183de84dd8d3853dc4e5fcd07f8442af7bd885007d705197",
+  "positive_mutant_tool_sha256": "c92302f95dc0347d834baf7274960af2428b57506413dd3ddc71d385e4fc3cc2",
+  "positive_path_mutants": {
+    "killed": 9,
+    "survived": 0,
+    "unknown": 0
+  },
+  "predicate_authority": "NONE",
+  "qualification_ancestry": "EXTERNAL_RESEARCH_TRAIN_HOLDOUT_PARTITION_ONLY",
+  "schema": "microseed.lang-c08g-native-b2-ordered-composition.v1",
+  "semantic_reference_authority": "NONE",
+  "source_sha256": "75a1ef6c6977414be9227eaedec450f634d481a242d018fecc5963b174159afa",
+  "status": "C08G_NATIVE_B2_ORDERED_COMPOSITION_REEMBODIED",
+  "test_sha256": "ad4ba904c54b1242e3f467ec3bb644c918f4e280f1e8bb6efcac67e77cddecdf",
+  "truth_authority": "NONE",
+  "xy_composition_digest_sha256": "caf1aa025e05ccfed1638eac805439e8a6a792c53f4959b735f8777cfead46fc",
+  "yx_composition_digest_sha256": "4a1c9a1ce9b306d01e5638d7a3df8a3aca06066f807b9c62c5ff8db899cd2cf0"
+}
