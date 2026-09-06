@@ -4417,8 +4417,14 @@ class Microseed:
             observed=str(payload.get("relation_digest_sha256","")).lower()
             if len(observed)!=64 or any(c not in "0123456789abcdef" for c in observed):
                 return {"status":"UNKNOWN_INCOMPLETE","reason":"OWNED_RELATION_CURRENTNESS_DIGEST_REQUIRED"}
+        elif kind=="OWNED_AFFORDANCE_EFFECT_PROFILE_WITNESS":
+            if int(payload.get("runtime_boot_seq",-1)) != self._current_runtime_boot_seq():
+                return {"status":"UNKNOWN_INCOMPLETE","reason":"FRESH_CURRENT_RUNTIME_OWNED_REFERENT_PROFILE_WITNESS_REQUIRED"}
+            observed=str(payload.get("operational_referent_signature_sha256","")).lower()
+            if len(observed)!=64 or any(c not in "0123456789abcdef" for c in observed):
+                return {"status":"UNKNOWN_INCOMPLETE","reason":"OWNED_REFERENT_CURRENTNESS_DIGEST_REQUIRED"}
         else:
-            return {"status":"UNKNOWN_INCOMPLETE","reason":"OPAQUE_ASSOCIATION_CURRENTNESS_OBSERVATION_OR_OWNED_RELATION_WITNESS_REQUIRED"}
+            return {"status":"UNKNOWN_INCOMPLETE","reason":"OPAQUE_ASSOCIATION_CURRENTNESS_OBSERVATION_OR_OWNED_NATIVE_GROUNDED_WITNESS_REQUIRED"}
         expected=record.right_digest_sha256
         status="CURRENTNESS_CONFIRMED" if observed==expected else "DRIFT_WITNESS"
         wid="opaque-assoc-witness-"+str(row["sha256"])[:24]

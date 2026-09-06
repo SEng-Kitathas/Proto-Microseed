@@ -69,6 +69,13 @@ MUTANTS = {
         "new": "        \"status\": \"DEFER_UNKNOWN\",\n",
         "loss_class": "NATIVE_OPAQUE_TOKEN_RELATION_RESOLUTION_SUPPRESSED",
     },
+    "SUPPRESS_C08F_NATIVE_TOKEN_REFERENT_RESOLUTION": {
+        "target": "scratch/lang_c08f_native_token_referent_binding.py",
+        "test": "tests/embodiment/test_lang_c08f_native_token_referent_binding.py",
+        "old": "    return {**NONE, \"status\": \"OPAQUE_TOKEN_RESOLVES_CURRENT_NATIVE_OPERATIONAL_REFERENT\", \"opaque_token\": str(opaque_token), ",
+        "new": "    return {**NONE, \"status\": \"DEFER_UNKNOWN\", \"opaque_token\": str(opaque_token), ",
+        "loss_class": "NATIVE_OPAQUE_TOKEN_REFERENT_RESOLUTION_SUPPRESSED",
+    },
 }
 
 

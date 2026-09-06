@@ -1,0 +1,61 @@
+{
+  "checks": [
+    {
+      "check": "old SIG-X/SIG-Y token effect capabilities used as grounding owner",
+      "result": "NO"
+    },
+    {
+      "check": "caller supplies referent class",
+      "result": "NO"
+    },
+    {
+      "check": "passive event localizes exactly one current native referent profile",
+      "result": "YES"
+    },
+    {
+      "check": "unseen token",
+      "result": "FAIL_CLOSED"
+    },
+    {
+      "check": "wrong referent",
+      "result": "FAIL_CLOSED"
+    },
+    {
+      "check": "holdout reversal",
+      "result": "FAIL_CLOSED"
+    },
+    {
+      "check": "ambiguous holdout",
+      "result": "FAIL_CLOSED"
+    },
+    {
+      "check": "historical profile after restart",
+      "result": "FAIL_CLOSED"
+    },
+    {
+      "check": "fresh post-restart native profile",
+      "result": "RESOLVES"
+    },
+    {
+      "check": "MS1961 numerical identity ceiling",
+      "result": "PRESERVED"
+    },
+    {
+      "check": "token surface permutation",
+      "result": "PASS"
+    },
+    {
+      "check": "sensor permutation/sign inversion",
+      "result": "PASS"
+    },
+    {
+      "check": "positive-path deletion mutant",
+      "result": "KILLED"
+    },
+    {
+      "check": "semantic/token/language faculty installed",
+      "result": "NO"
+    }
+  ],
+  "schema": "microseed.lang-c08f-hostile-matrix.v1"
+}

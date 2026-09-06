@@ -1,0 +1,25 @@
+{
+  "scars": [
+    {
+      "law": "TOKEN_OBSERVATION != TOKEN_EFFECT_CAPABILITY",
+      "scar": "C01_C02_TOKEN_EFFECT_CAPABILITY_REFERENCE_LINEAGE",
+      "status": "REPAIRED_FOR_OBSERVED_TOKEN_TO_REFERENT_BY_C08F"
+    },
+    {
+      "law": "TOKEN_REFERENT_BINDING != NUMERICAL_OBJECT_NAMING",
+      "scar": "MS1961_NUMERICAL_IDENTITY_CEILING",
+      "status": "PRESERVED"
+    },
+    {
+      "classification": "MAINTENANCE_ONLY",
+      "detail": "initial mutation substring expected newline inside one-line return; no mutant result from failed run",
+      "scar": "C08F_MUTANT_PATTERN_INSTRUMENT_FAILURE"
+    },
+    {
+      "law": "LEDGER_ORDERED_PAIRING != TAMPER_EVIDENT_SEQUENCE_PROOF",
+      "scar": "C08F_LEDGER_SEQUENCE_INTEGRITY_CEILING",
+      "status": "OPEN_SUPPORT_SEAM"
+    }
+  ],
+  "schema": "microseed.lang-c08f-scar-ledger.v1"
+}

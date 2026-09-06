@@ -1,0 +1,57 @@
+{
+  "ambiguous_holdout": "DEFER_UNKNOWN",
+  "association_states_after_restart": {
+    "opaque-assoc-16bd0cfe58942fcb289e1a9f": "REVALIDATION_REQUIRED_OPAQUE_EVIDENCE_ASSOCIATION",
+    "opaque-assoc-5e769621d60b775a683920c9": "REVALIDATION_REQUIRED_OPAQUE_EVIDENCE_ASSOCIATION"
+  },
+  "bindings": [
+    {
+      "opaque_token": "R4",
+      "operational_referent_signature_sha256": "ad794b785133a51ead7597d6b6a8807841182588167f97a6e0bcf85f7738af4e"
+    },
+    {
+      "opaque_token": "T9",
+      "operational_referent_signature_sha256": "46fcb6a924c53cd78cacedc6f10706967d090b9fb1b625eb21f6fdbf1224e922"
+    }
+  ],
+  "caller_supplied_referent_class": "NO",
+  "caller_supplied_token_meaning": "NO",
+  "durable_binding_without_fresh_referent": {
+    "reason": "FRESH_CURRENT_RUNTIME_OWNED_REFERENT_PROFILE_WITNESS_REQUIRED",
+    "status": "DEFER_UNKNOWN"
+  },
+  "execution_authority": "NONE",
+  "holdout_reversal": {
+    "reason": "HOLDOUT_TOKEN_NATIVE_REFERENT_ASSOCIATION_DISAGREES",
+    "status": "DEFER_UNKNOWN"
+  },
+  "identity_scope": "OPERATIONAL_EQUIVALENCE_CLASS_ONLY",
+  "language_authority": "NONE",
+  "new_microseed_action_contracts_registered": [],
+  "not_earned": [
+    "NUMERICAL_OBJECT_IDENTITY",
+    "SEMANTIC_REFERENCE",
+    "TOKEN_MEANING",
+    "SEMANTIC_PREDICATE",
+    "LANGUAGE_FACULTY",
+    "GENERIC_CAPABILITY_FACULTY",
+    "ENDOGENOUS_QUALIFICATION",
+    "TAMPER_EVIDENT_LEDGER_SEQUENCE",
+    "CANON_PROMOTION"
+  ],
+  "numerical_identity_authority": "NONE",
+  "pairing_basis": "CURRENT_RUNTIME_EVIDENCE_LEDGER_CHRONOLOGY",
+  "post_restart_native_resolution": "OPAQUE_TOKEN_RESOLVES_CURRENT_NATIVE_OPERATIONAL_REFERENT",
+  "post_restart_wrong_referent": "DEFER_UNKNOWN",
+  "qualification_ancestry": "EXTERNAL_RESEARCH_TRAIN_HOLDOUT_PARTITION_ONLY",
+  "referent_x_signature_sha256": "ad794b785133a51ead7597d6b6a8807841182588167f97a6e0bcf85f7738af4e",
+  "referent_y_signature_sha256": "46fcb6a924c53cd78cacedc6f10706967d090b9fb1b625eb21f6fdbf1224e922",
+  "semantic_authority": "NONE",
+  "status": "C08F_NATIVE_OBSERVED_TOKEN_REFERENT_BINDING_REEMBODIED",
+  "technical_name": "Evidence-ledger grounding of opaque observed tokens to restart-safe native operational referent equivalence classes",
+  "token_x_resolution": "OPAQUE_TOKEN_RESOLVES_CURRENT_NATIVE_OPERATIONAL_REFERENT",
+  "token_y_resolution": "OPAQUE_TOKEN_RESOLVES_CURRENT_NATIVE_OPERATIONAL_REFERENT",
+  "truth_authority": "NONE",
+  "unseen_token": "DEFER_UNKNOWN",
+  "wrong_referent": "DEFER_UNKNOWN"
+}

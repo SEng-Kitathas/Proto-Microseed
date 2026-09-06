@@ -1,0 +1,81 @@
+{
+  "base_head": "a95458d87ea78b4b13091a6d03705e7c8a68d76b",
+  "bounded_claim": "OPAQUE_OBSERVED_TOKEN_SURFACES_CAN_BE_CONTENT_BOUND_AND_EVIDENCE_DERIVED_INTO_RESTART_SAFE_ASSOCIATIONS_WITH_NATIVE_OPERATIONAL_REFERENT_EQUIVALENCE_CLASSES_LOCALIZED_BY_PASSIVE_RAW_CHANGE_AGAINST_CURRENT_OWNED_AFFORDANCE_PROFILES_WITHOUT_TOKEN_EFFECT_CAPABILITIES_CALLER_SUPPLIED_REFERENT_CLASSES_TOKEN_MEANING_NUMERICAL_OBJECT_IDENTITY_OR_GENERIC_LANGUAGE_FACULTY",
+  "branch": "research/grounded-language-native-token-referent-v1",
+  "capture_receipts": {
+    "focused_identity_10_pass.log": {
+      "bytes": 102,
+      "sha256": "b3e74f05f2d0901732c97d664e3b766ff27453baa6ef48a2f3be8323a38e3672"
+    },
+    "language_adjacent_26_pass.log": {
+      "bytes": 102,
+      "sha256": "3f1b54645ab42b7955391878a836a6ecb82a7103ed000c61292cf21f6b16628b"
+    },
+    "live_c08f_result.log": {
+      "bytes": 2540,
+      "sha256": "4691a36ef5e86ba512976d311b37330168d68f2717588dd413adcc02589ecb7e"
+    },
+    "maintenance_mutant_pattern_failure.stderr.log": {
+      "bytes": 1398,
+      "sha256": "286a86b89302523ec176b67856e79f91480b9830ebcc732ed0306c00e6e1cc34"
+    },
+    "native_currentness_restart_15_pass.log": {
+      "bytes": 102,
+      "sha256": "b30b8f04eae5d02bfc94a197c6ba1c4993ba3f1522adb968ef930295d9df39f4"
+    },
+    "positive_path_mutants_8_killed.log": {
+      "bytes": 622,
+      "sha256": "24d0eb976e123b4776856c9c76752741bc83d9f0c7c54d0f42b90abda625a190"
+    }
+  },
+  "date": "2026-09-06",
+  "entity_sha256": "17433f5f7e67fc7d3893f780c988ac34e1651406a29ccff5237e3b427b28e39a",
+  "execution_authority": "NONE",
+  "expected_research_microseed_delta": [
+    "microseed/runtime/entity.py"
+  ],
+  "focused_identity": {
+    "failed": 0,
+    "passed": 10
+  },
+  "identity_scope": "OPERATIONAL_EQUIVALENCE_CLASS_ONLY",
+  "language_adjacent_ms2046_c01_c08f": {
+    "failed": 0,
+    "passed": 26
+  },
+  "language_authority": "NONE",
+  "native_currentness_restart_regression": {
+    "failed": 0,
+    "passed": 15
+  },
+  "next": "NATIVE_B2_ORDERED_COMPOSITION_REEMBODIMENT_REVIEW_OVER_C08F_REFERENT_BINDINGS",
+  "not_earned": [
+    "NUMERICAL_OBJECT_IDENTITY",
+    "SEMANTIC_REFERENCE",
+    "TOKEN_MEANING",
+    "SEMANTIC_PREDICATE",
+    "LANGUAGE_FACULTY",
+    "GENERIC_CAPABILITY_FACULTY",
+    "ENDOGENOUS_QUALIFICATION",
+    "TAMPER_EVIDENT_LEDGER_SEQUENCE",
+    "CANON_PROMOTION"
+  ],
+  "numerical_identity_authority": "NONE",
+  "pairing_basis": "CURRENT_RUNTIME_EVIDENCE_LEDGER_CHRONOLOGY",
+  "positive_mutant_receipt_sha256": "aef167f8910d5e7a3cb932d5b30b0c83052e8284bf7fd230d64f5f06d73b5a6b",
+  "positive_mutant_tool_sha256": "1bd19adffe671ef17846084128ae4a24653f931447c11f3b5e792909bb89e0fc",
+  "positive_path_mutants": {
+    "killed": 8,
+    "survived": 0,
+    "unknown": 0
+  },
+  "qualification_ancestry": "EXTERNAL_RESEARCH_TRAIN_HOLDOUT_PARTITION_ONLY",
+  "referent_x_signature_sha256": "ad794b785133a51ead7597d6b6a8807841182588167f97a6e0bcf85f7738af4e",
+  "referent_y_signature_sha256": "46fcb6a924c53cd78cacedc6f10706967d090b9fb1b625eb21f6fdbf1224e922",
+  "schema": "microseed.lang-c08f-native-token-referent-reembodiment.v1",
+  "semantic_authority": "NONE",
+  "source_sha256": "54d8a1949e431c933577d96b49524b5b5084d09d294951b5bb377a7ef60b2ce7",
+  "status": "C08F_NATIVE_OBSERVED_TOKEN_REFERENT_BINDING_REEMBODIED",
+  "test_sha256": "beb5053eaacff8bcb336e966d886a8056a35abdcdf35ab8a4562be16c2799f22",
+  "truth_authority": "NONE"
+}

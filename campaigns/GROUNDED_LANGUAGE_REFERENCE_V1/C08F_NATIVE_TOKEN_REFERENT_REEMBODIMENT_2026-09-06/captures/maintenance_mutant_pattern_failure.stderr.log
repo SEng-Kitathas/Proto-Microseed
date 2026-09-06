@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "E:\new pc\AI_Pushes_Sandbox\projects\protoagi_microseed_reincarnation_20260827\research_ms1888_replay\.pcmmad_sync_runs\wt_language_c08f_20260906\tools\run_developmental_positive_path_mutants.py", line 178, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "E:\new pc\AI_Pushes_Sandbox\projects\protoagi_microseed_reincarnation_20260827\research_ms1888_replay\.pcmmad_sync_runs\wt_language_c08f_20260906\tools\run_developmental_positive_path_mutants.py", line 146, in main
+    results = [run_one(name, spec) for name, spec in MUTANTS.items()]
+               ^^^^^^^^^^^^^^^^^^^
+  File "E:\new pc\AI_Pushes_Sandbox\projects\protoagi_microseed_reincarnation_20260827\research_ms1888_replay\.pcmmad_sync_runs\wt_language_c08f_20260906\tools\run_developmental_positive_path_mutants.py", line 106, in run_one
+    clean_sha, mutant_sha = apply_mutation(dst, name, spec)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\new pc\AI_Pushes_Sandbox\projects\protoagi_microseed_reincarnation_20260827\research_ms1888_replay\.pcmmad_sync_runs\wt_language_c08f_20260906\tools\run_developmental_positive_path_mutants.py", line 95, in apply_mutation
+    raise RuntimeError(f"MUTATION_PATTERN_COUNT:{name}:{raw.count(old)}")
+RuntimeError: MUTATION_PATTERN_COUNT:SUPPRESS_C08F_NATIVE_TOKEN_REFERENT_RESOLUTION:0
