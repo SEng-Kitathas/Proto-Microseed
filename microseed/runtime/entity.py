@@ -125,6 +125,10 @@ from ..development.epistemic import (
     EpistemicContrastBinding, EpistemicContrastRegistry, EpistemicBearingKind, EpistemicBearingWitness,
     derive_pre_evidence_discriminator_signature,
 )
+from ..development.evidence_relation import (
+    OpaqueEvidenceAssociationRecord, OpaqueEvidenceAssociationRegistry,
+    OpaqueEvidenceAssociationCurrentnessWitness, OpaqueEvidenceAssociationState,
+)
 from ..persistence.store import StateStore
 from ..persistence.identity import assess_continuity, continuity_witness_from_exports
 from ..persistence.biography import DevelopmentalBiography, BiographyIntegrityError
@@ -218,6 +222,7 @@ class Microseed:
         self.coordinations = OperationalCoordinationRegistry(on_invalidate=self._on_coordination_invalidated)
         self.capabilities = CapabilityRegistry(on_invalidate=self._on_capability_invalidated)
         self.epistemic_deficits = EpistemicDeficitRegistry()
+        self.opaque_evidence_associations = OpaqueEvidenceAssociationRegistry()
         self.epistemic_projection_candidates: dict[str, EpistemicProjectionCandidate] = {}
         self.epistemic_constructor_candidates: dict[str, ProjectionConstructorCandidate] = {}
         self.robust_epistemic_constructor_candidates: dict[str, RobustProjectionConstructorCandidate] = {}
@@ -228,6 +233,7 @@ class Microseed:
         self.epistemic_contrasts = EpistemicContrastRegistry(self.epistemic_projections)
         self._load_operational_traces()
         self._load_epistemic_deficits()
+        self._load_opaque_evidence_associations()
         self._load_epistemic_projection_candidates()
         self._load_epistemic_constructor_candidates()
         self._load_robust_epistemic_constructor_candidates()
@@ -295,6 +301,19 @@ class Microseed:
                 for cid in payload.get("stale_capabilities", (payload.get("capability_id"),)):
                     if cid:
                         self.epistemic_deficits.invalidate_probe(cid)
+
+    def _load_opaque_evidence_associations(self) -> None:
+        """Replay durable operational associations without granting restart currentness."""
+        for event in self.store.events():
+            kind=event.get("kind"); payload=event.get("payload",{})
+            if kind == "OPAQUE_EVIDENCE_ASSOCIATION_REGISTERED":
+                rec=OpaqueEvidenceAssociationRecord.from_serializable(payload)
+                if rec.record_id not in self.opaque_evidence_associations.records:
+                    self.opaque_evidence_associations.register(rec,replay=True)
+            elif kind == "OPAQUE_EVIDENCE_ASSOCIATION_CURRENTNESS_WITNESS":
+                witness=OpaqueEvidenceAssociationCurrentnessWitness.from_serializable(payload)
+                if witness.record_id in self.opaque_evidence_associations.records:
+                    self.opaque_evidence_associations.add_witness(witness,replay=True)
 
     def _load_epistemic_projection_candidates(self) -> None:
         """Replay proposal memory without turning it into qualification."""
@@ -4353,6 +4372,73 @@ class Microseed:
     def bounded_control_loop_status(self) -> dict[str, Any]:
         w=self.action_closure.current_state
         return {"status":"BOUNDED_CONTROL_LOOP_STATE","current_state":None if w is None else w.serializable(),"intent_count":len(self.action_closure.intents),"execution_count":len(self.action_closure.executions),"outcome_count":len(self.action_closure.outcomes),"general_policy_authority":"NONE","semantic_intention_authority":"NONE"}
+
+    def register_opaque_evidence_association(
+        self, *, left_opaque_id: str, right_digest_sha256: str,
+        source_evidence_refs: Iterable[tuple[str,str]], assistance_ancestry: Iterable[str] = (),
+    ) -> dict[str,Any]:
+        refs=tuple((str(eid),str(sig).lower()) for eid,sig in source_evidence_refs)
+        for evidence_id,signature in refs:
+            row=self.evidence.get(evidence_id)
+            if row is None or str(row.get("sha256","")).lower()!=signature:
+                raise ValueError(f"OPAQUE_ASSOCIATION_SOURCE_EVIDENCE_NOT_EXACT:{evidence_id}")
+        record_id=OpaqueEvidenceAssociationRegistry.derive_record_id(left_opaque_id,right_digest_sha256,refs)
+        rec=OpaqueEvidenceAssociationRecord(
+            record_id=record_id,left_opaque_id=str(left_opaque_id),right_digest_sha256=str(right_digest_sha256),
+            source_evidence_refs=refs,assistance_ancestry=tuple(str(x) for x in assistance_ancestry),
+        )
+        self.opaque_evidence_associations.register(rec)
+        packet=rec.serializable()
+        self.path.append("OPAQUE_EVIDENCE_ASSOCIATION_REGISTERED",packet)
+        self.store.append("OPAQUE_EVIDENCE_ASSOCIATION_REGISTERED",packet)
+        return packet
+
+    def opaque_evidence_association_status(self, record_id: str) -> dict[str,Any]:
+        return self.opaque_evidence_associations.currentness(str(record_id),self.evidence.get)
+
+    def assess_opaque_evidence_association_currentness(self, record_id: str, *, witness_evidence_id: str) -> dict[str,Any]:
+        record=self.opaque_evidence_associations.records.get(str(record_id))
+        if record is None:
+            return {"status":"UNKNOWN_INCOMPLETE","reason":"OPAQUE_EVIDENCE_ASSOCIATION_NOT_FOUND"}
+        row=self.evidence.get(str(witness_evidence_id))
+        if row is None:
+            return {"status":"UNKNOWN_INCOMPLETE","reason":"CURRENTNESS_WITNESS_EVIDENCE_NOT_FOUND"}
+        payload=row.get("payload",{}) if isinstance(row,dict) else {}
+        if not isinstance(payload,dict) or payload.get("kind")!="OPAQUE_ASSOCIATION_CURRENTNESS_OBSERVATION":
+            return {"status":"UNKNOWN_INCOMPLETE","reason":"OPAQUE_ASSOCIATION_CURRENTNESS_OBSERVATION_REQUIRED"}
+        if str(payload.get("record_id",""))!=record.record_id or str(payload.get("left_opaque_id",""))!=record.left_opaque_id:
+            return {"status":"UNKNOWN_INCOMPLETE","reason":"CURRENTNESS_WITNESS_RECORD_IDENTITY_MISMATCH"}
+        observed=str(payload.get("observed_right_digest_sha256","")).lower()
+        expected=record.right_digest_sha256
+        status="CURRENTNESS_CONFIRMED" if observed==expected else "DRIFT_WITNESS"
+        wid="opaque-assoc-witness-"+str(row["sha256"])[:24]
+        witness=OpaqueEvidenceAssociationCurrentnessWitness(
+            witness_id=wid,record_id=record.record_id,evidence_id=str(witness_evidence_id),
+            evidence_sha256=str(row["sha256"]),expected_right_digest_sha256=expected,
+            observed_right_digest_sha256=observed,status=status,
+        )
+        rec=self.opaque_evidence_associations.add_witness(witness,replay=False)
+        packet=witness.serializable()
+        self.path.append("OPAQUE_EVIDENCE_ASSOCIATION_CURRENTNESS_WITNESS",packet)
+        self.store.append("OPAQUE_EVIDENCE_ASSOCIATION_CURRENTNESS_WITNESS",packet)
+        return {
+            "status":status,"witness":packet,"record_state":rec.state.value,
+            "truth_authority":"NONE","semantic_authority":"NONE",
+            "execution_authority":"NONE","language_authority":"NONE",
+        }
+
+    def opaque_evidence_association_state(self) -> dict[str,Any]:
+        statuses={rid:self.opaque_evidence_association_status(rid)["status"] for rid in sorted(self.opaque_evidence_associations.records)}
+        return {
+            "status":"OPAQUE_EVIDENCE_ASSOCIATION_STATE",
+            "record_count":len(self.opaque_evidence_associations.records),
+            "current_count":sum(v=="CURRENT_OPAQUE_EVIDENCE_ASSOCIATION" for v in statuses.values()),
+            "revalidation_required_count":sum(v=="REVALIDATION_REQUIRED_OPAQUE_EVIDENCE_ASSOCIATION" for v in statuses.values()),
+            "stale_count":sum(v=="STALE_OPAQUE_EVIDENCE_ASSOCIATION" for v in statuses.values()),
+            "records":statuses,
+            "truth_authority":"NONE","semantic_authority":"NONE",
+            "execution_authority":"NONE","language_authority":"NONE",
+        }
 
     _EPISTEMIC_PREMISE_KINDS = {
         "FRAME", "EPISODE", "VALUE", "TOPOLOGY", "COUNTERPARTY", "COORDINATION", "CAPABILITY_PREMISE", "PROJECTION",

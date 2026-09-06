@@ -1,0 +1,23 @@
+{
+  "active_candidates": [
+    {
+      "id": "LANG-C08B",
+      "question": "Can current C06/B1 relation digest be derived from organism-owned evidence without evaluator-authored relation digest?"
+    },
+    {
+      "id": "F-VALUE-CONFLICT",
+      "question": "orthogonal open seam"
+    },
+    {
+      "id": "C-SCALE-LEARN-03C",
+      "question": "orthogonal open seam"
+    }
+  ],
+  "resolved": [
+    {
+      "id": "LANG-C08A",
+      "result": "NATIVE_ASSOCIATION_LIFECYCLE_EARNED_FULL_CURRENTNESS_STOPPED"
+    }
+  ],
+  "schema": "r44.semantic_helix.language_c08.v1"
+}

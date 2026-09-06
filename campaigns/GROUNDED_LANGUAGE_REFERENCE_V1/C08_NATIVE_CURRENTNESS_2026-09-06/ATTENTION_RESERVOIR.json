@@ -1,0 +1,25 @@
+{
+  "items": [
+    {
+      "id": "C08-AR-01",
+      "signal": "native generic association lifecycle with restart non-reauthorization",
+      "state": "EARNED_BOUNDED"
+    },
+    {
+      "id": "C08-AR-02",
+      "signal": "selective drift witness stales only affected association",
+      "state": "EARNED_BOUNDED"
+    },
+    {
+      "id": "C08-AR-03",
+      "signal": "current relation digest remains harness-authored",
+      "state": "OPEN_ASSISTANCE"
+    },
+    {
+      "id": "C08-AR-04",
+      "signal": "native C06/B1 relation currentness evidence owner",
+      "state": "NEXT"
+    }
+  ],
+  "schema": "r44.attention_reservoir.language_c08.v1"
+}

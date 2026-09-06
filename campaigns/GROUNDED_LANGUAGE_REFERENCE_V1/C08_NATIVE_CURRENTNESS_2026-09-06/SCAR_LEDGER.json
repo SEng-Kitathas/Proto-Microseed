@@ -1,0 +1,16 @@
+{
+  "scars": [
+    {
+      "classification": "MAINTENANCE_ONLY",
+      "detail": "first focused execution reached lifecycle assertions but report assembly referenced action_ids_before outside its defining scope; fixed without changing scientific mechanism",
+      "id": "C08_MAINTENANCE_RECEIPT_NAMEERROR"
+    },
+    {
+      "classification": "LIVE_SCIENTIFIC_BOUNDARY",
+      "detail": "matching/mismatching current relation digest in C08A witness is still supplied by the external harness; full C08 currentness therefore stopped rather than promoted",
+      "id": "EXTERNAL_RELATION_DIGEST_CURRENTNESS_ASSISTANCE",
+      "law": "HARNESS_AUTHORED_RELATION_DIGEST != ORGANISM_OWNED_CURRENTNESS"
+    }
+  ],
+  "schema": "microseed.language_c08.scars.v1"
+}

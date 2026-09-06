@@ -1,0 +1,124 @@
+{
+  "assistance_ceiling": [
+    "C07 paired relation/token evidence is preexisting research evidence",
+    "the C08A currentness witness payload contains observed_right_digest_sha256 authored by the research harness",
+    "therefore the native lifecycle is tested but organism-owned C06/B1 relation-currentness observation is not yet embodied",
+    "record registration remains research-branch admission; no canon promotion has occurred"
+  ],
+  "base_head": "508df4925f61ded65bde9d998fbb5e613ea6cdf0",
+  "branch": "research/grounded-language-native-currentness-v1",
+  "captures": {
+    "ADJACENT_NATIVE_CURRENTNESS_15PASS": {
+      "bytes": 102,
+      "path": "campaigns/GROUNDED_LANGUAGE_REFERENCE_V1/C08_NATIVE_CURRENTNESS_2026-09-06/evidence/ADJACENT_NATIVE_CURRENTNESS_15PASS.log",
+      "sha256": "1f2976002e935fd59d5820e7151cf355bca4f3bfa4ecf14b7cf7ecc58dcac1f1"
+    },
+    "FINAL_C01_C08_15PASS": {
+      "bytes": 101,
+      "path": "campaigns/GROUNDED_LANGUAGE_REFERENCE_V1/C08_NATIVE_CURRENTNESS_2026-09-06/evidence/FINAL_C01_C08_15PASS.log",
+      "sha256": "57b0eca2cc70e17c21316fe382be2d299a370dc9d83ac25fa2f5785d4c9ba0ad"
+    },
+    "FINAL_CAMPAIGN_OUTPUT": {
+      "bytes": 1490,
+      "path": "campaigns/GROUNDED_LANGUAGE_REFERENCE_V1/C08_NATIVE_CURRENTNESS_2026-09-06/evidence/FINAL_CAMPAIGN_OUTPUT.log",
+      "sha256": "01092be28a59a54c23687db86d17a7c8b1ac3908455bc86abdd40dc2717b08a2"
+    },
+    "FINAL_FOCUSED_2PASS": {
+      "bytes": 100,
+      "path": "campaigns/GROUNDED_LANGUAGE_REFERENCE_V1/C08_NATIVE_CURRENTNESS_2026-09-06/evidence/FINAL_FOCUSED_2PASS.log",
+      "sha256": "32f8a23572708a1a0a82beb8013aa7f6e192b3da22845a311b81d635c92b17b1"
+    },
+    "FIRST_C08_MAINTENANCE_FAILURE": {
+      "bytes": 12576,
+      "path": "campaigns/GROUNDED_LANGUAGE_REFERENCE_V1/C08_NATIVE_CURRENTNESS_2026-09-06/evidence/FIRST_C08_MAINTENANCE_FAILURE.log",
+      "sha256": "7c342703f8aef69a033086c8cf7e9734c90a659107e03b718aef88593a1d42e3"
+    },
+    "PREMUTATION_C07_STACK_13PASS": {
+      "bytes": 101,
+      "path": "campaigns/GROUNDED_LANGUAGE_REFERENCE_V1/C08_NATIVE_CURRENTNESS_2026-09-06/evidence/PREMUTATION_C07_STACK_13PASS.log",
+      "sha256": "b236118a9fd5c3a70788f8f024e90a195e8288416f921e53e11918c6cac0c286"
+    }
+  },
+  "date": "2026-09-06",
+  "earned_bounded": "DURABLE_C07_ASSOCIATION_CAN_BE_EMBODIED_AS_A_GENERIC_NATIVE_EVIDENCE_BOUND_RECORD_WITH_SELECTIVE_STALENESS_AND_RESTART_REVALIDATION_REQUIRED_WITHOUT_SEMANTIC_EXECUTION_OR_LANGUAGE_AUTHORITY",
+  "expected_research_microseed_delta": [
+    "microseed/development/evidence_relation.py",
+    "microseed/runtime/entity.py"
+  ],
+  "hostiles": {
+    "late_green_does_not_reactivate_stale": "STALE_OPAQUE_EVIDENCE_ASSOCIATION",
+    "new_action_contracts": [],
+    "restart_drifted": "STALE_OPAQUE_EVIDENCE_ASSOCIATION",
+    "restart_nonstale": "REVALIDATION_REQUIRED_OPAQUE_EVIDENCE_ASSOCIATION",
+    "selective_drift_affected": "STALE_OPAQUE_EVIDENCE_ASSOCIATION",
+    "selective_drift_unrelated": "CURRENT_OPAQUE_EVIDENCE_ASSOCIATION"
+  },
+  "localized_missing_mechanism": "NATIVE_C06_B1_RELATION_CURRENTNESS_EVIDENCE_OWNER",
+  "native_mechanism": [
+    "generic OpaqueEvidenceAssociationRecord binds opaque left content to an opaque right content digest and exact source-evidence IDs+SHA256",
+    "registry is integrated into Microseed runtime and reconstructed from append-only development events",
+    "record identity is content-derived; no semantic class or caller meaning identifier is required",
+    "historical record existence and currentness are separate states CURRENT/REVALIDATION_REQUIRED/STALE",
+    "restart forces every replayed non-stale record to REVALIDATION_REQUIRED; durable bytes do not self-authorize currentness",
+    "a durable drift witness selectively stales only its record and survives restart",
+    "later matching evidence does not silently reactivate a historically drift-stale record",
+    "no new action/effect contract or execution path is created by the mechanism"
+  ],
+  "next": "C08B_NATIVE_C06_B1_RELATION_CURRENTNESS_OWNER_FROM_ORGANISM_OWNED_EVIDENCE_BEFORE_TOKEN_ASSOCIATION_REVALIDATION",
+  "not_earned": [
+    "ORGANISM_OWNED_C06_RELATION_CURRENTNESS",
+    "SEMANTIC_PREDICATE",
+    "TOKEN_MEANING",
+    "LANGUAGE_FACULTY",
+    "GENERIC_CAPABILITY",
+    "EXECUTION_AUTHORITY",
+    "CANON_PROMOTION"
+  ],
+  "owner_constraint": [
+    "CAPABILITY_LABEL != ORGANISM_MECHANISM",
+    "BEHAVIORAL_SUCCESS != INSTALLED_FACULTY",
+    "GREEN_BEHAVIOR_TEST != NON_SMUGGLED_MECHANISM"
+  ],
+  "public_main_canon_mutation": false,
+  "reason_full_c08_not_earned": "CURRENTNESS_WITNESS_OBSERVED_RIGHT_DIGEST_IS_STILL_AUTHORED_BY_EXTERNAL_RESEARCH_HARNESS",
+  "scars": [
+    {
+      "classification": "MAINTENANCE_ONLY",
+      "detail": "first focused execution reached lifecycle assertions but report assembly referenced action_ids_before outside its defining scope; fixed without changing scientific mechanism",
+      "id": "C08_MAINTENANCE_RECEIPT_NAMEERROR"
+    },
+    {
+      "classification": "LIVE_SCIENTIFIC_BOUNDARY",
+      "detail": "matching/mismatching current relation digest in C08A witness is still supplied by the external harness; full C08 currentness therefore stopped rather than promoted",
+      "id": "EXTERNAL_RELATION_DIGEST_CURRENTNESS_ASSISTANCE",
+      "law": "HARNESS_AUTHORED_RELATION_DIGEST != ORGANISM_OWNED_CURRENTNESS"
+    }
+  ],
+  "schema": "microseed.grounded_language.c08_native_currentness_boundary.v1",
+  "scientific_law": "HARNESS_AUTHORED_RELATION_DIGEST != ORGANISM_OWNED_CURRENTNESS",
+  "staged_git_blobs": {
+    "microseed/development/evidence_relation.py": {
+      "bytes": 10770,
+      "sha256": "5a1a0c1964206932524cfd274a25e7c61364729d16312d178d3aa972fd30a302"
+    },
+    "microseed/runtime/entity.py": {
+      "bytes": 561998,
+      "sha256": "a7faf235f496e8b1678fe3cf33804b3dc6d91c87bdee1dfd8eb439406634d7af"
+    },
+    "scratch/lang_c08_native_evidence_association_currentness.py": {
+      "bytes": 7733,
+      "sha256": "c15144242282a9044d59640cc1b1756ddf0eac12b75bf4721dc328973ab6af53"
+    },
+    "tests/embodiment/test_lang_c08_native_evidence_association_currentness.py": {
+      "bytes": 1226,
+      "sha256": "2cef72a5b5d75f6539d8673e7b6399e74b55cf227701363be64aaca147629911"
+    }
+  },
+  "status": "STOP_C08_PARTIAL_NATIVE_MECHANISM__FULL_CURRENTNESS_NOT_EARNED",
+  "verification": {
+    "c01_c08_adjacent": "15/15 PASS",
+    "focused_final": "2/2 PASS",
+    "native_currentness_adjacent": "15/15 PASS",
+    "premutation_c07_stack": "13/13 PASS"
+  }
+}

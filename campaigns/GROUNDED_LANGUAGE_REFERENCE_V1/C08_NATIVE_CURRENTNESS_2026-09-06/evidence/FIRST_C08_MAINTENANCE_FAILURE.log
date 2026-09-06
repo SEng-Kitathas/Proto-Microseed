@@ -1,0 +1,178 @@
+FF                                                                       [100%]
+================================== FAILURES ===================================
+_ test_c08_native_record_preserves_history_requires_restart_revalidation_and_stales_selectively _
+
+    def test_c08_native_record_preserves_history_requires_restart_revalidation_and_stales_selectively():
+>       r=run_campaign()
+          ^^^^^^^^^^^^^^
+
+tests\embodiment\test_lang_c08_native_evidence_association_currentness.py:5: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def run_campaign():
+        with tempfile.TemporaryDirectory(prefix="lang-c08-") as td:
+            state=Path(td)
+            ms,world,rx,ry=build_two_relations(state)
+            try:
+                binding=_build_c07_binding(ms,world)
+                records=_register_native_records(ms,binding)
+                tokens=sorted(records)
+                a,b=tokens[0],tokens[1]
+                ra,rb=records[a],records[b]
+                initial_a=ms.opaque_evidence_association_status(ra["record_id"])
+                initial_b=ms.opaque_evidence_association_status(rb["record_id"])
+                assert initial_a["status"]==initial_b["status"]=="CURRENT_OPAQUE_EVIDENCE_ASSOCIATION"
+    
+                # The native registry can selectively stale one association from a durable witness.
+                _append_external_currentness_witness(ms,ra,rb["right_digest_sha256"],"E-C08A-DRIFT-A")
+                drift_a=ms.assess_opaque_evidence_association_currentness(ra["record_id"],witness_evidence_id="E-C08A-DRIFT-A")
+                assert drift_a["status"]=="DRIFT_WITNESS"
+                stale_a=ms.opaque_evidence_association_status(ra["record_id"])
+                still_b=ms.opaque_evidence_association_status(rb["record_id"])
+                assert stale_a["status"]=="STALE_OPAQUE_EVIDENCE_ASSOCIATION"
+                assert still_b["status"]=="CURRENT_OPAQUE_EVIDENCE_ASSOCIATION"
+                action_ids_after=set(ms.capabilities.contracts)
+            finally:
+                ms.biography.close();ms.evidence.conn.close();ms.store.conn.close()
+    
+            # Restart: history survives, but non-stale bytes do not self-authorize currentness.
+            ms2=Microseed(state)
+            try:
+                restart_a=ms2.opaque_evidence_association_status(ra["record_id"])
+                restart_b=ms2.opaque_evidence_association_status(rb["record_id"])
+                assert restart_a["status"]=="STALE_OPAQUE_EVIDENCE_ASSOCIATION"
+                assert restart_b["status"]=="REVALIDATION_REQUIRED_OPAQUE_EVIDENCE_ASSOCIATION"
+    
+                # A fresh externally-authored matching digest can exercise the native revalidation
+                # lifecycle, but this is explicitly NOT accepted as full organism-owned C08 currentness.
+                _append_external_currentness_witness(ms2,rb,rb["right_digest_sha256"],"E-C08A-ASSISTED-REVALIDATE-B")
+                assisted_b=ms2.assess_opaque_evidence_association_currentness(rb["record_id"],witness_evidence_id="E-C08A-ASSISTED-REVALIDATE-B")
+                assert assisted_b["status"]=="CURRENTNESS_CONFIRMED"
+                after_assisted_b=ms2.opaque_evidence_association_status(rb["record_id"])
+                assert after_assisted_b["status"]=="CURRENT_OPAQUE_EVIDENCE_ASSOCIATION"
+    
+                # Staleness is durable: later matching witness cannot reactivate A.
+                _append_external_currentness_witness(ms2,ra,ra["right_digest_sha256"],"E-C08A-LATE-GREEN-A")
+                late_a=ms2.assess_opaque_evidence_association_currentness(ra["record_id"],witness_evidence_id="E-C08A-LATE-GREEN-A")
+                after_late_a=ms2.opaque_evidence_association_status(ra["record_id"])
+                assert late_a["status"]=="CURRENTNESS_CONFIRMED"
+                assert after_late_a["status"]=="STALE_OPAQUE_EVIDENCE_ASSOCIATION"
+    
+                snapshot=ms2.opaque_evidence_association_state()
+                assert snapshot["stale_count"]==1 and snapshot["current_count"]==1
+                assert not hasattr(ms2,"predicate_registry")
+                assert not hasattr(ms2,"meaning_registry")
+                assert not hasattr(ms2,"language_module")
+                assert not hasattr(ms2,"faculty_registry")
+            finally:
+                ms2.biography.close();ms2.evidence.conn.close();ms2.store.conn.close()
+    
+        return {
+            "status":"STOP_C08_PARTIAL_NATIVE_MECHANISM__FULL_CURRENTNESS_NOT_EARNED",
+            "native_record_lifecycle":"PASS",
+            "initial_current":[initial_a["status"],initial_b["status"]],
+            "selective_drift":{"affected":stale_a["status"],"unrelated":still_b["status"]},
+            "restart":{"drifted":restart_a["status"],"nonstale":restart_b["status"]},
+            "assisted_revalidation":after_assisted_b["status"],
+            "late_green_does_not_reactivate_stale":after_late_a["status"],
+>           "new_action_contracts_registered":sorted(action_ids_after-action_ids_before),
+                                                                      ^^^^^^^^^^^^^^^^^
+            "localized_missing_mechanism":"NATIVE_C06_B1_RELATION_CURRENTNESS_EVIDENCE_OWNER",
+            "reason_full_c08_not_earned":"CURRENTNESS_WITNESS_OBSERVED_RIGHT_DIGEST_IS_STILL_AUTHORED_BY_EXTERNAL_RESEARCH_HARNESS",
+            "earned_bounded":"DURABLE_C07_ASSOCIATION_CAN_BE_EMBODIED_AS_A_GENERIC_NATIVE_EVIDENCE_BOUND_RECORD_WITH_SELECTIVE_STALENESS_AND_RESTART_REVALIDATION_REQUIRED_WITHOUT_SEMANTIC_EXECUTION_OR_LANGUAGE_AUTHORITY",
+            "not_earned":["ORGANISM_OWNED_C06_RELATION_CURRENTNESS","SEMANTIC_PREDICATE","TOKEN_MEANING","LANGUAGE_FACULTY","GENERIC_CAPABILITY","EXECUTION_AUTHORITY","CANON_PROMOTION"],
+            "next":"C08B_NATIVE_C06_B1_RELATION_CURRENTNESS_OWNER_FROM_ORGANISM_OWNED_EVIDENCE_BEFORE_TOKEN_ASSOCIATION_REVALIDATION",
+        }
+E       NameError: name 'action_ids_before' is not defined
+
+scratch\lang_c08_native_evidence_association_currentness.py:124: NameError
+_ test_c08_refuses_to_call_externally_authored_currentness_digest_organism_owned_currentness _
+
+    def test_c08_refuses_to_call_externally_authored_currentness_digest_organism_owned_currentness():
+>       r=run_campaign()
+          ^^^^^^^^^^^^^^
+
+tests\embodiment\test_lang_c08_native_evidence_association_currentness.py:17: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def run_campaign():
+        with tempfile.TemporaryDirectory(prefix="lang-c08-") as td:
+            state=Path(td)
+            ms,world,rx,ry=build_two_relations(state)
+            try:
+                binding=_build_c07_binding(ms,world)
+                records=_register_native_records(ms,binding)
+                tokens=sorted(records)
+                a,b=tokens[0],tokens[1]
+                ra,rb=records[a],records[b]
+                initial_a=ms.opaque_evidence_association_status(ra["record_id"])
+                initial_b=ms.opaque_evidence_association_status(rb["record_id"])
+                assert initial_a["status"]==initial_b["status"]=="CURRENT_OPAQUE_EVIDENCE_ASSOCIATION"
+    
+                # The native registry can selectively stale one association from a durable witness.
+                _append_external_currentness_witness(ms,ra,rb["right_digest_sha256"],"E-C08A-DRIFT-A")
+                drift_a=ms.assess_opaque_evidence_association_currentness(ra["record_id"],witness_evidence_id="E-C08A-DRIFT-A")
+                assert drift_a["status"]=="DRIFT_WITNESS"
+                stale_a=ms.opaque_evidence_association_status(ra["record_id"])
+                still_b=ms.opaque_evidence_association_status(rb["record_id"])
+                assert stale_a["status"]=="STALE_OPAQUE_EVIDENCE_ASSOCIATION"
+                assert still_b["status"]=="CURRENT_OPAQUE_EVIDENCE_ASSOCIATION"
+                action_ids_after=set(ms.capabilities.contracts)
+            finally:
+                ms.biography.close();ms.evidence.conn.close();ms.store.conn.close()
+    
+            # Restart: history survives, but non-stale bytes do not self-authorize currentness.
+            ms2=Microseed(state)
+            try:
+                restart_a=ms2.opaque_evidence_association_status(ra["record_id"])
+                restart_b=ms2.opaque_evidence_association_status(rb["record_id"])
+                assert restart_a["status"]=="STALE_OPAQUE_EVIDENCE_ASSOCIATION"
+                assert restart_b["status"]=="REVALIDATION_REQUIRED_OPAQUE_EVIDENCE_ASSOCIATION"
+    
+                # A fresh externally-authored matching digest can exercise the native revalidation
+                # lifecycle, but this is explicitly NOT accepted as full organism-owned C08 currentness.
+                _append_external_currentness_witness(ms2,rb,rb["right_digest_sha256"],"E-C08A-ASSISTED-REVALIDATE-B")
+                assisted_b=ms2.assess_opaque_evidence_association_currentness(rb["record_id"],witness_evidence_id="E-C08A-ASSISTED-REVALIDATE-B")
+                assert assisted_b["status"]=="CURRENTNESS_CONFIRMED"
+                after_assisted_b=ms2.opaque_evidence_association_status(rb["record_id"])
+                assert after_assisted_b["status"]=="CURRENT_OPAQUE_EVIDENCE_ASSOCIATION"
+    
+                # Staleness is durable: later matching witness cannot reactivate A.
+                _append_external_currentness_witness(ms2,ra,ra["right_digest_sha256"],"E-C08A-LATE-GREEN-A")
+                late_a=ms2.assess_opaque_evidence_association_currentness(ra["record_id"],witness_evidence_id="E-C08A-LATE-GREEN-A")
+                after_late_a=ms2.opaque_evidence_association_status(ra["record_id"])
+                assert late_a["status"]=="CURRENTNESS_CONFIRMED"
+                assert after_late_a["status"]=="STALE_OPAQUE_EVIDENCE_ASSOCIATION"
+    
+                snapshot=ms2.opaque_evidence_association_state()
+                assert snapshot["stale_count"]==1 and snapshot["current_count"]==1
+                assert not hasattr(ms2,"predicate_registry")
+                assert not hasattr(ms2,"meaning_registry")
+                assert not hasattr(ms2,"language_module")
+                assert not hasattr(ms2,"faculty_registry")
+            finally:
+                ms2.biography.close();ms2.evidence.conn.close();ms2.store.conn.close()
+    
+        return {
+            "status":"STOP_C08_PARTIAL_NATIVE_MECHANISM__FULL_CURRENTNESS_NOT_EARNED",
+            "native_record_lifecycle":"PASS",
+            "initial_current":[initial_a["status"],initial_b["status"]],
+            "selective_drift":{"affected":stale_a["status"],"unrelated":still_b["status"]},
+            "restart":{"drifted":restart_a["status"],"nonstale":restart_b["status"]},
+            "assisted_revalidation":after_assisted_b["status"],
+            "late_green_does_not_reactivate_stale":after_late_a["status"],
+>           "new_action_contracts_registered":sorted(action_ids_after-action_ids_before),
+                                                                      ^^^^^^^^^^^^^^^^^
+            "localized_missing_mechanism":"NATIVE_C06_B1_RELATION_CURRENTNESS_EVIDENCE_OWNER",
+            "reason_full_c08_not_earned":"CURRENTNESS_WITNESS_OBSERVED_RIGHT_DIGEST_IS_STILL_AUTHORED_BY_EXTERNAL_RESEARCH_HARNESS",
+            "earned_bounded":"DURABLE_C07_ASSOCIATION_CAN_BE_EMBODIED_AS_A_GENERIC_NATIVE_EVIDENCE_BOUND_RECORD_WITH_SELECTIVE_STALENESS_AND_RESTART_REVALIDATION_REQUIRED_WITHOUT_SEMANTIC_EXECUTION_OR_LANGUAGE_AUTHORITY",
+            "not_earned":["ORGANISM_OWNED_C06_RELATION_CURRENTNESS","SEMANTIC_PREDICATE","TOKEN_MEANING","LANGUAGE_FACULTY","GENERIC_CAPABILITY","EXECUTION_AUTHORITY","CANON_PROMOTION"],
+            "next":"C08B_NATIVE_C06_B1_RELATION_CURRENTNESS_OWNER_FROM_ORGANISM_OWNED_EVIDENCE_BEFORE_TOKEN_ASSOCIATION_REVALIDATION",
+        }
+E       NameError: name 'action_ids_before' is not defined
+
+scratch\lang_c08_native_evidence_association_currentness.py:124: NameError
+=========================== short test summary info ===========================
+FAILED tests/embodiment/test_lang_c08_native_evidence_association_currentness.py::test_c08_native_record_preserves_history_requires_restart_revalidation_and_stales_selectively
+FAILED tests/embodiment/test_lang_c08_native_evidence_association_currentness.py::test_c08_refuses_to_call_externally_authored_currentness_digest_organism_owned_currentness
+2 failed in 0.77s

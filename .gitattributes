@@ -9,3 +9,10 @@ tests/embodiment/test_lang_c07_observed_token_relation_binding.py text eol=lf
 campaigns/GROUNDED_LANGUAGE_REFERENCE_V1/C07_OBSERVED_TOKEN_RELATION_BINDING_2026-09-06/*.json text eol=lf
 campaigns/GROUNDED_LANGUAGE_REFERENCE_V1/C07_OBSERVED_TOKEN_RELATION_BINDING_2026-09-06/*.md text eol=lf
 campaigns/GROUNDED_LANGUAGE_REFERENCE_V1/C07_OBSERVED_TOKEN_RELATION_BINDING_2026-09-06/evidence/*.log binary
+microseed/development/evidence_relation.py text eol=lf
+microseed/runtime/entity.py text eol=lf
+scratch/lang_c08_native_evidence_association_currentness.py text eol=lf
+tests/embodiment/test_lang_c08_native_evidence_association_currentness.py text eol=lf
+campaigns/GROUNDED_LANGUAGE_REFERENCE_V1/C08_NATIVE_CURRENTNESS_2026-09-06/*.json text eol=lf
+campaigns/GROUNDED_LANGUAGE_REFERENCE_V1/C08_NATIVE_CURRENTNESS_2026-09-06/*.md text eol=lf
+campaigns/GROUNDED_LANGUAGE_REFERENCE_V1/C08_NATIVE_CURRENTNESS_2026-09-06/evidence/*.log binary

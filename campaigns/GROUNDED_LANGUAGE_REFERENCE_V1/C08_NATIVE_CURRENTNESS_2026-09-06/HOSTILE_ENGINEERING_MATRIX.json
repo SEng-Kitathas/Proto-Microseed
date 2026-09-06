@@ -1,0 +1,21 @@
+{
+  "attacks": [
+    {
+      "attack": "durable bytes imply restart currentness",
+      "result": "BLOCKED_REVALIDATION_REQUIRED"
+    },
+    {
+      "attack": "one record drift stales unrelated record",
+      "result": "BLOCKED_SELECTIVE_STALENESS"
+    },
+    {
+      "attack": "late green reactivates drift-stale record",
+      "result": "BLOCKED_STALE_REMAINS_STALE"
+    },
+    {
+      "attack": "native lifecycle mistaken for organism-owned current relation observation",
+      "result": "STOPPED_EXTERNAL_DIGEST_ASSISTANCE_EXPOSED"
+    }
+  ],
+  "schema": "r44.hostile.language_c08.v1"
+}

@@ -1,0 +1,26 @@
+{
+  "reviews": [
+    {
+      "interface": "C07 evidence -> native record",
+      "status": "EVIDENCE_BOUND"
+    },
+    {
+      "interface": "native record -> currentness",
+      "status": "LIFECYCLE_NATIVE"
+    },
+    {
+      "interface": "current relation observation -> witness",
+      "status": "EXTERNAL_ASSISTANCE_REMAINS"
+    },
+    {
+      "interface": "record -> semantics/execution",
+      "status": "NO_AUTHORITY_TRANSFER"
+    },
+    {
+      "interface": "research -> canon",
+      "status": "NOT_PROMOTED"
+    }
+  ],
+  "schema": "r44.csc.language_c08.v1",
+  "status": "PASS_PARTIAL_WITH_OPEN_BOUNDARY"
+}
