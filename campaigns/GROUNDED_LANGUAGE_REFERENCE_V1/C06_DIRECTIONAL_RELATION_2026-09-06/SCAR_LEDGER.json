@@ -1,0 +1,23 @@
+{
+  "scars": [
+    {
+      "detail": "2/2 green prototype registered the directional relation as a new effect CapabilityContract; rejected.",
+      "id": "INSTALLED_RELATION_ACTION_FALSE_GREEN",
+      "law": "GREEN_BEHAVIOR_TEST != NON_SMUGGLED_MECHANISM",
+      "status": "PRESERVED_REJECTED_PROTOTYPE"
+    },
+    {
+      "detail": "strict external-event candidate inherited capability_authority:NONE; anti-smuggling assertion failed and field was removed.",
+      "id": "CAPABILITY_NONE_SCHEMA_RESIDUE",
+      "law": "NEGATED_CAPABILITY_FIELD_CAN_STILL_REIFY_THE_WRONG_ONTOLOGY",
+      "status": "REPAIRED"
+    },
+    {
+      "detail": "order moved to alignment/opposition relative to existing grounded local effect basis; full sensor-polarity inversion hostile passes.",
+      "id": "ABSOLUTE_SENSOR_SIGN_ORDER",
+      "law": "RAW_POLARITY != GROUNDED_DIRECTION",
+      "status": "REPAIRED"
+    }
+  ],
+  "schema": "microseed.language_c06.scars.v1"
+}

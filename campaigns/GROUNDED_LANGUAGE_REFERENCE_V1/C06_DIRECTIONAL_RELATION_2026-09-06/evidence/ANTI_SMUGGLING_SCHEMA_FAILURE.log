@@ -1,0 +1,86 @@
+FF                                                                       [100%]
+================================== FAILURES ===================================
+_ test_lang_c06_external_asymmetry_earns_order_without_installing_relation_action_or_faculty _
+
+    def test_lang_c06_external_asymmetry_earns_order_without_installing_relation_action_or_faculty():
+>       r=run_campaign()
+          ^^^^^^^^^^^^^^
+
+tests\embodiment\test_lang_c06_grounded_directional_relation.py:5: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def run_campaign():
+        with tempfile.TemporaryDirectory(prefix='lang-c06-') as td:
+            ms,world,rx,ry=build_two_relations(Path(td))
+            try:
+                action_ids_before=set(ms.capabilities.contracts)
+                train=tuple(external_direction_episode(ms,world,"A" if i<5 else "B",i,"PQ") for i in range(10))
+                hold=tuple(external_direction_episode(ms,world,"A" if i<3 else "B",100+i,"PQ") for i in range(6))
+                cand=derive_directional_relation_candidate(ms,train,hold,rx,ry)
+                assert cand["status"]=="GROUNDED_OPERATIONAL_DIRECTIONAL_RELATION_CANDIDATE_RESEARCH_ONLY",cand
+                components=_components_in_candidate_order(ms,cand,rx,ry)
+                frame=compose_directional_frame(ms,cand,components)
+                assert frame["status"]=="B2_GROUNDED_DIRECTIONAL_RELATIONAL_REFERENCE_FRAME_RESEARCH_ONLY",frame
+                reversed_frame=compose_directional_frame(ms,cand,list(reversed(components)))
+                assert reversed_frame["status"]=="DEFER_UNKNOWN" and reversed_frame["reason"]=="ARGUMENT_ORDER_NOT_GROUNDED_BY_EXTERNAL_RELATION_EVIDENCE"
+    
+                reverse_hold=tuple(external_direction_episode(ms,world,"A" if i<3 else "B",200+i,"QP") for i in range(6))
+                convention_reversal=derive_directional_relation_candidate(ms,train,reverse_hold,rx,ry)
+                assert convention_reversal["status"]=="DEFER_UNKNOWN" and convention_reversal["reason"]=="HOLDOUT_DIRECTION_DISAGREES"
+    
+                fresh_same=revalidate_directional_relation(ms,world,cand,rx,ry,"PQ",300)
+                assert fresh_same["status"]=="CURRENT_DIRECTIONAL_RELATION_REVALIDATED_RESEARCH_ONLY"
+                fresh_reversed=revalidate_directional_relation(ms,world,cand,rx,ry,"QP",400)
+                assert fresh_reversed["status"]=="DEFER_UNKNOWN" and fresh_reversed["reason"]=="POST_BINDING_EMPIRICAL_DIRECTION_DRIFT"
+    
+                action_ids_after=set(ms.capabilities.contracts)
+                assert action_ids_after==action_ids_before, (action_ids_before,action_ids_after)
+>               assert "derived_relation_id" in cand and all("capability" not in k.lower() for k in cand)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               AssertionError
+
+scratch\lang_c06_grounded_directional_relation.py:132: AssertionError
+_ test_lang_c06_no_capability_or_predicate_surface_is_smuggled_into_candidate _
+
+    def test_lang_c06_no_capability_or_predicate_surface_is_smuggled_into_candidate():
+>       r=run_campaign(); c=r["candidate"]
+          ^^^^^^^^^^^^^^
+
+tests\embodiment\test_lang_c06_grounded_directional_relation.py:19: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def run_campaign():
+        with tempfile.TemporaryDirectory(prefix='lang-c06-') as td:
+            ms,world,rx,ry=build_two_relations(Path(td))
+            try:
+                action_ids_before=set(ms.capabilities.contracts)
+                train=tuple(external_direction_episode(ms,world,"A" if i<5 else "B",i,"PQ") for i in range(10))
+                hold=tuple(external_direction_episode(ms,world,"A" if i<3 else "B",100+i,"PQ") for i in range(6))
+                cand=derive_directional_relation_candidate(ms,train,hold,rx,ry)
+                assert cand["status"]=="GROUNDED_OPERATIONAL_DIRECTIONAL_RELATION_CANDIDATE_RESEARCH_ONLY",cand
+                components=_components_in_candidate_order(ms,cand,rx,ry)
+                frame=compose_directional_frame(ms,cand,components)
+                assert frame["status"]=="B2_GROUNDED_DIRECTIONAL_RELATIONAL_REFERENCE_FRAME_RESEARCH_ONLY",frame
+                reversed_frame=compose_directional_frame(ms,cand,list(reversed(components)))
+                assert reversed_frame["status"]=="DEFER_UNKNOWN" and reversed_frame["reason"]=="ARGUMENT_ORDER_NOT_GROUNDED_BY_EXTERNAL_RELATION_EVIDENCE"
+    
+                reverse_hold=tuple(external_direction_episode(ms,world,"A" if i<3 else "B",200+i,"QP") for i in range(6))
+                convention_reversal=derive_directional_relation_candidate(ms,train,reverse_hold,rx,ry)
+                assert convention_reversal["status"]=="DEFER_UNKNOWN" and convention_reversal["reason"]=="HOLDOUT_DIRECTION_DISAGREES"
+    
+                fresh_same=revalidate_directional_relation(ms,world,cand,rx,ry,"PQ",300)
+                assert fresh_same["status"]=="CURRENT_DIRECTIONAL_RELATION_REVALIDATED_RESEARCH_ONLY"
+                fresh_reversed=revalidate_directional_relation(ms,world,cand,rx,ry,"QP",400)
+                assert fresh_reversed["status"]=="DEFER_UNKNOWN" and fresh_reversed["reason"]=="POST_BINDING_EMPIRICAL_DIRECTION_DRIFT"
+    
+                action_ids_after=set(ms.capabilities.contracts)
+                assert action_ids_after==action_ids_before, (action_ids_before,action_ids_after)
+>               assert "derived_relation_id" in cand and all("capability" not in k.lower() for k in cand)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               AssertionError
+
+scratch\lang_c06_grounded_directional_relation.py:132: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/embodiment/test_lang_c06_grounded_directional_relation.py::test_lang_c06_external_asymmetry_earns_order_without_installing_relation_action_or_faculty
+FAILED tests/embodiment/test_lang_c06_grounded_directional_relation.py::test_lang_c06_no_capability_or_predicate_surface_is_smuggled_into_candidate
+2 failed in 0.51s

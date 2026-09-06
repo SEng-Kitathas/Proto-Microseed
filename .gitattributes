@@ -1,0 +1,6 @@
+scratch/lang_c06_grounded_directional_relation.py text eol=lf
+scratch/rejected/lang_c06_installed_relation_action_rejected.py text eol=lf
+tests/embodiment/test_lang_c06_grounded_directional_relation.py text eol=lf
+campaigns/GROUNDED_LANGUAGE_REFERENCE_V1/C06_DIRECTIONAL_RELATION_2026-09-06/*.json text eol=lf
+campaigns/GROUNDED_LANGUAGE_REFERENCE_V1/C06_DIRECTIONAL_RELATION_2026-09-06/*.md text eol=lf
+campaigns/GROUNDED_LANGUAGE_REFERENCE_V1/C06_DIRECTIONAL_RELATION_2026-09-06/evidence/*.log binary

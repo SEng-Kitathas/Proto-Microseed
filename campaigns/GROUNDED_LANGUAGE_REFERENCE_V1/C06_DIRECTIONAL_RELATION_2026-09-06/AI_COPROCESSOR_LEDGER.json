@@ -1,0 +1,11 @@
+{
+  "authority": "NONE",
+  "note": "AI proposed/attacked harnesses; executable evidence and source lineage own result.",
+  "schema": "r44.ai_coprocessor.language_c06.v1",
+  "status": "ADDITIVE_ONLY",
+  "uses": [
+    "identified capability-smuggling false green",
+    "derived affordance-relative representation hostile",
+    "authority-ceiling review"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "items": [
+    {
+      "id": "C06-AR-01",
+      "signal": "external asymmetric outcome evidence supports order over current B1 referents",
+      "state": "EARNED"
+    },
+    {
+      "id": "C06-AR-02",
+      "signal": "installed relation action produced false-green relative to owner anti-capability direction",
+      "state": "SCAR"
+    },
+    {
+      "id": "C06-AR-03",
+      "signal": "sensor polarity inversion does not change affordance-relative order",
+      "state": "EARNED_BOUNDED"
+    },
+    {
+      "id": "C06-AR-04",
+      "signal": "world asymmetric law is harness supplied",
+      "state": "LIVE_ASSISTANCE"
+    },
+    {
+      "id": "C06-AR-05",
+      "signal": "B1 referents/local effect bases preexist C06 and qualification remains external",
+      "state": "LIVE_ASSISTANCE"
+    },
+    {
+      "id": "C06-AR-06",
+      "signal": "opaque observed relation-token binding without executable relation action",
+      "state": "NEXT"
+    }
+  ],
+  "schema": "r44.attention_reservoir.language_c06.v1"
+}

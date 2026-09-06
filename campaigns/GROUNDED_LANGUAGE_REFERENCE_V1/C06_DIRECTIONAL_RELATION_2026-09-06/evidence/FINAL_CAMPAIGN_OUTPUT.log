@@ -1,0 +1,192 @@
+{
+  "candidate": {
+    "authority_gain": "NONE",
+    "derived_relation_id": "OP-DIR-REL-e187ec1b338488804e586868",
+    "execution_authority": "NONE",
+    "language_authority": "NONE",
+    "order_basis": "OPPOSED_TO_LOCAL_GROUNDED_EFFECT_THEN_ALIGNED_WITH_LOCAL_GROUNDED_EFFECT",
+    "ordered_operational_referent_signatures": [
+      "a53e965bb72c7f81fa5c389c94f781ac9210391eabcb24af6987ceabb7183dbd",
+      "e2551e041e8582c83a9c1efe12063ca8fb5d2dc5b04f87080dacf63654db16fc"
+    ],
+    "predicate_authority": "NONE",
+    "relation_form": "AFFORDANCE_RELATIVE_ORDERED_EXTERNAL_COEFFECT",
+    "semantic_identity_authority": "NONE",
+    "semantic_reference_authority": "NONE",
+    "source_episode_sha256": [
+      "7d7f62df49b9257d30c2f61eb4b26e5e4f44efa5a4a44aa354bcca5047f016f1",
+      "5072bf83ec28d3f206add54e1eb848472c5f8a3a5e6707198877450501867bde",
+      "60e23b976ea14df12ce76d6fb69e6065e0e762714a82d7fd47ccfc16d3723f52",
+      "61e9ca0ec19b335429571899daf69a3e84cf484cd7216499463f62a58a01e7ab",
+      "3c99ab8bca9c0c4dec995a2fccd5c5a6a60a64cce237733f27bedab0708eabdf",
+      "6cfa9c9db91969e7ea1b18e822674b11c01a0b4f0e2761eae88605278336b84e",
+      "d113e6c417f9269b491c2ec0bbd8cbddb5ba3a02f5580e6c08c3707b0c527f30",
+      "26815a37dab8afc896ea0e4fc0d35c435d900dd9e284f70da66d94c85faf8c14",
+      "af027a3e3f0913aae04ca6db1c6b0e7027af40a428097d308cdf2f3d2a69769f",
+      "b071f8eb78a4750f25a31884485618e0ce826771ffa42542a67e33fd7733b767",
+      "3538effde036668736bed47116ac616d347f3cf053f13d7fc6bf33649e2f120a",
+      "536cbde1c949e058314bc5ad3284ff471e35af32b90a885bfb2255507b93c4ca",
+      "f309ea2bd26f22e83bd3ad19ea7875b3fcf3f9f18c2a4f5cdaad7b49e873aaf7",
+      "18fb75a2ec37562da33939a49c2b93d1e88d8bf2d457bbcb7a0638c2b17d1ca8",
+      "21b70c6bca8bdf37a18a47861e62661019a1c2bdbc7cfce2a31d9c04185e8b6b",
+      "8460ecc2cb68860a4472c802af22d7628ae302b25019a25f70623db77dba8b9d"
+    ],
+    "status": "GROUNDED_OPERATIONAL_DIRECTIONAL_RELATION_CANDIDATE_RESEARCH_ONLY",
+    "truth_authority": "NONE"
+  },
+  "convention_reversal": {
+    "execution_authority": "NONE",
+    "language_authority": "NONE",
+    "predicate_authority": "NONE",
+    "reason": "HOLDOUT_DIRECTION_DISAGREES",
+    "semantic_identity_authority": "NONE",
+    "semantic_reference_authority": "NONE",
+    "status": "DEFER_UNKNOWN",
+    "truth_authority": "NONE"
+  },
+  "earned": "REPEATED_CURRENT_ASYMMETRIC_EXTERNAL_OUTCOMES_OVER_TWO_CURRENT_B1_REFERENTS_CAN_SUPPORT_AN_ORDERED_OPERATIONAL_RELATION_AND_ORDER_CHECKED_RELATIONAL_FRAME_WITHOUT_REGISTERING_A_NEW_RELATION_ACTION_CAPABILITY_SUPPLYING_SEMANTIC_ROLES_OR_INSTALLING_A_GENERIC_CAPABILITY_FACULTY",
+  "frame": {
+    "arguments": [
+      "a53e965bb72c7f81fa5c389c94f781ac9210391eabcb24af6987ceabb7183dbd",
+      "e2551e041e8582c83a9c1efe12063ca8fb5d2dc5b04f87080dacf63654db16fc"
+    ],
+    "authority_gain": "NONE",
+    "derived_relation_id": "OP-DIR-REL-e187ec1b338488804e586868",
+    "execution_authority": "NONE",
+    "language_authority": "NONE",
+    "order_basis": "OPPOSED_TO_LOCAL_GROUNDED_EFFECT_THEN_ALIGNED_WITH_LOCAL_GROUNDED_EFFECT",
+    "predicate_authority": "NONE",
+    "relation_form": "AFFORDANCE_RELATIVE_ORDERED_EXTERNAL_COEFFECT",
+    "semantic_identity_authority": "NONE",
+    "semantic_reference_authority": "NONE",
+    "status": "B2_GROUNDED_DIRECTIONAL_RELATIONAL_REFERENCE_FRAME_RESEARCH_ONLY",
+    "truth_authority": "NONE"
+  },
+  "fresh_reversed": {
+    "execution_authority": "NONE",
+    "fresh_orders": [
+      [
+        "e2551e041e8582c83a9c1efe12063ca8fb5d2dc5b04f87080dacf63654db16fc",
+        "a53e965bb72c7f81fa5c389c94f781ac9210391eabcb24af6987ceabb7183dbd"
+      ]
+    ],
+    "language_authority": "NONE",
+    "predicate_authority": "NONE",
+    "reason": "POST_BINDING_EMPIRICAL_DIRECTION_DRIFT",
+    "semantic_identity_authority": "NONE",
+    "semantic_reference_authority": "NONE",
+    "status": "DEFER_UNKNOWN",
+    "truth_authority": "NONE"
+  },
+  "fresh_same": {
+    "authority_gain": "NONE",
+    "execution_authority": "NONE",
+    "fresh_episode_sha256": [
+      "8d5a2488a66ce4dcc68c4dbee32f059fa8f6f4b6bbd0c33350d747ede2681098",
+      "ebe7f9a2db9a8bf58628ad44fd94381cafbb21c13d717f4de7825bf4536d8d6b",
+      "3d6d533119dc498b13024826a95a5d1d05d280978a3cf48e2d445c38e44e9d33",
+      "2fcd7a820415ce5374fe77c435086212f6ba82e9320f2cfe6794dc3b375c17cc",
+      "65839f6bbe04d5e5c0eff4eb93ad771baadee6374e2d4a602df4b2cd4fd4c775",
+      "1a998332d9a54ae9ff809fdef4be62ecef717d962149512f3946569565937bc2"
+    ],
+    "language_authority": "NONE",
+    "predicate_authority": "NONE",
+    "semantic_identity_authority": "NONE",
+    "semantic_reference_authority": "NONE",
+    "status": "CURRENT_DIRECTIONAL_RELATION_REVALIDATED_RESEARCH_ONLY",
+    "truth_authority": "NONE"
+  },
+  "new_microseed_action_contracts_registered": [],
+  "next": "PRESS_RELATION_HANDLE_TO_OPAQUE_OBSERVED_TOKEN_BINDING_WITHOUT_EXECUTABLE_RELATION_ACTION_PREDICATE_OR_CAPABILITY_PRIMITIVES_BEFORE_ANY_PROPOSITIONAL_COMPOSITION",
+  "nonclaim": "THE_DERIVED_ORDER_IS_NOT_A_SEMANTIC_PREDICATE_PROPOSITION_TRUTH_BEARER_LANGUAGE_FACULTY_OR_EXECUTION_CAPABILITY",
+  "restart_new_microseed_action_contracts_registered": [],
+  "restart_reversed": {
+    "execution_authority": "NONE",
+    "fresh_orders": [
+      [
+        "e2551e041e8582c83a9c1efe12063ca8fb5d2dc5b04f87080dacf63654db16fc",
+        "a53e965bb72c7f81fa5c389c94f781ac9210391eabcb24af6987ceabb7183dbd"
+      ]
+    ],
+    "language_authority": "NONE",
+    "predicate_authority": "NONE",
+    "reason": "POST_BINDING_EMPIRICAL_DIRECTION_DRIFT",
+    "semantic_identity_authority": "NONE",
+    "semantic_reference_authority": "NONE",
+    "status": "DEFER_UNKNOWN",
+    "truth_authority": "NONE"
+  },
+  "restart_same": {
+    "authority_gain": "NONE",
+    "execution_authority": "NONE",
+    "fresh_episode_sha256": [
+      "ef90fe05177c09c72d7baf47d776e18c0f89b0ebdd5effe3d304ecb0939e59d7",
+      "738c2588ccf97601f6f155dd4993b67b635cec3f2bcc3ee22d2f33554657b646",
+      "090478d66fac0f6ede1fda0494167c0f00e665ce0df1d3673915bb3f3a0823c2",
+      "4e28e68565a781d380bad0735c28d36d79b57fce9ac60dd55dc4df34dd6017c7",
+      "563c8dc885ba51d39d09be65b6834d7e0b3c67e2866f429cb5eb9eda8649806b",
+      "2ab8b326626b8dfa529aeac2ce4669de506ac2630a8811688e6b83e5b006be3d"
+    ],
+    "language_authority": "NONE",
+    "predicate_authority": "NONE",
+    "semantic_identity_authority": "NONE",
+    "semantic_reference_authority": "NONE",
+    "status": "CURRENT_DIRECTIONAL_RELATION_REVALIDATED_RESEARCH_ONLY",
+    "truth_authority": "NONE"
+  },
+  "reversed_argument_order": {
+    "execution_authority": "NONE",
+    "language_authority": "NONE",
+    "observed_relation_order": [
+      "a53e965bb72c7f81fa5c389c94f781ac9210391eabcb24af6987ceabb7183dbd",
+      "e2551e041e8582c83a9c1efe12063ca8fb5d2dc5b04f87080dacf63654db16fc"
+    ],
+    "predicate_authority": "NONE",
+    "reason": "ARGUMENT_ORDER_NOT_GROUNDED_BY_EXTERNAL_RELATION_EVIDENCE",
+    "requested_order": [
+      "e2551e041e8582c83a9c1efe12063ca8fb5d2dc5b04f87080dacf63654db16fc",
+      "a53e965bb72c7f81fa5c389c94f781ac9210391eabcb24af6987ceabb7183dbd"
+    ],
+    "semantic_identity_authority": "NONE",
+    "semantic_reference_authority": "NONE",
+    "status": "DEFER_UNKNOWN",
+    "truth_authority": "NONE"
+  },
+  "sensor_polarity_inverted": {
+    "authority_gain": "NONE",
+    "derived_relation_id": "OP-DIR-REL-9ea5d69135546d8c154e9514",
+    "execution_authority": "NONE",
+    "language_authority": "NONE",
+    "order_basis": "OPPOSED_TO_LOCAL_GROUNDED_EFFECT_THEN_ALIGNED_WITH_LOCAL_GROUNDED_EFFECT",
+    "ordered_operational_referent_signatures": [
+      "a53e965bb72c7f81fa5c389c94f781ac9210391eabcb24af6987ceabb7183dbd",
+      "e2551e041e8582c83a9c1efe12063ca8fb5d2dc5b04f87080dacf63654db16fc"
+    ],
+    "predicate_authority": "NONE",
+    "relation_form": "AFFORDANCE_RELATIVE_ORDERED_EXTERNAL_COEFFECT",
+    "semantic_identity_authority": "NONE",
+    "semantic_reference_authority": "NONE",
+    "source_episode_sha256": [
+      "2e47588a890b5f58890d2d2e8162b5cadde89eaf573cd66367d9b639d2bba25e",
+      "6d3e21d2ca39d19cea3b20cf53611115bd71628d4f899bfb698a05cdb0d6c570",
+      "7de03957887c8e7109265fceb74ec424e213853d7d2ba426203656d2249db91c",
+      "d4f85cbea0d907acb2f0a0b1033070e5dde3193deaa18d1545569c08152ce472",
+      "bb2af3d26e958c0e2d0f91cccea1f2f83caecddca136e2399d4bff3968f5ffdb",
+      "eb7c5c722fff59b4b0e2dde6bac1373af7124d73f23d91915b1ec6de453960b3",
+      "83235a70661e6a16c1301375a11db2d3174f774e868c030e1ad1a1bf6fdbfa75",
+      "4d7c7aff92dd612fd78ae494e0ad9597d1d8b796d61dcb67903ff58ea061191f",
+      "73822738ba6dd215a325961f5992aaa03816a5988d9ca41f6b58b196d5c9138e",
+      "b195fb2cc90325c9a215c3668e67d17dc9660c9c8b2df09504eec7a83b1e0232",
+      "81bbb303965d87460aefe2e0be20a77dfc89c738e2e95c872399e75f8e6801d0",
+      "014a28500dff71b2d9c64288ed5c24b1e9700995a9cfaaf01f86cee7329f54f6",
+      "8de400dc8efbf183d6e6b265d7e141fde3bd47673ff9888dace37d9a468da85e",
+      "664b649d6847eb5a16d2eef3944fd2540703a0a2e8ee20afa07c7e2f59cf6caf",
+      "879e645a32631013485492803a4794fe8954399a5c5e29e11b27ff443ec541d2",
+      "f4b82ba6026e4ac4b17292331219683ac8bc79a93b62327547789a4c7f79be96"
+    ],
+    "status": "GROUNDED_OPERATIONAL_DIRECTIONAL_RELATION_CANDIDATE_RESEARCH_ONLY",
+    "truth_authority": "NONE"
+  },
+  "status": "PASS",
+  "technical_name": "AFFORDANCE_RELATIVE_GROUNDED_ORDER_RELATION_FROM_EXTERNAL_OUTCOME_EVIDENCE"
+}

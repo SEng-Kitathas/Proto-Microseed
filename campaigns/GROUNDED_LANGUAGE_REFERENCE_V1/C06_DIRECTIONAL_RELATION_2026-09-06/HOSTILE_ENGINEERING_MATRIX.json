@@ -1,0 +1,37 @@
+{
+  "attacks": [
+    {
+      "attack": "install relation as Microseed effect action",
+      "result": "REJECTED_DESPITE_GREEN"
+    },
+    {
+      "attack": "retain capability_authority NONE schema surface",
+      "result": "REJECTED_BY_ANTI_SMUGGLING_ASSERTION_THEN_REMOVED"
+    },
+    {
+      "attack": "raw sensor polarity inversion",
+      "result": "SURVIVED; affordance-relative order unchanged"
+    },
+    {
+      "attack": "reverse ordered arguments",
+      "result": "DEFER_UNKNOWN"
+    },
+    {
+      "attack": "reverse relation in holdout",
+      "result": "DEFER_UNKNOWN"
+    },
+    {
+      "attack": "reverse relation after binding",
+      "result": "DEFER_UNKNOWN"
+    },
+    {
+      "attack": "restart and reuse memory without fresh evidence",
+      "result": "NOT_ADMITTED; explicit fresh revalidation path required"
+    },
+    {
+      "attack": "restart with reversed reality",
+      "result": "DEFER_UNKNOWN"
+    }
+  ],
+  "schema": "r44.hostile.language_c06.v1"
+}

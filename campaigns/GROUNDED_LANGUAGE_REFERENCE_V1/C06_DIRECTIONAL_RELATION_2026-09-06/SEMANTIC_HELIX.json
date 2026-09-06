@@ -1,0 +1,23 @@
+{
+  "active_candidates": [
+    {
+      "id": "LANG-C07",
+      "question": "Can an opaque observed token become grounded to the current derived directional relation without executable relation action/predicate meaning/capability faculty?"
+    },
+    {
+      "id": "F-VALUE-CONFLICT",
+      "question": "Orthogonal constitutional/value seam remains open"
+    },
+    {
+      "id": "C-SCALE-LEARN-03C",
+      "question": "Orthogonal developmental hierarchy seam remains open"
+    }
+  ],
+  "resolved": [
+    {
+      "id": "LANG-C06",
+      "result": "AFFORDANCE_RELATIVE_ORDER_FROM_EXTERNAL_OUTCOME_EVIDENCE_WITHOUT_NEW_RELATION_ACTION"
+    }
+  ],
+  "schema": "r44.semantic_helix.language_c06.v1"
+}
