@@ -1,0 +1,18 @@
+{
+  "schema": "microseed.developmental-ownership-pressure.p01.v1",
+  "status": "BOUNDED_DIAGNOSTIC_COMPLETE",
+  "base_head": "0cf79b92d8744f4436494c0b23e7bb94ae4bbc34",
+  "baseline_passed": 22,
+  "baseline_failed": 0,
+  "mutants_total": 4,
+  "mutants_killed": 4,
+  "mutants_survived": 0,
+  "unknown": 0,
+  "bounded_claim": "FOUR_SELECTED_ALREADY_EARNED_POSITIVE_PATHS_ARE_EXPLICITLY_DEFENDED_AGAINST_FORCED_UNDER_ACTION",
+  "not_claimed": [
+    "whole-suite positive coverage symmetry",
+    "general competence",
+    "AGI progress from this diagnostic alone"
+  ],
+  "next": "C08B_ORGANISM_OWNED_CURRENT_RELATION_DERIVATION_WITH_POSITIVE_PATH_PRESSURE_RETAINED"
+}
