@@ -1,0 +1,30 @@
+{
+  "checks": [
+    {
+      "check": "harness-precomputed relation digest admitted",
+      "result": "REJECTED_BY_DESIGN"
+    },
+    {
+      "check": "C01/C06 native evidence ownership present",
+      "evidence_delta": 0,
+      "result": "NO"
+    },
+    {
+      "check": "later generic native raw owner present",
+      "result": "YES"
+    },
+    {
+      "check": "later generic owned referent derivation present",
+      "result": "YES"
+    },
+    {
+      "check": "new Microseed mechanism added in C08B",
+      "result": "NO"
+    },
+    {
+      "check": "language/predicate/capability authority added",
+      "result": "NO"
+    }
+  ],
+  "schema": "microseed.lang-c08b-hostile-matrix.v1"
+}

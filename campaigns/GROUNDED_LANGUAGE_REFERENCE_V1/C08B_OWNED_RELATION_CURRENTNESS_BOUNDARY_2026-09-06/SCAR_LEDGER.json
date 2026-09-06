@@ -1,0 +1,20 @@
+{
+  "scars": [
+    {
+      "evidence": "fresh C06 episode with Microseed evidence delta 0",
+      "law": "HARNESS_GROUNDED_RELATION != ORGANISM_OWNED_RELATION_ANCESTRY",
+      "scar": "C08B_RUNTIME_EVIDENCE_OWNERSHIP_GAP"
+    },
+    {
+      "evidence": "native raw/referent owners exist but C01/C06 do not use them",
+      "law": "LATER_NATIVE_EVIDENCE_SURFACE != EARLIER_LANGUAGE_LINEAGE_EMBODIMENT",
+      "scar": "C08B_OLD_LANGUAGE_NEW_SUBSTRATE_SPLIT"
+    },
+    {
+      "classification": "MAINTENANCE_ONLY",
+      "detail": "PowerShell/native-stderr and Python-environment capture attempts failed; successful server test stdout receipts were copied exactly instead; these failures are not scientific test failures",
+      "scar": "C08B_CAPTURE_WRAPPER_FAILURES"
+    }
+  ],
+  "schema": "microseed.lang-c08b-scar-ledger.v1"
+}

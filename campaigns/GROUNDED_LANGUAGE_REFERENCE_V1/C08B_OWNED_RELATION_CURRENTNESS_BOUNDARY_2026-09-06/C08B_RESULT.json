@@ -1,0 +1,87 @@
+{
+  "adjacent_ms2046_c01_c08b": {
+    "failed": 0,
+    "passed": 16
+  },
+  "b1_relation_fields": [
+    "binding_id",
+    "coordination_epoch",
+    "coordination_id",
+    "coordination_signature_sha256",
+    "operational_referent_signature_sha256",
+    "source_episode_sha256",
+    "token_capability_epoch",
+    "token_capability_id",
+    "token_capability_signature_sha256"
+  ],
+  "base_head": "24f1941e8845f5e2e2b29513b38a6f79dd90f2f3",
+  "bounded_claim": "THE_EXISTING_C01_C06_LANGUAGE_LINEAGE_IS_GROUNDED_AT_THE_RESEARCH_HARNESS_LEVEL_BUT_DOES_NOT_PERSIST_OR_EXPOSE_SUFFICIENT_ORGANISM_OWNED_RAW_ACTION_REFERENT_ANCESTRY_TO_NATIVE_C08_CURRENTNESS",
+  "branch": "research/grounded-language-native-relation-currentness-v1",
+  "capture_receipts": {
+    "adjacent_c01_c08b_16_pass.log": {
+      "bytes": 101,
+      "sha256": "21e34e38b9560489150a980a32050da954231cb30112e1feca17587beb6a9d9d"
+    },
+    "focused_c08b_boundary_1_pass.log": {
+      "bytes": 100,
+      "sha256": "76ad25bb0c6892d58334160d4e79d70c2c1c4841fa039be300479d3dedd5912e"
+    },
+    "pre_c08b_language_stack_15_pass.log": {
+      "bytes": 101,
+      "sha256": "2083552f37c34bd854a866c52337509964a9e311678e136d9abf6e20d5b7545b"
+    },
+    "runtime_ownership_audit.log": {
+      "bytes": 998,
+      "sha256": "0a08097b06dbc7e7604b55c5a0b3c6fed40a5e06de538cb71006cdd6d93055a4"
+    }
+  },
+  "date": "2026-09-06",
+  "execution_authority": "NONE",
+  "focused_c08b_boundary": {
+    "failed": 0,
+    "passed": 1
+  },
+  "language_authority": "NONE",
+  "later_native_surfaces_present": [
+    "record_bounded_raw_observation_coordinates",
+    "derive_current_owned_opaque_probe_prefix",
+    "derive_operational_referent_signatures_from_raw_trace",
+    "record_operational_referent_signature",
+    "_current_owned_referent_program_observable_contrast"
+  ],
+  "microseed_delta": [],
+  "missing_native_b1_ancestry_fields": [
+    "action_response_rows",
+    "raw_evidence_refs",
+    "source_evidence_refs"
+  ],
+  "missing_owner": "C01_C06_LANGUAGE_LINEAGE_BRIDGE_TO_EXISTING_OWNED_RAW_ACTION_REFERENT_EVIDENCE",
+  "next": "LANG_C08C_NATIVE_B1_C06_EVIDENCE_REEMBODIMENT_ON_EXISTING_OWNED_RAW_ACTION_SUBSTRATE",
+  "not_earned": [
+    "organism-owned C06 relation currentness",
+    "native relation digest derivation",
+    "semantic predicate",
+    "token meaning",
+    "language faculty",
+    "generic capability/faculty",
+    "canon promotion"
+  ],
+  "pre_c08b_language_stack": {
+    "failed": 0,
+    "passed": 15
+  },
+  "runtime_ownership_audit": {
+    "c06_episode_payload_location": "HARNESS_LOCAL_RETURN_VALUE",
+    "c06_episode_status": "CURRENT_GROUNDED_EXTERNAL_DIRECTIONAL_EVENT_EPISODE",
+    "evidence_count_after_c06_episode": 0,
+    "evidence_count_before_c06_episode": 0,
+    "evidence_delta": 0,
+    "native_relation_evidence_rows": []
+  },
+  "schema": "microseed.lang-c08b-owned-relation-currentness-boundary.v1",
+  "semantic_authority": "NONE",
+  "source_sha256": "cfe1d57e639e4512350804a00ca19b0257949f8ab952e7fab18962d6df388a6e",
+  "status": "STOP_C08B_EXISTING_LANGUAGE_LINEAGE_HAS_NO_ORGANISM_OWNED_C06_RELATION_EVIDENCE",
+  "test_sha256": "748049c607f4d559fc601ee9fa5afb35d352c67c99b8d8841ddce2c06099eb3b",
+  "truth_authority": "NONE"
+}

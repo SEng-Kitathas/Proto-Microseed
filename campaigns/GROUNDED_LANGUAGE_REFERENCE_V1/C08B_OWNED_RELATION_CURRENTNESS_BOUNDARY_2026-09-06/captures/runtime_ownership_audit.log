@@ -1,0 +1,33 @@
+{
+  "evidence_count_before_c06_episode": 0,
+  "evidence_count_after_c06_episode": 0,
+  "evidence_delta": 0,
+  "kinds_before": {},
+  "kinds_after": {},
+  "native_relevant_evidence_rows": [],
+  "c06_episode_status": "CURRENT_GROUNDED_EXTERNAL_DIRECTIONAL_EVENT_EPISODE",
+  "c06_episode_has_harness_payload": true,
+  "c06_episode_sha256_present": true,
+  "b1_rx_relation_keys": [
+    "binding_id",
+    "coordination_epoch",
+    "coordination_id",
+    "coordination_signature_sha256",
+    "operational_referent_signature_sha256",
+    "source_episode_sha256",
+    "token_capability_epoch",
+    "token_capability_id",
+    "token_capability_signature_sha256"
+  ],
+  "b1_ry_relation_keys": [
+    "binding_id",
+    "coordination_epoch",
+    "coordination_id",
+    "coordination_signature_sha256",
+    "operational_referent_signature_sha256",
+    "source_episode_sha256",
+    "token_capability_epoch",
+    "token_capability_id",
+    "token_capability_signature_sha256"
+  ]
+}
