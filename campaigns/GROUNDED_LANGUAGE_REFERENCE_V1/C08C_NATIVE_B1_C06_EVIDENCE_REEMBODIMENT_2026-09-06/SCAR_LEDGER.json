@@ -1,0 +1,20 @@
+{
+  "scars": [
+    {
+      "law": "HARNESS_GROUNDED_RELATION != ORGANISM_OWNED_RELATION_ANCESTRY",
+      "scar": "C08B_LANGUAGE_LINEAGE_NOT_NATIVE",
+      "status": "REPAIRED_LIVE_RUNTIME_BY_C08C"
+    },
+    {
+      "detail": "source evidence refs remain ancestry; stable current relation digest excludes evidence instance ids",
+      "law": "RELATION_CONTENT_DIGEST != EVIDENCE_INSTANCE_DIGEST",
+      "scar": "RELATION_EVIDENCE_IDENTITY_COUPLING_AVOIDED"
+    },
+    {
+      "detail": "action closure history replays but executable handlers/contracts intentionally do not self-restore",
+      "scar": "RESTART_EXECUTABLE_BODY_NONREAUTHORIZATION",
+      "status": "OPEN_NEXT_FRONTIER"
+    }
+  ],
+  "schema": "microseed.lang-c08c-scar-ledger.v1"
+}

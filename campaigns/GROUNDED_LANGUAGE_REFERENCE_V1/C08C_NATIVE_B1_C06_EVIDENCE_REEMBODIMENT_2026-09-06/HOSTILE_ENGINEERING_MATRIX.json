@@ -1,0 +1,45 @@
+{
+  "checks": [
+    {
+      "check": "caller supplies referent groups/classes",
+      "result": "NO"
+    },
+    {
+      "check": "caller supplies relation order/digest",
+      "result": "NO"
+    },
+    {
+      "check": "coordinate arithmetic used",
+      "result": "NO"
+    },
+    {
+      "check": "intervening Microseed action allowed in passive transition",
+      "result": "NO__FAIL_CLOSED"
+    },
+    {
+      "check": "empirical relation reversal",
+      "result": "DRIFT_WITNESS"
+    },
+    {
+      "check": "channel permutation",
+      "result": "PASS_INVARIANT"
+    },
+    {
+      "check": "sensor sign inversion",
+      "result": "PASS_INVARIANT"
+    },
+    {
+      "check": "new relation/token action contract",
+      "result": "NO"
+    },
+    {
+      "check": "new generic capability/faculty",
+      "result": "NO"
+    },
+    {
+      "check": "positive relation path deletion mutant",
+      "result": "KILLED"
+    }
+  ],
+  "schema": "microseed.lang-c08c-hostile-matrix.v1"
+}

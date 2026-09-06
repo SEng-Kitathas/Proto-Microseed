@@ -48,6 +48,13 @@ MUTANTS = {
         "new": "        if record.state == OpaqueEvidenceAssociationState.REVALIDATION_REQUIRED:\n            record.state = OpaqueEvidenceAssociationState.REVALIDATION_REQUIRED\n",
         "loss_class": "FRESH_CURRENTNESS_REVALIDATION_SUPPRESSED",
     },
+    "SUPPRESS_C08C_OWNED_DIRECTIONAL_RELATION_DERIVATION": {
+        "target": "microseed/runtime/entity.py",
+        "test": "tests/embodiment/test_lang_c08c_native_owned_affordance_relation.py",
+        "old": "        passive=self.derive_current_owned_passive_raw_transition(max_events=max_events)\n        if passive.get(\"status\")!=\"CURRENT_OWNED_PASSIVE_RAW_TRANSITION\":\n",
+        "new": "        return {**base,\"status\":\"DEFER_UNKNOWN\",\"reason\":\"MUTANT_SUPPRESSED_OWNED_DIRECTIONAL_RELATION_DERIVATION\"}\n        passive=self.derive_current_owned_passive_raw_transition(max_events=max_events)\n        if passive.get(\"status\")!=\"CURRENT_OWNED_PASSIVE_RAW_TRANSITION\":\n",
+        "loss_class": "OWNED_DIRECTIONAL_RELATION_GENERATION_SUPPRESSED",
+    },
 }
 
 

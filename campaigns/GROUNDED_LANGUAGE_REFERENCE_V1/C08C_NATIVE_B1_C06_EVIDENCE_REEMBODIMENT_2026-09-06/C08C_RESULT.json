@@ -1,0 +1,94 @@
+{
+  "base_head": "f2997033b08b1fbcc4118bb1d9392f398ddbc9d9",
+  "bounded_claim": "MICROSEED_CAN_DERIVE_AND_PERSIST_TWO_CURRENT_OPERATIONAL_REFERENTS_DIRECTED_LOCAL_EFFECT_EDGES_AND_AN_AFFORDANCE_RELATIVE_DIRECTIONAL_RELATION_FROM_OWNED_RAW_ACTION_OUTCOME_AND_PASSIVE_WORLD_EVIDENCE_WITHOUT_CALLER_SUPPLIED_REFERENT_GROUPS_RELATION_ORDER_RELATION_DIGEST_OR_COORDINATE_ARITHMETIC_AND_C08_CURRENTNESS_CAN_CONSUME_THAT_RELATION_BY_EVIDENCE_ID_ONLY",
+  "branch": "research/grounded-language-native-b1-relation-evidence-v1",
+  "capture_receipts": {
+    "focused_c08c_plus_adjacent_6_pass.log": {
+      "bytes": 100,
+      "sha256": "5102c0a180c3ee9d0cc7f9306c9dcdc8479829326cc8654b08a2ebee17960fb8"
+    },
+    "initial_native_regression_8_pass.log": {
+      "bytes": 100,
+      "sha256": "ee5af4b2dfd93ca9c28675318838dc0f4f9053dad2e19644b711dab4d0b6dee2"
+    },
+    "language_adjacent_18_pass.log": {
+      "bytes": 101,
+      "sha256": "6edc390067262a372e0341c8e1ab23d096c092da71be6420584e21a38cabdb62"
+    },
+    "live_c08c_result.log": {
+      "bytes": 1760,
+      "sha256": "524f2e16c1b7fbac5d24e6fe972be258a208076797aa0906c434e7fa7d64c994"
+    },
+    "native_currentness_restart_15_pass.log": {
+      "bytes": 102,
+      "sha256": "16f854e7fe63a658a937e9e868d77d3df8cdf8ef45c76df82af75830d325ca3a"
+    },
+    "positive_path_mutants_5_killed.log": {
+      "bytes": 459,
+      "sha256": "b776594187d1522d7643d55910da4c840ebd041099ac5639dca048ba23091a2b"
+    },
+    "representation_invariance.log": {
+      "bytes": 295,
+      "sha256": "7c87281a7686e08b19ac8d24ddd75dfd6745a7000a3e3052d69c420f0211ecf8"
+    }
+  },
+  "date": "2026-09-06",
+  "empirical_reversal": {
+    "association_result": "DRIFT_WITNESS",
+    "baseline_relation_digest_sha256": "cabd1ba8831c63e5468493aa312f44866d51d5db0155f86b2308428e821031da",
+    "reversed_relation_digest_sha256": "06cb779eec45c0af596a63be9eb63ad308ceb169de7548f8953f0a2cdec3a480"
+  },
+  "entity_sha256": "f5d0136e2e68ab4b513d0881746327bbc7c07a23c0c0f0ada6f789b439c2b280",
+  "execution_authority": "NONE",
+  "focused_and_adjacent": {
+    "failed": 0,
+    "passed": 6
+  },
+  "language_adjacent_ms2046_c01_c08c": {
+    "failed": 0,
+    "passed": 18
+  },
+  "language_authority": "NONE",
+  "microseed_delta": [
+    "microseed/runtime/entity.py"
+  ],
+  "native_currentness_restart_regression": {
+    "failed": 0,
+    "passed": 15
+  },
+  "next": "C08D_POST_RESTART_BODY_REATTACHMENT_AND_NATIVE_RELATION_REDERIVATION_THEN_C07_TOKEN_BINDING_REEMBODIMENT",
+  "not_earned": [
+    "POST_RESTART_NATIVE_RELATION_REDERIVATION",
+    "C07_TOKEN_BINDING_REEMBODIMENT",
+    "SEMANTIC_PREDICATE",
+    "TOKEN_MEANING",
+    "LANGUAGE_FACULTY",
+    "GENERIC_CAPABILITY_FACULTY",
+    "CANON_PROMOTION"
+  ],
+  "owned_mechanism": [
+    "CURRENT_OWNED_OPAQUE_PROBE_PREFIX",
+    "OPERATIONAL_REFERENT_SIGNATURE_WITNESS",
+    "OWNED_AFFORDANCE_EFFECT_PROFILE_WITNESS",
+    "CURRENT_OWNED_PASSIVE_RAW_TRANSITION",
+    "OWNED_AFFORDANCE_RELATIVE_DIRECTIONAL_RELATION_WITNESS"
+  ],
+  "positive_mutant_tool_sha256": "5b20013c34b393d79de0353dcc28150b1b361f33d9ac9ccce0920707b2959019",
+  "positive_path_mutants": {
+    "killed": 5,
+    "survived": 0,
+    "unknown": 0
+  },
+  "representation_invariance": {
+    "base_relation_digest_sha256": "cabd1ba8831c63e5468493aa312f44866d51d5db0155f86b2308428e821031da",
+    "exact": true,
+    "permuted_relation_digest_sha256": "cabd1ba8831c63e5468493aa312f44866d51d5db0155f86b2308428e821031da",
+    "sign_inverted_relation_digest_sha256": "cabd1ba8831c63e5468493aa312f44866d51d5db0155f86b2308428e821031da"
+  },
+  "schema": "microseed.lang-c08c-native-b1-c06-evidence-reembodiment.v1",
+  "semantic_authority": "NONE",
+  "source_sha256": "95c69bc5491458c47c0cbcbcb7baba84eb18f4c498c0b2bad214ff00aeb69c9e",
+  "status": "C08C_NATIVE_B1_C06_RELATION_EVIDENCE_OWNER_EARNED_LIVE_RUNTIME",
+  "test_sha256": "37bb816b82f8072a1edf882c082c1d0a43919a77882c2e8ece5099961f8bbae5",
+  "truth_authority": "NONE"
+}

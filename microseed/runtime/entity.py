@@ -4404,11 +4404,19 @@ class Microseed:
         if row is None:
             return {"status":"UNKNOWN_INCOMPLETE","reason":"CURRENTNESS_WITNESS_EVIDENCE_NOT_FOUND"}
         payload=row.get("payload",{}) if isinstance(row,dict) else {}
-        if not isinstance(payload,dict) or payload.get("kind")!="OPAQUE_ASSOCIATION_CURRENTNESS_OBSERVATION":
-            return {"status":"UNKNOWN_INCOMPLETE","reason":"OPAQUE_ASSOCIATION_CURRENTNESS_OBSERVATION_REQUIRED"}
-        if str(payload.get("record_id",""))!=record.record_id or str(payload.get("left_opaque_id",""))!=record.left_opaque_id:
-            return {"status":"UNKNOWN_INCOMPLETE","reason":"CURRENTNESS_WITNESS_RECORD_IDENTITY_MISMATCH"}
-        observed=str(payload.get("observed_right_digest_sha256","")).lower()
+        if not isinstance(payload,dict):
+            return {"status":"UNKNOWN_INCOMPLETE","reason":"OPAQUE_ASSOCIATION_CURRENTNESS_EVIDENCE_PAYLOAD_REQUIRED"}
+        kind=str(payload.get("kind",""))
+        if kind=="OPAQUE_ASSOCIATION_CURRENTNESS_OBSERVATION":
+            if str(payload.get("record_id",""))!=record.record_id or str(payload.get("left_opaque_id",""))!=record.left_opaque_id:
+                return {"status":"UNKNOWN_INCOMPLETE","reason":"CURRENTNESS_WITNESS_RECORD_IDENTITY_MISMATCH"}
+            observed=str(payload.get("observed_right_digest_sha256","")).lower()
+        elif kind=="OWNED_AFFORDANCE_RELATIVE_DIRECTIONAL_RELATION_WITNESS":
+            observed=str(payload.get("relation_digest_sha256","")).lower()
+            if len(observed)!=64 or any(c not in "0123456789abcdef" for c in observed):
+                return {"status":"UNKNOWN_INCOMPLETE","reason":"OWNED_RELATION_CURRENTNESS_DIGEST_REQUIRED"}
+        else:
+            return {"status":"UNKNOWN_INCOMPLETE","reason":"OPAQUE_ASSOCIATION_CURRENTNESS_OBSERVATION_OR_OWNED_RELATION_WITNESS_REQUIRED"}
         expected=record.right_digest_sha256
         status="CURRENTNESS_CONFIRMED" if observed==expected else "DRIFT_WITNESS"
         wid="opaque-assoc-witness-"+str(row["sha256"])[:24]
@@ -8055,6 +8063,291 @@ class Microseed:
             "identity_authority": "NONE",
             "semantic_reference_authority": "NONE",
         }
+
+    def record_current_owned_affordance_effect_profiles(
+        self, *, evidence_id_prefix: str, max_probe_steps: int = 8,
+    ) -> dict[str, Any]:
+        """Persist opaque directed local-effect edges derived from owned raw/action ancestry.
+
+        The current probe prefix owns raw samples, action handles and execution ids.
+        Referent groups/signatures are re-derived internally.  For each current referent
+        class this method admits exactly one *exclusive* opaque action: an action whose
+        observed changes occur for that class and for no other current class.  The
+        resulting raw endpoint edges are evidence only; no coordinate semantics, action
+        meaning, object identity, truth, selection or execution authority is granted.
+        """
+        base={"truth_authority":"NONE","identity_authority":"NONE",
+              "semantic_reference_authority":"NONE","selection_authority":"NONE",
+              "execution_authority":"NONE","language_authority":"NONE"}
+        prefix=self.derive_current_owned_opaque_probe_prefix(max_steps=max_probe_steps)
+        if prefix.get("status")!="CURRENT_OWNED_OPAQUE_PROBE_PREFIX":
+            return {**base,"status":"DEFER_UNKNOWN","reason":"CURRENT_OWNED_PROBE_PREFIX_REQUIRED","probe_prefix":prefix}
+        actions=tuple(str(x) for x in prefix.get("opaque_action_sequence",()))
+        raw=tuple(tuple(str(x) for x in row) for row in prefix.get("raw_samples",()))
+        raw_eids=tuple(str(x) for x in prefix.get("raw_observation_evidence_ids",()))
+        execution_ids=tuple(str(x) for x in prefix.get("execution_ids",()))
+        if len(raw)!=len(actions)+1 or len(raw_eids)!=len(raw) or len(execution_ids)!=len(actions):
+            return {**base,"status":"DEFER_UNKNOWN","reason":"OWNED_PROBE_PREFIX_ANCESTRY_INCOMPLETE"}
+        derived=self.derive_operational_referent_signatures_from_raw_trace(raw,actions)
+        if derived.get("status")!="OPERATIONAL_REFERENT_SIGNATURES_DERIVED_FROM_RAW_TRACE":
+            return {**base,"status":"DEFER_UNKNOWN","reason":"CURRENT_OPERATIONAL_REFERENTS_NOT_DERIVABLE","detail":derived}
+        classes=tuple(derived.get("signature_classes",()))
+        if len(classes)<2:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"MULTIPLE_CURRENT_OPERATIONAL_REFERENTS_REQUIRED"}
+        response_by_sig={
+            str(row["signature_sha256"]):{str(a):tuple(bool(x) for x in bits) for a,bits in row["action_response_rows"]}
+            for row in classes
+        }
+        packets=[]
+        for row in classes:
+            sig=str(row["signature_sha256"]); group=tuple(int(x) for x in row["group_channels"])
+            candidates=[]
+            for action,bits in response_by_sig[sig].items():
+                if not bits or not all(bits):
+                    continue
+                other_changes=False
+                for other_sig,other_rows in response_by_sig.items():
+                    if other_sig==sig:
+                        continue
+                    obits=tuple(other_rows.get(action,()))
+                    if obits and any(obits):
+                        other_changes=True; break
+                if not other_changes:
+                    candidates.append(action)
+            if len(candidates)!=1:
+                return {**base,"status":"DEFER_UNKNOWN","reason":"EXACT_ONE_EXCLUSIVE_LOCAL_EFFECT_ACTION_REQUIRED",
+                        "operational_referent_signature_sha256":sig,"candidate_actions":tuple(sorted(candidates))}
+            action=candidates[0]
+            positions=tuple(i for i,a in enumerate(actions) if a==action)
+            if not positions:
+                return {**base,"status":"DEFER_UNKNOWN","reason":"LOCAL_EFFECT_ACTION_NOT_PRESENT_IN_OWNED_PREFIX"}
+            transitions=[]; source_refs=[]
+            for pos in positions:
+                before=tuple(raw[pos][i] for i in group); after=tuple(raw[pos+1][i] for i in group)
+                if not before or before==after:
+                    return {**base,"status":"DEFER_UNKNOWN","reason":"LOCAL_EFFECT_EDGE_MUST_CHANGE_REFERENT_RAW_CONTENT",
+                            "operational_referent_signature_sha256":sig,"action_id":action}
+                refs=[]
+                for eid in (raw_eids[pos],raw_eids[pos+1]):
+                    erow=self.evidence.get(eid)
+                    if erow is None:
+                        return {**base,"status":"DEFER_UNKNOWN","reason":"LOCAL_EFFECT_RAW_EVIDENCE_NOT_FOUND","evidence_id":eid}
+                    refs.append((eid,str(erow["sha256"])))
+                transitions.append({"before_raw":list(before),"after_raw":list(after),
+                                    "source_raw_evidence_refs":[list(x) for x in refs],
+                                    "execution_id":execution_ids[pos]})
+                source_refs.extend(refs)
+            cap=self.capabilities.contracts.get(action)
+            if cap is None or not self.capabilities.is_current(action):
+                return {**base,"status":"DEFER_UNKNOWN","reason":"LOCAL_EFFECT_ACTION_NOT_CURRENT","action_id":action}
+            frame_id,frame_epoch=tuple(prefix["frame_epoch"])
+            frame=self.frames.frames.get(str(frame_id))
+            if frame is None or not self.frames.is_current(str(frame_id),int(frame_epoch)):
+                return {**base,"status":"DEFER_UNKNOWN","reason":"LOCAL_EFFECT_FRAME_NOT_CURRENT"}
+            signature=OperationalReferentSignature(
+                status="OPERATIONAL_REFERENT_SIGNATURE_DERIVED",
+                signature_sha256=sig,
+                action_response_rows=tuple(
+                    (str(a),tuple(bool(x) for x in bits)) for a,bits in row["action_response_rows"]
+                ),
+                reason="AFFORDANCE_RELATIVE_BOUNDARY_RESPONSE_ONLY",
+            )
+            referent_record=self.record_operational_referent_signature(
+                f"{str(evidence_id_prefix)}-REF-{sig[:16]}", signature,
+                source_evidence_ids=raw_eids,
+            )
+            referent_row=self.evidence.get(str(referent_record.get("evidence_id","")))
+            if referent_record.get("status")!="OPERATIONAL_REFERENT_SIGNATURE_WITNESS_RECORDED" or referent_row is None:
+                return {**base,"status":"DEFER_UNKNOWN","reason":"OWNED_OPERATIONAL_REFERENT_WITNESS_NOT_RECORDED","signature_sha256":sig}
+            payload={
+                "kind":"OWNED_AFFORDANCE_EFFECT_PROFILE_WITNESS",
+                "operational_referent_signature_sha256":sig,
+                "referent_signature_evidence_ref":[str(referent_row["evidence_id"]),str(referent_row["sha256"])],
+                "group_channels":list(group),
+                "exclusive_action_id":action,
+                "exclusive_action_epoch":self.capabilities.epochs[action],
+                "exclusive_action_signature_sha256":cap.computed_signature_sha256(),
+                "directed_local_transitions":transitions,
+                "frame_id":str(frame_id),"frame_epoch":int(frame_epoch),
+                "frame_signature_sha256":frame.signature_sha256,
+                "source_raw_evidence_refs":[list(x) for x in sorted(set(source_refs))],
+                "derivation_basis":"CURRENT_OWNED_RAW_RECEIPTS_PLUS_AUTHENTICATED_ACTION_OUTCOME_PREFIX",
+                "operational_authority":"EVIDENCE_ONLY","truth_authority":"NONE",
+                "identity_authority":"NONE","semantic_reference_authority":"NONE",
+                "selection_authority":"NONE","execution_authority":"NONE","language_authority":"NONE",
+            }
+            eid=f"{str(evidence_id_prefix)}-{sig[:16]}"
+            ref=self.append_evidence(eid,payload,EpistemicStatus.PRESSURE_SUPPORTED,source="MICROSEED-OWNED-AFFORDANCE-EFFECT-PROFILE")
+            packets.append({**payload,"evidence_id":ref.evidence_id,"evidence_sha256":ref.sha256})
+        packets.sort(key=lambda x:str(x["operational_referent_signature_sha256"]))
+        return {**base,"status":"CURRENT_OWNED_AFFORDANCE_EFFECT_PROFILES_RECORDED",
+                "profile_count":len(packets),"profiles":tuple(packets),
+                "caller_supplied_referent_classes":"NO","caller_supplied_effect_orientation":"NO"}
+
+    def derive_current_owned_passive_raw_transition(self, *, max_events: int = 4096) -> dict[str, Any]:
+        """Derive the latest owned raw transition with no intervening Microseed action.
+
+        The two endpoints must be exact native raw-observation receipts in the same
+        current frame and must carry distinct opaque control-state evidence.  Event order
+        is read from the durable store; any intervening BOUNDED_ACTION_EXECUTED event
+        defeats the passive-transition claim.
+        """
+        base={"truth_authority":"NONE","causal_authority":"NONE","identity_authority":"NONE",
+              "semantic_reference_authority":"NONE","execution_authority":"NONE","language_authority":"NONE"}
+        bound=int(max_events)
+        if bound<=0:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"PASSIVE_TRANSITION_EVENT_SCAN_BUDGET_REQUIRED"}
+        events=self.store.events()
+        if len(events)>bound:
+            events=events[-bound:]
+            scan_complete=False
+        else:
+            scan_complete=True
+        raw_indices=[i for i,row in enumerate(events) if row.get("kind")=="BOUNDED_RAW_OBSERVATION_RECORDED"]
+        if len(raw_indices)<2:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"TWO_OWNED_RAW_OBSERVATIONS_REQUIRED","scan_complete":scan_complete}
+        j=raw_indices[-1]; i=raw_indices[-2]
+        between=events[i+1:j]
+        if any(row.get("kind")=="BOUNDED_ACTION_EXECUTED" for row in between):
+            return {**base,"status":"DEFER_UNKNOWN","reason":"INTERVENING_MICROSEED_ACTION_DEFEATS_PASSIVE_TRANSITION"}
+        before=dict(events[i].get("payload") or {}); after=dict(events[j].get("payload") or {})
+        if (str(before.get("frame_id")),int(before.get("frame_epoch",-1))) != (str(after.get("frame_id")),int(after.get("frame_epoch",-1))):
+            return {**base,"status":"DEFER_UNKNOWN","reason":"PASSIVE_TRANSITION_FRAME_MISMATCH"}
+        if str(before.get("control_state_evidence_id",""))==str(after.get("control_state_evidence_id","")):
+            return {**base,"status":"DEFER_UNKNOWN","reason":"DISTINCT_EXTERNAL_CONTROL_STATE_EVIDENCE_REQUIRED"}
+        for payload in (before,after):
+            eid=str(payload.get("evidence_id","")); erow=self.evidence.get(eid)
+            if erow is None or str(erow.get("sha256",""))!=str(payload.get("evidence_sha256","")):
+                return {**base,"status":"DEFER_UNKNOWN","reason":"PASSIVE_TRANSITION_RAW_EVIDENCE_NOT_EXACT","evidence_id":eid}
+            cap_id=str(payload.get("observation_capability_id","")); cap=self.capabilities.contracts.get(cap_id)
+            if cap is None or not self.capabilities.is_current(cap_id):
+                return {**base,"status":"DEFER_UNKNOWN","reason":"PASSIVE_TRANSITION_OBSERVATION_CHANNEL_NOT_CURRENT"}
+            if self.capabilities.epochs.get(cap_id,-1)!=int(payload.get("observation_capability_epoch",-1)) or cap.computed_signature_sha256()!=str(payload.get("observation_capability_signature_sha256","")):
+                return {**base,"status":"DEFER_UNKNOWN","reason":"PASSIVE_TRANSITION_OBSERVATION_CHANNEL_DRIFT"}
+            fid=str(payload.get("frame_id","")); frame=self.frames.frames.get(fid)
+            if frame is None or not self.frames.is_current(fid,int(payload.get("frame_epoch",-1))) or frame.signature_sha256!=str(payload.get("frame_signature_sha256","")):
+                return {**base,"status":"DEFER_UNKNOWN","reason":"PASSIVE_TRANSITION_FRAME_NOT_CURRENT"}
+        braw=tuple(str(x) for x in before.get("raw_tokens",())); araw=tuple(str(x) for x in after.get("raw_tokens",()))
+        if not braw or len(braw)!=len(araw) or braw==araw:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"PASSIVE_TRANSITION_REQUIRES_CHANGED_RECTANGULAR_RAW_CONTENT"}
+        return {**base,"status":"CURRENT_OWNED_PASSIVE_RAW_TRANSITION",
+                "before_raw":braw,"after_raw":araw,
+                "before_raw_evidence_id":str(before["evidence_id"]),"before_raw_evidence_sha256":str(before["evidence_sha256"]),
+                "after_raw_evidence_id":str(after["evidence_id"]),"after_raw_evidence_sha256":str(after["evidence_sha256"]),
+                "before_control_state_evidence_id":str(before["control_state_evidence_id"]),
+                "after_control_state_evidence_id":str(after["control_state_evidence_id"]),
+                "frame_epoch":(str(after["frame_id"]),int(after["frame_epoch"])),
+                "event_seq":(int(events[i]["seq"]),int(events[j]["seq"])),
+                "history_basis":"ADJACENT_OWNED_RAW_RECEIPTS_WITHOUT_INTERVENING_BOUNDED_ACTION_EXECUTION",
+                "scan_complete":scan_complete}
+
+    def derive_and_record_current_owned_affordance_relative_directional_relation(
+        self, *, evidence_id: str, max_events: int = 4096, max_records: int = 4096,
+    ) -> dict[str, Any]:
+        """Derive one two-referent directional relation from owned opaque transition evidence.
+
+        No coordinate arithmetic is used.  A passive raw edge is compared only by exact
+        opaque endpoint equality with previously owned local-effect edges.  Exactly one
+        current referent must reproduce a known local edge and exactly one must reverse
+        a known local edge.  The resulting order is evidence-bound and carries no semantic
+        predicate, object identity, truth, selection, execution or language authority.
+        """
+        base={"truth_authority":"NONE","identity_authority":"NONE",
+              "semantic_reference_authority":"NONE","selection_authority":"NONE",
+              "execution_authority":"NONE","language_authority":"NONE"}
+        passive=self.derive_current_owned_passive_raw_transition(max_events=max_events)
+        if passive.get("status")!="CURRENT_OWNED_PASSIVE_RAW_TRANSITION":
+            return {**base,"status":"DEFER_UNKNOWN","reason":"CURRENT_OWNED_PASSIVE_RAW_TRANSITION_REQUIRED","passive_transition":passive}
+        bound=int(max_records)
+        if bound<=0:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"AFFORDANCE_PROFILE_SCAN_BUDGET_REQUIRED"}
+        total=self.evidence.count(); rows=self.evidence.recent(bound)
+        if total>bound:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"AFFORDANCE_PROFILE_SCAN_BUDGET_NOT_SATURATED"}
+        profiles=[]
+        for row in rows:
+            payload=row.get("payload") or {}
+            if payload.get("kind")!="OWNED_AFFORDANCE_EFFECT_PROFILE_WITNESS" or row.get("negative"):
+                continue
+            if (str(payload.get("frame_id")),int(payload.get("frame_epoch",-1))) != tuple(passive["frame_epoch"]):
+                continue
+            action=str(payload.get("exclusive_action_id","")); cap=self.capabilities.contracts.get(action)
+            if cap is None or not self.capabilities.is_current(action):
+                continue
+            if self.capabilities.epochs.get(action,-1)!=int(payload.get("exclusive_action_epoch",-1)) or cap.computed_signature_sha256()!=str(payload.get("exclusive_action_signature_sha256","")):
+                continue
+            frame=self.frames.frames.get(str(payload.get("frame_id","")))
+            if frame is None or not self.frames.is_current(str(payload.get("frame_id","")),int(payload.get("frame_epoch",-1))) or frame.signature_sha256!=str(payload.get("frame_signature_sha256","")):
+                continue
+            exact=True
+            for eid,sig in payload.get("source_raw_evidence_refs",()):
+                erow=self.evidence.get(str(eid))
+                if erow is None or str(erow.get("sha256",""))!=str(sig): exact=False; break
+            if exact:
+                profiles.append((row,payload))
+        by_sig={}
+        for row,payload in profiles:
+            sig=str(payload.get("operational_referent_signature_sha256",""))
+            if sig in by_sig:
+                return {**base,"status":"DEFER_UNKNOWN","reason":"CURRENT_AFFORDANCE_PROFILE_NOT_UNIQUE_PER_REFERENT","signature_sha256":sig}
+            by_sig[sig]=(row,payload)
+        if len(by_sig)!=2:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"EXACT_TWO_CURRENT_OWNED_AFFORDANCE_PROFILES_REQUIRED","profile_count":len(by_sig)}
+        orientations={}; diagnostics=[]
+        before=tuple(passive["before_raw"]); after=tuple(passive["after_raw"])
+        for sig,(row,payload) in by_sig.items():
+            group=tuple(int(x) for x in payload.get("group_channels",()))
+            if not group or any(i<0 or i>=len(before) for i in group):
+                return {**base,"status":"DEFER_UNKNOWN","reason":"AFFORDANCE_PROFILE_GROUP_OUT_OF_RANGE","signature_sha256":sig}
+            pb=tuple(before[i] for i in group); pa=tuple(after[i] for i in group)
+            matches=set()
+            for edge in payload.get("directed_local_transitions",()):
+                lb=tuple(str(x) for x in edge.get("before_raw",())); la=tuple(str(x) for x in edge.get("after_raw",()))
+                if pb==lb and pa==la: matches.add("REPRODUCES_LOCAL_GROUNDED_TRANSITION")
+                if pb==la and pa==lb: matches.add("REVERSES_LOCAL_GROUNDED_TRANSITION")
+            if len(matches)!=1:
+                return {**base,"status":"DEFER_UNKNOWN","reason":"PASSIVE_EDGE_ORIENTATION_NOT_UNIQUE_RELATIVE_TO_LOCAL_EFFECT",
+                        "signature_sha256":sig,"orientation_candidates":tuple(sorted(matches))}
+            orientation=next(iter(matches))
+            if orientation in orientations:
+                return {**base,"status":"DEFER_UNKNOWN","reason":"PASSIVE_EDGE_ORIENTATION_CLASS_NOT_UNIQUE","orientation":orientation}
+            orientations[orientation]=sig
+            diagnostics.append({"operational_referent_signature_sha256":sig,"orientation":orientation,
+                                "profile_evidence_id":str(row["evidence_id"])})
+        required={"REVERSES_LOCAL_GROUNDED_TRANSITION","REPRODUCES_LOCAL_GROUNDED_TRANSITION"}
+        if set(orientations)!=required:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"ONE_REVERSED_AND_ONE_REPRODUCED_LOCAL_TRANSITION_REQUIRED"}
+        ordered=[orientations["REVERSES_LOCAL_GROUNDED_TRANSITION"],orientations["REPRODUCES_LOCAL_GROUNDED_TRANSITION"]]
+        profile_refs=[]
+        for sig in ordered:
+            row,_=by_sig[sig]; profile_refs.append([str(row["evidence_id"]),str(row["sha256"])])
+        digest=action_result_digest({
+            "relation_form":"AFFORDANCE_RELATIVE_ORDERED_PASSIVE_COEFFECT_V1",
+            "ordered_operational_referent_signatures":ordered,
+            "order_basis":"REVERSES_LOCAL_GROUNDED_TRANSITION_THEN_REPRODUCES_LOCAL_GROUNDED_TRANSITION",
+        })
+        payload={
+            "kind":"OWNED_AFFORDANCE_RELATIVE_DIRECTIONAL_RELATION_WITNESS",
+            "relation_digest_sha256":digest,
+            "ordered_operational_referent_signatures":ordered,
+            "order_basis":"REVERSES_LOCAL_GROUNDED_TRANSITION_THEN_REPRODUCES_LOCAL_GROUNDED_TRANSITION",
+            "relation_form":"AFFORDANCE_RELATIVE_ORDERED_PASSIVE_COEFFECT_V1",
+            "profile_evidence_refs":profile_refs,
+            "passive_raw_evidence_refs":[
+                [passive["before_raw_evidence_id"],passive["before_raw_evidence_sha256"]],
+                [passive["after_raw_evidence_id"],passive["after_raw_evidence_sha256"]],
+            ],
+            "passive_event_seq":list(passive["event_seq"]),
+            "diagnostic":diagnostics,
+            "derivation_basis":"OWNED_LOCAL_EFFECT_EDGES_PLUS_OWNED_PASSIVE_RAW_EDGE__OPAQUE_ENDPOINT_EQUALITY_ONLY",
+            "caller_supplied_relation_order":"NO","caller_supplied_relation_digest":"NO",
+            "coordinate_arithmetic":"NONE",
+            "truth_authority":"NONE","identity_authority":"NONE","semantic_reference_authority":"NONE",
+            "selection_authority":"NONE","execution_authority":"NONE","language_authority":"NONE",
+        }
+        ref=self.append_evidence(str(evidence_id),payload,EpistemicStatus.PRESSURE_SUPPORTED,source="MICROSEED-OWNED-AFFORDANCE-RELATION")
+        return {**base,"status":"CURRENT_OWNED_AFFORDANCE_RELATIVE_DIRECTIONAL_RELATION_RECORDED",
+                **payload,"evidence_id":ref.evidence_id,"evidence_sha256":ref.sha256}
 
     def reassociate_operational_referent_signature(
         self,

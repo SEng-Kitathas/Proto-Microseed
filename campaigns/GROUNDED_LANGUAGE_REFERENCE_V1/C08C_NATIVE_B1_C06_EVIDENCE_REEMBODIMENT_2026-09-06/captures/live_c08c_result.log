@@ -1,0 +1,45 @@
+{
+  "association_currentness_from_owned_relation_evidence": "CURRENTNESS_CONFIRMED",
+  "caller_supplied_referent_groups": "NO",
+  "caller_supplied_relation_digest": "NO",
+  "caller_supplied_relation_order": "NO",
+  "coordinate_arithmetic": "NONE",
+  "empirical_reversal": "DRIFT_WITNESS",
+  "execution_authority": "NONE",
+  "language_authority": "NONE",
+  "new_action_contracts_registered": [],
+  "not_earned": [
+    "C07_TOKEN_BINDING_REEMBODIMENT",
+    "POST_RESTART_NATIVE_RELATION_REDERIVATION",
+    "SEMANTIC_PREDICATE",
+    "TOKEN_MEANING",
+    "LANGUAGE_FACULTY",
+    "GENERIC_CAPABILITY_FACULTY",
+    "CANON_PROMOTION"
+  ],
+  "ordered_operational_referent_signatures": [
+    "ad794b785133a51ead7597d6b6a8807841182588167f97a6e0bcf85f7738af4e",
+    "46fcb6a924c53cd78cacedc6f10706967d090b9fb1b625eb21f6fdbf1224e922"
+  ],
+  "owned_referent_signature_evidence": [
+    [
+      "E-C08C-PROFILE-REF-46fcb6a924c53cd7",
+      "7bab7df8190dbb80a3f2cd9051e760db20d38fd4c06da207dfc144a25a93bec1"
+    ],
+    [
+      "E-C08C-PROFILE-REF-ad794b785133a51e",
+      "6a3209b867aaf3a0faa8306137e3b78cc77820ce30eb074dfb52219302096e1e"
+    ]
+  ],
+  "owned_relation_evidence_id": "E-C08C-REL-1",
+  "profile_count": 2,
+  "relation_digest_sha256": "cabd1ba8831c63e5468493aa312f44866d51d5db0155f86b2308428e821031da",
+  "reversed_order": [
+    "46fcb6a924c53cd78cacedc6f10706967d090b9fb1b625eb21f6fdbf1224e922",
+    "ad794b785133a51ead7597d6b6a8807841182588167f97a6e0bcf85f7738af4e"
+  ],
+  "reversed_relation_digest_sha256": "06cb779eec45c0af596a63be9eb63ad308ceb169de7548f8953f0a2cdec3a480",
+  "semantic_authority": "NONE",
+  "status": "C08C_NATIVE_B1_C06_RELATION_EVIDENCE_OWNER_EARNED_LIVE_RUNTIME",
+  "truth_authority": "NONE"
+}
