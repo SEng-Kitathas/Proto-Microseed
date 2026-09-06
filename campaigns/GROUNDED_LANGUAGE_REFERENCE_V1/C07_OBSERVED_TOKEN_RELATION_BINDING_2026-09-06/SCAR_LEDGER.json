@@ -1,0 +1,22 @@
+{
+  "scars": [
+    {
+      "detail": "first green C07 version called generic observe(), whose returned/stored packet omits Observation.value, then reused obs.value from the harness wrapper; repaired by content-bound evidence append + readback before association.",
+      "id": "WRAPPER_RETAINED_TOKEN_FALSE_GREEN",
+      "law": "CALLER_RETAINED_OBSERVATION_VALUE != ORGANISM_OWNED_EVIDENCE",
+      "status": "REJECTED_DESPITE_3_OF_3_GREEN"
+    },
+    {
+      "detail": "green association mapping initially lived only in research-function memory; final version writes the derived binding set as content-bound evidence and resolution rereads it.",
+      "id": "NON_DURABLE_BINDING_FALSE_GREEN",
+      "law": "HARNESS_LOCAL_ASSOCIATION != DURABLE_EVIDENCE_BOUND_RELATION",
+      "status": "REPAIRED_BEFORE_SEAL"
+    },
+    {
+      "detail": "initial run reached campaign body but failed in finally because Microseed has no close(); repaired using established biography/evidence/store close sequence.",
+      "id": "TEARDOWN_API_MISMATCH",
+      "status": "MAINTENANCE_ONLY"
+    }
+  ],
+  "schema": "microseed.language_c07.scars.v1"
+}

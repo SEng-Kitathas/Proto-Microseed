@@ -1,0 +1,34 @@
+{
+  "attacks": [
+    {
+      "attack": "single cooccurrence masquerades as grounding",
+      "control": "two opposing relation classes + two opaque tokens",
+      "result": "BLOCKED_BY_DESIGN"
+    },
+    {
+      "attack": "token spelling carries hidden semantics",
+      "result": "PERMUTATION_PASS"
+    },
+    {
+      "attack": "caller retains Observation.value outside organism evidence",
+      "result": "FALSE_GREEN_REJECTED"
+    },
+    {
+      "attack": "convention reversal",
+      "result": "DEFER_UNKNOWN"
+    },
+    {
+      "attack": "ambiguous holdout",
+      "result": "DEFER_UNKNOWN"
+    },
+    {
+      "attack": "wrong current relation",
+      "result": "DEFER_UNKNOWN"
+    },
+    {
+      "attack": "post-binding relation drift",
+      "result": "DEFER_UNKNOWN"
+    }
+  ],
+  "schema": "r44.hostile.language_c07.v1"
+}

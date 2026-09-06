@@ -1,0 +1,22 @@
+{
+  "attack": [
+    "wrapper-retained token false green",
+    "single-class cooccurrence",
+    "token spelling",
+    "reversal",
+    "ambiguity",
+    "drift"
+  ],
+  "observe": [
+    "generic observe packet omits Observation.value",
+    "evidence ledger stores content-bound payload"
+  ],
+  "replay": [
+    "final focused and adjacent after durable evidence repair"
+  ],
+  "revise": [
+    "move token value into evidence ledger",
+    "move binding set into evidence ledger"
+  ],
+  "schema": "r44.oarr.language_c07.v1"
+}

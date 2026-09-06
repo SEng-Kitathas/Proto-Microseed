@@ -1,0 +1,167 @@
+{
+  "ambiguous_holdout": {
+    "execution_authority": "NONE",
+    "language_authority": "NONE",
+    "predicate_authority": "NONE",
+    "reason": "HOLDOUT_TOKEN_RELATION_ASSOCIATION_NOT_BIJECTIVE",
+    "semantic_identity_authority": "NONE",
+    "semantic_reference_authority": "NONE",
+    "status": "DEFER_UNKNOWN",
+    "truth_authority": "NONE"
+  },
+  "bindings": {
+    "authority_gain": "NONE",
+    "binding_evidence_id": "E-C07-BINDING-SET",
+    "binding_evidence_sha256": "4e167c6704fc991bd4e888cde0915e4b85b5716d4896094e692afadc3c1f61f6",
+    "binding_set_id": "OP-TOK-REL-d5ff95f343cec5ed328d1842",
+    "bindings": [
+      {
+        "opaque_token": "K7",
+        "relation_order": [
+          "a53e965bb72c7f81fa5c389c94f781ac9210391eabcb24af6987ceabb7183dbd",
+          "e2551e041e8582c83a9c1efe12063ca8fb5d2dc5b04f87080dacf63654db16fc"
+        ]
+      },
+      {
+        "opaque_token": "M2",
+        "relation_order": [
+          "e2551e041e8582c83a9c1efe12063ca8fb5d2dc5b04f87080dacf63654db16fc",
+          "a53e965bb72c7f81fa5c389c94f781ac9210391eabcb24af6987ceabb7183dbd"
+        ]
+      }
+    ],
+    "execution_authority": "NONE",
+    "language_authority": "NONE",
+    "predicate_authority": "NONE",
+    "semantic_identity_authority": "NONE",
+    "semantic_reference_authority": "NONE",
+    "source_pair_sha256": [
+      "d9fcfc477f4b704ef6a30ad5e663206b60c0d5aca6456efba0b3ae83decbf3cc",
+      "48a2dd73b130ac907784d0309b84ec51e6e9ad46d0785c9dafa4dcbacae70fba",
+      "7a177f6dbaa719fe64bfe6e84e1722d7801755b10405eea2437bd830b7252575",
+      "27f2913e79591e7734c0f13c11b7b352af2caff0a062808a7fcf8f37a2236ab2",
+      "b9068be03e7108db076e8b9dbf19b3f7a1e8bcc430bc89aeb3a9be60a9550c6e",
+      "cc67a7df9c4f9fec1f51c418c15c9a00cbab00cd2e80a1844fe8de1752ddd6ba",
+      "9c38ec7dea089529f51589840a82fac115ea3956e80c70f578d6abd533811d73",
+      "b5bdfc54d0d6ec19e413f3afd25a3b455917cef63d78ac73d2421aa1ade16347",
+      "7016fe38744808930218cb2adf192b92f0b572248ece3eb04fcb1a506ef26397",
+      "2586f27b87dcea6dbda12f926299ee9e91e69c4f1a4fd79bba88dad9c2d05c0c",
+      "d051144b5e01d23d382fbfed761b43cada4f35fd3c26b6ae2337d97e8bc73bd8",
+      "a922b100a135e65b4fda88cee402250775afa7667234bd72951ee0fd9e26f5b3",
+      "4691387afdee7044b0c9cd093925ac4eab5aa2d6ef8bcddbb20e5a17c77ac5f6",
+      "fd29408d001f3091ae0a0fcacf3ab4dd881339ee2ff0dfa502fe61aae7af2833",
+      "f05999d5c067ddf0acd273d9c31047ac42e631a61fd7d9295e9a5539e72d3bdc",
+      "58dd0833ab615c7819abe65fde7df7be57e78bb723895136ad289664f9d0d694",
+      "4e8afa85d783b54920bb230fd762d6ed7ed78e1b583fdded4be0ae3e178c14b2",
+      "043d8f19ea822e3cfdfd7ebaa79d5bcb8a697c1b73f675fcbff7f31d9ff306ad",
+      "1b75b28b2b4417274a5b8bed6c78505f58462dddcdd9be3337ab62f32cde8f5a",
+      "e1b0d45bcf0d19a42ba75c89258659bf1bdf766383403923621f011ce78b6c1e",
+      "0d5dc875c982b9194b099c9b3372bfd117c3c75bfa6c83afb8c31150a0c98a9e",
+      "ad8e362eb197a67f6662fe06445c50b96e4dbff86972481c5edaa689a51c12f7",
+      "5cc32e29362a1fd5a92231ad401fc586b1063ff3f6272d59fa2c66052e59a548",
+      "f13700095f8204ff748c745261683ba9e239ba15b6b23161581fc8609bbc649b",
+      "dee63b3384ba6ee2b7c23a412db918eda3513c4aeaebd06ba5e1fb3fac276748",
+      "edcc0e9c6ab1b7cef60a6d58b16ae865d72bd8e4e12c1b5a972975dddd7ea27c",
+      "8c8aecdec44b4942fbad958ef04f5d1a45b4e061253f5d99139c07224717d476",
+      "a5331f073d3551a94749d5bdbac357018fd39819a7064275b267495633209626",
+      "97464143e231f5ab7a4133ae42985c946b6fd4462ffc57f6af41a0fa4537c01b",
+      "5cda8b16c579cd0d04472be495aa4daf18bffb7f32a5e797e2f2df8efe522dc7"
+    ],
+    "status": "OBSERVED_OPAQUE_TOKEN_RELATION_BINDINGS_RESEARCH_ONLY",
+    "truth_authority": "NONE"
+  },
+  "convention_reversal": {
+    "execution_authority": "NONE",
+    "language_authority": "NONE",
+    "predicate_authority": "NONE",
+    "reason": "HOLDOUT_TOKEN_RELATION_ASSOCIATION_DISAGREES",
+    "semantic_identity_authority": "NONE",
+    "semantic_reference_authority": "NONE",
+    "status": "DEFER_UNKNOWN",
+    "truth_authority": "NONE"
+  },
+  "fresh_relation": {
+    "authority_gain": "NONE",
+    "execution_authority": "NONE",
+    "fresh_episode_sha256": [
+      "7622d5eab5d0fc65c79d183b172c554d75ec41405e67fd0f6c5f3f0f751fb236",
+      "bc393802a6fa1b0af3c24b9847dbf5665627fb9bf5f2258bf7bdb56a63677066",
+      "0a44c3247038bce571543311730ac93c724f279df6fe098f06cdd8338ad10dff",
+      "d53945cb04095b6d39c72be1724c68aefff5cb7bc1f87fb7943fd4988ea46d6f",
+      "f24227b61d71fcb6837524aa0b7ad203fbfe06f2f516cb0ff611f8494afb1962",
+      "ad3c44ff87389016fbe266a8ea7d17f1aa31ea699192ea261dc96a06d7d45a95"
+    ],
+    "language_authority": "NONE",
+    "predicate_authority": "NONE",
+    "semantic_identity_authority": "NONE",
+    "semantic_reference_authority": "NONE",
+    "status": "CURRENT_DIRECTIONAL_RELATION_REVALIDATED_RESEARCH_ONLY",
+    "truth_authority": "NONE"
+  },
+  "language_status": "DEFERRED_PRELINGUAL_COGNITION_ACTIVE",
+  "new_microseed_action_contracts_registered": [],
+  "nonclaim": [
+    "NO_SEMANTIC_PREDICATE",
+    "NO_PROPOSITION",
+    "NO_TRUTH_BEARER",
+    "NO_LANGUAGE_FACULTY",
+    "NO_GENERIC_CAPABILITY",
+    "NO_EXECUTABLE_RELATION_ACTION",
+    "NO_TOKEN_MEANING_REGISTRY",
+    "NO_CANON_PROMOTION"
+  ],
+  "relation_drift": {
+    "execution_authority": "NONE",
+    "fresh_orders": [
+      [
+        "e2551e041e8582c83a9c1efe12063ca8fb5d2dc5b04f87080dacf63654db16fc",
+        "a53e965bb72c7f81fa5c389c94f781ac9210391eabcb24af6987ceabb7183dbd"
+      ]
+    ],
+    "language_authority": "NONE",
+    "predicate_authority": "NONE",
+    "reason": "POST_BINDING_EMPIRICAL_DIRECTION_DRIFT",
+    "semantic_identity_authority": "NONE",
+    "semantic_reference_authority": "NONE",
+    "status": "DEFER_UNKNOWN",
+    "truth_authority": "NONE"
+  },
+  "status": "PASS_BOUNDED_RESEARCH_ONLY",
+  "technical_name": "Paired-experience grounding of opaque observed tokens to current affordance-relative relations",
+  "token_a_resolution": {
+    "authority_gain": "NONE",
+    "binding_set_id": "OP-TOK-REL-d5ff95f343cec5ed328d1842",
+    "derived_relation_id": "OP-DIR-REL-34734b601b2707c886d2e5b5",
+    "execution_authority": "NONE",
+    "language_authority": "NONE",
+    "opaque_token": "K7",
+    "ordered_operational_referent_signatures": [
+      "a53e965bb72c7f81fa5c389c94f781ac9210391eabcb24af6987ceabb7183dbd",
+      "e2551e041e8582c83a9c1efe12063ca8fb5d2dc5b04f87080dacf63654db16fc"
+    ],
+    "predicate_authority": "NONE",
+    "semantic_identity_authority": "NONE",
+    "semantic_reference_authority": "NONE",
+    "status": "OPAQUE_OBSERVED_TOKEN_RESOLVES_CURRENT_RELATION_RESEARCH_ONLY",
+    "truth_authority": "NONE"
+  },
+  "token_b_resolution": {
+    "authority_gain": "NONE",
+    "binding_set_id": "OP-TOK-REL-d5ff95f343cec5ed328d1842",
+    "derived_relation_id": "OP-DIR-REL-b1923e421f90ac5333aab423",
+    "execution_authority": "NONE",
+    "language_authority": "NONE",
+    "opaque_token": "M2",
+    "ordered_operational_referent_signatures": [
+      "e2551e041e8582c83a9c1efe12063ca8fb5d2dc5b04f87080dacf63654db16fc",
+      "a53e965bb72c7f81fa5c389c94f781ac9210391eabcb24af6987ceabb7183dbd"
+    ],
+    "predicate_authority": "NONE",
+    "semantic_identity_authority": "NONE",
+    "semantic_reference_authority": "NONE",
+    "status": "OPAQUE_OBSERVED_TOKEN_RESOLVES_CURRENT_RELATION_RESEARCH_ONLY",
+    "truth_authority": "NONE"
+  },
+  "unseen_token": "DEFER_UNKNOWN",
+  "wrong_relation": "DEFER_UNKNOWN"
+}

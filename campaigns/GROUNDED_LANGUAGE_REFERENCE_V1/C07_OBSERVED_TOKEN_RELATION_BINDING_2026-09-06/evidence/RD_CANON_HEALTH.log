@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "canonical": "PRELINGUAL_SUBSTRATE_V1_P1A_N1A_BOUNDED_HIERARCHY_V1_MS_SUBSTRATE_HARDENING_V1_BC_NESTED_CURRENTNESS_V1",
+  "canonical_commit": "9e5df16ac60c0edaf8833b54e42d8e38d724fc4c",
+  "public_head": "dac28bba6cad4fb8edeae2a361cb47caad8e3a2f",
+  "promotion_branch_head": "7b58444745186d3d98b015622d5ca3ce045e1ce9",
+  "bc_admission_v2_head": "461e59a2f5ea2daf838542ea0463777a0588f512",
+  "issues": []
+}

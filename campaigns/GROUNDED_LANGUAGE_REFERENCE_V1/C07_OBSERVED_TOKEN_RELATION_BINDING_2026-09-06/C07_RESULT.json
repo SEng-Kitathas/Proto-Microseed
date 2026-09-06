@@ -1,0 +1,100 @@
+{
+  "assistance_ceiling": [
+    "TOKEN_RELATION_PAIRING_EPISODE_BOUNDARIES_ARE_RESEARCH_HARNESS_SUPPLIED",
+    "THE_BINDING_DERIVATION_AND_BIJECTION_QUALIFICATION_FUNCTION_IS_EXTERNAL_RESEARCH_MACHINERY",
+    "THE_DERIVED_BINDING_IS_DURABLE_EVIDENCE_NOT_YET_AN_ORGANISM_NATIVE_RELATION_OBJECT_WITH_OWN_CURRENTNESS_INDEX",
+    "C06_RELATIONS_AND_B1_REFERENTS_PREEXIST_C07",
+    "TOKEN_EMISSION_CONVENTION_IS_WORLD_SUPPLIED",
+    "NO_ENDOGENOUS_TOKEN_GENERATION_OR_COMMUNICATION_PROTOCOL"
+  ],
+  "authority_ceiling": [
+    "RESEARCH_ONLY",
+    "NO_SEMANTIC_PREDICATE",
+    "NO_PROPOSITION",
+    "NO_TRUTH_BEARER",
+    "NO_LANGUAGE_AUTHORITY",
+    "NO_EXECUTION_AUTHORITY",
+    "NO_TOKEN_MEANING_REGISTRY",
+    "NO_GENERIC_CAPABILITY_OR_FACULTY",
+    "NO_CANON_PROMOTION",
+    "NO_PRODUCTION_MICROSEED_MUTATION"
+  ],
+  "base_head": "9f2a808df8e0bacd53d82d3f51ad6ba396496087",
+  "branch": "research/grounded-language-observed-relation-token-v1",
+  "captures": {
+    "FALSE_GREEN_WRAPPER_TOKEN_3PASS": {
+      "bytes": 100,
+      "path": "campaigns/GROUNDED_LANGUAGE_REFERENCE_V1/C07_OBSERVED_TOKEN_RELATION_BINDING_2026-09-06/evidence/FALSE_GREEN_WRAPPER_TOKEN_3PASS.log",
+      "sha256": "5e06592c40153ca6e5bc64da91c0001b976dba8cfce87b7f829b03eb71702d4c"
+    },
+    "FINAL_ADJACENT_13PASS": {
+      "bytes": 101,
+      "path": "campaigns/GROUNDED_LANGUAGE_REFERENCE_V1/C07_OBSERVED_TOKEN_RELATION_BINDING_2026-09-06/evidence/FINAL_ADJACENT_13PASS.log",
+      "sha256": "b5594cedcfefe6905fe83e9f7128fc0421ee88906af7500b1d4e8f4882b6f695"
+    },
+    "FINAL_CAMPAIGN_OUTPUT": {
+      "bytes": 7558,
+      "path": "campaigns/GROUNDED_LANGUAGE_REFERENCE_V1/C07_OBSERVED_TOKEN_RELATION_BINDING_2026-09-06/evidence/FINAL_CAMPAIGN_OUTPUT.log",
+      "sha256": "00766a058ff17210b70f58c7312616a1dee5bfd021a0619c895df210c9272eb7"
+    },
+    "FINAL_FOCUSED_3PASS": {
+      "bytes": 100,
+      "path": "campaigns/GROUNDED_LANGUAGE_REFERENCE_V1/C07_OBSERVED_TOKEN_RELATION_BINDING_2026-09-06/evidence/FINAL_FOCUSED_3PASS.log",
+      "sha256": "beda976bc55ff6784892c944a53c843d4a902b921867cc53519f028130571fbe"
+    },
+    "RD_CANON_HEALTH": {
+      "bytes": 438,
+      "path": "campaigns/GROUNDED_LANGUAGE_REFERENCE_V1/C07_OBSERVED_TOKEN_RELATION_BINDING_2026-09-06/evidence/RD_CANON_HEALTH.log",
+      "sha256": "5349b10b9dda313eacdadd05551af872f1373d4400da138a24f397bdb51c919f"
+    }
+  },
+  "date": "2026-09-06",
+  "earned_claim": "TWO_OPAQUE_OBSERVED_TOKEN_SURFACES_CAN_BE_CONTENT_BOUND_IN_MICROSEED_EVIDENCE_AND_EVIDENCE_DERIVED_AS_A_BIJECTION_TO_TWO_OPPOSING_CURRENT_C06_RELATION_ORDERS_WITHOUT_REGISTERING_A_TOKEN_OR_RELATION_ACTION_SUPPLYING_SEMANTIC_ROLES_OR_INSTALLING_A_GENERIC_CAPABILITY_FACULTY",
+  "hostiles": {
+    "ambiguous_holdout": "DEFER_UNKNOWN",
+    "holdout_convention_reversal": "DEFER_UNKNOWN",
+    "new_action_contracts": [],
+    "opaque_surface_permutation": "PASS; relation association follows experience not spelling",
+    "post_binding_c06_relation_drift": "DEFER_UNKNOWN",
+    "unseen_token": "DEFER_UNKNOWN",
+    "wrong_current_relation": "DEFER_UNKNOWN"
+  },
+  "mechanism": [
+    "external opaque token is admitted as content-bound observation evidence via the append-only evidence ledger",
+    "the token value used downstream is read back from Microseed-owned evidence rather than retained only in a caller wrapper",
+    "two opposing C06 relation orders are independently grounded from external world outcomes",
+    "paired train and independent holdout evidence must support a bijection between two opaque token surfaces and two relation orders",
+    "derived binding set is itself stored as content-bound evidence and resolution reads that evidence back",
+    "unseen token wrong current relation convention reversal ambiguous holdout and C06 relation drift fail closed",
+    "no new Microseed action/effect contract is registered by C07"
+  ],
+  "next": "C08_ORGANISM_NATIVE_CURRENTNESS_BOUND_TOKEN_RELATION_RECORD_FROM_PAIRED_EVIDENCE_WITHOUT_SEMANTIC_REGISTRY_EXECUTABLE_RELATION_ACTION_OR_GENERIC_CAPABILITY_FACULTY",
+  "production_microseed_delta": [],
+  "scars": [
+    {
+      "detail": "first green C07 version called generic observe(), whose returned/stored packet omits Observation.value, then reused obs.value from the harness wrapper; repaired by content-bound evidence append + readback before association.",
+      "id": "WRAPPER_RETAINED_TOKEN_FALSE_GREEN",
+      "law": "CALLER_RETAINED_OBSERVATION_VALUE != ORGANISM_OWNED_EVIDENCE",
+      "status": "REJECTED_DESPITE_3_OF_3_GREEN"
+    },
+    {
+      "detail": "green association mapping initially lived only in research-function memory; final version writes the derived binding set as content-bound evidence and resolution rereads it.",
+      "id": "NON_DURABLE_BINDING_FALSE_GREEN",
+      "law": "HARNESS_LOCAL_ASSOCIATION != DURABLE_EVIDENCE_BOUND_RELATION",
+      "status": "REPAIRED_BEFORE_SEAL"
+    },
+    {
+      "detail": "initial run reached campaign body but failed in finally because Microseed has no close(); repaired using established biography/evidence/store close sequence.",
+      "id": "TEARDOWN_API_MISMATCH",
+      "status": "MAINTENANCE_ONLY"
+    }
+  ],
+  "schema": "microseed.grounded_language.c07_observed_token_relation_binding.v1",
+  "status": "PASS_BOUNDED_RESEARCH_ONLY",
+  "technical_name": "Paired-experience grounding of opaque observed tokens to current affordance-relative relations",
+  "verification": {
+    "adjacent_ms2046_c01_c07": "13/13 PASS",
+    "focused": "3/3 PASS",
+    "rd_canon_health": "PASS issues empty"
+  }
+}

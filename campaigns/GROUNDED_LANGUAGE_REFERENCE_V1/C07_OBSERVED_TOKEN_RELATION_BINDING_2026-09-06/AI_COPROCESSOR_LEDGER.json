@@ -1,0 +1,10 @@
+{
+  "authority": "NONE",
+  "schema": "r44.ai_coprocessor.language_c07.v1",
+  "status": "ADDITIVE_ONLY",
+  "uses": [
+    "detected wrapper-retained token false green",
+    "identified evidence-ledger repair",
+    "bounded authority review"
+  ]
+}

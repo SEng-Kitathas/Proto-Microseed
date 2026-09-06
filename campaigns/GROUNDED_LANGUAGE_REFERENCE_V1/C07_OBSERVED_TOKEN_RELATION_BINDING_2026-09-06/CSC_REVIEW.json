@@ -1,0 +1,22 @@
+{
+  "reviews": [
+    {
+      "interface": "world token -> evidence",
+      "status": "CONTENT_BOUND_READBACK"
+    },
+    {
+      "interface": "paired evidence -> binding",
+      "status": "EXTERNAL_QUALIFICATION_ASSISTANCE_REMAINS"
+    },
+    {
+      "interface": "binding -> semantics",
+      "status": "NO_AUTHORITY_TRANSFER"
+    },
+    {
+      "interface": "research -> production",
+      "status": "ZERO_MICROSEED_DELTA"
+    }
+  ],
+  "schema": "r44.csc.language_c07.v1",
+  "status": "PASS_BOUNDED"
+}

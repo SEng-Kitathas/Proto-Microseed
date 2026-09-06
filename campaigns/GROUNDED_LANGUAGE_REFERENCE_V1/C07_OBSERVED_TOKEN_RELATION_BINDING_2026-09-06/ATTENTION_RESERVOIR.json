@@ -1,0 +1,25 @@
+{
+  "items": [
+    {
+      "id": "C07-AR-01",
+      "signal": "two opposing relations disambiguate opaque token association",
+      "state": "EARNED_BOUNDED"
+    },
+    {
+      "id": "C07-AR-02",
+      "signal": "caller-retained Observation.value produced false green",
+      "state": "SCAR"
+    },
+    {
+      "id": "C07-AR-03",
+      "signal": "pairing boundaries and qualification remain harness supplied",
+      "state": "ASSISTANCE"
+    },
+    {
+      "id": "C07-AR-04",
+      "signal": "native currentness-bound token/relation record",
+      "state": "NEXT"
+    }
+  ],
+  "schema": "r44.attention_reservoir.language_c07.v1"
+}
