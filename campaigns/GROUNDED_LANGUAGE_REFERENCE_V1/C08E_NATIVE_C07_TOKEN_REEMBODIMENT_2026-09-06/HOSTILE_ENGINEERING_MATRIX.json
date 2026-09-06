@@ -1,0 +1,61 @@
+{
+  "checks": [
+    {
+      "check": "new Microseed mechanism required",
+      "result": "NO__ZERO_MICROSEED_DELTA"
+    },
+    {
+      "check": "old harness-local C06 relation used as grounding owner",
+      "result": "NO"
+    },
+    {
+      "check": "token bytes content-bound in Microseed evidence",
+      "result": "YES"
+    },
+    {
+      "check": "pair evidence exact source refs",
+      "result": "YES"
+    },
+    {
+      "check": "holdout reversal",
+      "result": "FAIL_CLOSED"
+    },
+    {
+      "check": "ambiguous holdout",
+      "result": "FAIL_CLOSED"
+    },
+    {
+      "check": "unseen token",
+      "result": "FAIL_CLOSED"
+    },
+    {
+      "check": "wrong relation",
+      "result": "FAIL_CLOSED"
+    },
+    {
+      "check": "durable binding after restart without fresh relation",
+      "result": "FAIL_CLOSED"
+    },
+    {
+      "check": "fresh post-restart native relation",
+      "result": "RESOLVES"
+    },
+    {
+      "check": "token surface permutation",
+      "result": "PASS"
+    },
+    {
+      "check": "sensor permutation/sign inversion",
+      "result": "PASS"
+    },
+    {
+      "check": "positive-path deletion mutant",
+      "result": "KILLED"
+    },
+    {
+      "check": "tamper-evident pair sequence",
+      "result": "NOT_EARNED"
+    }
+  ],
+  "schema": "microseed.lang-c08e-hostile-matrix.v1"
+}

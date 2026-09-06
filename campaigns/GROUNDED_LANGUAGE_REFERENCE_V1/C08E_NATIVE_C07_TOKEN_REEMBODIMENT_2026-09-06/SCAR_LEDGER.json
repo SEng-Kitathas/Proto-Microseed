@@ -1,0 +1,24 @@
+{
+  "scars": [
+    {
+      "law": "HARNESS_GROUNDED_RELATION != ORGANISM_OWNED_RELATION_ANCESTRY",
+      "scar": "C07_HARNESS_LOCAL_RELATION_ANCESTRY",
+      "status": "REPAIRED_BY_C08E"
+    },
+    {
+      "law": "LEDGER_ORDERED_PAIRING != TAMPER_EVIDENT_SEQUENCE_PROOF",
+      "scar": "C08E_EVIDENCE_SEQUENCE_INTEGRITY_CEILING",
+      "status": "OPEN_SUPPORT_SEAM"
+    },
+    {
+      "classification": "MAINTENANCE_ONLY",
+      "scar": "C08E_IMPORT_PATH_HARNESS_FAILURE"
+    },
+    {
+      "classification": "MAINTENANCE_ONLY",
+      "detail": "EvidenceLedger rows omit seq; repaired to documented list() append ordering",
+      "scar": "C08E_EVIDENCE_RECENT_SEQ_FIELD_ASSUMPTION"
+    }
+  ],
+  "schema": "microseed.lang-c08e-scar-ledger.v1"
+}

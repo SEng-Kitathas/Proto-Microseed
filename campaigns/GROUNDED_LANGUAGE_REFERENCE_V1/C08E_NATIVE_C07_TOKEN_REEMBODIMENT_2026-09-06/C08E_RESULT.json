@@ -1,0 +1,85 @@
+{
+  "base_head": "8e4e8a88569b4211c597d3bab9d6fc621f11212d",
+  "bounded_claim": "TWO_OPAQUE_OBSERVED_TOKEN_SURFACES_CAN_BE_CONTENT_BOUND_IN_MICROSEED_EVIDENCE_AND_DERIVED_VIA_EXACT_DURABLE_PAIR_EVIDENCE_INTO_TWO_GENERIC_OPAQUE_EVIDENCE_ASSOCIATIONS_TO_POSTRESTART_NATIVE_C08D_RELATION_IDENTITIES_WITH_TRAIN_HOLDOUT_AGREEMENT_AND_RESTART_CURRENTNESS_WITHOUT_NEW_MICROSEED_MECHANISM_TOKEN_OR_RELATION_ACTION_TOKEN_MEANING_SEMANTIC_ROLES_OR_GENERIC_FACULTY",
+  "branch": "research/grounded-language-native-token-binding-v1",
+  "capture_receipts": {
+    "focused_c08e_c08d_c07_8_pass.log": {
+      "bytes": 101,
+      "sha256": "aa2b881de57e2d7e734610882cfb2f13acfbb6cdd66bd7e679604d611704f566"
+    },
+    "language_adjacent_23_pass.log": {
+      "bytes": 102,
+      "sha256": "c0fa892cbb49b4ebea56a17281f159a98b670bb637eed52cddcd374a298632c0"
+    },
+    "live_c08e_result.log": {
+      "bytes": 2540,
+      "sha256": "cc6242d4dd939bb573d14e8b50f5190eb77acd80737479f3faf615d048c145c1"
+    },
+    "maintenance_evidence_seq_assumption_failure.stderr.log": {
+      "bytes": 1428,
+      "sha256": "c3a9a3fa438827c78cc510230ecb1afd7c60267c838303a0d90305d0749a4400"
+    },
+    "maintenance_import_path_failure.stderr.log": {
+      "bytes": 368,
+      "sha256": "260c98ef89295e0d96e0cfc1d8d5be44e64e08154ed4eeb95e52b5c67942fee4"
+    },
+    "native_currentness_restart_15_pass.log": {
+      "bytes": 102,
+      "sha256": "d52d74ca2a6eed4fa485ebd4cd34db66ee7a021f630dde3ed03c26669a2d52ed"
+    },
+    "positive_path_mutants_7_killed.log": {
+      "bytes": 567,
+      "sha256": "43d1713d454469327b5582696f26c9edee3d4372c119fda0697a2fd1dab3b026"
+    },
+    "pre_c07_c08d_5_pass.log": {
+      "bytes": 100,
+      "sha256": "5297247da7ba4d4eea6f906bd1b4e8f311569b4ed0e6e05ab8739bc04b6e3526"
+    }
+  },
+  "date": "2026-09-06",
+  "execution_authority": "NONE",
+  "focused_adjacent": {
+    "failed": 0,
+    "passed": 8
+  },
+  "language_adjacent_ms2046_c01_c08e": {
+    "failed": 0,
+    "passed": 23
+  },
+  "language_authority": "NONE",
+  "microseed_delta": [],
+  "native_currentness_restart_regression": {
+    "failed": 0,
+    "passed": 15
+  },
+  "next": "LANG_C09_NATIVE_RELATIONAL_TOKEN_USE_OR_LANGUAGE_TRANSITION_PRESSURE_AFTER_C08E_REVIEW",
+  "normal_relation_digest_sha256": "cabd1ba8831c63e5468493aa312f44866d51d5db0155f86b2308428e821031da",
+  "not_earned": [
+    "SEMANTIC_PREDICATE",
+    "TOKEN_MEANING",
+    "PROPOSITION",
+    "TRUTH_BEARER",
+    "LANGUAGE_FACULTY",
+    "GENERIC_CAPABILITY_FACULTY",
+    "ENDOGENOUS_QUALIFICATION",
+    "TAMPER_EVIDENT_LEDGER_SEQUENCE",
+    "CANON_PROMOTION"
+  ],
+  "pairing_basis": "CURRENT_RUNTIME_EVIDENCE_LEDGER_CHRONOLOGY",
+  "positive_mutant_receipt_sha256": "03bc64b511f5954219d39c1b10d09d652ee5429904a15022df64164259a30365",
+  "positive_mutant_tool_sha256": "c405c4224dd1441e544d1acf3470cf313e622e443f745f194119f9ae703edb6d",
+  "positive_path_mutants": {
+    "killed": 7,
+    "survived": 0,
+    "unknown": 0
+  },
+  "qualification_ancestry": "EXTERNAL_RESEARCH_TRAIN_HOLDOUT_PARTITION_ONLY",
+  "restart_rule": "DURABLE_BINDING_BYTES_REQUIRE_FRESH_CURRENT_RUNTIME_NATIVE_RELATION_WITNESS",
+  "reverse_relation_digest_sha256": "06cb779eec45c0af596a63be9eb63ad308ceb169de7548f8953f0a2cdec3a480",
+  "schema": "microseed.lang-c08e-native-c07-token-reembodiment.v1",
+  "semantic_authority": "NONE",
+  "source_sha256": "5690d6fc0b32bd7e7fbf0f916b76e1e9295d915505b1c41699c6985358d6abdc",
+  "status": "C08E_NATIVE_C07_TOKEN_BINDING_REEMBODIED_ON_POSTRESTART_NATIVE_RELATION",
+  "test_sha256": "efdcd3e8f444124779582cc4f82087a800e11bfc6c5f3032dc6045e9e1c26ab0",
+  "truth_authority": "NONE"
+}

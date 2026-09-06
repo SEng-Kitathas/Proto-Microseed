@@ -62,6 +62,13 @@ MUTANTS = {
         "new": "        return (max(boots) + 1000000000000) if boots else -1\n",
         "loss_class": "POST_RESTART_FRESH_EVIDENCE_REDERIVATION_SUPPRESSED",
     },
+    "SUPPRESS_C08E_NATIVE_TOKEN_RELATION_RESOLUTION": {
+        "target": "scratch/lang_c08e_native_token_relation_binding.py",
+        "test": "tests/embodiment/test_lang_c08e_native_token_relation_binding.py",
+        "old": "        \"status\": \"OPAQUE_TOKEN_RESOLVES_CURRENT_NATIVE_RELATION\",\n",
+        "new": "        \"status\": \"DEFER_UNKNOWN\",\n",
+        "loss_class": "NATIVE_OPAQUE_TOKEN_RELATION_RESOLUTION_SUPPRESSED",
+    },
 }
 
 

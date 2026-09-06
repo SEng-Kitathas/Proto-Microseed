@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "E:\new pc\AI_Pushes_Sandbox\projects\protoagi_microseed_reincarnation_20260827\research_ms1888_replay\.pcmmad_sync_runs\wt_language_c08e_20260906\scratch\lang_c08e_native_token_relation_binding.py", line 581, in <module>
+    print(json.dumps(run_campaign(), indent=2, sort_keys=True))
+                     ^^^^^^^^^^^^^^
+  File "E:\new pc\AI_Pushes_Sandbox\projects\protoagi_microseed_reincarnation_20260827\research_ms1888_replay\.pcmmad_sync_runs\wt_language_c08e_20260906\scratch\lang_c08e_native_token_relation_binding.py", line 396, in run_campaign
+    pair = _pair_episode(
+           ^^^^^^^^^^^^^^
+  File "E:\new pc\AI_Pushes_Sandbox\projects\protoagi_microseed_reincarnation_20260827\research_ms1888_replay\.pcmmad_sync_runs\wt_language_c08e_20260906\scratch\lang_c08e_native_token_relation_binding.py", line 364, in _pair_episode
+    pair = derive_latest_relation_token_pair(ms, evidence_id=f"E-C08E-PAIR-{phase}-{index}")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\new pc\AI_Pushes_Sandbox\projects\protoagi_microseed_reincarnation_20260827\research_ms1888_replay\.pcmmad_sync_runs\wt_language_c08e_20260906\scratch\lang_c08e_native_token_relation_binding.py", line 112, in derive_latest_relation_token_pair
+    token_seq = int(token_row["seq"])
+                    ~~~~~~~~~^^^^^^^
+KeyError: 'seq'

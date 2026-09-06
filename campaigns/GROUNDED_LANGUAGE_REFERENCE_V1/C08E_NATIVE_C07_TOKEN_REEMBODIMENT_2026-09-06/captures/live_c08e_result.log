@@ -1,0 +1,60 @@
+{
+  "ambiguous_holdout": "DEFER_UNKNOWN",
+  "association_record_ids": [
+    "opaque-assoc-66f2435f967cba5e893f06d0",
+    "opaque-assoc-e0e6f9172a109d2ba6728f51"
+  ],
+  "association_states_after_restart": {
+    "opaque-assoc-66f2435f967cba5e893f06d0": "REVALIDATION_REQUIRED_OPAQUE_EVIDENCE_ASSOCIATION",
+    "opaque-assoc-e0e6f9172a109d2ba6728f51": "REVALIDATION_REQUIRED_OPAQUE_EVIDENCE_ASSOCIATION"
+  },
+  "bindings": [
+    {
+      "opaque_token": "K7",
+      "relation_digest_sha256": "cabd1ba8831c63e5468493aa312f44866d51d5db0155f86b2308428e821031da"
+    },
+    {
+      "opaque_token": "M2",
+      "relation_digest_sha256": "06cb779eec45c0af596a63be9eb63ad308ceb169de7548f8953f0a2cdec3a480"
+    }
+  ],
+  "caller_supplied_relation_digest": "NO",
+  "caller_supplied_relation_order": "NO",
+  "caller_supplied_token_meaning": "NO",
+  "durable_binding_without_fresh_relation": {
+    "reason": "FRESH_CURRENT_RUNTIME_OWNED_RELATION_WITNESS_REQUIRED",
+    "status": "DEFER_UNKNOWN"
+  },
+  "execution_authority": "NONE",
+  "holdout_reversal": {
+    "reason": "HOLDOUT_TOKEN_NATIVE_RELATION_ASSOCIATION_DISAGREES",
+    "status": "DEFER_UNKNOWN"
+  },
+  "language_authority": "NONE",
+  "microseed_delta_required": [],
+  "new_microseed_action_contracts_registered": [],
+  "normal_relation_digest_sha256": "cabd1ba8831c63e5468493aa312f44866d51d5db0155f86b2308428e821031da",
+  "not_earned": [
+    "SEMANTIC_PREDICATE",
+    "TOKEN_MEANING",
+    "PROPOSITION",
+    "TRUTH_BEARER",
+    "LANGUAGE_FACULTY",
+    "GENERIC_CAPABILITY_FACULTY",
+    "ENDOGENOUS_QUALIFICATION",
+    "CANON_PROMOTION"
+  ],
+  "pairing_basis": "CURRENT_RUNTIME_EVIDENCE_LEDGER_CHRONOLOGY",
+  "post_restart_native_resolution": "OPAQUE_TOKEN_RESOLVES_CURRENT_NATIVE_RELATION",
+  "post_restart_wrong_relation": "DEFER_UNKNOWN",
+  "qualification_ancestry": "EXTERNAL_RESEARCH_TRAIN_HOLDOUT_PARTITION_ONLY",
+  "reverse_relation_digest_sha256": "06cb779eec45c0af596a63be9eb63ad308ceb169de7548f8953f0a2cdec3a480",
+  "semantic_authority": "NONE",
+  "status": "C08E_NATIVE_C07_TOKEN_BINDING_REEMBODIED_ON_POSTRESTART_NATIVE_RELATION",
+  "technical_name": "Evidence-ledger paired grounding of opaque observed tokens to restart-safe native affordance-relative relation identities",
+  "token_a_resolution": "OPAQUE_TOKEN_RESOLVES_CURRENT_NATIVE_RELATION",
+  "token_b_resolution": "OPAQUE_TOKEN_RESOLVES_CURRENT_NATIVE_RELATION",
+  "truth_authority": "NONE",
+  "unseen_token": "DEFER_UNKNOWN",
+  "wrong_relation": "DEFER_UNKNOWN"
+}

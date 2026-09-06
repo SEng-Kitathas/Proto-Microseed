@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "E:\new pc\AI_Pushes_Sandbox\projects\protoagi_microseed_reincarnation_20260827\research_ms1888_replay\.pcmmad_sync_runs\wt_language_c08e_20260906\scratch\lang_c08e_native_token_relation_binding.py", line 9, in <module>
+    from microseed import EpistemicStatus, Microseed
+ModuleNotFoundError: No module named 'microseed'
