@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "E:\new pc\AI_Pushes_Sandbox\projects\protoagi_microseed_reincarnation_20260827\research_ms1888_replay\.pcmmad_sync_runs\wt_language_c08d_20260906\scratch\lang_c08d_postrestart_native_relation_rederivation.py", line 314, in <module>
+    main()
+  File "E:\new pc\AI_Pushes_Sandbox\projects\protoagi_microseed_reincarnation_20260827\research_ms1888_replay\.pcmmad_sync_runs\wt_language_c08d_20260906\scratch\lang_c08d_postrestart_native_relation_rederivation.py", line 310, in main
+    print(json.dumps(run_campaign(), indent=2, sort_keys=True))
+                     ^^^^^^^^^^^^^^
+  File "E:\new pc\AI_Pushes_Sandbox\projects\protoagi_microseed_reincarnation_20260827\research_ms1888_replay\.pcmmad_sync_runs\wt_language_c08d_20260906\scratch\lang_c08d_postrestart_native_relation_rederivation.py", line 159, in run_campaign
+    first = _fresh_owned_relation(ms1, world, tag="R1", serial_base=0)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\new pc\AI_Pushes_Sandbox\projects\protoagi_microseed_reincarnation_20260827\research_ms1888_replay\.pcmmad_sync_runs\wt_language_c08d_20260906\scratch\lang_c08d_postrestart_native_relation_rederivation.py", line 117, in _fresh_owned_relation
+    _execute(ms, cid, f"{tag}-{step}", serial_base + offset)
+  File "E:\new pc\AI_Pushes_Sandbox\projects\protoagi_microseed_reincarnation_20260827\research_ms1888_replay\.pcmmad_sync_runs\wt_language_c08d_20260906\scratch\lang_c08c_native_owned_affordance_relation.py", line 161, in _execute
+    assert nomination["status"] == "ACTION_INTENT_NOMINATED", nomination
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'status': 'ABSTAIN', 'reason': 'REHEARSAL_START_STATE_NOT_APPLICABLE_NOW', 'commitment': {'commitment_id': 'ACTION-COMMIT-e286ed1e8477848c0bf3', 'target_id': 'capability:QX:execute', 'commitment': 'UNKNOWN', 'binding': 'YES', 'applicability': 'NO', 'reason': 'REHEARSAL_START_STATE_NOT_APPLICABLE_NOW', 'qualifiers': [['proposal_id', 'REHEARSAL-6db32ca5ac985faaa1c5'], ['current_state', 'c08c-external-R1-TRAIN-START'], ['authority_gain', 'NONE']], 'premise_ids': []}, 'execution_authority': 'NONE'}

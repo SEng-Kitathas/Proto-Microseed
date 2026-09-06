@@ -1,0 +1,101 @@
+{
+  "base_head": "c9925878bce24420f92486977547637dd67b079c",
+  "bounded_claim": "A_RESTARTED_MICROSEED_CAN_EXPLICITLY_REATTACH_THE_SAME_SUPPLIED_LOW_LEVEL_BODY_INTERFACE_AND_REDERIVE_THE_SAME_AFFORDANCE_RELATIVE_RELATION_CONTENT_FROM_FRESH_POST_BOOT_ORGANISM_OWNED_RAW_ACTION_OUTCOME_AND_PASSIVE_WORLD_EVIDENCE_WHILE_PRE_RESTART_RELATION_EVIDENCE_REMAINS_NON_CURRENT_AND_DURABLE_HISTORY_DOES_NOT_RECREATE_EXECUTABLE_BODY_AUTHORITY",
+  "branch": "research/grounded-language-postrestart-native-relation-v1",
+  "capture_receipts": {
+    "focused_c08d_plus_adjacent_6_pass.log": {
+      "bytes": 100,
+      "sha256": "da7e3e7e8571f136e834f51c1085bffd712561c318cdc87f2b6bd1fc79d2d2f7"
+    },
+    "language_adjacent_20_pass.log": {
+      "bytes": 101,
+      "sha256": "75732b5a83f1a7bf7c8c88f21b8dad4b06a390ed90a21267db72321a3a009cca"
+    },
+    "live_c08d_result.log": {
+      "bytes": 2807,
+      "sha256": "d32de1e0dbb7974eec78b36ba1285877b81ca78116d76104981bf4d3cfa8b50f"
+    },
+    "maintenance_rehearsal_start_state_failure.stderr.log": {
+      "bytes": 2220,
+      "sha256": "f90bd5890485341fc356912d39b47734818335bf9b20d5bda27dc574bc2edfab"
+    },
+    "maintenance_value_registry_attr_failure.stderr.log": {
+      "bytes": 1405,
+      "sha256": "a8f5ffa4d04710a54007027b34a375081226e8f0ffb28383248eb3e827698de7"
+    },
+    "native_currentness_restart_15_pass.log": {
+      "bytes": 102,
+      "sha256": "4f3ff4a491a84bc51d2bab02fa8a0b3a8076e86095caa270fbc1e0fa6ee663e8"
+    },
+    "positive_path_mutants_6_killed.log": {
+      "bytes": 512,
+      "sha256": "d73936d7a6bb9e856708b4f1555c8a763278112d2f260d6f25a74d6c9c925964"
+    },
+    "pre_c08d_c08a_c08c_regression_4_pass.log": {
+      "bytes": 100,
+      "sha256": "e055e5f2ecb1293aae36ad6961c1c34070d112d696830a83d2d2bd50af21650c"
+    },
+    "representation_restart_invariance.log": {
+      "bytes": 544,
+      "sha256": "e37cf571ffc87f46f9ba2482317d9d8415a9f33cbb9df9a5bfc45447f25f314f"
+    }
+  },
+  "date": "2026-09-06",
+  "entity_sha256": "d237df82f0bd6850f3b54754fd490c8ad1deb1f66f62dcb8b4be554408aa6a12",
+  "execution_authority_from_history": "NONE",
+  "focused_adjacent": {
+    "failed": 0,
+    "passed": 6
+  },
+  "language_adjacent_ms2046_c01_c08d": {
+    "failed": 0,
+    "passed": 20
+  },
+  "language_authority": "NONE",
+  "microseed_delta": [
+    "microseed/runtime/entity.py"
+  ],
+  "native_currentness_restart_regression": {
+    "failed": 0,
+    "passed": 15
+  },
+  "next": "C08E_NATIVE_C07_TOKEN_BINDING_REEMBODIMENT_ON_POSTRESTART_NATIVE_RELATION",
+  "not_earned": [
+    "C07_TOKEN_BINDING_REEMBODIMENT",
+    "SEMANTIC_PREDICATE",
+    "TOKEN_MEANING",
+    "LANGUAGE_FACULTY",
+    "GENERIC_CAPABILITY_FACULTY",
+    "CANON_PROMOTION"
+  ],
+  "positive_mutant_receipt_sha256": "11eafcca426f4a0005ea3bcac63b6c5bff35ecff38df5a8c92e71ddb714285f0",
+  "positive_mutant_tool_sha256": "bfe2b86e2985a392a28409130b8a1a64c2c0cc2f2fa4df56be63d79b4003acd9",
+  "positive_path_mutants": {
+    "killed": 6,
+    "survived": 0,
+    "unknown": 0
+  },
+  "relation_identity": {
+    "after_fresh_restart_evidence_sha256": "cabd1ba8831c63e5468493aa312f44866d51d5db0155f86b2308428e821031da",
+    "before_restart_sha256": "cabd1ba8831c63e5468493aa312f44866d51d5db0155f86b2308428e821031da",
+    "channel_permutation_and_sensor_sign_inversion": "EXACT_RELATION_DIGEST",
+    "empirical_reversal": "DRIFT_WITNESS",
+    "reversed_relation_sha256": "06cb779eec45c0af596a63be9eb63ad308ceb169de7548f8953f0a2cdec3a480",
+    "stable_across_restart": true
+  },
+  "restart_ownership": {
+    "association_after_restart": "REVALIDATION_REQUIRED_OPAQUE_EVIDENCE_ASSOCIATION",
+    "body_capabilities_before_reattach": [],
+    "body_reattachment": "EXPLICIT_SUPPLIED_LOW_LEVEL_BODY_INTERFACE",
+    "durable_history_reauthorized_body": "NO",
+    "fresh_post_restart_organism_owned_evidence_required": "YES",
+    "historical_relation_witness": "UNKNOWN_INCOMPLETE__FRESH_CURRENT_RUNTIME_OWNED_RELATION_WITNESS_REQUIRED",
+    "reattached_without_fresh_evidence": "DEFER_UNKNOWN"
+  },
+  "schema": "microseed.lang-c08d-postrestart-native-relation.v1",
+  "semantic_authority": "NONE",
+  "source_sha256": "2f02a8a173bed1fa316bf7d8aad96b6f936160e356e5e090cbfbe5d478a2f2c9",
+  "status": "C08D_POST_RESTART_NATIVE_RELATION_REDERIVATION_EARNED",
+  "test_sha256": "519fa56ffb77d3b8b0e9c5ef38105dce7ec629abaf6456d784c50da329b7cded",
+  "truth_authority": "NONE"
+}

@@ -1,0 +1,25 @@
+{
+  "scars": [
+    {
+      "law": "DURABLE_RELATION_EVIDENCE != FRESH_CURRENTNESS",
+      "scar": "PRE_RESTART_NATIVE_RELATION_WITNESS_CANNOT_REVALIDATE_RESTART",
+      "status": "ENFORCED"
+    },
+    {
+      "law": "DURABLE_HISTORY != EXECUTABLE_BODY_REAUTHORIZATION",
+      "scar": "BODY_CONTRACTS_NOT_REPLAYED",
+      "status": "EXPECTED_AND_REQUIRED"
+    },
+    {
+      "classification": "MAINTENANCE_ONLY",
+      "detail": "first C08D harness attempt referenced nonexistent values.variables before scientific path",
+      "scar": "C08D_VALUE_REGISTRY_ATTRIBUTE_HARNESS_ERROR"
+    },
+    {
+      "classification": "MAINTENANCE_ONLY",
+      "detail": "second harness attempt changed control-state id away from s0 and correctly triggered applicability abstention; fixed harness to observe fresh s0 for action phase",
+      "scar": "C08D_REHEARSAL_START_STATE_HARNESS_ERROR"
+    }
+  ],
+  "schema": "microseed.lang-c08d-scar-ledger.v1"
+}

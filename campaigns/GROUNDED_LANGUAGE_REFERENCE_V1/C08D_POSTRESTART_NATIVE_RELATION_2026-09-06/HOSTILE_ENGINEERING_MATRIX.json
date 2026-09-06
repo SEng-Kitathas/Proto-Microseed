@@ -1,0 +1,41 @@
+{
+  "checks": [
+    {
+      "check": "body contracts restored automatically after restart",
+      "result": "NO"
+    },
+    {
+      "check": "historical native relation witness accepted as fresh currentness",
+      "result": "NO__UNKNOWN_INCOMPLETE"
+    },
+    {
+      "check": "same body reattached without fresh experience sufficient",
+      "result": "NO__DEFER_UNKNOWN"
+    },
+    {
+      "check": "fresh post-restart relation digest equals pre-restart content identity",
+      "result": "YES_EXACT"
+    },
+    {
+      "check": "caller supplies referent groups/relation order/relation digest",
+      "result": "NO"
+    },
+    {
+      "check": "empirical reversal",
+      "result": "DRIFT_WITNESS"
+    },
+    {
+      "check": "representation permutation/sign inversion",
+      "result": "PASS_EXACT"
+    },
+    {
+      "check": "new relation/token action contract or generic faculty",
+      "result": "NO"
+    },
+    {
+      "check": "C08D current-runtime freshness loss mutant",
+      "result": "KILLED"
+    }
+  ],
+  "schema": "microseed.lang-c08d-hostile-matrix.v1"
+}

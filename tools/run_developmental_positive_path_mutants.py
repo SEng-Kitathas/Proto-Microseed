@@ -55,6 +55,13 @@ MUTANTS = {
         "new": "        return {**base,\"status\":\"DEFER_UNKNOWN\",\"reason\":\"MUTANT_SUPPRESSED_OWNED_DIRECTIONAL_RELATION_DERIVATION\"}\n        passive=self.derive_current_owned_passive_raw_transition(max_events=max_events)\n        if passive.get(\"status\")!=\"CURRENT_OWNED_PASSIVE_RAW_TRANSITION\":\n",
         "loss_class": "OWNED_DIRECTIONAL_RELATION_GENERATION_SUPPRESSED",
     },
+    "SUPPRESS_C08D_CURRENT_RUNTIME_FRESHNESS_PATH": {
+        "target": "microseed/runtime/entity.py",
+        "test": "tests/embodiment/test_lang_c08d_postrestart_native_relation_rederivation.py",
+        "old": "        return max(boots) if boots else -1\n",
+        "new": "        return (max(boots) + 1000000000000) if boots else -1\n",
+        "loss_class": "POST_RESTART_FRESH_EVIDENCE_REDERIVATION_SUPPRESSED",
+    },
 }
 
 

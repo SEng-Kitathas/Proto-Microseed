@@ -4412,6 +4412,8 @@ class Microseed:
                 return {"status":"UNKNOWN_INCOMPLETE","reason":"CURRENTNESS_WITNESS_RECORD_IDENTITY_MISMATCH"}
             observed=str(payload.get("observed_right_digest_sha256","")).lower()
         elif kind=="OWNED_AFFORDANCE_RELATIVE_DIRECTIONAL_RELATION_WITNESS":
+            if int(payload.get("runtime_boot_seq",-1)) != self._current_runtime_boot_seq():
+                return {"status":"UNKNOWN_INCOMPLETE","reason":"FRESH_CURRENT_RUNTIME_OWNED_RELATION_WITNESS_REQUIRED"}
             observed=str(payload.get("relation_digest_sha256","")).lower()
             if len(observed)!=64 or any(c not in "0123456789abcdef" for c in observed):
                 return {"status":"UNKNOWN_INCOMPLETE","reason":"OWNED_RELATION_CURRENTNESS_DIGEST_REQUIRED"}
@@ -8064,6 +8066,16 @@ class Microseed:
             "semantic_reference_authority": "NONE",
         }
 
+    def _current_runtime_boot_seq(self) -> int:
+        """Return the durable BOOT event that opened this runtime instance.
+
+        BOOT is appended only after durable state replay is complete. Evidence-derived
+        currentness may use this sequence boundary to require fresh post-restart reality
+        contact without treating restart bytes as execution/body authority.
+        """
+        boots=[int(row["seq"]) for row in self.store.events() if row.get("kind")=="BOOT"]
+        return max(boots) if boots else -1
+
     def record_current_owned_affordance_effect_profiles(
         self, *, evidence_id_prefix: str, max_probe_steps: int = 8,
     ) -> dict[str, Any]:
@@ -8088,6 +8100,22 @@ class Microseed:
         execution_ids=tuple(str(x) for x in prefix.get("execution_ids",()))
         if len(raw)!=len(actions)+1 or len(raw_eids)!=len(raw) or len(execution_ids)!=len(actions):
             return {**base,"status":"DEFER_UNKNOWN","reason":"OWNED_PROBE_PREFIX_ANCESTRY_INCOMPLETE"}
+        runtime_boot_seq=self._current_runtime_boot_seq()
+        events=self.store.events()
+        raw_seq_by_eid={
+            str((row.get("payload") or {}).get("evidence_id","")):int(row["seq"])
+            for row in events if row.get("kind")=="BOUNDED_RAW_OBSERVATION_RECORDED"
+        }
+        execution_seq_by_id={
+            str((row.get("payload") or {}).get("execution_id","")):int(row["seq"])
+            for row in events if row.get("kind")=="BOUNDED_ACTION_EXECUTED"
+        }
+        if runtime_boot_seq < 0:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"CURRENT_RUNTIME_BOOT_BOUNDARY_REQUIRED"}
+        if any(raw_seq_by_eid.get(eid,-1)<=runtime_boot_seq for eid in raw_eids):
+            return {**base,"status":"DEFER_UNKNOWN","reason":"FRESH_POST_BOOT_RAW_PROBE_EVIDENCE_REQUIRED","runtime_boot_seq":runtime_boot_seq}
+        if any(execution_seq_by_id.get(eid,-1)<=runtime_boot_seq for eid in execution_ids):
+            return {**base,"status":"DEFER_UNKNOWN","reason":"FRESH_POST_BOOT_ACTION_EXECUTION_REQUIRED","runtime_boot_seq":runtime_boot_seq}
         derived=self.derive_operational_referent_signatures_from_raw_trace(raw,actions)
         if derived.get("status")!="OPERATIONAL_REFERENT_SIGNATURES_DERIVED_FROM_RAW_TRACE":
             return {**base,"status":"DEFER_UNKNOWN","reason":"CURRENT_OPERATIONAL_REFERENTS_NOT_DERIVABLE","detail":derived}
@@ -8171,7 +8199,8 @@ class Microseed:
                 "frame_id":str(frame_id),"frame_epoch":int(frame_epoch),
                 "frame_signature_sha256":frame.signature_sha256,
                 "source_raw_evidence_refs":[list(x) for x in sorted(set(source_refs))],
-                "derivation_basis":"CURRENT_OWNED_RAW_RECEIPTS_PLUS_AUTHENTICATED_ACTION_OUTCOME_PREFIX",
+                "runtime_boot_seq":runtime_boot_seq,
+                "derivation_basis":"CURRENT_RUNTIME_OWNED_RAW_RECEIPTS_PLUS_AUTHENTICATED_ACTION_OUTCOME_PREFIX",
                 "operational_authority":"EVIDENCE_ONLY","truth_authority":"NONE",
                 "identity_authority":"NONE","semantic_reference_authority":"NONE",
                 "selection_authority":"NONE","execution_authority":"NONE","language_authority":"NONE",
@@ -8198,12 +8227,15 @@ class Microseed:
         if bound<=0:
             return {**base,"status":"DEFER_UNKNOWN","reason":"PASSIVE_TRANSITION_EVENT_SCAN_BUDGET_REQUIRED"}
         events=self.store.events()
+        runtime_boot_seq=self._current_runtime_boot_seq()
+        if runtime_boot_seq < 0:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"CURRENT_RUNTIME_BOOT_BOUNDARY_REQUIRED"}
         if len(events)>bound:
             events=events[-bound:]
             scan_complete=False
         else:
             scan_complete=True
-        raw_indices=[i for i,row in enumerate(events) if row.get("kind")=="BOUNDED_RAW_OBSERVATION_RECORDED"]
+        raw_indices=[i for i,row in enumerate(events) if row.get("kind")=="BOUNDED_RAW_OBSERVATION_RECORDED" and int(row.get("seq",-1))>runtime_boot_seq]
         if len(raw_indices)<2:
             return {**base,"status":"DEFER_UNKNOWN","reason":"TWO_OWNED_RAW_OBSERVATIONS_REQUIRED","scan_complete":scan_complete}
         j=raw_indices[-1]; i=raw_indices[-2]
@@ -8238,7 +8270,8 @@ class Microseed:
                 "after_control_state_evidence_id":str(after["control_state_evidence_id"]),
                 "frame_epoch":(str(after["frame_id"]),int(after["frame_epoch"])),
                 "event_seq":(int(events[i]["seq"]),int(events[j]["seq"])),
-                "history_basis":"ADJACENT_OWNED_RAW_RECEIPTS_WITHOUT_INTERVENING_BOUNDED_ACTION_EXECUTION",
+                "runtime_boot_seq":runtime_boot_seq,
+                "history_basis":"CURRENT_RUNTIME_ADJACENT_OWNED_RAW_RECEIPTS_WITHOUT_INTERVENING_BOUNDED_ACTION_EXECUTION",
                 "scan_complete":scan_complete}
 
     def derive_and_record_current_owned_affordance_relative_directional_relation(
@@ -8268,6 +8301,8 @@ class Microseed:
         for row in rows:
             payload=row.get("payload") or {}
             if payload.get("kind")!="OWNED_AFFORDANCE_EFFECT_PROFILE_WITNESS" or row.get("negative"):
+                continue
+            if int(payload.get("runtime_boot_seq",-1)) != int(passive.get("runtime_boot_seq",-2)):
                 continue
             if (str(payload.get("frame_id")),int(payload.get("frame_epoch",-1))) != tuple(passive["frame_epoch"]):
                 continue
@@ -8338,6 +8373,7 @@ class Microseed:
                 [passive["after_raw_evidence_id"],passive["after_raw_evidence_sha256"]],
             ],
             "passive_event_seq":list(passive["event_seq"]),
+            "runtime_boot_seq":int(passive["runtime_boot_seq"]),
             "diagnostic":diagnostics,
             "derivation_basis":"OWNED_LOCAL_EFFECT_EDGES_PLUS_OWNED_PASSIVE_RAW_EDGE__OPAQUE_ENDPOINT_EQUALITY_ONLY",
             "caller_supplied_relation_order":"NO","caller_supplied_relation_digest":"NO",

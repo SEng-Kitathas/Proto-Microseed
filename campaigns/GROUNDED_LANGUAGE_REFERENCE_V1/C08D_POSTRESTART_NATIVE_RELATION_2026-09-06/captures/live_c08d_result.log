@@ -1,0 +1,90 @@
+{
+  "association_after_restart": "REVALIDATION_REQUIRED_OPAQUE_EVIDENCE_ASSOCIATION",
+  "body_capabilities_before_reattach": [],
+  "body_reattachment": "EXPLICIT_SUPPLIED_LOW_LEVEL_BODY_INTERFACE",
+  "caller_supplied_referent_groups": "NO",
+  "caller_supplied_relation_digest": "NO",
+  "caller_supplied_relation_order": "NO",
+  "coordinate_arithmetic": "NONE",
+  "durable_history_reauthorized_body": "NO",
+  "empirical_reversal": "DRIFT_WITNESS",
+  "execution_authority_from_history": "NONE",
+  "first_attachment": {
+    "body_capability_ids": [
+      "C08C-OBS-BASIS",
+      "C08C-OBS-RAW",
+      "QX",
+      "QY"
+    ],
+    "episode_epoch": [
+      "EP",
+      0
+    ],
+    "execution_authority_from_history": "NONE",
+    "frame_epoch": [
+      "F",
+      0
+    ],
+    "referent_structure_supplied": "NO",
+    "relation_answer_supplied": "NO",
+    "status": "SUPPLIED_LOW_LEVEL_BODY_INTERFACE_ATTACHED",
+    "value_epoch": [
+      "V",
+      0
+    ]
+  },
+  "first_runtime_boot_seq": 1,
+  "fresh_post_restart_organism_owned_evidence_required": "YES",
+  "fresh_relation_evidence_id": "E-C08D-R2-RELATION",
+  "fresh_relation_runtime_boot_seq": 83,
+  "historical_relation_witness_after_restart": {
+    "reason": "FRESH_CURRENT_RUNTIME_OWNED_RELATION_WITNESS_REQUIRED",
+    "status": "UNKNOWN_INCOMPLETE"
+  },
+  "language_authority": "NONE",
+  "not_earned": [
+    "C07_TOKEN_BINDING_REEMBODIMENT",
+    "SEMANTIC_PREDICATE",
+    "TOKEN_MEANING",
+    "LANGUAGE_FACULTY",
+    "GENERIC_CAPABILITY_FACULTY",
+    "CANON_PROMOTION"
+  ],
+  "post_restart_revalidation": "CURRENTNESS_CONFIRMED",
+  "reattached_without_fresh_evidence": {
+    "reason": "CURRENT_OWNED_PROBE_PREFIX_REQUIRED",
+    "status": "DEFER_UNKNOWN"
+  },
+  "relation_digest_after_fresh_restart_evidence": "cabd1ba8831c63e5468493aa312f44866d51d5db0155f86b2308428e821031da",
+  "relation_digest_before_restart": "cabd1ba8831c63e5468493aa312f44866d51d5db0155f86b2308428e821031da",
+  "relation_digest_stable_across_restart": true,
+  "reversed_relation_digest_sha256": "06cb779eec45c0af596a63be9eb63ad308ceb169de7548f8953f0a2cdec3a480",
+  "second_attachment": {
+    "body_capability_ids": [
+      "C08C-OBS-BASIS",
+      "C08C-OBS-RAW",
+      "QX",
+      "QY"
+    ],
+    "episode_epoch": [
+      "EP",
+      0
+    ],
+    "execution_authority_from_history": "NONE",
+    "frame_epoch": [
+      "F",
+      0
+    ],
+    "referent_structure_supplied": "NO",
+    "relation_answer_supplied": "NO",
+    "status": "SUPPLIED_LOW_LEVEL_BODY_INTERFACE_ATTACHED",
+    "value_epoch": [
+      "V",
+      0
+    ]
+  },
+  "second_runtime_boot_seq": 83,
+  "semantic_authority": "NONE",
+  "status": "C08D_POST_RESTART_NATIVE_RELATION_REDERIVATION_EARNED",
+  "truth_authority": "NONE"
+}

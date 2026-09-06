@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "E:\new pc\AI_Pushes_Sandbox\projects\protoagi_microseed_reincarnation_20260827\research_ms1888_replay\.pcmmad_sync_runs\wt_language_c08d_20260906\scratch\lang_c08d_postrestart_native_relation_rederivation.py", line 314, in <module>
+    main()
+  File "E:\new pc\AI_Pushes_Sandbox\projects\protoagi_microseed_reincarnation_20260827\research_ms1888_replay\.pcmmad_sync_runs\wt_language_c08d_20260906\scratch\lang_c08d_postrestart_native_relation_rederivation.py", line 310, in main
+    print(json.dumps(run_campaign(), indent=2, sort_keys=True))
+                     ^^^^^^^^^^^^^^
+  File "E:\new pc\AI_Pushes_Sandbox\projects\protoagi_microseed_reincarnation_20260827\research_ms1888_replay\.pcmmad_sync_runs\wt_language_c08d_20260906\scratch\lang_c08d_postrestart_native_relation_rederivation.py", line 158, in run_campaign
+    attach1 = _attach_runtime_surface(ms1, world, "R1")
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\new pc\AI_Pushes_Sandbox\projects\protoagi_microseed_reincarnation_20260827\research_ms1888_replay\.pcmmad_sync_runs\wt_language_c08d_20260906\scratch\lang_c08d_postrestart_native_relation_rederivation.py", line 50, in _attach_runtime_surface
+    assert "V" not in ms.values.variables
+                      ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ValueVariableRegistry' object has no attribute 'variables'

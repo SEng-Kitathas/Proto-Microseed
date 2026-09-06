@@ -1,0 +1,14 @@
+{
+  "receipt": "reports\\developmental_positive_path_mutants\\receipt.json",
+  "killed": [
+    "SUPPRESS_EARNED_BOUNDED_ACTION_YES",
+    "SUPPRESS_EARNED_ENDOGENOUS_EPISTEMIC_INTENT",
+    "SUPPRESS_OWNED_THREE_LOCUS_PROGRAM_GENERATION",
+    "SUPPRESS_C08A_FRESH_REVALIDATION_TO_CURRENT",
+    "SUPPRESS_C08C_OWNED_DIRECTIONAL_RELATION_DERIVATION",
+    "SUPPRESS_C08D_CURRENT_RUNTIME_FRESHNESS_PATH"
+  ],
+  "survived_under_action_blind_spot": [],
+  "unknown": [],
+  "completion_marker": "COMPLETE"
+}
