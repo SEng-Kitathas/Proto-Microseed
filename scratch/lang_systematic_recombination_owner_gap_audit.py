@@ -23,13 +23,17 @@ def run_audit() -> dict[str,object]:
         text='\n'.join(block)
         if ('ORDERED_EVIDENCE_TUPLE' in text or 'composition_operator' in text or 'composition_content_digest_sha256' in text):
             owned_methods.append(block[0].strip())
+    expected=('def derive_and_record_current_native_b2_ordered_composition(self, *, max_records: int = 4096) -> dict[str, Any]:',)
+    assert tuple(owned_methods)==expected,owned_methods
     return {
-        'status':'STOP_SYSTEMATIC_RECOMBINATION_OWNER_MISSING',
+        'status':'CURRENT_BOUNDED_SYSTEMATIC_B2_OPERATOR_PRESENT',
         'c08g_xy_available_in_research_helper':c08g['xy_composition_digest_sha256'],
         'c08g_yx_available_in_research_helper':c08g['yx_composition_digest_sha256'],
         'c08g_order_sensitive':c08g['order_sensitive'],
         'production_owned_composition_methods':owned_methods,
-        'localized_missing_mechanism':'MICROSEED_OWNED_BOUNDED_ORDERED_COMPOSITION_OPERATOR',
+        'historically_localized_missing_mechanism':'MICROSEED_OWNED_BOUNDED_ORDERED_COMPOSITION_OPERATOR',
+        'binding_now_embodied':'YES_BOUNDED_B2_ONLY',
+        'generic_unbounded_systematicity':'NOT_EARNED',
         'new_planner_required':'NO',
         'grammar_authority':'NONE','semantic_authority':'NONE','truth_authority':'NONE','execution_authority':'NONE',
     }

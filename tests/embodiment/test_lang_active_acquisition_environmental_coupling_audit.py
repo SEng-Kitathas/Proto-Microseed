@@ -10,7 +10,7 @@ def test_acquisition_effect_does_not_generate_opaque_token_presentation():
     assert r['effect_created_token_observation']=='NO'
     assert r['token_observations_after_external_ingress']==r['token_observations_after_effect']+1
     assert r['external_ingress_created_token_observation']=='YES'
-    assert r['production_token_kind_mentions']==1
+    assert r['production_token_kind_mentions']>=1
     assert r['production_token_writer_patterns']==0
     assert r['token_presentation_owner']=='EXOGENOUS_INGRESS'
     assert r['novel_pair_active_acquisition_closure']=='NOT_EARNED'

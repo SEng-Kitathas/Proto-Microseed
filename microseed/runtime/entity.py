@@ -4566,6 +4566,130 @@ class Microseed:
                 "caller_supplied_pair_ids":"NO","caller_supplied_association_scope":"NO",
                 "experience_generation":"EXOGENOUS_EXPERIENCE_PRESENTATION_REMAINS"}
 
+    def derive_and_record_current_native_b2_ordered_composition(self, *, max_records: int = 4096) -> dict[str, Any]:
+        """Compose the latest two current opaque-token operands through owned referent associations.
+
+        The caller supplies no operands, order, association ids, referent ids, or output id.
+        This is a bounded B2 operational composition operator only.  It carries no grammar,
+        predicate, truth, semantic-reference, identity, selection, or execution authority.
+        """
+        base={
+            "semantic_reference_authority":"NONE","truth_authority":"NONE",
+            "execution_authority":"NONE","predicate_authority":"NONE",
+            "grammar_authority":"NONE","numerical_identity_authority":"NONE",
+            "language_authority":"NONE","authority_gain":"NONE",
+        }
+        bound=int(max_records)
+        if bound<=0:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"NATIVE_B2_EVIDENCE_SCAN_BUDGET_REQUIRED"}
+        total=self.evidence.count()
+        if total>bound:
+            return {**base,"status":"SEARCH_BUDGET_EXHAUSTED_NOT_SATURATED",
+                    "reason":"NATIVE_B2_EVIDENCE_HISTORY_EXCEEDS_SCAN_BUDGET",
+                    "total_records":total,"max_records":bound}
+        boot=self._current_runtime_boot_seq()
+        if boot<0:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"CURRENT_RUNTIME_BOOT_BOUNDARY_REQUIRED"}
+        rows=self.evidence.list()
+        token_rows=[
+            (i,row) for i,row in enumerate(rows)
+            if (row.get("payload") or {}).get("kind")=="OPAQUE_EXTERNAL_TOKEN_OBSERVATION"
+            and int((row.get("payload") or {}).get("runtime_boot_seq",-1))==boot
+        ]
+        if len(token_rows)<2:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"TWO_CURRENT_RUNTIME_OBSERVED_TOKEN_OPERANDS_REQUIRED"}
+        selected=token_rows[-2:]
+        tokens=tuple(str((row.get("payload") or {}).get("opaque_token","")) for _i,row in selected)
+        if any(not token for token in tokens):
+            return {**base,"status":"DEFER_UNKNOWN","reason":"OPAQUE_TOKEN_CONTENT_REQUIRED"}
+
+        components=[]; referent_sigs=[]
+        scope_tag="QUALIFICATION_SCOPE:NATIVE_TOKEN_REFERENT"
+        for (token_pos,token_row),token in zip(selected,tokens):
+            candidates=[]
+            for rec in self.opaque_evidence_associations.records.values():
+                if rec.left_opaque_id!=token or scope_tag not in rec.assistance_ancestry:
+                    continue
+                status=self.opaque_evidence_association_status(rec.record_id)
+                if status.get("status")!="CURRENT_OPAQUE_EVIDENCE_ASSOCIATION":
+                    continue
+                candidates.append(rec)
+            if len(candidates)!=1:
+                return {**base,"status":"DEFER_UNKNOWN",
+                        "reason":"UNIQUE_CURRENT_NATIVE_TOKEN_REFERENT_ASSOCIATION_REQUIRED",
+                        "opaque_token":token,"current_candidate_count":len(candidates)}
+            rec=candidates[0]; referent_sig=str(rec.right_digest_sha256)
+            profile_rows=[
+                row for row in rows
+                if (row.get("payload") or {}).get("kind")=="OWNED_AFFORDANCE_EFFECT_PROFILE_WITNESS"
+                and int((row.get("payload") or {}).get("runtime_boot_seq",-1))==boot
+                and str((row.get("payload") or {}).get("operational_referent_signature_sha256",""))==referent_sig
+            ]
+            if not profile_rows:
+                return {**base,"status":"DEFER_UNKNOWN","reason":"CURRENT_NATIVE_REFERENT_PROFILE_REQUIRED",
+                        "opaque_token":token,"referent_signature":referent_sig}
+            profile_row=profile_rows[-1]
+            referent_sigs.append(referent_sig)
+            components.append({
+                "ordinal":len(components),"opaque_token":token,
+                "operational_referent_signature_sha256":referent_sig,
+                "association_record_id":rec.record_id,
+                "token_evidence_ref":[str(token_row["evidence_id"]),str(token_row["sha256"])],
+                "profile_evidence_ref":[str(profile_row["evidence_id"]),str(profile_row["sha256"])],
+                "evidence_list_position":int(token_pos),
+                "identity_scope":"OPERATIONAL_EQUIVALENCE_CLASS_ONLY",
+            })
+        if len(set(referent_sigs))!=2:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"INDEPENDENT_NATIVE_REFERENT_OPERANDS_REQUIRED"}
+
+        content={
+            "operator":"ORDERED_EVIDENCE_TUPLE",
+            "ordered_operational_referent_signatures":list(referent_sigs),
+            "arity":2,"identity_scope":"OPERATIONAL_EQUIVALENCE_CLASS_ONLY",
+        }
+        composition_digest=action_result_digest(content)
+        payload={
+            "kind":"OWNED_NATIVE_B2_ORDERED_OPERATIONAL_REFERENCE_COMPOSITION_EVIDENCE",
+            "composition_content_digest_sha256":composition_digest,
+            "components":components,
+            "ordered_operational_referent_signatures":list(referent_sigs),
+            "runtime_boot_seq":boot,
+            "composition_operator":"ORDERED_EVIDENCE_TUPLE",
+            "operator_owner":"MICROSEED_NATIVE_B2_ORDERED_COMPOSITION",
+            "ordering_basis":"CURRENT_RUNTIME_OPAQUE_TOKEN_EVIDENCE_APPEND_ORDER",
+            "operand_selection_basis":"LATEST_TWO_CURRENT_RUNTIME_OPAQUE_TOKEN_OBSERVATIONS",
+            "association_selection_basis":"UNIQUE_CURRENT_QUALIFIED_NATIVE_TOKEN_REFERENT_ASSOCIATION",
+            "identity_scope":"OPERATIONAL_EQUIVALENCE_CLASS_ONLY",
+            "authority_gain":"NONE",
+        }
+        evidence_id="E-NATIVE-B2-COMPOSITION-"+action_result_digest(payload)[:24]
+        existing=self.evidence.get(evidence_id)
+        if existing is None:
+            ref=self.append_evidence(evidence_id,payload,EpistemicStatus.PRESSURE_SUPPORTED,
+                                     source="MICROSEED-NATIVE-B2-ORDERED-COMPOSITION")
+            evidence_sha=ref.sha256; record_status="COMPOSITION_EVIDENCE_RECORDED"
+        else:
+            if existing.get("negative") or existing.get("payload")!=payload:
+                return {**base,"status":"DEFER_UNKNOWN","reason":"NATIVE_B2_COMPOSITION_EVIDENCE_ID_COLLISION",
+                        "composition_evidence_id":evidence_id}
+            evidence_sha=str(existing.get("sha256","")); record_status="COMPOSITION_EVIDENCE_ALREADY_PRESENT"
+        return {
+            **base,"status":"CURRENT_NATIVE_B2_ORDERED_OPERATIONAL_REFERENCE_COMPOSITION_RECORDED",
+            "composition_evidence_id":evidence_id,"composition_evidence_sha256":evidence_sha,
+            "composition_record_status":record_status,
+            "composition_content_digest_sha256":composition_digest,
+            "ordered_operational_referent_signatures":tuple(referent_sigs),
+            "components":tuple(components),"composition_operator":"ORDERED_EVIDENCE_TUPLE",
+            "operator_owner":"MICROSEED_NATIVE_B2_ORDERED_COMPOSITION",
+            "ordering_basis":payload["ordering_basis"],
+            "operand_selection_basis":payload["operand_selection_basis"],
+            "association_selection_basis":payload["association_selection_basis"],
+            "identity_scope":payload["identity_scope"],
+            "caller_supplied_token_operands":"NO","caller_supplied_operand_order":"NO",
+            "caller_supplied_association_ids":"NO","caller_supplied_referent_identity":"NO",
+            "caller_supplied_output_evidence_id":"NO",
+        }
+
     def harvest_qualify_and_register_current_opaque_evidence_associations(self, *, max_records: int = 4096) -> dict[str,Any]:
         """Auto-harvest current pair evidence, qualify every owned scope, and register results.
 
