@@ -1,0 +1,18 @@
+{
+  "pass": 16,
+  "name": "GENERALIZED_OWNER_RESTART_CURRENTNESS_HOSTILES",
+  "status": "PASS",
+  "discriminator": "does embodied bounded arity owner survive restart/budget/boundary/forged-premise/currentness pressure?",
+  "evidence": [
+    "test_lang_bounded_arity_generalization_restart_hostile.py + production/admissibility hostiles 10/10 PASS",
+    "restart without fresh current token suffix derives arity0/refuses",
+    "fresh profiles + association revalidation + fresh arity4 suffix rederive same content",
+    "composition evidence closes window",
+    "frame drift removes leaf support",
+    "truncated max_records refuses before partial scan",
+    "negative/violated/non-observation token rows rejected"
+  ],
+  "result": "GENERALIZED_OWNER_HOSTILE_SURFACE_SURVIVES",
+  "promotion": "NONE",
+  "next": "CSC and broad lineage regression"
+}

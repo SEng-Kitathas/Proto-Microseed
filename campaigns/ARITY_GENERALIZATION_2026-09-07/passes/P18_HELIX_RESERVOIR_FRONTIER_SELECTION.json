@@ -1,0 +1,25 @@
+{
+  "pass": 18,
+  "name": "HELIX_RESERVOIR_FRONTIER_SELECTION",
+  "status": "CONVERGED_BOUNDED",
+  "discriminator": "what has actually been earned and what remains causally missing?",
+  "evidence": [
+    "B2/B3 exact content equivalence under one generalized owner",
+    "held-out arity4 using same mechanism with no B4 branch",
+    "restart/currentness/representation/breadth pressure survived",
+    "negative token evidence defect repaired upstream",
+    "hard max4 still supplied by implementation/campaign bound",
+    "operand-window boundaries require represented non-token evidence"
+  ],
+  "result": "EARN_BOUNDED_DIRECT_ARITY_GENERALIZATION_2_TO_4_ONLY",
+  "next_frontier": "ENDOGENOUS_OPERAND_WINDOW_BOUNDARY_OWNERSHIP",
+  "nonclaims": [
+    "generic/unbounded N-ary composition",
+    "arity >4",
+    "semantic grouping",
+    "recursive flattening",
+    "associativity",
+    "grammar/language competence"
+  ],
+  "promotion": "NONE"
+}

@@ -1,12 +1,12 @@
 {
   "schema": "microseed.arity_generalization_campaign.v1",
   "campaign": "ARITY_GENERALIZATION_2026-09-07",
-  "status": "ACTIVE",
+  "status": "PASS_GATE_SEAL_READY",
   "branch": "research/grounded-language-arity-generalization-v1",
   "base_head": "39bd68e5484e2229b6a4349248025aebb3428835",
   "pass_ceiling": 20,
-  "completed_passes": 14,
-  "current_pass": 15,
-  "current_discriminator": "bounded generalized direct ordered composition owner max4 under repaired token premise law",
+  "completed_passes": 19,
+  "current_pass": 20,
+  "current_discriminator": "seal/publish/remote-readback/continuity completion",
   "promotion": "NONE"
 }

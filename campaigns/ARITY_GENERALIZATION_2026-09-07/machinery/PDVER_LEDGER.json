@@ -22,26 +22,28 @@
     ]
   },
   "verify": {
-    "result": "PASS_REPAIR_BOUNDED",
-    "checks": [
-      "negative token composition guard PASS",
-      "negative token pair harvest guard PASS",
-      "wrong disposition/authority guards PASS",
-      "negative grounded source guard PASS",
-      "C08I/B2/B3/recursive/prototype targeted lineage 21/21 PASS"
-    ]
+    "result": "PASS_SEAL_READY",
+    "breadth": "88/88 PASS",
+    "compileall": "PASS",
+    "diff_check": "PASS",
+    "anti_smuggling": "PASS",
+    "authority_gain": "NONE"
   },
   "embody": {
     "artifacts": [
-      "shared production token-evidence admissibility owner",
-      "updated historical hostile regression guards"
+      "shared token-evidence admissibility owner",
+      "bounded generalized direct composition owner min2/max4",
+      "production hostile tests"
     ],
+    "candidate_status": "EMBODIED_NOT_SEALED",
     "authority_gain": "NONE"
   },
   "recurse": {
     "next": [
-      "embody bounded generalized arity owner max4",
-      "attack B2/B3 equivalence + heldout arity4 + restart/currentness + representation"
+      "seal local science commit",
+      "GitHub publish/readback",
+      "write P20 completion receipt",
+      "advance continuity/RD"
     ],
     "promotion": "NONE"
   }

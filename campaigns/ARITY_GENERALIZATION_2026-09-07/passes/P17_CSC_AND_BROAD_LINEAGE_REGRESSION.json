@@ -1,0 +1,13 @@
+{
+  "pass": 17,
+  "name": "CSC_AND_BROAD_LINEAGE_REGRESSION",
+  "status": "PASS",
+  "discriminator": "does generalized owner remain coherent across C08I/acquisition/B2/B3/recursive/currentness/information-value interfaces?",
+  "evidence": [
+    "first breadth run 86/88 with 2 current-head audit-evolution failures only",
+    "owner inventory/substrate audits updated without changing behavioral expectations",
+    "second breadth run 88/88 PASS cleanup-neutral Windows harness"
+  ],
+  "result": "CROSS_SURFACE_COHERENCE_PASSES_BOUNDED",
+  "promotion": "NONE"
+}

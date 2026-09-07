@@ -1,0 +1,53 @@
+{
+  "schema": "r44.csc.review.v1",
+  "status": "PASS_BOUNDED",
+  "interfaces": [
+    {
+      "interface": "C08I harvest -> association currentness",
+      "status": "PASS",
+      "note": "shared positive token evidence admissibility now excludes negative/violated/non-observation token rows"
+    },
+    {
+      "interface": "association/profile -> B2/B3/generalized leaves",
+      "status": "PASS",
+      "note": "all use current association/profile premises; generalized owner adds no new qualification authority"
+    },
+    {
+      "interface": "B2/B3 -> generalized direct content",
+      "status": "PASS",
+      "note": "arity2/3 generalized content digests exactly match earned legacy content digests"
+    },
+    {
+      "interface": "generalized direct -> recursive grouping",
+      "status": "SEPARATE",
+      "note": "no flattening or associativity authority; recursive owner remains distinct"
+    },
+    {
+      "interface": "token chronology -> operand window",
+      "status": "PASS_BOUNDED",
+      "note": "exact contiguous current-runtime token suffix; represented non-token evidence closes window; unrepresented pause does not"
+    },
+    {
+      "interface": "window size -> arity",
+      "status": "PASS_BOUNDED_2_TO_4",
+      "note": "no caller arity; <2 and >4 fail closed"
+    },
+    {
+      "interface": "composition -> semantics/language/effect",
+      "status": "NO_AUTHORITY_GAIN",
+      "note": "semantic/grammar/truth/language/execution/EFFECT remain NONE"
+    },
+    {
+      "interface": "restart/currentness",
+      "status": "PASS",
+      "note": "fresh token window + live leaf revalidation required after restart"
+    }
+  ],
+  "breadth": "88/88 PASS",
+  "promotion": "NONE",
+  "residuals": [
+    "max arity 4 is campaign bound, not generic N-ary proof",
+    "window boundary depends on represented evidence; no invisible grouping semantics",
+    "unbounded arity, semantic grouping, flattening, associativity remain unearned"
+  ]
+}

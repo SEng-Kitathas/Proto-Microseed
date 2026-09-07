@@ -25,6 +25,12 @@
       "question": "can negative token evidence contaminate operands?",
       "result": "yes real defect",
       "next": "repair before production generalization"
+    },
+    {
+      "cycle": 5,
+      "question": "can the generic scratch mechanism survive embodiment with no caller arity?",
+      "result": "production candidate 4/4 PASS across arity2/3/4 + bounds",
+      "next": "restart/forged-premise/currentness hostile breadth"
     }
   ]
 }

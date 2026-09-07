@@ -3,6 +3,13 @@
   "status": "ACTIVE",
   "items": [
     {
+      "id": "AR-WINDOW-BOUNDARY",
+      "priority": "P0",
+      "state": "NEXT_FRONTIER",
+      "signal": "generalized arity still depends on represented evidence boundary to delimit contiguous token window",
+      "reason": "without endogenous boundary ownership, grouping remains externally occasioned even though arity itself is no longer caller-selected"
+    },
+    {
       "id": "AR-NEG-TOKEN",
       "priority": "P0",
       "state": "REPAIRED_RETAIN_AS_SCAR",
@@ -12,21 +19,21 @@
     {
       "id": "AR-01",
       "priority": "P0",
-      "state": "LIVE",
+      "state": "RESOLVED_OR_REFRAMED",
       "signal": "B2/B3 arity is caller-selected by method",
       "reason": "must not call bounded B2+B3 generic N-ary"
     },
     {
       "id": "AR-02",
       "priority": "P0",
-      "state": "LIVE",
+      "state": "RESOLVED_OR_REFRAMED",
       "signal": "contiguous token suffix could derive arity without caller parameter",
       "reason": "smallest composition-first candidate"
     },
     {
       "id": "AR-03",
       "priority": "P1",
-      "state": "LIVE",
+      "state": "RESOLVED_OR_REFRAMED",
       "signal": "contiguous chronology may merely encode harness grouping",
       "reason": "must attack before production mutation"
     },
@@ -36,6 +43,13 @@
       "state": "DEFERRED_BUT_LIVE",
       "signal": "episode/frame may own a stronger operand window",
       "reason": "quarry before inventing delimiter primitive"
+    },
+    {
+      "id": "AR-MAX4",
+      "priority": "P1",
+      "state": "CEILING",
+      "signal": "hard max arity 4",
+      "reason": "bounded campaign proof only; increasing bound is not generic N-ary proof"
     }
   ]
 }

@@ -1,0 +1,19 @@
+{
+  "pass": 15,
+  "name": "BOUNDED_GENERALIZED_PRODUCTION_OWNER",
+  "status": "EMBODIED_CANDIDATE",
+  "discriminator": "can one production owner derive bounded arity 2..4 from owned token-window evidence without caller arity or B4-specific branch?",
+  "evidence": [
+    "derive_and_record_current_native_bounded_ordered_composition embodied with hard min2/max4",
+    "test_lang_bounded_arity_generalization_production.py 4/4 PASS",
+    "arity2 content == legacy B2 content",
+    "arity3 content == legacy B3 content",
+    "held-out arity4 content == scratch generic prototype",
+    "arity1 and arity5 fail closed",
+    "generic evidence closes/consumes current token suffix"
+  ],
+  "result": "BOUNDED_ARITY_GENERALIZATION_CANDIDATE_EMBODIED",
+  "authority_gain": "NONE",
+  "promotion": "NONE",
+  "next": "hostile restart/boundary/forged-premise/currentness breadth before seal"
+}

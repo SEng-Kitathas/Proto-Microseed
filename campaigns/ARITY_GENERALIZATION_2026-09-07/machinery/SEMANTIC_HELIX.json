@@ -1,6 +1,6 @@
 {
   "schema": "r44.semantic_helix.v1",
-  "status": "ACTIVE",
+  "status": "CONVERGED_FOR_CAMPAIGN",
   "discriminators": [
     {
       "id": "ARITY-01",
@@ -28,6 +28,21 @@
         "negative evidence semantics invalidate chronology carrier entirely"
       ],
       "next_discriminator": "exclude negative token rows everywhere composition treats token evidence as positive observation; rerun B2/B3/arity4",
+      "authority": "RESEARCH_ONLY"
+    },
+    {
+      "id": "ARITY-03",
+      "question": "What remains after bounded arity2-4 survives breadth?",
+      "evidence": [
+        "max4 remains explicit implementation bound",
+        "represented non-token evidence owns delimiter semantics",
+        "unrepresented pause cannot be promoted into grouping"
+      ],
+      "interpretations": [
+        "next missing mechanism is endogenous represented operand-window boundary ownership",
+        "raising max arity alone would be scale extension, not new generality"
+      ],
+      "next_discriminator": "can Microseed create/recognize lawful composition-window boundaries from owned operational events without evaluator grouping?",
       "authority": "RESEARCH_ONLY"
     }
   ]
