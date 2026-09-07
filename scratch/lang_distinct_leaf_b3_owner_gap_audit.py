@@ -29,15 +29,18 @@ def run_audit() -> dict[str,object]:
         if ('ordered_operational_referent_signatures' in text
                 or 'RECURSIVE_ORDERED_EVIDENCE_TUPLE' in text):
             methods.append(block[0].strip())
+    expected_marker='"arity":3'
+    assert expected_marker in direct_b3_markers,direct_b3_markers
     return {
-        'status':'STOP_DISTINCT_LEAF_B3_ARITY_OWNER_MISSING',
+        'status':'CURRENT_DISTINCT_LEAF_B3_OWNER_PRESENT',
         'base_recursive_head':'9c633d096a1f60f4263c10895ed44edd1a6d07bf',
         'existing_grouped_recursive_status':recursive['status'],
         'existing_grouped_recursive_depth':recursive['composition_depth'],
         'existing_grouped_recursive_b3_claim':recursive['distinct_leaf_b3_arity_generalization'],
         'direct_b3_source_markers':tuple(direct_b3_markers),
         'composition_related_methods':tuple(methods),
-        'localized_missing_mechanism':'THREE_DISTINCT_CURRENT_GROUNDED_LEAF_OPERAND_CARRIER_AND_ORDERED_B3_OPERATOR',
+        'historically_localized_missing_mechanism':'THREE_DISTINCT_CURRENT_GROUNDED_LEAF_OPERAND_CARRIER_AND_ORDERED_B3_OPERATOR',
+        'b3_owner_now_embodied':'YES_HARD_BOUNDED_ARITY_3_ONLY',
         'grouped_recursive_parent_counts_as_b3':'NO',
         'flattening_authority':'NONE',
         'associativity_authority':'NONE',

@@ -25,6 +25,7 @@ def run_audit() -> dict[str,object]:
             owned_methods.append(block[0].strip())
     expected=(
         'def derive_and_record_current_native_b2_ordered_composition(self, *, max_records: int = 4096) -> dict[str, Any]:',
+        'def derive_and_record_current_native_b3_ordered_composition(self, *, max_records: int = 4096) -> dict[str, Any]:',
         'def derive_and_record_current_native_recursive_b2_ordered_composition(',
     )
     assert tuple(owned_methods)==expected,owned_methods
@@ -35,8 +36,9 @@ def run_audit() -> dict[str,object]:
         'c08g_order_sensitive':c08g['order_sensitive'],
         'production_owned_composition_methods':owned_methods,
         'historically_localized_missing_mechanism':'MICROSEED_OWNED_BOUNDED_ORDERED_COMPOSITION_OPERATOR',
-        'binding_now_embodied':'YES_BOUNDED_B2_PLUS_FIXED_DEPTH_ONE_RECURSIVE',
+        'binding_now_embodied':'YES_BOUNDED_B2_PLUS_DIRECT_B3_PLUS_FIXED_DEPTH_ONE_RECURSIVE',
         'recursive_depth':'1_ONLY',
+        'direct_b3_arity':'3_ONLY',
         'generic_unbounded_systematicity':'NOT_EARNED',
         'new_planner_required':'NO',
         'grammar_authority':'NONE','semantic_authority':'NONE','truth_authority':'NONE','execution_authority':'NONE',
