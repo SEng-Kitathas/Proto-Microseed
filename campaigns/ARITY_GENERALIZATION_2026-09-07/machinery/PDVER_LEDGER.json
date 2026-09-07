@@ -1,0 +1,33 @@
+{
+  "schema": "r44.pdver.campaign.v1",
+  "status": "ACTIVE",
+  "probe": {
+    "observed": {
+      "b2_owner": "derive_and_record_current_native_b2_ordered_composition",
+      "b3_owner": "derive_and_record_current_native_b3_ordered_composition",
+      "same_state_hostile": "1/1 PASS"
+    },
+    "unknowns": [
+      "whether an organism-owned evidence window can lawfully derive arity",
+      "whether contiguous token evidence is a true operand carrier or harness grouping artifact"
+    ]
+  },
+  "derive": {
+    "survivors": [
+      "current B2/B3 capability is real but arity itself is caller-selected by method",
+      "missing mechanism is an organism-owned bounded operand-window/arity carrier"
+    ],
+    "rejected": [
+      "B2+B3 by themselves prove generic N-ary generalization"
+    ]
+  },
+  "verify": {},
+  "embody": {},
+  "recurse": {
+    "next": [
+      "attack latest-contiguous-token-suffix as candidate arity carrier",
+      "search episode/frame/currentness owners for stronger delimiter"
+    ],
+    "promotion": "NONE"
+  }
+}

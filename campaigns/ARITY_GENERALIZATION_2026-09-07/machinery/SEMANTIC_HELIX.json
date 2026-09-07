@@ -1,0 +1,20 @@
+{
+  "schema": "r44.semantic_helix.v1",
+  "status": "ACTIVE",
+  "discriminators": [
+    {
+      "id": "ARITY-01",
+      "question": "Can current evidence own operand arity rather than caller method choice?",
+      "evidence": [
+        "same-state B2/B3 hostile verified caller-selected arity"
+      ],
+      "interpretations": [
+        "no arity carrier exists",
+        "latest contiguous token evidence can serve as bounded operand window",
+        "episode/frame owner provides stronger window"
+      ],
+      "next_discriminator": "test contiguous token suffix and hostile unrelated-evidence boundaries",
+      "authority": "RESEARCH_ONLY"
+    }
+  ]
+}

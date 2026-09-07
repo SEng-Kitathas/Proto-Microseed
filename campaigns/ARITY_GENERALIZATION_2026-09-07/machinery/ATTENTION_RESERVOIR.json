@@ -1,0 +1,34 @@
+{
+  "schema": "r44.attention_reservoir.v1",
+  "status": "ACTIVE",
+  "items": [
+    {
+      "id": "AR-01",
+      "priority": "P0",
+      "state": "LIVE",
+      "signal": "B2/B3 arity is caller-selected by method",
+      "reason": "must not call bounded B2+B3 generic N-ary"
+    },
+    {
+      "id": "AR-02",
+      "priority": "P0",
+      "state": "LIVE",
+      "signal": "contiguous token suffix could derive arity without caller parameter",
+      "reason": "smallest composition-first candidate"
+    },
+    {
+      "id": "AR-03",
+      "priority": "P1",
+      "state": "LIVE",
+      "signal": "contiguous chronology may merely encode harness grouping",
+      "reason": "must attack before production mutation"
+    },
+    {
+      "id": "AR-04",
+      "priority": "P1",
+      "state": "DEFERRED_BUT_LIVE",
+      "signal": "episode/frame may own a stronger operand window",
+      "reason": "quarry before inventing delimiter primitive"
+    }
+  ]
+}

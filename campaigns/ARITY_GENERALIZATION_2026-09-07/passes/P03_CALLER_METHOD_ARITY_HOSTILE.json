@@ -1,0 +1,13 @@
+{
+  "pass": 3,
+  "name": "CALLER_METHOD_ARITY_HOSTILE",
+  "status": "VERIFIED_NEGATIVE",
+  "discriminator": "same grounded leaf set under B2 vs B3 method selection",
+  "evidence": [
+    "test_lang_arity_generalization_caller_selection_gap.py 1/1 PASS",
+    "B2 returns last two YZ; B3 returns XYZ after same three grounded leaves are re-presented"
+  ],
+  "result": "STOP_ARITY_CURRENTLY_CALLER_SELECTED_BY_METHOD",
+  "localized_missing_mechanism": "ORGANISM_OWNED_BOUNDED_OPERAND_WINDOW_OR_ARITY_CARRIER",
+  "promotion": "NONE"
+}

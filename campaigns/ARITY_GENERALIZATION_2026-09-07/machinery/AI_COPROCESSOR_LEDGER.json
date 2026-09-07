@@ -1,0 +1,13 @@
+{
+  "schema": "r44.ai_coprocessor.v1",
+  "status": "ACTIVE_BOUNDED",
+  "uses": [
+    {
+      "source": "PCMMAD Lab GPT-5.6 Sol reasoning pass",
+      "authority": "NO_INDEPENDENT_CORROBORATION_AUTHORITY",
+      "use": "discriminator formation, cross-surface contradiction search, evidence compression"
+    }
+  ],
+  "heavy_local_model_launched": false,
+  "reason": "no current discriminator requires model-generation; preserve resource envelope and avoid ceremonial launch"
+}

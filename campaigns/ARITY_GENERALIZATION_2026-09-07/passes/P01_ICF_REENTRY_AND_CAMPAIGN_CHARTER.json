@@ -1,0 +1,13 @@
+{
+  "pass": 1,
+  "name": "ICF_REENTRY_AND_CAMPAIGN_CHARTER",
+  "status": "PASS",
+  "discriminator": "enter from current B3 head under R4.4+ICF-CS v1.1 with 20-pass ceiling",
+  "evidence": [
+    "B3 HEAD/origin exact 39bd68e5484e2229b6a4349248025aebb3428835",
+    "RD HEAD/origin exact d8f1306b838cf112d2fff4db005ed6f42131a9c1",
+    "campaign charter f77bdc105f400b54a12cffa89c6b6685304a757bfc1d2591ffcf8e96fa281812"
+  ],
+  "result": "campaign opened on exact earned frontier",
+  "promotion": "NONE"
+}

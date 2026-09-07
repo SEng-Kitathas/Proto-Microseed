@@ -1,0 +1,12 @@
+{
+  "pass": 2,
+  "name": "PDVER_ARITY_OWNER_AUDIT",
+  "status": "NARROWED",
+  "discriminator": "does organism own arity independent of caller selecting B2/B3 method?",
+  "evidence": [
+    "production has separate hard-coded B2 and B3 public methods",
+    "same leaf currentness substrate feeds both"
+  ],
+  "result": "arity ownership unresolved until same-state hostile",
+  "next": "same-state caller-method counterfactual"
+}
