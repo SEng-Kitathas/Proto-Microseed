@@ -1,0 +1,57 @@
+{
+  "authority_effect": "NONE_PENDING_TARGET_PUBLICATION_ADMISSION_RECONCILIATION_READBACK",
+  "claim_ceiling": [
+    "DETACHED_RELEASED != ACTIVE",
+    "NO_TARGET_PUBLICATION_HAS_OCCURRED",
+    "AUTHORITY_EFFECT_REMAINS_NONE_UNTIL_TARGET_LIFECYCLE_COMPLETES"
+  ],
+  "detached_at": "2026-09-06T23:18:54.591130+00:00",
+  "laws": [
+    "PACKAGE_QUALIFIED != DETACHED_RELEASED",
+    "DETACHED_RELEASED != TARGET_PUBLISHED",
+    "TARGET_PUBLISHED != REPOSITORY_ADMITTED",
+    "REPOSITORY_ADMITTED != LOCAL_AUTHORITY_RECONCILED",
+    "LOCAL_AUTHORITY_RECONCILED != POST_PUBLICATION_READBACK",
+    "POST_PUBLICATION_READBACK != ACTIVE",
+    "DETACHED_WITNESS != INDEPENDENT_AUTHORSHIP"
+  ],
+  "lineage": {
+    "canonical_base_sha256": "04f3e94efe8c901cc83a12a9c8531be8a9bb350728b8f9eba53db0fd082b3bbc",
+    "icf_cs_v1_1_standard_sha256": "62be845da364ae81f59b6320c9b34b136236bf5be8aa8036018da48efcb754f4",
+    "promotion_decision_sha256": "a4be78a7de9dd3225db68bd97dda2b027f274e7ef7eecf747ae8cbdf58795780",
+    "qualified_candidate_receipt_sha256": "8b7164d1303e15bba1a31e7790e9dd4e76338f8bf07c215f72ad3dee17efe0b5"
+  },
+  "payload": {
+    "manifest_sha256": "f6c1a732d39f0db30cfcb312fbaf2c79f2627491f0768be96f5cb0ca25872803",
+    "release_verifier_sha256": "5d38bfb7de9d8b59f9df193e3c0e9185f0a4e5b1c55c4179d59dd4fca868fe07",
+    "semantic_ledger_sha256": "b2c0c01e6423d925bb218f376813d18f0edb20aa7d09896d31df1148998772de",
+    "zip_bytes": 47754,
+    "zip_member_count": 18,
+    "zip_path": "distribution/RAHL_ENGINEERING_GOVERNANCE_CONTACT_ADDITIVE_DOCTRINE_V1_0_2026-09-06.zip",
+    "zip_sha256": "c4ab4a516e088b6c28b5240d6b3877d2e3fb889a8bbbfd406e8e0c73bebdd1ae"
+  },
+  "qualification": {
+    "clean_extraction_verifier_replay": "PASS",
+    "crc_pass": true,
+    "deterministic_double_seal": true,
+    "deterministic_seal_result_path": "state/verification/governance_contact_release/GOVERNANCE_CONTACT_DETERMINISTIC_SEAL_RESULT_2026-09-06.json",
+    "deterministic_seal_result_sha256": "1e77ffa3c779d6332712814dc4ba02ef9a05513eedab6f2d6935b95a49d9da8a",
+    "embedded_candidate_hostiles_rejected": "27/27",
+    "embedded_candidate_positive_controls": "3/3",
+    "package_qualification_receipt_path": "state/verification/governance_contact_release/GOVERNANCE_CONTACT_PACKAGE_QUALIFICATION_RECEIPT_2026-09-06.json",
+    "package_qualification_receipt_sha256": "509aba0bb859db49d9311e08acae98d8c7bdfbbb1d41cdd157d1675e70f8a302",
+    "release_hostiles_rejected": "11/11"
+  },
+  "release_package_id": "RAHL_ENGINEERING_GOVERNANCE_CONTACT_ADDITIVE_DOCTRINE_V1_0_2026-09-06",
+  "schema": "rahl.governance-contact-additive-doctrine.detached-release-receipt.v1",
+  "state": "DETACHED_RELEASED",
+  "target_inventory": {
+    "local_authority_reconciled_target_count": 0,
+    "path": "RAHL_ENGINEERING_GOVERNANCE_CONTACT_ADDITIVE_DOCTRINE_V1_0_2026-09-06/release/TARGET_INVENTORY_V1.json",
+    "post_publication_readback_target_count": 0,
+    "published_target_count": 0,
+    "repository_admitted_target_count": 0,
+    "sha256": "4f06428c7b57d8f134d2cf9750a80655f11bb9bcdec869445a2542dd45b8f0e9",
+    "target_count": 17
+  }
+}

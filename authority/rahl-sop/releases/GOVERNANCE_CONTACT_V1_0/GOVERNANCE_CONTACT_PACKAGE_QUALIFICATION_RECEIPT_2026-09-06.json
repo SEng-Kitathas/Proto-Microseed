@@ -1,0 +1,44 @@
+{
+  "authority_effect": "NONE_PENDING_DETACHED_RELEASE_AND_TARGET_LIFECYCLE",
+  "canonical_base_sha256": "04f3e94efe8c901cc83a12a9c8531be8a9bb350728b8f9eba53db0fd082b3bbc",
+  "claim_ceiling": [
+    "PACKAGE_QUALIFIED != ACTIVE",
+    "PACKAGE_QUALIFIED != DETACHED_RELEASED",
+    "NO_TARGET_PUBLICATION_HAS_OCCURRED",
+    "AUTHORITY_EFFECT_REMAINS_NONE"
+  ],
+  "icf_cs_v1_1_standard_sha256": "62be845da364ae81f59b6320c9b34b136236bf5be8aa8036018da48efcb754f4",
+  "laws": [
+    "SEMANTICALLY_ADMITTED != PACKAGE_QUALIFIED",
+    "PACKAGE_QUALIFIED != DETACHED_RELEASED",
+    "PACKAGE_QUALIFIED != TARGET_PUBLISHED",
+    "SELF_VERIFYING_PACKAGE != VERIFIED_PACKAGE",
+    "DESCRIPTOR_REBOUND != QUALIFICATION_LINEAGE_PRESERVED"
+  ],
+  "package": {
+    "manifest_bound_file_count": 17,
+    "manifest_sha256": "f6c1a732d39f0db30cfcb312fbaf2c79f2627491f0768be96f5cb0ca25872803",
+    "readme_sha256": "86b921f51baae27cb225b9ff5a980aafef552621ba5641103a59ff94eea3d8c8",
+    "release_descriptor_sha256": "03aca23ca64f943d50f50d5122cc0b57ad85fca962202a39484524658c5b2437",
+    "release_verifier_sha256": "5d38bfb7de9d8b59f9df193e3c0e9185f0a4e5b1c55c4179d59dd4fca868fe07",
+    "semantic_ledger_sha256": "b2c0c01e6423d925bb218f376813d18f0edb20aa7d09896d31df1148998772de",
+    "target_inventory_sha256": "4f06428c7b57d8f134d2cf9750a80655f11bb9bcdec869445a2542dd45b8f0e9"
+  },
+  "promotion_decision_sha256": "a4be78a7de9dd3225db68bd97dda2b027f274e7ef7eecf747ae8cbdf58795780",
+  "qualification": {
+    "baseline_output_path": "state/verification/governance_contact_release/PACKAGE_BASELINE_VERIFICATION_FINAL_2026-09-06.json",
+    "baseline_output_sha256": "2fe8a075d48c5f118c34318e34be151880eb8ec8a1194f5f0607026f2e16667b",
+    "embedded_candidate_hostiles": "27/27",
+    "embedded_candidate_positive_controls": "3/3",
+    "hostile_output_path": "state/verification/governance_contact_release/PACKAGE_HOSTILE_QUALIFICATION_FINAL_2026-09-06.json",
+    "hostile_output_sha256": "dcfff9d218eee7e661e1650b20e5885bf8078c6ed707478f0b206fb0cbce7834",
+    "release_hostile_harness_sha256": "d3e18962641c7bc1c6817bcf19e3ad8239186239acbade35e0798e4be026171c",
+    "release_hostile_unexpected": 0,
+    "release_hostiles_rejected": "11/11"
+  },
+  "qualified_at": "2026-09-06T23:16:43.563074+00:00",
+  "qualified_candidate_receipt_sha256": "8b7164d1303e15bba1a31e7790e9dd4e76338f8bf07c215f72ad3dee17efe0b5",
+  "release_package_id": "RAHL_ENGINEERING_GOVERNANCE_CONTACT_ADDITIVE_DOCTRINE_V1_0_2026-09-06",
+  "schema": "rahl.governance-contact-additive-doctrine.package-qualification-receipt.v1",
+  "state": "PACKAGE_QUALIFIED"
+}

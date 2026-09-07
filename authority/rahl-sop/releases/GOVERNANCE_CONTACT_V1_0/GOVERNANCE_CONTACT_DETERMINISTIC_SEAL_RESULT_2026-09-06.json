@@ -1,0 +1,19 @@
+{
+  "authority_effect": "NONE",
+  "clean_extraction_exact_identity": true,
+  "clean_extraction_verifier_replay": "PASS",
+  "crc_pass": true,
+  "deterministic_double_seal": true,
+  "manifest_sha256": "f6c1a732d39f0db30cfcb312fbaf2c79f2627491f0768be96f5cb0ca25872803",
+  "observed_at": "2026-09-06T23:18:54.591130+00:00",
+  "package_qualification_receipt_sha256": "509aba0bb859db49d9311e08acae98d8c7bdfbbb1d41cdd157d1675e70f8a302",
+  "release_verifier_sha256": "5d38bfb7de9d8b59f9df193e3c0e9185f0a4e5b1c55c4179d59dd4fca868fe07",
+  "schema": "rahl.governance-contact-additive-doctrine.deterministic-seal-result.v1",
+  "sealer_sha256": "da8f7571b65e893a77710900259bc9ee7e6a52be5b191a6ab852c1f0ff006333",
+  "semantic_ledger_sha256": "b2c0c01e6423d925bb218f376813d18f0edb20aa7d09896d31df1148998772de",
+  "state": "DETERMINISTIC_SEAL_PASS",
+  "zip_bytes": 47754,
+  "zip_member_count": 18,
+  "zip_path": "distribution/RAHL_ENGINEERING_GOVERNANCE_CONTACT_ADDITIVE_DOCTRINE_V1_0_2026-09-06.zip",
+  "zip_sha256": "c4ab4a516e088b6c28b5240d6b3877d2e3fb889a8bbbfd406e8e0c73bebdd1ae"
+}

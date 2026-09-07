@@ -1,0 +1,207 @@
+{
+  "schema": "rahl.governance-contact.release-target-inventory.v1",
+  "created_utc": "2026-09-06T21:45:00+00:00",
+  "release_package_id": "RAHL_ENGINEERING_GOVERNANCE_CONTACT_ADDITIVE_DOCTRINE_V1_0_2026-09-06",
+  "promotion_decision_sha256": "a4be78a7de9dd3225db68bd97dda2b027f274e7ef7eecf747ae8cbdf58795780",
+  "qualified_candidate_receipt_sha256": "8b7164d1303e15bba1a31e7790e9dd4e76338f8bf07c215f72ad3dee17efe0b5",
+  "parent_authority": {
+    "canonical_base": "R4.4",
+    "canonical_base_sha256": "04f3e94efe8c901cc83a12a9c8531be8a9bb350728b8f9eba53db0fd082b3bbc",
+    "icf_cs_version": "1.1",
+    "icf_cs_standard_sha256": "62be845da364ae81f59b6320c9b34b136236bf5be8aa8036018da48efcb754f4",
+    "icf_cs_distribution_sha256": "2bb57b24967f80fc5dcf028eece142150ce5d6a1356f12e13cda26951ae19fe7",
+    "icf_cs_detached_receipt_sha256": "418346ed6373887b5b924e71ca2bf4b83effad20b7269ab40607f5d2750b970c"
+  },
+  "target_count": 17,
+  "inventory_state": "FROZEN_PRE_DETACHED_RELEASE",
+  "inventory_laws": [
+    "OLD_TARGET_INVENTORY != CURRENT_TARGET_PROOF",
+    "TARGET_DECLARED != TARGET_PUBLISHED",
+    "TARGET_PUBLISHED != REPOSITORY_ADMITTED",
+    "REPOSITORY_ADMITTED != LOCAL_AUTHORITY_RECONCILED",
+    "LOCAL_AUTHORITY_RECONCILED != POST_PUBLICATION_READBACK",
+    "POST_PUBLICATION_READBACK != ACTIVE",
+    "CARRIER_PRESENT != PROJECT_SPECIFIC_AUTHORITY_REWRITE"
+  ],
+  "targets": [
+    {
+      "id": "git:Cognitive-Field-Engineering",
+      "plane": "GIT_REMOTE",
+      "target_class": "REQUIRED_SYNC",
+      "url": "https://github.com/SEng-Kitathas/Cognitive-Field-Engineering.git",
+      "default_ref": "refs/heads/main",
+      "observed_head": "95d029da8c99634eb8dd26b01e1983256b10f56c",
+      "pre_release_state": "PROBED_CURRENT_HEAD_RELEASE_NOT_PUBLISHED"
+    },
+    {
+      "id": "git:HSP",
+      "plane": "GIT_REMOTE",
+      "target_class": "REQUIRED_SYNC",
+      "url": "https://github.com/SEng-Kitathas/HSP.git",
+      "default_ref": "refs/heads/main",
+      "observed_head": "a9e32d0b108754416938192e3d692096fffc4e0a",
+      "pre_release_state": "PROBED_CURRENT_HEAD_RELEASE_NOT_PUBLISHED"
+    },
+    {
+      "id": "git:Hostile-OS",
+      "plane": "GIT_REMOTE",
+      "target_class": "REQUIRED_SYNC",
+      "url": "https://github.com/SEng-Kitathas/Hostile-OS.git",
+      "default_ref": "refs/heads/main",
+      "observed_head": "716c2415b010c860e98a133d743dc7c190a95f79",
+      "pre_release_state": "PROBED_CURRENT_HEAD_RELEASE_NOT_PUBLISHED"
+    },
+    {
+      "id": "git:AI-Research-and-development",
+      "plane": "GIT_REMOTE",
+      "target_class": "REQUIRED_SYNC",
+      "url": "https://github.com/SEng-Kitathas/AI-Research-and-development.git",
+      "default_ref": "refs/heads/main",
+      "observed_head": "e14290d16c9541fa95b8e61923834b775f6425a6",
+      "pre_release_state": "PROBED_CURRENT_HEAD_RELEASE_NOT_PUBLISHED"
+    },
+    {
+      "id": "git:CIC-NERV",
+      "plane": "GIT_REMOTE",
+      "target_class": "REQUIRED_SYNC",
+      "url": "https://github.com/SEng-Kitathas/CIC-NERV.git",
+      "default_ref": "refs/heads/main",
+      "observed_head": "1e013f0ab6bcbbefa36af66273448714c9d49b0c",
+      "pre_release_state": "PROBED_CURRENT_HEAD_RELEASE_NOT_PUBLISHED"
+    },
+    {
+      "id": "git:holonic-linux",
+      "plane": "GIT_REMOTE",
+      "target_class": "REQUIRED_SYNC",
+      "url": "https://github.com/SEng-Kitathas/holonic-linux.git",
+      "default_ref": "refs/heads/master",
+      "observed_head": "ea6206c4428ea5c7a1f6d2a12e155d9ba7b20fe6",
+      "pre_release_state": "PROBED_CURRENT_HEAD_RELEASE_NOT_PUBLISHED"
+    },
+    {
+      "id": "git:NEXUS",
+      "plane": "GIT_REMOTE",
+      "target_class": "REQUIRED_SYNC",
+      "url": "https://github.com/SEng-Kitathas/NEXUS.git",
+      "default_ref": "refs/heads/main",
+      "observed_head": "de1d2397d9a63bb9310d467a3d08a256b352912e",
+      "pre_release_state": "PROBED_CURRENT_HEAD_RELEASE_NOT_PUBLISHED"
+    },
+    {
+      "id": "git:PAL",
+      "plane": "GIT_REMOTE",
+      "target_class": "REQUIRED_SYNC",
+      "url": "https://github.com/SEng-Kitathas/PAL.git",
+      "default_ref": "refs/heads/main",
+      "observed_head": "153ffc8bf3d6348644505f823739fee2a47ab3e2",
+      "pre_release_state": "PROBED_CURRENT_HEAD_RELEASE_NOT_PUBLISHED"
+    },
+    {
+      "id": "git:Proto-Microseed",
+      "plane": "GIT_REMOTE",
+      "target_class": "REQUIRED_SYNC",
+      "url": "https://github.com/SEng-Kitathas/Proto-Microseed.git",
+      "default_ref": "refs/heads/main",
+      "observed_head": "ffbb0d20d4a8abcfd870b9de1b43549c140755ca",
+      "pre_release_state": "PROBED_CURRENT_HEAD_RELEASE_NOT_PUBLISHED"
+    },
+    {
+      "id": "git:Singularity-works-",
+      "plane": "GIT_REMOTE",
+      "target_class": "REQUIRED_SYNC",
+      "url": "https://github.com/SEng-Kitathas/Singularity-works-.git",
+      "default_ref": "refs/heads/main",
+      "observed_head": "287c0bad0e9b3fef3002b91702e86b410cada4ce",
+      "pre_release_state": "PROBED_CURRENT_HEAD_RELEASE_NOT_PUBLISHED"
+    },
+    {
+      "id": "git:Proto-Microseed-RD-Continuity",
+      "plane": "GIT_REMOTE",
+      "target_class": "REQUIRED_SYNC",
+      "url": "https://github.com/SEng-Kitathas/Proto-Microseed-RD-Continuity.git",
+      "default_ref": "refs/heads/main",
+      "observed_head": "00f96b04840b150c7f8c3b4e8762e9107a4c2dbb",
+      "pre_release_state": "PROBED_CURRENT_HEAD_RELEASE_NOT_PUBLISHED"
+    },
+    {
+      "id": "local:rahl-engineering-canonical-sop-r4-20260902",
+      "plane": "LOCAL_PROJECT_STATE",
+      "target_class": "REQUIRED_SYNC",
+      "root": "E:/new pc/AI_Pushes_Sandbox/projects/rahl-engineering-canonical-sop-r4-20260902",
+      "observed_current_state_sha256": "eadeeda9cf0a5ac46d527e46ed56c44a3cece5398bcb2566a1d6f80dd4d09a2e",
+      "observed_promotion_decision_sha256": "a4be78a7de9dd3225db68bd97dda2b027f274e7ef7eecf747ae8cbdf58795780",
+      "pre_release_state": "ORIGIN_PROMOTION_DECISION_PRESENT_RELEASE_NOT_ACTIVE"
+    },
+    {
+      "id": "local:PCMMAD_RECEIVER_LAB",
+      "plane": "LOCAL_PROJECT_STATE",
+      "target_class": "REQUIRED_SYNC",
+      "root": "E:/new pc/AI_Pushes_Sandbox/projects/PCMMAD_RECEIVER_LAB",
+      "observed_surfaces": {
+        "state/current/CURRENT_STATE.md": "73979c971a9473eacf4e68fc7fd23655fbfdab3e653f91acd4a4ec13dfc6fb81",
+        "continuity/live_shadow/LIVE_SHADOW.md": "e9aaec8d3b8617d74c77e014e26071ff2fa3af1e5491eca3893368bc3f22fcce",
+        "state/doctrine_snapshot/INTENT_CONSTRAINT_FRONTIER_CONTINUITY_STANDARD.md": "b22b6ba65992bf8e235df9acfb044da772282ae3820a1359af3b5309d1e1051b",
+        "checkpoints/ICF_CS_CURRENT.md": "239d60382980de21610ac40d5871bd39988e94f1691007b399b0eed1b3cc275e",
+        "state/doctrine_snapshot/CURRENT_CANONICAL_SOP_POINTER.md": "5480f9323a19378e2397cb14c820922d5d0371afb2e6028480aff04dd418e3fd"
+      },
+      "pre_release_state": "PRESENT_REQUIRES_GOVERNANCE_CONTACT_LOCAL_RECONCILIATION"
+    },
+    {
+      "id": "local:protoagi_microseed_reincarnation_20260827",
+      "plane": "LOCAL_PROJECT_STATE",
+      "target_class": "REQUIRED_SYNC",
+      "root": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827",
+      "observed_surfaces": {
+        "state/doctrine_snapshot/INTENT_CONSTRAINT_FRONTIER_CONTINUITY_STANDARD.md": "0c66925b57cfd3f70f26aabca20f38d3437d8e7fbc986f03dba0cc2a0998639f"
+      },
+      "pre_release_state": "PRESENT_REQUIRES_GOVERNANCE_CONTACT_LOCAL_RECONCILIATION"
+    },
+    {
+      "id": "local:singularity-works-forge-app",
+      "plane": "LOCAL_PROJECT_STATE",
+      "target_class": "REQUIRED_SYNC",
+      "root": "E:/new pc/AI_Pushes_Sandbox/projects/singularity-works-forge-app",
+      "observed_surfaces": {
+        "state/doctrine_snapshot/INTENT_CONSTRAINT_FRONTIER_CONTINUITY_STANDARD.md": "62be845da364ae81f59b6320c9b34b136236bf5be8aa8036018da48efcb754f4",
+        "checkpoints/PROJECT_INTENT_CURRENT.md": "7fc1675989ec806095fbc250c9d6c6adc213c7af3ca13dc0f1f515fc44f290b3",
+        "state/doctrine_snapshot/PROJECT_COMMANDERS_INTENT_CURRENT.md": "95ff8a58543c8aa2a2f20eb98cca47a30c3b64a5e8823c5f84edd3ad25cc9761",
+        "state/next_steps/NEXT_STEPS.md": "9e1d7139cd246c74a4cc16165faf4bc2c2c743a6918befb0efaf9da0e90dfd37",
+        "continuity/live_shadow/LIVE_SHADOW.md": "7252232f7b239b4e9c31167f55c6d10fcf86415c64da6404722998e96c1ac99a"
+      },
+      "pre_release_state": "PRESENT_REQUIRES_GOVERNANCE_CONTACT_LOCAL_RECONCILIATION"
+    },
+    {
+      "id": "local:pcmmad-forge-audit",
+      "plane": "LOCAL_PROJECT_STATE",
+      "target_class": "REQUIRED_SYNC",
+      "root": "E:/new pc/AI_Pushes_Sandbox/projects/pcmmad-forge-audit",
+      "observed_surfaces": {
+        "state/doctrine_snapshot/INTENT_CONSTRAINT_FRONTIER_CONTINUITY_STANDARD.md": "62be845da364ae81f59b6320c9b34b136236bf5be8aa8036018da48efcb754f4",
+        "checkpoints/PROJECT_INTENT_CURRENT.md": "7fc1675989ec806095fbc250c9d6c6adc213c7af3ca13dc0f1f515fc44f290b3",
+        "state/doctrine_snapshot/PROJECT_COMMANDERS_INTENT_CURRENT.md": "95ff8a58543c8aa2a2f20eb98cca47a30c3b64a5e8823c5f84edd3ad25cc9761",
+        "state/next_steps/NEXT_STEPS.md": "6433cd70be661a311833bc9f8c84849ca73f4ac10092254d5ecccea23c9ede0a",
+        "continuity/live_shadow/LIVE_SHADOW.md": "5f54576f97c4ce3c9158c79721c6597f16096991636ebe8b257b71cabfe77cf6"
+      },
+      "pre_release_state": "PRESENT_REQUIRES_GOVERNANCE_CONTACT_LOCAL_RECONCILIATION"
+    },
+    {
+      "id": "local:Proto-Microseed-RD-Continuity-checkout",
+      "plane": "LOCAL_GIT_CHECKOUT_STATE",
+      "target_class": "REQUIRED_SYNC",
+      "root": "E:/new pc/AI_Pushes_Sandbox/projects/protoagi_microseed_reincarnation_20260827/rd_continuity_repo",
+      "observed_head": "00f96b04840b150c7f8c3b4e8762e9107a4c2dbb",
+      "observed_origin_main": "00f96b04840b150c7f8c3b4e8762e9107a4c2dbb",
+      "observed_surfaces": {
+        "state/doctrine_snapshot/INTENT_CONSTRAINT_FRONTIER_CONTINUITY_STANDARD.md": "a40bcb1d94874bb5841291d27a1df74e0b48b97b6faea16b8859a91a1f788504"
+      },
+      "pre_release_state": "PRESENT_SYNCHRONIZED_REQUIRES_GOVERNANCE_CONTACT_LOCAL_RECONCILIATION"
+    }
+  ],
+  "claim_ceiling": [
+    "TARGET_INVENTORY_FROZEN != TARGET_PUBLICATION_COMPLETE",
+    "REMOTE_HEAD_PROBED != REPOSITORY_ADMITTED",
+    "LOCAL_ROOT_PRESENT != LOCAL_AUTHORITY_RECONCILED",
+    "PRE_RELEASE_SURFACE_HASH != POST_RELEASE_READBACK",
+    "TARGET_COUNT_17 != WORLD_COMPLETE"
+  ]
+}
