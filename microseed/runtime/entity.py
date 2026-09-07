@@ -4774,6 +4774,112 @@ class Microseed:
             "execution_authority":"NONE","language_authority":"NONE",
         }
 
+    def derive_current_native_referent_association_revalidation_opportunity_surface(
+        self, record_id: str, obligation: QueryObligation, *, max_probe_steps: int = 2, max_records: int = 4096,
+    ) -> dict[str, Any]:
+        """Bind one revalidation-required native referent association to current owned probe opportunities.
+
+        The association contributes only its opaque expected right-hand digest and evidence/currentness
+        state. Existing referent-opportunity owners contribute candidate probes, currentness, feasibility,
+        information bearing, and regulatory consequences. This method is read-only: it does not revalidate
+        the association, persist a deficit, nominate an intent, execute an effect, or assign semantics.
+        """
+        base={
+            "record_id":str(record_id),
+            "association_scope":"NATIVE_TOKEN_REFERENT",
+            "selection_authority":"NONE","execution_authority":"NONE","effect_authority":"NONE",
+            "truth_authority":"NONE","semantic_authority":"NONE","language_authority":"NONE",
+            "persistence":"NONE",
+        }
+        record=self.opaque_evidence_associations.records.get(str(record_id))
+        if record is None:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"OPAQUE_EVIDENCE_ASSOCIATION_NOT_FOUND"}
+        ancestry=tuple(str(x) for x in record.assistance_ancestry)
+        if "QUALIFICATION_SCOPE:NATIVE_TOKEN_REFERENT" not in ancestry:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"NATIVE_TOKEN_REFERENT_ASSOCIATION_REQUIRED"}
+        currentness=self.opaque_evidence_association_status(record.record_id)
+        cstatus=str(currentness.get("status","UNKNOWN_INCOMPLETE"))
+        if cstatus=="CURRENT_OPAQUE_EVIDENCE_ASSOCIATION":
+            return {**base,"status":"NO_CURRENT_ASSOCIATION_REVALIDATION_PRESSURE",
+                    "reason":"ASSOCIATION_ALREADY_CURRENT","expected_right_digest_sha256":record.right_digest_sha256}
+        if cstatus=="STALE_OPAQUE_EVIDENCE_ASSOCIATION":
+            return {**base,"status":"DEFER_UNKNOWN","reason":"STALE_ASSOCIATION_CANNOT_BE_REVALIDATED",
+                    "expected_right_digest_sha256":record.right_digest_sha256}
+        if cstatus!="REVALIDATION_REQUIRED_OPAQUE_EVIDENCE_ASSOCIATION":
+            return {**base,"status":"DEFER_UNKNOWN","reason":"REVALIDATION_REQUIRED_ASSOCIATION_STATE_REQUIRED",
+                    "association_currentness":currentness,"expected_right_digest_sha256":record.right_digest_sha256}
+
+        target=str(record.right_digest_sha256)
+        opportunities=self._current_owned_referent_epistemic_opportunities(
+            obligation,max_probe_steps=max_probe_steps,max_records=max_records,
+        )
+        relevant=[]
+        for op in opportunities:
+            binding=self.action_outcome_learning.projection_conditioned_bindings.get(str(op.get("binding_id","")))
+            if binding is None or not self._projection_conditioned_binding_current(binding):
+                continue
+            live=self.derive_current_partial_operational_referent_ambiguity(
+                binding.binding_id,max_probe_steps=max_probe_steps,max_records=max_records,
+            )
+            if live.get("status")!="CURRENT_PARTIAL_OPERATIONAL_REFERENT_AMBIGUITY":
+                continue
+            probe=str(op.get("probe_action_id",""))
+            candidate=next((x for x in live.get("informative_candidates",()) if str(x.get("action_id",""))==probe),None)
+            if candidate is None:
+                continue
+            membership=[]; class_sets={}
+            complete=True
+            for bucket in tuple(str(x) for x in live.get("surviving_bucket_ids",())):
+                rebuilt=self.reconstruct_operational_referent_class_set_for_bucket(bucket,max_records=max_records)
+                if rebuilt.get("status")!="OPERATIONAL_REFERENT_CLASS_SET_RECONSTRUCTED":
+                    complete=False; break
+                classes=tuple(str(x) for x in rebuilt.get("operational_signature_classes",()))
+                class_sets[bucket]=classes
+                membership.append((bucket,target in classes))
+            if not complete or len(membership)<2 or len({present for _,present in membership})<2:
+                continue
+            responses={
+                str(bucket):tuple(tuple(bool(v) for v in bits) for bits in responseset)
+                for bucket,responseset in candidate.get("predicted_response_partition",())
+            }
+            # Fail closed unless target-containing and target-excluding survivor buckets predict
+            # disjoint opaque response multisets for the selected probe.
+            target_responses={responses[b] for b,present in membership if present and b in responses}
+            other_responses={responses[b] for b,present in membership if not present and b in responses}
+            if not target_responses or not other_responses or target_responses.intersection(other_responses):
+                continue
+            relevant.append({
+                "binding_id":str(op["binding_id"]),"probe_action_id":probe,
+                "opportunity_content_signature_sha256":str(op["content_signature_sha256"]),
+                "target_membership_by_bucket":tuple(membership),
+                "surviving_class_sets":tuple((b,class_sets[b]) for b,_ in membership),
+                "predicted_response_partition":tuple(candidate.get("predicted_response_partition",())),
+                "information_commitment_id":op["contrast_information"].commitment_id,
+                "step_commitment_id":op["commitment"].commitment_id,
+                "opportunity_execution_authority":str(op.get("execution_authority","NONE")),
+            })
+        relevant.sort(key=lambda x:(x["probe_action_id"],x["opportunity_content_signature_sha256"],x["binding_id"]))
+        probes=tuple(sorted({str(x["probe_action_id"]) for x in relevant}))
+        common={**base,"expected_right_digest_sha256":target,"opportunities":tuple(relevant),
+                "opportunity_count":len(relevant),"probe_action_ids":probes,
+                "association_pressure":"FRESH_CURRENTNESS_EVIDENCE_REQUIRED",
+                "currentness_evidence_owner":"OWNED_AFFORDANCE_EFFECT_PROFILE_WITNESS",
+                "remaining_token_presentation":"EXOGENOUS",
+                "new_pair_evidence_authority":"NONE"}
+        if not relevant:
+            return {**common,"status":"NO_CURRENT_INFORMATION_BEARING_ASSOCIATION_REVALIDATION_OPPORTUNITY",
+                    "reason":"NO_CURRENT_OWNED_REFERENT_OPPORTUNITY_SPLITS_EXPECTED_ASSOCIATION_RIGHT_DIGEST"}
+        if len(relevant)==1:
+            return {**common,"status":"CURRENT_UNIQUE_NATIVE_REFERENT_ASSOCIATION_REVALIDATION_OPPORTUNITY",
+                    "selected_probe_action_id":relevant[0]["probe_action_id"],
+                    "selected_opportunity_content_signature_sha256":relevant[0]["opportunity_content_signature_sha256"],
+                    "selection_authority":"CONTENT_UNIQUENESS_ONLY"}
+        if len(probes)==1:
+            return {**common,"status":"MULTIPLE_ASSOCIATION_REVALIDATION_OPPORTUNITIES_SHARED_PROBE",
+                    "selected_probe_action_id":probes[0],"selection_authority":"SHARED_ACTION_COMPOSITION_ONLY"}
+        return {**common,"status":"MULTIPLE_CURRENT_ASSOCIATION_REVALIDATION_OPPORTUNITIES",
+                "reason":"EXISTING_LAWFUL_CROSS_OPPORTUNITY_SELECTION_REQUIRED"}
+
     _EPISTEMIC_PREMISE_KINDS = {
         "FRAME", "EPISODE", "VALUE", "TOPOLOGY", "COUNTERPARTY", "COORDINATION", "CAPABILITY_PREMISE", "PROJECTION",
     }
