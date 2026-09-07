@@ -1,0 +1,11 @@
+{
+  "base_head": "1467a869b4491d702658128a53294008a7a155c2",
+  "microseed_delta": [
+    "microseed/runtime/entity.py"
+  ],
+  "expected_microseed_delta": [
+    "microseed/runtime/entity.py"
+  ],
+  "prohibited_added_code_hits": {},
+  "anti_smuggling_pass": true
+}

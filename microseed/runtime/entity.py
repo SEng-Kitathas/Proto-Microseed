@@ -4401,6 +4401,163 @@ class Microseed:
         self.store.append("OPAQUE_EVIDENCE_ASSOCIATION_REGISTERED",packet)
         return packet
 
+    def harvest_current_opaque_evidence_association_pairs(self, *, max_records: int = 4096) -> dict[str,Any]:
+        """Harvest native opaque association pairs from current admitted evidence chronology.
+
+        The caller supplies no pair ids, association scope, mapping, token meaning, or
+        qualification split.  Each current-runtime token observation is paired only with
+        the latest supported current-runtime grounded source since the preceding token.
+        This is bounded evidence harvesting, not experience generation: passive world
+        changes and opaque token presentation remain exogenous.
+        """
+        base={"truth_authority":"NONE","semantic_authority":"NONE","execution_authority":"NONE",
+              "language_authority":"NONE","effect_authority":"NONE"}
+        bound=int(max_records)
+        if bound<=0:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"OPAQUE_ASSOCIATION_EVIDENCE_SCAN_BUDGET_REQUIRED"}
+        total=self.evidence.count()
+        if total>bound:
+            return {**base,"status":"SEARCH_BUDGET_EXHAUSTED_NOT_SATURATED",
+                    "reason":"OPAQUE_ASSOCIATION_EVIDENCE_HISTORY_EXCEEDS_SCAN_BUDGET",
+                    "total_records":total,"max_records":bound}
+        rows=self.evidence.list()
+        boot=self._current_runtime_boot_seq()
+        if boot<0:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"CURRENT_RUNTIME_BOOT_BOUNDARY_REQUIRED"}
+        source_kinds={
+            "OWNED_PASSIVE_OPERATIONAL_REFERENT_LOCALIZATION_WITNESS":"NATIVE_TOKEN_REFERENT",
+            "OWNED_AFFORDANCE_RELATIVE_DIRECTIONAL_RELATION_WITNESS":"NATIVE_TOKEN_RELATION",
+        }
+        token_positions=[]
+        for i,row in enumerate(rows):
+            payload=row.get("payload") or {}
+            if payload.get("kind")=="OPAQUE_EXTERNAL_TOKEN_OBSERVATION" and int(payload.get("runtime_boot_seq",-1))==boot:
+                token_positions.append(i)
+        if not token_positions:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"CURRENT_RUNTIME_OPAQUE_TOKEN_EVIDENCE_REQUIRED",
+                    "pair_selection":"AUTO_FROM_CURRENT_EVIDENCE_CHRONOLOGY"}
+        harvested=[]; unpaired=[]; previous_token=-1
+        for token_pos in token_positions:
+            token_row=rows[token_pos]; token_payload=token_row.get("payload") or {}
+            candidates=[]
+            for i,row in enumerate(rows[previous_token+1:token_pos],start=previous_token+1):
+                payload=row.get("payload") or {}
+                kind=str(payload.get("kind",""))
+                if kind in source_kinds and int(payload.get("runtime_boot_seq",-1))==boot:
+                    candidates.append((i,row,payload,kind))
+            previous_token=token_pos
+            if not candidates:
+                unpaired.append({"token_evidence_id":str(token_row.get("evidence_id","")),"reason":"NO_CURRENT_SUPPORTED_PAIR_SOURCE_SINCE_PREVIOUS_TOKEN"})
+                continue
+            source_pos,source_row,source_payload,source_kind=candidates[-1]
+            token=str(token_payload.get("opaque_token",""))
+            if not token:
+                unpaired.append({"token_evidence_id":str(token_row.get("evidence_id","")),"reason":"OPAQUE_TOKEN_CONTENT_REQUIRED"})
+                continue
+            token_ref=[str(token_row["evidence_id"]),str(token_row["sha256"])]
+            source_ref=[str(source_row["evidence_id"]),str(source_row["sha256"])]
+            if source_kind=="OWNED_PASSIVE_OPERATIONAL_REFERENT_LOCALIZATION_WITNESS":
+                right=str(source_payload.get("operational_referent_signature_sha256","")).lower()
+                if len(right)!=64 or any(c not in "0123456789abcdef" for c in right):
+                    unpaired.append({"token_evidence_id":token_ref[0],"reason":"CURRENT_NATIVE_REFERENT_SIGNATURE_REQUIRED"}); continue
+                payload={
+                    "kind":"OWNED_OPAQUE_TOKEN_NATIVE_REFERENT_PAIR_EVIDENCE",
+                    "opaque_token":token,
+                    "operational_referent_signature_sha256":right,
+                    "localization_evidence_ref":source_ref,
+                    "token_evidence_ref":token_ref,
+                    "runtime_boot_seq":boot,
+                    "pairing_basis":"AUTO_HARVESTED_CURRENT_RUNTIME_EVIDENCE_LEDGER_CHRONOLOGY",
+                    "pair_source_kind":source_kind,
+                    "identity_scope":"OPERATIONAL_EQUIVALENCE_CLASS_ONLY",
+                    "authority_gain":"NONE",
+                }
+            else:
+                right=str(source_payload.get("relation_digest_sha256","")).lower()
+                ordered=tuple(str(x) for x in source_payload.get("ordered_operational_referent_signatures",()))
+                if len(right)!=64 or any(c not in "0123456789abcdef" for c in right) or len(ordered)!=2:
+                    unpaired.append({"token_evidence_id":token_ref[0],"reason":"CURRENT_NATIVE_RELATION_CONTENT_REQUIRED"}); continue
+                payload={
+                    "kind":"OWNED_OPAQUE_TOKEN_NATIVE_RELATION_PAIR_EVIDENCE",
+                    "opaque_token":token,
+                    "relation_digest_sha256":right,
+                    "ordered_operational_referent_signatures":list(ordered),
+                    "relation_evidence_ref":source_ref,
+                    "token_evidence_ref":token_ref,
+                    "runtime_boot_seq":boot,
+                    "pairing_basis":"AUTO_HARVESTED_CURRENT_RUNTIME_EVIDENCE_LEDGER_CHRONOLOGY",
+                    "pair_source_kind":source_kind,
+                    "authority_gain":"NONE",
+                }
+            pair_id="E-NATIVE-OPAQUE-PAIR-"+action_result_digest(payload)[:24]
+            existing=self.evidence.get(pair_id)
+            if existing is None:
+                ref=self.append_evidence(pair_id,payload,EpistemicStatus.PRESSURE_SUPPORTED,
+                                         source="MICROSEED-AUTO-HARVESTED-NATIVE-OPAQUE-ASSOCIATION-PAIR")
+                pair_sha=ref.sha256
+                pair_status="PAIR_EVIDENCE_RECORDED"
+            else:
+                if existing.get("negative") or existing.get("payload")!=payload:
+                    return {**base,"status":"DEFER_UNKNOWN","reason":"AUTO_HARVESTED_PAIR_EVIDENCE_ID_COLLISION",
+                            "pair_evidence_id":pair_id}
+                pair_sha=str(existing.get("sha256","")); pair_status="PAIR_EVIDENCE_ALREADY_PRESENT"
+            witness=self.record_opaque_evidence_association_pair_witness(pair_evidence_id=pair_id)
+            if witness.get("status") not in {"OPAQUE_ASSOCIATION_PAIR_WITNESS_RECORDED","OPAQUE_ASSOCIATION_PAIR_WITNESS_ALREADY_RECORDED"}:
+                return {**base,"status":"DEFER_UNKNOWN","reason":"AUTO_HARVESTED_PAIR_WITNESS_REJECTED",
+                        "pair_evidence_id":pair_id,"pair_witness_result":witness}
+            harvested.append({
+                "association_scope":source_kinds[source_kind],"opaque_token":token,
+                "right_digest_sha256":right,"pair_evidence_id":pair_id,"pair_evidence_sha256":pair_sha,
+                "pair_status":pair_status,"pair_source_evidence_id":source_ref[0],
+                "token_evidence_id":token_ref[0],"pair_source_position":source_pos,"token_position":token_pos,
+                "pair_witness_status":witness["status"],
+            })
+        if not harvested:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"NO_CURRENT_NATIVE_OPAQUE_ASSOCIATION_PAIR_HARVESTED",
+                    "unpaired_tokens":tuple(unpaired),"pair_selection":"AUTO_FROM_CURRENT_EVIDENCE_CHRONOLOGY"}
+        return {**base,"status":"CURRENT_NATIVE_OPAQUE_ASSOCIATION_PAIRS_HARVESTED",
+                "harvested_pairs":tuple(harvested),"harvested_pair_count":len(harvested),
+                "unpaired_tokens":tuple(unpaired),"pair_selection":"AUTO_FROM_CURRENT_EVIDENCE_CHRONOLOGY",
+                "caller_supplied_pair_ids":"NO","caller_supplied_association_scope":"NO",
+                "experience_generation":"EXOGENOUS_EXPERIENCE_PRESENTATION_REMAINS"}
+
+    def harvest_qualify_and_register_current_opaque_evidence_associations(self, *, max_records: int = 4096) -> dict[str,Any]:
+        """Auto-harvest current pair evidence, qualify every owned scope, and register results.
+
+        This removes caller choice of pair ids, scope, mapping and qualification ids.  It
+        does not create observations, effects, semantic meaning, or environmental events.
+        """
+        base={"truth_authority":"NONE","semantic_authority":"NONE","execution_authority":"NONE",
+              "language_authority":"NONE","effect_authority":"NONE"}
+        harvest=self.harvest_current_opaque_evidence_association_pairs(max_records=max_records)
+        if harvest.get("status")!="CURRENT_NATIVE_OPAQUE_ASSOCIATION_PAIRS_HARVESTED":
+            return {**base,"status":"DEFER_UNKNOWN","reason":str(harvest.get("reason",harvest.get("status","PAIR_HARVEST_INCOMPLETE"))),
+                    "harvest":harvest,"caller_supplied_pair_ids":"NO","caller_supplied_association_scope":"NO"}
+        qualifications=self.derive_all_opaque_evidence_association_qualifications()
+        if qualifications.get("status")!="ALL_OWNED_OPAQUE_ASSOCIATION_SCOPES_EPISTEMICALLY_QUALIFIED":
+            return {**base,"status":"PAIR_EVIDENCE_HARVESTED_QUALIFICATION_INCOMPLETE",
+                    "reason":str(qualifications.get("reason",qualifications.get("status","QUALIFICATION_INCOMPLETE"))),
+                    "harvest":harvest,"qualifications":qualifications,
+                    "caller_supplied_pair_ids":"NO","caller_supplied_association_scope":"NO","caller_supplied_qualification_id":"NO"}
+        registered={}
+        for scope,result in qualifications.get("results",{}).items():
+            q=result.get("qualification") or {}
+            qid=str(q.get("qualification_id",""))
+            if not qid:
+                return {**base,"status":"DEFER_UNKNOWN","reason":"AUTO_QUALIFICATION_ID_REQUIRED","association_scope":scope}
+            reg=self.register_qualified_opaque_evidence_associations(qualification_id=qid)
+            if reg.get("status")!="QUALIFIED_OPAQUE_EVIDENCE_ASSOCIATIONS_REGISTERED":
+                return {**base,"status":"DEFER_UNKNOWN","reason":"AUTO_QUALIFIED_ASSOCIATION_REGISTRATION_FAILED",
+                        "association_scope":scope,"registration":reg}
+            registered[str(scope)]=reg
+        return {**base,"status":"HARVESTED_NATIVE_OPAQUE_ASSOCIATIONS_EPISTEMICALLY_QUALIFIED_AND_REGISTERED",
+                "harvest":harvest,"qualifications":qualifications,"registrations":registered,
+                "caller_supplied_pair_ids":"NO","caller_supplied_association_scope":"NO",
+                "caller_supplied_mapping_answer":"NO","caller_supplied_qualification_id":"NO",
+                "external_train_holdout_partition":"NONE",
+                "experience_generation":"EXOGENOUS_EXPERIENCE_PRESENTATION_REMAINS",
+                "qualification_authority":"EPISTEMIC_ADEQUACY_EVIDENCE_ONLY"}
+
     def record_opaque_evidence_association_pair_witness(self, *, pair_evidence_id: str) -> dict[str,Any]:
         """Native extraction of one opaque association pair from exact persisted pair evidence.
 
@@ -8440,6 +8597,76 @@ class Microseed:
                 "runtime_boot_seq":runtime_boot_seq,
                 "history_basis":"CURRENT_RUNTIME_ADJACENT_OWNED_RAW_RECEIPTS_WITHOUT_INTERVENING_BOUNDED_ACTION_EXECUTION",
                 "scan_complete":scan_complete}
+
+    def derive_and_record_current_owned_passive_operational_referent_localization(
+        self, *, max_events: int = 4096, max_records: int = 4096,
+    ) -> dict[str,Any]:
+        """Localize one passive raw change against current native affordance profiles.
+
+        The external world owns the passive change.  Microseed owns the admitted raw
+        endpoints, current affordance-effect profiles, changed-channel comparison and
+        exact evidence binding.  The result is an operational equivalence-class witness,
+        never numerical identity or semantic reference.
+        """
+        base={"truth_authority":"NONE","identity_authority":"NONE","semantic_reference_authority":"NONE",
+              "execution_authority":"NONE","language_authority":"NONE"}
+        passive=self.derive_current_owned_passive_raw_transition(max_events=max_events)
+        if passive.get("status")!="CURRENT_OWNED_PASSIVE_RAW_TRANSITION":
+            return {**base,"status":"DEFER_UNKNOWN","reason":str(passive.get("reason",passive.get("status","PASSIVE_RAW_TRANSITION_REQUIRED"))),
+                    "passive_transition":passive}
+        before=tuple(passive.get("before_raw",())); after=tuple(passive.get("after_raw",()))
+        changed=tuple(i for i,(a,b) in enumerate(zip(before,after)) if a!=b)
+        if not changed:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"PASSIVE_REFERENT_EVENT_MUST_CHANGE_RAW_CONTENT"}
+        bound=int(max_records)
+        if bound<=0:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"REFERENT_PROFILE_EVIDENCE_SCAN_BUDGET_REQUIRED"}
+        total=self.evidence.count()
+        if total>bound:
+            return {**base,"status":"SEARCH_BUDGET_EXHAUSTED_NOT_SATURATED",
+                    "reason":"REFERENT_PROFILE_EVIDENCE_HISTORY_EXCEEDS_SCAN_BUDGET","total_records":total,"max_records":bound}
+        boot=self._current_runtime_boot_seq(); matches=[]
+        for row in self.evidence.list():
+            payload=row.get("payload") or {}
+            if payload.get("kind")!="OWNED_AFFORDANCE_EFFECT_PROFILE_WITNESS": continue
+            if int(payload.get("runtime_boot_seq",-1))!=boot: continue
+            if tuple(int(x) for x in payload.get("group_channels",()))==changed:
+                matches.append((row,payload))
+        if len(matches)!=1:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"EXACT_ONE_CURRENT_NATIVE_REFERENT_PROFILE_MUST_MATCH_PASSIVE_CHANGE",
+                    "changed_channels":changed,"match_count":len(matches)}
+        row,profile=matches[0]
+        sig=str(profile.get("operational_referent_signature_sha256","")).lower()
+        if len(sig)!=64 or any(c not in "0123456789abcdef" for c in sig):
+            return {**base,"status":"DEFER_UNKNOWN","reason":"CURRENT_NATIVE_REFERENT_SIGNATURE_REQUIRED"}
+        payload={
+            "kind":"OWNED_PASSIVE_OPERATIONAL_REFERENT_LOCALIZATION_WITNESS",
+            "operational_referent_signature_sha256":sig,
+            "profile_evidence_ref":[str(row["evidence_id"]),str(row["sha256"])],
+            "passive_raw_evidence_refs":[
+                [str(passive["before_raw_evidence_id"]),str(passive["before_raw_evidence_sha256"])],
+                [str(passive["after_raw_evidence_id"]),str(passive["after_raw_evidence_sha256"])],
+            ],
+            "changed_channels":list(changed),"runtime_boot_seq":boot,
+            "localization_basis":"CURRENT_NATIVE_REFERENT_PROFILE_GROUP_EQUALS_OPAQUE_PASSIVE_CHANGED_CHANNEL_SET",
+            "identity_scope":"OPERATIONAL_EQUIVALENCE_CLASS_ONLY","authority_gain":"NONE",
+        }
+        evidence_id="E-NATIVE-PASSIVE-REFERENT-LOC-"+action_result_digest(payload)[:24]
+        existing=self.evidence.get(evidence_id)
+        if existing is None:
+            ref=self.append_evidence(evidence_id,payload,EpistemicStatus.PRESSURE_SUPPORTED,
+                                     source="MICROSEED-NATIVE-PASSIVE-REFERENT-LOCALIZATION")
+            sha=ref.sha256; persisted="RECORDED"
+        else:
+            if existing.get("negative") or existing.get("payload")!=payload:
+                return {**base,"status":"DEFER_UNKNOWN","reason":"PASSIVE_REFERENT_LOCALIZATION_EVIDENCE_ID_COLLISION"}
+            sha=str(existing.get("sha256","")); persisted="ALREADY_PRESENT"
+        return {**base,"status":"CURRENT_OWNED_PASSIVE_OPERATIONAL_REFERENT_LOCALIZED",
+                "localization_evidence_id":evidence_id,"localization_evidence_sha256":sha,
+                "operational_referent_signature_sha256":sig,"profile_evidence_id":str(row["evidence_id"]),
+                "profile_evidence_sha256":str(row["sha256"]),"runtime_boot_seq":boot,
+                "changed_channels":changed,"identity_scope":"OPERATIONAL_EQUIVALENCE_CLASS_ONLY",
+                "caller_supplied_referent_class":"NO","persistence":persisted}
 
     def derive_and_record_current_owned_affordance_relative_directional_relation(
         self, *, evidence_id: str, max_events: int = 4096, max_records: int = 4096,

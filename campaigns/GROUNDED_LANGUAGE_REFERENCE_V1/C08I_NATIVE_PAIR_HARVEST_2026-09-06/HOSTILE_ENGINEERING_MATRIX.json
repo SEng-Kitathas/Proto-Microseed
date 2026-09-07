@@ -1,0 +1,48 @@
+{
+  "status": "PASS_BOUNDED_RESEARCH_ONLY",
+  "hostiles": [
+    {
+      "name": "TRUNCATED_EVIDENCE_WINDOW",
+      "expected": "SEARCH_BUDGET_EXHAUSTED_NOT_SATURATED",
+      "observed": "SEARCH_BUDGET_EXHAUSTED_NOT_SATURATED",
+      "pass": true
+    },
+    {
+      "name": "RESTART_WITHOUT_CURRENT_TOKEN",
+      "expected": "DEFER_UNKNOWN",
+      "observed": "DEFER_UNKNOWN",
+      "pass": true
+    },
+    {
+      "name": "CONTRADICTORY_NEW_PAIR",
+      "expected": "PAIR_EVIDENCE_NOT_EXACT_BIJECTION",
+      "observed": "PAIR_EVIDENCE_NOT_EXACT_BIJECTION",
+      "pass": true
+    },
+    {
+      "name": "TOKEN_SURFACE_PERMUTATION",
+      "expected": "GROUNDED_RIGHT_HAND_STRUCTURE_PRESERVED",
+      "observed": "PASS_TEST",
+      "pass": true
+    },
+    {
+      "name": "SENSOR_CHANNEL_PERMUTATION",
+      "expected": "GROUNDED_PAIR_STRUCTURE_PRESERVED",
+      "observed": "PASS_TEST",
+      "pass": true
+    },
+    {
+      "name": "SENSOR_SIGN_INVERSION",
+      "expected": "GROUNDED_PAIR_STRUCTURE_PRESERVED",
+      "observed": "PASS_TEST",
+      "pass": true
+    },
+    {
+      "name": "POSITIVE_PATH_DELETION",
+      "expected": "MUTANT_KILLED",
+      "observed": "SUPPRESS_C08I_NATIVE_PAIR_HARVEST KILLED",
+      "pass": true
+    }
+  ],
+  "authority_ceiling": "EPISTEMIC_ADEQUACY_EVIDENCE_ONLY__EXOGENOUS_PRESENTATION_REMAINS__NO_EFFECT_SEMANTIC_LANGUAGE_AUTHORITY"
+}

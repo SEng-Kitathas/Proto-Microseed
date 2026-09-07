@@ -1,0 +1,70 @@
+{
+  "budget_hostile": {
+    "reason": "OPAQUE_ASSOCIATION_EVIDENCE_HISTORY_EXCEEDS_SCAN_BUDGET",
+    "status": "SEARCH_BUDGET_EXHAUSTED_NOT_SATURATED"
+  },
+  "caller_supplied_association_scope": "NO",
+  "caller_supplied_mapping_answer": "NO",
+  "caller_supplied_pair_evidence_ids": "NO",
+  "caller_supplied_qualification_id": "NO",
+  "caller_supplied_referent_class": "NO",
+  "contradiction": {
+    "referent_reason": "PAIR_EVIDENCE_NOT_EXACT_BIJECTION",
+    "status": "PAIR_EVIDENCE_HARVESTED_QUALIFICATION_INCOMPLETE"
+  },
+  "execution_authority": "NONE",
+  "experience_generation": "EXOGENOUS_PASSIVE_EVENT_AND_OPAQUE_TOKEN_PRESENTATION_REMAIN",
+  "external_train_holdout_partition": "NONE",
+  "harvested_pair_count": 12,
+  "harvested_scopes": [
+    "NATIVE_TOKEN_REFERENT",
+    "NATIVE_TOKEN_RELATION"
+  ],
+  "identity_scope": "OPERATIONAL_EQUIVALENCE_CLASS_ONLY",
+  "language_authority": "NONE",
+  "new_microseed_action_contracts_registered": [],
+  "not_earned": [
+    "ENDOGENOUS_ENVIRONMENT_EVENT_GENERATION",
+    "ENDOGENOUS_OPAQUE_TOKEN_GENERATION",
+    "ACTIVE_EXPERIMENT_SELECTION_FOR_MISSING_ASSOCIATION_EVIDENCE",
+    "SEMANTIC_MEANING",
+    "SEMANTIC_PREDICATE",
+    "GRAMMAR",
+    "LANGUAGE_COMPETENCE",
+    "GENERIC_CAPABILITY_FACULTY",
+    "TAMPER_EVIDENT_LEDGER_SEQUENCE",
+    "CANON_PROMOTION"
+  ],
+  "pairing_basis": "AUTO_HARVESTED_CURRENT_RUNTIME_EVIDENCE_LEDGER_CHRONOLOGY",
+  "qualification_authority": "EPISTEMIC_ADEQUACY_EVIDENCE_ONLY",
+  "referent_bindings": [
+    [
+      "R4",
+      "ad794b785133a51ead7597d6b6a8807841182588167f97a6e0bcf85f7738af4e"
+    ],
+    [
+      "T9",
+      "46fcb6a924c53cd78cacedc6f10706967d090b9fb1b625eb21f6fdbf1224e922"
+    ]
+  ],
+  "referent_qualification_id": "opaque-assoc-qualification-63f16bd7cfbb5c50e09f7328",
+  "relation_bindings": [
+    [
+      "K7",
+      "cabd1ba8831c63e5468493aa312f44866d51d5db0155f86b2308428e821031da"
+    ],
+    [
+      "M2",
+      "06cb779eec45c0af596a63be9eb63ad308ceb169de7548f8953f0a2cdec3a480"
+    ]
+  ],
+  "relation_qualification_id": "opaque-assoc-qualification-95397e358d9efd26ceb53938",
+  "restart_without_current_token": {
+    "reason": "CURRENT_RUNTIME_OPAQUE_TOKEN_EVIDENCE_REQUIRED",
+    "status": "DEFER_UNKNOWN"
+  },
+  "semantic_authority": "NONE",
+  "status": "C08I_NATIVE_OPAQUE_ASSOCIATION_PAIR_HARVEST_EARNED",
+  "technical_name": "Bounded organism-owned harvesting of current opaque token/grounded-source chronology into native association evidence",
+  "truth_authority": "NONE"
+}

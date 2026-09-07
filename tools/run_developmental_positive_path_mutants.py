@@ -51,8 +51,8 @@ MUTANTS = {
     "SUPPRESS_C08C_OWNED_DIRECTIONAL_RELATION_DERIVATION": {
         "target": "microseed/runtime/entity.py",
         "test": "tests/embodiment/test_lang_c08c_native_owned_affordance_relation.py",
-        "old": "        passive=self.derive_current_owned_passive_raw_transition(max_events=max_events)\n        if passive.get(\"status\")!=\"CURRENT_OWNED_PASSIVE_RAW_TRANSITION\":\n",
-        "new": "        return {**base,\"status\":\"DEFER_UNKNOWN\",\"reason\":\"MUTANT_SUPPRESSED_OWNED_DIRECTIONAL_RELATION_DERIVATION\"}\n        passive=self.derive_current_owned_passive_raw_transition(max_events=max_events)\n        if passive.get(\"status\")!=\"CURRENT_OWNED_PASSIVE_RAW_TRANSITION\":\n",
+        "old": "        base={\"truth_authority\":\"NONE\",\"identity_authority\":\"NONE\",\n              \"semantic_reference_authority\":\"NONE\",\"selection_authority\":\"NONE\",\n              \"execution_authority\":\"NONE\",\"language_authority\":\"NONE\"}\n        passive=self.derive_current_owned_passive_raw_transition(max_events=max_events)\n        if passive.get(\"status\")!=\"CURRENT_OWNED_PASSIVE_RAW_TRANSITION\":\n",
+        "new": "        base={\"truth_authority\":\"NONE\",\"identity_authority\":\"NONE\",\n              \"semantic_reference_authority\":\"NONE\",\"selection_authority\":\"NONE\",\n              \"execution_authority\":\"NONE\",\"language_authority\":\"NONE\"}\n        return {**base,\"status\":\"DEFER_UNKNOWN\",\"reason\":\"MUTANT_SUPPRESSED_OWNED_DIRECTIONAL_RELATION_DERIVATION\"}\n        passive=self.derive_current_owned_passive_raw_transition(max_events=max_events)\n        if passive.get(\"status\")!=\"CURRENT_OWNED_PASSIVE_RAW_TRANSITION\":\n",
         "loss_class": "OWNED_DIRECTIONAL_RELATION_GENERATION_SUPPRESSED",
     },
     "SUPPRESS_C08D_CURRENT_RUNTIME_FRESHNESS_PATH": {
@@ -89,6 +89,13 @@ MUTANTS = {
         "old": "        return {\"status\":q.status,\"qualification\":q.serializable(),",
         "new": "        return {\"status\":\"DEFER_UNKNOWN\",\"qualification\":q.serializable(),",
         "loss_class": "ORGANISM_OWNED_EVIDENCE_CLOSURE_QUALIFICATION_SUPPRESSED",
+    },
+    "SUPPRESS_C08I_NATIVE_PAIR_HARVEST": {
+        "target": "microseed/runtime/entity.py",
+        "test": "tests/embodiment/test_lang_c08i_native_pair_harvest.py",
+        "old": "        return {**base,\"status\":\"CURRENT_NATIVE_OPAQUE_ASSOCIATION_PAIRS_HARVESTED\",\n",
+        "new": "        return {**base,\"status\":\"DEFER_UNKNOWN\",\n",
+        "loss_class": "NATIVE_OPAQUE_ASSOCIATION_PAIR_HARVEST_SUPPRESSED",
     },
 }
 

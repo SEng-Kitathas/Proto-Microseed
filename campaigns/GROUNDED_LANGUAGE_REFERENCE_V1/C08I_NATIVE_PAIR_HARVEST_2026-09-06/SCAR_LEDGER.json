@@ -1,0 +1,29 @@
+{
+  "status": "CURRENT",
+  "scars": [
+    {
+      "law": "AUTO_HARVESTED_PAIR_EVIDENCE != ENDOGENOUS_ENVIRONMENT_EVENT_GENERATION",
+      "reason": "passive world change and opaque token presentation remain exogenous"
+    },
+    {
+      "law": "EVIDENCE_ACQUISITION_OWNERSHIP != EFFECT_AUTHORITY",
+      "reason": "C08I harvest/qualification/registration creates no effect authority"
+    },
+    {
+      "law": "AUTO_PAIR_CHRONOLOGY != SEMANTIC_MEANING",
+      "reason": "pairing is operational evidence chronology only"
+    },
+    {
+      "law": "BOUNDED_EVIDENCE_SCAN != COMPLETE_HISTORY_WHEN_BUDGET_EXHAUSTED",
+      "reason": "C08I fails closed rather than infer across truncated history"
+    },
+    {
+      "law": "MUTANT_PATTERN_COLLISION != SCIENTIFIC_FAILURE",
+      "reason": "C08I introduced a second passive-transition call; C08C mutant anchor was narrowed before any mutant result was accepted"
+    },
+    {
+      "law": "TEST_RUNNER_INTERPRETER_MISMATCH != TEST_FAILURE",
+      "reason": "PowerShell system Python lacked pytest; exact suite rerun through project interpreter passed 36/36"
+    }
+  ]
+}
