@@ -11,16 +11,19 @@
     "CALLER_METHOD != ORGANISM_ARITY",
     "REPRESENTED_BOUNDARY != UNREPRESENTED_PAUSE",
     "OVERLONG_WINDOW != LAST_MAX_TOKENS",
-    "NEGATIVE_TOKEN_EVIDENCE != OBSERVED_TOKEN_OPERAND"
+    "NEGATIVE_TOKEN_EVIDENCE != OBSERVED_TOKEN_OPERAND",
+    "NEGATIVE_TOKEN_EVIDENCE != HARVESTABLE_NATIVE_PAIR_SOURCE"
   ],
   "replay": [
     "reproduced generic B2/B3 equivalence",
     "reproduced held-out arity4",
-    "reproduced negative-token false-green across all 3 composition paths"
+    "reproduced negative-token false-green across all 3 composition paths",
+    "reproduced C08I pair harvest contamination with explicit negative token row"
   ],
   "revision": [
     "arity candidate remains viable",
-    "promotion blocked until token row negative flag is excluded across B2/B3/generic/recursive token lineage as applicable"
+    "promotion blocked until token row negative flag is excluded across B2/B3/generic/recursive token lineage as applicable",
+    "repair scope widened from composition selectors to shared token-evidence admissibility including pair harvester"
   ],
-  "next": "repair exact token operand admissibility then rerun all prior composition surfaces"
+  "next": "centralize positive-current-token admissibility; repair harvester+B2+B3+recursive token refs+generic prototype; rerun lineage"
 }

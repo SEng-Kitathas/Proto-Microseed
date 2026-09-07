@@ -5,8 +5,8 @@
   "branch": "research/grounded-language-arity-generalization-v1",
   "base_head": "39bd68e5484e2229b6a4349248025aebb3428835",
   "pass_ceiling": 20,
-  "completed_passes": 12,
-  "current_pass": 13,
-  "current_discriminator": "negative token evidence admissibility repair before generalized arity embodiment",
+  "completed_passes": 13,
+  "current_pass": 14,
+  "current_discriminator": "shared positive-current-token admissibility repair",
   "promotion": "NONE"
 }

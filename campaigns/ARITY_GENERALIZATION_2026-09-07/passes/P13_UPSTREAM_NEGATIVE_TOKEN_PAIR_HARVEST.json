@@ -1,0 +1,13 @@
+{
+  "pass": 13,
+  "name": "UPSTREAM_NEGATIVE_TOKEN_PAIR_HARVEST",
+  "status": "VERIFIED_VIOLATION",
+  "discriminator": "is negative token evidence excluded before native pair harvesting?",
+  "evidence": [
+    "test_lang_negative_token_pair_harvest_hostile.py 1/1 PASS",
+    "C08I harvest produced one new token\u2194referent pair whose token_evidence_id was explicitly negative"
+  ],
+  "result": "VIOLATION_NEGATIVE_TOKEN_EVIDENCE_HARVESTED_AS_NATIVE_PAIR",
+  "localized_repair_scope": "TOKEN_EVIDENCE_ADMISSIBILITY_OWNER_SHARED_BY_HARVEST_AND_COMPOSITION",
+  "promotion": "BLOCKED"
+}

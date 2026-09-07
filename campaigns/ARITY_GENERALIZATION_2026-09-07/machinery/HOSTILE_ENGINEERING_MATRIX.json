@@ -31,6 +31,12 @@
       "claim": "negative token evidence cannot contaminate composition",
       "result": "SURVIVED_AS_DEFECT",
       "evidence": "B2/B3/generic all accepted negative token row"
+    },
+    {
+      "id": "H06",
+      "claim": "negative token evidence cannot enter native pair ancestry",
+      "result": "SURVIVED_AS_DEFECT",
+      "evidence": "C08I harvested contaminated pair from explicit negative token row"
     }
   ]
 }
