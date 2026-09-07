@@ -84,9 +84,13 @@ def run_campaign() -> dict[str, object]:
     assert source_boundary['profile_count']>=2,source_boundary
     assert source_boundary['harvest_reason']=='NO_CURRENT_NATIVE_OPAQUE_ASSOCIATION_PAIR_HARVESTED',source_boundary
     assert source_boundary['pair_witness_delta']==0,source_boundary
-    assert coupling['coupled_methods']==(),coupling
+    expected_coupling=(
+        'def derive_current_native_referent_association_revalidation_opportunity_surface(',
+        'def nominate_current_native_referent_association_revalidation_opportunity(',
+    )
+    assert coupling['coupled_methods']==expected_coupling,coupling
     return {
-        'status':'STOP_ACTIVE_ACQUISITION_OWNER_BINDING_MISSING',
+        'status':'CURRENT_ACTIVE_ACQUISITION_REVALIDATION_BINDING_PRESENT',
         'existing_selection_owner':'CURRENT_UNIQUE_OWNED_REFERENT_EPISTEMIC_OPPORTUNITY',
         'existing_selected_probe_action_id':'P2',
         'caller_selected_binding_or_deficit':'NO',
@@ -94,7 +98,9 @@ def run_campaign() -> dict[str, object]:
         'c08i_pair_harvest_from_action_generated_grounded_evidence':'NO',
         'pair_witness_delta':source_boundary['pair_witness_delta'],
         'association_to_opportunity_coupled_methods':list(coupling['coupled_methods']),
-        'localized_missing_mechanism':'NATIVE_ASSOCIATION_PRESSURE_TO_CURRENT_GROUNDED_ACQUISITION_OPPORTUNITY_BINDING',
+        'historically_localized_missing_mechanism':'NATIVE_ASSOCIATION_PRESSURE_TO_CURRENT_GROUNDED_ACQUISITION_OPPORTUNITY_BINDING',
+        'binding_now_embodied':'YES_FOR_REVALIDATION_ONLY',
+        'new_pair_acquisition_still_unresolved':'YES',
         'new_planner_required':'NO_EVIDENCE_FOR_NEW_PLANNER',
         'information_value_effect_authority_conflated':'NO',
         'effect_authority':source_boundary['effect_authority_from_harvest'],

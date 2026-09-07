@@ -2066,6 +2066,51 @@ class Microseed:
                 deficit is not None
                 and "ENDOGENOUS_UNKNOWN_MATERIALIZED_AFTER_STRICT_CROSS_DEFICIT_SELECTION" in ancestry
             )
+            association_markers=tuple(x.split(":",1)[1] for x in ancestry if x.startswith("ASSOCIATION_REVALIDATION_RECORD:"))
+            if association_markers:
+                if len(association_markers)!=1:
+                    return None,"EXACT_SINGLE_ASSOCIATION_REVALIDATION_RECORD_REQUIRED_AT_EXECUTION",{"association_markers":association_markers}
+                unknown=self.evidence.get(deficit.unknown_evidence_id)
+                payload=None if unknown is None else unknown.get("payload")
+                if (unknown is None or unknown.get("disposition")!=EpistemicStatus.UNKNOWN_INCOMPLETE.value
+                        or unknown.get("source")!="MICROSEED_NATIVE_REFERENT_ASSOCIATION_REVALIDATION_ACQUISITION_SELECTION"
+                        or not isinstance(payload,dict)
+                        or payload.get("kind")!="NATIVE_REFERENT_ASSOCIATION_REVALIDATION_ACQUISITION_UNKNOWN"
+                        or str(payload.get("association_record_id"))!=association_markers[0]
+                        or str(payload.get("selected_ephemeral_deficit_id"))!=str(deficit.deficit_id)
+                        or str(payload.get("probe_action_id"))!=str(intent.capability_id)
+                        or str(payload.get("association_selection_authority"))!="CONTENT_UNIQUENESS_ONLY"
+                        or not str(payload.get("opportunity_content_signature_sha256",""))):
+                    return None,"ASSOCIATION_REVALIDATION_SELECTION_NOMINATION_ANCESTRY_REQUIRED_AT_EXECUTION",{"unknown_evidence_id":deficit.unknown_evidence_id}
+                fresh_association=self.derive_current_native_referent_association_revalidation_opportunity_surface(
+                    association_markers[0],obligation,
+                )
+                if fresh_association.get("status")!="CURRENT_UNIQUE_NATIVE_REFERENT_ASSOCIATION_REVALIDATION_OPPORTUNITY":
+                    return None,"CURRENT_ASSOCIATION_REVALIDATION_OPPORTUNITY_REQUIRED_AT_EXECUTION",{"fresh_association_surface":fresh_association}
+                if (str(fresh_association.get("selected_probe_action_id"))!=str(intent.capability_id)
+                        or str(fresh_association.get("selected_opportunity_content_signature_sha256"))!=str(payload.get("opportunity_content_signature_sha256"))
+                        or str(fresh_association.get("expected_right_digest_sha256"))!=str(payload.get("expected_right_digest_sha256"))):
+                    return None,"ASSOCIATION_REVALIDATION_SELECTED_OPPORTUNITY_DRIFT_AT_EXECUTION",{"fresh_association_surface":fresh_association}
+                association_premises=(
+                    fresh.commitment_id,deficit.unknown_evidence_id,association_markers[0],
+                    str(payload["opportunity_content_signature_sha256"]),str(payload["expected_right_digest_sha256"]),
+                )
+                combined=RelationalCommitment(
+                    action_result_digest({
+                        "basis":"CURRENT_NATIVE_REFERENT_ASSOCIATION_REVALIDATION_ACQUISITION",
+                        "local_step_commitment_id":fresh.commitment_id,
+                        "association_record_id":association_markers[0],
+                        "probe_action_id":intent.capability_id,
+                        "opportunity_content_signature_sha256":str(payload["opportunity_content_signature_sha256"]),
+                        "expected_right_digest_sha256":str(payload["expected_right_digest_sha256"]),
+                    }),
+                    fresh.target_id,TernaryCommitment.YES,
+                    reason="CURRENT_ASSOCIATION_REVALIDATION_ACQUISITION_AND_EFFECT_PREMISES",
+                    qualifiers=(("authority_gain","NONE"),("selection_authority","CONTENT_UNIQUENESS_ONLY"),
+                                ("execution_authority","NONE"),("effect_authority","ORDINARY_CAPABILITY_GATE_ONLY")),
+                    premise_ids=association_premises,
+                )
+                return combined,"ASSOCIATION_REVALIDATION_EXECUTION_COMMITMENT_NOT_CURRENT",{"fresh_association_surface":fresh_association}
             if full_frame_selected_marker:
                 unknown=self.evidence.get(deficit.unknown_evidence_id)
                 payload=None if unknown is None else unknown.get("payload")
@@ -8171,6 +8216,99 @@ class Microseed:
             "complete_value_frame":current_frame,"vectors":tuple(vectors),
             "selection_authority":q.get("selection_authority","NONE"),
             "execution_authority":"NONE","truth_authority":"NONE",
+        }
+
+    def nominate_current_native_referent_association_revalidation_opportunity(
+        self, record_id: str, obligation: QueryObligation, *, max_probe_steps: int = 2, max_records: int = 4096,
+    ) -> dict[str, Any]:
+        """Persist and nominate one uniquely relevant association-revalidation probe; never execute it."""
+        before=(len(self.evidence.recent(self.evidence.count())),len(self.epistemic_deficits.records),
+                len(self.action_closure.intents),len(self.action_closure.executions))
+        surface=self.derive_current_native_referent_association_revalidation_opportunity_surface(
+            str(record_id),obligation,max_probe_steps=max_probe_steps,max_records=max_records,
+        )
+        if (surface.get("status")!="CURRENT_UNIQUE_NATIVE_REFERENT_ASSOCIATION_REVALIDATION_OPPORTUNITY"
+                or surface.get("selection_authority")!="CONTENT_UNIQUENESS_ONLY"):
+            return {
+                "status":"ABSTAIN","reason":str(surface.get("reason",surface.get("status","UNKNOWN"))),
+                "selection_surface":surface,"selection_authority":"NONE","execution_authority":"NONE","effect_authority":"NONE",
+                "evidence_delta":len(self.evidence.recent(self.evidence.count()))-before[0],
+                "deficit_delta":len(self.epistemic_deficits.records)-before[1],
+                "intent_delta":len(self.action_closure.intents)-before[2],"execution_delta":len(self.action_closure.executions)-before[3],
+            }
+        probe=str(surface["selected_probe_action_id"]); content=str(surface["selected_opportunity_content_signature_sha256"])
+        ops=self._current_owned_referent_epistemic_opportunities(
+            obligation,max_probe_steps=max_probe_steps,max_records=max_records,
+        )
+        selected=next((op for op in ops if str(op["probe_action_id"])==probe and str(op["content_signature_sha256"])==content),None)
+        if selected is None:
+            return {"status":"ABSTAIN","reason":"SELECTED_ASSOCIATION_REVALIDATION_OPPORTUNITY_NOT_CURRENT",
+                    "selection_surface":surface,"selection_authority":"NONE","execution_authority":"NONE","effect_authority":"NONE",
+                    "evidence_delta":0,"deficit_delta":0,"intent_delta":0,"execution_delta":0}
+        d=selected["deficit"]
+        if d.deficit_id in self.epistemic_deficits.records:
+            return {"status":"ABSTAIN","reason":"ASSOCIATION_REVALIDATION_EPISTEMIC_DEFICIT_ALREADY_PERSISTED",
+                    "selected_deficit_id":d.deficit_id,"selected_probe_action_id":probe,"selection_surface":surface,
+                    "selection_authority":"NONE","execution_authority":"NONE","effect_authority":"NONE",
+                    "evidence_delta":0,"deficit_delta":0,"intent_delta":0,"execution_delta":0}
+        record=self.opaque_evidence_associations.records[str(record_id)]
+        unknown_payload={
+            "kind":"NATIVE_REFERENT_ASSOCIATION_REVALIDATION_ACQUISITION_UNKNOWN",
+            "association_record_id":record.record_id,"association_left_opaque_id":record.left_opaque_id,
+            "expected_right_digest_sha256":record.right_digest_sha256,
+            "selected_ephemeral_deficit_id":d.deficit_id,"selected_trial_id":selected["trial"].trial_id,
+            "selected_trial_digest":selected["trial"].digest(),"binding_id":selected["binding_id"],
+            "probe_action_id":probe,"source_raw_observation_evidence_id":d.unknown_evidence_id,
+            "hypothesis_digest_sha256":d.hypothesis_digest_sha256,
+            "missing_discriminator_signature_sha256":d.missing_discriminator_signature_sha256,
+            "priority_commitment_id":selected["priority"].commitment_id,
+            "information_commitment_id":selected["contrast_information"].commitment_id,
+            "step_commitment_id":selected["commitment"].commitment_id,
+            "opportunity_content_signature_sha256":content,
+            "association_selection_authority":"CONTENT_UNIQUENESS_ONLY",
+            "remaining_token_presentation":"EXOGENOUS",
+            "proposal_only":True,"authority_gain":"NONE","effect_authority":"NONE","execution_authority":"NONE",
+        }
+        unknown_id="ASSOCIATION-REVALIDATION-UNKNOWN-"+action_result_digest(unknown_payload)[:24]
+        existing=self.evidence.get(unknown_id)
+        if existing is None:
+            unknown=self.append_evidence(
+                unknown_id,unknown_payload,EpistemicStatus.UNKNOWN_INCOMPLETE,
+                source="MICROSEED_NATIVE_REFERENT_ASSOCIATION_REVALIDATION_ACQUISITION_SELECTION",
+            )
+            unknown_evidence_id=unknown.evidence_id
+        else:
+            if (existing.get("disposition")!=EpistemicStatus.UNKNOWN_INCOMPLETE.value
+                    or existing.get("payload")!=unknown_payload
+                    or existing.get("source")!="MICROSEED_NATIVE_REFERENT_ASSOCIATION_REVALIDATION_ACQUISITION_SELECTION"):
+                return {"status":"ABSTAIN","reason":"ASSOCIATION_REVALIDATION_UNKNOWN_EVIDENCE_COLLISION",
+                        "selection_authority":"NONE","execution_authority":"NONE","effect_authority":"NONE",
+                        "evidence_delta":0,"deficit_delta":0,"intent_delta":0,"execution_delta":0}
+            unknown_evidence_id=unknown_id
+        persisted=self.record_action_limited_unknown(
+            deficit_id=d.deficit_id,question_key=d.question_key,hypothesis_digest_sha256=d.hypothesis_digest_sha256,
+            unknown_evidence_id=unknown_evidence_id,missing_discriminator_signature_sha256=d.missing_discriminator_signature_sha256,
+            premise_anchors=d.premise_anchors,
+            assistance_ancestry=tuple(d.assistance_ancestry)+(
+                "ENDOGENOUS_UNKNOWN_MATERIALIZED_AFTER_NATIVE_ASSOCIATION_REVALIDATION_SELECTION",
+                f"ASSOCIATION_REVALIDATION_RECORD:{record.record_id}",
+            ),
+        )
+        nomination=self.nominate_endogenous_epistemic_program_step_intent_from_current_surface(
+            selected["trial"],selected["decision_context"],obligation,
+        )
+        return {
+            "status":"ASSOCIATION_REVALIDATION_OPPORTUNITY_PERSISTED_AND_NOMINATED"
+                     if nomination.get("status")=="ACTION_INTENT_NOMINATED"
+                     else "ASSOCIATION_REVALIDATION_OPPORTUNITY_PERSISTED_BUT_NOT_NOMINATED",
+            "reason":str(nomination.get("reason",nomination.get("status","UNKNOWN"))),
+            "association_record_id":record.record_id,"selected_deficit_id":d.deficit_id,
+            "selected_probe_action_id":probe,"unknown_evidence_id":unknown_evidence_id,
+            "persisted_deficit":persisted.serializable(),"selection_surface":surface,"nomination":nomination,
+            "selection_authority":"CONTENT_UNIQUENESS_ONLY","execution_authority":"NONE","effect_authority":"NONE",
+            "evidence_delta":len(self.evidence.recent(self.evidence.count()))-before[0],
+            "deficit_delta":len(self.epistemic_deficits.records)-before[1],
+            "intent_delta":len(self.action_closure.intents)-before[2],"execution_delta":len(self.action_closure.executions)-before[3],
         }
 
     def nominate_current_strict_full_frame_referent_epistemic_opportunity(
