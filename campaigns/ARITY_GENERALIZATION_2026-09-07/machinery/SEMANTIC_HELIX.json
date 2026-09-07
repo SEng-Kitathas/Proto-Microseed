@@ -15,6 +15,20 @@
       ],
       "next_discriminator": "test contiguous token suffix and hostile unrelated-evidence boundaries",
       "authority": "RESEARCH_ONLY"
+    },
+    {
+      "id": "ARITY-02",
+      "question": "Does generalized arity survive evidence-integrity attacks?",
+      "evidence": [
+        "held-out arity4 passed",
+        "negative token hostile exposed B2/B3/generic defect"
+      ],
+      "interpretations": [
+        "repair token admissibility then generalized operator may be lawful",
+        "negative evidence semantics invalidate chronology carrier entirely"
+      ],
+      "next_discriminator": "exclude negative token rows everywhere composition treats token evidence as positive observation; rerun B2/B3/arity4",
+      "authority": "RESEARCH_ONLY"
     }
   ]
 }

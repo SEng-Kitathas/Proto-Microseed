@@ -1,0 +1,30 @@
+{
+  "schema": "r44.loop_plus.v1",
+  "status": "ACTIVE",
+  "cycles": [
+    {
+      "cycle": 1,
+      "question": "who owns arity?",
+      "result": "caller method choice",
+      "next": "contiguous token suffix"
+    },
+    {
+      "cycle": 2,
+      "question": "does suffix unify B2/B3?",
+      "result": "yes 2/2",
+      "next": "held-out arity4"
+    },
+    {
+      "cycle": 3,
+      "question": "does same loop generalize to arity4?",
+      "result": "yes 2/2 + representation invariance",
+      "next": "OARR evidence integrity"
+    },
+    {
+      "cycle": 4,
+      "question": "can negative token evidence contaminate operands?",
+      "result": "yes real defect",
+      "next": "repair before production generalization"
+    }
+  ]
+}

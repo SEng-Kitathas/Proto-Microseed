@@ -21,12 +21,22 @@
       "B2+B3 by themselves prove generic N-ary generalization"
     ]
   },
-  "verify": {},
+  "verify": {
+    "result": "BLOCKED_BY_NEGATIVE_TOKEN_OPERAND_DEFECT",
+    "checks": [
+      "generic B2/B3 identity equivalence PASS",
+      "four-leaf substrate PASS",
+      "held-out arity4 PASS",
+      "representation invariance PASS",
+      "negative token evidence hostile VIOLATION"
+    ]
+  },
   "embody": {},
   "recurse": {
     "next": [
-      "attack latest-contiguous-token-suffix as candidate arity carrier",
-      "search episode/frame/currentness owners for stronger delimiter"
+      "repair negative token admissibility in existing composition owners and prototype",
+      "rerun B2/B3/recursive/B3/arity prototype stack",
+      "only then embody generalized production owner"
     ],
     "promotion": "NONE"
   }

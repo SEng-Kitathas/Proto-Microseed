@@ -1,0 +1,12 @@
+{
+  "pass": 6,
+  "name": "WINDOW_BOUNDARY_AND_OVERLONG_HOSTILES",
+  "status": "PASS_BOUNDED",
+  "discriminator": "does candidate crop or invent invisible boundaries?",
+  "evidence": [
+    "represented non-token evidence closes suffix",
+    "unrepresented pause creates no owned boundary",
+    "five-token suffix observed as 5"
+  ],
+  "result": "candidate must reject <2 or >explicit max; silent crop forbidden"
+}

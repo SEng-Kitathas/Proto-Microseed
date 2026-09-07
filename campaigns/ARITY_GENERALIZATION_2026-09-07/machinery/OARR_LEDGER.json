@@ -1,0 +1,26 @@
+{
+  "schema": "r44.oarr.v1",
+  "status": "ACTIVE_BLOCKING_DEFECT",
+  "observe": [
+    "B2/B3 source selectors",
+    "generic scratch prototype",
+    "four-leaf substrate",
+    "negative token hostile"
+  ],
+  "attack": [
+    "CALLER_METHOD != ORGANISM_ARITY",
+    "REPRESENTED_BOUNDARY != UNREPRESENTED_PAUSE",
+    "OVERLONG_WINDOW != LAST_MAX_TOKENS",
+    "NEGATIVE_TOKEN_EVIDENCE != OBSERVED_TOKEN_OPERAND"
+  ],
+  "replay": [
+    "reproduced generic B2/B3 equivalence",
+    "reproduced held-out arity4",
+    "reproduced negative-token false-green across all 3 composition paths"
+  ],
+  "revision": [
+    "arity candidate remains viable",
+    "promotion blocked until token row negative flag is excluded across B2/B3/generic/recursive token lineage as applicable"
+  ],
+  "next": "repair exact token operand admissibility then rerun all prior composition surfaces"
+}

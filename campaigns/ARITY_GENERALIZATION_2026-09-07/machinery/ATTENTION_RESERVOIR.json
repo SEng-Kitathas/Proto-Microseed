@@ -3,6 +3,13 @@
   "status": "ACTIVE",
   "items": [
     {
+      "id": "AR-NEG-TOKEN",
+      "priority": "P0",
+      "state": "BLOCKER",
+      "signal": "negative token evidence accepted as composition operand in B2/B3/generic prototype",
+      "reason": "recursive/generalized composition would amplify false premise"
+    },
+    {
       "id": "AR-01",
       "priority": "P0",
       "state": "LIVE",

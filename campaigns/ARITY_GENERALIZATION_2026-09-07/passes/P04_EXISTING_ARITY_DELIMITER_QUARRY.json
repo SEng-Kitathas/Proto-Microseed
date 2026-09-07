@@ -1,0 +1,11 @@
+{
+  "pass": 4,
+  "name": "EXISTING_ARITY_DELIMITER_QUARRY",
+  "status": "NARROWED",
+  "discriminator": "does token/episode/frame ownership already encode composition arity?",
+  "evidence": [
+    "OPAQUE_EXTERNAL_TOKEN_OBSERVATION payload carries opaque token, boot, observation authority; no production phase/group field",
+    "production B2/B3 independently select last 2/3 token rows"
+  ],
+  "result": "no stronger current arity/group carrier found; chronology remains smallest candidate"
+}

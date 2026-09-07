@@ -1,0 +1,15 @@
+{
+  "pass": 12,
+  "name": "OARR_NEGATIVE_TOKEN_EVIDENCE",
+  "status": "VERIFIED_VIOLATION",
+  "discriminator": "can negative token evidence become a composition operand?",
+  "evidence": [
+    "test_lang_arity_negative_token_evidence_hostile.py 1/1 PASS",
+    "generic prototype accepted negative W3 token",
+    "B3 accepted negative W3 token",
+    "B2 accepted negative W3 token"
+  ],
+  "result": "VIOLATION_NEGATIVE_TOKEN_EVIDENCE_ACCEPTED_AS_COMPOSITION_OPERAND",
+  "promotion": "BLOCKED",
+  "next": "repair token operand admissibility before arity promotion"
+}

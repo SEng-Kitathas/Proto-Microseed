@@ -1,0 +1,13 @@
+{
+  "pass": 8,
+  "name": "GENERIC_B2_B3_IDENTITY_EQUIVALENCE",
+  "status": "PASS",
+  "discriminator": "does one arity-agnostic loop reproduce earned B2/B3 content?",
+  "evidence": [
+    "test_lang_arity_generic_prototype_b2_b3_equivalence.py 2/2 PASS",
+    "generic arity2 digest == B2 digest",
+    "generic arity3 digest == B3 digest",
+    "arity1 and arity5 fail closed"
+  ],
+  "result": "same generic content law spans earned B2/B3 without caller arity"
+}

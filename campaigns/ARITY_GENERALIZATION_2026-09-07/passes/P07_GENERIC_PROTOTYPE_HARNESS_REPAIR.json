@@ -1,0 +1,11 @@
+{
+  "pass": 7,
+  "name": "GENERIC_PROTOTYPE_HARNESS_REPAIR",
+  "status": "INVALID_RUN_REPAIRED",
+  "discriminator": "run one arity-agnostic leaf validator",
+  "evidence": [
+    "first run ImportError: action_result_digest not exported from microseed.__init__",
+    "scratch import corrected to actual owner; test boundary corrected to EpistemicStatus enum"
+  ],
+  "result": "INVALID_RUN not scientific negative; rerun required"
+}

@@ -1,0 +1,13 @@
+{
+  "pass": 10,
+  "name": "HELDOUT_ARITY4_GENERIC_PROTOTYPE",
+  "status": "PASS",
+  "discriminator": "does same generic prototype extend from earned B2/B3 to unseen arity4?",
+  "evidence": [
+    "test_lang_arity_generic_prototype_heldout_b4.py 2/2 PASS",
+    "arity4 requires no B4-specific branch",
+    "order permutation changes digest",
+    "duplicate/unseen/QD drift fail closed"
+  ],
+  "result": "bounded held-out arity4 is mechanistically reachable by same loop"
+}

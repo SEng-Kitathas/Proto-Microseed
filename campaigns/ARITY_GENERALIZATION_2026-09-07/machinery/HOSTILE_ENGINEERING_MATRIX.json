@@ -1,0 +1,36 @@
+{
+  "schema": "r44.hostile_engineering_matrix.v1",
+  "status": "ACTIVE",
+  "attacks": [
+    {
+      "id": "H01",
+      "claim": "B2+B3 prove generic arity",
+      "result": "KILLED",
+      "evidence": "same-state caller-method hostile"
+    },
+    {
+      "id": "H02",
+      "claim": "contiguous suffix may silently crop overlong run",
+      "result": "KILLED",
+      "evidence": "5-token suffix remains 5 and candidate rejects >max"
+    },
+    {
+      "id": "H03",
+      "claim": "unrepresented pause can serve as operand boundary",
+      "result": "KILLED",
+      "evidence": "no evidence -> no owned boundary"
+    },
+    {
+      "id": "H04",
+      "claim": "four-leaf grounding needs a new primitive",
+      "result": "KILLED",
+      "evidence": "unchanged substrate derives 4 profiles/current associations"
+    },
+    {
+      "id": "H05",
+      "claim": "negative token evidence cannot contaminate composition",
+      "result": "SURVIVED_AS_DEFECT",
+      "evidence": "B2/B3/generic all accepted negative token row"
+    }
+  ]
+}

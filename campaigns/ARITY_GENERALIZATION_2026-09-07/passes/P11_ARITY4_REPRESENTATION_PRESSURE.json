@@ -1,0 +1,12 @@
+{
+  "pass": 11,
+  "name": "ARITY4_REPRESENTATION_PRESSURE",
+  "status": "PASS",
+  "discriminator": "is held-out arity4 identity independent of token labels/sensor encoding?",
+  "evidence": [
+    "token mapping permutation preserves content",
+    "8-channel group permutation preserves content",
+    "sign inversion preserves content"
+  ],
+  "result": "held-out arity4 identity remains grounded operational content"
+}

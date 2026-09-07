@@ -1,0 +1,11 @@
+{
+  "pass": 5,
+  "name": "CONTIGUOUS_TOKEN_SUFFIX_CANDIDATE",
+  "status": "VERIFIED_CANDIDATE",
+  "discriminator": "can latest contiguous current-token suffix expose operand-window length?",
+  "evidence": [
+    "test_lang_arity_contiguous_token_window_audit.py 1/1 PASS",
+    "XYZ suffix=3; composition evidence closes run; fresh two-token suffix=2"
+  ],
+  "result": "EXACT_CONTIGUOUS_CURRENT_RUNTIME_TOKEN_SUFFIX_LENGTH is observable arity candidate"
+}

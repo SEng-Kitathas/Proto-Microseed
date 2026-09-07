@@ -1,0 +1,12 @@
+{
+  "pass": 9,
+  "name": "FOUR_GROUNDED_LEAF_SUBSTRATE",
+  "status": "PASS",
+  "discriminator": "does unchanged grounding/qualification substrate support 4 independent leaves?",
+  "evidence": [
+    "test_lang_arity_four_grounded_referents_fixture.py 1/1 PASS",
+    "QA/QB/QC/QD -> 4 independent profiles",
+    "C08I registers current 4-way token-referent bijection"
+  ],
+  "result": "B4 grounding is not missing; operator arity remains target"
+}
