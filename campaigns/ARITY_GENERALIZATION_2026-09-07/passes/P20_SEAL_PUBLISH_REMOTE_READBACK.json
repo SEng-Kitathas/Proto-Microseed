@@ -1,0 +1,48 @@
+{
+  "pass": 20,
+  "name": "SEAL_PUBLISH_REMOTE_READBACK",
+  "status": "COMPLETE",
+  "science_seal_commit": "d961ce17180fe365f7c185779742b913d908d37a",
+  "branch": "research/grounded-language-arity-generalization-v1",
+  "remote_readback": {
+    "HEAD": "d961ce17180fe365f7c185779742b913d908d37a",
+    "origin_branch": "d961ce17180fe365f7c185779742b913d908d37a",
+    "ls_remote": "d961ce17180fe365f7c185779742b913d908d37a",
+    "equal": "YES"
+  },
+  "earned_claim": "BOUNDED_DIRECT_ARITY_GENERALIZATION_2_TO_4",
+  "repair_scars": {
+    "caller_selected_arity_gap": "7bde7977dc534f6b7a48912aa72fee413272788c",
+    "negative_token_operand_violation": "93a1740bfef7963635b084133062179dde0b5505",
+    "negative_token_pair_harvest_violation": "7afefa7e8e24e51e77d607d83fa9402b62408e80",
+    "shared_token_admissibility_repair": "bedad99dbac9c8b4ea7c477e91f1885366ec4833"
+  },
+  "verification": {
+    "targeted_token_repair": "21/21 PASS",
+    "p16_hostiles": "10/10 PASS",
+    "broad_lineage": "88/88 PASS",
+    "compileall": "PASS",
+    "diff_check": "PASS",
+    "anti_smuggling": "PASS",
+    "CSC": "PASS_BOUNDED",
+    "campaign_pass_gate": "PASS_SEAL_READY"
+  },
+  "authority": {
+    "canon_promotion": "NONE",
+    "semantic": "NONE",
+    "grammar": "NONE",
+    "truth": "NONE",
+    "language": "NONE",
+    "execution_EFFECT_gain": "NONE",
+    "flattening": "NONE",
+    "associativity": "NONE"
+  },
+  "ceilings": [
+    "hard arity range 2..4 only",
+    "generic/unbounded N-ary NOT EARNED",
+    "arity>4 NOT EARNED",
+    "operand-window boundary currently requires represented non-token evidence",
+    "unrepresented pause has no grouping authority"
+  ],
+  "next_frontier": "ENDOGENOUS_OPERAND_WINDOW_BOUNDARY_OWNERSHIP"
+}

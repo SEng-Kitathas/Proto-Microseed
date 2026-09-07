@@ -40,11 +40,11 @@
   },
   "recurse": {
     "next": [
-      "seal local science commit",
-      "GitHub publish/readback",
-      "write P20 completion receipt",
-      "advance continuity/RD"
+      "advance continuity and RD through campaign completion",
+      "next research frontier: endogenous operand-window boundary ownership"
     ],
-    "promotion": "NONE"
+    "promotion": "NONE",
+    "science_seal_commit": "d961ce17180fe365f7c185779742b913d908d37a",
+    "remote_exact": "YES"
   }
 }

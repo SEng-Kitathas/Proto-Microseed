@@ -1,0 +1,27 @@
+{
+  "schema": "microseed.arity_generalization_campaign.final.v1",
+  "status": "COMPLETE_SEALED_PUBLISHED",
+  "campaign": "ARITY_GENERALIZATION_2026-09-07",
+  "passes_completed": 20,
+  "science_seal_commit": "d961ce17180fe365f7c185779742b913d908d37a",
+  "earned": "BOUNDED_DIRECT_ARITY_GENERALIZATION_2_TO_4",
+  "next_frontier": "ENDOGENOUS_OPERAND_WINDOW_BOUNDARY_OWNERSHIP",
+  "canon_promotion": "NONE",
+  "remote_exact_science_seal": "YES",
+  "key_scars": {
+    "caller_selected_arity_gap": "7bde7977dc534f6b7a48912aa72fee413272788c",
+    "negative_token_operand_violation": "93a1740bfef7963635b084133062179dde0b5505",
+    "negative_token_pair_harvest_violation": "7afefa7e8e24e51e77d607d83fa9402b62408e80",
+    "shared_token_admissibility_repair": "bedad99dbac9c8b4ea7c477e91f1885366ec4833"
+  },
+  "verification": {
+    "targeted_token_repair": "21/21 PASS",
+    "p16_hostiles": "10/10 PASS",
+    "broad_lineage": "88/88 PASS",
+    "compileall": "PASS",
+    "diff_check": "PASS",
+    "anti_smuggling": "PASS",
+    "CSC": "PASS_BOUNDED",
+    "campaign_pass_gate": "PASS_SEAL_READY"
+  }
+}

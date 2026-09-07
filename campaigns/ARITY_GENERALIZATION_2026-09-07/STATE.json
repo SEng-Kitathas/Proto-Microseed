@@ -1,12 +1,13 @@
 {
   "schema": "microseed.arity_generalization_campaign.v1",
   "campaign": "ARITY_GENERALIZATION_2026-09-07",
-  "status": "PASS_GATE_SEAL_READY",
+  "status": "COMPLETE_SEALED_PUBLISHED",
   "branch": "research/grounded-language-arity-generalization-v1",
   "base_head": "39bd68e5484e2229b6a4349248025aebb3428835",
   "pass_ceiling": 20,
-  "completed_passes": 19,
+  "completed_passes": 20,
   "current_pass": 20,
-  "current_discriminator": "seal/publish/remote-readback/continuity completion",
-  "promotion": "NONE"
+  "current_discriminator": "ENDOGENOUS_OPERAND_WINDOW_BOUNDARY_OWNERSHIP",
+  "promotion": "NONE",
+  "science_seal_commit": "d961ce17180fe365f7c185779742b913d908d37a"
 }
