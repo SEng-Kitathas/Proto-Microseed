@@ -1,0 +1,47 @@
+{
+  "activation_machinery": {
+    "protocol_sha256": "d8a2da82169b464a9cfca06ddbfb2d43396a95f72b01f9d26b42da1d82c9a6f0",
+    "required_target_count": 17,
+    "surface_inventory_sha256": "a0722ba0fc01043451c274c7a7354327effe68a60ea2aa2a68cd33858998610c"
+  },
+  "authority": {
+    "authority_class": "BINDING_ADDITIVE_PROCESS_DOCTRINE",
+    "global_active_claim_requires": [
+      "EXACT_TOKEN_PRESENT_AND_VALID_AT_17_OF_17_REQUIRED_TARGETS",
+      "POST_PROPAGATION_READBACK_PASS_AT_17_OF_17_REQUIRED_TARGETS",
+      "DETACHED_ACTIVATION_COMPLETION_RECEIPT"
+    ],
+    "global_claim_before_17_target_token_readback": "FORBIDDEN",
+    "local_effect_when_exact_token_valid_at_target": "GOVERNANCE_CONTACT_LOCALLY_BINDING_ADDITIVE_PROCESS_DOCTRINE"
+  },
+  "claim_ceiling": "THIS_TOKEN_IS_PRECOMPUTED_AUTHORITY_MATERIAL; GLOBAL_ACTIVE_MAY_BE_CLAIMED_ONLY_AFTER_17_OF_17_PROPAGATION_READBACK_AND_DETACHED_COMPLETION_RECEIPT",
+  "created_at": "2026-09-07T17:33:46.997452+00:00",
+  "release": {
+    "detached_postreadback_lifecycle_receipt_sha256": "5c9899aafd1b063769c6a2d13ce28c68fb20a2a1190384e2e5105bbc78d34283",
+    "package_id": "RAHL_ENGINEERING_GOVERNANCE_CONTACT_ADDITIVE_DOCTRINE_V1_0_2026-09-06",
+    "sealed_zip_sha256": "c4ab4a516e088b6c28b5240d6b3877d2e3fb889a8bbbfd406e8e0c73bebdd1ae",
+    "target_lifecycle_matrix_sha256": "b6a2fcd3df1214afbc5891864bb523c000277a5f4ba4a4f9ca39f5b76208ef10"
+  },
+  "resolution_laws": [
+    "TOKEN_HASH_MATCH != TOKEN_FIELDS_VALID",
+    "ACTIVATION_TOKEN_PRESENT_AT_ONE_TARGET != GLOBAL_ACTIVE",
+    "ACTIVATION_TOKEN_17_OF_17_READBACK != DETACHED_COMPLETION_RECEIPT",
+    "CARRIER_PRESENT != PROJECT_SPECIFIC_AUTHORITY_REWRITE",
+    "PROJECT_DOMAIN_AUTHORITY != GOVERNANCE_CONTACT_PROCESS_AUTHORITY"
+  ],
+  "schema": "rahl.governance-contact.activation-token.v1",
+  "scope_ceiling": {
+    "does_not_grant": [
+      "PRODUCT_AUTHORITY",
+      "DOMAIN_FACT_AUTHORITY",
+      "SCIENTIFIC_TRUTH_AUTHORITY",
+      "PROJECT_SPECIFIC_DIRECTION_AUTHORITY",
+      "PERMISSION_TO_OVERRIDE_EXPLICIT_COMPATIBLE_LOCAL_PIN"
+    ],
+    "grants": [
+      "GOVERNANCE_CONTACT_PROCESS_DOCTRINE_WITHIN_QUALIFIED_SCOPE"
+    ]
+  },
+  "state": "FROZEN_ACTIVATION_TOKEN_PENDING_PROPAGATION",
+  "token_id": "gc-act-797047e6d57a59f50fd7d8cb"
+}
