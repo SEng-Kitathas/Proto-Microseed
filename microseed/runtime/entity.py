@@ -4710,6 +4710,206 @@ class Microseed:
             "caller_supplied_output_evidence_id":"NO",
         }
 
+    def derive_and_record_current_native_recursive_b2_ordered_composition(
+        self, *, max_records: int = 4096,
+    ) -> dict[str, Any]:
+        """Compose the latest two distinct CURRENT B2 composition children at one recursive edge.
+
+        This is a fixed-depth research operator, not generic N-ary composition. The caller
+        supplies no child ids, child order, grouping, leaf operands, or output id. Every
+        child is revalidated through exact evidence lineage and the current association /
+        profile premises of each B2 leaf before it may become a parent operand.
+        """
+        base={
+            "semantic_reference_authority":"NONE","semantic_composition_authority":"NONE",
+            "truth_authority":"NONE","execution_authority":"NONE",
+            "predicate_authority":"NONE","grammar_authority":"NONE",
+            "language_authority":"NONE","numerical_identity_authority":"NONE",
+            "authority_gain":"NONE","recursive_depth_limit":1,
+        }
+        bound=int(max_records)
+        if bound<=0:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"RECURSIVE_B2_EVIDENCE_SCAN_BUDGET_REQUIRED"}
+        total=self.evidence.count()
+        if total>bound:
+            return {**base,"status":"SEARCH_BUDGET_EXHAUSTED_NOT_SATURATED",
+                    "reason":"RECURSIVE_B2_EVIDENCE_HISTORY_EXCEEDS_SCAN_BUDGET",
+                    "total_records":total,"max_records":bound}
+        boot=self._current_runtime_boot_seq()
+        if boot<0:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"CURRENT_RUNTIME_BOOT_BOUNDARY_REQUIRED"}
+        rows=self.evidence.list()
+        scope_tag="QUALIFICATION_SCOPE:NATIVE_TOKEN_REFERENT"
+
+        def current_profile(row: dict[str, Any], referent_sig: str) -> bool:
+            pp=row.get("payload") or {}
+            if (row.get("negative")
+                    or pp.get("kind")!="OWNED_AFFORDANCE_EFFECT_PROFILE_WITNESS"
+                    or int(pp.get("runtime_boot_seq",-1))!=boot
+                    or str(pp.get("operational_referent_signature_sha256",""))!=referent_sig):
+                return False
+            action=str(pp.get("exclusive_action_id","")); cap=self.capabilities.contracts.get(action)
+            if cap is None or not self.capabilities.is_current(action):
+                return False
+            if (self.capabilities.epochs.get(action,-1)!=int(pp.get("exclusive_action_epoch",-1))
+                    or cap.computed_signature_sha256()!=str(pp.get("exclusive_action_signature_sha256",""))):
+                return False
+            frame_id=str(pp.get("frame_id","")); frame=self.frames.frames.get(frame_id)
+            if (frame is None
+                    or not self.frames.is_current(frame_id,int(pp.get("frame_epoch",-1)))
+                    or frame.signature_sha256!=str(pp.get("frame_signature_sha256",""))):
+                return False
+            for eid,sig in pp.get("source_raw_evidence_refs",()):
+                erow=self.evidence.get(str(eid))
+                if erow is None or str(erow.get("sha256",""))!=str(sig):
+                    return False
+            return True
+
+        def validate_child(row: dict[str, Any]) -> dict[str, Any] | None:
+            if row.get("negative"):
+                return None
+            payload=row.get("payload") or {}
+            if (payload.get("kind")!="OWNED_NATIVE_B2_ORDERED_OPERATIONAL_REFERENCE_COMPOSITION_EVIDENCE"
+                    or int(payload.get("runtime_boot_seq",-1))!=boot
+                    or payload.get("composition_operator")!="ORDERED_EVIDENCE_TUPLE"
+                    or payload.get("operator_owner")!="MICROSEED_NATIVE_B2_ORDERED_COMPOSITION"):
+                return None
+            ordered=tuple(str(x) for x in payload.get("ordered_operational_referent_signatures",()))
+            components=tuple(payload.get("components",()))
+            if len(ordered)!=2 or len(components)!=2 or len(set(ordered))!=2:
+                return None
+            expected=action_result_digest({
+                "operator":"ORDERED_EVIDENCE_TUPLE",
+                "ordered_operational_referent_signatures":list(ordered),
+                "arity":2,"identity_scope":"OPERATIONAL_EQUIVALENCE_CLASS_ONLY",
+            })
+            if expected!=str(payload.get("composition_content_digest_sha256","")):
+                return None
+            validated=[]
+            for ordinal,(component,referent_sig) in enumerate(zip(components,ordered)):
+                if not isinstance(component,dict) or int(component.get("ordinal",-1))!=ordinal:
+                    return None
+                if str(component.get("operational_referent_signature_sha256",""))!=referent_sig:
+                    return None
+                token=str(component.get("opaque_token","")); rec_id=str(component.get("association_record_id",""))
+                if not token or not rec_id:
+                    return None
+                token_ref=tuple(component.get("token_evidence_ref",()))
+                profile_ref=tuple(component.get("profile_evidence_ref",()))
+                if len(token_ref)!=2 or len(profile_ref)!=2:
+                    return None
+                token_row=self.evidence.get(str(token_ref[0])); profile_row=self.evidence.get(str(profile_ref[0]))
+                if (token_row is None or str(token_row.get("sha256",""))!=str(token_ref[1])
+                        or (token_row.get("payload") or {}).get("kind")!="OPAQUE_EXTERNAL_TOKEN_OBSERVATION"
+                        or int((token_row.get("payload") or {}).get("runtime_boot_seq",-1))!=boot
+                        or str((token_row.get("payload") or {}).get("opaque_token",""))!=token):
+                    return None
+                rec=self.opaque_evidence_associations.records.get(rec_id)
+                if (rec is None or rec.left_opaque_id!=token or rec.right_digest_sha256!=referent_sig
+                        or scope_tag not in rec.assistance_ancestry
+                        or self.opaque_evidence_association_status(rec_id).get("status")!="CURRENT_OPAQUE_EVIDENCE_ASSOCIATION"):
+                    return None
+                if profile_row is None or str(profile_row.get("sha256",""))!=str(profile_ref[1]) or not current_profile(profile_row,referent_sig):
+                    return None
+                validated.append({
+                    "ordinal":ordinal,"opaque_token":token,
+                    "operational_referent_signature_sha256":referent_sig,
+                    "association_record_id":rec_id,
+                    "token_evidence_ref":[str(token_ref[0]),str(token_ref[1])],
+                    "profile_evidence_ref":[str(profile_ref[0]),str(profile_ref[1])],
+                })
+            return {
+                "composition_evidence_id":str(row.get("evidence_id","")),
+                "composition_evidence_sha256":str(row.get("sha256","")),
+                "composition_content_digest_sha256":expected,
+                "ordered_operational_referent_signatures":ordered,
+                "validated_components":tuple(validated),
+            }
+
+        candidates=[]
+        for pos,row in enumerate(rows):
+            child=validate_child(row)
+            if child is not None:
+                child["evidence_list_position"]=pos
+                candidates.append(child)
+        # Select the latest two distinct child contents in evidence chronology. Duplicate
+        # evidence instances of the same child content do not create a fake second operand.
+        selected_rev=[]; seen=set()
+        for child in reversed(candidates):
+            digest=child["composition_content_digest_sha256"]
+            if digest in seen:
+                continue
+            seen.add(digest); selected_rev.append(child)
+            if len(selected_rev)==2:
+                break
+        if len(selected_rev)<2:
+            return {**base,"status":"DEFER_UNKNOWN",
+                    "reason":"TWO_DISTINCT_CURRENT_B2_COMPOSITION_CHILDREN_REQUIRED",
+                    "current_distinct_child_count":len(selected_rev)}
+        children=tuple(reversed(selected_rev))
+        child_digests=tuple(str(x["composition_content_digest_sha256"]) for x in children)
+        if len(set(child_digests))!=2:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"INDEPENDENT_B2_COMPOSITION_CHILDREN_REQUIRED"}
+        content={
+            "operator":"RECURSIVE_ORDERED_EVIDENCE_TUPLE",
+            "ordered_child_composition_content_digests":list(child_digests),
+            "composition_depth":1,
+            "child_arity":2,
+            "identity_scope":"EXACT_GROUPED_OPERATIONAL_COMPOSITION_ONLY",
+        }
+        parent_digest=action_result_digest(content)
+        payload={
+            "kind":"OWNED_NATIVE_RECURSIVE_B2_ORDERED_COMPOSITION_EVIDENCE",
+            "composition_content_digest_sha256":parent_digest,
+            "composition_operator":"RECURSIVE_ORDERED_EVIDENCE_TUPLE",
+            "operator_owner":"MICROSEED_NATIVE_RECURSIVE_B2_COMPOSITION",
+            "composition_depth":1,
+            "ordered_child_composition_content_digests":list(child_digests),
+            "children":[{
+                "ordinal":i,
+                "composition_content_digest_sha256":child["composition_content_digest_sha256"],
+                "composition_evidence_ref":[child["composition_evidence_id"],child["composition_evidence_sha256"]],
+                "ordered_operational_referent_signatures":list(child["ordered_operational_referent_signatures"]),
+                "validated_components":list(child["validated_components"]),
+                "evidence_list_position":child["evidence_list_position"],
+            } for i,child in enumerate(children)],
+            "runtime_boot_seq":boot,
+            "child_selection_basis":"LATEST_TWO_DISTINCT_CURRENT_B2_COMPOSITION_CONTENTS_IN_EVIDENCE_ORDER",
+            "grouping_basis":"EXACT_B2_CHILD_BOUNDARIES_PRESERVED",
+            "identity_scope":"EXACT_GROUPED_OPERATIONAL_COMPOSITION_ONLY",
+            "flattening_authority":"NONE",
+            "associativity_authority":"NONE",
+            "authority_gain":"NONE",
+        }
+        evidence_id="E-NATIVE-RECURSIVE-B2-COMPOSITION-"+action_result_digest(payload)[:24]
+        existing=self.evidence.get(evidence_id)
+        if existing is None:
+            ref=self.append_evidence(evidence_id,payload,EpistemicStatus.PRESSURE_SUPPORTED,
+                                     source="MICROSEED-NATIVE-RECURSIVE-B2-COMPOSITION")
+            evidence_sha=ref.sha256; record_status="COMPOSITION_EVIDENCE_RECORDED"
+        else:
+            if existing.get("negative") or existing.get("payload")!=payload:
+                return {**base,"status":"DEFER_UNKNOWN","reason":"RECURSIVE_B2_COMPOSITION_EVIDENCE_ID_COLLISION",
+                        "composition_evidence_id":evidence_id}
+            evidence_sha=str(existing.get("sha256","")); record_status="COMPOSITION_EVIDENCE_ALREADY_PRESENT"
+        return {
+            **base,"status":"CURRENT_NATIVE_RECURSIVE_B2_ORDERED_COMPOSITION_RECORDED",
+            "composition_evidence_id":evidence_id,"composition_evidence_sha256":evidence_sha,
+            "composition_record_status":record_status,
+            "composition_content_digest_sha256":parent_digest,
+            "ordered_child_composition_content_digests":child_digests,
+            "children":children,"composition_operator":"RECURSIVE_ORDERED_EVIDENCE_TUPLE",
+            "operator_owner":"MICROSEED_NATIVE_RECURSIVE_B2_COMPOSITION",
+            "composition_depth":1,
+            "child_selection_basis":payload["child_selection_basis"],
+            "grouping_basis":payload["grouping_basis"],
+            "identity_scope":payload["identity_scope"],
+            "flattening_authority":"NONE","associativity_authority":"NONE",
+            "caller_supplied_child_ids":"NO","caller_supplied_child_order":"NO",
+            "caller_supplied_grouping":"NO","caller_supplied_leaf_operands":"NO",
+            "caller_supplied_output_evidence_id":"NO",
+        }
+
     def harvest_qualify_and_register_current_opaque_evidence_associations(self, *, max_records: int = 4096) -> dict[str,Any]:
         """Auto-harvest current pair evidence, qualify every owned scope, and register results.
 

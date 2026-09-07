@@ -34,17 +34,19 @@ def run_audit() -> dict[str,object]:
                 or f'payload.get("kind")!="{KIND}"' in text
                 or f'==\"{KIND}\"' in text and 'payload.get' in text):
             consumers.append(signature)
-    # Stronger source audit: there is no method other than the B2 producer carrying the exact kind.
+    expected_consumer=('def derive_and_record_current_native_recursive_b2_ordered_composition(',)
+    assert tuple(sorted(set(consumers)))==expected_consumer,consumers
     return {
-        'status':'STOP_RECURSIVE_COMPOSITION_OPERAND_OWNER_MISSING',
+        'status':'CURRENT_RECURSIVE_COMPOSITION_OPERAND_OWNER_PRESENT',
         'earned_b2_head':'80fb18a6922abf663928ab2638a23ca65f702529',
         'b2_evidence_kind':KIND,
         'production_methods_mentioning_exact_b2_kind':tuple(sorted(set(producers+consumers))),
         'production_b2_producers':tuple(sorted(set(producers))),
         'production_b2_consumers':tuple(sorted(set(consumers))),
-        'localized_missing_mechanism':'CURRENT_COMPOSITION_AS_GROUNDED_OPERAND_CARRIER_AND_CURRENTNESS_OWNER',
+        'historically_localized_missing_mechanism':'CURRENT_COMPOSITION_AS_GROUNDED_OPERAND_CARRIER_AND_CURRENTNESS_OWNER',
+        'bridge_now_embodied':'YES_FIXED_DEPTH_ONE_ONLY',
         'b2_systematicity':'EARNED_BOUNDED',
-        'recursive_composition_as_operand':'NOT_EARNED',
+        'recursive_composition_as_operand':'EARNED_BOUNDED_DEPTH_ONE',
         'arity_generalization':'NOT_EARNED',
         'new_planner_required':'NO_EVIDENCE_FOR_NEW_PLANNER',
         'semantic_authority':'NONE','grammar_authority':'NONE','truth_authority':'NONE','execution_authority':'NONE',
