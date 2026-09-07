@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "E:\new pc\AI_Pushes_Sandbox\projects\protoagi_microseed_reincarnation_20260827\research_ms1888_replay\.pcmmad_sync_runs\wt_language_c08h_20260906\scratch\lang_c08h_owned_evidence_closure_qualification.py", line 287, in <module>
+    print(json.dumps(run_campaign(), indent=2, sort_keys=True))
+                     ^^^^^^^^^^^^^^
+  File "E:\new pc\AI_Pushes_Sandbox\projects\protoagi_microseed_reincarnation_20260827\research_ms1888_replay\.pcmmad_sync_runs\wt_language_c08h_20260906\scratch\lang_c08h_owned_evidence_closure_qualification.py", line 136, in run_campaign
+    relation_seed = _fresh_owned_relation(ms1, world, tag="C08H-REL-SEED", serial_base=1000)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\new pc\AI_Pushes_Sandbox\projects\protoagi_microseed_reincarnation_20260827\research_ms1888_replay\.pcmmad_sync_runs\wt_language_c08h_20260906\scratch\lang_c08d_postrestart_native_relation_rederivation.py", line 155, in _fresh_owned_relation
+    assert relation["status"] == "CURRENT_OWNED_AFFORDANCE_RELATIVE_DIRECTIONAL_RELATION_RECORDED", relation
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'truth_authority': 'NONE', 'identity_authority': 'NONE', 'semantic_reference_authority': 'NONE', 'selection_authority': 'NONE', 'execution_authority': 'NONE', 'language_authority': 'NONE', 'status': 'DEFER_UNKNOWN', 'reason': 'CURRENT_AFFORDANCE_PROFILE_NOT_UNIQUE_PER_REFERENT', 'signature_sha256': 'ad794b785133a51ead7597d6b6a8807841182588167f97a6e0bcf85f7738af4e'}

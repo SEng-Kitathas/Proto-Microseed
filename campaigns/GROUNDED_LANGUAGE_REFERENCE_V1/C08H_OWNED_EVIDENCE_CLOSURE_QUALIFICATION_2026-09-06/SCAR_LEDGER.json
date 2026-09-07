@@ -1,0 +1,32 @@
+{
+  "scars": [
+    {
+      "classification": "REJECTED_BEFORE_FINAL",
+      "law": "RECURRENCE != QUALIFICATION",
+      "repair": "removed >=4 guard; held-out closure itself forces redundancy",
+      "scar": "EXPLICIT_PAIR_COUNT_THRESHOLD_IN_INITIAL_C08H_DRAFT"
+    },
+    {
+      "classification": "MAINTENANCE_ONLY",
+      "detail": "initial campaign seeded equivalent current profiles twice; relation derivation correctly refused ambiguity; repaired to one shared seed",
+      "scar": "C08H_DUPLICATE_CURRENT_PROFILE_HARNESS_FAILURE"
+    },
+    {
+      "classification": "MAINTENANCE_ONLY",
+      "detail": "initial packagers used incorrect receipt root assumptions; rebuilt from exact existing worktree-local and project-root logs",
+      "scar": "C08H_PACKAGING_LOG_ROOT_MAINTENANCE_FAILURE"
+    },
+    {
+      "detail": "qualification decision is native; research world still schedules pair-producing episodes",
+      "law": "OWNED_QUALIFICATION != ENDOGENOUS_EXPERIMENT_GENERATION",
+      "scar": "PAIR_ACQUISITION_STILL_RESEARCH_STAGED",
+      "status": "CEILING"
+    },
+    {
+      "law": "LEDGER_ORDERED_PAIRING != TAMPER_EVIDENT_SEQUENCE_PROOF",
+      "scar": "C08H_LEDGER_SEQUENCE_INTEGRITY_CEILING",
+      "status": "OPEN_SUPPORT_SEAM"
+    }
+  ],
+  "schema": "microseed.lang-c08h-scar-ledger.v1"
+}

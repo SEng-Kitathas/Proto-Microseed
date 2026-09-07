@@ -83,6 +83,13 @@ MUTANTS = {
         "new": "        \"status\": \"DEFER_UNKNOWN\",\n",
         "loss_class": "NATIVE_B2_ORDERED_COMPOSITION_SUPPRESSED",
     },
+    "SUPPRESS_C08H_OWNED_EVIDENCE_CLOSURE_QUALIFICATION": {
+        "target": "microseed/development/evidence_relation.py",
+        "test": "tests/embodiment/test_lang_c08h_owned_evidence_closure_qualification.py",
+        "old": "        return {\"status\":q.status,\"qualification\":q.serializable(),",
+        "new": "        return {\"status\":\"DEFER_UNKNOWN\",\"qualification\":q.serializable(),",
+        "loss_class": "ORGANISM_OWNED_EVIDENCE_CLOSURE_QUALIFICATION_SUPPRESSED",
+    },
 }
 
 

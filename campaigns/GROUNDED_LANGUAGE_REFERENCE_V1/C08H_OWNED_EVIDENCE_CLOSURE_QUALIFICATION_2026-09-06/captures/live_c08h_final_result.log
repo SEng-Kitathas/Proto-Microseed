@@ -1,0 +1,76 @@
+{
+  "arbitrary_confidence_scalar": "NONE",
+  "association_use_requires_fresh_grounded_currentness_after_restart": "YES",
+  "contradictory_requalification": {
+    "reason": "PAIR_EVIDENCE_NOT_EXACT_BIJECTION",
+    "status": "DEFER_UNKNOWN"
+  },
+  "effect_authority": "NONE",
+  "external_train_holdout_partition": "NONE",
+  "invalidated_record_states": {
+    "opaque-assoc-5745e7ee42460dc9934bda99": "REVALIDATION_REQUIRED_OPAQUE_EVIDENCE_ASSOCIATION",
+    "opaque-assoc-63dc3fc415f2ddcac63a90e7": "REVALIDATION_REQUIRED_OPAQUE_EVIDENCE_ASSOCIATION"
+  },
+  "language_authority": "NONE",
+  "minimum_support_threshold": "NONE__REDUNDANCY_IS_FORCED_BY_HELD_OUT_CLOSURE_ITSELF",
+  "new_contradictory_pair_invalidates_prior_qualification": "REVALIDATION_REQUIRED_EPISTEMIC_ASSOCIATION_QUALIFICATION",
+  "not_earned": [
+    "SEMANTIC_MEANING",
+    "SEMANTIC_PREDICATE",
+    "GRAMMAR",
+    "PROPOSITION",
+    "EFFECT_AUTHORITY",
+    "LANGUAGE_COMPETENCE",
+    "GENERIC_CONFIDENCE_FACULTY",
+    "GENERIC_CAPABILITY_FACULTY",
+    "ENDOGENOUS_EXPERIMENT_GENERATION",
+    "TAMPER_EVIDENT_LEDGER_SEQUENCE",
+    "CANON_PROMOTION"
+  ],
+  "post_restart_referent_currentness": [
+    "CURRENTNESS_CONFIRMED",
+    "CURRENTNESS_CONFIRMED"
+  ],
+  "post_restart_relation_currentness": "CURRENTNESS_CONFIRMED",
+  "qualification_authority": "EPISTEMIC_ADEQUACY_EVIDENCE_ONLY",
+  "qualification_method": "LEAVE_ONE_OUT_EXACT_BIJECTIVE_EVIDENCE_CLOSURE",
+  "qualification_scope_selection": "AUTO_ENUMERATED_FROM_NATIVE_PAIR_WITNESSES",
+  "qualification_survives_restart_as_epistemic_evidence": "YES",
+  "referent_bindings": [
+    [
+      "R4",
+      "ad794b785133a51ead7597d6b6a8807841182588167f97a6e0bcf85f7738af4e"
+    ],
+    [
+      "T9",
+      "46fcb6a924c53cd78cacedc6f10706967d090b9fb1b625eb21f6fdbf1224e922"
+    ]
+  ],
+  "referent_pair_witness_count": 6,
+  "referent_qualification_id": "opaque-assoc-qualification-97f8367109def68c44fe256a",
+  "referent_restart_states": {
+    "opaque-assoc-5745e7ee42460dc9934bda99": "REVALIDATION_REQUIRED_OPAQUE_EVIDENCE_ASSOCIATION",
+    "opaque-assoc-63dc3fc415f2ddcac63a90e7": "REVALIDATION_REQUIRED_OPAQUE_EVIDENCE_ASSOCIATION"
+  },
+  "relation_bindings": [
+    [
+      "K7",
+      "cabd1ba8831c63e5468493aa312f44866d51d5db0155f86b2308428e821031da"
+    ],
+    [
+      "M2",
+      "06cb779eec45c0af596a63be9eb63ad308ceb169de7548f8953f0a2cdec3a480"
+    ]
+  ],
+  "relation_pair_witness_count": 6,
+  "relation_qualification_id": "opaque-assoc-qualification-e4ee6e28ec62dea910b211a9",
+  "relation_restart_states": {
+    "opaque-assoc-094e2e045d28045a0d9dac15": "REVALIDATION_REQUIRED_OPAQUE_EVIDENCE_ASSOCIATION",
+    "opaque-assoc-df97f15c8f31c7c1d8d4556e": "REVALIDATION_REQUIRED_OPAQUE_EVIDENCE_ASSOCIATION"
+  },
+  "semantic_authority": "NONE",
+  "status": "C08H_ORGANISM_OWNED_EPISTEMIC_ASSOCIATION_QUALIFICATION_EARNED",
+  "supplied_mapping_answer": "NONE",
+  "technical_name": "Native leave-one-out exact evidence-closure qualification for opaque operational associations",
+  "truth_authority": "NONE"
+}

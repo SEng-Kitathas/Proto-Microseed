@@ -1,0 +1,57 @@
+{
+  "checks": [
+    {
+      "check": "external train/holdout partition",
+      "result": "NONE"
+    },
+    {
+      "check": "caller mapping answer",
+      "result": "NONE"
+    },
+    {
+      "check": "caller qualification scope selector",
+      "result": "NONE__AUTO_ENUMERATED"
+    },
+    {
+      "check": "confidence scalar or fixed support threshold",
+      "result": "NONE"
+    },
+    {
+      "check": "singleton pair support",
+      "result": "FAIL_CLOSED_BY_LEAVE_ONE_OUT"
+    },
+    {
+      "check": "duplicate provenance",
+      "result": "FAIL_CLOSED_BY_NATIVE_REGISTRY"
+    },
+    {
+      "check": "contradictory new pair after qualification",
+      "result": "INVALIDATES_AND_REQUALIFICATION_FAILS"
+    },
+    {
+      "check": "qualification-derived records after restart",
+      "result": "REVALIDATION_REQUIRED_UNTIL_FRESH_GROUNDED_CURRENTNESS"
+    },
+    {
+      "check": "token permutation",
+      "result": "PASS"
+    },
+    {
+      "check": "sensor permutation/sign inversion",
+      "result": "PASS"
+    },
+    {
+      "check": "FixedQualifier/QualificationState reuse",
+      "result": "NO"
+    },
+    {
+      "check": "capability/grammar/predicate/meaning/faculty surface added",
+      "result": "NO"
+    },
+    {
+      "check": "C08H positive-path deletion mutant",
+      "result": "KILLED"
+    }
+  ],
+  "schema": "microseed.lang-c08h-hostile-matrix.v1"
+}

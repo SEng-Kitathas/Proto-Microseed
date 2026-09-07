@@ -1,0 +1,105 @@
+{
+  "arbitrary_confidence_scalar": "NONE",
+  "association_use_requires_fresh_grounded_currentness_after_restart": "YES",
+  "base_head": "8428274d47273ad9a6f8b0cc4c074a7fc5b56e47",
+  "bounded_claim": "MICROSEED_CAN_NATIVELY_DERIVE_EPISTEMIC_ADEQUACY_FOR_OWNED_OPAQUE_TOKEN_TO_REFERENT_AND_TOKEN_TO_RELATION_ASSOCIATIONS_BY_AUTO_ENUMERATING_EXACT_PAIR_EVIDENCE_SCOPES_AND_REQUIRING_EVERY_PAIR_TO_BE_PREDICTED_BY_THE_MAPPING_DERIVED_FROM_ALL_OTHER_EXACT_PAIRS_WITH_NO_EXTERNAL_TRAIN_HOLDOUT_PARTITION_NO_SUPPLIED_MAPPING_ANSWER_NO_CONFIDENCE_SCALAR_AND_ZERO_EFFECT_SEMANTIC_OR_LANGUAGE_AUTHORITY",
+  "branch": "research/grounded-language-native-evidence-qualification-v1",
+  "capture_receipts": {
+    "anti_smuggling_audit.log": {
+      "bytes": 963,
+      "sha256": "7bed90085fecbaaa7fb2e94a5da2e2fbad670e4528fd0e52228f70d1f1935eb4"
+    },
+    "focused_c08h_c08g_c08f_c08e_13_pass.log": {
+      "bytes": 112,
+      "sha256": "7c7034aaa2af4a1e41bcd947d21fe7e14cf95abd2f09ab48017322b26e6d9872"
+    },
+    "language_adjacent_33_pass.log": {
+      "bytes": 102,
+      "sha256": "5f27eb1e74059c3abc98d71a251718e32df9a442dd891e2b8ebe4fce510404f6"
+    },
+    "live_c08h_final_result.log": {
+      "bytes": 3100,
+      "sha256": "10c34b69cd780b886676d56c5833486a042170b99012521f183475b79c6da858"
+    },
+    "maintenance_duplicate_current_profile_harness_failure.stderr.log": {
+      "bytes": 1654,
+      "sha256": "64b3414fbb8699d4ffb5056a6cedc0b43687364fca734c045b1984a88ca84a07"
+    },
+    "native_currentness_restart_15_pass.log": {
+      "bytes": 102,
+      "sha256": "64112bb1081220d274a11e4974925b92df9fb45f9b412c3dbd0131e308254d2e"
+    },
+    "positive_path_mutants_10_killed.log": {
+      "bytes": 733,
+      "sha256": "ed07caa9c3636d23472c9fe9c797aac357a14902cffe4812cb31a20c6597bff5"
+    },
+    "pre_c08h_native_association_smoke_11_pass.log": {
+      "bytes": 102,
+      "sha256": "efedffede32d83c797a1e5fa111095e5587e1920dbde004d90ea32e8bc88edf2"
+    },
+    "syntax_smoke.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "contradictory_pair_invalidates_prior_qualification": "YES",
+  "date": "2026-09-06",
+  "effect_authority": "NONE",
+  "entity_sha256": "513c6ac081d8369295d11307531d66c2fb7f808396dd911de69bf2d46f876e13",
+  "evidence_relation_sha256": "077b55067ecee2510c1f5314081458a10a169bc93b97af85321b76eb33079d59",
+  "expected_research_microseed_delta": [
+    "microseed/development/evidence_relation.py",
+    "microseed/runtime/entity.py"
+  ],
+  "external_train_holdout_partition": "NONE",
+  "focused_adjacent": {
+    "failed": 0,
+    "passed": 13
+  },
+  "language_adjacent_ms2046_c01_c08h": {
+    "failed": 0,
+    "passed": 33
+  },
+  "language_authority": "NONE",
+  "minimum_support_threshold": "NONE__REDUNDANCY_IS_FORCED_BY_HELD_OUT_CLOSURE_ITSELF",
+  "native_currentness_restart_regression": {
+    "failed": 0,
+    "passed": 15
+  },
+  "next": "POST_C08H_REVIEW_SYSTEMATIC_RECOMBINATION_VS_ENDOGENOUS_EXPERIMENT_GENERATION",
+  "not_earned": [
+    "SEMANTIC_MEANING",
+    "SEMANTIC_PREDICATE",
+    "GRAMMAR",
+    "PROPOSITION",
+    "EFFECT_AUTHORITY",
+    "LANGUAGE_COMPETENCE",
+    "GENERIC_CONFIDENCE_FACULTY",
+    "GENERIC_CAPABILITY_FACULTY",
+    "ENDOGENOUS_EXPERIMENT_GENERATION",
+    "TAMPER_EVIDENT_LEDGER_SEQUENCE",
+    "CANON_PROMOTION"
+  ],
+  "positive_mutant_receipt_sha256": "1057743ce32d435e2738dde1478628ee2c6c23ec9a018cdbd8eef9f53c4b5066",
+  "positive_mutant_tool_sha256": "ebf9f776dd2d51d6cb3f9f3ea3062d2d4c6e1679497f1085be30f9bf85e8b7f3",
+  "positive_path_mutants": {
+    "killed": 10,
+    "survived": 0,
+    "unknown": 0
+  },
+  "qualification_authority": "EPISTEMIC_ADEQUACY_EVIDENCE_ONLY",
+  "qualification_method": "LEAVE_ONE_OUT_EXACT_BIJECTIVE_EVIDENCE_CLOSURE",
+  "qualification_scope_selection": "AUTO_ENUMERATED_FROM_NATIVE_PAIR_WITNESSES",
+  "qualification_survives_restart_as_epistemic_evidence": "YES",
+  "qualified_scopes": [
+    "NATIVE_TOKEN_REFERENT",
+    "NATIVE_TOKEN_RELATION"
+  ],
+  "schema": "microseed.lang-c08h-owned-evidence-closure-qualification.v1",
+  "semantic_authority": "NONE",
+  "source_sha256": "8c0d0bda97189d290242973f6a9ae86448aabe4a24f5ed79deb0655df22efc7c",
+  "status": "C08H_ORGANISM_OWNED_EPISTEMIC_ASSOCIATION_QUALIFICATION_EARNED",
+  "supplied_mapping_answer": "NONE",
+  "test_sha256": "09ca8bda5a9efb00c9ddb356d79332fd33f5e2e1fedaccf40637fe9aa05ba6f6",
+  "truth_authority": "NONE"
+}

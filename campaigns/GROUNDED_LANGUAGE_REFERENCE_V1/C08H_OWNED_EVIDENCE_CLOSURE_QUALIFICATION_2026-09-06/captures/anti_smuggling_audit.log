@@ -1,0 +1,14 @@
+--- STATUS ---
+ M microseed/development/evidence_relation.py
+ M microseed/runtime/entity.py
+ M tools/run_developmental_positive_path_mutants.py
+?? scratch/lang_c08h_owned_evidence_closure_qualification.py
+?? tests/embodiment/test_lang_c08h_owned_evidence_closure_qualification.py
+--- DIFF CHECK ---
+--- MICROSEED DELTA ---
+microseed/development/evidence_relation.py
+microseed/runtime/entity.py
+--- FORBIDDEN ADDED NATIVE SURFACES ---
+--- C08H QUALIFIER REUSE CHECK ---
+E:\new pc\AI_Pushes_Sandbox\projects\protoagi_microseed_reincarnation_20260827\research_ms1888_replay\.pcmmad_sync_runs\wt_language_c08h_20260906\scratch\lang_c08h_owned_evidence_closure_qualification.py:258: "arbitrary_confidence_scalar": "NONE",
+E:\new pc\AI_Pushes_Sandbox\projects\protoagi_microseed_reincarnation_20260827\research_ms1888_replay\.pcmmad_sync_runs\wt_language_c08h_20260906\scratch\lang_c08h_owned_evidence_closure_qualification.py:281: "GENERIC_CONFIDENCE_FACULTY",

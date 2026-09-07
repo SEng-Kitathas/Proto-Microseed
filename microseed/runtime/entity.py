@@ -128,6 +128,7 @@ from ..development.epistemic import (
 from ..development.evidence_relation import (
     OpaqueEvidenceAssociationRecord, OpaqueEvidenceAssociationRegistry,
     OpaqueEvidenceAssociationCurrentnessWitness, OpaqueEvidenceAssociationState,
+    OpaqueEvidenceAssociationPairWitness, OpaqueEvidenceAssociationQualificationWitness,
 )
 from ..persistence.store import StateStore
 from ..persistence.identity import assess_continuity, continuity_witness_from_exports
@@ -314,6 +315,13 @@ class Microseed:
                 witness=OpaqueEvidenceAssociationCurrentnessWitness.from_serializable(payload)
                 if witness.record_id in self.opaque_evidence_associations.records:
                     self.opaque_evidence_associations.add_witness(witness,replay=True)
+            elif kind == "OPAQUE_EVIDENCE_ASSOCIATION_PAIR_WITNESS_RECORDED":
+                witness=OpaqueEvidenceAssociationPairWitness.from_serializable(payload)
+                if witness.witness_id not in self.opaque_evidence_associations.pair_witnesses:
+                    self.opaque_evidence_associations.add_pair_witness(witness)
+            elif kind == "OPAQUE_EVIDENCE_ASSOCIATION_QUALIFICATION_WITNESS_RECORDED":
+                qualification=OpaqueEvidenceAssociationQualificationWitness.from_serializable(payload)
+                self.opaque_evidence_associations.qualifications.setdefault(qualification.qualification_id,qualification)
 
     def _load_epistemic_projection_candidates(self) -> None:
         """Replay proposal memory without turning it into qualification."""
@@ -4392,6 +4400,159 @@ class Microseed:
         self.path.append("OPAQUE_EVIDENCE_ASSOCIATION_REGISTERED",packet)
         self.store.append("OPAQUE_EVIDENCE_ASSOCIATION_REGISTERED",packet)
         return packet
+
+    def record_opaque_evidence_association_pair_witness(self, *, pair_evidence_id: str) -> dict[str,Any]:
+        """Native extraction of one opaque association pair from exact persisted pair evidence.
+
+        The caller names only the pair evidence row. Left/right association content and
+        scope are derived from that row; no mapping answer or qualification split is supplied.
+        """
+        row=self.evidence.get(str(pair_evidence_id))
+        if row is None or row.get("negative"):
+            return {"status":"DEFER_UNKNOWN","reason":"POSITIVE_PAIR_EVIDENCE_REQUIRED"}
+        payload=row.get("payload",{}) if isinstance(row,dict) else {}
+        if not isinstance(payload,dict):
+            return {"status":"DEFER_UNKNOWN","reason":"PAIR_EVIDENCE_PAYLOAD_REQUIRED"}
+        kind=str(payload.get("kind",""))
+        if kind=="OWNED_OPAQUE_TOKEN_NATIVE_REFERENT_PAIR_EVIDENCE":
+            scope="NATIVE_TOKEN_REFERENT"
+            right_key="operational_referent_signature_sha256"
+            ref_keys=("localization_evidence_ref","token_evidence_ref")
+        elif kind=="OWNED_OPAQUE_TOKEN_NATIVE_RELATION_PAIR_EVIDENCE":
+            scope="NATIVE_TOKEN_RELATION"
+            right_key="relation_digest_sha256"
+            ref_keys=("relation_evidence_ref","token_evidence_ref")
+        else:
+            return {"status":"DEFER_UNKNOWN","reason":"SUPPORTED_NATIVE_OPAQUE_ASSOCIATION_PAIR_EVIDENCE_REQUIRED","pair_kind":kind}
+        left=str(payload.get("opaque_token",""))
+        right=str(payload.get(right_key,"")).lower()
+        if not left or len(right)!=64 or any(c not in "0123456789abcdef" for c in right):
+            return {"status":"DEFER_UNKNOWN","reason":"PAIR_EVIDENCE_ASSOCIATION_CONTENT_INCOMPLETE"}
+        refs=[(str(pair_evidence_id),str(row.get("sha256","")).lower())]
+        for key in ref_keys:
+            ref=payload.get(key)
+            if not isinstance(ref,list) or len(ref)!=2:
+                return {"status":"DEFER_UNKNOWN","reason":"PAIR_SOURCE_EVIDENCE_REF_REQUIRED","ref_key":key}
+            eid,sha=str(ref[0]),str(ref[1]).lower()
+            src=self.evidence.get(eid)
+            if src is None or str(src.get("sha256","")).lower()!=sha:
+                return {"status":"DEFER_UNKNOWN","reason":"PAIR_SOURCE_EVIDENCE_NOT_EXACT","evidence_id":eid}
+            refs.append((eid,sha))
+        witness_id="opaque-assoc-pair-"+str(row["sha256"])[:24]
+        existing=self.opaque_evidence_associations.pair_witnesses.get(witness_id)
+        if existing is not None:
+            return {"status":"OPAQUE_ASSOCIATION_PAIR_WITNESS_ALREADY_RECORDED","witness":existing.serializable(),"truth_authority":"NONE","semantic_authority":"NONE","execution_authority":"NONE","language_authority":"NONE"}
+        witness=OpaqueEvidenceAssociationPairWitness(
+            witness_id=witness_id,association_scope=scope,left_opaque_id=left,right_digest_sha256=right,
+            source_evidence_refs=tuple(refs),
+            assistance_ancestry=("PAIR_CONTENT_DERIVED_FROM_EXACT_PERSISTED_EVIDENCE","NO_EXTERNAL_QUALIFICATION_SPLIT"),
+        )
+        self.opaque_evidence_associations.add_pair_witness(witness)
+        # Any already-qualified records for this scope must be requalified against the new evidence.
+        scope_tag=f"QUALIFICATION_SCOPE:{scope}"
+        invalidated=[]
+        for rec in self.opaque_evidence_associations.records.values():
+            if scope_tag in rec.assistance_ancestry and rec.state != OpaqueEvidenceAssociationState.STALE:
+                rec.state=OpaqueEvidenceAssociationState.REVALIDATION_REQUIRED
+                invalidated.append(rec.record_id)
+        packet=witness.serializable()
+        self.path.append("OPAQUE_EVIDENCE_ASSOCIATION_PAIR_WITNESS_RECORDED",packet)
+        self.store.append("OPAQUE_EVIDENCE_ASSOCIATION_PAIR_WITNESS_RECORDED",packet)
+        if invalidated:
+            inv={"association_scope":scope,"new_pair_witness_id":witness_id,"record_ids":sorted(invalidated),"reason":"NEW_PAIR_EVIDENCE_REQUIRES_REQUALIFICATION"}
+            self.path.append("OPAQUE_EVIDENCE_ASSOCIATION_QUALIFICATION_INVALIDATED_BY_NEW_PAIR",inv)
+            self.store.append("OPAQUE_EVIDENCE_ASSOCIATION_QUALIFICATION_INVALIDATED_BY_NEW_PAIR",inv)
+        return {"status":"OPAQUE_ASSOCIATION_PAIR_WITNESS_RECORDED","witness":packet,"invalidated_qualified_record_ids":tuple(sorted(invalidated)),"truth_authority":"NONE","semantic_authority":"NONE","execution_authority":"NONE","language_authority":"NONE"}
+
+    def derive_opaque_evidence_association_qualification(self, *, association_scope: str) -> dict[str,Any]:
+        """Derive epistemic adequacy from all exact pair witnesses in one operational scope."""
+        result=self.opaque_evidence_associations.derive_leave_one_out_qualification(str(association_scope),self.evidence.get)
+        if result.get("status")!="EPISTEMIC_ASSOCIATION_ADEQUACY_CONFIRMED":
+            return {**result,"qualification_authority":"NONE","effect_authority":"NONE","semantic_authority":"NONE","language_authority":"NONE"}
+        q=OpaqueEvidenceAssociationQualificationWitness.from_serializable(result["qualification"])
+        evidence_id="E-"+q.qualification_id
+        evidence_payload={
+            "kind":"OPAQUE_EVIDENCE_ASSOCIATION_QUALIFICATION_WITNESS",
+            "qualification":q.serializable(),
+            "association_scope":q.association_scope,
+            "method":"LEAVE_ONE_OUT_EXACT_BIJECTIVE_EVIDENCE_CLOSURE",
+            "external_train_holdout_partition":"NONE",
+            "supplied_mapping_answer":"NONE",
+            "authority_gain":"NONE",
+        }
+        existing=self.evidence.get(evidence_id)
+        if existing is None:
+            ref=self.append_evidence(evidence_id,evidence_payload,EpistemicStatus.PRESSURE_SUPPORTED,source="MICROSEED-OPAQUE-ASSOCIATION-EVIDENCE-CLOSURE")
+            evidence_sha=ref.sha256
+            packet=q.serializable()
+            self.path.append("OPAQUE_EVIDENCE_ASSOCIATION_QUALIFICATION_WITNESS_RECORDED",packet)
+            self.store.append("OPAQUE_EVIDENCE_ASSOCIATION_QUALIFICATION_WITNESS_RECORDED",packet)
+        else:
+            if existing.get("payload")!=evidence_payload or existing.get("negative"):
+                return {"status":"DEFER_UNKNOWN","reason":"QUALIFICATION_EVIDENCE_ID_COLLISION","qualification_id":q.qualification_id}
+            evidence_sha=str(existing.get("sha256",""))
+        return {**result,"qualification_evidence_id":evidence_id,"qualification_evidence_sha256":evidence_sha,"external_train_holdout_partition":"NONE","supplied_mapping_answer":"NONE","qualification_authority":"EPISTEMIC_ADEQUACY_EVIDENCE_ONLY","effect_authority":"NONE","semantic_authority":"NONE","language_authority":"NONE"}
+
+    def derive_all_opaque_evidence_association_qualifications(self) -> dict[str,Any]:
+        """Enumerate owned pair-evidence scopes and attempt qualification for each; no caller scope selector."""
+        scopes=tuple(sorted({w.association_scope for w in self.opaque_evidence_associations.pair_witnesses.values()}))
+        if not scopes:
+            return {"status":"DEFER_UNKNOWN","reason":"OPAQUE_ASSOCIATION_PAIR_EVIDENCE_REQUIRED","scope_selection":"AUTO_ENUMERATED_FROM_NATIVE_PAIR_WITNESSES"}
+        results={scope:self.derive_opaque_evidence_association_qualification(association_scope=scope) for scope in scopes}
+        if any(result.get("status")!="EPISTEMIC_ASSOCIATION_ADEQUACY_CONFIRMED" for result in results.values()):
+            return {
+                "status":"DEFER_UNKNOWN","reason":"NOT_ALL_OWNED_ASSOCIATION_SCOPES_CLOSE_EPISTEMICALLY",
+                "scopes":scopes,"results":results,"scope_selection":"AUTO_ENUMERATED_FROM_NATIVE_PAIR_WITNESSES",
+                "effect_authority":"NONE","semantic_authority":"NONE","language_authority":"NONE",
+            }
+        return {
+            "status":"ALL_OWNED_OPAQUE_ASSOCIATION_SCOPES_EPISTEMICALLY_QUALIFIED",
+            "scopes":scopes,"results":results,"scope_selection":"AUTO_ENUMERATED_FROM_NATIVE_PAIR_WITNESSES",
+            "external_train_holdout_partition":"NONE","supplied_mapping_answer":"NONE",
+            "effect_authority":"NONE","semantic_authority":"NONE","language_authority":"NONE",
+        }
+
+    def opaque_evidence_association_qualification_status(self, qualification_id: str) -> dict[str,Any]:
+        return self.opaque_evidence_associations.qualification_status(str(qualification_id),self.evidence.get)
+
+    def register_qualified_opaque_evidence_associations(self, *, qualification_id: str) -> dict[str,Any]:
+        """Materialize generic read-only associations only from a current evidence-closure witness."""
+        status=self.opaque_evidence_association_qualification_status(str(qualification_id))
+        if status.get("status")!="CURRENT_EPISTEMIC_ASSOCIATION_ADEQUACY":
+            return {"status":"DEFER_UNKNOWN","reason":"CURRENT_EPISTEMIC_ASSOCIATION_QUALIFICATION_REQUIRED","qualification_status":status}
+        q=self.opaque_evidence_associations.qualifications[str(qualification_id)]
+        qualification_evidence_id="E-"+q.qualification_id
+        qrow=self.evidence.get(qualification_evidence_id)
+        if qrow is None or qrow.get("negative"):
+            return {"status":"DEFER_UNKNOWN","reason":"EXACT_QUALIFICATION_EVIDENCE_REQUIRED"}
+        created=[]
+        scope_tag=f"QUALIFICATION_SCOPE:{q.association_scope}"
+        for left,right in q.bindings:
+            refs={(qualification_evidence_id,str(qrow["sha256"]).lower())}
+            for w in self.opaque_evidence_associations.pair_witnesses.values():
+                if w.association_scope==q.association_scope and w.left_opaque_id==left:
+                    refs.update(w.source_evidence_refs)
+            ordered_refs=tuple(sorted(refs))
+            record_id=OpaqueEvidenceAssociationRegistry.derive_record_id(left,right,ordered_refs)
+            if record_id in self.opaque_evidence_associations.records:
+                rec=self.opaque_evidence_associations.records[record_id]
+                packet=rec.serializable()
+            else:
+                rec=OpaqueEvidenceAssociationRecord(
+                    record_id=record_id,left_opaque_id=left,right_digest_sha256=right,source_evidence_refs=ordered_refs,
+                    assistance_ancestry=("ORGANISM_OWNED_LEAVE_ONE_OUT_EVIDENCE_CLOSURE","NO_EXTERNAL_TRAIN_HOLDOUT_PARTITION",scope_tag),
+                )
+                self.opaque_evidence_associations.register(rec)
+                packet=rec.serializable()
+                self.path.append("OPAQUE_EVIDENCE_ASSOCIATION_REGISTERED",packet)
+                self.store.append("OPAQUE_EVIDENCE_ASSOCIATION_REGISTERED",packet)
+            created.append(packet)
+        return {
+            "status":"QUALIFIED_OPAQUE_EVIDENCE_ASSOCIATIONS_REGISTERED",
+            "qualification_id":q.qualification_id,"association_scope":q.association_scope,"records":tuple(created),
+            "external_train_holdout_partition":"NONE","supplied_mapping_answer":"NONE",
+            "truth_authority":"NONE","semantic_authority":"NONE","execution_authority":"NONE","language_authority":"NONE",
+        }
 
     def opaque_evidence_association_status(self, record_id: str) -> dict[str,Any]:
         return self.opaque_evidence_associations.currentness(str(record_id),self.evidence.get)
