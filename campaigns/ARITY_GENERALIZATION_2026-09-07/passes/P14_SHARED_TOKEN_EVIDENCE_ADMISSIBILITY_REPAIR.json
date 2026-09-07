@@ -1,0 +1,22 @@
+{
+  "pass": 14,
+  "name": "SHARED_TOKEN_EVIDENCE_ADMISSIBILITY_REPAIR",
+  "status": "PASS_REPAIR",
+  "discriminator": "can one shared native-token premise law block negative/violated/non-observation rows without regressing C08I/B2/B3/recursive/prototype behavior?",
+  "evidence": [
+    "shared _current_opaque_token_evidence_admissibility requires current boot, PRESSURE_SUPPORTED, OBSERVATION_ONLY, negative=False",
+    "negative composition specimen now blocked by generic/B3/B2",
+    "negative C08I token now unpaired with NEGATIVE_TOKEN_EVIDENCE_NOT_ADMITTED",
+    "wrong disposition and wrong observation-authority forgeries rejected",
+    "negative grounded source candidate excluded",
+    "targeted repair+lineage stack 20/20 PASS",
+    "extra negative-grounded-source hostile 1/1 PASS"
+  ],
+  "result": "TOKEN_EVIDENCE_ADMISSIBILITY_REPAIR_EARNED_BOUNDED",
+  "laws": [
+    "NEGATIVE_TOKEN_EVIDENCE != OBSERVED_TOKEN_OPERAND",
+    "NEGATIVE_TOKEN_EVIDENCE != HARVESTABLE_NATIVE_PAIR_SOURCE"
+  ],
+  "promotion": "NONE",
+  "next": "embody bounded generalized direct composition owner using repaired premise law"
+}

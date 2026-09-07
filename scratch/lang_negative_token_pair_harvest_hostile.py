@@ -23,12 +23,14 @@ def run_hostile() -> dict[str,object]:
         assert harvested['status']=='CURRENT_NATIVE_OPAQUE_ASSOCIATION_PAIRS_HARVESTED',harvested
         contaminated=tuple(row for row in harvested['harvested_pairs'] if row.get('token_evidence_id')==eid)
         violation=bool(contaminated)
+        negative_unpaired=tuple(row for row in harvested['unpaired_tokens'] if row.get('token_evidence_id')==eid)
         return {
             'status':'VIOLATION_NEGATIVE_TOKEN_EVIDENCE_HARVESTED_AS_NATIVE_PAIR' if violation else 'NEGATIVE_TOKEN_HARVEST_GUARD_PRESENT',
             'negative_token_evidence_id':eid,
             'contaminated_pair_count':len(contaminated),
             'contaminated_pairs':contaminated,
             'negative_token_became_pair_source':violation,
+            'negative_unpaired':negative_unpaired,
             'qualification_authority_from_negative_token':'NONE',
             'repair_scope':'TOKEN_EVIDENCE_ADMISSIBILITY_OWNER_SHARED_BY_HARVEST_AND_COMPOSITION',
         }

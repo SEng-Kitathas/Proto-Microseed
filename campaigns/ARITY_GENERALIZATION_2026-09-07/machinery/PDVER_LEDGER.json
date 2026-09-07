@@ -22,21 +22,26 @@
     ]
   },
   "verify": {
-    "result": "BLOCKED_BY_NEGATIVE_TOKEN_OPERAND_DEFECT",
+    "result": "PASS_REPAIR_BOUNDED",
     "checks": [
-      "generic B2/B3 identity equivalence PASS",
-      "four-leaf substrate PASS",
-      "held-out arity4 PASS",
-      "representation invariance PASS",
-      "negative token evidence hostile VIOLATION"
+      "negative token composition guard PASS",
+      "negative token pair harvest guard PASS",
+      "wrong disposition/authority guards PASS",
+      "negative grounded source guard PASS",
+      "C08I/B2/B3/recursive/prototype targeted lineage 21/21 PASS"
     ]
   },
-  "embody": {},
+  "embody": {
+    "artifacts": [
+      "shared production token-evidence admissibility owner",
+      "updated historical hostile regression guards"
+    ],
+    "authority_gain": "NONE"
+  },
   "recurse": {
     "next": [
-      "repair negative token admissibility in existing composition owners and prototype",
-      "rerun B2/B3/recursive/B3/arity prototype stack",
-      "only then embody generalized production owner"
+      "embody bounded generalized arity owner max4",
+      "attack B2/B3 equivalence + heldout arity4 + restart/currentness + representation"
     ],
     "promotion": "NONE"
   }

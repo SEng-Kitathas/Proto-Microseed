@@ -4446,6 +4446,26 @@ class Microseed:
         self.store.append("OPAQUE_EVIDENCE_ASSOCIATION_REGISTERED",packet)
         return packet
 
+    @staticmethod
+    def _current_opaque_token_evidence_admissibility(row: dict[str, Any], boot: int) -> tuple[bool, str]:
+        """Admit one native opaque-token observation as a current positive evidence premise.
+
+        Token-kind chronology may still use non-admitted rows as represented boundaries, but
+        a row cannot become a pairing/composition premise unless it is a positive admitted
+        observation from the current runtime boot.
+        """
+        payload=row.get("payload") or {}
+        if (payload.get("kind")!="OPAQUE_EXTERNAL_TOKEN_OBSERVATION"
+                or int(payload.get("runtime_boot_seq",-1))!=int(boot)):
+            return False,"CURRENT_RUNTIME_OPAQUE_TOKEN_EVIDENCE_REQUIRED"
+        if row.get("negative"):
+            return False,"NEGATIVE_TOKEN_EVIDENCE_NOT_ADMITTED"
+        if str(row.get("disposition",""))!=EpistemicStatus.PRESSURE_SUPPORTED.value:
+            return False,"TOKEN_EVIDENCE_DISPOSITION_NOT_ADMITTED"
+        if str(payload.get("observation_authority",""))!="OBSERVATION_ONLY":
+            return False,"TOKEN_EVIDENCE_OBSERVATION_AUTHORITY_REQUIRED"
+        return True,"CURRENT_POSITIVE_OPAQUE_TOKEN_EVIDENCE_ADMITTED"
+
     def harvest_current_opaque_evidence_association_pairs(self, *, max_records: int = 4096) -> dict[str,Any]:
         """Harvest native opaque association pairs from current admitted evidence chronology.
 
@@ -4484,11 +4504,20 @@ class Microseed:
         harvested=[]; unpaired=[]; previous_token=-1
         for token_pos in token_positions:
             token_row=rows[token_pos]; token_payload=token_row.get("payload") or {}
+            admitted,admission_reason=self._current_opaque_token_evidence_admissibility(token_row,boot)
+            if not admitted:
+                previous_token=token_pos
+                unpaired.append({
+                    "token_evidence_id":str(token_row.get("evidence_id","")),
+                    "reason":admission_reason,
+                })
+                continue
             candidates=[]
             for i,row in enumerate(rows[previous_token+1:token_pos],start=previous_token+1):
                 payload=row.get("payload") or {}
                 kind=str(payload.get("kind",""))
-                if kind in source_kinds and int(payload.get("runtime_boot_seq",-1))==boot:
+                if (kind in source_kinds and int(payload.get("runtime_boot_seq",-1))==boot
+                        and not row.get("negative")):
                     candidates.append((i,row,payload,kind))
             previous_token=token_pos
             if not candidates:
@@ -4599,6 +4628,11 @@ class Microseed:
         if len(token_rows)<2:
             return {**base,"status":"DEFER_UNKNOWN","reason":"TWO_CURRENT_RUNTIME_OBSERVED_TOKEN_OPERANDS_REQUIRED"}
         selected=token_rows[-2:]
+        for _token_pos,token_row in selected:
+            admitted,admission_reason=self._current_opaque_token_evidence_admissibility(token_row,boot)
+            if not admitted:
+                return {**base,"status":"DEFER_UNKNOWN","reason":admission_reason,
+                        "token_evidence_id":str(token_row.get("evidence_id",""))}
         tokens=tuple(str((row.get("payload") or {}).get("opaque_token","")) for _i,row in selected)
         if any(not token for token in tokens):
             return {**base,"status":"DEFER_UNKNOWN","reason":"OPAQUE_TOKEN_CONTENT_REQUIRED"}
@@ -4745,6 +4779,11 @@ class Microseed:
         if len(token_rows)<3:
             return {**base,"status":"DEFER_UNKNOWN","reason":"THREE_CURRENT_RUNTIME_OBSERVED_TOKEN_OPERANDS_REQUIRED"}
         selected=token_rows[-3:]
+        for _token_pos,token_row in selected:
+            admitted,admission_reason=self._current_opaque_token_evidence_admissibility(token_row,boot)
+            if not admitted:
+                return {**base,"status":"DEFER_UNKNOWN","reason":admission_reason,
+                        "token_evidence_id":str(token_row.get("evidence_id",""))}
         tokens=tuple(str((row.get("payload") or {}).get("opaque_token","")) for _i,row in selected)
         if any(not token for token in tokens):
             return {**base,"status":"DEFER_UNKNOWN","reason":"OPAQUE_TOKEN_CONTENT_REQUIRED"}
@@ -4946,9 +4985,10 @@ class Microseed:
                 if len(token_ref)!=2 or len(profile_ref)!=2:
                     return None
                 token_row=self.evidence.get(str(token_ref[0])); profile_row=self.evidence.get(str(profile_ref[0]))
-                if (token_row is None or str(token_row.get("sha256",""))!=str(token_ref[1])
-                        or (token_row.get("payload") or {}).get("kind")!="OPAQUE_EXTERNAL_TOKEN_OBSERVATION"
-                        or int((token_row.get("payload") or {}).get("runtime_boot_seq",-1))!=boot
+                if token_row is None or str(token_row.get("sha256",""))!=str(token_ref[1]):
+                    return None
+                token_admitted,_token_reason=self._current_opaque_token_evidence_admissibility(token_row,boot)
+                if (not token_admitted
                         or str((token_row.get("payload") or {}).get("opaque_token",""))!=token):
                     return None
                 rec=self.opaque_evidence_associations.records.get(rec_id)

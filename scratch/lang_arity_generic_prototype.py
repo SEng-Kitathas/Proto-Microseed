@@ -42,6 +42,10 @@ def derive_current_bounded_ordered_composition_prototype(ms,*,min_arity=2,max_ar
         return {'status':'DEFER_UNKNOWN','reason':'BOUNDED_OPERAND_WINDOW_BELOW_MINIMUM','derived_arity':arity}
     if arity>max_arity:
         return {'status':'DEFER_UNKNOWN','reason':'BOUNDED_OPERAND_WINDOW_EXCEEDS_MAXIMUM','derived_arity':arity,'max_arity':max_arity}
+    for _pos,row in suffix:
+        admitted,reason=ms._current_opaque_token_evidence_admissibility(row,boot)
+        if not admitted:
+            return {'status':'DEFER_UNKNOWN','reason':reason,'derived_arity':arity,'token_evidence_id':str(row.get('evidence_id',''))}
     components=[];sigs=[]
     for ordinal,(pos,row) in enumerate(suffix):
         payload=row.get('payload') or {};token=str(payload.get('opaque_token',''))

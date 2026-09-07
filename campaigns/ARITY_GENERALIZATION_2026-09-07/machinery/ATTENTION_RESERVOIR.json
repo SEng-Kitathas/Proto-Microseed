@@ -5,9 +5,9 @@
     {
       "id": "AR-NEG-TOKEN",
       "priority": "P0",
-      "state": "BLOCKER",
+      "state": "REPAIRED_RETAIN_AS_SCAR",
       "signal": "negative token evidence accepted as composition operand in B2/B3/generic prototype",
-      "reason": "recursive/generalized composition would amplify false premise"
+      "reason": "shared token-evidence admissibility now blocks negative/violated/non-observation premises; retain as regression scar"
     },
     {
       "id": "AR-01",

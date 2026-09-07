@@ -32,9 +32,9 @@ def run_hostile() -> dict[str,object]:
         b2v=b2.get('status')=='CURRENT_NATIVE_B2_ORDERED_OPERATIONAL_REFERENCE_COMPOSITION_RECORDED'
         return {
             'status':'VIOLATION_NEGATIVE_TOKEN_EVIDENCE_ACCEPTED_AS_COMPOSITION_OPERAND' if (gv or b3v or b2v) else 'NEGATIVE_TOKEN_GUARD_PRESENT',
-            'generic_status':generic.get('status'),'generic_accepted_negative':gv,
-            'b3_status':b3.get('status'),'b3_accepted_negative':b3v,
-            'b2_status':b2.get('status'),'b2_accepted_negative':b2v,
+            'generic_status':generic.get('status'),'generic_reason':generic.get('reason'),'generic_accepted_negative':gv,
+            'b3_status':b3.get('status'),'b3_reason':b3.get('reason'),'b3_accepted_negative':b3v,
+            'b2_status':b2.get('status'),'b2_reason':b2.get('reason'),'b2_accepted_negative':b2v,
             'negative_token_must_be_operand_authority':'NO',
             'arity_promotion_allowed':'NO',
         }
