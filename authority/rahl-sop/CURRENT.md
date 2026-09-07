@@ -30,3 +30,27 @@ The distribution ZIP contains the exact payload ZIP, detached receipt, README, a
 `DISTRIBUTION_BUNDLE != PAYLOAD_AUTHORITY`
 
 A project may have explicit local authority ceilings/version pins that require reconciliation. This carrier makes the current universal process package discoverable; it does not erase explicit local authority history by copy alone.
+
+## Governance Contact activation resolver — CURRENT PRECEDENCE
+Marker: `GOVERNANCE_CONTACT_ACTIVATION_RESOLVER_CURRENT_PRECEDENCE_V1`
+Target: `git:Proto-Microseed`
+
+Current Governance Contact activation/currentness SHALL be resolved only through `authority/rahl-sop/GOVERNANCE_CONTACT_V1_0_ACTIVATION.md`.
+Target-local Git locator blob SHA-256: `e1bf2d4214b42712ab736613030ec0307a065dea69502d6ce4c55ff488798e3f`.
+Expected activation token SHA-256: `b5a2e35f300c6f72d93fc80b877ef0478a3628442b705e50f6893cbceafb5094`.
+
+Any earlier Governance Contact lifecycle sentence in this file that says pending, NOT ACTIVE, or authority effect NONE is retained as a **pre-activation snapshot** and is superseded for present activation currentness by this resolver block. Historical release/reconciliation evidence is not rewritten.
+
+Resolver rule:
+- exact token absent at locator sibling -> `GOVERNANCE_CONTACT_NOT_ACTIVE_AT_THIS_TARGET`;
+- token present but wrong hash/invalid fields -> `RECOVERY_AUDIT_NO_AUTHORITY`;
+- exact valid token present -> `GOVERNANCE_CONTACT_LOCALLY_BINDING_ADDITIVE_PROCESS_DOCTRINE`;
+- global ACTIVE claim additionally requires 17/17 exact-token propagation/readback and a detached activation-completion receipt.
+
+This block does not assert token presence or absence. It remains semantically valid across the token transition.
+
+`SUPERSESSION != SOURCE_REWRITE`
+`CURRENT_INGRESS_CONTACTS_LOCATOR != LOCATOR_RESOLVES_ACTIVE`
+`ACTIVATION_TOKEN_PRESENT_AT_ONE_TARGET != GLOBAL_ACTIVE`
+`GIT_BLOB_BYTES != CHECKOUT_MATERIALIZATION_BYTES`
+`CURRENT_POINTER_MUST_PIN_TARGET_LOCAL_REPRESENTATION`
