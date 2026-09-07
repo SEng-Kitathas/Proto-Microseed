@@ -4619,12 +4619,32 @@ class Microseed:
                         "reason":"UNIQUE_CURRENT_NATIVE_TOKEN_REFERENT_ASSOCIATION_REQUIRED",
                         "opaque_token":token,"current_candidate_count":len(candidates)}
             rec=candidates[0]; referent_sig=str(rec.right_digest_sha256)
-            profile_rows=[
-                row for row in rows
-                if (row.get("payload") or {}).get("kind")=="OWNED_AFFORDANCE_EFFECT_PROFILE_WITNESS"
-                and int((row.get("payload") or {}).get("runtime_boot_seq",-1))==boot
-                and str((row.get("payload") or {}).get("operational_referent_signature_sha256",""))==referent_sig
-            ]
+            profile_rows=[]
+            for row in rows:
+                pp=row.get("payload") or {}
+                if (pp.get("kind")!="OWNED_AFFORDANCE_EFFECT_PROFILE_WITNESS"
+                        or int(pp.get("runtime_boot_seq",-1))!=boot
+                        or str(pp.get("operational_referent_signature_sha256",""))!=referent_sig
+                        or row.get("negative")):
+                    continue
+                action=str(pp.get("exclusive_action_id","")); cap=self.capabilities.contracts.get(action)
+                if cap is None or not self.capabilities.is_current(action):
+                    continue
+                if (self.capabilities.epochs.get(action,-1)!=int(pp.get("exclusive_action_epoch",-1))
+                        or cap.computed_signature_sha256()!=str(pp.get("exclusive_action_signature_sha256",""))):
+                    continue
+                frame_id=str(pp.get("frame_id","")); frame=self.frames.frames.get(frame_id)
+                if (frame is None
+                        or not self.frames.is_current(frame_id,int(pp.get("frame_epoch",-1)))
+                        or frame.signature_sha256!=str(pp.get("frame_signature_sha256",""))):
+                    continue
+                exact=True
+                for eid,sig in pp.get("source_raw_evidence_refs",()):
+                    erow=self.evidence.get(str(eid))
+                    if erow is None or str(erow.get("sha256",""))!=str(sig):
+                        exact=False; break
+                if exact:
+                    profile_rows.append(row)
             if not profile_rows:
                 return {**base,"status":"DEFER_UNKNOWN","reason":"CURRENT_NATIVE_REFERENT_PROFILE_REQUIRED",
                         "opaque_token":token,"referent_signature":referent_sig}
