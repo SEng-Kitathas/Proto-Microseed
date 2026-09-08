@@ -46,6 +46,21 @@
       ],
       "next_discriminator": "durable retrospective boundary witness with exact lineage",
       "authority": "RESEARCH_ONLY"
+    },
+    {
+      "id": "OCCASION-04",
+      "question": "Does caller invocation timing or semantic/timing metadata determine the boundary?",
+      "evidence": [
+        "5/5 invocation/replay/budget",
+        "2/2 phase/time/semantic audit"
+      ],
+      "interpretations": [
+        "boundary content/location is structurally compelled when present",
+        "method scheduling itself remains externally invoked",
+        "retrospective witness consumption remains unearned"
+      ],
+      "next_discriminator": "broad cross-lineage coherence",
+      "authority": "RESEARCH_ONLY"
     }
   ]
 }

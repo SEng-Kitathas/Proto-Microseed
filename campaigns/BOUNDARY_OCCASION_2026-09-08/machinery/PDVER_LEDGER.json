@@ -30,20 +30,22 @@
     "authority_gain": "NONE"
   },
   "embody": {
-    "status": "READY",
-    "production_constraints": [
-      "hardcoded segment arity 2..4",
-      "max structural window 8",
-      "no caller split/grouping/output id",
-      "no retroactive composition rewrite",
-      "no effect/execution/semantic authority"
-    ]
+    "status": "EMBODIED_CANDIDATE",
+    "production_owner": "derive_and_record_current_native_structural_boundary_occasion",
+    "hard_bounds": "SEGMENT_ARITY_2_TO_4__STRUCTURAL_WINDOW_MAX_8",
+    "targeted": [
+      "6/6 production",
+      "5/5 invocation/replay/budget",
+      "2/2 semantic smuggling"
+    ],
+    "authority_gain": "NONE"
   },
   "recurse": {
     "next": [
-      "seal prototype",
-      "embody production owner",
-      "targeted hostiles then breadth"
+      "seal production candidate",
+      "broad lineage regression",
+      "CSC",
+      "converge exact claim vs endogenous scheduling/witness consumption ceilings"
     ],
     "promotion": "NONE"
   }

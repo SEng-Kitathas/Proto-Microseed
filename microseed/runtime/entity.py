@@ -5156,6 +5156,273 @@ class Microseed:
             "caller_supplied_output_evidence_id":"NO",
         }
 
+    def _current_native_structural_boundary_profile_row(
+        self, rows: list[dict[str, Any]], boot: int, referent_sig: str,
+    ) -> dict[str, Any] | None:
+        profile_rows=[]
+        for row in rows:
+            pp=row.get("payload") or {}
+            if (pp.get("kind")!="OWNED_AFFORDANCE_EFFECT_PROFILE_WITNESS"
+                    or int(pp.get("runtime_boot_seq",-1))!=boot
+                    or str(pp.get("operational_referent_signature_sha256",""))!=referent_sig
+                    or row.get("negative")):
+                continue
+            action=str(pp.get("exclusive_action_id","")); cap=self.capabilities.contracts.get(action)
+            if cap is None or not self.capabilities.is_current(action):
+                continue
+            if (self.capabilities.epochs.get(action,-1)!=int(pp.get("exclusive_action_epoch",-1))
+                    or cap.computed_signature_sha256()!=str(pp.get("exclusive_action_signature_sha256",""))):
+                continue
+            frame_id=str(pp.get("frame_id","")); frame=self.frames.frames.get(frame_id)
+            if (frame is None
+                    or not self.frames.is_current(frame_id,int(pp.get("frame_epoch",-1)))
+                    or frame.signature_sha256!=str(pp.get("frame_signature_sha256",""))):
+                continue
+            exact=True
+            for eid,sig in pp.get("source_raw_evidence_refs",()):
+                erow=self.evidence.get(str(eid))
+                if erow is None or str(erow.get("sha256",""))!=str(sig):
+                    exact=False; break
+            if exact:
+                profile_rows.append(row)
+        return profile_rows[-1] if profile_rows else None
+
+    def _validate_current_native_structural_boundary_witness(
+        self, row: dict[str, Any], *, rows: list[dict[str, Any]], boot: int,
+    ) -> dict[str, Any]:
+        base={
+            "selection_authority":"CONTENT_UNIQUENESS_ONLY","execution_authority":"NONE",
+            "effect_authority":"NONE","semantic_grouping_authority":"NONE",
+            "retroactive_composition_rewrite_authority":"NONE","authority_gain":"NONE",
+        }
+        if row.get("negative"):
+            return {**base,"status":"DEFER_UNKNOWN","reason":"STRUCTURAL_BOUNDARY_WITNESS_MUST_BE_POSITIVE"}
+        payload=row.get("payload") or {}
+        if payload.get("kind")!="OWNED_NATIVE_STRUCTURAL_COMPOSITION_WINDOW_BOUNDARY_WITNESS":
+            return {**base,"status":"DEFER_UNKNOWN","reason":"STRUCTURAL_BOUNDARY_WITNESS_KIND_REQUIRED"}
+        if int(payload.get("runtime_boot_seq",-1))!=boot:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"STRUCTURAL_BOUNDARY_WITNESS_CURRENT_BOOT_REQUIRED"}
+        if (payload.get("operator_owner")!="MICROSEED_NATIVE_STRUCTURAL_BOUNDARY_OCCASION"
+                or payload.get("boundary_basis")!="EXACT_ONE_TWO_WINDOW_SPLIT_RESTORES_EARNED_DISTINCT_OPERAND_ADMISSIBILITY"
+                or payload.get("boundary_temporality")!="RETROSPECTIVE_RECOGNITION_AFTER_EXTENSION_CONFLICT"):
+            return {**base,"status":"DEFER_UNKNOWN","reason":"STRUCTURAL_BOUNDARY_WITNESS_OWNER_OR_BASIS_MISMATCH"}
+        if (payload.get("retroactive_composition_rewrite_authority")!="NONE"
+                or payload.get("effect_authority")!="NONE"
+                or payload.get("execution_authority")!="NONE"
+                or payload.get("semantic_grouping_authority")!="NONE"):
+            return {**base,"status":"DEFER_UNKNOWN","reason":"STRUCTURAL_BOUNDARY_WITNESS_AUTHORITY_OVERCLAIM"}
+        comps=list(payload.get("components") or ()); sigs=[]
+        for comp in comps:
+            tref=comp.get("token_evidence_ref") or (); pref=comp.get("profile_evidence_ref") or ()
+            if len(tref)!=2 or len(pref)!=2:
+                return {**base,"status":"DEFER_UNKNOWN","reason":"STRUCTURAL_BOUNDARY_SOURCE_REF_REQUIRED"}
+            token_row=self.evidence.get(str(tref[0])); profile_row=self.evidence.get(str(pref[0]))
+            if token_row is None or str(token_row.get("sha256",""))!=str(tref[1]):
+                return {**base,"status":"DEFER_UNKNOWN","reason":"STRUCTURAL_BOUNDARY_TOKEN_SOURCE_NOT_EXACT"}
+            if profile_row is None or str(profile_row.get("sha256",""))!=str(pref[1]):
+                return {**base,"status":"DEFER_UNKNOWN","reason":"STRUCTURAL_BOUNDARY_PROFILE_SOURCE_NOT_EXACT"}
+            admitted,reason=self._current_opaque_token_evidence_admissibility(token_row,boot)
+            if not admitted:
+                return {**base,"status":"DEFER_UNKNOWN","reason":reason}
+            rid=str(comp.get("association_record_id","")); rec=self.opaque_evidence_associations.records.get(rid)
+            if rec is None or self.opaque_evidence_association_status(rid).get("status")!="CURRENT_OPAQUE_EVIDENCE_ASSOCIATION":
+                return {**base,"status":"DEFER_UNKNOWN","reason":"STRUCTURAL_BOUNDARY_ASSOCIATION_NOT_CURRENT"}
+            token=str(comp.get("opaque_token","")); referent_sig=str(comp.get("operational_referent_signature_sha256",""))
+            if rec.left_opaque_id!=token or rec.right_digest_sha256!=referent_sig:
+                return {**base,"status":"DEFER_UNKNOWN","reason":"STRUCTURAL_BOUNDARY_ASSOCIATION_CONTENT_MISMATCH"}
+            current_profile=self._current_native_structural_boundary_profile_row(rows,boot,referent_sig)
+            if (current_profile is None
+                    or str(current_profile.get("evidence_id",""))!=str(pref[0])
+                    or str(current_profile.get("sha256",""))!=str(pref[1])):
+                return {**base,"status":"DEFER_UNKNOWN","reason":"STRUCTURAL_BOUNDARY_PROFILE_NOT_CURRENT_EXACT_SOURCE"}
+            sigs.append(referent_sig)
+        min_segment=2; max_segment=4; n=len(sigs); split=int(payload.get("split_index",-1))
+        candidates=[]
+        for k in range(min_segment,n-min_segment+1):
+            left=sigs[:k]; right=sigs[k:]
+            if not (min_segment<=len(left)<=max_segment and min_segment<=len(right)<=max_segment):
+                continue
+            if len(set(left))!=len(left) or len(set(right))!=len(right):
+                continue
+            candidates.append(k)
+        if candidates!=[split]:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"STRUCTURAL_BOUNDARY_UNIQUE_SPLIT_NO_LONGER_HOLDS",
+                    "candidate_splits":tuple(candidates)}
+        content={
+            "operator":"UNIQUE_TWO_WINDOW_STRUCTURAL_SPLIT",
+            "ordered_operational_referent_signatures":sigs,"split_index":split,
+            "bounded_min_segment_arity":min_segment,"bounded_max_segment_arity":max_segment,
+            "identity_scope":"OPERATIONAL_EQUIVALENCE_CLASS_ONLY",
+        }
+        digest=action_result_digest(content)
+        if digest!=str(payload.get("boundary_content_digest_sha256","")):
+            return {**base,"status":"DEFER_UNKNOWN","reason":"STRUCTURAL_BOUNDARY_CONTENT_DIGEST_MISMATCH"}
+        return {
+            **base,"status":"CURRENT_NATIVE_STRUCTURAL_BOUNDARY_WITNESS",
+            "boundary_evidence_id":str(row["evidence_id"]),"boundary_evidence_sha256":str(row["sha256"]),
+            "boundary_content_digest_sha256":digest,"split_index":split,
+            "components":tuple(comps),"ordered_operational_referent_signatures":tuple(sigs),
+            "left_last_token_store_seq":int(payload.get("left_last_token_store_seq",-1)),
+            "right_first_token_store_seq":int(payload.get("right_first_token_store_seq",-1)),
+            "boundary_temporality":payload["boundary_temporality"],
+        }
+
+    def derive_and_record_current_native_structural_boundary_occasion(
+        self, *, max_records: int = 4096, max_events: int = 65536,
+    ) -> dict[str, Any]:
+        """Record one retrospectively compelled passive composition-window boundary.
+
+        The caller supplies no split, grouping, token operands, segment arity, or output id.
+        A boundary witness is recorded only when the current token window is not itself an
+        admissible bounded composition and exactly one split produces two segments that each
+        satisfy the already-earned arity-2..4 distinct-referent operand law. The witness is
+        retrospective evidence about a structural conflict; it has no authority to reorder
+        prior ledger chronology or automatically materialize either composition.
+        """
+        min_segment=2; max_segment=4; max_window=8
+        base={
+            "bounded_min_segment_arity":min_segment,"bounded_max_segment_arity":max_segment,
+            "bounded_max_structural_window":max_window,
+            "selection_authority":"NONE","execution_authority":"NONE","effect_authority":"NONE",
+            "semantic_grouping_authority":"NONE","retroactive_composition_rewrite_authority":"NONE",
+            "authority_gain":"NONE",
+        }
+        bound=int(max_records)
+        if bound<=0:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"STRUCTURAL_BOUNDARY_EVIDENCE_SCAN_BUDGET_REQUIRED"}
+        total=self.evidence.count()
+        if total>bound:
+            return {**base,"status":"SEARCH_BUDGET_EXHAUSTED_NOT_SATURATED",
+                    "reason":"STRUCTURAL_BOUNDARY_EVIDENCE_HISTORY_EXCEEDS_SCAN_BUDGET",
+                    "total_records":total,"max_records":bound}
+        boot=self._current_runtime_boot_seq()
+        if boot<0:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"CURRENT_RUNTIME_BOOT_BOUNDARY_REQUIRED"}
+        rows=self.evidence.list()
+        # Idempotent readback: the witness itself is non-token evidence and closes the suffix.
+        for pos in range(len(rows)-1,-1,-1):
+            row=rows[pos]; pp=row.get("payload") or {}
+            if int(pp.get("runtime_boot_seq",-1))!=boot:
+                continue
+            if pp.get("kind")=="OPAQUE_EXTERNAL_TOKEN_OBSERVATION":
+                break
+            if pp.get("kind")=="OWNED_NATIVE_STRUCTURAL_COMPOSITION_WINDOW_BOUNDARY_WITNESS":
+                current=self._validate_current_native_structural_boundary_witness(row,rows=rows,boot=boot)
+                if current.get("status")=="CURRENT_NATIVE_STRUCTURAL_BOUNDARY_WITNESS":
+                    return {**base,**current,"status":"CURRENT_NATIVE_STRUCTURAL_BOUNDARY_WITNESS_ALREADY_PRESENT",
+                            "boundary_record_status":"BOUNDARY_WITNESS_ALREADY_PRESENT"}
+                return {**base,**current}
+        window=self._derive_current_store_aware_bounded_operand_window(
+            max_events=max_events,min_arity=min_segment,max_arity=max_window,
+        )
+        if window.get("status")!="CURRENT_STORE_AWARE_BOUNDED_OPERAND_WINDOW":
+            return {**base,**window}
+        selected=tuple(window["selected"]); rows=self.evidence.list(); sigs=[]; components=[]
+        scope_tag="QUALIFICATION_SCOPE:NATIVE_TOKEN_REFERENT"
+        for ordinal,(token_pos,token_row,token_store_seq) in enumerate(selected):
+            admitted,reason=self._current_opaque_token_evidence_admissibility(token_row,boot)
+            if not admitted:
+                return {**base,"status":"DEFER_UNKNOWN","reason":reason,
+                        "token_evidence_id":str(token_row.get("evidence_id",""))}
+            token=str((token_row.get("payload") or {}).get("opaque_token",""))
+            candidates=[]
+            for rec in self.opaque_evidence_associations.records.values():
+                if rec.left_opaque_id!=token or scope_tag not in rec.assistance_ancestry:
+                    continue
+                if self.opaque_evidence_association_status(rec.record_id).get("status")!="CURRENT_OPAQUE_EVIDENCE_ASSOCIATION":
+                    continue
+                candidates.append(rec)
+            if len(candidates)!=1:
+                return {**base,"status":"DEFER_UNKNOWN",
+                        "reason":"UNIQUE_CURRENT_NATIVE_TOKEN_REFERENT_ASSOCIATION_REQUIRED",
+                        "opaque_token":token,"current_candidate_count":len(candidates)}
+            rec=candidates[0]; referent_sig=str(rec.right_digest_sha256)
+            profile_row=self._current_native_structural_boundary_profile_row(rows,boot,referent_sig)
+            if profile_row is None:
+                return {**base,"status":"DEFER_UNKNOWN","reason":"CURRENT_NATIVE_REFERENT_PROFILE_REQUIRED",
+                        "opaque_token":token,"referent_signature":referent_sig}
+            sigs.append(referent_sig)
+            components.append({
+                "ordinal":ordinal,"opaque_token":token,
+                "operational_referent_signature_sha256":referent_sig,
+                "association_record_id":rec.record_id,
+                "token_evidence_ref":[str(token_row["evidence_id"]),str(token_row["sha256"])],
+                "profile_evidence_ref":[str(profile_row["evidence_id"]),str(profile_row["sha256"])],
+                "evidence_list_position":int(token_pos),"token_store_event_seq":int(token_store_seq),
+                "identity_scope":"OPERATIONAL_EQUIVALENCE_CLASS_ONLY",
+            })
+        n=len(sigs)
+        if min_segment<=n<=max_segment and len(set(sigs))==n:
+            return {**base,"status":"NO_CURRENT_STRUCTURAL_BOUNDARY_OCCASION",
+                    "reason":"FULL_CURRENT_WINDOW_STRUCTURALLY_ADMISSIBLE","token_count":n,
+                    "ordered_operational_referent_signatures":tuple(sigs)}
+        candidates=[]
+        for split in range(min_segment,n-min_segment+1):
+            left=sigs[:split]; right=sigs[split:]
+            if not (min_segment<=len(left)<=max_segment and min_segment<=len(right)<=max_segment):
+                continue
+            if len(set(left))!=len(left) or len(set(right))!=len(right):
+                continue
+            candidates.append(split)
+        if not candidates:
+            return {**base,"status":"NO_CURRENT_STRUCTURAL_BOUNDARY_OCCASION",
+                    "reason":"NO_TWO_WINDOW_SPLIT_SATISFIES_EARNED_SEGMENT_ADMISSIBILITY",
+                    "token_count":n,"candidate_count":0,
+                    "ordered_operational_referent_signatures":tuple(sigs)}
+        if len(candidates)!=1:
+            return {**base,"status":"AMBIGUOUS_CURRENT_STRUCTURAL_BOUNDARY_OCCASION",
+                    "reason":"MULTIPLE_TWO_WINDOW_SPLITS_SATISFY_EARNED_SEGMENT_ADMISSIBILITY",
+                    "token_count":n,"candidate_count":len(candidates),"candidate_splits":tuple(candidates),
+                    "ordered_operational_referent_signatures":tuple(sigs)}
+        split=candidates[0]
+        content={
+            "operator":"UNIQUE_TWO_WINDOW_STRUCTURAL_SPLIT",
+            "ordered_operational_referent_signatures":list(sigs),"split_index":split,
+            "bounded_min_segment_arity":min_segment,"bounded_max_segment_arity":max_segment,
+            "identity_scope":"OPERATIONAL_EQUIVALENCE_CLASS_ONLY",
+        }
+        content_digest=action_result_digest(content)
+        payload={
+            "kind":"OWNED_NATIVE_STRUCTURAL_COMPOSITION_WINDOW_BOUNDARY_WITNESS",
+            "runtime_boot_seq":boot,"operator_owner":"MICROSEED_NATIVE_STRUCTURAL_BOUNDARY_OCCASION",
+            "boundary_content_digest_sha256":content_digest,"components":components,
+            "ordered_operational_referent_signatures":list(sigs),"split_index":split,
+            "left_last_token_store_seq":int(selected[split-1][2]),
+            "right_first_token_store_seq":int(selected[split][2]),
+            "bounded_min_segment_arity":min_segment,"bounded_max_segment_arity":max_segment,
+            "boundary_basis":"EXACT_ONE_TWO_WINDOW_SPLIT_RESTORES_EARNED_DISTINCT_OPERAND_ADMISSIBILITY",
+            "boundary_temporality":"RETROSPECTIVE_RECOGNITION_AFTER_EXTENSION_CONFLICT",
+            "retroactive_composition_rewrite_authority":"NONE",
+            "caller_supplied_split":"NO","caller_supplied_grouping":"NO",
+            "caller_supplied_output_evidence_id":"NO",
+            "selection_authority":"CONTENT_UNIQUENESS_ONLY","effect_authority":"NONE",
+            "execution_authority":"NONE","semantic_grouping_authority":"NONE","authority_gain":"NONE",
+        }
+        evidence_id="E-NATIVE-STRUCTURAL-BOUNDARY-"+action_result_digest(payload)[:24]
+        existing=self.evidence.get(evidence_id)
+        if existing is None:
+            ref=self.append_evidence(evidence_id,payload,EpistemicStatus.PRESSURE_SUPPORTED,
+                                     source="MICROSEED-NATIVE-STRUCTURAL-BOUNDARY-OCCASION")
+            evidence_sha=ref.sha256; record_status="BOUNDARY_WITNESS_RECORDED"
+        else:
+            if existing.get("negative") or existing.get("payload")!=payload:
+                return {**base,"status":"DEFER_UNKNOWN","reason":"STRUCTURAL_BOUNDARY_WITNESS_ID_COLLISION",
+                        "boundary_evidence_id":evidence_id}
+            evidence_sha=str(existing.get("sha256","")); record_status="BOUNDARY_WITNESS_ALREADY_PRESENT"
+        return {
+            **base,"status":"CURRENT_NATIVE_STRUCTURAL_BOUNDARY_WITNESS_RECORDED",
+            "boundary_evidence_id":evidence_id,"boundary_evidence_sha256":evidence_sha,
+            "boundary_record_status":record_status,"boundary_content_digest_sha256":content_digest,
+            "split_index":split,"components":tuple(components),
+            "ordered_operational_referent_signatures":tuple(sigs),
+            "left_last_token_store_seq":payload["left_last_token_store_seq"],
+            "right_first_token_store_seq":payload["right_first_token_store_seq"],
+            "boundary_temporality":payload["boundary_temporality"],
+            "selection_authority":"CONTENT_UNIQUENESS_ONLY",
+            "caller_supplied_split":"NO","caller_supplied_grouping":"NO",
+            "caller_supplied_output_evidence_id":"NO",
+        }
+
     def derive_and_record_current_native_recursive_b2_ordered_composition(
         self, *, max_records: int = 4096,
     ) -> dict[str, Any]:

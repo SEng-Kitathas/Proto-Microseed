@@ -1,0 +1,12 @@
+{
+  "pass": 10,
+  "name": "PRODUCTION_STRUCTURAL_BOUNDARY_OCCASION_EMBODIMENT",
+  "status": "PASS",
+  "evidence": [
+    "production owner derive_and_record_current_native_structural_boundary_occasion embodied",
+    "hardcoded segment arity 2..4 and max structural window 8",
+    "test_lang_boundary_occasion_production.py 6/6 PASS"
+  ],
+  "result": "PRODUCTION_RETROSPECTIVE_STRUCTURAL_BOUNDARY_WITNESS_CANDIDATE",
+  "authority_gain": "NONE"
+}

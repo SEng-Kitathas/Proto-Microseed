@@ -1,0 +1,16 @@
+{
+  "pass": 11,
+  "name": "INVOCATION_REPLAY_AND_BUDGET_HOSTILES",
+  "status": "PASS",
+  "evidence": [
+    "test_lang_boundary_occasion_production_hostiles.py 5/5 PASS",
+    "polling every prefix writes nothing until unique conflict",
+    "end-only invocation yields same structural witness content",
+    "forged witness refused",
+    "replayed token evidence blocks inference",
+    "evidence/event budgets fail closed",
+    "9-token window visible and refused not cropped"
+  ],
+  "result": "BOUNDARY_CONTENT_NOT_SELECTED_BY_CALLER_INVOCATION_TIMING",
+  "nonclaim": "ENDOGENOUS_INVOCATION_SCHEDULING_NOT_EARNED"
+}
