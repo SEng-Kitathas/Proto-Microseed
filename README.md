@@ -1,5 +1,25 @@
 # Proto-Microseed
 
+> **Proto-Microseed is an experimental AGI substrate research project: a minimal prelingual developmental cognitive organism whose capabilities are meant to be earned from grounded experience and lawful composition rather than installed as a large semantic ontology or generic planner.**
+
+**This is not a governance package.** The governance, continuity, operating-profile, and authority files in this repository are development/research control infrastructure: they exist to keep experiments honest, bounded, reproducible, and recoverable. They are not the identity or end goal of Microseed. The project direction is: **grow cognition rather than install intelligence**.
+
+If you are trying to understand what Microseed *is*, start at [`START_HERE.md`](START_HERE.md) before reading the governance material.
+
+### Current research pointer
+
+The default `main` branch is the conservative public/canonical surface and does **not** automatically absorb every earned research result. The current remote-exact research frontier is:
+
+- branch: `research/grounded-language-operand-window-boundary-v1`
+- science seal: `c87a6dfff3c0b6d2236ac89c52f0988c8e4caf0c`
+- campaign completion/readback head: `e3069792ef4639028bf9eeb0243e4e827bebf52f`
+- current earned frontier: authenticated current-runtime action-execution window-boundary **recognition** for bounded grounded composition; autonomous/passive boundary occasion ownership remains open
+
+Recent earned research on that lineage includes native grounded token↔referent association, bounded held-out B2 recombination, fixed-depth recursive reuse, distinct-leaf B3, one bounded direct composition owner deriving arity 2–4 without caller-supplied arity, and authenticated action-execution boundary recognition. These are research results, not a claim that generic AGI, language competence, semantic ontology, unrestricted planning, or unbounded composition has been completed.
+
+---
+
+
 ## Governing engineering / research process
 
 This project adopts **Rahl Engineering Canonical SOP R4.2** as its governing engineering/research process authority for the duration of the project unless explicitly superseded by the project owner. Start at [`GOVERNING_ENGINEERING_SOP.md`](GOVERNING_ENGINEERING_SOP.md). The sealed adopted ZIP is SHA-256 `eb167543e9ceb2ae01449f421d2916e61b7dd924270ea2e83e3364c9d808ce9a`. This process adoption does not modify Microseed scientific canon or grant domain/product/architecture authority.
