@@ -1,0 +1,12 @@
+{
+  "pass": 10,
+  "name": "PRODUCTION_STRUCTURAL_SEGMENT_STATE_EMBODIMENT_CANDIDATE",
+  "status": "PASS_TARGETED_BEFORE_REPLAY_ATTACK",
+  "evidence": [
+    "production consumer embodied in microseed/runtime/entity.py",
+    "test_lang_boundary_consumption_production.py 6/6 PASS",
+    "append-only state, exact bounded-content identity, oldest-unconsumed chronology, currentness/restart/invariance, deterministic state evidence ID"
+  ],
+  "result": "CURRENT_NATIVE_STRUCTURAL_SEGMENT_STATE_CANDIDATE",
+  "promotion": "NONE"
+}

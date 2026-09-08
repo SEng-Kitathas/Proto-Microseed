@@ -5423,6 +5423,207 @@ class Microseed:
             "caller_supplied_output_evidence_id":"NO",
         }
 
+    def _native_structural_segment_state_content_from_boundary(
+        self, boundary_current: dict[str, Any],
+    ) -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
+        split=int(boundary_current["split_index"])
+        sigs=list(boundary_current["ordered_operational_referent_signatures"])
+        left={
+            "operator":"ORDERED_EVIDENCE_TUPLE",
+            "ordered_operational_referent_signatures":list(sigs[:split]),
+            "arity":split,"identity_scope":"OPERATIONAL_EQUIVALENCE_CLASS_ONLY",
+        }
+        right={
+            "operator":"ORDERED_EVIDENCE_TUPLE",
+            "ordered_operational_referent_signatures":list(sigs[split:]),
+            "arity":len(sigs)-split,"identity_scope":"OPERATIONAL_EQUIVALENCE_CLASS_ONLY",
+        }
+        left_digest=action_result_digest(left); right_digest=action_result_digest(right)
+        state={
+            "operator":"STRUCTURAL_BOUNDARY_SEGMENT_STATE",
+            "boundary_content_digest_sha256":str(boundary_current["boundary_content_digest_sha256"]),
+            "left_composition_content_digest_sha256":left_digest,
+            "right_composition_content_digest_sha256":right_digest,
+            "ordered_segment_composition_digests":[left_digest,right_digest],
+            "identity_scope":"OPERATIONAL_EQUIVALENCE_CLASS_ONLY",
+        }
+        return left,right,state
+
+    def _validate_current_native_structural_segment_state(
+        self, row: dict[str, Any], *, rows: list[dict[str, Any]], boot: int,
+    ) -> dict[str, Any]:
+        base={
+            "selection_authority":"BOUNDARY_EVIDENCE_CHRONOLOGY_ONLY",
+            "ledger_rewrite_authority":"NONE","historical_event_authority":"NONE",
+            "effect_authority":"NONE","execution_authority":"NONE",
+            "semantic_grouping_authority":"NONE","authority_gain":"NONE",
+        }
+        if row.get("negative"):
+            return {**base,"status":"DEFER_UNKNOWN","reason":"SEGMENT_STATE_MUST_BE_POSITIVE"}
+        payload=row.get("payload") or {}
+        if payload.get("kind")!="OWNED_NATIVE_STRUCTURAL_SEGMENT_COMPOSITION_STATE":
+            return {**base,"status":"DEFER_UNKNOWN","reason":"SEGMENT_STATE_KIND_REQUIRED"}
+        if int(payload.get("runtime_boot_seq",-1))!=boot:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"SEGMENT_STATE_CURRENT_BOOT_REQUIRED"}
+        if (payload.get("operator_owner")!="MICROSEED_NATIVE_STRUCTURAL_BOUNDARY_CONSUMPTION"
+                or payload.get("temporality")!="CURRENT_RETROSPECTIVE_DERIVATION_APPENDED_AFTER_BOUNDARY"
+                or payload.get("selection_basis")!="OLDEST_CURRENT_UNCONSUMED_STRUCTURAL_BOUNDARY_BY_EVIDENCE_APPEND_ORDER"):
+            return {**base,"status":"DEFER_UNKNOWN","reason":"SEGMENT_STATE_OWNER_TEMPORALITY_OR_SELECTION_MISMATCH"}
+        if any(payload.get(k)!="NONE" for k in (
+                "ledger_rewrite_authority","historical_event_authority","effect_authority",
+                "execution_authority","semantic_grouping_authority")):
+            return {**base,"status":"DEFER_UNKNOWN","reason":"SEGMENT_STATE_AUTHORITY_OVERCLAIM"}
+        expected_id="E-NATIVE-STRUCTURAL-SEGMENT-STATE-"+action_result_digest(payload)[:24]
+        if str(row.get("evidence_id",""))!=expected_id:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"SEGMENT_STATE_EVIDENCE_ID_NOT_DERIVED_FROM_CONTENT",
+                    "expected_evidence_id":expected_id}
+        boundary_ref=payload.get("boundary_evidence_ref") or ()
+        if len(boundary_ref)!=2:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"SEGMENT_STATE_BOUNDARY_REF_REQUIRED"}
+        boundary_row=self.evidence.get(str(boundary_ref[0]))
+        if boundary_row is None or str(boundary_row.get("sha256",""))!=str(boundary_ref[1]):
+            return {**base,"status":"DEFER_UNKNOWN","reason":"SEGMENT_STATE_BOUNDARY_REF_NOT_EXACT"}
+        boundary_current=self._validate_current_native_structural_boundary_witness(
+            boundary_row,rows=rows,boot=boot,
+        )
+        if boundary_current.get("status")!="CURRENT_NATIVE_STRUCTURAL_BOUNDARY_WITNESS":
+            return {**base,**boundary_current,"status":"DEFER_UNKNOWN"}
+        left,right,state=self._native_structural_segment_state_content_from_boundary(boundary_current)
+        if payload.get("left_content")!=left or payload.get("right_content")!=right:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"SEGMENT_STATE_COMPOSITION_CONTENT_MISMATCH"}
+        state_digest=action_result_digest(state)
+        if (payload.get("segment_state_content")!=state
+                or str(payload.get("segment_state_content_digest_sha256",""))!=state_digest):
+            return {**base,"status":"DEFER_UNKNOWN","reason":"SEGMENT_STATE_CONTENT_DIGEST_MISMATCH"}
+        if (str(payload.get("boundary_content_digest_sha256",""))
+                !=str(boundary_current["boundary_content_digest_sha256"])):
+            return {**base,"status":"DEFER_UNKNOWN","reason":"SEGMENT_STATE_BOUNDARY_CONTENT_MISMATCH"}
+        return {
+            **base,"status":"CURRENT_NATIVE_STRUCTURAL_SEGMENT_STATE",
+            "segment_state_evidence_id":str(row["evidence_id"]),
+            "segment_state_evidence_sha256":str(row["sha256"]),
+            "boundary_evidence_id":str(boundary_ref[0]),
+            "boundary_evidence_sha256":str(boundary_ref[1]),
+            "boundary_content_digest_sha256":str(boundary_current["boundary_content_digest_sha256"]),
+            "split_index":int(boundary_current["split_index"]),
+            "left_content":left,"right_content":right,
+            "left_composition_content_digest_sha256":action_result_digest(left),
+            "right_composition_content_digest_sha256":action_result_digest(right),
+            "segment_state_content":state,"segment_state_content_digest_sha256":state_digest,
+            "temporality":payload["temporality"],
+        }
+
+    def derive_and_record_current_native_structural_segment_state(
+        self, *, max_records: int = 4096,
+    ) -> dict[str, Any]:
+        """Consume one CURRENT structural boundary into append-only retrospective segment state.
+
+        The oldest CURRENT unconsumed boundary witness is selected by evidence append order.
+        The caller supplies no boundary id, split, segment operands, grouping, or output id.
+        Two segment composition *contents* are derived using the already-earned
+        ``ORDERED_EVIDENCE_TUPLE`` identity law, but no historical bounded-composition rows are
+        backfilled and no prior ledger event is reordered or rewritten.
+        """
+        base={
+            "selection_basis":"OLDEST_CURRENT_UNCONSUMED_STRUCTURAL_BOUNDARY_BY_EVIDENCE_APPEND_ORDER",
+            "selection_authority":"BOUNDARY_EVIDENCE_CHRONOLOGY_ONLY",
+            "ledger_rewrite_authority":"NONE","historical_event_authority":"NONE",
+            "effect_authority":"NONE","execution_authority":"NONE",
+            "semantic_grouping_authority":"NONE","authority_gain":"NONE",
+        }
+        bound=int(max_records)
+        if bound<=0:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"SEGMENT_STATE_EVIDENCE_SCAN_BUDGET_REQUIRED"}
+        total=self.evidence.count()
+        if total>bound:
+            return {**base,"status":"SEARCH_BUDGET_EXHAUSTED_NOT_SATURATED",
+                    "reason":"SEGMENT_STATE_EVIDENCE_HISTORY_EXCEEDS_SCAN_BUDGET",
+                    "total_records":total,"max_records":bound}
+        boot=self._current_runtime_boot_seq()
+        if boot<0:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"CURRENT_RUNTIME_BOOT_BOUNDARY_REQUIRED"}
+        rows=self.evidence.list(); boundaries=[]; states=[]
+        for pos,row in enumerate(rows):
+            payload=row.get("payload") or {}
+            if int(payload.get("runtime_boot_seq",-1))!=boot:
+                continue
+            if payload.get("kind")=="OWNED_NATIVE_STRUCTURAL_COMPOSITION_WINDOW_BOUNDARY_WITNESS":
+                current=self._validate_current_native_structural_boundary_witness(row,rows=rows,boot=boot)
+                if current.get("status")!="CURRENT_NATIVE_STRUCTURAL_BOUNDARY_WITNESS":
+                    return {**base,**current,"status":"DEFER_UNKNOWN"}
+                boundaries.append((pos,row,current))
+            elif payload.get("kind")=="OWNED_NATIVE_STRUCTURAL_SEGMENT_COMPOSITION_STATE":
+                current=self._validate_current_native_structural_segment_state(row,rows=rows,boot=boot)
+                if current.get("status")!="CURRENT_NATIVE_STRUCTURAL_SEGMENT_STATE":
+                    return {**base,**current,"status":"DEFER_UNKNOWN"}
+                states.append((pos,row,current))
+        consumed_ids=[]
+        for _pos,_row,current in states:
+            boundary_id=str(current["boundary_evidence_id"])
+            if boundary_id in consumed_ids:
+                return {**base,"status":"DEFER_UNKNOWN","reason":"SEGMENT_STATE_BOUNDARY_CONSUMPTION_REPLAY_DETECTED",
+                        "boundary_evidence_id":boundary_id}
+            consumed_ids.append(boundary_id)
+        consumed=set(consumed_ids)
+        pending=[item for item in boundaries if str(item[1]["evidence_id"]) not in consumed]
+        if not pending:
+            if states:
+                _pos,_row,current=states[-1]
+                return {**base,**current,
+                        "status":"CURRENT_NATIVE_STRUCTURAL_SEGMENT_STATE_ALREADY_PRESENT",
+                        "segment_state_record_status":"SEGMENT_STATE_ALREADY_PRESENT",
+                        "caller_supplied_boundary_id":"NO","caller_supplied_split":"NO",
+                        "caller_supplied_segment_operands":"NO","caller_supplied_output_evidence_id":"NO"}
+            return {**base,"status":"DEFER_UNKNOWN",
+                    "reason":"CURRENT_UNCONSUMED_STRUCTURAL_BOUNDARY_WITNESS_REQUIRED",
+                    "current_boundary_count":len(boundaries)}
+        _boundary_pos,boundary_row,boundary_current=pending[0]
+        left,right,state=self._native_structural_segment_state_content_from_boundary(boundary_current)
+        state_digest=action_result_digest(state)
+        payload={
+            "kind":"OWNED_NATIVE_STRUCTURAL_SEGMENT_COMPOSITION_STATE",
+            "runtime_boot_seq":boot,"operator_owner":"MICROSEED_NATIVE_STRUCTURAL_BOUNDARY_CONSUMPTION",
+            "boundary_evidence_ref":[str(boundary_row["evidence_id"]),str(boundary_row["sha256"])],
+            "boundary_content_digest_sha256":str(boundary_current["boundary_content_digest_sha256"]),
+            "split_index":int(boundary_current["split_index"]),
+            "left_content":left,"right_content":right,
+            "segment_state_content":state,"segment_state_content_digest_sha256":state_digest,
+            "selection_basis":base["selection_basis"],
+            "temporality":"CURRENT_RETROSPECTIVE_DERIVATION_APPENDED_AFTER_BOUNDARY",
+            "ledger_rewrite_authority":"NONE","historical_event_authority":"NONE",
+            "effect_authority":"NONE","execution_authority":"NONE",
+            "semantic_grouping_authority":"NONE","authority_gain":"NONE",
+            "caller_supplied_boundary_id":"NO","caller_supplied_split":"NO",
+            "caller_supplied_segment_operands":"NO","caller_supplied_output_evidence_id":"NO",
+        }
+        evidence_id="E-NATIVE-STRUCTURAL-SEGMENT-STATE-"+action_result_digest(payload)[:24]
+        existing=self.evidence.get(evidence_id)
+        if existing is None:
+            ref=self.append_evidence(evidence_id,payload,EpistemicStatus.PRESSURE_SUPPORTED,
+                                     source="MICROSEED-NATIVE-STRUCTURAL-BOUNDARY-CONSUMPTION")
+            evidence_sha=ref.sha256; record_status="SEGMENT_STATE_RECORDED"
+        else:
+            if existing.get("negative") or existing.get("payload")!=payload:
+                return {**base,"status":"DEFER_UNKNOWN","reason":"SEGMENT_STATE_EVIDENCE_ID_COLLISION",
+                        "segment_state_evidence_id":evidence_id}
+            evidence_sha=str(existing.get("sha256","")); record_status="SEGMENT_STATE_ALREADY_PRESENT"
+        return {
+            **base,"status":"CURRENT_NATIVE_STRUCTURAL_SEGMENT_STATE_RECORDED",
+            "segment_state_evidence_id":evidence_id,"segment_state_evidence_sha256":evidence_sha,
+            "segment_state_record_status":record_status,
+            "boundary_evidence_id":str(boundary_row["evidence_id"]),
+            "boundary_evidence_sha256":str(boundary_row["sha256"]),
+            "boundary_content_digest_sha256":str(boundary_current["boundary_content_digest_sha256"]),
+            "split_index":int(boundary_current["split_index"]),
+            "left_content":left,"right_content":right,
+            "left_composition_content_digest_sha256":action_result_digest(left),
+            "right_composition_content_digest_sha256":action_result_digest(right),
+            "segment_state_content":state,"segment_state_content_digest_sha256":state_digest,
+            "temporality":payload["temporality"],
+            "caller_supplied_boundary_id":"NO","caller_supplied_split":"NO",
+            "caller_supplied_segment_operands":"NO","caller_supplied_output_evidence_id":"NO",
+        }
+
     def derive_and_record_current_native_recursive_b2_ordered_composition(
         self, *, max_records: int = 4096,
     ) -> dict[str, Any]:

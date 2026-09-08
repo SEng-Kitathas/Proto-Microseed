@@ -1,0 +1,14 @@
+{
+  "pass": 11,
+  "name": "BOUNDARY_WITNESS_EXACT_PAYLOAD_REPLAY_VIOLATION",
+  "status": "VERIFIED_VIOLATION",
+  "evidence": [
+    "exact valid structural-boundary payload copied under second evidence ID",
+    "first consumption records segment state for original boundary row",
+    "second consumption records a second segment state for copied row with identical boundary content digest",
+    "historical violation proof test passes at pre-repair head"
+  ],
+  "result": "VIOLATION_STRUCTURAL_BOUNDARY_WITNESS_REPLAY_DOUBLE_CONSUMABLE",
+  "localized_missing_mechanism": "STRUCTURAL_BOUNDARY_WITNESS_EVIDENCE_ID_MUST_BE_DERIVED_FROM_EXACT_PAYLOAD",
+  "promotion": "NONE"
+}

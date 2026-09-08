@@ -28,6 +28,18 @@
       ],
       "next_discriminator": "production embodiment + invocation/replay/budget pressure",
       "authority": "RESEARCH_ONLY"
+    },
+    {
+      "id": "CONSUME-03",
+      "question": "Can exact boundary payload replay under a second id become a second consumption occurrence?",
+      "evidence": [
+        "yes pre-repair"
+      ],
+      "interpretations": [
+        "boundary content was current but occurrence identity was underconstrained"
+      ],
+      "next_discriminator": "deterministic boundary witness evidence id from exact payload",
+      "authority": "RESEARCH_ONLY"
     }
   ]
 }
