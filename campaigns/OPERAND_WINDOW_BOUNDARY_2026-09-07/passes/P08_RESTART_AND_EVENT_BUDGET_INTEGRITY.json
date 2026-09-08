@@ -1,0 +1,14 @@
+{
+  "pass": 8,
+  "name": "RESTART_AND_EVENT_BUDGET_INTEGRITY",
+  "status": "PASS",
+  "evidence": [
+    "test_lang_operand_window_store_aware_restart_budget.py 2/2 PASS",
+    "pre-boot execution/token chronology has zero current window authority",
+    "fresh post-boot authenticated execution delimits normally after revalidation",
+    "partial current-runtime store scan fails SEARCH_BUDGET_EXHAUSTED_NOT_SATURATED"
+  ],
+  "result": "STORE_AWARE_BOUNDARY_CANDIDATE_RESTART_SAFE_AND_BOUNDED",
+  "promotion": "NONE",
+  "next": "embody private store-aware window owner and bind boundary ancestry into generalized composition witness"
+}

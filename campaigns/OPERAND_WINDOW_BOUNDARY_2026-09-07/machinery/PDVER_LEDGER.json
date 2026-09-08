@@ -23,13 +23,17 @@
   "verify": {
     "candidate": "AUTHENTICATED_BOUNDED_ACTION_EXECUTION_WINDOW_BOUNDARY_RECOGNITION",
     "checks": [
-      "prototype action-boundary 1/1",
-      "boundary authentication hostiles 2 adjacent cases + forged refusal",
-      "no-action/evidence delimiter equivalence 3/3"
+      "prototype donor hostiles 3/3",
+      "no-action/evidence equivalence 3/3",
+      "restart/event-budget 2/2"
     ],
+    "result": "PASS_EMBODIMENT_READY",
     "authority_gain": "NONE"
   },
-  "embody": {},
+  "embody": {
+    "next": "private production store-aware operand-window owner + generalized witness boundary ancestry",
+    "status": "READY_NOT_YET_EMBODIED"
+  },
   "recurse": {
     "next": [
       "restart/event-budget hostiles",
