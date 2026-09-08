@@ -7,5 +7,7 @@
     "140/140 PASS cleanup-neutral Windows harness"
   ],
   "result": "FULL_CURRENT_LINEAGE_GREEN_WITH_CEILING_AUDIT",
-  "promotion": "NONE"
+  "promotion": "NONE",
+  "fresh_reverification": "140/140 PASS reconstructed from prior 108 breadth + inherited 1-test recognition/creation ceiling + 31 boundary-occasion tests",
+  "fresh_reverification_status": "VERIFIED_2026-09-08"
 }

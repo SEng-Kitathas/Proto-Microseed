@@ -22,17 +22,11 @@
     "survivor": "UNIQUE_STRUCTURAL_EXTENSION_CONFLICT_SPLIT_CANDIDATE"
   },
   "verify": {
-    "result": "PASS_BOUNDED",
-    "targeted": [
-      "5/5 split prototype",
-      "3/3 currentness/restart/replay",
-      "5/5 durable witness prototype",
-      "6/6 production",
-      "5/5 invocation/replay/budget",
-      "2/2 semantic smuggling",
-      "3/3 ceiling audit"
-    ],
-    "breadth": "137/137 PASS",
+    "result": "PASS_SEAL_READY",
+    "fresh_breadth": "140/140 PASS",
+    "compileall": "PASS",
+    "diff_check": "PASS",
+    "anti_smuggling": "PASS",
     "csc": "PASS_BOUNDED",
     "authority_gain": "NONE"
   },
@@ -49,12 +43,14 @@
   },
   "recurse": {
     "next": [
-      "P18 final breadth including ceiling audit",
-      "P19 seal gate",
-      "P20 publish/readback/continuity"
+      "seal local science commit",
+      "GitHub publish/readback",
+      "write P20 completion receipt",
+      "advance public START_HERE/continuity/RD"
     ],
     "promotion": "NONE",
     "earned_candidate": "BOUNDED_RETROSPECTIVE_STRUCTURAL_BOUNDARY_OCCASION_OWNERSHIP",
-    "next_frontier": "STRUCTURAL_BOUNDARY_WITNESS_CONSUMPTION_WITHOUT_LEDGER_REWRITE"
+    "next_frontier": "STRUCTURAL_BOUNDARY_WITNESS_CONSUMPTION_WITHOUT_LEDGER_REWRITE",
+    "orthogonal_open_seam": "ENDOGENOUS_BOUNDARY_MONITORING_SCHEDULING"
   }
 }
