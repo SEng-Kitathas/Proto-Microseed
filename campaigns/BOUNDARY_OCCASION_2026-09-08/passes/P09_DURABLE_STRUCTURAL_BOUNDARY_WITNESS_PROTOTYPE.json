@@ -1,0 +1,23 @@
+{
+  "pass": 9,
+  "name": "DURABLE_STRUCTURAL_BOUNDARY_WITNESS_PROTOTYPE",
+  "status": "PASS",
+  "evidence": [
+    "test_lang_boundary_occasion_durable_structural_witness_prototype.py 5/5 PASS",
+    "unique split records exact deterministic witness",
+    "witness append closes current suffix but does not retroactively create compositions",
+    "idempotent readback validates persisted witness directly",
+    "fully valid and ambiguous windows write no witness",
+    "forged current-boot witness refused",
+    "leaf drift removes current witness status",
+    "restart requires fresh window/revalidation then same structural content digest reappears"
+  ],
+  "result": "DURABLE_RETROSPECTIVE_STRUCTURAL_BOUNDARY_WITNESS_CANDIDATE",
+  "authority": {
+    "retroactive_composition_rewrite": "NONE",
+    "effect": "NONE",
+    "execution": "NONE",
+    "semantic_grouping": "NONE"
+  },
+  "promotion": "NONE"
+}

@@ -22,21 +22,28 @@
     "survivor": "UNIQUE_STRUCTURAL_EXTENSION_CONFLICT_SPLIT_CANDIDATE"
   },
   "verify": {
-    "candidate": "UNIQUE_STRUCTURAL_EXTENSION_CONFLICT_SPLIT",
+    "candidate": "DURABLE_RETROSPECTIVE_STRUCTURAL_BOUNDARY_WITNESS",
     "prototype": "5/5 PASS",
     "currentness_restart_replay": "3/3 PASS",
-    "result": "PASS_DURABLE_WITNESS_READY",
+    "durable_witness": "5/5 PASS",
+    "result": "PASS_PRODUCTION_EMBODIMENT_READY",
     "authority_gain": "NONE"
   },
   "embody": {
-    "status": "READY_FOR_DURABLE_WITNESS_ONLY",
-    "constraint": "STRUCTURAL_BOUNDARY_WITNESS != AUTOMATIC_RETROACTIVE_WINDOW_REWRITE"
+    "status": "READY",
+    "production_constraints": [
+      "hardcoded segment arity 2..4",
+      "max structural window 8",
+      "no caller split/grouping/output id",
+      "no retroactive composition rewrite",
+      "no effect/execution/semantic authority"
+    ]
   },
   "recurse": {
     "next": [
-      "design durable structural boundary witness with exact source refs/split store seq/currentness",
-      "attack forgery/idempotence/restart",
-      "do not auto-rewrite composition chronology yet"
+      "seal prototype",
+      "embody production owner",
+      "targeted hostiles then breadth"
     ],
     "promotion": "NONE"
   }
