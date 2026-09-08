@@ -1,0 +1,22 @@
+{
+  "pass": 18,
+  "name": "HELIX_RESERVOIR_FRONTIER_CONVERGENCE",
+  "status": "CONVERGED_BOUNDED",
+  "earned_claim": "AUTHENTICATED_CURRENT_RUNTIME_ACTION_EXECUTION_WINDOW_BOUNDARY_RECOGNITION",
+  "evidence": [
+    "108/108 broad lineage",
+    "CSC PASS_BOUNDED",
+    "recognition-vs-creation 1/1",
+    "episode donor quarry negative current production"
+  ],
+  "nonclaims": [
+    "autonomous boundary occasion selection",
+    "boundary action creation authority",
+    "passive token-only boundary ownership",
+    "generic episode construction",
+    "semantic grouping",
+    "tamper-evident sequence"
+  ],
+  "next_frontier": "AUTONOMOUS_OR_PASSIVE_BOUNDARY_OCCASION_OWNERSHIP",
+  "promotion": "NONE"
+}

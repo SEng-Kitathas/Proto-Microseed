@@ -1,0 +1,12 @@
+{
+  "pass": 14,
+  "name": "BROAD_LINEAGE_REGRESSION",
+  "status": "PASS",
+  "evidence": [
+    "first run 107/108: only generalized-owner signature inventory audit evolved after max_events became multiline",
+    "audit updated with historical owner-gap lineage preserved",
+    "second run 108/108 PASS cleanup-neutral Windows harness"
+  ],
+  "result": "BROAD_C08_ACQUISITION_COMPOSITION_BOUNDARY_LINEAGE_GREEN",
+  "promotion": "NONE"
+}

@@ -1,0 +1,53 @@
+{
+  "schema": "r44.hostile_engineering_matrix.v1",
+  "status": "ACTIVE",
+  "attacks": [
+    {
+      "id": "BW-H01",
+      "claim": "evidence-only owner already sees action execution",
+      "result": "KILLED",
+      "evidence": "eca0d36 negative"
+    },
+    {
+      "id": "BW-H02",
+      "claim": "action outcome evidence is required for segmentation",
+      "result": "KILLED",
+      "evidence": "bare execution boundary positive"
+    },
+    {
+      "id": "BW-H03",
+      "claim": "rejected action attempt is a boundary",
+      "result": "KILLED"
+    },
+    {
+      "id": "BW-H04",
+      "claim": "unrelated store event is a boundary",
+      "result": "KILLED"
+    },
+    {
+      "id": "BW-H05",
+      "claim": "forged action event can delimit",
+      "result": "KILLED"
+    },
+    {
+      "id": "BW-H06",
+      "claim": "exact event replay can fake occurrence",
+      "result": "KILLED"
+    },
+    {
+      "id": "BW-H07",
+      "claim": "boundary action identity enters composition meaning",
+      "result": "KILLED"
+    },
+    {
+      "id": "BW-H08",
+      "claim": "pre-boot boundary remains current",
+      "result": "KILLED"
+    },
+    {
+      "id": "BW-H09",
+      "claim": "partial store scan may infer suffix",
+      "result": "KILLED"
+    }
+  ]
+}

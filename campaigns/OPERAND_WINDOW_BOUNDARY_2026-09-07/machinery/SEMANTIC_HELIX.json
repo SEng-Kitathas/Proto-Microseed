@@ -1,6 +1,6 @@
 {
   "schema": "r44.semantic_helix.v1",
-  "status": "ACTIVE",
+  "status": "CONVERGED_FOR_CAMPAIGN",
   "discriminators": [
     {
       "id": "BOUNDARY-01",
@@ -45,6 +45,21 @@
         "not semantic delimiter; not autonomous boundary-action creation"
       ],
       "next_discriminator": "production restart/budget and broad cross-interface coherence",
+      "authority": "RESEARCH_ONLY"
+    },
+    {
+      "id": "BOUNDARY-04",
+      "question": "What exactly has been earned after action-boundary recognition survives breadth?",
+      "evidence": [
+        "recognition-vs-creation audit PASS",
+        "episode grouping donor remains research-only/externalized"
+      ],
+      "interpretations": [
+        "earned: recognition of authenticated current-runtime action execution as operational window boundary",
+        "not earned: autonomous choice/creation of boundary occasion",
+        "not earned: passive token-only/episode boundary construction"
+      ],
+      "next_discriminator": "can an organism-owned non-semantic operational process nominate or construct a boundary occasion without evaluator timing or new effect authority?",
       "authority": "RESEARCH_ONLY"
     }
   ]

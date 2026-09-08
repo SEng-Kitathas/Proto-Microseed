@@ -1,0 +1,60 @@
+{
+  "schema": "r44.csc.review.v1",
+  "status": "PASS_BOUNDED",
+  "interfaces": [
+    {
+      "interface": "token evidence -> durable EVIDENCE store event",
+      "status": "PASS_EXACT",
+      "note": "evidence_id+sha256 join required; replay refused"
+    },
+    {
+      "interface": "bounded action execution -> durable store boundary",
+      "status": "PASS_EXACT",
+      "note": "execution_id payload must exactly match action_closure execution record; replay refused"
+    },
+    {
+      "interface": "action boundary -> generalized arity window",
+      "status": "PASS_BOUNDED",
+      "note": "bare authenticated execution closes token window without outcome evidence"
+    },
+    {
+      "interface": "rejected/forged/unrelated store event -> boundary",
+      "status": "REJECTED",
+      "note": "no grouping authority"
+    },
+    {
+      "interface": "boundary action identity -> composition content",
+      "status": "SEPARATE",
+      "note": "QA/QB boundary changes witness ancestry only; content digest invariant"
+    },
+    {
+      "interface": "capability drift after execution -> boundary history",
+      "status": "PASS",
+      "note": "historical action occurrence remains segmentation fact; no renewed EFFECT authority"
+    },
+    {
+      "interface": "restart -> boundary currentness",
+      "status": "PASS",
+      "note": "pre-boot action boundaries ignored; post-boot exact events required"
+    },
+    {
+      "interface": "action boundary -> semantics/effect",
+      "status": "NO_AUTHORITY_GAIN",
+      "note": "semantic grouping and boundary-action creation authority NONE"
+    },
+    {
+      "interface": "legacy arity2/3/4",
+      "status": "PASS",
+      "note": "content identity and represented non-token evidence delimiter preserved"
+    }
+  ],
+  "breadth": "108/108 PASS",
+  "promotion": "NONE",
+  "earned_candidate": "AUTHENTICATED_CURRENT_RUNTIME_ACTION_EXECUTION_BOUNDARY_RECOGNITION",
+  "residuals": [
+    "autonomous boundary occasion/action selection not earned",
+    "generic episode boundary not earned",
+    "passive token-only stream boundary not earned",
+    "tamper-evident ledger sequence not earned"
+  ]
+}

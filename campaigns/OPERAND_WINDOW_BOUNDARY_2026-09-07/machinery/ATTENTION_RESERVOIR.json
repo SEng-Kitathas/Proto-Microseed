@@ -3,25 +3,39 @@
   "status": "ACTIVE",
   "items": [
     {
+      "id": "BW-NEXT-OCCASION",
+      "priority": "P0",
+      "state": "NEXT_FRONTIER",
+      "signal": "action execution boundary is recognized only after an action actually occurs",
+      "reason": "autonomous/non-effect boundary occasion selection or construction remains missing"
+    },
+    {
       "id": "BW-01",
       "priority": "P0",
-      "state": "LIVE",
+      "state": "RESOLVED_EARNED_BOUNDED",
       "signal": "bare action execution is durable but invisible to evidence-only arity",
       "reason": "exact next mechanism seam"
     },
     {
       "id": "BW-02",
       "priority": "P0",
-      "state": "LIVE",
+      "state": "RESOLVED_EARNED_BOUNDED",
       "signal": "action execution already segments passive-transition owner",
       "reason": "reuse donor before new primitive"
     },
     {
       "id": "BW-03",
       "priority": "P1",
-      "state": "LIVE",
+      "state": "NEXT_FRONTIER",
       "signal": "action timing may be evaluator occasioned",
       "reason": "do not overclaim endogenous boundary creation from recognition alone"
+    },
+    {
+      "id": "BW-EPISODE-DONOR",
+      "priority": "P1",
+      "state": "DONOR_ONLY",
+      "signal": "MS903-927 bounded action-conditioned consequence continuity",
+      "reason": "research-only; current episode schema remains externally qualified"
     }
   ]
 }

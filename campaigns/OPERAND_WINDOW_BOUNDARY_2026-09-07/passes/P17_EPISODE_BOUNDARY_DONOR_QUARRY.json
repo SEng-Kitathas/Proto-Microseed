@@ -1,0 +1,15 @@
+{
+  "pass": 17,
+  "name": "EPISODE_BOUNDARY_DONOR_QUARRY",
+  "status": "NEGATIVE_CURRENT_PRODUCTION",
+  "evidence": [
+    "MS903_927_ENDOGENOUS_EPISODE_GROUPING remains RESEARCH_ONLY",
+    "current register_episode_schema explicitly externally qualified and disclaims general endogenous episode construction",
+    "Microseed has no propose_episode_grouping API",
+    "infer_event_frame requires supplied effects/rival segmentations and disclaims true-event authority"
+  ],
+  "result": "NO_STRONGER_CURRENT_PRODUCTION_EPISODE_BOUNDARY_OWNER",
+  "donor": "MS903_927_ENDOGENOUS_EPISODE_GROUPING_RESEARCH_ONLY",
+  "next": "autonomous/passive boundary occasion ownership remains open",
+  "promotion": "NONE"
+}

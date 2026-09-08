@@ -1,12 +1,12 @@
 {
   "schema": "microseed.operand_window_boundary_campaign.v1",
   "campaign": "OPERAND_WINDOW_BOUNDARY_2026-09-07",
-  "status": "ACTIVE_PRODUCTION_CANDIDATE_TARGETED_PASS",
+  "status": "PASS_GATE_SEAL_READY",
   "branch": "research/grounded-language-operand-window-boundary-v1",
   "base_head": "e68cdb3de35e97393442f4d9a5b1baf3f63b36a9",
   "pass_ceiling": 20,
-  "completed_passes": 13,
-  "current_pass": 14,
-  "current_discriminator": "broad lineage regression and cross-surface coherence",
+  "completed_passes": 19,
+  "current_pass": 20,
+  "current_discriminator": "seal/publish/remote-readback/continuity completion",
   "promotion": "NONE"
 }

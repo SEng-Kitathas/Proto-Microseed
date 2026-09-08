@@ -26,7 +26,7 @@ def run_audit() -> dict[str,object]:
     expected=(
         'def derive_and_record_current_native_b2_ordered_composition(self, *, max_records: int = 4096) -> dict[str, Any]:',
         'def derive_and_record_current_native_b3_ordered_composition(self, *, max_records: int = 4096) -> dict[str, Any]:',
-        'def derive_and_record_current_native_bounded_ordered_composition(self, *, max_records: int = 4096) -> dict[str, Any]:',
+        'def derive_and_record_current_native_bounded_ordered_composition(',
         'def derive_and_record_current_native_recursive_b2_ordered_composition(',
     )
     assert tuple(owned_methods)==expected,owned_methods

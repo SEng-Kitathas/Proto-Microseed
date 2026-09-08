@@ -1,0 +1,18 @@
+{
+  "pass": 16,
+  "name": "RECOGNITION_VS_CREATION_CEILING_AUDIT",
+  "status": "PASS",
+  "evidence": [
+    "test_lang_action_boundary_recognition_vs_creation_audit.py 1/1 PASS",
+    "boundary helper/generalized owner contain no action execution/nomination/capability creation calls",
+    "boundary_action_creation_authority NONE",
+    "effect authority gain NONE"
+  ],
+  "result": "ACTION_EXECUTION_BOUNDARY_RECOGNITION_ONLY",
+  "nonclaims": [
+    "autonomous boundary action creation",
+    "autonomous boundary occasion selection",
+    "semantic grouping"
+  ],
+  "promotion": "NONE"
+}

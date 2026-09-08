@@ -1,0 +1,12 @@
+{
+  "pass": 15,
+  "name": "CSC_CROSS_INTERFACE_REVIEW",
+  "status": "PASS_BOUNDED",
+  "evidence": [
+    "CSC_REVIEW.json",
+    "108/108 broad lineage"
+  ],
+  "result": "AUTHENTICATED_ACTION_EXECUTION_BOUNDARY_RECOGNITION_COHERENT",
+  "nonclaim": "AUTONOMOUS_BOUNDARY_CREATION_OR_OCCASION_SELECTION_NOT_EARNED",
+  "promotion": "NONE"
+}

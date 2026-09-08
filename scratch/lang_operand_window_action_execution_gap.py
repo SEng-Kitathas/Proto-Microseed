@@ -31,18 +31,23 @@ def run_gap() -> dict[str,object]:
         _obs(m,('W3','K7'),'BOUNDARY-GAP-POST',20100)
         out=m.derive_and_record_current_native_bounded_ordered_composition(max_records=65536)
         assert out['status']=='CURRENT_NATIVE_BOUNDED_ORDERED_OPERATIONAL_REFERENCE_COMPOSITION_RECORDED',out
-        # Evidence-only suffix cannot see BOUNDED_ACTION_EXECUTED and therefore launders both token groups into arity4.
-        assert out['derived_arity']==4,out
+        # Historical negative `eca0d36...` proved the evidence-only owner returned arity4 here.
+        # Current head must now recognize the authenticated action boundary and return only the post-action pair.
+        assert out['derived_arity']==2,out
+        assert out['last_window_boundary']['kind']=='BOUNDED_ACTION_EXECUTED',out
+        assert out['last_window_boundary']['execution_id']==execution_id,out
         events=m.store.events()
         exec_events=[row for row in events if row.get('kind')=='BOUNDED_ACTION_EXECUTED' and (row.get('payload') or {}).get('execution_id')==execution_id]
         assert len(exec_events)==1,exec_events
         return {
-            'status':'STOP_EVIDENCE_ONLY_WINDOW_MISSES_OWNED_ACTION_EXECUTION_BOUNDARY',
+            'status':'CURRENT_ACTION_EXECUTION_BOUNDARY_OWNER_PRESENT',
+            'historical_negative_commit':'eca0d36b64bbf07683d927b572e723007dfdbed7',
             'execution_id':execution_id,
             'execution_store_seq':int(exec_events[0]['seq']),
             'action_outcome_recorded':'NO',
             'current_generalized_derived_arity':out['derived_arity'],
-            'expected_post_execution_window_arity_if_execution_is_boundary':2,
+            'historical_evidence_only_derived_arity':4,
+            'expected_post_execution_window_arity':2,
             'localized_missing_mechanism':'CROSS_PLANE_TOKEN_EVIDENCE_TO_DURABLE_ACTION_EXECUTION_WINDOW_OWNER',
             'caller_supplied_boundary_marker':'NO',
             'execution_authority_gain_from_boundary_use':'NONE',

@@ -1,0 +1,39 @@
+{
+  "pass": 19,
+  "name": "CAMPAIGN_PASS_GATE",
+  "status": "PASS_SEAL_READY",
+  "checks": {
+    "broad_lineage": "108/108 PASS CLEANUP_NEUTRAL_WINDOWS_HARNESS",
+    "compileall": "PASS",
+    "git_diff_check": "PASS",
+    "production_delta": "microseed/runtime/entity.py only vs e68cdb3...",
+    "new_capability_registration": "NONE",
+    "action_creation_calls_in_new_boundary_owner": "NONE",
+    "planner_scheduler_semantic_registry": "NONE",
+    "effect_authority_addition": "NONE",
+    "machinery": [
+      "AI_COPROCESSOR_LEDGER",
+      "PDVER_LEDGER",
+      "SEMANTIC_HELIX",
+      "ATTENTION_RESERVOIR",
+      "HOSTILE_ENGINEERING_MATRIX",
+      "OARR_LEDGER",
+      "LOOP_PLUS_LEDGER",
+      "CSC_REVIEW"
+    ],
+    "prior_pass_records": "P01-P18 PRESENT"
+  },
+  "earned_claim": "AUTHENTICATED_CURRENT_RUNTIME_ACTION_EXECUTION_WINDOW_BOUNDARY_RECOGNITION",
+  "nonclaims": [
+    "autonomous boundary occasion selection",
+    "boundary action creation authority",
+    "passive token-only boundary ownership",
+    "generic episode construction",
+    "semantic grouping",
+    "tamper-evident sequence",
+    "canon promotion"
+  ],
+  "next_frontier": "AUTONOMOUS_OR_PASSIVE_BOUNDARY_OCCASION_OWNERSHIP",
+  "promotion": "NONE",
+  "seal_authorized": "YES_RESEARCH_BRANCH_ONLY"
+}

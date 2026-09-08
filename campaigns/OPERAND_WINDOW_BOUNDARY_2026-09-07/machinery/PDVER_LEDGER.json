@@ -21,13 +21,11 @@
     ]
   },
   "verify": {
-    "candidate": "AUTHENTICATED_BOUNDED_ACTION_EXECUTION_WINDOW_BOUNDARY_RECOGNITION",
-    "checks": [
-      "prototype donor hostiles 3/3",
-      "no-action/evidence equivalence 3/3",
-      "restart/event-budget 2/2"
-    ],
-    "result": "PASS_EMBODIMENT_READY",
+    "result": "PASS_SEAL_READY",
+    "breadth": "108/108 PASS",
+    "compileall": "PASS",
+    "diff_check": "PASS",
+    "anti_smuggling": "PASS",
     "authority_gain": "NONE"
   },
   "embody": {
@@ -47,9 +45,10 @@
   },
   "recurse": {
     "next": [
-      "broad C08/acquisition/B2/B3/recursive/arity/boundary lineage",
-      "CSC",
-      "frontier convergence"
+      "seal local science commit",
+      "GitHub publish/readback",
+      "write P20 completion receipt",
+      "advance continuity/RD"
     ],
     "promotion": "NONE"
   }
