@@ -32,14 +32,14 @@ The central research question is:
 The conservative default `main` branch is intentionally not identical to the newest research head. For the current organism frontier, checkout:
 
 ```text
-research/grounded-language-operand-window-boundary-v1
+research/grounded-language-boundary-occasion-v1
 ```
 
 Exact anchors:
 
 ```text
-science seal:     c87a6dfff3c0b6d2236ac89c52f0988c8e4caf0c
-campaign receipt: e3069792ef4639028bf9eeb0243e4e827bebf52f
+science seal:     d87a45a5886f5b5b4de26315e468be39a0717370
+campaign receipt: 290e8d8fab52d5a776b3de59f6d2ed9f56b4a7b0
 ```
 
 That branch preserves this earned chain:
@@ -59,6 +59,8 @@ C08I native pair harvest
   d961ce17180fe365f7c185779742b913d908d37a
 → authenticated action-execution window-boundary recognition
   c87a6dfff3c0b6d2236ac89c52f0988c8e4caf0c
+→ bounded retrospective structural boundary-occasion ownership
+  d87a45a5886f5b5b4de26315e468be39a0717370
 ```
 
 ## Read order for Claude or another external reviewer
@@ -67,11 +69,12 @@ If you want an AI reviewer to understand the project rather than mistake the pro
 
 1. **This file — `START_HERE.md`.** Establish project identity, intent, and the main-vs-research distinction.
 2. **`README.md`.** Use it for the broader public/canonical history and repository map, but do not stop at the governance section.
-3. **Checkout `research/grounded-language-operand-window-boundary-v1`.** The latest research is not all on default `main`.
-4. **`campaigns/OPERAND_WINDOW_BOUNDARY_2026-09-07/FINAL_SUMMARY.json`.** This is the compact current campaign result and exact authority ceiling.
-5. **`campaigns/ARITY_GENERALIZATION_2026-09-07/FINAL_SUMMARY.json`.** This shows the immediately prior arity-generalization campaign, including the inherited negative-token evidence defects that were found and repaired rather than hidden.
-6. **`microseed/runtime/entity.py`.** Read the production organism implementation, especially the native grounded association/composition/currentness/action-closure paths. Do not infer a faculty from a method name; trace the evidence and authority gates.
-7. **Relevant embodiment tests:**
+3. **Checkout `research/grounded-language-boundary-occasion-v1`.** The latest research is not all on default `main`.
+4. **`campaigns/BOUNDARY_OCCASION_2026-09-08/FINAL_SUMMARY.json`.** This is the compact current campaign result and exact authority ceiling.
+5. **`campaigns/OPERAND_WINDOW_BOUNDARY_2026-09-07/FINAL_SUMMARY.json`.** This is the immediately prior action-execution boundary-recognition campaign.
+6. **`campaigns/ARITY_GENERALIZATION_2026-09-07/FINAL_SUMMARY.json`.** This shows the bounded arity-generalization campaign, including inherited negative-token evidence defects that were found and repaired rather than hidden.
+7. **`microseed/runtime/entity.py`.** Read the production organism implementation, especially the native grounded association/composition/currentness/action-closure paths. Do not infer a faculty from a method name; trace the evidence and authority gates.
+8. **Relevant embodiment tests:**
    - `tests/embodiment/test_lang_action_execution_boundary_production.py`
    - `tests/embodiment/test_lang_action_execution_boundary_replay_and_history.py`
    - `tests/embodiment/test_lang_action_execution_boundary_restart_production.py`
@@ -79,12 +82,15 @@ If you want an AI reviewer to understand the project rather than mistake the pro
    - `tests/embodiment/test_lang_systematic_heldout_native_b2_recombination.py`
    - `tests/embodiment/test_lang_recursive_b2_composition_as_operand.py`
    - `tests/embodiment/test_lang_c08i_native_pair_harvest.py`
-8. **Methodology for the deeper conceptual constraints:** start with `methodology/MS1959_MS1961_AFFORDANCE_RELATIVE_PROTO_REFERENCE.md`, then follow the numbered lineage relevant to the mechanism being inspected.
-9. **For exact continuity/current frontier**, use the separate `SEng-Kitathas/Proto-Microseed-RD-Continuity` repository if available. Its current re-entry/current-state/live-shadow surfaces are recovery authority, not a replacement for reading the organism code and experiments.
+   - `tests/embodiment/test_lang_boundary_occasion_production.py`
+   - `tests/embodiment/test_lang_boundary_occasion_production_hostiles.py`
+   - `tests/embodiment/test_lang_boundary_occasion_ceiling_audit.py`
+9. **Methodology for the deeper conceptual constraints:** start with `methodology/MS1959_MS1961_AFFORDANCE_RELATIVE_PROTO_REFERENCE.md`, then follow the numbered lineage relevant to the mechanism being inspected.
+10. **For exact continuity/current frontier**, use the separate `SEng-Kitathas/Proto-Microseed-RD-Continuity` repository if available. Its current re-entry/current-state/live-shadow surfaces are recovery authority, not a replacement for reading the organism code and experiments.
 
 ## What the current frontier actually earns
 
-The current research lineage has earned bounded mechanisms for grounded operational association and composition. In particular, the same bounded direct composition owner can derive arity 2, 3, or held-out 4 from current grounded token chronology without caller-supplied arity, and the latest campaign can recognize an authenticated current-runtime action execution as an operational boundary between composition windows.
+The current research lineage has earned bounded mechanisms for grounded operational association and composition. The same bounded direct composition owner can derive arity 2, 3, or held-out 4 from current grounded token chronology without caller-supplied arity. It can recognize an authenticated current-runtime action execution as an operational boundary, and the latest campaign can retrospectively derive and durably record a structural boundary occasion when the unsplit current window is inadmissible and exactly one two-window split satisfies the already-earned bounded composition laws. The witness does not automatically materialize segmented compositions or rewrite ledger history.
 
 The current frontier is **not** “AGI complete.” `AGI substrate` here names the research target and architectural role: a small developmental substrate intended to grow cognition. The project still refuses to promote missing mechanisms by rhetoric. Among the explicit nonclaims are:
 
@@ -100,10 +106,10 @@ The current frontier is **not** “AGI complete.” `AGI substrate` here names t
 ## Current next discriminator
 
 ```text
-AUTONOMOUS_OR_PASSIVE_BOUNDARY_OCCASION_OWNERSHIP
+STRUCTURAL_BOUNDARY_WITNESS_CONSUMPTION_WITHOUT_LEDGER_REWRITE
 ```
 
-Microseed can now recognize a boundary after an authenticated action execution exists. It does not yet own when or why to create/select a boundary occasion, and passive token-only streams remain undelimited without represented events. The next research move is to quarry existing organism-owned non-semantic operational mechanisms before inventing a new grouping primitive.
+Microseed can now own bounded retrospective structural boundary-occasion content and a durable exact witness when current grounded structure compels exactly one lawful split. The next question is whether that witness can be consumed into lawful segment-level composition state without rewriting historical evidence or silently gaining scheduler, semantic, or EFFECT authority. Orthogonally, `ENDOGENOUS_BOUNDARY_MONITORING_SCHEDULING` remains open: the organism does not yet own when to invoke the boundary-occasion mechanism.
 
 ## Reading discipline
 
@@ -118,6 +124,9 @@ SELECTION != EXECUTION
 INFORMATION_VALUE != EFFECT_AUTHORITY
 ORDERED_OPERATIONAL_COMPOSITION != SEMANTIC_COMPOSITION
 ACTION_EXECUTION_BOUNDARY_RECOGNITION != AUTONOMOUS_BOUNDARY_OCCASION_SELECTION
+BOUNDARY_OCCASION_CONTENT_OWNERSHIP != ENDOGENOUS_INVOCATION_SCHEDULING
+STRUCTURAL_BOUNDARY_WITNESS != SEGMENTED_COMPOSITION_EVIDENCE
+RETROSPECTIVE_BOUNDARY_RECOGNITION != PROSPECTIVE_BOUNDARY_PREDICTION
 ```
 
 External analyses, including AI-generated reviews, are donor material until independently reconciled with code, tests, receipts, and current authority. Strip them for mechanisms, scars, counterexamples, and discriminators; do not import their conclusions wholesale.

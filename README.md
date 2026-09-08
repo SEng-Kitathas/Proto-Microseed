@@ -10,12 +10,12 @@ If you are trying to understand what Microseed *is*, start at [`START_HERE.md`](
 
 The default `main` branch is the conservative public/canonical surface and does **not** automatically absorb every earned research result. The current remote-exact research frontier is:
 
-- branch: `research/grounded-language-operand-window-boundary-v1`
-- science seal: `c87a6dfff3c0b6d2236ac89c52f0988c8e4caf0c`
-- campaign completion/readback head: `e3069792ef4639028bf9eeb0243e4e827bebf52f`
-- current earned frontier: authenticated current-runtime action-execution window-boundary **recognition** for bounded grounded composition; autonomous/passive boundary occasion ownership remains open
+- branch: `research/grounded-language-boundary-occasion-v1`
+- science seal: `d87a45a5886f5b5b4de26315e468be39a0717370`
+- campaign completion/readback head: `290e8d8fab52d5a776b3de59f6d2ed9f56b4a7b0`
+- current earned frontier: bounded retrospective structural boundary-occasion ownership for grounded composition; durable witness consumption without ledger rewrite is the next frontier, while endogenous boundary-monitoring/scheduling remains orthogonally open
 
-Recent earned research on that lineage includes native grounded token↔referent association, bounded held-out B2 recombination, fixed-depth recursive reuse, distinct-leaf B3, one bounded direct composition owner deriving arity 2–4 without caller-supplied arity, and authenticated action-execution boundary recognition. These are research results, not a claim that generic AGI, language competence, semantic ontology, unrestricted planning, or unbounded composition has been completed.
+Recent earned research on that lineage includes native grounded token↔referent association, bounded held-out B2 recombination, fixed-depth recursive reuse, distinct-leaf B3, one bounded direct composition owner deriving arity 2–4 without caller-supplied arity, authenticated action-execution boundary recognition, and bounded retrospective structural boundary-occasion ownership when exactly one lawful split is compelled by current grounded structure. These are research results, not a claim that generic AGI, language competence, semantic ontology, unrestricted planning, or unbounded composition has been completed.
 
 ---
 
