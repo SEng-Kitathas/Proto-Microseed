@@ -1,0 +1,11 @@
+{
+  "pass": 6,
+  "name": "BOUNDARY_AUTHENTICATION_HOSTILES",
+  "status": "PASS",
+  "evidence": [
+    "rejected action attempt creates no boundary",
+    "unrelated store event has no grouping authority",
+    "forged BOUNDED_ACTION_EXECUTED event refused"
+  ],
+  "result": "only actual authenticated execution event can exercise donor boundary"
+}

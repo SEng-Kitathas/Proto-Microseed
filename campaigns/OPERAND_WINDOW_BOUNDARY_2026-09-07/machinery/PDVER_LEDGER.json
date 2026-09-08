@@ -20,12 +20,20 @@
       "current evidence-only generalized arity already recognizes action boundary"
     ]
   },
-  "verify": {},
+  "verify": {
+    "candidate": "AUTHENTICATED_BOUNDED_ACTION_EXECUTION_WINDOW_BOUNDARY_RECOGNITION",
+    "checks": [
+      "prototype action-boundary 1/1",
+      "boundary authentication hostiles 2 adjacent cases + forged refusal",
+      "no-action/evidence delimiter equivalence 3/3"
+    ],
+    "authority_gain": "NONE"
+  },
   "embody": {},
   "recurse": {
     "next": [
-      "prototype exact store-aware operand window",
-      "attack forged/unrelated events/outcome requirement/restart"
+      "restart/event-budget hostiles",
+      "only then embody production store-aware window owner"
     ],
     "promotion": "NONE"
   }

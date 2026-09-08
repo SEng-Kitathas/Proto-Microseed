@@ -1,0 +1,10 @@
+{
+  "pass": 4,
+  "name": "STORE_EVIDENCE_EXACT_JOIN_PROTOTYPE",
+  "status": "PASS",
+  "evidence": [
+    "EVIDENCE store events joined to evidence rows by exact evidence_id+sha256",
+    "BOUNDED_ACTION_EXECUTED joined to action_closure execution record by exact serializable payload"
+  ],
+  "result": "cross-plane chronology can be authenticated without timestamps or caller boundary ids"
+}

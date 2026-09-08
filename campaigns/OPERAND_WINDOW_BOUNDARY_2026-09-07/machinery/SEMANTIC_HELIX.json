@@ -16,6 +16,21 @@
       ],
       "next_discriminator": "store-aware exact prototype + hostile event authentication",
       "authority": "RESEARCH_ONLY"
+    },
+    {
+      "id": "BOUNDARY-02",
+      "question": "Does action execution delimit operational chronology without becoming semantics?",
+      "evidence": [
+        "bare execution positive",
+        "rejected/forged/unrelated negatives",
+        "B2/B3/B4 equivalence unchanged"
+      ],
+      "interpretations": [
+        "earned boundary recognition candidate",
+        "not yet endogenous boundary creation because action timing/selection may still be externally occasioned"
+      ],
+      "next_discriminator": "restart/current-boot and event-budget integrity",
+      "authority": "RESEARCH_ONLY"
     }
   ]
 }

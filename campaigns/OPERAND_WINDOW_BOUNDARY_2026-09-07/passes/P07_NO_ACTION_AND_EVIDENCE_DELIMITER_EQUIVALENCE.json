@@ -1,0 +1,12 @@
+{
+  "pass": 7,
+  "name": "NO_ACTION_AND_EVIDENCE_DELIMITER_EQUIVALENCE",
+  "status": "PASS",
+  "evidence": [
+    "store-aware vs production generalized content matches arity2",
+    "matches arity3",
+    "matches arity4",
+    "represented non-token evidence delimiter remains arity2 after pre-boundary tokens"
+  ],
+  "result": "window-owner change need not change composition identity or prior delimiter semantics"
+}
