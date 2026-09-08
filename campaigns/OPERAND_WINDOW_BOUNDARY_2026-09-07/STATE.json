@@ -1,12 +1,13 @@
 {
   "schema": "microseed.operand_window_boundary_campaign.v1",
   "campaign": "OPERAND_WINDOW_BOUNDARY_2026-09-07",
-  "status": "PASS_GATE_SEAL_READY",
+  "status": "COMPLETE_SEALED_PUBLISHED",
   "branch": "research/grounded-language-operand-window-boundary-v1",
   "base_head": "e68cdb3de35e97393442f4d9a5b1baf3f63b36a9",
   "pass_ceiling": 20,
-  "completed_passes": 19,
+  "completed_passes": 20,
   "current_pass": 20,
-  "current_discriminator": "seal/publish/remote-readback/continuity completion",
-  "promotion": "NONE"
+  "current_discriminator": "AUTONOMOUS_OR_PASSIVE_BOUNDARY_OCCASION_OWNERSHIP",
+  "promotion": "NONE",
+  "science_seal_commit": "c87a6dfff3c0b6d2236ac89c52f0988c8e4caf0c"
 }
