@@ -1,12 +1,12 @@
 {
   "schema": "microseed.boundary_consumption_campaign.v1",
   "campaign": "BOUNDARY_CONSUMPTION_2026-09-08",
-  "status": "STOP_VERIFIED_REPLAY_VIOLATION",
+  "status": "ACTIVE_REPLAY_REPAIRED",
   "branch": "research/grounded-language-boundary-consumption-v1",
   "base_head": "290e8d8fab52d5a776b3de59f6d2ed9f56b4a7b0",
   "pass_ceiling": 20,
-  "completed_passes": 11,
-  "current_pass": 12,
-  "current_discriminator": "repair structural boundary witness deterministic evidence-id validation",
+  "completed_passes": 12,
+  "current_pass": 13,
+  "current_discriminator": "invocation-order equivalence and budget/smuggling hostiles",
   "promotion": "NONE"
 }

@@ -22,9 +22,10 @@
     "reason": "preserved evidence chronology can own deterministic consumption order without rewriting past events"
   },
   "verify": {
-    "production_candidate": "6/6 PASS before replay attack",
-    "replay_attack": "VIOLATION_STRUCTURAL_BOUNDARY_WITNESS_REPLAY_DOUBLE_CONSUMABLE",
-    "result": "STOP_REPAIR_REQUIRED"
+    "repair": "STRUCTURAL_BOUNDARY_WITNESS_REPLAY_REPAIRED",
+    "targeted_boundary_consumption_adjacency": "23/23 PASS",
+    "result": "PASS_HOSTILE_EXPANSION_READY",
+    "authority_gain": "NONE"
   },
   "embody": {
     "status": "READY",
@@ -38,9 +39,10 @@
   },
   "recurse": {
     "next": [
-      "seal replay violation",
-      "repair boundary witness deterministic evidence-id validation",
-      "rerun boundary-occasion + consumption surfaces"
+      "seal repair",
+      "invocation-order equivalence",
+      "budget + semantic/scheduler smuggling",
+      "broad lineage + CSC"
     ],
     "promotion": "NONE"
   }

@@ -40,6 +40,18 @@
       ],
       "next_discriminator": "deterministic boundary witness evidence id from exact payload",
       "authority": "RESEARCH_ONLY"
+    },
+    {
+      "id": "CONSUME-04",
+      "question": "Does canonical boundary evidence id close exact payload replay?",
+      "evidence": [
+        "23/23 PASS after repair"
+      ],
+      "interpretations": [
+        "yes; boundary occurrence identity now bound to deterministic evidence id"
+      ],
+      "next_discriminator": "invocation-order/budget/semantic leakage",
+      "authority": "RESEARCH_ONLY"
     }
   ]
 }

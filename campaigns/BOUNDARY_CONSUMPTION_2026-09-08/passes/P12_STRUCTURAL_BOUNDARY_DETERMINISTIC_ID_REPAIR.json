@@ -1,0 +1,14 @@
+{
+  "pass": 12,
+  "name": "STRUCTURAL_BOUNDARY_DETERMINISTIC_ID_REPAIR",
+  "status": "PASS",
+  "evidence": [
+    "pre-repair violation anchor 95da2a8ea9d0c204db1828abac94711d7e6df9d2",
+    "boundary validator now requires E-NATIVE-STRUCTURAL-BOUNDARY- + digest(payload) prefix",
+    "copied valid payload under second id now blocks before consumption",
+    "current-head boundary/consumption targeted adjacency 23/23 PASS"
+  ],
+  "result": "STRUCTURAL_BOUNDARY_WITNESS_REPLAY_REPAIRED",
+  "law": "BOUNDARY_WITNESS_CONTENT != SECOND_BOUNDARY_OCCURRENCE_WITHOUT_CANONICAL_EVIDENCE_ID",
+  "promotion": "NONE"
+}

@@ -59,7 +59,7 @@ def test_forged_current_boot_boundary_witness_is_refused_before_new_inference():
         },EpistemicStatus.PRESSURE_SUPPORTED,source='HOSTILE-FORGERY')
         out=m.derive_and_record_current_native_structural_boundary_occasion(max_records=65536,max_events=65536)
         assert out['status']=='DEFER_UNKNOWN',out
-        assert out['reason'] in {'STRUCTURAL_BOUNDARY_UNIQUE_SPLIT_NO_LONGER_HOLDS','STRUCTURAL_BOUNDARY_CONTENT_DIGEST_MISMATCH'}
+        assert out['reason'] in {'STRUCTURAL_BOUNDARY_WITNESS_EVIDENCE_ID_NOT_DERIVED_FROM_CONTENT','STRUCTURAL_BOUNDARY_UNIQUE_SPLIT_NO_LONGER_HOLDS','STRUCTURAL_BOUNDARY_CONTENT_DIGEST_MISMATCH'}
     finally:_close(m);td.cleanup()
 
 

@@ -16,11 +16,10 @@ def test_exact_boundary_witness_payload_copy_under_second_id_must_not_be_consuma
         assert b['status']=='CURRENT_NATIVE_STRUCTURAL_BOUNDARY_WITNESS_RECORDED',b
         row=m.evidence.get(b['boundary_evidence_id']);assert row is not None
         m.append_evidence('E-REPLAYED-STRUCTURAL-BOUNDARY-COPY',dict(row['payload']),EpistemicStatus.PRESSURE_SUPPORTED,source='HOSTILE-BOUNDARY-REPLAY')
-        first=m.derive_and_record_current_native_structural_segment_state(max_records=65536)
-        second=m.derive_and_record_current_native_structural_segment_state(max_records=65536)
-        assert first['status']=='CURRENT_NATIVE_STRUCTURAL_SEGMENT_STATE_RECORDED',first
-        # Historical violation proof: pre-repair validator accepts the copied payload as a second occurrence.
-        assert second['status']=='CURRENT_NATIVE_STRUCTURAL_SEGMENT_STATE_RECORDED',second
-        assert first['boundary_content_digest_sha256']==second['boundary_content_digest_sha256']
-        assert first['boundary_evidence_id']!=second['boundary_evidence_id']
+        before=[r for r in m.evidence.list() if (r.get('payload') or {}).get('kind')=='OWNED_NATIVE_STRUCTURAL_SEGMENT_COMPOSITION_STATE']
+        out=m.derive_and_record_current_native_structural_segment_state(max_records=65536)
+        after=[r for r in m.evidence.list() if (r.get('payload') or {}).get('kind')=='OWNED_NATIVE_STRUCTURAL_SEGMENT_COMPOSITION_STATE']
+        assert out['status']=='DEFER_UNKNOWN',out
+        assert out['reason']=='STRUCTURAL_BOUNDARY_WITNESS_EVIDENCE_ID_NOT_DERIVED_FROM_CONTENT'
+        assert len(after)==len(before)==0
     finally:_close(m);td.cleanup()

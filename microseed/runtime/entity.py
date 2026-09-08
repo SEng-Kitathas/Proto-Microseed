@@ -5211,6 +5211,11 @@ class Microseed:
                 or payload.get("execution_authority")!="NONE"
                 or payload.get("semantic_grouping_authority")!="NONE"):
             return {**base,"status":"DEFER_UNKNOWN","reason":"STRUCTURAL_BOUNDARY_WITNESS_AUTHORITY_OVERCLAIM"}
+        expected_id="E-NATIVE-STRUCTURAL-BOUNDARY-"+action_result_digest(payload)[:24]
+        if str(row.get("evidence_id",""))!=expected_id:
+            return {**base,"status":"DEFER_UNKNOWN",
+                    "reason":"STRUCTURAL_BOUNDARY_WITNESS_EVIDENCE_ID_NOT_DERIVED_FROM_CONTENT",
+                    "expected_evidence_id":expected_id}
         comps=list(payload.get("components") or ()); sigs=[]
         for comp in comps:
             tref=comp.get("token_evidence_ref") or (); pref=comp.get("profile_evidence_ref") or ()
