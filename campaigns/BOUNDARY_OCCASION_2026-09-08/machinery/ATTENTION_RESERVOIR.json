@@ -1,0 +1,27 @@
+{
+  "schema": "r44.attention_reservoir.v1",
+  "status": "ACTIVE",
+  "items": [
+    {
+      "id": "OC-01",
+      "priority": "P0",
+      "state": "LIVE",
+      "signal": "valid prefix underdetermines boundary occasion",
+      "reason": "same prefix supports arity2/3/4"
+    },
+    {
+      "id": "OC-02",
+      "priority": "P0",
+      "state": "CANDIDATE",
+      "signal": "continuation can violate distinct-operand invariant while one two-window split remains lawful",
+      "reason": "composition law may supply nonsemantic discriminator"
+    },
+    {
+      "id": "OC-03",
+      "priority": "P1",
+      "state": "REJECTED_DONOR",
+      "signal": "optional internal bookkeeping event",
+      "reason": "caller timing can vary without world/token change"
+    }
+  ]
+}

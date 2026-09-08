@@ -1,0 +1,15 @@
+{
+  "pass": 2,
+  "name": "VALID_PREFIX_AMBIGUITY",
+  "status": "VERIFIED_NEGATIVE",
+  "evidence": [
+    "first hostile run INVALID_RUN because fixture seeding actions were not scoped out",
+    "corrected hostile considers only post-fixture chronology",
+    "test_lang_boundary_occasion_prefix_ambiguity_gap.py 1/1 PASS",
+    "same exact two-token owned prefix later yields lawful arity2, arity3, or arity4 depending only on when composition is invoked / whether more tokens arrive",
+    "no automatic boundary event exists after two-token prefix"
+  ],
+  "result": "STOP_VALID_COMPOSITION_PREFIX_DOES_NOT_OWN_BOUNDARY_OCCASION",
+  "localized_gap": "OWNED_NONSEMANTIC_BOUNDARY_OCCASION_DISCRIMINATOR_MISSING",
+  "law": "VALID_COMPOSITION_PREFIX != ENDOGENOUS_BOUNDARY_OCCASION"
+}

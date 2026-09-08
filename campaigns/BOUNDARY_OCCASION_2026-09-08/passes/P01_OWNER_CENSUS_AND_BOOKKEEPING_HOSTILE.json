@@ -1,0 +1,13 @@
+{
+  "pass": 1,
+  "name": "OWNER_CENSUS_AND_BOOKKEEPING_HOSTILE",
+  "status": "PASS_NEGATIVE",
+  "evidence": [
+    "store owner census enumerated control-state/raw/outcome/deficit/opportunity/episode/bookkeeping events",
+    "optional OPAQUE_EVIDENCE_ASSOCIATION_CURRENTNESS_WITNESS inserted between identical token pairs without world/token change",
+    "test_lang_boundary_occasion_bookkeeping_gap.py 1/1 PASS",
+    "composition remained identical arity4"
+  ],
+  "result": "INTERNAL_BOOKKEEPING_EVENT_CANNOT_OWN_TOKEN_GROUPING_BOUNDARY",
+  "law": "INTERNAL_BOOKKEEPING_EVENT != WORLD_OR_EPISODE_BOUNDARY"
+}

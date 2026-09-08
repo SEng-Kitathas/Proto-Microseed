@@ -1,0 +1,12 @@
+{
+  "pass": 3,
+  "name": "REPRESENTED_OPERATIONAL_INPUT_QUARRY",
+  "status": "NARROWED",
+  "evidence": [
+    "observe_opaque_control_state writes an EVIDENCE row plus OPAQUE_CONTROL_STATE_OBSERVED store event",
+    "passive raw localization writes represented evidence",
+    "represented non-token evidence is already an earned window delimiter"
+  ],
+  "result": "REPRESENTED_OPERATIONAL_CHANGE_ALREADY_COVERED_BY_EXISTING_DELIMITER",
+  "remaining": "TRULY_TOKEN_ONLY_OR_NO_NEW_REPRESENTED_EVENT_CASE"
+}

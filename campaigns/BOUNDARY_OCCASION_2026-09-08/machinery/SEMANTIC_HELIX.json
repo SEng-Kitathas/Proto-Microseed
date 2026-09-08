@@ -1,0 +1,21 @@
+{
+  "schema": "r44.semantic_helix.v1",
+  "status": "ACTIVE",
+  "discriminators": [
+    {
+      "id": "OCCASION-01",
+      "question": "Can internal bookkeeping or a merely valid prefix own a passive boundary?",
+      "evidence": [
+        "bookkeeping hostile PASS negative",
+        "same prefix supports arity2/3/4",
+        "represented operational input already covered by existing delimiter"
+      ],
+      "interpretations": [
+        "no",
+        "need a discriminator that appears only when continuation becomes structurally inadmissible"
+      ],
+      "next_discriminator": "unique structurally admissible split after extension conflict",
+      "authority": "RESEARCH_ONLY"
+    }
+  ]
+}

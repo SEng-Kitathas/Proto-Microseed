@@ -1,0 +1,33 @@
+{
+  "schema": "r44.pdver.campaign.v1",
+  "status": "ACTIVE",
+  "probe": {
+    "observed": [
+      "bookkeeping optionality does not alter grounded token content",
+      "same valid prefix supports multiple lawful continuation arities",
+      "represented operational observations already close via non-token evidence"
+    ],
+    "unknowns": [
+      "whether extension conflict can uniquely infer a split without semantics",
+      "whether unique structural split is stable under restart/representation"
+    ]
+  },
+  "derive": {
+    "rejected": [
+      "bookkeeping event as boundary",
+      "compose-whenever-valid",
+      "timeout/pause",
+      "represented operational change as new missing mechanism"
+    ],
+    "survivor": "UNIQUE_STRUCTURAL_EXTENSION_CONFLICT_SPLIT_CANDIDATE"
+  },
+  "verify": {},
+  "embody": {},
+  "recurse": {
+    "next": [
+      "prototype unique split from current grounded referent signatures when unsplit window invalid",
+      "attack ambiguity/duplicates/restart/representation"
+    ],
+    "promotion": "NONE"
+  }
+}
