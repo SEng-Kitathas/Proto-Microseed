@@ -43,13 +43,12 @@
   },
   "recurse": {
     "next": [
-      "seal local science commit",
-      "GitHub publish/readback",
-      "write P20 completion receipt",
-      "advance public START_HERE/continuity/RD"
+      "advance public START_HERE/current continuity/RD",
+      "open next research frontier only after closure"
     ],
     "promotion": "NONE",
-    "earned_candidate": "BOUNDED_RETROSPECTIVE_STRUCTURAL_BOUNDARY_OCCASION_OWNERSHIP",
+    "science_seal_commit": "d87a45a5886f5b5b4de26315e468be39a0717370",
+    "remote_exact": "YES",
     "next_frontier": "STRUCTURAL_BOUNDARY_WITNESS_CONSUMPTION_WITHOUT_LEDGER_REWRITE",
     "orthogonal_open_seam": "ENDOGENOUS_BOUNDARY_MONITORING_SCHEDULING"
   }

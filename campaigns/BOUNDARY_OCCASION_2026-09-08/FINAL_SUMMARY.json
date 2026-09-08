@@ -1,0 +1,34 @@
+{
+  "schema": "microseed.boundary_occasion_campaign.final.v1",
+  "status": "COMPLETE_SEALED_PUBLISHED",
+  "campaign": "BOUNDARY_OCCASION_2026-09-08",
+  "passes_completed": 20,
+  "science_seal_commit": "d87a45a5886f5b5b4de26315e468be39a0717370",
+  "earned": "BOUNDED_RETROSPECTIVE_STRUCTURAL_BOUNDARY_OCCASION_OWNERSHIP",
+  "next_frontier": "STRUCTURAL_BOUNDARY_WITNESS_CONSUMPTION_WITHOUT_LEDGER_REWRITE",
+  "orthogonal_open_seam": "ENDOGENOUS_BOUNDARY_MONITORING_SCHEDULING",
+  "canon_promotion": "NONE",
+  "remote_exact_science_seal": "YES",
+  "key_lineage": {
+    "negative_localization": "db54f6da7678d209a35f75d6793017efc2fd87c1",
+    "split_prototype": "b4be701bbebceb043519925dfc0d4476092ef00d",
+    "durable_witness_prototype": "b8e0179dd1c8d5ab2a6c302bf3e41a75a0d64e1f",
+    "production_candidate": "50fe325008d383b598720b26d15ab97578718f74",
+    "science_seal": "d87a45a5886f5b5b4de26315e468be39a0717370"
+  },
+  "verification": {
+    "split_prototype": "5/5 PASS",
+    "currentness_restart_replay": "3/3 PASS",
+    "durable_witness_prototype": "5/5 PASS",
+    "production": "6/6 PASS",
+    "invocation_replay_budget": "5/5 PASS",
+    "semantic_smuggling": "2/2 PASS",
+    "ceiling_audit": "3/3 PASS",
+    "fresh_integrated_breadth": "140/140 PASS",
+    "compileall": "PASS",
+    "diff_check": "PASS",
+    "anti_smuggling": "PASS",
+    "CSC": "PASS_BOUNDED",
+    "campaign_pass_gate": "PASS_SEAL_READY"
+  }
+}
