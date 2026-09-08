@@ -1,0 +1,11 @@
+{
+  "pass": 1,
+  "name": "REENTRY_CHARTER_AND_OWNER_CENSUS",
+  "status": "PASS",
+  "evidence": [
+    "base e68cdb3 remote-exact",
+    "RD 60ce7a7 remote-exact",
+    "existing passive-transition owner treats BOUNDED_ACTION_EXECUTED as segmentation event"
+  ],
+  "result": "existing durable action boundary donor found"
+}

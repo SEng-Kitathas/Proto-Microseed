@@ -1,0 +1,12 @@
+{
+  "schema": "r44.ai_coprocessor.v1",
+  "status": "ACTIVE_BOUNDED",
+  "uses": [
+    {
+      "source": "PCMMAD Lab GPT-5.6 Sol reasoning pass",
+      "authority": "NO_INDEPENDENT_CORROBORATION_AUTHORITY",
+      "use": "owner census, discriminator design, hostile synthesis"
+    }
+  ],
+  "heavy_local_model_launched": false
+}

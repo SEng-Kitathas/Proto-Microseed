@@ -1,0 +1,12 @@
+{
+  "schema": "microseed.operand_window_boundary_campaign.v1",
+  "campaign": "OPERAND_WINDOW_BOUNDARY_2026-09-07",
+  "status": "ACTIVE",
+  "branch": "research/grounded-language-operand-window-boundary-v1",
+  "base_head": "e68cdb3de35e97393442f4d9a5b1baf3f63b36a9",
+  "pass_ceiling": 20,
+  "completed_passes": 3,
+  "current_pass": 4,
+  "current_discriminator": "authenticated store-aware action-execution boundary recognition",
+  "promotion": "NONE"
+}

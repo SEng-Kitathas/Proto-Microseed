@@ -1,0 +1,11 @@
+{
+  "pass": 2,
+  "name": "CROSS_PLANE_BOUNDARY_QUARRY",
+  "status": "NARROWED",
+  "evidence": [
+    "append_evidence creates durable EVIDENCE event keyed by evidence_id",
+    "execute_bounded_action creates durable BOUNDED_ACTION_EXECUTED without evidence append",
+    "current generalized arity scans evidence list only"
+  ],
+  "result": "clean cross-plane discriminator exists"
+}

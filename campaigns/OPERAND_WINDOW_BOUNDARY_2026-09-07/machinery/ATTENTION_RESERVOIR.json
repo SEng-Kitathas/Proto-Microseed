@@ -1,0 +1,27 @@
+{
+  "schema": "r44.attention_reservoir.v1",
+  "status": "ACTIVE",
+  "items": [
+    {
+      "id": "BW-01",
+      "priority": "P0",
+      "state": "LIVE",
+      "signal": "bare action execution is durable but invisible to evidence-only arity",
+      "reason": "exact next mechanism seam"
+    },
+    {
+      "id": "BW-02",
+      "priority": "P0",
+      "state": "LIVE",
+      "signal": "action execution already segments passive-transition owner",
+      "reason": "reuse donor before new primitive"
+    },
+    {
+      "id": "BW-03",
+      "priority": "P1",
+      "state": "LIVE",
+      "signal": "action timing may be evaluator occasioned",
+      "reason": "do not overclaim endogenous boundary creation from recognition alone"
+    }
+  ]
+}

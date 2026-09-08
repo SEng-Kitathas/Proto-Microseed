@@ -1,0 +1,32 @@
+{
+  "schema": "r44.pdver.campaign.v1",
+  "status": "ACTIVE",
+  "probe": {
+    "observed": [
+      "existing passive raw transition uses BOUNDED_ACTION_EXECUTED as adjacency breaker",
+      "token evidence is recoverable from EVIDENCE store events",
+      "current arity owner is evidence-only"
+    ],
+    "unknowns": [
+      "whether action execution is sufficient boundary without outcome",
+      "whether store/event cross-plane join can be exact and bounded"
+    ]
+  },
+  "derive": {
+    "survivors": [
+      "authenticated action execution is smallest existing boundary donor"
+    ],
+    "rejected": [
+      "current evidence-only generalized arity already recognizes action boundary"
+    ]
+  },
+  "verify": {},
+  "embody": {},
+  "recurse": {
+    "next": [
+      "prototype exact store-aware operand window",
+      "attack forged/unrelated events/outcome requirement/restart"
+    ],
+    "promotion": "NONE"
+  }
+}

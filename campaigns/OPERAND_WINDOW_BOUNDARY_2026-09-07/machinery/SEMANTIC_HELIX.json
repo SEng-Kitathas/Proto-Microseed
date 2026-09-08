@@ -1,0 +1,21 @@
+{
+  "schema": "r44.semantic_helix.v1",
+  "status": "ACTIVE",
+  "discriminators": [
+    {
+      "id": "BOUNDARY-01",
+      "question": "Can existing BOUNDED_ACTION_EXECUTED delimit composition token windows?",
+      "evidence": [
+        "passive-transition production already treats it as segmentation",
+        "current arity owner misses it across planes"
+      ],
+      "interpretations": [
+        "lawful operational boundary recognition",
+        "needs action outcome observational closure",
+        "timing could still be evaluator supplied"
+      ],
+      "next_discriminator": "store-aware exact prototype + hostile event authentication",
+      "authority": "RESEARCH_ONLY"
+    }
+  ]
+}

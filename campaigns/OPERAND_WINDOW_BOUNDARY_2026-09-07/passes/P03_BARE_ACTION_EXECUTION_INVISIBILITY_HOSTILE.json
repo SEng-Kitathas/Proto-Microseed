@@ -1,0 +1,13 @@
+{
+  "pass": 3,
+  "name": "BARE_ACTION_EXECUTION_INVISIBILITY_HOSTILE",
+  "status": "VERIFIED_NEGATIVE",
+  "evidence": [
+    "first run invalid due stale rehearsal start state; harness repaired before token window",
+    "test_lang_operand_window_action_execution_gap.py 1/1 PASS",
+    "R4,T9 + bare QA execution + W3,K7 => evidence-only owner derives arity4"
+  ],
+  "result": "STOP_EVIDENCE_ONLY_WINDOW_MISSES_OWNED_ACTION_EXECUTION_BOUNDARY",
+  "localized_missing_mechanism": "CROSS_PLANE_TOKEN_EVIDENCE_TO_DURABLE_ACTION_EXECUTION_WINDOW_OWNER",
+  "promotion": "NONE"
+}
