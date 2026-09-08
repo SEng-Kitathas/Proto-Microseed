@@ -1,0 +1,9 @@
+{
+  "pass": 5,
+  "name": "FULLY_ADMISSIBLE_WINDOW_NEGATIVE_CONTROL",
+  "status": "PASS",
+  "evidence": [
+    "R4,T9,W3,K7 remains fully admissible arity4"
+  ],
+  "result": "NO_STRUCTURAL_BOUNDARY_OCCASION_REQUIRED"
+}

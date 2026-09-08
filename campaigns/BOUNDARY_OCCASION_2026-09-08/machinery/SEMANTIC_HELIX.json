@@ -16,6 +16,36 @@
       ],
       "next_discriminator": "unique structurally admissible split after extension conflict",
       "authority": "RESEARCH_ONLY"
+    },
+    {
+      "id": "OCCASION-02",
+      "question": "Can earned composition inadmissibility uniquely localize a nonsemantic split?",
+      "evidence": [
+        "5/5 prototype",
+        "no boundary when full window valid",
+        "abstain when 0 or >1 splits"
+      ],
+      "interpretations": [
+        "bounded structural occasion candidate",
+        "not semantic phrase/episode boundary",
+        "not yet durable witness/currentness owner"
+      ],
+      "next_discriminator": "currentness/restart/replay and durable boundary witness",
+      "authority": "RESEARCH_ONLY"
+    },
+    {
+      "id": "OCCASION-03",
+      "question": "Can unique split survive currentness/restart/replay?",
+      "evidence": [
+        "3/3 PASS"
+      ],
+      "interpretations": [
+        "yes as read-only current candidate",
+        "durable witness can be attempted",
+        "automatic retroactive composition rewrite remains separate/unearned"
+      ],
+      "next_discriminator": "durable retrospective boundary witness with exact lineage",
+      "authority": "RESEARCH_ONLY"
     }
   ]
 }

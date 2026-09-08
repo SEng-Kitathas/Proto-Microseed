@@ -21,12 +21,22 @@
     ],
     "survivor": "UNIQUE_STRUCTURAL_EXTENSION_CONFLICT_SPLIT_CANDIDATE"
   },
-  "verify": {},
-  "embody": {},
+  "verify": {
+    "candidate": "UNIQUE_STRUCTURAL_EXTENSION_CONFLICT_SPLIT",
+    "prototype": "5/5 PASS",
+    "currentness_restart_replay": "3/3 PASS",
+    "result": "PASS_DURABLE_WITNESS_READY",
+    "authority_gain": "NONE"
+  },
+  "embody": {
+    "status": "READY_FOR_DURABLE_WITNESS_ONLY",
+    "constraint": "STRUCTURAL_BOUNDARY_WITNESS != AUTOMATIC_RETROACTIVE_WINDOW_REWRITE"
+  },
   "recurse": {
     "next": [
-      "prototype unique split from current grounded referent signatures when unsplit window invalid",
-      "attack ambiguity/duplicates/restart/representation"
+      "design durable structural boundary witness with exact source refs/split store seq/currentness",
+      "attack forgery/idempotence/restart",
+      "do not auto-rewrite composition chronology yet"
     ],
     "promotion": "NONE"
   }

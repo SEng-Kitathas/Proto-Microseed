@@ -1,0 +1,12 @@
+{
+  "pass": 7,
+  "name": "STRUCTURAL_SPLIT_REPRESENTATION_INVARIANCE",
+  "status": "PASS",
+  "evidence": [
+    "token-label permutation preserves split",
+    "8-channel group permutation preserves split",
+    "sign inversion preserves split",
+    "prototype surface total 5/5 PASS"
+  ],
+  "result": "SPLIT_IDENTITY_GROUNDED_IN_CURRENT_REFERENT_SIGNATURE_STRUCTURE_NOT_TOKEN_SENSOR_LABELS"
+}

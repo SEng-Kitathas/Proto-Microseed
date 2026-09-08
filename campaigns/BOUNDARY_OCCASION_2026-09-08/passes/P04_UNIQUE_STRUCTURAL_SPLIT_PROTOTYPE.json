@@ -1,0 +1,13 @@
+{
+  "pass": 4,
+  "name": "UNIQUE_STRUCTURAL_SPLIT_PROTOTYPE",
+  "status": "PASS",
+  "evidence": [
+    "R4,T9,R4,K7 unsplit violates distinct-referent invariant",
+    "exactly one two-window split at index2 restores segment admissibility",
+    "test prototype positive"
+  ],
+  "result": "CURRENT_UNIQUE_STRUCTURAL_BOUNDARY_OCCASION_CANDIDATE",
+  "selection_authority": "CONTENT_UNIQUENESS_ONLY",
+  "effect_authority": "NONE"
+}

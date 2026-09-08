@@ -3,6 +3,13 @@
   "status": "ACTIVE",
   "items": [
     {
+      "id": "OC-BOUNDARY-WITNESS",
+      "priority": "P0",
+      "state": "NEXT",
+      "signal": "unique structural split is read-only scratch candidate",
+      "reason": "must earn durable organism-owned boundary witness without caller split/effect/semantics"
+    },
+    {
       "id": "OC-01",
       "priority": "P0",
       "state": "LIVE",
@@ -12,7 +19,7 @@
     {
       "id": "OC-02",
       "priority": "P0",
-      "state": "CANDIDATE",
+      "state": "SURVIVED_PROTOTYPE",
       "signal": "continuation can violate distinct-operand invariant while one two-window split remains lawful",
       "reason": "composition law may supply nonsemantic discriminator"
     },

@@ -1,0 +1,10 @@
+{
+  "pass": 6,
+  "name": "AMBIGUOUS_AND_ZERO_SPLIT_HOSTILES",
+  "status": "PASS",
+  "evidence": [
+    "R4,T9,W3,R4,K7 yields two lawful splits and abstains",
+    "R4,R4,T9,K7 yields zero lawful splits and abstains"
+  ],
+  "result": "NO_GUESSING_UNDER_SPLIT_AMBIGUITY_OR_NO_SOLUTION"
+}

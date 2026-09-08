@@ -1,0 +1,15 @@
+{
+  "pass": 8,
+  "name": "STRUCTURAL_SPLIT_CURRENTNESS_RESTART_REPLAY",
+  "status": "PASS",
+  "evidence": [
+    "test_lang_boundary_occasion_structural_split_currentness_restart.py 3/3 PASS",
+    "leaf capability drift removes current split support",
+    "pre-boot window has zero current authority",
+    "fresh profiles + explicit association revalidation + fresh conflicting window rederive same split",
+    "replayed token evidence store event blocks split inference"
+  ],
+  "result": "UNIQUE_STRUCTURAL_SPLIT_CANDIDATE_CURRENTNESS_AND_RESTART_SAFE",
+  "promotion": "NONE",
+  "next": "durable retrospective boundary witness without automatic retroactive composition rewrite"
+}
