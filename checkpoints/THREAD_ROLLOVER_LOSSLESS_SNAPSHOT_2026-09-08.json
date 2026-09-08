@@ -1,0 +1,119 @@
+{
+  "schema": "microseed.lossless_rollover.v1",
+  "timestamp_et": "2026-09-08T15:10:00-04:00",
+  "project_id": "protoagi_microseed_reincarnation_20260827",
+  "worktree": "research_ms1888_replay/.pcmmad_sync_runs/wt_boundary_occasion_20260908",
+  "branch": "research/grounded-language-boundary-occasion-v1",
+  "pre_checkpoint_head": "50fe325008d383b598720b26d15ab97578718f74",
+  "base_head": "e3069792ef4639028bf9eeb0243e4e827bebf52f",
+  "dirty_files": [
+    {
+      "path": "campaigns/BOUNDARY_OCCASION_2026-09-08/machinery/ATTENTION_RESERVOIR.json",
+      "sha256": "b860563b072a2632326fcc2426d708a47d4d8e90c1ea2e8e1c9bd6f3a3e427c4",
+      "bytes": 1686,
+      "status": " M"
+    },
+    {
+      "path": "campaigns/BOUNDARY_OCCASION_2026-09-08/machinery/PDVER_LEDGER.json",
+      "sha256": "243c6537df8b5c0c971eb42c57fe265f6612dc42294c44a215486d0b76119b77",
+      "bytes": 1950,
+      "status": " M"
+    },
+    {
+      "path": "campaigns/BOUNDARY_OCCASION_2026-09-08/machinery/SEMANTIC_HELIX.json",
+      "sha256": "82fb3a537995141a3365bf1efd35f3cefcb20cedd479048d80e9b372bb66af67",
+      "bytes": 3115,
+      "status": " M"
+    },
+    {
+      "path": "campaigns/BOUNDARY_OCCASION_2026-09-08/machinery/CSC_REVIEW.json",
+      "sha256": "01a1e407d05c36811ab83a0d4c3b312a5ab0205d741fb2250040d187a4389017",
+      "bytes": 2396,
+      "status": "??"
+    },
+    {
+      "path": "campaigns/BOUNDARY_OCCASION_2026-09-08/machinery/HOSTILE_ENGINEERING_MATRIX.json",
+      "sha256": "d8ee31e55ea029cf90c358295f9495d87a3c5f1499a4693fad7bb4c1dc6c5516",
+      "bytes": 1626,
+      "status": "??"
+    },
+    {
+      "path": "campaigns/BOUNDARY_OCCASION_2026-09-08/machinery/LOOP_PLUS_LEDGER.json",
+      "sha256": "b2f5e6b2f47a2466f5a15d97f12500ad9788f4b0022bd02e302c06ad8bf16bd4",
+      "bytes": 932,
+      "status": "??"
+    },
+    {
+      "path": "campaigns/BOUNDARY_OCCASION_2026-09-08/machinery/OARR_LEDGER.json",
+      "sha256": "1391dc48adfbda5ba797753955e32b7306c557d9c3248178ece80f4c033e54e6",
+      "bytes": 1006,
+      "status": "??"
+    },
+    {
+      "path": "campaigns/BOUNDARY_OCCASION_2026-09-08/passes/P13_BROAD_LINEAGE_REGRESSION.json",
+      "sha256": "b8f74c8e19911b84cbb3ce04b1f479c89e8a14c9962cc9fb96c63881fc451a8a",
+      "bytes": 335,
+      "status": "??"
+    },
+    {
+      "path": "campaigns/BOUNDARY_OCCASION_2026-09-08/passes/P14_CSC_CROSS_INTERFACE_REVIEW.json",
+      "sha256": "e749f1771956ffa492de696709ce638f77cd705d46d19606a0ecf3d9ae5d1c60",
+      "bytes": 266,
+      "status": "??"
+    },
+    {
+      "path": "campaigns/BOUNDARY_OCCASION_2026-09-08/passes/P15_OWNERSHIP_AND_CONSUMPTION_CEILING_AUDIT.json",
+      "sha256": "37673cf17799fc8bad0946ea75b13fb591ba7a34c57fa036f3d29c0b2e48a360",
+      "bytes": 687,
+      "status": "??"
+    },
+    {
+      "path": "campaigns/BOUNDARY_OCCASION_2026-09-08/passes/P16_OARR_HOSTILE_ENGINEERING_CLOSURE.json",
+      "sha256": "56124d209c9362d026e0c994532403657ec67440b1d65f20a393ce55e3177779",
+      "bytes": 317,
+      "status": "??"
+    },
+    {
+      "path": "campaigns/BOUNDARY_OCCASION_2026-09-08/passes/P17_HELIX_RESERVOIR_FRONTIER_CONVERGENCE.json",
+      "sha256": "83ce77e34f5388466d260f413867fc406d87e5366bad99f1e7fa02b485cd9c88",
+      "bytes": 783,
+      "status": "??"
+    },
+    {
+      "path": "campaigns/BOUNDARY_OCCASION_2026-09-08/passes/P18_FINAL_INTEGRATED_BREADTH.json",
+      "sha256": "32a4af00797671d4d0f4fbd0766a2d215a86013f6e858db3b42fc4c7ff1c49f0",
+      "bytes": 322,
+      "status": "??"
+    },
+    {
+      "path": "tests/embodiment/test_lang_boundary_occasion_ceiling_audit.py",
+      "sha256": "ee33a724ea45d77ee72ed267961ef543af2a7e0e7ce20a537040d0e71638e466",
+      "bytes": 2878,
+      "status": "??"
+    }
+  ],
+  "campaign_state": {
+    "schema": "microseed.boundary_occasion_campaign.v1",
+    "campaign": "BOUNDARY_OCCASION_2026-09-08",
+    "status": "ACTIVE_CONVERGED_BOUNDED",
+    "branch": "research/grounded-language-boundary-occasion-v1",
+    "base_head": "e3069792ef4639028bf9eeb0243e4e827bebf52f",
+    "pass_ceiling": 20,
+    "completed_passes": 17,
+    "current_pass": 18,
+    "current_discriminator": "final integrated breadth including ceiling audit",
+    "promotion": "NONE"
+  },
+  "p18_receipt": {
+    "pass": 18,
+    "name": "FINAL_INTEGRATED_BREADTH",
+    "status": "PASS",
+    "evidence": [
+      "final .pcmmad_verify_boundary_occasion_breadth.py includes ceiling audit",
+      "140/140 PASS cleanup-neutral Windows harness"
+    ],
+    "result": "FULL_CURRENT_LINEAGE_GREEN_WITH_CEILING_AUDIT",
+    "promotion": "NONE"
+  },
+  "fresh_p18_rerun": "NOT_PERFORMED_TEMPORARY_HARNESS_ABSENT"
+}

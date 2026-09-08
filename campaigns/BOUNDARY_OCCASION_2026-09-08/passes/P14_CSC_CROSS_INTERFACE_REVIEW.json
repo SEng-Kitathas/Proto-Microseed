@@ -1,0 +1,11 @@
+{
+  "pass": 14,
+  "name": "CSC_CROSS_INTERFACE_REVIEW",
+  "status": "PASS_BOUNDED",
+  "evidence": [
+    "CSC_REVIEW.json",
+    "137/137 broad lineage"
+  ],
+  "result": "BOUNDED_RETROSPECTIVE_STRUCTURAL_BOUNDARY_OCCASION_COHERENT",
+  "promotion": "NONE"
+}

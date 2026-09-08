@@ -1,0 +1,11 @@
+{
+  "pass": 13,
+  "name": "BROAD_LINEAGE_REGRESSION",
+  "status": "PASS",
+  "evidence": [
+    ".pcmmad_verify_boundary_occasion_breadth.py",
+    "137/137 PASS cleanup-neutral Windows harness"
+  ],
+  "result": "C08_ACQUISITION_B2_B3_RECURSIVE_ARITY_ACTION_BOUNDARY_STRUCTURAL_BOUNDARY_LINEAGE_GREEN",
+  "promotion": "NONE"
+}

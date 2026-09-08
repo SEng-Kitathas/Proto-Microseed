@@ -1,0 +1,12 @@
+{
+  "pass": 16,
+  "name": "OARR_HOSTILE_ENGINEERING_CLOSURE",
+  "status": "PASS_BOUNDED",
+  "evidence": [
+    "HOSTILE_ENGINEERING_MATRIX.json 13 killed claims",
+    "OARR_LEDGER.json",
+    "LOOP_PLUS_LEDGER.json"
+  ],
+  "result": "NO_SURVIVING_HOSTILE_REQUIRES_CLAIM_RETRACTION",
+  "promotion": "NONE"
+}

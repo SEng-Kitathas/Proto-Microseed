@@ -1,12 +1,12 @@
 {
   "schema": "microseed.boundary_occasion_campaign.v1",
   "campaign": "BOUNDARY_OCCASION_2026-09-08",
-  "status": "ACTIVE_PRODUCTION_CANDIDATE_TARGETED_PASS",
+  "status": "ACTIVE_CONVERGED_BOUNDED",
   "branch": "research/grounded-language-boundary-occasion-v1",
   "base_head": "e3069792ef4639028bf9eeb0243e4e827bebf52f",
   "pass_ceiling": 20,
-  "completed_passes": 12,
-  "current_pass": 13,
-  "current_discriminator": "broad lineage regression and cross-surface coherence",
+  "completed_passes": 17,
+  "current_pass": 18,
+  "current_discriminator": "final integrated breadth including ceiling audit",
   "promotion": "NONE"
 }

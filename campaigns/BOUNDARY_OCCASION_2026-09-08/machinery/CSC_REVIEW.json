@@ -1,0 +1,66 @@
+{
+  "schema": "r44.csc.review.v1",
+  "status": "PASS_BOUNDED",
+  "interfaces": [
+    {
+      "interface": "current token evidence -> grounded referent signatures",
+      "status": "PASS",
+      "note": "positive/current token, unique current association, exact current profile required"
+    },
+    {
+      "interface": "valid prefix -> boundary",
+      "status": "REJECTED",
+      "note": "same exact two-token prefix can lawfully end at 2 or continue to 3/4"
+    },
+    {
+      "interface": "internal bookkeeping -> boundary",
+      "status": "REJECTED",
+      "note": "optional currentness bookkeeping does not change grouping"
+    },
+    {
+      "interface": "extension conflict -> unique split",
+      "status": "PASS_BOUNDED",
+      "note": "only exact one split into two arity2..4 distinct-referent segments qualifies"
+    },
+    {
+      "interface": "0 or >1 lawful splits -> boundary",
+      "status": "ABSTAIN",
+      "note": "no guessing"
+    },
+    {
+      "interface": "structural split -> durable witness",
+      "status": "PASS",
+      "note": "exact source refs/currentness, deterministic witness, restart scoped"
+    },
+    {
+      "interface": "durable witness -> composition rewrite",
+      "status": "NO_AUTHORITY",
+      "note": "witness closes suffix but does not materialize left/right compositions"
+    },
+    {
+      "interface": "method invocation -> split content",
+      "status": "SEPARATE",
+      "note": "polling every prefix or end-only yields same final witness; scheduling itself remains external"
+    },
+    {
+      "interface": "phase/time/semantics -> split",
+      "status": "NO_DEPENDENCE",
+      "note": "phase labels invariant; no clock/pause/grammar/planner path"
+    },
+    {
+      "interface": "boundary -> effect/execution",
+      "status": "NO_AUTHORITY_GAIN",
+      "note": "selection is content uniqueness only; EFFECT/execution NONE"
+    }
+  ],
+  "breadth": "137/137 PASS before final ceiling inclusion",
+  "earned_candidate": "BOUNDED_RETROSPECTIVE_STRUCTURAL_BOUNDARY_OCCASION_OWNERSHIP",
+  "promotion": "NONE",
+  "residuals": [
+    "endogenous invocation scheduling not earned",
+    "prospective boundary prediction not earned",
+    "segmented composition consumption not earned",
+    "generic episode/semantic grouping not earned",
+    "unbounded segmentation not earned"
+  ]
+}

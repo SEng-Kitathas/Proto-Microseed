@@ -1,6 +1,6 @@
 {
   "schema": "r44.semantic_helix.v1",
-  "status": "ACTIVE",
+  "status": "CONVERGED_FOR_CAMPAIGN",
   "discriminators": [
     {
       "id": "OCCASION-01",
@@ -60,6 +60,22 @@
         "retrospective witness consumption remains unearned"
       ],
       "next_discriminator": "broad cross-lineage coherence",
+      "authority": "RESEARCH_ONLY"
+    },
+    {
+      "id": "OCCASION-05",
+      "question": "What exactly is earned?",
+      "evidence": [
+        "production candidate",
+        "137/137 breadth",
+        "CSC PASS_BOUNDED",
+        "ceiling audit 3/3"
+      ],
+      "interpretations": [
+        "earned: bounded retrospective structurally compelled passive boundary occasion content + durable witness",
+        "not earned: endogenous scheduling, prospective prediction, automatic segmented-composition consumption, generic semantic/episode segmentation"
+      ],
+      "next_discriminator": "STRUCTURAL_BOUNDARY_WITNESS_CONSUMPTION_WITHOUT_LEDGER_REWRITE",
       "authority": "RESEARCH_ONLY"
     }
   ]

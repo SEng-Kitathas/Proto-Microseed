@@ -3,6 +3,13 @@
   "status": "ACTIVE",
   "items": [
     {
+      "id": "OC-NEXT-CONSUME",
+      "priority": "P0",
+      "state": "NEXT_FRONTIER",
+      "signal": "durable structural boundary witness exists but does not materialize left/right compositions",
+      "reason": "next composition growth step must consume witness without falsifying ledger chronology"
+    },
+    {
       "id": "OC-BOUNDARY-WITNESS",
       "priority": "P0",
       "state": "NEXT",
@@ -12,23 +19,30 @@
     {
       "id": "OC-01",
       "priority": "P0",
-      "state": "LIVE",
+      "state": "RESOLVED_OR_CEILING",
       "signal": "valid prefix underdetermines boundary occasion",
       "reason": "same prefix supports arity2/3/4"
     },
     {
       "id": "OC-02",
       "priority": "P0",
-      "state": "SURVIVED_PROTOTYPE",
+      "state": "RESOLVED_OR_CEILING",
       "signal": "continuation can violate distinct-operand invariant while one two-window split remains lawful",
       "reason": "composition law may supply nonsemantic discriminator"
     },
     {
       "id": "OC-03",
       "priority": "P1",
-      "state": "REJECTED_DONOR",
+      "state": "RESOLVED_OR_CEILING",
       "signal": "optional internal bookkeeping event",
       "reason": "caller timing can vary without world/token change"
+    },
+    {
+      "id": "OC-SCHEDULING",
+      "priority": "P1",
+      "state": "OPEN_ORTHOGONAL",
+      "signal": "production owner has no endogenous runtime caller",
+      "reason": "content ownership earned; monitoring/scheduling remains external"
     }
   ]
 }

@@ -1,0 +1,71 @@
+{
+  "schema": "r44.hostile_engineering_matrix.v1",
+  "status": "PASS_BOUNDED",
+  "attacks": [
+    {
+      "id": "OC-H01",
+      "claim": "bookkeeping can delimit",
+      "result": "KILLED"
+    },
+    {
+      "id": "OC-H02",
+      "claim": "any valid prefix owns a boundary",
+      "result": "KILLED"
+    },
+    {
+      "id": "OC-H03",
+      "claim": "fully valid arity4 should split",
+      "result": "KILLED"
+    },
+    {
+      "id": "OC-H04",
+      "claim": "ambiguous split may guess",
+      "result": "KILLED"
+    },
+    {
+      "id": "OC-H05",
+      "claim": "zero-split case may invent boundary",
+      "result": "KILLED"
+    },
+    {
+      "id": "OC-H06",
+      "claim": "leaf drift leaves witness current",
+      "result": "KILLED"
+    },
+    {
+      "id": "OC-H07",
+      "claim": "preboot witness/window remains current",
+      "result": "KILLED"
+    },
+    {
+      "id": "OC-H08",
+      "claim": "replayed evidence can drive split",
+      "result": "KILLED"
+    },
+    {
+      "id": "OC-H09",
+      "claim": "forged witness can become current",
+      "result": "KILLED"
+    },
+    {
+      "id": "OC-H10",
+      "claim": "caller polling timing selects split",
+      "result": "KILLED"
+    },
+    {
+      "id": "OC-H11",
+      "claim": "overlong window can be cropped",
+      "result": "KILLED"
+    },
+    {
+      "id": "OC-H12",
+      "claim": "phase/time/semantic labels determine split",
+      "result": "KILLED"
+    },
+    {
+      "id": "OC-H13",
+      "claim": "witness retroactively composes segments",
+      "result": "KILLED"
+    }
+  ]
+}

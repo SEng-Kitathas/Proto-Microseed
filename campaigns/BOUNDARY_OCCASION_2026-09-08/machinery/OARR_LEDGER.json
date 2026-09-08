@@ -1,0 +1,36 @@
+{
+  "schema": "r44.oarr.v1",
+  "status": "PASS_BOUNDED",
+  "observe": [
+    "bookkeeping negative db54f6d",
+    "prefix ambiguity db54f6d",
+    "unique split prototype b4be701",
+    "durable witness prototype b8e0179",
+    "production candidate 50fe325",
+    "137/137 breadth"
+  ],
+  "attack": [
+    "bookkeeping optionality",
+    "valid-prefix ambiguity",
+    "0/multiple splits",
+    "currentness/restart/replay",
+    "forgery",
+    "polling timing",
+    "budget/overlong",
+    "phase/time/semantic leakage",
+    "consumption overclaim"
+  ],
+  "replay": [
+    "same split after restart/revalidation",
+    "same content under token/sensor/phase transforms",
+    "same content under greedy polling vs end-only invocation"
+  ],
+  "revision": [
+    "hardcoded 2..4 segment law",
+    "max structural window 8",
+    "exact source refs",
+    "durable retrospective witness",
+    "no retroactive composition rewrite"
+  ],
+  "next": "final integrated breadth then seal gate"
+}

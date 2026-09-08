@@ -1,0 +1,11 @@
+{
+  "pass": 18,
+  "name": "FINAL_INTEGRATED_BREADTH",
+  "status": "PASS",
+  "evidence": [
+    "final .pcmmad_verify_boundary_occasion_breadth.py includes ceiling audit",
+    "140/140 PASS cleanup-neutral Windows harness"
+  ],
+  "result": "FULL_CURRENT_LINEAGE_GREEN_WITH_CEILING_AUDIT",
+  "promotion": "NONE"
+}

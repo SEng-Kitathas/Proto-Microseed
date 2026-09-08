@@ -22,11 +22,18 @@
     "survivor": "UNIQUE_STRUCTURAL_EXTENSION_CONFLICT_SPLIT_CANDIDATE"
   },
   "verify": {
-    "candidate": "DURABLE_RETROSPECTIVE_STRUCTURAL_BOUNDARY_WITNESS",
-    "prototype": "5/5 PASS",
-    "currentness_restart_replay": "3/3 PASS",
-    "durable_witness": "5/5 PASS",
-    "result": "PASS_PRODUCTION_EMBODIMENT_READY",
+    "result": "PASS_BOUNDED",
+    "targeted": [
+      "5/5 split prototype",
+      "3/3 currentness/restart/replay",
+      "5/5 durable witness prototype",
+      "6/6 production",
+      "5/5 invocation/replay/budget",
+      "2/2 semantic smuggling",
+      "3/3 ceiling audit"
+    ],
+    "breadth": "137/137 PASS",
+    "csc": "PASS_BOUNDED",
     "authority_gain": "NONE"
   },
   "embody": {
@@ -42,11 +49,12 @@
   },
   "recurse": {
     "next": [
-      "seal production candidate",
-      "broad lineage regression",
-      "CSC",
-      "converge exact claim vs endogenous scheduling/witness consumption ceilings"
+      "P18 final breadth including ceiling audit",
+      "P19 seal gate",
+      "P20 publish/readback/continuity"
     ],
-    "promotion": "NONE"
+    "promotion": "NONE",
+    "earned_candidate": "BOUNDED_RETROSPECTIVE_STRUCTURAL_BOUNDARY_OCCASION_OWNERSHIP",
+    "next_frontier": "STRUCTURAL_BOUNDARY_WITNESS_CONSUMPTION_WITHOUT_LEDGER_REWRITE"
   }
 }
