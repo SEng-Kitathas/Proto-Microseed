@@ -21,13 +21,27 @@
     ],
     "reason": "preserved evidence chronology can own deterministic consumption order without rewriting past events"
   },
-  "verify": {},
-  "embody": {},
+  "verify": {
+    "read_only_bridge": "3/3 PASS",
+    "durable_segment_state_prototype": "6/6 PASS",
+    "result": "PASS_PRODUCTION_EMBODIMENT_READY",
+    "authority_gain": "NONE"
+  },
+  "embody": {
+    "status": "READY",
+    "target": "current append-only retrospective segment-state witness consuming oldest current unconsumed exact structural boundary",
+    "forbidden": [
+      "ordinary historical composition-row backfill",
+      "ledger reorder",
+      "caller boundary/split/grouping",
+      "scheduler/EFFECT/semantic authority"
+    ]
+  },
   "recurse": {
     "next": [
-      "seal negative/prototype",
-      "prototype durable state + exact validator",
-      "attack delayed invocation/multiple boundaries/forgery/restart"
+      "seal prototype",
+      "production embodiment",
+      "attack invocation order/replay/budget/restart/semantic leakage"
     ],
     "promotion": "NONE"
   }

@@ -1,0 +1,12 @@
+{
+  "pass": 9,
+  "name": "SEGMENT_STATE_REPRESENTATION_INVARIANCE",
+  "status": "PASS",
+  "evidence": [
+    "token-label permutation",
+    "8-channel group permutation",
+    "sensor sign inversion",
+    "durable prototype total 6/6 PASS"
+  ],
+  "result": "SEGMENT_STATE_CONTENT_GROUNDED_NOT_REPRESENTATION_LABELLED"
+}

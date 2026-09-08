@@ -15,6 +15,19 @@
       ],
       "next_discriminator": "oldest-current-unconsumed durable segment-state witness",
       "authority": "RESEARCH_ONLY"
+    },
+    {
+      "id": "CONSUME-02",
+      "question": "Can durable segment state consume boundaries without rewriting ledger or caller selection?",
+      "evidence": [
+        "6/6 durable prototype"
+      ],
+      "interpretations": [
+        "yes bounded append-only current state",
+        "consumption order can be owned by persisted boundary evidence chronology"
+      ],
+      "next_discriminator": "production embodiment + invocation/replay/budget pressure",
+      "authority": "RESEARCH_ONLY"
     }
   ]
 }

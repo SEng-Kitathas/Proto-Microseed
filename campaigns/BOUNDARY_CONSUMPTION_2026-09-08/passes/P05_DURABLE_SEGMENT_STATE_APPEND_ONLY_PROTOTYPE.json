@@ -1,0 +1,13 @@
+{
+  "pass": 5,
+  "name": "DURABLE_SEGMENT_STATE_APPEND_ONLY_PROTOTYPE",
+  "status": "PASS",
+  "evidence": [
+    "segment state appended after boundary",
+    "prior evidence ids remain unchanged prefix",
+    "no ordinary bounded composition rows materialized",
+    "idempotent readback writes nothing"
+  ],
+  "result": "CURRENT_STRUCTURAL_SEGMENT_STATE_RECORDED",
+  "law": "APPENDED_RETROSPECTIVE_DERIVATION != RETROACTIVE_LEDGER_REWRITE"
+}

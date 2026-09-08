@@ -1,0 +1,12 @@
+{
+  "pass": 6,
+  "name": "DELAYED_MULTIBOUNDARY_CONSUMPTION_ORDER",
+  "status": "PASS",
+  "evidence": [
+    "two current boundaries created before consumption",
+    "first invocation consumes older boundary",
+    "second consumes newer boundary",
+    "third idempotently reads newer state"
+  ],
+  "result": "OLDEST_CURRENT_UNCONSUMED_BOUNDARY_CHRONOLOGY_OWNS_CONSUMPTION_ORDER"
+}

@@ -1,0 +1,10 @@
+{
+  "pass": 7,
+  "name": "FORGERY_AND_CURRENTNESS_HOSTILES",
+  "status": "PASS",
+  "evidence": [
+    "forged current segment-state row blocks rather than suppresses/redirects boundary",
+    "leaf capability drift invalidates persisted state through boundary currentness"
+  ],
+  "result": "SEGMENT_STATE_EXACT_AND_CURRENT_OR_DEFER"
+}

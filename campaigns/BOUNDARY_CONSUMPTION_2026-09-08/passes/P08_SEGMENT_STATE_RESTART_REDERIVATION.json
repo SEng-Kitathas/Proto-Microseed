@@ -1,0 +1,11 @@
+{
+  "pass": 8,
+  "name": "SEGMENT_STATE_RESTART_REDERIVATION",
+  "status": "PASS",
+  "evidence": [
+    "preboot state ignored",
+    "fresh profiles + association revalidation + fresh boundary required",
+    "same segment-state content digest rederived with new evidence id"
+  ],
+  "result": "SEGMENT_STATE_RESTART_SAFE_CURRENT_DERIVATION"
+}
