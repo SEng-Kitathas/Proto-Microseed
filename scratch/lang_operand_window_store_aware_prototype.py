@@ -15,11 +15,15 @@ def derive_store_aware_operand_window(ms,*,max_events=65536,min_arity=2,max_arit
     current=[row for row in events if int(row.get('seq',-1))>boot]
     if len(current)>bound:
         return {'status':'SEARCH_BUDGET_EXHAUSTED_NOT_SATURATED','reason':'OPERAND_WINDOW_EVENT_HISTORY_EXCEEDS_SCAN_BUDGET','current_event_count':len(current),'max_events':bound}
-    window=[];last_boundary=None
+    window=[];last_boundary=None;seen_evidence_events=set();seen_execution_events=set()
     for event in current:
         kind=str(event.get('kind',''));payload=event.get('payload') or {}
         if kind=='EVIDENCE':
-            eid=str(payload.get('evidence_id',''));erow=ms.evidence.get(eid)
+            eid=str(payload.get('evidence_id',''))
+            if eid in seen_evidence_events:
+                return {'status':'DEFER_UNKNOWN','reason':'OPERAND_WINDOW_EVIDENCE_EVENT_REPLAY_DETECTED','evidence_id':eid,'store_seq':int(event.get('seq',-1))}
+            seen_evidence_events.add(eid)
+            erow=ms.evidence.get(eid)
             if erow is None or str(erow.get('sha256',''))!=str(payload.get('sha256','')):
                 return {'status':'DEFER_UNKNOWN','reason':'OPERAND_WINDOW_EVIDENCE_EVENT_NOT_EXACT','evidence_id':eid}
             ep=erow.get('payload') or {}
@@ -28,7 +32,11 @@ def derive_store_aware_operand_window(ms,*,max_events=65536,min_arity=2,max_arit
             else:
                 window=[];last_boundary={'kind':'REPRESENTED_NON_TOKEN_EVIDENCE','store_seq':int(event['seq']),'evidence_id':eid}
         elif kind=='BOUNDED_ACTION_EXECUTED':
-            execution_id=str(payload.get('execution_id',''));rec=ms.action_closure.executions.get(execution_id)
+            execution_id=str(payload.get('execution_id',''))
+            if execution_id in seen_execution_events:
+                return {'status':'DEFER_UNKNOWN','reason':'ACTION_EXECUTION_BOUNDARY_REPLAY_DETECTED','execution_id':execution_id,'store_seq':int(event.get('seq',-1))}
+            seen_execution_events.add(execution_id)
+            rec=ms.action_closure.executions.get(execution_id)
             if rec is None or rec.serializable()!=payload:
                 return {'status':'DEFER_UNKNOWN','reason':'ACTION_EXECUTION_BOUNDARY_NOT_AUTHENTICATED','execution_id':execution_id,'store_seq':int(event.get('seq',-1))}
             window=[];last_boundary={'kind':'BOUNDED_ACTION_EXECUTED','store_seq':int(event['seq']),'execution_id':execution_id}

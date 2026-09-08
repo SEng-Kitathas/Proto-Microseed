@@ -1,12 +1,12 @@
 {
   "schema": "microseed.operand_window_boundary_campaign.v1",
   "campaign": "OPERAND_WINDOW_BOUNDARY_2026-09-07",
-  "status": "PASS_EMBODIMENT_READY",
+  "status": "ACTIVE_PRODUCTION_CANDIDATE_TARGETED_PASS",
   "branch": "research/grounded-language-operand-window-boundary-v1",
   "base_head": "e68cdb3de35e97393442f4d9a5b1baf3f63b36a9",
   "pass_ceiling": 20,
-  "completed_passes": 8,
-  "current_pass": 9,
-  "current_discriminator": "production store-aware operand window with authenticated action boundary ancestry",
+  "completed_passes": 13,
+  "current_pass": 14,
+  "current_discriminator": "broad lineage regression and cross-surface coherence",
   "promotion": "NONE"
 }

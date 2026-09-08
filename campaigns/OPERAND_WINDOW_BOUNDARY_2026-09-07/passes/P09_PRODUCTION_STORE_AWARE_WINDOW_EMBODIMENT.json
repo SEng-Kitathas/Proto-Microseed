@@ -1,0 +1,13 @@
+{
+  "pass": 9,
+  "name": "PRODUCTION_STORE_AWARE_WINDOW_EMBODIMENT",
+  "status": "PASS_AFTER_HARNESS_PATCH_REPAIR",
+  "evidence": [
+    "private _derive_current_store_aware_bounded_operand_window embodied",
+    "generalized owner accepts max_events budget and binds last_window_boundary into witness",
+    "first mixed suite exposed accidental B2 patch-scoping NameError; repaired without changing B2 semantics",
+    "corrected targeted production/generalized/currentness surface 11/11 PASS"
+  ],
+  "result": "AUTHENTICATED_ACTION_EXECUTION_BOUNDARY_RECOGNITION_EMBODIED_CANDIDATE",
+  "promotion": "NONE"
+}

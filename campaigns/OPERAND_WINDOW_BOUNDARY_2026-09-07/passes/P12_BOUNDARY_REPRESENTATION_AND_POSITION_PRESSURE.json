@@ -1,0 +1,13 @@
+{
+  "pass": 12,
+  "name": "BOUNDARY_REPRESENTATION_AND_POSITION_PRESSURE",
+  "status": "PASS",
+  "evidence": [
+    "token label permutation invariant",
+    "8-channel group permutation invariant",
+    "sign inversion invariant",
+    "action after token window closes to arity0"
+  ],
+  "result": "OPERATIONAL_BOUNDARY_RECOGNITION_NOT_SEMANTIC_SEPARATOR",
+  "promotion": "NONE"
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "r44.loop_plus.v1",
+  "status": "ACTIVE",
+  "cycles": [
+    {
+      "cycle": 1,
+      "question": "does current arity owner see organism action execution?",
+      "result": "no; eca0d36 negative",
+      "next": "store-aware join"
+    },
+    {
+      "cycle": 2,
+      "question": "can exact store join recognize action boundary without outcome?",
+      "result": "yes prototype",
+      "next": "auth/replay/restart"
+    },
+    {
+      "cycle": 3,
+      "question": "does candidate preserve prior composition identity?",
+      "result": "yes arity2/3/4 equivalence",
+      "next": "production"
+    },
+    {
+      "cycle": 4,
+      "question": "does production survive replay/history/representation attacks?",
+      "result": "yes",
+      "next": "restart+breadth"
+    }
+  ]
+}

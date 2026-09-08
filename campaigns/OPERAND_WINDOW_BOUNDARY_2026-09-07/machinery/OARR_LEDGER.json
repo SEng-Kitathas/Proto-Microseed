@@ -1,0 +1,29 @@
+{
+  "schema": "r44.oarr.v1",
+  "status": "ACTIVE",
+  "observe": [
+    "evidence-only gap eca0d36",
+    "store-aware prototype 5087bd1",
+    "restart/budget donor 6e3a45e",
+    "production candidate + replay/invariance hostiles"
+  ],
+  "attack": [
+    "ACTION_EXECUTION_EVENT != OUTCOME_EVIDENCE",
+    "REJECTED_ACTION_ATTEMPT != BOUNDARY",
+    "UNRELATED_STORE_EVENT != GROUPING_EVENT",
+    "FORGED_OR_REPLAYED_STORE_EVENT != AUTHENTICATED_BOUNDARY",
+    "BOUNDARY_ACTION_IDENTITY != COMPOSITION_CONTENT",
+    "CAPABILITY_DRIFT_AFTER_EXECUTION != ACTION_DID_NOT_HAPPEN"
+  ],
+  "replay": [
+    "bare action boundary reproduced in production",
+    "legacy arity2/3/4 equivalence retained",
+    "action identity and representation invariance retained"
+  ],
+  "revision": [
+    "store-aware window owner authenticates exact evidence/execution events",
+    "replay detection added",
+    "boundary ancestry stored separately from composition content"
+  ],
+  "next": "production restart/event-budget then broad lineage"
+}

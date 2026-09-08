@@ -31,6 +31,21 @@
       ],
       "next_discriminator": "restart/current-boot and event-budget integrity",
       "authority": "RESEARCH_ONLY"
+    },
+    {
+      "id": "BOUNDARY-03",
+      "question": "Does recognized action boundary carry semantic/grouping meaning?",
+      "evidence": [
+        "boundary action identity changes witness ancestry only",
+        "representation transforms preserve content",
+        "action after tokens simply closes window"
+      ],
+      "interpretations": [
+        "bounded operational segmentation recognition",
+        "not semantic delimiter; not autonomous boundary-action creation"
+      ],
+      "next_discriminator": "production restart/budget and broad cross-interface coherence",
+      "authority": "RESEARCH_ONLY"
     }
   ]
 }

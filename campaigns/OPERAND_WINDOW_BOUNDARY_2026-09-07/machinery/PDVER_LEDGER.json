@@ -31,13 +31,25 @@
     "authority_gain": "NONE"
   },
   "embody": {
-    "next": "private production store-aware operand-window owner + generalized witness boundary ancestry",
-    "status": "READY_NOT_YET_EMBODIED"
+    "status": "EMBODIED_CANDIDATE",
+    "artifacts": [
+      "private authenticated store-aware bounded operand window owner",
+      "generalized composition witness boundary ancestry",
+      "replay detection"
+    ],
+    "targeted_verification": [
+      "11/11 generalized/currentness",
+      "6/6 replay/history/direct boundary",
+      "3/3 representation/action identity",
+      "2/2 restart/event budget"
+    ],
+    "authority_gain": "NONE"
   },
   "recurse": {
     "next": [
-      "restart/event-budget hostiles",
-      "only then embody production store-aware window owner"
+      "broad C08/acquisition/B2/B3/recursive/arity/boundary lineage",
+      "CSC",
+      "frontier convergence"
     ],
     "promotion": "NONE"
   }

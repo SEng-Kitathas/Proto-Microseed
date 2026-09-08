@@ -1,0 +1,14 @@
+{
+  "pass": 13,
+  "name": "PRODUCTION_RESTART_AND_EVENT_BUDGET_INTEGRITY",
+  "status": "PASS",
+  "evidence": [
+    "test_lang_action_execution_boundary_restart_production.py 2/2 PASS",
+    "pre-boot action boundary has no current authority",
+    "fresh post-boot action boundary reappears after profile/association revalidation",
+    "partial store scan refuses"
+  ],
+  "result": "PRODUCTION_ACTION_BOUNDARY_RECOGNITION_RESTART_SAFE_BOUNDED",
+  "promotion": "NONE",
+  "next": "broad lineage regression and CSC"
+}

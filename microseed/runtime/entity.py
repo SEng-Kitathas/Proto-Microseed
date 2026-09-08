@@ -4896,14 +4896,96 @@ class Microseed:
             "caller_supplied_grouping":"NO","caller_supplied_output_evidence_id":"NO",
         }
 
-    def derive_and_record_current_native_bounded_ordered_composition(self, *, max_records: int = 4096) -> dict[str, Any]:
+    def _derive_current_store_aware_bounded_operand_window(
+        self, *, max_events: int = 65536, min_arity: int = 2, max_arity: int = 4,
+    ) -> dict[str, Any]:
+        """Derive one bounded current token window from authenticated durable chronology.
+
+        Current-runtime opaque-token evidence extends the window. Any represented non-token
+        evidence closes it, preserving the previously earned evidence delimiter semantics.
+        An authenticated current-runtime ``BOUNDED_ACTION_EXECUTED`` store event also closes
+        it, reusing the action-segmentation boundary already owned by passive-transition
+        reasoning. Other store traffic has no grouping authority. No caller boundary id,
+        timeout, phase label, or semantic delimiter is accepted.
+        """
+        bound=int(max_events)
+        if bound<=0:
+            return {"status":"DEFER_UNKNOWN","reason":"OPERAND_WINDOW_EVENT_SCAN_BUDGET_REQUIRED"}
+        boot=self._current_runtime_boot_seq()
+        if boot<0:
+            return {"status":"DEFER_UNKNOWN","reason":"CURRENT_RUNTIME_BOOT_BOUNDARY_REQUIRED"}
+        rows=self.evidence.list()
+        position_by_eid={str(row.get("evidence_id","")):i for i,row in enumerate(rows)}
+        events=[row for row in self.store.events() if int(row.get("seq",-1))>boot]
+        if len(events)>bound:
+            return {"status":"SEARCH_BUDGET_EXHAUSTED_NOT_SATURATED",
+                    "reason":"OPERAND_WINDOW_EVENT_HISTORY_EXCEEDS_SCAN_BUDGET",
+                    "current_event_count":len(events),"max_events":bound}
+        selected=[]; last_boundary=None
+        seen_evidence_events=set(); seen_execution_events=set()
+        for event in events:
+            kind=str(event.get("kind","")); payload=event.get("payload") or {}
+            if kind=="EVIDENCE":
+                eid=str(payload.get("evidence_id",""))
+                if eid in seen_evidence_events:
+                    return {"status":"DEFER_UNKNOWN","reason":"OPERAND_WINDOW_EVIDENCE_EVENT_REPLAY_DETECTED",
+                            "evidence_id":eid,"store_seq":int(event.get("seq",-1))}
+                seen_evidence_events.add(eid)
+                erow=self.evidence.get(eid)
+                if erow is None or str(erow.get("sha256",""))!=str(payload.get("sha256","")):
+                    return {"status":"DEFER_UNKNOWN","reason":"OPERAND_WINDOW_EVIDENCE_EVENT_NOT_EXACT",
+                            "evidence_id":eid,"store_seq":int(event.get("seq",-1))}
+                ep=erow.get("payload") or {}
+                if (ep.get("kind")=="OPAQUE_EXTERNAL_TOKEN_OBSERVATION"
+                        and int(ep.get("runtime_boot_seq",-1))==boot):
+                    selected.append((position_by_eid[eid],erow,int(event["seq"])))
+                else:
+                    selected=[]
+                    last_boundary={
+                        "kind":"REPRESENTED_NON_TOKEN_EVIDENCE",
+                        "store_seq":int(event["seq"]),"evidence_id":eid,
+                        "evidence_sha256":str(erow.get("sha256","")),
+                    }
+            elif kind=="BOUNDED_ACTION_EXECUTED":
+                execution_id=str(payload.get("execution_id",""))
+                if execution_id in seen_execution_events:
+                    return {"status":"DEFER_UNKNOWN","reason":"ACTION_EXECUTION_BOUNDARY_REPLAY_DETECTED",
+                            "execution_id":execution_id,"store_seq":int(event.get("seq",-1))}
+                seen_execution_events.add(execution_id)
+                rec=self.action_closure.executions.get(execution_id)
+                if rec is None or rec.serializable()!=payload:
+                    return {"status":"DEFER_UNKNOWN","reason":"ACTION_EXECUTION_BOUNDARY_NOT_AUTHENTICATED",
+                            "execution_id":execution_id,"store_seq":int(event.get("seq",-1))}
+                selected=[]
+                last_boundary={
+                    "kind":"BOUNDED_ACTION_EXECUTED",
+                    "store_seq":int(event["seq"]),"execution_id":execution_id,
+                    "capability_id":str(payload.get("capability_id","")),
+                    "capability_epoch":int(payload.get("capability_epoch",-1)),
+                }
+        arity=len(selected)
+        base={"derived_arity":arity,"last_boundary":last_boundary,
+              "window_chronology_basis":"AUTHENTICATED_DURABLE_STORE_EVENT_CHRONOLOGY",
+              "caller_supplied_boundary":"NO","semantic_grouping_authority":"NONE",
+              "execution_authority_gain":"NONE"}
+        if arity<int(min_arity):
+            return {**base,"status":"DEFER_UNKNOWN","reason":"BOUNDED_OPERAND_WINDOW_BELOW_MINIMUM"}
+        if arity>int(max_arity):
+            return {**base,"status":"DEFER_UNKNOWN","reason":"BOUNDED_OPERAND_WINDOW_EXCEEDS_MAXIMUM"}
+        return {**base,"status":"CURRENT_STORE_AWARE_BOUNDED_OPERAND_WINDOW",
+                "selected":tuple(selected)}
+
+    def derive_and_record_current_native_bounded_ordered_composition(
+        self, *, max_records: int = 4096, max_events: int = 65536,
+    ) -> dict[str, Any]:
         """Compose one exact bounded contiguous current-token operand window (arity 2..4).
 
-        Arity is derived from the current evidence ledger rather than supplied by the caller.
-        The operand window is the exact contiguous suffix of current-runtime opaque-token
-        evidence. Any represented non-token evidence closes the previous window. Overlong
-        windows fail closed; they are never silently cropped. This is bounded direct
-        operational composition only, not generic/unbounded N-ary composition.
+        Arity is derived from authenticated current-runtime chronology rather than supplied
+        by the caller. The window preserves the earned represented-non-token evidence
+        delimiter and additionally recognizes authenticated ``BOUNDED_ACTION_EXECUTED``
+        store events as operational boundaries. Overlong windows fail closed; they are never
+        silently cropped. This is bounded direct operational composition only, not semantic
+        grouping, effect authorization, or generic/unbounded N-ary composition.
         """
         min_arity=2; max_arity=4
         base={
@@ -4927,23 +5009,13 @@ class Microseed:
         if boot<0:
             return {**base,"status":"DEFER_UNKNOWN","reason":"CURRENT_RUNTIME_BOOT_BOUNDARY_REQUIRED"}
         rows=self.evidence.list()
-        suffix=[]
-        for pos in range(len(rows)-1,-1,-1):
-            row=rows[pos]; payload=row.get("payload") or {}
-            if (payload.get("kind")!="OPAQUE_EXTERNAL_TOKEN_OBSERVATION"
-                    or int(payload.get("runtime_boot_seq",-1))!=boot):
-                break
-            suffix.append((pos,row))
-        selected=tuple(reversed(suffix)); arity=len(selected)
-        if arity<min_arity:
-            return {**base,"status":"DEFER_UNKNOWN",
-                    "reason":"BOUNDED_OPERAND_WINDOW_BELOW_MINIMUM",
-                    "derived_arity":arity}
-        if arity>max_arity:
-            return {**base,"status":"DEFER_UNKNOWN",
-                    "reason":"BOUNDED_OPERAND_WINDOW_EXCEEDS_MAXIMUM",
-                    "derived_arity":arity}
-        for _token_pos,token_row in selected:
+        window=self._derive_current_store_aware_bounded_operand_window(
+            max_events=max_events,min_arity=min_arity,max_arity=max_arity,
+        )
+        if window.get("status")!="CURRENT_STORE_AWARE_BOUNDED_OPERAND_WINDOW":
+            return {**base,**window}
+        selected=tuple(window["selected"]); arity=int(window["derived_arity"])
+        for _token_pos,token_row,_token_store_seq in selected:
             admitted,admission_reason=self._current_opaque_token_evidence_admissibility(token_row,boot)
             if not admitted:
                 return {**base,"status":"DEFER_UNKNOWN","reason":admission_reason,
@@ -4952,7 +5024,7 @@ class Microseed:
 
         components=[]; referent_sigs=[]
         scope_tag="QUALIFICATION_SCOPE:NATIVE_TOKEN_REFERENT"
-        for ordinal,(token_pos,token_row) in enumerate(selected):
+        for ordinal,(token_pos,token_row,token_store_seq) in enumerate(selected):
             token=str((token_row.get("payload") or {}).get("opaque_token",""))
             if not token:
                 return {**base,"status":"DEFER_UNKNOWN","reason":"OPAQUE_TOKEN_CONTENT_REQUIRED",
@@ -5010,6 +5082,7 @@ class Microseed:
                 "token_evidence_ref":[str(token_row["evidence_id"]),str(token_row["sha256"])],
                 "profile_evidence_ref":[str(profile_row["evidence_id"]),str(profile_row["sha256"])],
                 "evidence_list_position":int(token_pos),
+                "token_store_event_seq":int(token_store_seq),
                 "identity_scope":"OPERATIONAL_EQUIVALENCE_CLASS_ONLY",
             })
         if len(set(referent_sigs))!=arity:
@@ -5039,6 +5112,10 @@ class Microseed:
             "association_selection_basis":"UNIQUE_CURRENT_QUALIFIED_NATIVE_TOKEN_REFERENT_ASSOCIATION",
             "identity_scope":"OPERATIONAL_EQUIVALENCE_CLASS_ONLY",
             "window_consumption":"RECORDED_COMPOSITION_EVIDENCE_CLOSES_CURRENT_TOKEN_SUFFIX",
+            "window_chronology_basis":window["window_chronology_basis"],
+            "last_window_boundary":window.get("last_boundary"),
+            "action_execution_boundary_recognition":"AUTHENTICATED_CURRENT_RUNTIME_ONLY",
+            "action_execution_boundary_creation_authority":"NONE",
             "flattening_authority":"NONE","associativity_authority":"NONE",
             "authority_gain":"NONE",
         }
@@ -5068,6 +5145,11 @@ class Microseed:
             "association_selection_basis":payload["association_selection_basis"],
             "identity_scope":payload["identity_scope"],
             "window_consumption":payload["window_consumption"],
+            "window_chronology_basis":payload["window_chronology_basis"],
+            "last_window_boundary":payload["last_window_boundary"],
+            "action_execution_boundary_recognition":payload["action_execution_boundary_recognition"],
+            "action_execution_boundary_creation_authority":payload["action_execution_boundary_creation_authority"],
+            "caller_supplied_boundary":"NO",
             "caller_supplied_arity":"NO","caller_supplied_token_operands":"NO",
             "caller_supplied_operand_order":"NO","caller_supplied_association_ids":"NO",
             "caller_supplied_referent_identity":"NO","caller_supplied_grouping":"NO",
