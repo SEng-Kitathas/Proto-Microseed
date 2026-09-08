@@ -1,0 +1,10 @@
+{
+  "pass": 2,
+  "name": "READ_ONLY_SEGMENT_STATE_PROTOTYPE",
+  "status": "PASS",
+  "evidence": [
+    "unique current boundary derives left/right segment contents without evidence writes or ledger reorder"
+  ],
+  "result": "CURRENT_RETROSPECTIVE_SEGMENT_STATE_PROTOTYPE",
+  "authority_gain": "NONE"
+}

@@ -1,0 +1,11 @@
+{
+  "schema": "r44.ai_coprocessor.v1",
+  "status": "ACTIVE_BOUNDED",
+  "uses": [
+    {
+      "source": "PCMMAD Lab GPT-5.6 Sol",
+      "authority": "DONOR_ONLY_NO_INDEPENDENT_PROJECT_AUTHORITY",
+      "use": "consumer-gap localization, discriminator design, hostile synthesis"
+    }
+  ]
+}

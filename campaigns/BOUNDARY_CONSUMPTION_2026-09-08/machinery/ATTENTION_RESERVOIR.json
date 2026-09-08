@@ -1,0 +1,27 @@
+{
+  "schema": "r44.attention_reservoir.v1",
+  "status": "ACTIVE",
+  "items": [
+    {
+      "id": "BC-01",
+      "priority": "P0",
+      "state": "RESOLVED_NEGATIVE",
+      "signal": "no current consumer owner",
+      "reason": "P01"
+    },
+    {
+      "id": "BC-02",
+      "priority": "P0",
+      "state": "SURVIVED_READ_ONLY",
+      "signal": "segment digests reuse earned bounded composition identity",
+      "reason": "P02-P03"
+    },
+    {
+      "id": "BC-03",
+      "priority": "P0",
+      "state": "NEXT",
+      "signal": "multiple current boundary witnesses require consumption lineage",
+      "reason": "must avoid caller-selected witness"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "schema": "microseed.boundary_consumption_campaign.v1",
+  "campaign": "BOUNDARY_CONSUMPTION_2026-09-08",
+  "status": "ACTIVE_READ_ONLY_BRIDGE_SURVIVED",
+  "branch": "research/grounded-language-boundary-consumption-v1",
+  "base_head": "290e8d8fab52d5a776b3de59f6d2ed9f56b4a7b0",
+  "pass_ceiling": 20,
+  "completed_passes": 4,
+  "current_pass": 5,
+  "current_discriminator": "oldest current unconsumed boundary durable segment-state witness",
+  "promotion": "NONE"
+}

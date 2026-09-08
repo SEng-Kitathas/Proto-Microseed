@@ -1,0 +1,10 @@
+{
+  "pass": 4,
+  "name": "MULTIPLE_BOUNDARY_SELECTION_GAP",
+  "status": "VERIFIED_NEGATIVE",
+  "evidence": [
+    "two current boundary witnesses cause read-only prototype to DEFER_UNKNOWN rather than guess"
+  ],
+  "result": "CURRENT_BOUNDARY_CONSUMPTION_LINEAGE_REQUIRED",
+  "next": "oldest current unconsumed boundary selected by persisted evidence chronology, not caller id or invocation timing"
+}

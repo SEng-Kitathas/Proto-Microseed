@@ -1,0 +1,20 @@
+{
+  "schema": "r44.semantic_helix.v1",
+  "status": "ACTIVE",
+  "discriminators": [
+    {
+      "id": "CONSUME-01",
+      "question": "Can a current boundary witness derive segment content without rewriting history?",
+      "evidence": [
+        "P01-P04",
+        "3/3 prototype + 1/1 owner gap"
+      ],
+      "interpretations": [
+        "yes read-only",
+        "durable consumer needs explicit consumption lineage and chronology-owned selection"
+      ],
+      "next_discriminator": "oldest-current-unconsumed durable segment-state witness",
+      "authority": "RESEARCH_ONLY"
+    }
+  ]
+}

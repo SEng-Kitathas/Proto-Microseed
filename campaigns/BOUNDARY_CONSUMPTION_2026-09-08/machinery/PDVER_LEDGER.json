@@ -1,0 +1,34 @@
+{
+  "schema": "r44.pdver.campaign.v1",
+  "status": "ACTIVE",
+  "probe": {
+    "observed": [
+      "current boundary witness has no consumer",
+      "segment content identity can be reconstructed exactly from validated boundary components",
+      "multiple current witnesses are selection-ambiguous without consumption lineage"
+    ],
+    "unknowns": [
+      "durable segment-state currentness/forgery/restart",
+      "whether oldest-unconsumed chronology selection survives delayed invocation"
+    ]
+  },
+  "derive": {
+    "survivor": "OLDEST_CURRENT_UNCONSUMED_STRUCTURAL_BOUNDARY_TO_RETROSPECTIVE_SEGMENT_STATE",
+    "rejected": [
+      "caller boundary id",
+      "latest-by-invocation selection",
+      "writing ordinary historical bounded-composition rows"
+    ],
+    "reason": "preserved evidence chronology can own deterministic consumption order without rewriting past events"
+  },
+  "verify": {},
+  "embody": {},
+  "recurse": {
+    "next": [
+      "seal negative/prototype",
+      "prototype durable state + exact validator",
+      "attack delayed invocation/multiple boundaries/forgery/restart"
+    ],
+    "promotion": "NONE"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "pass": 3,
+  "name": "SEGMENT_CONTENT_IDENTITY_EQUIVALENCE",
+  "status": "PASS",
+  "evidence": [
+    "prototype left digest exactly matches earned bounded composition for R4,T9",
+    "prototype right digest exactly matches earned bounded composition for R4,K7"
+  ],
+  "result": "SEGMENT_CONTENT_REUSES_EARNED_ORDERED_EVIDENCE_TUPLE_IDENTITY"
+}
