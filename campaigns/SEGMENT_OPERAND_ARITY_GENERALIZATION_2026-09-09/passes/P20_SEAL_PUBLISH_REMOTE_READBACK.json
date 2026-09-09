@@ -1,25 +1,28 @@
 {
-  "campaign": "SEGMENT_OPERAND_ARITY_GENERALIZATION_2026-09-09",
-  "status": "COMPLETE_SEALED_PUBLISHED",
-  "completed_passes": 20,
-  "base_receipt": "99269989b6c46422799898ab5c34b848db413d4f",
-  "prior_science": "500ac5de919f770f79e675002a87a366213836c7",
-  "earned_claim": "BOUNDED_STRUCTURAL_SEGMENT_STATE_AS_REUSABLE_GROUPED_RECURSIVE_COMPOSITION_OPERANDS_WITH_CHILD_LEAF_ARITY_2_TO_4",
+  "pass": 20,
+  "name": "SEAL_PUBLISH_REMOTE_READBACK",
+  "status": "COMPLETE",
+  "branch": "research/grounded-language-segment-operand-arity-v1",
+  "science_seal": "38bf32af09962f7d4718ed0d1dbb0fbf6fc2905a",
+  "remote_science_readback": {
+    "status": "EXACT",
+    "ls_remote_head": "38bf32af09962f7d4718ed0d1dbb0fbf6fc2905a"
+  },
   "verification": {
     "prototype": "18/18 PASS",
     "production": "15/15 PASS",
     "hostiles": "5/5 PASS",
     "widened": "86/86 PASS",
-    "language": "224/224 PASS before new ceiling file",
-    "current_ceiling": "4/4 PASS",
-    "reconstructed": "228/228 PASS",
+    "grounded_language": "224/224 PASS + current campaign ceiling 4/4 PASS",
+    "reconstructed_lineage": "228/228 PASS",
     "final_integrated": "241/241 PASS",
-    "raw_test_entity": "7 teardown-only WinError32 failures + 2 PASS",
     "compileall": "PASS",
-    "diff_check": "PASS",
+    "git_diff_check": "PASS",
     "anti_smuggling": "PASS",
-    "CSC": "PASS_BOUNDED"
+    "CSC": "PASS_BOUNDED",
+    "campaign_pass_gate": "PASS_SEAL_READY"
   },
+  "earned_claim": "BOUNDED_STRUCTURAL_SEGMENT_STATE_AS_REUSABLE_GROUPED_RECURSIVE_COMPOSITION_OPERANDS_WITH_CHILD_LEAF_ARITY_2_TO_4",
   "authority": {
     "historical_event": "NONE",
     "flattening": "NONE",
@@ -42,7 +45,5 @@
   ],
   "next_frontier": "STRUCTURAL_SEGMENT_RECURSIVE_PARENT_STATE_AS_REUSABLE_COMPOSITION_OPERAND_WITHOUT_FLATTENING_OR_ASSOCIATIVITY",
   "orthogonal_open_seam": "ENDOGENOUS_BOUNDARY_MONITORING_AND_CONSUMPTION_SCHEDULING",
-  "science_seal": "38bf32af09962f7d4718ed0d1dbb0fbf6fc2905a",
-  "research_branch": "research/grounded-language-segment-operand-arity-v1",
-  "remote_science_readback": "EXACT"
+  "receipt_note": "This receipt records the exact remote readback of the P19 science seal. The commit containing this P20 receipt is verified separately after commit/push to avoid self-referential hashing."
 }
