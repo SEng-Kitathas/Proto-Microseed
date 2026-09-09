@@ -1,55 +1,65 @@
 {
-  "status": "OPEN",
+  "status": "P13_ALL_LISTED_ATTACKS_KILLED_ON_TARGETED_SURFACE",
   "attacks": [
     {
       "id": "SOA-H01",
       "claim": "parent recursive child count must grow with segment-side leaf arity",
-      "expected": "KILL: parent remains exactly two grouped children"
+      "expected": "KILL: parent remains exactly two grouped children",
+      "result": "KILLED_PARENT_REMAINS_EXACT_TWO_GROUPED_CHILDREN"
     },
     {
       "id": "SOA-H02",
       "claim": "mixed arity reuse requires flattening child leaves",
-      "expected": "KILL: nested child digest remains the operand"
+      "expected": "KILL: nested child digest remains the operand",
+      "result": "KILLED_PARENT_USES_CHILD_DIGESTS_NOT_FLATTENED_LEAVES"
     },
     {
       "id": "SOA-H03",
       "claim": "one passing mixed shape generalizes all 2..4 shapes",
-      "expected": "KILL: pressure every shape independently"
+      "expected": "KILL: pressure every shape independently",
+      "result": "KILLED_ALL_EIGHT_MIXED_SHAPES_PRESSURED_INDEPENDENTLY"
     },
     {
       "id": "SOA-H04",
       "claim": "content equivalence creates historical composition-event authority",
-      "expected": "KILL"
+      "expected": "KILL",
+      "result": "KILLED_RETROSPECTIVE_STATE_HISTORICAL_AUTHORITY_NONE"
     },
     {
       "id": "SOA-H05",
       "claim": "content reuse earns associativity",
-      "expected": "KILL"
+      "expected": "KILL",
+      "result": "KILLED_ASSOCIATIVITY_AUTHORITY_NONE"
     },
     {
       "id": "SOA-H06",
       "claim": "caller may supply split/arity/grouping",
-      "expected": "KILL"
+      "expected": "KILL",
+      "result": "KILLED_API_HAS_MAX_RECORDS_ONLY"
     },
     {
       "id": "SOA-H07",
       "claim": "identical child content can manufacture two operands",
-      "expected": "KILL"
+      "expected": "KILL",
+      "result": "KILLED_IDENTICAL_4_PLUS_4_REFUSED"
     },
     {
       "id": "SOA-H08",
       "claim": "stale or forged ancestry remains reusable",
-      "expected": "KILL"
+      "expected": "KILL",
+      "result": "KILLED_FORGERY_AND_CURRENTNESS_HOSTILES"
     },
     {
       "id": "SOA-H09",
       "claim": "budget truncation means saturation",
-      "expected": "KILL"
+      "expected": "KILL",
+      "result": "KILLED_BUDGET_EXHAUSTION_NOT_SATURATION"
     },
     {
       "id": "SOA-H10",
       "claim": "content ownership earns scheduling/EFFECT authority",
-      "expected": "KILL"
+      "expected": "KILL",
+      "result": "KILLED_NO_AUTO_INVOCATION_SCHEDULER_OR_EFFECT_AUTHORITY"
     }
   ]
 }

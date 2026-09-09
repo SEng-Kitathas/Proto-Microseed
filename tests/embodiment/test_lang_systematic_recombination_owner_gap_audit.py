@@ -15,12 +15,15 @@ def test_current_composition_owner_inventory_remains_explicit_and_bounded():
         'def _native_structural_segment_b2_child_carriers(',
         'def _validate_current_native_structural_segment_b2_recursive_composition_state(',
         'def derive_and_record_current_native_structural_segment_b2_recursive_composition(',
+        'def _native_structural_segment_bounded_child_carriers(',
+        'def _validate_current_native_structural_segment_bounded_recursive_composition_state(',
+        'def derive_and_record_current_native_structural_segment_bounded_recursive_composition(',
         'def derive_and_record_current_native_recursive_b2_ordered_composition(',
     ]
     assert r['historically_localized_missing_mechanism']=='MICROSEED_OWNED_BOUNDED_ORDERED_COMPOSITION_OPERATOR'
-    assert r['binding_now_embodied']=='YES_BOUNDED_B2_PLUS_DIRECT_B3_PLUS_BOUNDED_ARITY_2_TO_4_PLUS_FIXED_DEPTH_ONE_RECURSIVE_PLUS_B2_COMPATIBLE_RETROSPECTIVE_SEGMENT_REUSE'
-    assert r['structural_segment_operand_scope']=='B2_COMPATIBLE_2_PLUS_2_RETROSPECTIVE_SIDES_ONLY'
-    assert r['generic_structural_segment_operand']=='NOT_EARNED'
+    assert r['binding_now_embodied']=='YES_BOUNDED_B2_PLUS_DIRECT_B3_PLUS_BOUNDED_ARITY_2_TO_4_PLUS_FIXED_DEPTH_ONE_RECURSIVE_PLUS_RETROSPECTIVE_SEGMENT_REUSE_WITH_CHILD_LEAF_ARITY_2_TO_4'
+    assert r['structural_segment_operand_scope']=='BOUNDED_RETROSPECTIVE_SIDES_LEAF_ARITY_2_TO_4_WITH_EXACT_TWO_GROUPED_CHILDREN_DEPTH_ONE'
+    assert r['generic_unbounded_structural_segment_operand']=='NOT_EARNED'
     assert r['bounded_generalized_arity']=='2_TO_4_ONLY'
     assert r['direct_b3_arity']=='3_ONLY'
     assert r['recursive_depth']=='1_ONLY'

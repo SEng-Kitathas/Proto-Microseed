@@ -23,9 +23,11 @@ def test_verified_owner_gap_is_closed_only_by_new_explicit_segment_recursive_own
         assert 'OWNED_NATIVE_STRUCTURAL_SEGMENT_COMPOSITION_STATE' not in recursive_src
         assert 'OWNED_NATIVE_STRUCTURAL_SEGMENT_COMPOSITION_STATE' not in direct_src
 
-        # Exactly one explicit new consumer surface now admits the segment-state kind.
-        new_src=inspect.getsource(Microseed.derive_and_record_current_native_structural_segment_b2_recursive_composition)
-        assert 'OWNED_NATIVE_STRUCTURAL_SEGMENT_COMPOSITION_STATE' in new_src
+        # Two explicit retrospective consumer surfaces now admit segment state: sealed 2+2 and mixed bounded 2..4. Historical/direct owners remain unchanged.
+        b2_src=inspect.getsource(Microseed.derive_and_record_current_native_structural_segment_b2_recursive_composition)
+        bounded_src=inspect.getsource(Microseed.derive_and_record_current_native_structural_segment_bounded_recursive_composition)
+        assert 'OWNED_NATIVE_STRUCTURAL_SEGMENT_COMPOSITION_STATE' in b2_src
+        assert 'OWNED_NATIVE_STRUCTURAL_SEGMENT_COMPOSITION_STATE' in bounded_src
         out=m.derive_and_record_current_native_structural_segment_b2_recursive_composition(max_records=65536)
         assert out['status']=='CURRENT_NATIVE_STRUCTURAL_SEGMENT_B2_RECURSIVE_COMPOSITION_STATE_RECORDED',out
         rows=m.evidence.list()
@@ -39,6 +41,6 @@ def test_verified_owner_gap_is_closed_only_by_new_explicit_segment_recursive_own
 
         full_src=inspect.getsource(Microseed)
         refs=[line.strip() for line in full_src.splitlines() if 'OWNED_NATIVE_STRUCTURAL_SEGMENT_COMPOSITION_STATE' in line]
-        assert len(refs)==4,refs  # validator, recorder scan, recorder payload, explicit new consumer scan
+        assert len(refs)==5,refs  # validator, recorder scan, recorder payload, sealed B2 consumer scan, mixed bounded consumer scan
     finally:
         _close(m);td.cleanup()

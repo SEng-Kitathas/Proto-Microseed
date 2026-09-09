@@ -1,0 +1,11 @@
+{
+  "pass": 6,
+  "name": "OWNER_NON_OVERLAP_AND_CHRONOLOGY",
+  "status": "PASS",
+  "evidence": [
+    "exact 2+2 refused by new owner and consumed by sealed B2 owner",
+    "multiple mixed states consumed oldest-current-unconsumed by evidence chronology"
+  ],
+  "result": "B2_OWNER_AND_MIXED_BOUNDED_OWNER_HAVE_EXPLICIT_NON_OVERLAPPING_SCOPE",
+  "promotion": "NONE"
+}

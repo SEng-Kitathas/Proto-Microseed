@@ -1,0 +1,12 @@
+{
+  "pass": 10,
+  "name": "GROUPING_INDEPENDENCE_AND_NO_FLATTENING",
+  "status": "PASS",
+  "evidence": [
+    "identical 4+4 child content refused",
+    "parent content contains child digests only; leaf referent list remains inside children",
+    "child leaf arity remains distinct from parent child count"
+  ],
+  "result": "TWO_GROUPED_CHILDREN_PRESERVED_WITHOUT_FLATTENING_OR_MANUFACTURED_INDEPENDENCE",
+  "promotion": "NONE"
+}

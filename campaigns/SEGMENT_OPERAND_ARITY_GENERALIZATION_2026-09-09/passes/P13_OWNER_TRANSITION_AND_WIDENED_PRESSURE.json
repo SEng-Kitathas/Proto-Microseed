@@ -1,0 +1,14 @@
+{
+  "pass": 13,
+  "name": "OWNER_TRANSITION_AND_WIDENED_PRESSURE",
+  "status": "PASS",
+  "evidence": [
+    "old B2 segment helper/validator/consumer, historical recursive-B2 owner, and direct bounded owner byte-identical to base receipt",
+    "first widened run 84/86: only stale owner inventories",
+    "inventories evolved to require new owner while preserving old-owner refusal",
+    "second widened run 86/86 PASS"
+  ],
+  "scar": "NEGATIVE_OWNER_INVENTORIES_BECOME_STALE_AFTER_LAWFUL_NEW_OWNER_AND_MUST_EVOLVE_WITHOUT_ERASING_PRIOR_NEGATIVE_STATE",
+  "result": "OWNER_TRANSITION_EXPLICIT_AND_WIDENED_PRESSURE_GREEN_86_OF_86",
+  "promotion": "NONE"
+}

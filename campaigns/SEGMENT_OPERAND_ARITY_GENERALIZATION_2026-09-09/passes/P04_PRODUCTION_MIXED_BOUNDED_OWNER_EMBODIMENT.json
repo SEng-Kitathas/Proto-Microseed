@@ -1,0 +1,11 @@
+{
+  "pass": 4,
+  "name": "PRODUCTION_MIXED_BOUNDED_OWNER_EMBODIMENT",
+  "status": "PASS",
+  "evidence": [
+    "new explicit mixed/bounded owner only; sealed 2+2 owner excluded by law",
+    "test_lang_segment_operand_bounded_arity_production.py 15/15 PASS"
+  ],
+  "result": "MIXED_BOUNDED_SEGMENT_SIDE_LEAF_ARITY_2_TO_4_EMBODIED_AS_TWO_GROUPED_DEPTH_ONE_CHILDREN",
+  "promotion": "NONE"
+}

@@ -1,0 +1,10 @@
+{
+  "pass": 5,
+  "name": "ALL_MIXED_SHAPES_PRODUCTION",
+  "status": "PASS",
+  "evidence": [
+    "2+3,3+2,3+3,2+4,4+2,3+4,4+3,4+4 independently PASS"
+  ],
+  "result": "ALL_REQUIRED_MIXED_SHAPES_ADMITTED_WITH_PARENT_CHILD_COUNT_2_AND_DEPTH_1",
+  "promotion": "NONE"
+}

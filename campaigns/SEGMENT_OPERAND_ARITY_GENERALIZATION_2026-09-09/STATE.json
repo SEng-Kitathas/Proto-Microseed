@@ -1,10 +1,10 @@
 {
   "campaign": "SEGMENT_OPERAND_ARITY_GENERALIZATION_2026-09-09",
-  "status": "ACTIVE_P03_PROTOTYPE_VERIFIED",
+  "status": "ACTIVE_P13_PRODUCTION_PRESSURE_GREEN",
   "base_receipt": "99269989b6c46422799898ab5c34b848db413d4f",
   "prior_science": "500ac5de919f770f79e675002a87a366213836c7",
-  "completed_passes": 3,
-  "current_pass": 4,
-  "current_discriminator": "PRODUCTION_BOUNDED_MIXED_ARITY_SEGMENT_OPERAND_OWNER_WITHOUT_OVERLAP_OR_FLATTENING",
+  "completed_passes": 13,
+  "current_pass": 14,
+  "current_discriminator": "BROAD_CURRENT_LANGUAGE_LINEAGE_AND_CEILING_CONVERGENCE",
   "promotion": "NONE"
 }

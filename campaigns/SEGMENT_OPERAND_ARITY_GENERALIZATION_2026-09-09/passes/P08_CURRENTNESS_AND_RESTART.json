@@ -1,0 +1,11 @@
+{
+  "pass": 8,
+  "name": "CURRENTNESS_AND_RESTART",
+  "status": "PASS",
+  "evidence": [
+    "dependent leaf currentness drift invalidates",
+    "restart refuses old boot; fresh reacquisition rederives same mixed parent content"
+  ],
+  "result": "MIXED_BOUNDED_REUSE_REQUIRES_CURRENT_EXACT_ANCESTRY_AND_SURVIVES_RESTART_BY_FRESH_REDERIVATION",
+  "promotion": "NONE"
+}

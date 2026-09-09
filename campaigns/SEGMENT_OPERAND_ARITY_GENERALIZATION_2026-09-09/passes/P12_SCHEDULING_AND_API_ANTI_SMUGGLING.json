@@ -1,0 +1,12 @@
+{
+  "pass": 12,
+  "name": "SCHEDULING_AND_API_ANTI_SMUGGLING",
+  "status": "PASS",
+  "evidence": [
+    "consumer API exposes max_records only",
+    "segment-state creation does not auto-invoke mixed/bounded consumer",
+    "caller cannot supply split/arity/grouping/output id"
+  ],
+  "result": "CONTENT_REUSE_OWNERSHIP_REMAINS_SEPARATE_FROM_SELECTION_AND_SCHEDULING",
+  "promotion": "NONE"
+}

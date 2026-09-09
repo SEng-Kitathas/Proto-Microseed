@@ -1,0 +1,10 @@
+{
+  "pass": 11,
+  "name": "BUDGET_COMPLETENESS",
+  "status": "PASS",
+  "evidence": [
+    "evidence truncation returns SEARCH_BUDGET_EXHAUSTED_NOT_SATURATED"
+  ],
+  "result": "SCAN_BUDGET_CANNOT_FAKE_SATURATION",
+  "promotion": "NONE"
+}

@@ -1,0 +1,10 @@
+{
+  "pass": 9,
+  "name": "REPRESENTATION_INVARIANCE",
+  "status": "PASS",
+  "evidence": [
+    "token permutation and sensor transforms preserve 3+4 parent content identity"
+  ],
+  "result": "MIXED_BOUNDED_PARENT_CONTENT_IS_OPERATIONAL_REPRESENTATION_INVARIANT",
+  "promotion": "NONE"
+}

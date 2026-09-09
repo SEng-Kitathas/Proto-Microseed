@@ -1,0 +1,11 @@
+{
+  "pass": 7,
+  "name": "FORGERY_AND_CONTENT_REDERIVATION",
+  "status": "PASS",
+  "evidence": [
+    "copied valid payload under alternate id refused",
+    "self-consistent forged id with false child_leaf_arities rejected by rederivation"
+  ],
+  "result": "DETERMINISTIC_IDENTITY_AND_CURRENT_CONTENT_REDERIVATION_CLOSE_REPLAY_FORGERY",
+  "promotion": "NONE"
+}
