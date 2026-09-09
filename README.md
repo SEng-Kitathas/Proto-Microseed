@@ -10,12 +10,12 @@ If you are trying to understand what Microseed *is*, start at [`START_HERE.md`](
 
 The default `main` branch is the conservative public/canonical surface and does **not** automatically absorb every earned research result. The current remote-exact research frontier is:
 
-- branch: `research/grounded-language-boundary-occasion-v1`
-- science seal: `d87a45a5886f5b5b4de26315e468be39a0717370`
-- campaign completion/readback head: `290e8d8fab52d5a776b3de59f6d2ed9f56b4a7b0`
-- current earned frontier: bounded retrospective structural boundary-occasion ownership for grounded composition; durable witness consumption without ledger rewrite is the next frontier, while endogenous boundary-monitoring/scheduling remains orthogonally open
+- branch: `research/grounded-language-boundary-consumption-v1`
+- science seal: `7ba1010be8201e71fbad922b7b1068491f996886`
+- campaign completion/readback head: `baf2d239f2a98241ac9ceff41b2bb42b95913900`
+- current earned frontier: bounded append-only structural segment-state consumption from a current structural boundary witness; reusable segment-state composition is the next frontier, while endogenous boundary monitoring/consumer scheduling remains orthogonally open
 
-Recent earned research on that lineage includes native grounded token↔referent association, bounded held-out B2 recombination, fixed-depth recursive reuse, distinct-leaf B3, one bounded direct composition owner deriving arity 2–4 without caller-supplied arity, authenticated action-execution boundary recognition, and bounded retrospective structural boundary-occasion ownership when exactly one lawful split is compelled by current grounded structure. These are research results, not a claim that generic AGI, language competence, semantic ontology, unrestricted planning, or unbounded composition has been completed.
+Recent earned research on that lineage includes native grounded token↔referent association, bounded held-out B2 recombination, fixed-depth recursive reuse, distinct-leaf B3, one bounded direct composition owner deriving arity 2–4 without caller-supplied arity, authenticated action-execution boundary recognition, bounded retrospective structural boundary-occasion ownership when exactly one lawful split is compelled by current grounded structure, and append-only structural segment-state consumption that materializes current retrospective segment state without rewriting historical composition events. These are research results, not a claim that generic AGI, language competence, semantic ontology, unrestricted planning, or unbounded composition has been completed.
 
 ---
 
