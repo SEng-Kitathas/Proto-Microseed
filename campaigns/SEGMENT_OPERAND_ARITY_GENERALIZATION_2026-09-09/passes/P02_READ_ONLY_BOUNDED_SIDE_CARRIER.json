@@ -1,0 +1,12 @@
+{
+  "pass": 2,
+  "name": "READ_ONLY_BOUNDED_SIDE_CARRIER",
+  "status": "PASS",
+  "evidence": [
+    "all 9 shapes including 2+2 control derive split endogenously",
+    "each side digest equals existing direct bounded ORDERED_EVIDENCE_TUPLE content identity",
+    "carrier is read-only and preserves exact segment/boundary/component lineage"
+  ],
+  "result": "CURRENT_SEGMENT_SIDES_ARITY_2_TO_4_HAVE_LAWFUL_GROUPED_CHILD_CARRIER_CONTENT",
+  "promotion": "NONE"
+}

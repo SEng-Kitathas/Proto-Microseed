@@ -1,0 +1,16 @@
+{
+  "pass": 1,
+  "name": "OWNER_GAP_LOCALIZATION",
+  "status": "PASS",
+  "evidence": [
+    "test_lang_segment_operand_arity_owner_gap_audit.py 2/2 PASS"
+  ],
+  "result": "GAP_LOCALIZED_TO_B2_ONLY_INTERNAL_CHILD_PROJECTION_NOT_PARENT_CHILD_COUNT_OR_BOUNDED_CONTENT_LAW",
+  "facts": [
+    "direct bounded content already owns arity 2..4",
+    "segment-state LEFT/RIGHT content already carries derived arity 2..4",
+    "current segment B2 helper hard-requires internal child arity 2",
+    "recursive parent correctly remains child_arity=2 and depth=1"
+  ],
+  "promotion": "NONE"
+}

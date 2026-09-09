@@ -1,0 +1,55 @@
+{
+  "status": "OPEN",
+  "attacks": [
+    {
+      "id": "SOA-H01",
+      "claim": "parent recursive child count must grow with segment-side leaf arity",
+      "expected": "KILL: parent remains exactly two grouped children"
+    },
+    {
+      "id": "SOA-H02",
+      "claim": "mixed arity reuse requires flattening child leaves",
+      "expected": "KILL: nested child digest remains the operand"
+    },
+    {
+      "id": "SOA-H03",
+      "claim": "one passing mixed shape generalizes all 2..4 shapes",
+      "expected": "KILL: pressure every shape independently"
+    },
+    {
+      "id": "SOA-H04",
+      "claim": "content equivalence creates historical composition-event authority",
+      "expected": "KILL"
+    },
+    {
+      "id": "SOA-H05",
+      "claim": "content reuse earns associativity",
+      "expected": "KILL"
+    },
+    {
+      "id": "SOA-H06",
+      "claim": "caller may supply split/arity/grouping",
+      "expected": "KILL"
+    },
+    {
+      "id": "SOA-H07",
+      "claim": "identical child content can manufacture two operands",
+      "expected": "KILL"
+    },
+    {
+      "id": "SOA-H08",
+      "claim": "stale or forged ancestry remains reusable",
+      "expected": "KILL"
+    },
+    {
+      "id": "SOA-H09",
+      "claim": "budget truncation means saturation",
+      "expected": "KILL"
+    },
+    {
+      "id": "SOA-H10",
+      "claim": "content ownership earns scheduling/EFFECT authority",
+      "expected": "KILL"
+    }
+  ]
+}

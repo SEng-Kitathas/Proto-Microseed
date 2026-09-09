@@ -1,0 +1,13 @@
+{
+  "pass": 3,
+  "name": "ALL_SHAPE_GROUPED_PARENT_PROTOTYPE",
+  "status": "PASS",
+  "evidence": [
+    "test_lang_segment_operand_bounded_arity_carrier_prototype.py 18/18 PASS",
+    "2+3,3+2,3+3,2+4,4+2,3+4,4+3,4+4 independently PASS",
+    "identical 4+4 child content refused"
+  ],
+  "result": "BOUNDED_SEGMENT_CHILD_LEAF_ARITY_CAN_VARY_2_TO_4_WHILE_PARENT_REMAINS_TWO_GROUPED_CHILDREN_DEPTH_ONE_WITHOUT_FLATTENING",
+  "scar": "initial 3+3 fixture ABC|ABC was correctly refused because child contents were identical; fixture changed to ABC|ACB rather than weakening independence law",
+  "promotion": "NONE"
+}
