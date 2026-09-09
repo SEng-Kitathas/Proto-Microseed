@@ -1,12 +1,13 @@
 {
   "schema": "microseed.boundary_consumption_campaign.v1",
   "campaign": "BOUNDARY_CONSUMPTION_2026-09-08",
-  "status": "PASS_GATE_SEAL_READY",
+  "status": "COMPLETE_SEALED_PUBLISHED",
   "branch": "research/grounded-language-boundary-consumption-v1",
   "base_head": "290e8d8fab52d5a776b3de59f6d2ed9f56b4a7b0",
   "pass_ceiling": 20,
-  "completed_passes": 19,
+  "completed_passes": 20,
   "current_pass": 20,
-  "current_discriminator": "seal/publish/remote-readback/rollover continuity",
-  "promotion": "NONE"
+  "current_discriminator": "STRUCTURAL_SEGMENT_STATE_AS_REUSABLE_COMPOSITION_OPERAND",
+  "promotion": "NONE",
+  "science_seal_commit": "7ba1010be8201e71fbad922b7b1068491f996886"
 }

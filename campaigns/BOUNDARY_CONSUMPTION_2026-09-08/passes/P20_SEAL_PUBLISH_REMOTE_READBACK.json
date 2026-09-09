@@ -1,0 +1,37 @@
+{
+  "pass": 20,
+  "name": "SEAL_PUBLISH_REMOTE_READBACK",
+  "status": "COMPLETE",
+  "science_seal_commit": "7ba1010be8201e71fbad922b7b1068491f996886",
+  "branch": "research/grounded-language-boundary-consumption-v1",
+  "remote_readback": {
+    "HEAD": "7ba1010be8201e71fbad922b7b1068491f996886",
+    "origin_branch": "7ba1010be8201e71fbad922b7b1068491f996886",
+    "ls_remote": "7ba1010be8201e71fbad922b7b1068491f996886",
+    "equal": "YES"
+  },
+  "earned_claim": "BOUNDED_APPEND_ONLY_STRUCTURAL_SEGMENT_STATE_CONSUMPTION",
+  "verification": {
+    "fresh_integrated_breadth": "163/163 PASS",
+    "compileall": "PASS",
+    "diff_check": "PASS",
+    "anti_smuggling": "PASS",
+    "CSC": "PASS_BOUNDED",
+    "campaign_pass_gate": "PASS_SEAL_READY"
+  },
+  "authority": {
+    "canon_promotion": "NONE",
+    "segment_state_as_reusable_composition_operand": "NOT_EARNED",
+    "endogenous_boundary_monitoring_consumer_scheduling": "NOT_EARNED",
+    "historical_composition_event_authority": "NONE",
+    "semantic_grouping": "NONE",
+    "effect_authority": "NONE"
+  },
+  "ceilings": [
+    "STRUCTURAL_SEGMENT_STATE != REUSABLE_COMPOSITION_OPERAND",
+    "APPEND_ONLY_RETROSPECTIVE_SEGMENT_STATE != HISTORICAL_COMPOSITION_EVENT",
+    "CONSUMPTION_CONTENT_OWNERSHIP != ENDOGENOUS_CONSUMER_SCHEDULING"
+  ],
+  "next_frontier": "STRUCTURAL_SEGMENT_STATE_AS_REUSABLE_COMPOSITION_OPERAND",
+  "orthogonal_open_seam": "ENDOGENOUS_BOUNDARY_MONITORING_AND_CONSUMPTION_SCHEDULING"
+}

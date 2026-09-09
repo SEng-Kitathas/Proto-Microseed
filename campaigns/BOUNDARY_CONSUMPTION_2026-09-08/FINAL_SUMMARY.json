@@ -1,0 +1,20 @@
+{
+  "schema": "microseed.boundary_consumption_campaign.final.v1",
+  "status": "COMPLETE_SEALED_PUBLISHED",
+  "campaign": "BOUNDARY_CONSUMPTION_2026-09-08",
+  "passes_completed": 20,
+  "science_seal_commit": "7ba1010be8201e71fbad922b7b1068491f996886",
+  "earned": "BOUNDED_APPEND_ONLY_STRUCTURAL_SEGMENT_STATE_CONSUMPTION",
+  "next_frontier": "STRUCTURAL_SEGMENT_STATE_AS_REUSABLE_COMPOSITION_OPERAND",
+  "orthogonal_open_seam": "ENDOGENOUS_BOUNDARY_MONITORING_AND_CONSUMPTION_SCHEDULING",
+  "canon_promotion": "NONE",
+  "remote_exact_science_seal": "YES",
+  "verification": {
+    "fresh_integrated_breadth": "163/163 PASS",
+    "compileall": "PASS",
+    "diff_check": "PASS",
+    "anti_smuggling": "PASS",
+    "CSC": "PASS_BOUNDED",
+    "campaign_pass_gate": "PASS_SEAL_READY"
+  }
+}

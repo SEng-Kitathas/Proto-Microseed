@@ -42,13 +42,11 @@
   },
   "recurse": {
     "next": [
-      "seal local science commit",
-      "publish/readback",
-      "write P20 completion receipt",
-      "advance rollover continuity/RD"
+      "advance rollover continuity/RD",
+      "next research frontier: structural segment state as reusable composition operand"
     ],
     "promotion": "NONE",
-    "earned_candidate": "BOUNDED_APPEND_ONLY_STRUCTURAL_SEGMENT_STATE_CONSUMPTION",
-    "next_frontier": "STRUCTURAL_SEGMENT_STATE_AS_REUSABLE_COMPOSITION_OPERAND"
+    "science_seal_commit": "7ba1010be8201e71fbad922b7b1068491f996886",
+    "remote_exact": "YES"
   }
 }
