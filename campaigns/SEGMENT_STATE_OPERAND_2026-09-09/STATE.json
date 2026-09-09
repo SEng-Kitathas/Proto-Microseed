@@ -1,12 +1,12 @@
 {
   "schema": "microseed.segment_state_operand_campaign.v1",
   "campaign": "SEGMENT_STATE_OPERAND_2026-09-09",
-  "status": "ACTIVE_OWNER_GAP_VERIFIED",
+  "status": "ACTIVE_READ_ONLY_CARRIER_VERIFIED",
   "branch": "research/grounded-language-segment-state-operand-v1",
   "base_head": "baf2d239f2a98241ac9ceff41b2bb42b95913900",
   "pass_ceiling": 20,
-  "completed_passes": 1,
-  "current_pass": 2,
-  "current_discriminator": "READ_ONLY_EXPLICIT_SEGMENT_SIDE_CHILD_CARRIER",
+  "completed_passes": 2,
+  "current_pass": 3,
+  "current_discriminator": "SEGMENT_SIDE_CARRIER_TO_BOUNDED_DOWNSTREAM_COMPOSITION_CONSUMER_ADMISSION",
   "promotion": "NONE"
 }

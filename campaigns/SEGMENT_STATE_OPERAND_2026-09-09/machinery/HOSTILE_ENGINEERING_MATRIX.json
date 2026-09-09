@@ -15,22 +15,22 @@
     {
       "id": "SSO-H03",
       "claim": "caller may select segment state or side",
-      "result": "PENDING"
+      "result": "KILLED_AT_READ_ONLY_CARRIER_BY_P02_HOSTILES"
     },
     {
       "id": "SSO-H04",
       "claim": "retrospective segment can be backfilled as historical composition",
-      "result": "PENDING"
+      "result": "KILLED_AT_READ_ONLY_CARRIER_BY_P02_HOSTILES"
     },
     {
       "id": "SSO-H05",
       "claim": "reusable operand implies flattening/associativity",
-      "result": "PENDING"
+      "result": "KILLED_AT_READ_ONLY_CARRIER_BY_P02_HOSTILES"
     },
     {
       "id": "SSO-H06",
       "claim": "stale/replayed segment state remains reusable",
-      "result": "PENDING"
+      "result": "KILLED_AT_READ_ONLY_CARRIER_BY_P02_HOSTILES"
     }
   ]
 }

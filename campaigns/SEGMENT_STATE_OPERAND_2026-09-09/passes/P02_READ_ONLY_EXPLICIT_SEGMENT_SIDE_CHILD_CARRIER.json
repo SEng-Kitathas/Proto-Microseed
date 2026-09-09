@@ -1,0 +1,25 @@
+{
+  "pass": 2,
+  "name": "READ_ONLY_EXPLICIT_SEGMENT_SIDE_CHILD_CARRIER",
+  "status": "VERIFIED_PROTOTYPE",
+  "evidence": [
+    "test_lang_segment_state_operand_carrier_prototype.py 2/2 PASS",
+    "test_lang_segment_state_operand_carrier_hostiles.py 5/5 PASS",
+    "each candidate segment row is revalidated through _validate_current_native_structural_segment_state",
+    "side composition digest equals already-earned ORDERED_EVIDENCE_TUPLE content identity",
+    "carriers are emitted in persisted segment-state evidence order then LEFT/RIGHT",
+    "copied valid segment payload under arbitrary id fails closed",
+    "underlying capability/profile/association drift invalidates carrier derivation",
+    "budget truncation returns SEARCH_BUDGET_EXHAUSTED_NOT_SATURATED",
+    "carrier derivation is read-only and creates no historical B2/bounded/recursive composition evidence"
+  ],
+  "result": "CURRENT_SEGMENT_STATE_SIDE_CAN_BE_PROJECTED_TO_EXPLICIT_GROUPED_COMPOSITION_CHILD_CARRIER_READ_ONLY",
+  "nonclaims": [
+    "carrier is not yet admitted by a production downstream composition consumer",
+    "no historical composition event authority",
+    "no flattening or associativity",
+    "no semantic, scheduler, truth, execution, or EFFECT authority"
+  ],
+  "next_discriminator": "SEGMENT_SIDE_CARRIER_TO_BOUNDED_DOWNSTREAM_COMPOSITION_CONSUMER_ADMISSION",
+  "promotion": "NONE"
+}
