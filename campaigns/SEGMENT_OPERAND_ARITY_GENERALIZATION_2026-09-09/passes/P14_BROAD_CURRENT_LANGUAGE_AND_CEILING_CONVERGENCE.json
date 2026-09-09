@@ -1,0 +1,12 @@
+{
+  "pass": 14,
+  "name": "BROAD_CURRENT_LANGUAGE_AND_CEILING_CONVERGENCE",
+  "status": "PASS",
+  "evidence": [
+    "all current test_lang_* before new ceiling file: 75 modules / 224/224 PASS / stderr empty",
+    "new campaign ceiling audit: 4/4 PASS",
+    "same production code throughout; only the ceiling test file was added after the 224/224 run"
+  ],
+  "result": "CURRENT_GROUNDED_LANGUAGE_SURFACE_GREEN_AND_NEW_BOUNDARY_EXPLICIT",
+  "promotion": "NONE"
+}

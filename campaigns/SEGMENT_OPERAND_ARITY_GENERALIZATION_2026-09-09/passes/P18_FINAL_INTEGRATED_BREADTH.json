@@ -1,0 +1,13 @@
+{
+  "pass": 18,
+  "name": "FINAL_INTEGRATED_BREADTH",
+  "status": "PASS",
+  "evidence": [
+    "79 files / 241/241 PASS under cleanup-neutral Windows harness",
+    "includes MS2046, MS2051, test_entity.py, every current test_lang_* module, and new campaign ceiling audit",
+    "stderr empty"
+  ],
+  "raw_resource_scar": "raw test_entity.py = 7 WinError32 TemporaryDirectory teardown failures + 2 PASS, all at cleanup of open biography.sqlite3; cleanup-neutral harness leaves test bodies/assertions unchanged",
+  "result": "FINAL_INTEGRATED_CURRENT_LINEAGE_GREEN_241_OF_241",
+  "promotion": "NONE"
+}

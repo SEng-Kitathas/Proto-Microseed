@@ -1,0 +1,61 @@
+{
+  "schema": "microseed.segment_operand_arity.csc.v1",
+  "status": "PASS_BOUNDED",
+  "interfaces": [
+    {
+      "interface": "CURRENT structural segment state -> bounded grouped side children",
+      "status": "PASS",
+      "note": "each side independently leaf arity 2..4; exact current segment/boundary/leaf ancestry"
+    },
+    {
+      "interface": "bounded child leaf arity -> parent recursive shape",
+      "status": "PASS",
+      "note": "child leaf arity varies 2..4 while parent remains exactly two ordered grouped children at depth one"
+    },
+    {
+      "interface": "mixed/bounded owner -> sealed B2 owner",
+      "status": "SEPARATED",
+      "note": "exact 2+2 is explicitly refused by new owner and remains owned by prior B2-compatible consumer"
+    },
+    {
+      "interface": "nested child content -> parent identity",
+      "status": "PASS",
+      "note": "parent contains two child composition digests; no flattened leaf referent list"
+    },
+    {
+      "interface": "identical child content -> independence",
+      "status": "REFUSED",
+      "note": "identical 4+4 child content cannot manufacture two operands"
+    },
+    {
+      "interface": "forgery/currentness/restart -> reusable operand",
+      "status": "PASS",
+      "note": "deterministic identity + current content rederivation + fresh postrestart reacquisition required"
+    },
+    {
+      "interface": "bounded reuse -> historical event / associativity / semantics / scheduling / EFFECT",
+      "status": "SEPARATED",
+      "note": "all authority fields NONE; no auto invocation"
+    },
+    {
+      "interface": "current grouped parent state -> reusable child at deeper recursion",
+      "status": "DEFER_UNKNOWN",
+      "note": "fixed depth one only; recursive closure not earned"
+    }
+  ],
+  "earned_candidate": "BOUNDED_STRUCTURAL_SEGMENT_STATE_AS_REUSABLE_GROUPED_RECURSIVE_COMPOSITION_OPERANDS_WITH_CHILD_LEAF_ARITY_2_TO_4",
+  "ceilings": [
+    "CHILD_LEAF_ARITY_2_TO_4 != PARENT_CHILD_COUNT",
+    "BOUNDED_SEGMENT_OPERAND_ARITY_2_TO_4 != GENERIC_UNBOUNDED_STRUCTURAL_SEGMENT_OPERAND",
+    "FIXED_DEPTH_ONE_GROUPED_REUSE != RECURSIVE_CLOSURE",
+    "REUSABLE_OPERAND != FLATTENING_OR_ASSOCIATIVITY",
+    "RETROSPECTIVE_REUSE_STATE != HISTORICAL_COMPOSITION_EVENT",
+    "CONTENT_REUSE_OWNERSHIP != ENDOGENOUS_SCHEDULING",
+    "ORDERED_OPERATIONAL_COMPOSITION != SEMANTIC_COMPOSITION"
+  ],
+  "promotion": "NONE",
+  "breadth": "224/224 grounded-language before ceiling file; 228/228 reconstructed lineage; 241/241 final integrated cleanup-neutral breadth",
+  "ceiling_audit": "4/4 current campaign PASS; prior B2-local ceiling remains valid locally",
+  "next_frontier": "STRUCTURAL_SEGMENT_RECURSIVE_PARENT_STATE_AS_REUSABLE_COMPOSITION_OPERAND_WITHOUT_FLATTENING_OR_ASSOCIATIVITY",
+  "orthogonal_open_seam": "ENDOGENOUS_BOUNDARY_MONITORING_AND_CONSUMPTION_SCHEDULING"
+}

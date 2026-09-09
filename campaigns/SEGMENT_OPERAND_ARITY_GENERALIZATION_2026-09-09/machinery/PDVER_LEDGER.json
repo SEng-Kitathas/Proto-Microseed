@@ -1,0 +1,23 @@
+{
+  "schema": "microseed.segment_operand_arity.pdver.v1",
+  "status": "P19_PASS_SEAL_READY",
+  "probe": "STRUCTURAL_SEGMENT_STATE_REUSABLE_OPERAND_ARITY_GENERALIZATION_WITHOUT_FLATTENING",
+  "derive": "owner gap -> bounded read-only side carriers -> all-shape grouped parent content proof",
+  "embody": "separate mixed/bounded retrospective segment recursive owner; sealed 2+2 owner preserved",
+  "verify": {
+    "prototype": "18/18 PASS",
+    "production": "15/15 PASS",
+    "hostiles": "5/5 PASS",
+    "widened": "86/86 PASS",
+    "grounded_language": "224/224 + current ceiling 4/4",
+    "reconstructed": "228/228",
+    "final_integrated": "241/241",
+    "compileall": "PASS",
+    "diff_check": "PASS",
+    "anti_smuggling": "PASS",
+    "CSC": "PASS_BOUNDED"
+  },
+  "recurse": "STRUCTURAL_SEGMENT_RECURSIVE_PARENT_STATE_AS_REUSABLE_COMPOSITION_OPERAND_WITHOUT_FLATTENING_OR_ASSOCIATIVITY",
+  "orthogonal": "ENDOGENOUS_BOUNDARY_MONITORING_AND_CONSUMPTION_SCHEDULING",
+  "promotion": "NONE"
+}

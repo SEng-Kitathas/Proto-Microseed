@@ -1,0 +1,35 @@
+{
+  "pass": 19,
+  "name": "CAMPAIGN_PASS_GATE",
+  "status": "PASS_SEAL_READY",
+  "checks": {
+    "passes_P01_P18": "PRESENT",
+    "all_mixed_shapes": "PASS",
+    "production_tests": "15/15 PASS",
+    "hostile_tests": "5/5 PASS",
+    "widened_targeted": "86/86 PASS",
+    "grounded_language": "224/224 PASS + new ceiling 4/4 PASS",
+    "reconstructed_lineage": "228/228 PASS",
+    "final_integrated": "241/241 PASS",
+    "compileall": "PASS",
+    "git_diff_check": "PASS",
+    "anti_smuggling": "PASS",
+    "authority_gain": "NONE",
+    "sealed_B2_owner_scope": "PRESERVED",
+    "historical_recursive_B2_owner": "UNCHANGED_FROM_BASE_RECEIPT",
+    "direct_bounded_owner": "UNCHANGED_FROM_BASE_RECEIPT"
+  },
+  "earned_claim": "BOUNDED_STRUCTURAL_SEGMENT_STATE_AS_REUSABLE_GROUPED_RECURSIVE_COMPOSITION_OPERANDS_WITH_CHILD_LEAF_ARITY_2_TO_4",
+  "promotion": "NONE",
+  "ceilings": [
+    "CHILD_LEAF_ARITY_2_TO_4 != PARENT_CHILD_COUNT",
+    "BOUNDED_SEGMENT_OPERAND_ARITY_2_TO_4 != GENERIC_UNBOUNDED_STRUCTURAL_SEGMENT_OPERAND",
+    "FIXED_DEPTH_ONE_GROUPED_REUSE != RECURSIVE_CLOSURE",
+    "REUSABLE_OPERAND != FLATTENING_OR_ASSOCIATIVITY",
+    "RETROSPECTIVE_REUSE_STATE != HISTORICAL_COMPOSITION_EVENT",
+    "CONTENT_REUSE_OWNERSHIP != ENDOGENOUS_SCHEDULING",
+    "ORDERED_OPERATIONAL_COMPOSITION != SEMANTIC_COMPOSITION"
+  ],
+  "next_frontier": "STRUCTURAL_SEGMENT_RECURSIVE_PARENT_STATE_AS_REUSABLE_COMPOSITION_OPERAND_WITHOUT_FLATTENING_OR_ASSOCIATIVITY",
+  "orthogonal_open_seam": "ENDOGENOUS_BOUNDARY_MONITORING_AND_CONSUMPTION_SCHEDULING"
+}

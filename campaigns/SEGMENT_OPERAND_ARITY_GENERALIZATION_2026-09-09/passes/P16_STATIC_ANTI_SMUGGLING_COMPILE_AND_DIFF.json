@@ -1,0 +1,14 @@
+{
+  "pass": 16,
+  "name": "STATIC_ANTI_SMUGGLING_COMPILE_AND_DIFF",
+  "status": "PASS",
+  "evidence": [
+    "compileall microseed/scratch/tests PASS",
+    "git diff --check PASS",
+    "base receipt -> current entity diff adds 308 lines",
+    "all added authority field values are exactly NONE",
+    "no new CapabilityContract, capability registration, action creation, planner, semantic registry, scheduler call, or positive EFFECT/historical/flattening/associativity authority"
+  ],
+  "result": "STATIC_PRESSURE_CLEAN",
+  "promotion": "NONE"
+}
