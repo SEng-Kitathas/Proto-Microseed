@@ -1,0 +1,12 @@
+{
+  "pass": 16,
+  "name": "BROAD_LINEAGE_REGRESSION",
+  "status": "PASS_AFTER_AUDIT_EVOLUTION",
+  "evidence": [
+    "first fresh run 158/160: 2 current-head audit-evolution failures only",
+    "second run 159/160: remaining test expected-inventory evolution only",
+    "third run 160/160 PASS cleanup-neutral Windows harness"
+  ],
+  "result": "FULL_PRIOR_140_PLUS_NEW_CONSUMPTION_20_GREEN",
+  "promotion": "NONE"
+}

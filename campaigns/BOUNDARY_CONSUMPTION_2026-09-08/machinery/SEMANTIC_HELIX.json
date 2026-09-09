@@ -1,6 +1,6 @@
 {
   "schema": "r44.semantic_helix.v1",
-  "status": "ACTIVE",
+  "status": "CONVERGED_FOR_CAMPAIGN",
   "discriminators": [
     {
       "id": "CONSUME-01",
@@ -51,6 +51,22 @@
         "yes; boundary occurrence identity now bound to deterministic evidence id"
       ],
       "next_discriminator": "invocation-order/budget/semantic leakage",
+      "authority": "RESEARCH_ONLY"
+    },
+    {
+      "id": "CONSUME-05",
+      "question": "What exactly is earned after breadth and ceiling?",
+      "evidence": [
+        "160/160",
+        "3/3 ceiling",
+        "CSC PASS_BOUNDED"
+      ],
+      "interpretations": [
+        "current append-only segment composition state ownership",
+        "not reusable operand or historical event",
+        "scheduling remains orthogonal"
+      ],
+      "next_discriminator": "can segment-state contents become current reusable operands without pretending ordinary composition evidence existed?",
       "authority": "RESEARCH_ONLY"
     }
   ]

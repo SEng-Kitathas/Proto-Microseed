@@ -1,0 +1,66 @@
+{
+  "schema": "r44.csc.review.v1",
+  "status": "PASS_BOUNDED",
+  "interfaces": [
+    {
+      "interface": "current structural boundary witness -> segment state",
+      "status": "PASS_EXACT",
+      "note": "exact boundary id+sha, current validator, deterministic boundary id required"
+    },
+    {
+      "interface": "boundary components -> segment composition identity",
+      "status": "PASS_EXACT",
+      "note": "left/right digests exactly equal earned ORDERED_EVIDENCE_TUPLE bounded composition identity"
+    },
+    {
+      "interface": "multiple boundaries -> consumption order",
+      "status": "PASS_BOUNDED",
+      "note": "oldest current unconsumed by persisted evidence append order"
+    },
+    {
+      "interface": "immediate vs delayed invocation",
+      "status": "PASS",
+      "note": "same ordered segment-state content sequence"
+    },
+    {
+      "interface": "segment state append -> ledger history",
+      "status": "NO_REWRITE",
+      "note": "new current retrospective witness appended; no historical bounded-composition rows materialized"
+    },
+    {
+      "interface": "boundary/state replay and forgery",
+      "status": "PASS_AFTER_REPAIR",
+      "note": "boundary and state evidence ids deterministic from exact payload; copied payload under alternate id refused"
+    },
+    {
+      "interface": "restart/currentness",
+      "status": "PASS",
+      "note": "preboot state ignored; fresh boundary/revalidation required; same content rederived"
+    },
+    {
+      "interface": "segment state -> downstream reusable operand",
+      "status": "NOT_EARNED",
+      "note": "no production owner consumes segment-state kind outside validator/producer"
+    },
+    {
+      "interface": "runtime scheduling",
+      "status": "NOT_EARNED",
+      "note": "no current runtime caller of segment-state consumer"
+    },
+    {
+      "interface": "semantic/effect/historical authority",
+      "status": "NONE",
+      "note": "all explicitly NONE"
+    }
+  ],
+  "breadth": "160/160 PASS before ceiling inclusion",
+  "ceiling_audit": "3/3 PASS",
+  "promotion": "NONE",
+  "earned_candidate": "BOUNDED_APPEND_ONLY_STRUCTURAL_SEGMENT_STATE_CONSUMPTION",
+  "residuals": [
+    "segment state as reusable composition operand not earned",
+    "endogenous boundary monitoring/consumer scheduling not earned",
+    "historical composition event authority not earned",
+    "generic episode/semantic segmentation not earned"
+  ]
+}

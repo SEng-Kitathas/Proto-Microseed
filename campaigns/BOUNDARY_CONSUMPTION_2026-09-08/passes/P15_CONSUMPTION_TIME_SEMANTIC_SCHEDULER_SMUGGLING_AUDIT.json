@@ -1,0 +1,12 @@
+{
+  "pass": 15,
+  "name": "CONSUMPTION_TIME_SEMANTIC_SCHEDULER_SMUGGLING_AUDIT",
+  "status": "PASS",
+  "evidence": [
+    "consumer/helpers contain no time/clock/pause/phase/punctuation/grammar/semantic_role/planner/scheduler/action-creation path",
+    "consumer does not append ordinary bounded-composition evidence kind",
+    "ledger/historical/effect/semantic authorities remain NONE"
+  ],
+  "result": "APPEND_ONLY_RETROSPECTIVE_STATE_NOT_HISTORICAL_OR_SEMANTIC_REWRITE",
+  "promotion": "NONE"
+}

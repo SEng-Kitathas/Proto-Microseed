@@ -1,0 +1,11 @@
+{
+  "pass": 18,
+  "name": "FINAL_INTEGRATED_BREADTH",
+  "status": "PASS",
+  "evidence": [
+    "final .pcmmad_verify_boundary_consumption_breadth.py includes ceiling audit",
+    "163/163 PASS cleanup-neutral Windows harness"
+  ],
+  "result": "FULL_CURRENT_LINEAGE_GREEN_WITH_CONSUMPTION_CEILING",
+  "promotion": "NONE"
+}

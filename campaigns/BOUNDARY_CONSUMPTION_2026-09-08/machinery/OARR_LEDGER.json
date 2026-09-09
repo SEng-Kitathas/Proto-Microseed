@@ -1,0 +1,36 @@
+{
+  "schema": "r44.oarr.v1",
+  "status": "PASS_BOUNDED",
+  "observe": [
+    "consumer owner gap d0e2438",
+    "durable prototype a476f6e",
+    "production candidate",
+    "replay violation 95da2a8",
+    "deterministic-id repair fb3ba25",
+    "160/160 breadth",
+    "3/3 ceiling"
+  ],
+  "attack": [
+    "caller boundary/split selection",
+    "delayed invocation",
+    "forged/copied boundary witness",
+    "forged state id",
+    "stale support",
+    "restart",
+    "budget truncation",
+    "clock/phase/scheduler/semantic leakage",
+    "historical composition backfill"
+  ],
+  "replay": [
+    "boundary exact-payload replay was real and repaired at validator source",
+    "immediate/delayed consumption converges",
+    "representation/restart content stable"
+  ],
+  "revision": [
+    "canonical boundary id check",
+    "canonical segment-state id check",
+    "oldest-unconsumed chronology",
+    "append-only current derived state"
+  ],
+  "next": "STRUCTURAL_SEGMENT_STATE_AS_REUSABLE_COMPOSITION_OPERAND"
+}

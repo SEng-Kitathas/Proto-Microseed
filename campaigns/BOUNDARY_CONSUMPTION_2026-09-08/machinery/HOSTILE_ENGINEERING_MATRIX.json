@@ -1,0 +1,51 @@
+{
+  "schema": "r44.hostile_engineering_matrix.v1",
+  "status": "PASS_BOUNDED",
+  "attacks": [
+    {
+      "id": "BC-H01",
+      "claim": "boundary witness already consumed downstream",
+      "result": "KILLED"
+    },
+    {
+      "id": "BC-H02",
+      "claim": "segment content may differ from bounded composition identity",
+      "result": "KILLED"
+    },
+    {
+      "id": "BC-H03",
+      "claim": "caller may select which pending boundary is consumed",
+      "result": "KILLED"
+    },
+    {
+      "id": "BC-H04",
+      "claim": "delayed invocation changes state content/order",
+      "result": "KILLED"
+    },
+    {
+      "id": "BC-H05",
+      "claim": "copied boundary payload under second id is harmless",
+      "result": "VIOLATION_FOUND_AND_REPAIRED"
+    },
+    {
+      "id": "BC-H06",
+      "claim": "forged segment-state id can suppress consumption",
+      "result": "KILLED"
+    },
+    {
+      "id": "BC-H07",
+      "claim": "state survives stale boundary premise",
+      "result": "KILLED"
+    },
+    {
+      "id": "BC-H08",
+      "claim": "state is historical composition backfill",
+      "result": "KILLED"
+    },
+    {
+      "id": "BC-H09",
+      "claim": "consumer can schedule itself or gain semantic/EFFECT authority",
+      "result": "KILLED"
+    }
+  ]
+}

@@ -22,9 +22,12 @@
     "reason": "preserved evidence chronology can own deterministic consumption order without rewriting past events"
   },
   "verify": {
-    "repair": "STRUCTURAL_BOUNDARY_WITNESS_REPLAY_REPAIRED",
-    "targeted_boundary_consumption_adjacency": "23/23 PASS",
-    "result": "PASS_HOSTILE_EXPANSION_READY",
+    "result": "PASS_SEAL_READY",
+    "fresh_integrated_breadth": "163/163 PASS",
+    "compileall": "PASS",
+    "diff_check": "PASS",
+    "anti_smuggling": "PASS",
+    "CSC": "PASS_BOUNDED",
     "authority_gain": "NONE"
   },
   "embody": {
@@ -39,11 +42,13 @@
   },
   "recurse": {
     "next": [
-      "seal repair",
-      "invocation-order equivalence",
-      "budget + semantic/scheduler smuggling",
-      "broad lineage + CSC"
+      "seal local science commit",
+      "publish/readback",
+      "write P20 completion receipt",
+      "advance rollover continuity/RD"
     ],
-    "promotion": "NONE"
+    "promotion": "NONE",
+    "earned_candidate": "BOUNDED_APPEND_ONLY_STRUCTURAL_SEGMENT_STATE_CONSUMPTION",
+    "next_frontier": "STRUCTURAL_SEGMENT_STATE_AS_REUSABLE_COMPOSITION_OPERAND"
   }
 }

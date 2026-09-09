@@ -1,0 +1,30 @@
+{
+  "pass": 19,
+  "name": "CAMPAIGN_PASS_GATE",
+  "status": "PASS_SEAL_READY",
+  "checks": {
+    "fresh_integrated_breadth": "163/163 PASS",
+    "compileall": "PASS",
+    "git_diff_check": "PASS",
+    "production_delta": "microseed/runtime/entity.py only vs 290e8d8...",
+    "new_capability_registration": "NONE",
+    "action_creation_calls": "NONE",
+    "planner_scheduler_semantic_registry": "NONE",
+    "effect_authority_addition": "NONE",
+    "CSC": "PASS_BOUNDED",
+    "prior_pass_records": "P01-P18 PRESENT"
+  },
+  "earned_claim": "BOUNDED_APPEND_ONLY_STRUCTURAL_SEGMENT_STATE_CONSUMPTION",
+  "nonclaims": [
+    "segment state as reusable composition operand",
+    "endogenous boundary monitoring/consumer scheduling",
+    "historical composition event authority",
+    "semantic grouping",
+    "effect authority",
+    "canon promotion"
+  ],
+  "next_frontier": "STRUCTURAL_SEGMENT_STATE_AS_REUSABLE_COMPOSITION_OPERAND",
+  "orthogonal_open_seam": "ENDOGENOUS_BOUNDARY_MONITORING_AND_CONSUMPTION_SCHEDULING",
+  "promotion": "NONE",
+  "seal_authorized": "YES_RESEARCH_BRANCH_ONLY"
+}

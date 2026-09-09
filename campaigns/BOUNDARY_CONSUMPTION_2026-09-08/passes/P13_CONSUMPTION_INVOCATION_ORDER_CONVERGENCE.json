@@ -1,0 +1,10 @@
+{
+  "pass": 13,
+  "name": "CONSUMPTION_INVOCATION_ORDER_CONVERGENCE",
+  "status": "PASS",
+  "evidence": [
+    "immediate consume-after-each-boundary vs delayed consume-after-two-boundaries produce same ordered boundary-content/segment-state-content digest sequence",
+    "ordinary bounded composition rows remain zero"
+  ],
+  "result": "SEGMENT_STATE_CONTENT_NOT_SELECTED_BY_CONSUMER_INVOCATION_TIMING"
+}

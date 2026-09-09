@@ -1,0 +1,10 @@
+{
+  "pass": 14,
+  "name": "SEGMENT_STATE_EVIDENCE_BUDGET_HOSTILE",
+  "status": "PASS",
+  "evidence": [
+    "max_records below full evidence history returns SEARCH_BUDGET_EXHAUSTED_NOT_SATURATED",
+    "no partial selection or state write occurs"
+  ],
+  "result": "SEGMENT_STATE_CONSUMPTION_BUDGET_FAILS_CLOSED"
+}
