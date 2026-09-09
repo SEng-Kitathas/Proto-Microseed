@@ -1,6 +1,6 @@
 {
   "schema": "microseed.segment_state_operand.pdver.v1",
-  "status": "P19_PASS_SEAL_READY",
+  "status": "COMPLETE_SEALED_PUBLISHED",
   "probe": "STRUCTURAL_SEGMENT_STATE_AS_REUSABLE_COMPOSITION_OPERAND",
   "derive": "owner gap -> read-only exact side carriers -> B2-compatible exact recursive content identity",
   "embody": "new explicit append-only retrospective B2-compatible segment recursive composition state owner",
@@ -19,6 +19,7 @@
     "anti_smuggling": "PASS",
     "CSC": "PASS_BOUNDED"
   },
-  "recurse": "P20 seal/publish/remote readback; then bounded arity generalization without flattening",
-  "promotion": "NONE"
+  "recurse": "next campaign: bounded arity generalization without flattening; scheduling remains orthogonal",
+  "promotion": "NONE",
+  "science_seal": "500ac5de919f770f79e675002a87a366213836c7"
 }

@@ -1,24 +1,27 @@
 {
-  "campaign": "SEGMENT_STATE_OPERAND_2026-09-09",
-  "status": "COMPLETE_SEALED_PUBLISHED",
-  "earned_claim": "BOUNDED_B2_COMPATIBLE_STRUCTURAL_SEGMENT_STATE_AS_REUSABLE_RECURSIVE_COMPOSITION_OPERAND",
-  "verification": {
-    "targeted_production": "9/9 PASS",
-    "targeted_hostiles": "5/5 PASS",
-    "targeted_integrated": "36/36 PASS",
-    "grounded_language": "184/184 PASS",
-    "reconstructed_lineage": "188/188 PASS",
-    "final_integrated": "197/197 PASS",
-    "ceiling_audit": "3/3 PASS",
-    "test_entity_raw": "7 cleanup failures + 2 pass; WinError32 teardown only",
-    "test_entity_cleanup_neutral": "9/9 PASS",
-    "compileall": "PASS",
-    "diff_check": "PASS",
-    "anti_smuggling": "PASS",
-    "CSC": "PASS_BOUNDED"
+  "pass": 20,
+  "name": "SEAL_PUBLISH_REMOTE_READBACK",
+  "status": "COMPLETE",
+  "branch": "research/grounded-language-segment-state-operand-v1",
+  "science_seal": "500ac5de919f770f79e675002a87a366213836c7",
+  "remote_science_readback": {
+    "status": "EXACT",
+    "ls_remote_head": "500ac5de919f770f79e675002a87a366213836c7"
   },
+  "verification": {
+    "final_integrated": "197/197 PASS",
+    "reconstructed_lineage": "188/188 PASS",
+    "ceiling_audit": "3/3 PASS",
+    "compileall": "PASS",
+    "git_diff_check": "PASS",
+    "anti_smuggling": "PASS",
+    "CSC": "PASS_BOUNDED",
+    "campaign_pass_gate": "PASS_SEAL_READY"
+  },
+  "earned_claim": "BOUNDED_B2_COMPATIBLE_STRUCTURAL_SEGMENT_STATE_AS_REUSABLE_RECURSIVE_COMPOSITION_OPERAND",
   "authority": {
     "historical_event": "NONE",
+    "ledger_rewrite": "NONE",
     "flattening": "NONE",
     "associativity": "NONE",
     "semantic": "NONE",
@@ -28,7 +31,7 @@
     "EFFECT": "NONE",
     "canon_promotion": "NONE"
   },
-  "ceilings": [
+  "nonclaims": [
     "generic structural segment-state operand reuse",
     "mixed arity 2..4 recursive child generalization",
     "flattening",
@@ -41,8 +44,5 @@
   ],
   "next_frontier": "STRUCTURAL_SEGMENT_STATE_REUSABLE_OPERAND_ARITY_GENERALIZATION_WITHOUT_FLATTENING",
   "orthogonal_open_seam": "ENDOGENOUS_BOUNDARY_MONITORING_AND_CONSUMPTION_SCHEDULING",
-  "science_seal": "500ac5de919f770f79e675002a87a366213836c7",
-  "research_branch": "research/grounded-language-segment-state-operand-v1",
-  "remote_science_readback": "EXACT",
-  "completed_passes": 20
+  "receipt_note": "This file records the science-seal remote readback. The Git commit containing this P20 receipt is verified separately by post-commit ls-remote to avoid self-referential commit hashing."
 }

@@ -1,12 +1,13 @@
 {
   "schema": "microseed.segment_state_operand_campaign.v1",
   "campaign": "SEGMENT_STATE_OPERAND_2026-09-09",
-  "status": "P19_PASS_SEAL_READY",
+  "status": "COMPLETE_SEALED_PUBLISHED",
   "branch": "research/grounded-language-segment-state-operand-v1",
   "base_head": "baf2d239f2a98241ac9ceff41b2bb42b95913900",
   "pass_ceiling": 20,
-  "completed_passes": 19,
-  "current_pass": 20,
-  "current_discriminator": "SEAL_PUBLISH_REMOTE_READBACK",
-  "promotion": "NONE"
+  "completed_passes": 20,
+  "current_pass": null,
+  "current_discriminator": "STRUCTURAL_SEGMENT_STATE_REUSABLE_OPERAND_ARITY_GENERALIZATION_WITHOUT_FLATTENING",
+  "promotion": "NONE",
+  "science_seal": "500ac5de919f770f79e675002a87a366213836c7"
 }

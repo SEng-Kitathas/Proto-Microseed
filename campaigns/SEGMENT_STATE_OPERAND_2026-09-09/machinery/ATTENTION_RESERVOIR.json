@@ -1,7 +1,7 @@
 {
   "schema": "microseed.segment_state_operand.attention.v1",
-  "status": "P19_PASS_SEAL_READY",
-  "primary": "SEAL_PUBLISH_REMOTE_READBACK",
+  "status": "CAMPAIGN_COMPLETE",
+  "primary": "STRUCTURAL_SEGMENT_STATE_REUSABLE_OPERAND_ARITY_GENERALIZATION_WITHOUT_FLATTENING",
   "next_primary_after_seal": "STRUCTURAL_SEGMENT_STATE_REUSABLE_OPERAND_ARITY_GENERALIZATION_WITHOUT_FLATTENING",
   "orthogonal": "ENDOGENOUS_BOUNDARY_MONITORING_AND_CONSUMPTION_SCHEDULING",
   "do_not_merge_next_primary_and_orthogonal": true,
