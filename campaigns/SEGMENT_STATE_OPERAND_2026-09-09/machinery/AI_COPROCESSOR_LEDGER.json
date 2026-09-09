@@ -1,0 +1,9 @@
+{
+  "schema": "r44.ai_coprocessor.campaign.v1",
+  "status": "ACTIVE",
+  "authority": "DONOR_ONLY",
+  "notes": [
+    "no external model result admitted as science",
+    "owner-gap audit is local code/runtime evidence"
+  ]
+}

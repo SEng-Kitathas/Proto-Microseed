@@ -1,0 +1,34 @@
+{
+  "schema": "r44.pdver.campaign.v1",
+  "status": "ACTIVE",
+  "probe": {
+    "observed": [
+      "segment-state content digests equal lawful ordered-composition content identities",
+      "no existing production composition owner admits segment-state evidence",
+      "existing recursive B2 owner validates only B2 composition evidence"
+    ],
+    "unknowns": [
+      "whether any hidden production consumer admits segment state",
+      "minimal lawful reusable carrier contract"
+    ]
+  },
+  "derive": {
+    "candidate": "CURRENT_STRUCTURAL_SEGMENT_STATE_SIDE_AS_EXPLICIT_GROUPED_COMPOSITION_CHILD_CARRIER",
+    "rejected": [
+      "digest-only child",
+      "caller-selected segment state",
+      "historical composition-row backfill",
+      "flattening"
+    ]
+  },
+  "embody": {
+    "status": "READ_ONLY_PROTOTYPE_AUTHORIZED",
+    "target": "explicit current segment-side grouped child carrier with exact segment-state evidence ref and no production mutation"
+  },
+  "verify": {
+    "status": "PENDING"
+  },
+  "recurse": {
+    "next": "P02 read-only carrier prototype"
+  }
+}

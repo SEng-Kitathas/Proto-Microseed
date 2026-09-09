@@ -1,0 +1,14 @@
+{
+  "schema": "r44.oarr.v1",
+  "status": "ACTIVE",
+  "observe": [
+    "sealed segment-state consumption result",
+    "existing composition owner contracts"
+  ],
+  "assess": [
+    "owner gap first",
+    "authority ceilings unchanged"
+  ],
+  "respond": "read-only carrier prototype only after P01",
+  "reassess": "PENDING"
+}

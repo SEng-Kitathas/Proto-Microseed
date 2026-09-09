@@ -1,0 +1,13 @@
+{
+  "schema": "r44.csc_review.v1",
+  "status": "PENDING",
+  "candidate": "NONE",
+  "ceiling": [
+    "NO_SEMANTIC_GROUPING",
+    "NO_EFFECT_AUTHORITY",
+    "NO_SCHEDULER_AUTHORITY",
+    "NO_HISTORICAL_REWRITE",
+    "NO_FLATTENING_OR_ASSOCIATIVITY",
+    "NO_CANON_PROMOTION"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "schema": "r44.attention_reservoir.v1",
+  "status": "ACTIVE",
+  "primary": "STRUCTURAL_SEGMENT_STATE_AS_REUSABLE_COMPOSITION_OPERAND",
+  "orthogonal": "ENDOGENOUS_BOUNDARY_MONITORING_AND_CONSUMPTION_SCHEDULING",
+  "deferred": [
+    "semantic grouping",
+    "effect authority",
+    "generic/unbounded N-ary",
+    "canon promotion"
+  ]
+}
