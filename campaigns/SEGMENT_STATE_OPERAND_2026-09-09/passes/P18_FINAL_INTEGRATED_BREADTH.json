@@ -1,0 +1,25 @@
+{
+  "pass": 18,
+  "name": "FINAL_INTEGRATED_BREADTH",
+  "status": "PASS",
+  "evidence": [
+    "job-ebe6510188c6",
+    "74 files",
+    "197/197 PASS",
+    "cleanup-neutral Windows harness",
+    "stderr empty"
+  ],
+  "result": "FINAL_INTEGRATED_CURRENT_LINEAGE_GREEN_197_OF_197",
+  "promotion": "NONE",
+  "nonclaims": [
+    "generic structural segment-state operand reuse",
+    "mixed arity 2..4 recursive child generalization",
+    "flattening",
+    "associativity",
+    "historical composition event authority",
+    "semantic or grammar authority",
+    "endogenous scheduling",
+    "EFFECT authority",
+    "canon promotion"
+  ]
+}

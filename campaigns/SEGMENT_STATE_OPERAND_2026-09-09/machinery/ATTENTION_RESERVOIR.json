@@ -1,12 +1,19 @@
 {
-  "schema": "r44.attention_reservoir.v1",
-  "status": "ACTIVE",
-  "primary": "STRUCTURAL_SEGMENT_STATE_AS_REUSABLE_COMPOSITION_OPERAND",
+  "schema": "microseed.segment_state_operand.attention.v1",
+  "status": "P19_PASS_SEAL_READY",
+  "primary": "SEAL_PUBLISH_REMOTE_READBACK",
+  "next_primary_after_seal": "STRUCTURAL_SEGMENT_STATE_REUSABLE_OPERAND_ARITY_GENERALIZATION_WITHOUT_FLATTENING",
   "orthogonal": "ENDOGENOUS_BOUNDARY_MONITORING_AND_CONSUMPTION_SCHEDULING",
+  "do_not_merge_next_primary_and_orthogonal": true,
   "deferred": [
-    "semantic grouping",
-    "effect authority",
-    "generic/unbounded N-ary",
+    "generic structural segment-state operand reuse",
+    "mixed arity 2..4 recursive child generalization",
+    "flattening",
+    "associativity",
+    "historical composition event authority",
+    "semantic or grammar authority",
+    "endogenous scheduling",
+    "EFFECT authority",
     "canon promotion"
   ]
 }

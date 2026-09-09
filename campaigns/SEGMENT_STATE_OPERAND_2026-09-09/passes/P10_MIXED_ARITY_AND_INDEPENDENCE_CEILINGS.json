@@ -1,0 +1,23 @@
+{
+  "pass": 10,
+  "name": "MIXED_ARITY_AND_INDEPENDENCE_CEILINGS",
+  "status": "PASS_BOUNDED",
+  "evidence": [
+    "mixed 2+3 segment state refused",
+    "identical LEFT/RIGHT child content cannot manufacture two independent operands",
+    "mixed state remains unconsumed and visible as ceiling"
+  ],
+  "result": "ONLY_DISTINCT_2_PLUS_2_SEGMENT_SIDES_EARNED",
+  "promotion": "NONE",
+  "nonclaims": [
+    "generic structural segment-state operand reuse",
+    "mixed arity 2..4 recursive child generalization",
+    "flattening",
+    "associativity",
+    "historical composition event authority",
+    "semantic or grammar authority",
+    "endogenous scheduling",
+    "EFFECT authority",
+    "canon promotion"
+  ]
+}

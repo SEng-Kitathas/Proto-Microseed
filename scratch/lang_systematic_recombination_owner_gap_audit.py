@@ -30,6 +30,9 @@ def run_audit() -> dict[str,object]:
         'def _native_structural_segment_state_content_from_boundary(',
         'def _validate_current_native_structural_segment_state(',
         'def derive_and_record_current_native_structural_segment_state(',
+        'def _native_structural_segment_b2_child_carriers(',
+        'def _validate_current_native_structural_segment_b2_recursive_composition_state(',
+        'def derive_and_record_current_native_structural_segment_b2_recursive_composition(',
         'def derive_and_record_current_native_recursive_b2_ordered_composition(',
     )
     assert tuple(owned_methods)==expected,owned_methods
@@ -40,7 +43,9 @@ def run_audit() -> dict[str,object]:
         'c08g_order_sensitive':c08g['order_sensitive'],
         'production_owned_composition_methods':owned_methods,
         'historically_localized_missing_mechanism':'MICROSEED_OWNED_BOUNDED_ORDERED_COMPOSITION_OPERATOR',
-        'binding_now_embodied':'YES_BOUNDED_B2_PLUS_DIRECT_B3_PLUS_BOUNDED_ARITY_2_TO_4_PLUS_FIXED_DEPTH_ONE_RECURSIVE',
+        'binding_now_embodied':'YES_BOUNDED_B2_PLUS_DIRECT_B3_PLUS_BOUNDED_ARITY_2_TO_4_PLUS_FIXED_DEPTH_ONE_RECURSIVE_PLUS_B2_COMPATIBLE_RETROSPECTIVE_SEGMENT_REUSE',
+        'structural_segment_operand_scope':'B2_COMPATIBLE_2_PLUS_2_RETROSPECTIVE_SIDES_ONLY',
+        'generic_structural_segment_operand':'NOT_EARNED',
         'recursive_depth':'1_ONLY',
         'direct_b3_arity':'3_ONLY',
         'bounded_generalized_arity':'2_TO_4_ONLY',

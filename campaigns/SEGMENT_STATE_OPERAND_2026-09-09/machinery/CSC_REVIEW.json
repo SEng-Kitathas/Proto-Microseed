@@ -1,13 +1,55 @@
 {
-  "schema": "r44.csc_review.v1",
-  "status": "PENDING",
-  "candidate": "NONE",
-  "ceiling": [
-    "NO_SEMANTIC_GROUPING",
-    "NO_EFFECT_AUTHORITY",
-    "NO_SCHEDULER_AUTHORITY",
-    "NO_HISTORICAL_REWRITE",
-    "NO_FLATTENING_OR_ASSOCIATIVITY",
-    "NO_CANON_PROMOTION"
-  ]
+  "schema": "microseed.segment_state_operand.csc.v1",
+  "status": "PASS_BOUNDED",
+  "interfaces": [
+    {
+      "interface": "CURRENT structural segment state -> grouped side carrier",
+      "status": "PASS",
+      "note": "exact segment/boundary/leaf lineage; read-only projection"
+    },
+    {
+      "interface": "grouped side carrier -> recursive content identity",
+      "status": "PASS_B2_ONLY",
+      "note": "2+2 only; exact existing recursive-B2 parent content identity"
+    },
+    {
+      "interface": "retrospective operand reuse -> historical composition evidence",
+      "status": "SEPARATED",
+      "note": "new append-only retrospective state kind; no historical B2 row backfill"
+    },
+    {
+      "interface": "currentness drift -> operand usability",
+      "status": "PASS",
+      "note": "leaf capability/profile/association drift invalidates through existing validators"
+    },
+    {
+      "interface": "restart -> reusable operand",
+      "status": "PASS",
+      "note": "fresh current reacquisition required; content may rederive under new evidence identity"
+    },
+    {
+      "interface": "segment consumption -> recursive consumer scheduling",
+      "status": "SEPARATED",
+      "note": "no automatic invocation; scheduling remains orthogonal"
+    },
+    {
+      "interface": "mixed arity segment sides -> recursive reuse",
+      "status": "DEFER_UNKNOWN",
+      "note": "2+3 and other non-2+2 shapes explicitly unearned"
+    }
+  ],
+  "earned_candidate": "BOUNDED_B2_COMPATIBLE_STRUCTURAL_SEGMENT_STATE_AS_REUSABLE_RECURSIVE_COMPOSITION_OPERAND",
+  "ceilings": [
+    "GENERIC_STRUCTURAL_SEGMENT_STATE_OPERAND != EARNED",
+    "MIXED_ARITY_SEGMENT_STATE_RECURSIVE_REUSE != EARNED",
+    "REUSABLE_OPERAND != FLATTENING_OR_ASSOCIATIVITY",
+    "RETROSPECTIVE_REUSE_STATE != HISTORICAL_COMPOSITION_EVENT",
+    "CONTENT_REUSE_OWNERSHIP != ENDOGENOUS_SCHEDULING"
+  ],
+  "promotion": "NONE",
+  "breadth": "188/188 reconstructed grounded-language lineage; 197/197 final integrated cleanup-neutral breadth",
+  "ceiling_audit": "3/3 PASS",
+  "old_recursive_b2_owner_sha256": "c0e311cbf5cff4cb8ec6d943a45bacedb37d4b8f234218bcf7309682966e4d8b unchanged from baf2d239...",
+  "next_frontier": "STRUCTURAL_SEGMENT_STATE_REUSABLE_OPERAND_ARITY_GENERALIZATION_WITHOUT_FLATTENING",
+  "orthogonal_open_seam": "ENDOGENOUS_BOUNDARY_MONITORING_AND_CONSUMPTION_SCHEDULING"
 }

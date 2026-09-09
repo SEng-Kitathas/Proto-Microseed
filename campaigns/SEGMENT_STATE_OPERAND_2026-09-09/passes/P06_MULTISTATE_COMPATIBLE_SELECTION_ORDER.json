@@ -1,0 +1,11 @@
+{
+  "pass": 6,
+  "name": "MULTISTATE_COMPATIBLE_SELECTION_ORDER",
+  "status": "PASS",
+  "evidence": [
+    "multiple compatible segment states consumed oldest-first by evidence append order",
+    "caller supplies no state id, child id, order or grouping"
+  ],
+  "result": "OLDEST_CURRENT_UNCONSUMED_COMPATIBLE_SEGMENT_STATE_SELECTION",
+  "promotion": "NONE"
+}

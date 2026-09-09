@@ -1,0 +1,21 @@
+{
+  "pass": 11,
+  "name": "EVIDENCE_BUDGET_COMPLETENESS",
+  "status": "PASS",
+  "evidence": [
+    "truncated evidence scan returns SEARCH_BUDGET_EXHAUSTED_NOT_SATURATED"
+  ],
+  "result": "BUDGET_EXHAUSTION_NOT_FALSE_SATURATION",
+  "promotion": "NONE",
+  "nonclaims": [
+    "generic structural segment-state operand reuse",
+    "mixed arity 2..4 recursive child generalization",
+    "flattening",
+    "associativity",
+    "historical composition event authority",
+    "semantic or grammar authority",
+    "endogenous scheduling",
+    "EFFECT authority",
+    "canon promotion"
+  ]
+}

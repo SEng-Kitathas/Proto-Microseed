@@ -5629,6 +5629,303 @@ class Microseed:
             "caller_supplied_segment_operands":"NO","caller_supplied_output_evidence_id":"NO",
         }
 
+    def _native_structural_segment_b2_child_carriers(
+        self, segment_current: dict[str, Any], boundary_current: dict[str, Any],
+    ) -> dict[str, Any]:
+        """Project one exact CURRENT 2+2 segment state into LEFT/RIGHT grouped child carriers.
+
+        This is content/provenance adaptation only. It does not create historical B2 evidence,
+        flatten either side, infer associativity, or grant semantic/EFFECT authority.
+        """
+        split=int(segment_current["split_index"])
+        components=tuple(boundary_current["components"])
+        specs=(
+            ("LEFT",segment_current["left_content"],segment_current["left_composition_content_digest_sha256"],components[:split]),
+            ("RIGHT",segment_current["right_content"],segment_current["right_composition_content_digest_sha256"],components[split:]),
+        )
+        children=[]
+        for side_ordinal,(side,content,digest,source_components) in enumerate(specs):
+            ordered=tuple(str(x) for x in content.get("ordered_operational_referent_signatures",()))
+            if (content.get("operator")!="ORDERED_EVIDENCE_TUPLE"
+                    or int(content.get("arity",-1))!=2
+                    or len(ordered)!=2
+                    or len(set(ordered))!=2
+                    or len(source_components)!=2):
+                return {
+                    "status":"DEFER_UNKNOWN",
+                    "reason":"SEGMENT_STATE_SIDE_NOT_B2_COMPATIBLE_FOR_RECURSIVE_REUSE",
+                    "side":side,"side_arity":int(content.get("arity",-1)),
+                }
+            expected=action_result_digest({
+                "operator":"ORDERED_EVIDENCE_TUPLE",
+                "ordered_operational_referent_signatures":list(ordered),
+                "arity":2,"identity_scope":"OPERATIONAL_EQUIVALENCE_CLASS_ONLY",
+            })
+            if expected!=str(digest):
+                return {"status":"DEFER_UNKNOWN","reason":"SEGMENT_STATE_SIDE_CONTENT_DIGEST_MISMATCH","side":side}
+            projected=[]
+            for local_ordinal,(component,referent_sig) in enumerate(zip(source_components,ordered)):
+                if not isinstance(component,dict) or str(component.get("operational_referent_signature_sha256",""))!=referent_sig:
+                    return {"status":"DEFER_UNKNOWN","reason":"SEGMENT_STATE_SIDE_SOURCE_COMPONENT_MISMATCH","side":side}
+                projected.append({
+                    "ordinal":local_ordinal,
+                    "source_boundary_component_ordinal":int(component.get("ordinal",-1)),
+                    "opaque_token":str(component.get("opaque_token","")),
+                    "operational_referent_signature_sha256":referent_sig,
+                    "association_record_id":str(component.get("association_record_id","")),
+                    "token_evidence_ref":list(component.get("token_evidence_ref",())),
+                    "profile_evidence_ref":list(component.get("profile_evidence_ref",())),
+                    "token_store_event_seq":int(component.get("token_store_event_seq",-1)),
+                })
+            children.append({
+                "ordinal":side_ordinal,"source_side":side,
+                "composition_content_digest_sha256":expected,
+                "ordered_operational_referent_signatures":list(ordered),
+                "validated_components":projected,
+                "source_segment_state_evidence_ref":[
+                    str(segment_current["segment_state_evidence_id"]),str(segment_current["segment_state_evidence_sha256"])
+                ],
+                "source_boundary_evidence_ref":[
+                    str(segment_current["boundary_evidence_id"]),str(segment_current["boundary_evidence_sha256"])
+                ],
+                "retrospective_provenance":"CURRENT_APPEND_ONLY_STRUCTURAL_SEGMENT_STATE_SIDE",
+                "historical_event_authority":"NONE",
+            })
+        if len({c["composition_content_digest_sha256"] for c in children})!=2:
+            return {"status":"DEFER_UNKNOWN","reason":"TWO_DISTINCT_SEGMENT_SIDE_CHILD_CONTENTS_REQUIRED"}
+        return {"status":"CURRENT_B2_COMPATIBLE_STRUCTURAL_SEGMENT_CHILDREN", "children":tuple(children)}
+
+    def _validate_current_native_structural_segment_b2_recursive_composition_state(
+        self, row: dict[str, Any], *, rows: list[dict[str, Any]], boot: int,
+    ) -> dict[str, Any]:
+        base={
+            "historical_event_authority":"NONE","ledger_rewrite_authority":"NONE",
+            "flattening_authority":"NONE","associativity_authority":"NONE",
+            "semantic_composition_authority":"NONE","grammar_authority":"NONE",
+            "effect_authority":"NONE","execution_authority":"NONE",
+            "scheduler_authority":"NONE","authority_gain":"NONE",
+            "recursive_depth_limit":1,"admitted_child_arity":2,
+        }
+        if row.get("negative"):
+            return {**base,"status":"DEFER_UNKNOWN","reason":"SEGMENT_RECURSIVE_STATE_MUST_BE_POSITIVE"}
+        payload=row.get("payload") or {}
+        if payload.get("kind")!="OWNED_NATIVE_STRUCTURAL_SEGMENT_B2_RECURSIVE_COMPOSITION_STATE":
+            return {**base,"status":"DEFER_UNKNOWN","reason":"SEGMENT_RECURSIVE_STATE_KIND_REQUIRED"}
+        if int(payload.get("runtime_boot_seq",-1))!=boot:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"SEGMENT_RECURSIVE_STATE_CURRENT_BOOT_REQUIRED"}
+        if (payload.get("operator_owner")!="MICROSEED_NATIVE_STRUCTURAL_SEGMENT_B2_RECURSIVE_COMPOSITION"
+                or payload.get("composition_operator")!="RECURSIVE_ORDERED_EVIDENCE_TUPLE"
+                or int(payload.get("composition_depth",-1))!=1
+                or int(payload.get("child_arity",-1))!=2
+                or payload.get("temporality")!="CURRENT_RETROSPECTIVE_DERIVATION_APPENDED_AFTER_SEGMENT_STATE"
+                or payload.get("selection_basis")!="OLDEST_CURRENT_UNCONSUMED_B2_COMPATIBLE_STRUCTURAL_SEGMENT_STATE_BY_EVIDENCE_APPEND_ORDER"
+                or payload.get("grouping_basis")!="EXACT_SEGMENT_STATE_LEFT_RIGHT_BOUNDARY_PRESERVED"):
+            return {**base,"status":"DEFER_UNKNOWN","reason":"SEGMENT_RECURSIVE_STATE_OWNER_OR_SHAPE_MISMATCH"}
+        for k in (
+            "historical_event_authority","ledger_rewrite_authority","flattening_authority",
+            "associativity_authority","semantic_composition_authority","grammar_authority",
+            "effect_authority","execution_authority","scheduler_authority","authority_gain",
+        ):
+            if payload.get(k)!="NONE":
+                return {**base,"status":"DEFER_UNKNOWN","reason":"SEGMENT_RECURSIVE_STATE_AUTHORITY_OVERCLAIM","field":k}
+        expected_id="E-NATIVE-STRUCTURAL-SEGMENT-B2-RECURSIVE-"+action_result_digest(payload)[:24]
+        if str(row.get("evidence_id",""))!=expected_id:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"SEGMENT_RECURSIVE_STATE_EVIDENCE_ID_NOT_DERIVED_FROM_CONTENT",
+                    "expected_evidence_id":expected_id}
+        segment_ref=payload.get("segment_state_evidence_ref") or ()
+        if len(segment_ref)!=2:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"SEGMENT_RECURSIVE_STATE_SEGMENT_REF_REQUIRED"}
+        segment_row=self.evidence.get(str(segment_ref[0]))
+        if segment_row is None or str(segment_row.get("sha256",""))!=str(segment_ref[1]):
+            return {**base,"status":"DEFER_UNKNOWN","reason":"SEGMENT_RECURSIVE_STATE_SEGMENT_REF_NOT_EXACT"}
+        segment_current=self._validate_current_native_structural_segment_state(segment_row,rows=rows,boot=boot)
+        if segment_current.get("status")!="CURRENT_NATIVE_STRUCTURAL_SEGMENT_STATE":
+            return {**base,**segment_current,"status":"DEFER_UNKNOWN"}
+        boundary_row=self.evidence.get(str(segment_current["boundary_evidence_id"]))
+        if boundary_row is None or str(boundary_row.get("sha256",""))!=str(segment_current["boundary_evidence_sha256"]):
+            return {**base,"status":"DEFER_UNKNOWN","reason":"SEGMENT_RECURSIVE_STATE_BOUNDARY_REF_NOT_EXACT"}
+        boundary_current=self._validate_current_native_structural_boundary_witness(boundary_row,rows=rows,boot=boot)
+        if boundary_current.get("status")!="CURRENT_NATIVE_STRUCTURAL_BOUNDARY_WITNESS":
+            return {**base,**boundary_current,"status":"DEFER_UNKNOWN"}
+        projected=self._native_structural_segment_b2_child_carriers(segment_current,boundary_current)
+        if projected.get("status")!="CURRENT_B2_COMPATIBLE_STRUCTURAL_SEGMENT_CHILDREN":
+            return {**base,**projected,"status":"DEFER_UNKNOWN"}
+        children=projected["children"]
+        child_digests=tuple(str(c["composition_content_digest_sha256"]) for c in children)
+        content={
+            "operator":"RECURSIVE_ORDERED_EVIDENCE_TUPLE",
+            "ordered_child_composition_content_digests":list(child_digests),
+            "composition_depth":1,"child_arity":2,
+            "identity_scope":"EXACT_GROUPED_OPERATIONAL_COMPOSITION_ONLY",
+        }
+        digest=action_result_digest(content)
+        if (payload.get("children")!=list(children)
+                or payload.get("ordered_child_composition_content_digests")!=list(child_digests)
+                or str(payload.get("composition_content_digest_sha256",""))!=digest):
+            return {**base,"status":"DEFER_UNKNOWN","reason":"SEGMENT_RECURSIVE_STATE_CONTENT_OR_CHILD_MISMATCH"}
+        return {
+            **base,"status":"CURRENT_NATIVE_STRUCTURAL_SEGMENT_B2_RECURSIVE_COMPOSITION_STATE",
+            "composition_state_evidence_id":str(row["evidence_id"]),
+            "composition_state_evidence_sha256":str(row["sha256"]),
+            "segment_state_evidence_id":str(segment_ref[0]),
+            "segment_state_evidence_sha256":str(segment_ref[1]),
+            "boundary_evidence_id":str(segment_current["boundary_evidence_id"]),
+            "boundary_evidence_sha256":str(segment_current["boundary_evidence_sha256"]),
+            "composition_content_digest_sha256":digest,
+            "ordered_child_composition_content_digests":child_digests,
+            "children":children,"composition_operator":"RECURSIVE_ORDERED_EVIDENCE_TUPLE",
+            "composition_depth":1,"child_arity":2,
+            "temporality":payload["temporality"],
+        }
+
+    def derive_and_record_current_native_structural_segment_b2_recursive_composition(
+        self, *, max_records: int = 4096,
+    ) -> dict[str, Any]:
+        """Reuse one CURRENT 2+2 structural segment state as two grouped recursive operands.
+
+        The oldest CURRENT unconsumed B2-compatible segment state is chosen by evidence append
+        order. LEFT then RIGHT grouping comes only from the persisted segment state. The result
+        is append-only current retrospective composition state whose *content* shares the already-
+        earned recursive-B2 identity law; it is not a historical B2 composition event.
+        """
+        base={
+            "selection_basis":"OLDEST_CURRENT_UNCONSUMED_B2_COMPATIBLE_STRUCTURAL_SEGMENT_STATE_BY_EVIDENCE_APPEND_ORDER",
+            "grouping_basis":"EXACT_SEGMENT_STATE_LEFT_RIGHT_BOUNDARY_PRESERVED",
+            "historical_event_authority":"NONE","ledger_rewrite_authority":"NONE",
+            "flattening_authority":"NONE","associativity_authority":"NONE",
+            "semantic_composition_authority":"NONE","grammar_authority":"NONE",
+            "effect_authority":"NONE","execution_authority":"NONE",
+            "scheduler_authority":"NONE","authority_gain":"NONE",
+            "recursive_depth_limit":1,"admitted_child_arity":2,
+        }
+        bound=int(max_records)
+        if bound<=0:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"SEGMENT_RECURSIVE_EVIDENCE_SCAN_BUDGET_REQUIRED"}
+        total=self.evidence.count()
+        if total>bound:
+            return {**base,"status":"SEARCH_BUDGET_EXHAUSTED_NOT_SATURATED",
+                    "reason":"SEGMENT_RECURSIVE_EVIDENCE_HISTORY_EXCEEDS_SCAN_BUDGET",
+                    "total_records":total,"max_records":bound}
+        boot=self._current_runtime_boot_seq()
+        if boot<0:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"CURRENT_RUNTIME_BOOT_BOUNDARY_REQUIRED"}
+        rows=self.evidence.list(); segments=[]; parents=[]
+        for pos,row in enumerate(rows):
+            payload=row.get("payload") or {}
+            if int(payload.get("runtime_boot_seq",-1))!=boot:
+                continue
+            if payload.get("kind")=="OWNED_NATIVE_STRUCTURAL_SEGMENT_COMPOSITION_STATE":
+                current=self._validate_current_native_structural_segment_state(row,rows=rows,boot=boot)
+                if current.get("status")!="CURRENT_NATIVE_STRUCTURAL_SEGMENT_STATE":
+                    return {**base,**current,"status":"DEFER_UNKNOWN"}
+                boundary_row=self.evidence.get(str(current["boundary_evidence_id"]))
+                boundary_current=self._validate_current_native_structural_boundary_witness(boundary_row,rows=rows,boot=boot) if boundary_row is not None else {"status":"DEFER_UNKNOWN","reason":"SEGMENT_RECURSIVE_BOUNDARY_REQUIRED"}
+                if boundary_current.get("status")!="CURRENT_NATIVE_STRUCTURAL_BOUNDARY_WITNESS":
+                    return {**base,**boundary_current,"status":"DEFER_UNKNOWN"}
+                projected=self._native_structural_segment_b2_child_carriers(current,boundary_current)
+                segments.append((pos,row,current,projected))
+            elif payload.get("kind")=="OWNED_NATIVE_STRUCTURAL_SEGMENT_B2_RECURSIVE_COMPOSITION_STATE":
+                current=self._validate_current_native_structural_segment_b2_recursive_composition_state(row,rows=rows,boot=boot)
+                if current.get("status")!="CURRENT_NATIVE_STRUCTURAL_SEGMENT_B2_RECURSIVE_COMPOSITION_STATE":
+                    return {**base,**current,"status":"DEFER_UNKNOWN"}
+                parents.append((pos,row,current))
+        consumed=[]
+        for _pos,_row,current in parents:
+            sid=str(current["segment_state_evidence_id"])
+            if sid in consumed:
+                return {**base,"status":"DEFER_UNKNOWN","reason":"SEGMENT_RECURSIVE_SEGMENT_STATE_REPLAY_DETECTED",
+                        "segment_state_evidence_id":sid}
+            consumed.append(sid)
+        consumed_set=set(consumed)
+        compatible=[]; skipped=[]
+        for item in segments:
+            _pos,row,current,projected=item
+            sid=str(row["evidence_id"])
+            if sid in consumed_set:
+                continue
+            if projected.get("status")=="CURRENT_B2_COMPATIBLE_STRUCTURAL_SEGMENT_CHILDREN":
+                compatible.append(item)
+            else:
+                skipped.append({
+                    "segment_state_evidence_id":sid,
+                    "reason":projected.get("reason","SEGMENT_STATE_NOT_B2_COMPATIBLE"),
+                    "side":projected.get("side"),"side_arity":projected.get("side_arity"),
+                })
+        if not compatible:
+            if parents and not skipped:
+                _pos,_row,current=parents[-1]
+                return {**base,**current,
+                        "status":"CURRENT_NATIVE_STRUCTURAL_SEGMENT_B2_RECURSIVE_COMPOSITION_STATE_ALREADY_PRESENT",
+                        "composition_state_record_status":"SEGMENT_RECURSIVE_STATE_ALREADY_PRESENT",
+                        "caller_supplied_segment_state_id":"NO","caller_supplied_child_ids":"NO",
+                        "caller_supplied_child_order":"NO","caller_supplied_grouping":"NO",
+                        "caller_supplied_output_evidence_id":"NO"}
+            return {**base,"status":"DEFER_UNKNOWN",
+                    "reason":"CURRENT_UNCONSUMED_B2_COMPATIBLE_STRUCTURAL_SEGMENT_STATE_REQUIRED",
+                    "current_segment_state_count":len(segments),"skipped":tuple(skipped)}
+        _pos,segment_row,segment_current,projected=compatible[0]
+        children=projected["children"]
+        child_digests=tuple(str(c["composition_content_digest_sha256"]) for c in children)
+        content={
+            "operator":"RECURSIVE_ORDERED_EVIDENCE_TUPLE",
+            "ordered_child_composition_content_digests":list(child_digests),
+            "composition_depth":1,"child_arity":2,
+            "identity_scope":"EXACT_GROUPED_OPERATIONAL_COMPOSITION_ONLY",
+        }
+        parent_digest=action_result_digest(content)
+        payload={
+            "kind":"OWNED_NATIVE_STRUCTURAL_SEGMENT_B2_RECURSIVE_COMPOSITION_STATE",
+            "runtime_boot_seq":boot,
+            "operator_owner":"MICROSEED_NATIVE_STRUCTURAL_SEGMENT_B2_RECURSIVE_COMPOSITION",
+            "segment_state_evidence_ref":[str(segment_row["evidence_id"]),str(segment_row["sha256"])],
+            "boundary_evidence_ref":[str(segment_current["boundary_evidence_id"]),str(segment_current["boundary_evidence_sha256"])],
+            "composition_content_digest_sha256":parent_digest,
+            "composition_operator":"RECURSIVE_ORDERED_EVIDENCE_TUPLE",
+            "composition_depth":1,"child_arity":2,
+            "ordered_child_composition_content_digests":list(child_digests),
+            "children":list(children),
+            "selection_basis":base["selection_basis"],
+            "grouping_basis":base["grouping_basis"],
+            "temporality":"CURRENT_RETROSPECTIVE_DERIVATION_APPENDED_AFTER_SEGMENT_STATE",
+            "historical_event_authority":"NONE","ledger_rewrite_authority":"NONE",
+            "flattening_authority":"NONE","associativity_authority":"NONE",
+            "semantic_composition_authority":"NONE","grammar_authority":"NONE",
+            "effect_authority":"NONE","execution_authority":"NONE",
+            "scheduler_authority":"NONE","authority_gain":"NONE",
+            "caller_supplied_segment_state_id":"NO","caller_supplied_child_ids":"NO",
+            "caller_supplied_child_order":"NO","caller_supplied_grouping":"NO",
+            "caller_supplied_output_evidence_id":"NO",
+        }
+        evidence_id="E-NATIVE-STRUCTURAL-SEGMENT-B2-RECURSIVE-"+action_result_digest(payload)[:24]
+        existing=self.evidence.get(evidence_id)
+        if existing is None:
+            ref=self.append_evidence(evidence_id,payload,EpistemicStatus.PRESSURE_SUPPORTED,
+                                     source="MICROSEED-NATIVE-STRUCTURAL-SEGMENT-B2-RECURSIVE-COMPOSITION")
+            evidence_sha=ref.sha256; record_status="SEGMENT_RECURSIVE_STATE_RECORDED"
+        else:
+            if existing.get("negative") or existing.get("payload")!=payload:
+                return {**base,"status":"DEFER_UNKNOWN","reason":"SEGMENT_RECURSIVE_STATE_EVIDENCE_ID_COLLISION",
+                        "composition_state_evidence_id":evidence_id}
+            evidence_sha=str(existing.get("sha256","")); record_status="SEGMENT_RECURSIVE_STATE_ALREADY_PRESENT"
+        return {
+            **base,"status":"CURRENT_NATIVE_STRUCTURAL_SEGMENT_B2_RECURSIVE_COMPOSITION_STATE_RECORDED",
+            "composition_state_evidence_id":evidence_id,"composition_state_evidence_sha256":evidence_sha,
+            "composition_state_record_status":record_status,
+            "segment_state_evidence_id":str(segment_row["evidence_id"]),
+            "segment_state_evidence_sha256":str(segment_row["sha256"]),
+            "boundary_evidence_id":str(segment_current["boundary_evidence_id"]),
+            "boundary_evidence_sha256":str(segment_current["boundary_evidence_sha256"]),
+            "composition_content_digest_sha256":parent_digest,
+            "ordered_child_composition_content_digests":child_digests,
+            "children":children,"composition_operator":"RECURSIVE_ORDERED_EVIDENCE_TUPLE",
+            "composition_depth":1,"child_arity":2,
+            "temporality":payload["temporality"],
+            "caller_supplied_segment_state_id":"NO","caller_supplied_child_ids":"NO",
+            "caller_supplied_child_order":"NO","caller_supplied_grouping":"NO",
+            "caller_supplied_output_evidence_id":"NO",
+            "skipped":tuple(skipped),
+        }
+
     def derive_and_record_current_native_recursive_b2_ordered_composition(
         self, *, max_records: int = 4096,
     ) -> dict[str, Any]:

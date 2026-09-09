@@ -1,6 +1,6 @@
 {
   "schema": "r44.hostile_engineering_matrix.v1",
-  "status": "ACTIVE",
+  "status": "PASS_BOUNDED",
   "attacks": [
     {
       "id": "SSO-H01",
@@ -31,6 +31,36 @@
       "id": "SSO-H06",
       "claim": "stale/replayed segment state remains reusable",
       "result": "KILLED_AT_READ_ONLY_CARRIER_BY_P02_HOSTILES"
+    },
+    {
+      "id": "SSO-H07",
+      "claim": "mixed 2+3 or generic 2..4 segment sides inherit recursive reuse automatically",
+      "result": "KILLED_BY_P03_P10_MIXED_ARITY_HOSTILES"
+    },
+    {
+      "id": "SSO-H08",
+      "claim": "identical left/right child content can manufacture two independent recursive operands",
+      "result": "KILLED_BY_P03_P10_INDEPENDENCE_HOSTILES"
+    },
+    {
+      "id": "SSO-H09",
+      "claim": "new segment operand consumer may be auto-invoked by existing runtime",
+      "result": "KILLED_BY_P12_SCHEDULING_AUDIT"
+    },
+    {
+      "id": "SSO-H10",
+      "claim": "new owner may silently widen historical recursive-B2 evidence typing",
+      "result": "KILLED_BY_P13_OWNER_TRANSITION_AND_BASE_METHOD_HASH"
+    },
+    {
+      "id": "SSO-H11",
+      "claim": "representation permutation changes reusable recursive operand content identity",
+      "result": "KILLED_BY_P09_REPRESENTATION_INVARIANCE"
+    },
+    {
+      "id": "SSO-H12",
+      "claim": "budget exhaustion may be treated as saturation",
+      "result": "KILLED_BY_P11_BUDGET_HOSTILE"
     }
   ]
 }

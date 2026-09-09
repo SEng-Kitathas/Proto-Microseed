@@ -1,34 +1,24 @@
 {
-  "schema": "r44.pdver.campaign.v1",
-  "status": "ACTIVE",
-  "probe": {
-    "observed": [
-      "segment-state content digests equal lawful ordered-composition content identities",
-      "no existing production composition owner admits segment-state evidence",
-      "existing recursive B2 owner validates only B2 composition evidence"
-    ],
-    "unknowns": [
-      "whether any hidden production consumer admits segment state",
-      "minimal lawful reusable carrier contract"
-    ]
-  },
-  "derive": {
-    "candidate": "CURRENT_STRUCTURAL_SEGMENT_STATE_SIDE_AS_EXPLICIT_GROUPED_COMPOSITION_CHILD_CARRIER",
-    "rejected": [
-      "digest-only child",
-      "caller-selected segment state",
-      "historical composition-row backfill",
-      "flattening"
-    ]
-  },
-  "embody": {
-    "status": "READ_ONLY_PROTOTYPE_AUTHORIZED",
-    "target": "explicit current segment-side grouped child carrier with exact segment-state evidence ref and no production mutation"
-  },
+  "schema": "microseed.segment_state_operand.pdver.v1",
+  "status": "P19_PASS_SEAL_READY",
+  "probe": "STRUCTURAL_SEGMENT_STATE_AS_REUSABLE_COMPOSITION_OPERAND",
+  "derive": "owner gap -> read-only exact side carriers -> B2-compatible exact recursive content identity",
+  "embody": "new explicit append-only retrospective B2-compatible segment recursive composition state owner",
   "verify": {
-    "status": "PENDING"
+    "targeted_production": "9/9 PASS",
+    "new_hostiles": "5/5 PASS",
+    "widened_targeted": "36/36 PASS",
+    "language_breadth": "184/184 PASS",
+    "reconstructed_breadth": "188/188 PASS job-812ea796d8b3",
+    "final_integrated_breadth": "197/197 PASS job-ebe6510188c6",
+    "ceiling_audit": "3/3 PASS",
+    "organism_test_entity_raw": "7 WinError32 teardown failures + 2 pass",
+    "organism_test_entity_cleanup_neutral": "9/9 PASS",
+    "compileall": "PASS",
+    "diff_check": "PASS",
+    "anti_smuggling": "PASS",
+    "CSC": "PASS_BOUNDED"
   },
-  "recurse": {
-    "next": "P02 read-only carrier prototype"
-  }
+  "recurse": "P20 seal/publish/remote readback; then bounded arity generalization without flattening",
+  "promotion": "NONE"
 }

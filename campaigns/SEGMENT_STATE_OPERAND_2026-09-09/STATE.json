@@ -1,12 +1,12 @@
 {
   "schema": "microseed.segment_state_operand_campaign.v1",
   "campaign": "SEGMENT_STATE_OPERAND_2026-09-09",
-  "status": "ACTIVE_B2_COMPATIBLE_PARENT_CONTENT_EQUIVALENCE_VERIFIED",
+  "status": "P19_PASS_SEAL_READY",
   "branch": "research/grounded-language-segment-state-operand-v1",
   "base_head": "baf2d239f2a98241ac9ceff41b2bb42b95913900",
   "pass_ceiling": 20,
-  "completed_passes": 3,
-  "current_pass": 4,
-  "current_discriminator": "PRODUCTION_B2_COMPATIBLE_SEGMENT_STATE_OPERAND_CONSUMER_WITH_EXACT_REVALIDATION_AND_APPEND_ONLY_IDENTITY",
+  "completed_passes": 19,
+  "current_pass": 20,
+  "current_discriminator": "SEAL_PUBLISH_REMOTE_READBACK",
   "promotion": "NONE"
 }

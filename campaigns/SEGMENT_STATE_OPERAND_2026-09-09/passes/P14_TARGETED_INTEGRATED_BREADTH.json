@@ -1,0 +1,23 @@
+{
+  "pass": 14,
+  "name": "TARGETED_INTEGRATED_BREADTH",
+  "status": "PASS_AFTER_AUDIT_EVOLUTION",
+  "evidence": [
+    "first widened run 35/36; sole failure obsolete P01 exact-source-reference count",
+    "owner-transition audit superseded stale negative-state inventory without weakening old-owner separation",
+    "second widened run 36/36 PASS"
+  ],
+  "result": "BOUNDARY_CONSUMPTION_RECURSIVE_B2_AND_NEW_OPERAND_SURFACES_GREEN",
+  "promotion": "NONE",
+  "nonclaims": [
+    "generic structural segment-state operand reuse",
+    "mixed arity 2..4 recursive child generalization",
+    "flattening",
+    "associativity",
+    "historical composition event authority",
+    "semantic or grammar authority",
+    "endogenous scheduling",
+    "EFFECT authority",
+    "canon promotion"
+  ]
+}

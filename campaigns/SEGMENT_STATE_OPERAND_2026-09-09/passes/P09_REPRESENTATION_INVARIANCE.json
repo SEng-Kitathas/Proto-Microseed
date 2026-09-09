@@ -1,0 +1,12 @@
+{
+  "pass": 9,
+  "name": "REPRESENTATION_INVARIANCE",
+  "status": "PASS",
+  "evidence": [
+    "surface token permutation preserves parent identity",
+    "sensor-channel permutation preserves parent identity",
+    "sensor polarity inversion preserves parent identity"
+  ],
+  "result": "OPERAND_REUSE_BOUND_TO_GROUNDED_OPERATIONAL_CONTENT_NOT_SURFACE_ENCODING",
+  "promotion": "NONE"
+}

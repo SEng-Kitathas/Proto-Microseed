@@ -1,0 +1,27 @@
+{
+  "pass": 17,
+  "name": "CSC_AND_CEILING_CONVERGENCE",
+  "status": "PASS_BOUNDED",
+  "evidence": [
+    "carrier->consumer content identity exact",
+    "segment/boundary/leaf lineage revalidated",
+    "old owner typing preserved",
+    "restart/currentness/representation/budget/scheduling hostiles pass",
+    "test_entity raw cleanup failures isolated to known Windows SQLite teardown scar",
+    "cleanup-neutral test_entity 9/9 PASS",
+    "reconstructed breadth 188/188 PASS"
+  ],
+  "result": "BOUNDED_B2_COMPATIBLE_STRUCTURAL_SEGMENT_STATE_REUSABLE_RECURSIVE_OPERAND_CANDIDATE",
+  "promotion": "NONE",
+  "nonclaims": [
+    "generic structural segment-state operand reuse",
+    "mixed arity 2..4 recursive child generalization",
+    "flattening",
+    "associativity",
+    "historical composition event authority",
+    "semantic or grammar authority",
+    "endogenous scheduling",
+    "EFFECT authority",
+    "canon promotion"
+  ]
+}

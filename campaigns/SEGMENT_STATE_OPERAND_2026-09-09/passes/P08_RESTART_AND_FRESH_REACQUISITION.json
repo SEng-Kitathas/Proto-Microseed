@@ -1,0 +1,11 @@
+{
+  "pass": 8,
+  "name": "RESTART_AND_FRESH_REACQUISITION",
+  "status": "PASS",
+  "evidence": [
+    "restart without fresh current segment state returns DEFER_UNKNOWN",
+    "fresh reacquisition rederives same parent content digest under new evidence identity"
+  ],
+  "result": "CONTENT_REDERIVABLE_ACROSS_RESTART_WITH_FRESH_CURRENT_LINEAGE",
+  "promotion": "NONE"
+}

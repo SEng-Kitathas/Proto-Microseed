@@ -24,30 +24,45 @@ def test_structural_segment_state_consumer_is_not_endogenously_scheduled_by_any_
             if method in l:hits.append((str(p),i,l.strip()))
     assert len(hits)==1,hits
     assert hits[0][2].startswith('def derive_and_record_current_native_structural_segment_state(')
-
-
-def test_segment_state_is_not_yet_consumed_as_reusable_composition_operand_by_any_other_production_owner():
-    marker='OWNED_NATIVE_STRUCTURAL_SEGMENT_COMPOSITION_STATE';hits=[]
+    parent='derive_and_record_current_native_structural_segment_b2_recursive_composition';parent_hits=[]
     for p in Path('microseed').rglob('*.py'):
         for i,l in enumerate(p.read_text(encoding='utf-8',errors='ignore').splitlines(),1):
-            if marker in l:hits.append((str(p),i,l.strip()))
-    # Current occurrences are confined to validator + producer branch; no downstream owner exists.
-    assert hits,hits
-    entity=Path(inspect.getsourcefile(Microseed)).read_text(encoding='utf-8')
-    consumer_start=entity.index('    def _validate_current_native_structural_segment_state(')
-    recursive_start=entity.index('    def derive_and_record_current_native_recursive_b2_ordered_composition(')
-    before=entity[:consumer_start];after=entity[recursive_start:]
-    assert marker not in before
-    assert marker not in after
+            if parent in l:parent_hits.append((str(p),i,l.strip()))
+    assert len(parent_hits)==1,parent_hits
+    assert parent_hits[0][2].startswith('def derive_and_record_current_native_structural_segment_b2_recursive_composition(')
 
 
-def test_earned_claim_is_current_derived_state_not_historical_event_or_effectful_composition_backfill():
+def test_segment_state_reuse_is_now_explicitly_b2_compatible_only_not_generic_recursive_flattening_or_associativity():
     td,m,s=_setup()
     try:
-        row=m.evidence.get(s['segment_state_evidence_id']);assert row is not None
+        out=m.derive_and_record_current_native_structural_segment_b2_recursive_composition(max_records=65536)
+        assert out['status']=='CURRENT_NATIVE_STRUCTURAL_SEGMENT_B2_RECURSIVE_COMPOSITION_STATE_RECORDED',out
+        assert out['admitted_child_arity']==2 and out['recursive_depth_limit']==1
+        assert out['flattening_authority']==out['associativity_authority']=='NONE'
+        assert out['semantic_composition_authority']==out['grammar_authority']=='NONE'
+        src=inspect.getsource(Microseed.derive_and_record_current_native_structural_segment_b2_recursive_composition)
+        assert 'SEGMENT_STATE_SIDE_NOT_B2_COMPATIBLE_FOR_RECURSIVE_REUSE' in inspect.getsource(Microseed._native_structural_segment_b2_child_carriers)
+        assert 'MIXED' not in src.upper() or 'B2_COMPATIBLE' in src.upper()
+        old_recursive=inspect.getsource(Microseed.derive_and_record_current_native_recursive_b2_ordered_composition)
+        assert 'OWNED_NATIVE_STRUCTURAL_SEGMENT_COMPOSITION_STATE' not in old_recursive
+    finally:_close(m);td.cleanup()
+
+
+def test_earned_claim_is_current_retrospective_operand_reuse_not_historical_event_or_effectful_backfill():
+    td,m,s=_setup()
+    try:
+        parent=m.derive_and_record_current_native_structural_segment_b2_recursive_composition(max_records=65536)
+        assert parent['status']=='CURRENT_NATIVE_STRUCTURAL_SEGMENT_B2_RECURSIVE_COMPOSITION_STATE_RECORDED',parent
+        row=m.evidence.get(parent['composition_state_evidence_id']);assert row is not None
         p=row['payload']
-        assert p['temporality']=='CURRENT_RETROSPECTIVE_DERIVATION_APPENDED_AFTER_BOUNDARY'
-        assert p['ledger_rewrite_authority']==p['historical_event_authority']==p['effect_authority']==p['execution_authority']==p['semantic_grouping_authority']=='NONE'
-        ordinary=[r for r in m.evidence.list() if (r.get('payload') or {}).get('kind')=='OWNED_NATIVE_BOUNDED_ORDERED_OPERATIONAL_REFERENCE_COMPOSITION_EVIDENCE']
+        assert p['temporality']=='CURRENT_RETROSPECTIVE_DERIVATION_APPENDED_AFTER_SEGMENT_STATE'
+        assert p['ledger_rewrite_authority']==p['historical_event_authority']==p['effect_authority']==p['execution_authority']=='NONE'
+        assert p['flattening_authority']==p['associativity_authority']==p['semantic_composition_authority']==p['grammar_authority']=='NONE'
+        assert p['scheduler_authority']==p['authority_gain']=='NONE'
+        ordinary=[r for r in m.evidence.list() if (r.get('payload') or {}).get('kind') in {
+            'OWNED_NATIVE_B2_ORDERED_OPERATIONAL_REFERENCE_COMPOSITION_EVIDENCE',
+            'OWNED_NATIVE_BOUNDED_ORDERED_OPERATIONAL_REFERENCE_COMPOSITION_EVIDENCE',
+            'OWNED_NATIVE_RECURSIVE_B2_ORDERED_COMPOSITION_EVIDENCE',
+        }]
         assert ordinary==[]
     finally:_close(m);td.cleanup()

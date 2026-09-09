@@ -1,0 +1,11 @@
+{
+  "pass": 7,
+  "name": "FORGERY_AND_CURRENTNESS_HOSTILES",
+  "status": "PASS",
+  "evidence": [
+    "copied valid parent payload under arbitrary id refused",
+    "underlying QA capability/profile/association drift invalidates segment-parent reuse"
+  ],
+  "result": "EXACT_ID_AND_CURRENT_LINEAGE_REQUIRED",
+  "promotion": "NONE"
+}
