@@ -10,12 +10,12 @@ If you are trying to understand what Microseed *is*, start at [`START_HERE.md`](
 
 The default `main` branch is the conservative public/canonical surface and does **not** automatically absorb every earned research result. The current remote-exact research frontier is:
 
-- branch: `research/grounded-language-boundary-consumption-v1`
-- science seal: `7ba1010be8201e71fbad922b7b1068491f996886`
-- campaign completion/readback head: `baf2d239f2a98241ac9ceff41b2bb42b95913900`
-- current earned frontier: bounded append-only structural segment-state consumption from a current structural boundary witness; reusable segment-state composition is the next frontier, while endogenous boundary monitoring/consumer scheduling remains orthogonally open
+- branch: `research/grounded-language-segment-state-operand-v1`
+- science seal: `500ac5de919f770f79e675002a87a366213836c7`
+- campaign completion/readback head: `99269989b6c46422799898ab5c34b848db413d4f`
+- current earned frontier: bounded B2-compatible reuse of CURRENT structural segment state as grouped fixed-depth-one recursive composition operands; mixed/bounded segment-side arity generalization without flattening is the next frontier, while endogenous boundary monitoring/consumer scheduling remains orthogonally open
 
-Recent earned research on that lineage includes native grounded token↔referent association, bounded held-out B2 recombination, fixed-depth recursive reuse, distinct-leaf B3, one bounded direct composition owner deriving arity 2–4 without caller-supplied arity, authenticated action-execution boundary recognition, bounded retrospective structural boundary-occasion ownership when exactly one lawful split is compelled by current grounded structure, and append-only structural segment-state consumption that materializes current retrospective segment state without rewriting historical composition events. These are research results, not a claim that generic AGI, language competence, semantic ontology, unrestricted planning, or unbounded composition has been completed.
+Recent earned research on that lineage includes native grounded token↔referent association, bounded held-out B2 recombination, fixed-depth recursive reuse, distinct-leaf B3, one bounded direct composition owner deriving arity 2–4 without caller-supplied arity, authenticated action-execution boundary recognition, bounded retrospective structural boundary-occasion ownership when exactly one lawful split is compelled by current grounded structure, append-only structural segment-state consumption that materializes current retrospective segment state without rewriting historical composition events, and bounded B2-compatible reuse of distinct 2+2 segment sides as grouped recursive operands without flattening or historical backfill. These are research results, not a claim that generic AGI, language competence, semantic ontology, unrestricted planning, or unbounded composition has been completed.
 
 ---
 

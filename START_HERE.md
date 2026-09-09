@@ -32,14 +32,14 @@ The central research question is:
 The conservative default `main` branch is intentionally not identical to the newest research head. For the current organism frontier, checkout:
 
 ```text
-research/grounded-language-boundary-consumption-v1
+research/grounded-language-segment-state-operand-v1
 ```
 
 Exact anchors:
 
 ```text
-science seal:     7ba1010be8201e71fbad922b7b1068491f996886
-campaign receipt: baf2d239f2a98241ac9ceff41b2bb42b95913900
+science seal:     500ac5de919f770f79e675002a87a366213836c7
+campaign receipt: 99269989b6c46422799898ab5c34b848db413d4f
 ```
 
 That branch preserves this earned chain:
@@ -63,6 +63,8 @@ C08I native pair harvest
   d87a45a5886f5b5b4de26315e468be39a0717370
 → bounded append-only structural segment-state consumption
   7ba1010be8201e71fbad922b7b1068491f996886
+→ bounded B2-compatible structural segment state as reusable recursive composition operand
+  500ac5de919f770f79e675002a87a366213836c7
 ```
 
 ## Read order for Claude or another external reviewer
@@ -71,13 +73,14 @@ If you want an AI reviewer to understand the project rather than mistake the pro
 
 1. **This file — `START_HERE.md`.** Establish project identity, intent, and the main-vs-research distinction.
 2. **`README.md`.** Use it for the broader public/canonical history and repository map, but do not stop at the governance section.
-3. **Checkout `research/grounded-language-boundary-consumption-v1`.** The latest research is not all on default `main`.
-4. **`campaigns/BOUNDARY_CONSUMPTION_2026-09-08/FINAL_SUMMARY.json`.** This is the compact current campaign result and exact authority ceiling.
-5. **`campaigns/BOUNDARY_OCCASION_2026-09-08/FINAL_SUMMARY.json`.** This is the immediately prior structural boundary-occasion campaign.
-6. **`campaigns/OPERAND_WINDOW_BOUNDARY_2026-09-07/FINAL_SUMMARY.json`.** This is the prior action-execution boundary-recognition campaign.
-7. **`campaigns/ARITY_GENERALIZATION_2026-09-07/FINAL_SUMMARY.json`.** This shows the bounded arity-generalization campaign, including inherited negative-token evidence defects that were found and repaired rather than hidden.
-8. **`microseed/runtime/entity.py`.** Read the production organism implementation, especially the native grounded association/composition/currentness/action-closure paths. Do not infer a faculty from a method name; trace the evidence and authority gates.
-9. **Relevant embodiment tests:**
+3. **Checkout `research/grounded-language-segment-state-operand-v1`.** The latest research is not all on default `main`.
+4. **`campaigns/SEGMENT_STATE_OPERAND_2026-09-09/FINAL_SUMMARY.json`.** This is the compact current campaign result and exact authority ceiling.
+5. **`campaigns/BOUNDARY_CONSUMPTION_2026-09-08/FINAL_SUMMARY.json`.** This is the immediately prior segment-consumption campaign.
+6. **`campaigns/BOUNDARY_OCCASION_2026-09-08/FINAL_SUMMARY.json`.** This is the immediately prior structural boundary-occasion campaign.
+7. **`campaigns/OPERAND_WINDOW_BOUNDARY_2026-09-07/FINAL_SUMMARY.json`.** This is the prior action-execution boundary-recognition campaign.
+8. **`campaigns/ARITY_GENERALIZATION_2026-09-07/FINAL_SUMMARY.json`.** This shows the bounded arity-generalization campaign, including inherited negative-token evidence defects that were found and repaired rather than hidden.
+9. **`microseed/runtime/entity.py`.** Read the production organism implementation, especially the native grounded association/composition/currentness/action-closure paths. Do not infer a faculty from a method name; trace the evidence and authority gates.
+10. **Relevant embodiment tests:**
    - `tests/embodiment/test_lang_action_execution_boundary_production.py`
    - `tests/embodiment/test_lang_action_execution_boundary_replay_and_history.py`
    - `tests/embodiment/test_lang_action_execution_boundary_restart_production.py`
@@ -91,17 +94,22 @@ If you want an AI reviewer to understand the project rather than mistake the pro
    - `tests/embodiment/test_lang_boundary_consumption_production.py`
    - `tests/embodiment/test_lang_boundary_consumption_ceiling_audit.py`
    - `tests/embodiment/test_lang_boundary_consumption_invocation_budget_smuggling.py`
-10. **Methodology for the deeper conceptual constraints:** start with `methodology/MS1959_MS1961_AFFORDANCE_RELATIVE_PROTO_REFERENCE.md`, then follow the numbered lineage relevant to the mechanism being inspected.
-11. **For exact continuity/current frontier**, use the separate `SEng-Kitathas/Proto-Microseed-RD-Continuity` repository if available. Its current re-entry/current-state/live-shadow surfaces are recovery authority, not a replacement for reading the organism code and experiments.
+   - `tests/embodiment/test_lang_segment_state_b2_recursive_production.py`
+   - `tests/embodiment/test_lang_segment_state_b2_recursive_hostiles.py`
+   - `tests/embodiment/test_lang_segment_state_operand_owner_gap_audit.py`
+11. **Methodology for the deeper conceptual constraints:** start with `methodology/MS1959_MS1961_AFFORDANCE_RELATIVE_PROTO_REFERENCE.md`, then follow the numbered lineage relevant to the mechanism being inspected.
+12. **For exact continuity/current frontier**, use the separate `SEng-Kitathas/Proto-Microseed-RD-Continuity` repository if available. Its current re-entry/current-state/live-shadow surfaces are recovery authority, not a replacement for reading the organism code and experiments.
 
 ## What the current frontier actually earns
 
-The current research lineage has earned bounded mechanisms for grounded operational association and composition. The same bounded direct composition owner can derive arity 2, 3, or held-out 4 from current grounded token chronology without caller-supplied arity. It can recognize an authenticated current-runtime action execution as an operational boundary and retrospectively derive a durable structural boundary witness when exactly one lawful split is compelled. The latest campaign can consume that CURRENT witness into append-only retrospective left/right structural segment state whose content identity matches the earned bounded-composition identity, without rewriting historical evidence or pretending the segment state was a historical composition event.
+The current research lineage has earned bounded mechanisms for grounded operational association and composition. The same bounded direct composition owner can derive arity 2, 3, or held-out 4 from current grounded token chronology without caller-supplied arity. It can recognize an authenticated current-runtime action execution as an operational boundary and retrospectively derive a durable structural boundary witness when exactly one lawful split is compelled. The segment-consumption campaign can consume that CURRENT witness into append-only retrospective left/right structural segment state whose content identity matches the earned bounded-composition identity. The latest campaign additionally earns reuse of distinct B2-compatible 2+2 segment sides as two grouped fixed-depth-one recursive operands, preserving exact retrospective lineage without rewriting historical B2 evidence, flattening the grouped children, or inferring associativity.
 
 The current frontier is **not** “AGI complete.” `AGI substrate` here names the research target and architectural role: a small developmental substrate intended to grow cognition. The project still refuses to promote missing mechanisms by rhetoric. Among the explicit nonclaims are:
 
 - generic/unbounded N-ary composition;
-- structural segment state as a reusable downstream composition operand;
+- generic structural segment-state operand reuse beyond the earned distinct B2-compatible 2+2 case;
+- mixed segment-side arity 2..4 recursive reuse without an independently earned grouping-preserving law;
+- flattening or associativity inferred from reusable operand content identity;
 - endogenous boundary monitoring / segment-consumer scheduling;
 - unrestricted or generic planning;
 - semantic truth/reference authority from language;
@@ -113,10 +121,10 @@ The current frontier is **not** “AGI complete.” `AGI substrate` here names t
 ## Current next discriminator
 
 ```text
-STRUCTURAL_SEGMENT_STATE_AS_REUSABLE_COMPOSITION_OPERAND
+STRUCTURAL_SEGMENT_STATE_REUSABLE_OPERAND_ARITY_GENERALIZATION_WITHOUT_FLATTENING
 ```
 
-Microseed can now consume a CURRENT structural boundary witness into append-only retrospective structural segment state without rewriting historical evidence, and immediate versus delayed invocation converges on the same ordered segment-state content. The next question is whether that segment state can itself become a lawful reusable composition operand without smuggling historical-event, associativity, semantic, or EFFECT authority. Orthogonally, `ENDOGENOUS_BOUNDARY_MONITORING_AND_CONSUMPTION_SCHEDULING` remains open: the organism still does not own when to invoke the boundary or segment-state consumers.
+Microseed can now reuse distinct B2-compatible 2+2 retrospective segment sides as two grouped fixed-depth-one recursive operands while preserving exact currentness/provenance and withholding historical-event, flattening, associativity, semantic, scheduling, and EFFECT authority. The next question is whether the already-earned bounded arity2..4 content law can generalize that grouped child role to mixed/bounded segment-side arities without flattening nested structure or silently gaining associativity. Orthogonally, `ENDOGENOUS_BOUNDARY_MONITORING_AND_CONSUMPTION_SCHEDULING` remains open: the organism still does not own when to invoke the boundary or segment-state consumers.
 
 ## Reading discipline
 
