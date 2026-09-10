@@ -1,0 +1,23 @@
+{
+  "schema": "microseed.rehearsal-currentness-rebase.csc.v1",
+  "status": "PASS_BOUNDED",
+  "earned_candidate": "INDEXED_CANONICAL_STALE_LEARNED_RELATION_REHEARSAL_CURRENTNESS_RESTORED_ON_HARDENED_SUBSTRATE",
+  "base_substrate_receipt": "5206925e2b82bc9b0ca4073d0ddaa76378b28310",
+  "repair_checkpoint": "1aaf04e4cedd7c1fe704d698cbd417786cb59069",
+  "canonical_semantic_source": "c036ab55dca2bca057c0f84ca6d5c8bc3e313fa7",
+  "full_soak_job": "job-dacf9bca4318",
+  "full_soak_result_sha256": "ea8bee4afb91b498919a3e29ccacd95a7464c8c2627a547086cdaf52f40470dc",
+  "interfaces": [
+    "learned relation add/replay -> digest index PASS",
+    "proposal owned transition digest -> learned currentness PASS selective",
+    "fresh commitment/intent -> stale proposal blocks PASS",
+    "supplied-row assistance -> no learned owner remains current PASS",
+    "replacement qualification -> new current R proposal reentry PASS",
+    "restart -> index and runtime currentness rehydrate through owners PASS",
+    "performance substrate -> no O(n) relation scan PASS"
+  ],
+  "performance": "actual proposal-status lookup flat through 20k unrelated relations",
+  "authority_gain": "NONE",
+  "promotion": "NONE",
+  "next_frontier": "STRUCTURAL_SEGMENT_RECURSIVE_PARENT_STATE_AS_REUSABLE_COMPOSITION_OPERAND_WITHOUT_FLATTENING_OR_ASSOCIATIVITY"
+}

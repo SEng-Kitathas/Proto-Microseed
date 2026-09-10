@@ -1,0 +1,29 @@
+{
+  "pass": 19,
+  "name": "CAMPAIGN_PASS_GATE",
+  "status": "PASS_SEAL_READY",
+  "repair_checkpoint": "1aaf04e4cedd7c1fe704d698cbd417786cb59069",
+  "earned_claim": "INDEXED_CANONICAL_STALE_LEARNED_RELATION_REHEARSAL_CURRENTNESS_RESTORED_ON_HARDENED_SUBSTRATE",
+  "checks": {
+    "historical_violation": "REPRODUCED",
+    "canonical_semantics": "RESTORED",
+    "indexed_cost": "FLAT",
+    "selective_hostiles": "PASS",
+    "broad": "257/257",
+    "final_integrated": "281/281",
+    "full_causal_shift_soak": "1200/1200 PASS",
+    "restarts": "3 PASS",
+    "compile_diff_anti_authority": "PASS"
+  },
+  "not_earned": [
+    "new canon promotion",
+    "self-qualification",
+    "naked autonomy",
+    "open-ended development",
+    "AGI",
+    "generic global proposal invalidation"
+  ],
+  "next_frontier": "STRUCTURAL_SEGMENT_RECURSIVE_PARENT_STATE_AS_REUSABLE_COMPOSITION_OPERAND_WITHOUT_FLATTENING_OR_ASSOCIATIVITY",
+  "next_action": "rebase preserved depth-two parent-operand WIP 7b26c710... onto this sealed substrate/currentness lineage and reattack from scratch",
+  "promotion": "NONE"
+}

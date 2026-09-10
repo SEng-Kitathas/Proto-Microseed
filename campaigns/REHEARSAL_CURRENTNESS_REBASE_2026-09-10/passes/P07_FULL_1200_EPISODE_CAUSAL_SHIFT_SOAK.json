@@ -1,0 +1,24 @@
+{
+  "pass": 7,
+  "name": "FULL_1200_EPISODE_CAUSAL_SHIFT_SOAK",
+  "status": "PASS",
+  "job": "job-dacf9bca4318",
+  "exact_repair_commit": "1aaf04e4cedd7c1fe704d698cbd417786cb59069",
+  "donor_script_sha256": "4bfd0937825867942cfe34b98655df0bca94add4e81c8e2607b31191cc9040a5",
+  "config": {
+    "episodes": 1200,
+    "shift_episode": 600,
+    "snapshot_every": 300,
+    "referent_every": 100,
+    "seed": 2053001
+  },
+  "elapsed_seconds": 297.5470000000205,
+  "ordinary_execution_count": 3716,
+  "ordinary_outcome_count": 3716,
+  "shift_drift_episode_pass_count": 16,
+  "result_summary_sha256": "ea8bee4afb91b498919a3e29ccacd95a7464c8c2627a547086cdaf52f40470dc",
+  "telemetry_sha256": "06267d17bd221096522e1893e728eb080e77be34cf7f730419fc57dc4de5b004",
+  "config_sha256": "921c3da115f78e9c34193bdfe41b3162098abaccbf99db494d7db22b83a6ad89",
+  "result": "CURRENT_LINEAGE_CAUSAL_SHIFT_SOAK_SCIENCE_GATE_PASS",
+  "promotion": "NONE"
+}

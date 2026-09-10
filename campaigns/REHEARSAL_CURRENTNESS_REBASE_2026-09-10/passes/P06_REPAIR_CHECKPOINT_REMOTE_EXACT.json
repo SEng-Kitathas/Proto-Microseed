@@ -1,0 +1,11 @@
+{
+  "pass": 6,
+  "name": "REPAIR_CHECKPOINT_REMOTE_EXACT",
+  "status": "PASS",
+  "commit": "1aaf04e4cedd7c1fe704d698cbd417786cb59069",
+  "branch": "research/rehearsal-currentness-rebase-on-substrate-v1",
+  "remote_readback": "EXACT",
+  "worktree": "CLEAN",
+  "result": "SOAK_SCIENCE_GATE_RUNS_FROM_IMMUTABLE_REPAIR_IDENTITY",
+  "promotion": "NONE"
+}

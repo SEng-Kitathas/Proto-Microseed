@@ -1,0 +1,16 @@
+{
+  "pass": 13,
+  "name": "MULTI_OWNER_AND_REPLAY_INDEX_HOSTILES",
+  "status": "PASS",
+  "checks": [
+    "one current owner among matching digest keeps proposal current",
+    "all matching owners stale blocks",
+    "replacement relation id remaps old digest binding correctly",
+    "durable replay through add_relation rebuilds exact digest index",
+    "Microseed restart rebuilds exact index",
+    "unrelated stale relations do not affect target",
+    "supplied-row/no learned owner remains current"
+  ],
+  "result": "DERIVED_DIGEST_INDEX_PRESERVES_CANONICAL_SELECTIVE_SEMANTICS",
+  "promotion": "NONE"
+}

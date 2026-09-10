@@ -1,0 +1,10 @@
+{
+  "pass": 17,
+  "name": "HISTORICAL_CANONICAL_PARITY",
+  "status": "PASS_WITH_MODERN_INDEXED_IMPLEMENTATION",
+  "historical_canonical_p1a": "c036ab55dca2bca057c0f84ca6d5c8bc3e313fa7",
+  "semantic_parity": "stale learned owner blocks durable proposal; supplied-row no-owner remains governed by historical checks; recovery uses assistance; old model stays stale",
+  "implementation_difference": "historical canonical code scanned all learned relations; current rebase uses derived digest index to satisfy hardened substrate cost constraint",
+  "law": "CANONICAL_SEMANTICS != CANONICAL_IMPLEMENTATION_COST",
+  "promotion": "NONE"
+}

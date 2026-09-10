@@ -1,0 +1,20 @@
+{
+  "pass": 8,
+  "name": "RESTART_AND_AUTHORITY_CONTINUITY",
+  "status": "PASS",
+  "restart_count": 3,
+  "restart_episodes": [
+    300,
+    600,
+    900
+  ],
+  "snapshot_sha256": [
+    "a830d1a72d869e112d6a8487f39a54397aea33b32f3f91d534a544d920145d00",
+    "3b31f21fef6f3aa99c576c36534b9d3bd55f9f5c8fa7e815db44bbcc7c1e3402",
+    "d00c92737a1f110f1679cce55fb8166b894f95bd9bdf2d8f2436593c32fe86c7"
+  ],
+  "observation": "pre-attach persisted relation/proposal status is stale/unknown until runtime ownership is reattached; post-attach exact currentness is restored without automatic authority gain",
+  "automatic_authority_gain": "NONE",
+  "result": "PERSISTENCE_DOES_NOT_RESURRECT_EXECUTABLE_CURRENTNESS_AUTHORITY",
+  "promotion": "NONE"
+}

@@ -1,0 +1,9 @@
+{
+  "pass": 14,
+  "name": "BROAD_CURRENT_LINEAGE",
+  "status": "PASS",
+  "verification": "257/257 PASS across 83 files cleanup-neutral",
+  "includes": "all current test_lang_* + test_ms_substrate_* + indexed currentness + MS1943 + historical semantic donor",
+  "result": "CURRENT_GROUNDED_LANGUAGE_SUBSTRATE_AND_CURRENTNESS_SURFACE_GREEN",
+  "promotion": "NONE"
+}

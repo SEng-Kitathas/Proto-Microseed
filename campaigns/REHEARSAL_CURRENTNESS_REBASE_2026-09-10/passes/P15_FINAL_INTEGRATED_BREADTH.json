@@ -1,0 +1,21 @@
+{
+  "pass": 15,
+  "name": "FINAL_INTEGRATED_BREADTH",
+  "status": "PASS",
+  "verification": "281/281 PASS across 92 files cleanup-neutral",
+  "includes": [
+    "MS2046",
+    "MS2051",
+    "test_entity",
+    "all current language/substrate",
+    "MS1778-1781 rehearsal ancestry/value hostiles",
+    "MS1939",
+    "MS1943",
+    "MS1998",
+    "MS2020",
+    "indexed currentness"
+  ],
+  "known_resource_scar": "raw Windows TemporaryDirectory cleanup may fail on open biography.sqlite3; cleanup-neutral changes teardown only, not test bodies/assertions",
+  "result": "FINAL_CURRENT_LINEAGE_GREEN_281_OF_281",
+  "promotion": "NONE"
+}

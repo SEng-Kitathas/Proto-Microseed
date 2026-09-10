@@ -1,0 +1,10 @@
+{
+  "pass": 11,
+  "name": "CANONICAL_ASSISTED_RECOVERY_SEMANTICS",
+  "status": "PASS",
+  "scar": "current MS1943 initially expected stale learned proposal to remain executable for recovery evidence; canonical c036ab55 test had already evolved this to supplied-row assisted recovery",
+  "repair": "test restored to canonical assisted-recovery semantics; stale learned proposal remains blocked",
+  "law": "NO_LEARNED_OWNER != STALE_LEARNED_OWNER",
+  "result": "RECOVERY_EVIDENCE_DOES_NOT_REQUIRE_EXECUTING_STALE_LEARNED_PREMISE",
+  "promotion": "NONE"
+}

@@ -1,0 +1,20 @@
+{
+  "pass": 12,
+  "name": "INDEXED_CURRENTNESS_PERFORMANCE_NONREGRESSION",
+  "status": "PASS_FLAT",
+  "actual_counterfactual_status_median_ms": {
+    "195": 0.0018,
+    "1108": 0.0018,
+    "5000": 0.0017,
+    "20000": 0.0017
+  },
+  "actual_counterfactual_status_mean_ms": {
+    "195": 0.0018389,
+    "1108": 0.001788,
+    "5000": 0.0017991,
+    "20000": 0.0017614
+  },
+  "lookup_scope": "exact matching learned owners only; no action_outcome_learning.relations.values() scan",
+  "result": "CANONICAL_CURRENTNESS_SEMANTICS_RESTORED_WITHOUT_REOPENING_HISTORY_LINEAR_TIMED_PATH",
+  "promotion": "NONE"
+}

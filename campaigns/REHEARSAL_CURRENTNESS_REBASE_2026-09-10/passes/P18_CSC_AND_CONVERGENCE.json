@@ -1,0 +1,16 @@
+{
+  "pass": 18,
+  "name": "CSC_AND_CONVERGENCE",
+  "status": "PASS_BOUNDED",
+  "interfaces": [
+    "learned relation add/replay -> digest index PASS",
+    "proposal owned transition digest -> learned currentness PASS selective",
+    "fresh commitment/intent -> stale proposal blocks PASS",
+    "supplied-row assistance -> no learned owner remains current PASS",
+    "replacement qualification -> new current R proposal reentry PASS",
+    "restart -> index and runtime currentness rehydrate through owners PASS",
+    "performance substrate -> no O(n) relation scan PASS"
+  ],
+  "authority_gain": "NONE",
+  "promotion": "NONE"
+}

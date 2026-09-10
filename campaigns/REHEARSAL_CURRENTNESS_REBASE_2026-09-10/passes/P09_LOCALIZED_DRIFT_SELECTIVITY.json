@@ -1,0 +1,13 @@
+{
+  "pass": 9,
+  "name": "LOCALIZED_DRIFT_SELECTIVITY",
+  "status": "PASS",
+  "old_relation_status": {
+    "K-17": "CURRENT_PREDICTIVE_RELATION",
+    "M-23": "CURRENT_PREDICTIVE_RELATION",
+    "R-41": "STALE_PREDICTIVE_RELATION"
+  },
+  "selective_proposal_behavior": "s0/s1 remain executable; old s2 R-41 learned proposal becomes UNKNOWN_INCOMPLETE and intent blocks",
+  "result": "STALE_LEARNED_RELATION_INVALIDATION_IS_EXACT_ANCESTRY_SCOPED_NOT_GLOBAL",
+  "promotion": "NONE"
+}
