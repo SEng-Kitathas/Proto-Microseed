@@ -2204,7 +2204,7 @@ class Microseed:
         """Execute through an already-qualified EFFECT capability; the intent itself has no effect authority."""
         intent=self.action_closure.intents.get(intent_id)
         if intent is None: return {"status":"NO_EXECUTION","reason":"ACTION_INTENT_NOT_FOUND","authority":Authority.NONE.value}
-        if any(e.intent_id==intent_id for e in self.action_closure.executions.values()): return {"status":"NO_EXECUTION","reason":"ACTION_INTENT_ALREADY_EXECUTED","authority":Authority.NONE.value}
+        if self.action_closure.has_executed_intent(intent_id): return {"status":"NO_EXECUTION","reason":"ACTION_INTENT_ALREADY_EXECUTED","authority":Authority.NONE.value}
         cw=self.action_closure.current_state
         if cw is None or cw.state_id!=intent.start_state_id or cw.evidence_id!=intent.control_state_evidence_id: return {"status":"NO_EXECUTION","reason":"CONTROL_STATE_DRIFT","authority":Authority.NONE.value}
         cap=self.capabilities.contracts.get(intent.capability_id)
@@ -4916,7 +4916,7 @@ class Microseed:
             return {"status":"DEFER_UNKNOWN","reason":"CURRENT_RUNTIME_BOOT_BOUNDARY_REQUIRED"}
         rows=self.evidence.list()
         position_by_eid={str(row.get("evidence_id","")):i for i,row in enumerate(rows)}
-        events=[row for row in self.store.events() if int(row.get("seq",-1))>boot]
+        events=self.store.events_after(boot)
         if len(events)>bound:
             return {"status":"SEARCH_BUDGET_EXHAUSTED_NOT_SATURATED",
                     "reason":"OPERAND_WINDOW_EVENT_HISTORY_EXCEEDS_SCAN_BUDGET",
@@ -10510,8 +10510,8 @@ class Microseed:
         currentness may use this sequence boundary to require fresh post-restart reality
         contact without treating restart bytes as execution/body authority.
         """
-        boots=[int(row["seq"]) for row in self.store.events() if row.get("kind")=="BOOT"]
-        return max(boots) if boots else -1
+        seq=self.store.latest_event_seq("BOOT")
+        return -1 if seq is None else int(seq)
 
     def record_current_owned_affordance_effect_profiles(
         self, *, evidence_id_prefix: str, max_probe_steps: int = 8,

@@ -1,0 +1,10 @@
+{
+  "pass": 4,
+  "name": "REGRESSION_PRESSURE",
+  "status": "PASS",
+  "raw_targeted": "49 failed / 37 passed due existing WinError32 TemporaryDirectory cleanup on open biography.sqlite3; captured failures teardown-only",
+  "cleanup_neutral_targeted": "86/86 PASS same test bodies/assertions",
+  "broad": "all current test_lang_* plus substrate tests = 235/235 PASS across 78 files",
+  "result": "NO_OBSERVED_COGNITIVE_CURRENTNESS_BOUNDARY_OR_ACTION_SEMANTIC_REGRESSION_FROM_INDEXING_TRANCHE",
+  "promotion": "NONE"
+}

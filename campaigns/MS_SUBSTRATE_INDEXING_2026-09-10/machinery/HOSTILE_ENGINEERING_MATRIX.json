@@ -1,0 +1,45 @@
+{
+  "status": "OPEN",
+  "attacks": [
+    {
+      "id": "MSI-H01",
+      "claim": "execution duplicate refusal requires full scan",
+      "expected": "KILL with derived O(1) membership, identical refusal semantics"
+    },
+    {
+      "id": "MSI-H02",
+      "claim": "latest BOOT currentness requires decoding all events",
+      "expected": "KILL with indexed exact latest-event query"
+    },
+    {
+      "id": "MSI-H03",
+      "claim": "suffix-after-boot reasoning requires full pre-boot history materialization",
+      "expected": "KILL with indexed suffix query"
+    },
+    {
+      "id": "MSI-H04",
+      "claim": "execution index may drift across restart/load",
+      "expected": "KILL via load/add invariant and hostile corruption detection"
+    },
+    {
+      "id": "MSI-H05",
+      "claim": "index/cache existence grants authority",
+      "expected": "KILL; authority unchanged"
+    },
+    {
+      "id": "MSI-H06",
+      "claim": "arbitrary caller non-token evidence is a lawful grouping delimiter",
+      "expected": "KILL in boundary tranche"
+    },
+    {
+      "id": "MSI-H07",
+      "claim": "removing arbitrary evidence delimiter may erase authenticated action boundary",
+      "expected": "KILL; action execution boundary preserved"
+    },
+    {
+      "id": "MSI-H08",
+      "claim": "soak may proceed while per-act latency slope remains history-linear",
+      "expected": "KILL; soak gate remains blocked until scale test"
+    }
+  ]
+}

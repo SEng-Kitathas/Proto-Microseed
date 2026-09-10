@@ -248,16 +248,22 @@ class ActionClosureRegistry:
         self.current_state: OpaqueControlStateWitness|None=None
         self.intents: dict[str,BoundedActionIntent]={}
         self.executions: dict[str,ActionExecutionRecord]={}
+        # Derived O(1) membership index over the authoritative execution records.
+        # It is rebuilt by add_execution() during durable replay and carries no authority.
+        self._executed_intent_ids: set[str]=set()
         self.outcomes: dict[str,ActionOutcomeRecord]={}
     def set_state(self,w:OpaqueControlStateWitness): self.current_state=w
+    def has_executed_intent(self,intent_id: str) -> bool:
+        return str(intent_id) in self._executed_intent_ids
     def add_intent(self,x):
         if x.intent_id in self.intents: raise ValueError('DUPLICATE_ACTION_INTENT')
         if x.execution_authority!='NONE' or x.truth_authority!='NONE' or x.semantic_intention_authority!='NONE': raise ValueError('ACTION_INTENT_AUTHORITY_ESCALATION')
         self.intents[x.intent_id]=x
     def add_execution(self,x):
         if x.execution_id in self.executions: raise ValueError('DUPLICATE_ACTION_EXECUTION')
-        if any(e.intent_id==x.intent_id for e in self.executions.values()): raise ValueError('ACTION_INTENT_ALREADY_EXECUTED')
+        if self.has_executed_intent(x.intent_id): raise ValueError('ACTION_INTENT_ALREADY_EXECUTED')
         self.executions[x.execution_id]=x
+        self._executed_intent_ids.add(x.intent_id)
     def add_outcome(self,x):
         if x.outcome_id in self.outcomes or any(o.execution_id==x.execution_id for o in self.outcomes.values()): raise ValueError('ACTION_EXECUTION_ALREADY_HAS_OUTCOME')
         self.outcomes[x.outcome_id]=x

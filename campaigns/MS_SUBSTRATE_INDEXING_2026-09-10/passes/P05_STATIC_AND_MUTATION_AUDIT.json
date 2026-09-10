@@ -1,0 +1,18 @@
+{
+  "pass": 5,
+  "name": "STATIC_AND_MUTATION_AUDIT",
+  "status": "PASS",
+  "checks": [
+    "compileall PASS",
+    "git diff --check PASS",
+    "no CapabilityContract or capability registration",
+    "no new action creation",
+    "no planner/scheduler/semantic registry",
+    "no event UPDATE or DELETE",
+    "no new authority grant",
+    "no production direct write to action_closure.executions; all lawful insertion paths use add_execution()",
+    "caller-evidence delimiter violation remains intentionally reproduced and therefore not hidden by indexing"
+  ],
+  "result": "INDEXED_LOOKUP_IS_MECHANICAL_SUBSTRATE_HARDENING_NOT_AUTHORITY_OR_COGNITION",
+  "promotion": "NONE"
+}

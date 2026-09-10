@@ -1,0 +1,15 @@
+{
+  "pass": 2,
+  "name": "INDEXED_EXECUTION_MEMBERSHIP_AND_STORE_QUERIES",
+  "status": "PASS",
+  "evidence": [
+    "ActionClosureRegistry derives _executed_intent_ids through add_execution() used by live insertion and durable replay",
+    "StateStore adds idx_events_kind_seq(kind,seq desc), latest_event_seq(kind), events_after(seq, kinds?, limit?)",
+    "_current_runtime_boot_seq uses latest_event_seq(BOOT)",
+    "store-aware operand window uses events_after(boot)",
+    "new substrate tests + violation reproduction: 7/7 PASS"
+  ],
+  "result": "PROVEN_FULL_HISTORY_SCANS_REMOVED_FROM_EXECUTION_DUPLICATE_CHECK_AND_BOOT_SUFFIX_QUERIES_WITH_EQUIVALENT_RESULTS",
+  "authority_gain": "NONE",
+  "promotion": "NONE"
+}

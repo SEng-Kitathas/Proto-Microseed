@@ -1,0 +1,52 @@
+{
+  "pass": 3,
+  "name": "SCALING_BENCHMARK",
+  "status": "PASS_FLAT_FOR_TARGETED_INDEXED_PATHS",
+  "baseline": {
+    "old_store_events_median_ms": {
+      "195": 0.2681,
+      "1108": 1.5512,
+      "5000": 7.3028
+    },
+    "old_current_boot_median_ms": {
+      "195": 0.27415,
+      "1108": 1.5739,
+      "5000": 7.44795
+    },
+    "old_execution_duplicate_scan_median_ms": {
+      "195": 0.0062,
+      "1108": 0.0352,
+      "5000": 0.1683,
+      "20000": 0.6544
+    },
+    "old_execute_path_median_ms": {
+      "195": 1.783,
+      "1108": 1.8,
+      "5000": 1.999
+    }
+  },
+  "indexed_reproducible_benchmark": {
+    "executed_intent_membership_median_ms": {
+      "195": 0.0001,
+      "1108": 0.0001,
+      "5000": 0.0001,
+      "20000": 0.0001
+    },
+    "add_execution_median_ms_approx": "0.0003-0.0005 across 195..20000 prior executions",
+    "indexed_boot_median_ms": {
+      "195": 0.00305,
+      "1108": 0.0031,
+      "5000": 0.0032,
+      "20000": 0.0033
+    },
+    "indexed_execute_path_median_ms": {
+      "195": 1.8,
+      "1108": 1.915,
+      "5000": 1.769
+    }
+  },
+  "discriminator": "SCALING_SHAPE_NOT_ABSOLUTE_MACHINE_TIME",
+  "result": "TARGETED_PER_ACT_EXECUTION_HISTORY_AND_BOOT_LOOKUP_LINEAR_SLOPES_REMOVED",
+  "authority_gain": "NONE",
+  "promotion": "NONE"
+}
