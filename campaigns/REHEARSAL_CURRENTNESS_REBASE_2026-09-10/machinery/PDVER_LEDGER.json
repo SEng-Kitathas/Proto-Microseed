@@ -1,10 +1,11 @@
 {
   "schema": "microseed.rehearsal-currentness-rebase.pdver.v1",
-  "status": "P19_PASS_SEAL_READY",
+  "status": "COMPLETE_SEALED_PUBLISHED",
   "probe": "stale learned R-41 relation left durable s2 proposal executable",
   "derive": "lost canonical P1A ancestry + historical implementation would violate current O(n) substrate constraint",
   "embody": "derived rehearsal-digest index + canonical matching-owner currentness propagation",
   "verify": "8/8 indexed+semantic, targeted 40/40, broad 257/257, final 281/281, full 1200-episode causal-shift soak PASS",
   "recurse": "STRUCTURAL_SEGMENT_RECURSIVE_PARENT_STATE_AS_REUSABLE_COMPOSITION_OPERAND_WITHOUT_FLATTENING_OR_ASSOCIATIVITY",
-  "promotion": "NONE"
+  "promotion": "NONE",
+  "science_seal": "1d6d384fd97dc7e84b7c2e88114d76e965e886fa"
 }

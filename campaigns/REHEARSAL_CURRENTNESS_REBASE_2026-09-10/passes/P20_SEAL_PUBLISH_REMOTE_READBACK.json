@@ -1,0 +1,51 @@
+{
+  "pass": 20,
+  "name": "SEAL_PUBLISH_REMOTE_READBACK",
+  "status": "COMPLETE",
+  "branch": "research/rehearsal-currentness-rebase-on-substrate-v1",
+  "repair_checkpoint": "1aaf04e4cedd7c1fe704d698cbd417786cb59069",
+  "science_seal": "1d6d384fd97dc7e84b7c2e88114d76e965e886fa",
+  "remote_science_readback": {
+    "status": "EXACT",
+    "ls_remote_head": "1d6d384fd97dc7e84b7c2e88114d76e965e886fa"
+  },
+  "earned_claim": "INDEXED_CANONICAL_STALE_LEARNED_RELATION_REHEARSAL_CURRENTNESS_RESTORED_ON_HARDENED_SUBSTRATE",
+  "full_causal_shift_soak": {
+    "status": "PASS",
+    "job": "job-dacf9bca4318",
+    "episodes": 1200,
+    "shift_episode": 600,
+    "restarts": [
+      300,
+      600,
+      900
+    ],
+    "ordinary_execution_count": 3716,
+    "ordinary_outcome_count": 3716,
+    "result_summary_sha256": "ea8bee4afb91b498919a3e29ccacd95a7464c8c2627a547086cdaf52f40470dc",
+    "telemetry_sha256": "06267d17bd221096522e1893e728eb080e77be34cf7f730419fc57dc4de5b004"
+  },
+  "verification": {
+    "indexed_semantic": "8/8 PASS",
+    "targeted": "40/40 PASS cleanup-neutral",
+    "broad": "257/257 PASS",
+    "final_integrated": "281/281 PASS",
+    "compileall": "PASS",
+    "git_diff_check": "PASS",
+    "CSC": "PASS_BOUNDED",
+    "proposal_status_scaling": "FLAT_THROUGH_20000_UNRELATED_RELATIONS"
+  },
+  "authority": {
+    "index": "NONE",
+    "global_staleness": "NONE",
+    "planner": "NONE",
+    "scheduler": "NONE",
+    "semantic": "NONE",
+    "truth": "NONE",
+    "EFFECT_gain": "NONE",
+    "canon_promotion": "NONE"
+  },
+  "next_frontier": "STRUCTURAL_SEGMENT_RECURSIVE_PARENT_STATE_AS_REUSABLE_COMPOSITION_OPERAND_WITHOUT_FLATTENING_OR_ASSOCIATIVITY",
+  "next_action": "rebase and reattack preserved depth-two parent operand WIP 7b26c7105f36bb66f7887301a4dfe608ec61dff4 onto this current lineage",
+  "receipt_note": "This file records exact remote readback of the P19 science seal. The commit containing P20 is verified separately after commit/push."
+}
