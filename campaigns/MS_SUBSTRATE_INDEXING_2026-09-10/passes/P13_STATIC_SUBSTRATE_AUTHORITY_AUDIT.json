@@ -1,0 +1,20 @@
+{
+  "pass": 13,
+  "name": "STATIC_SUBSTRATE_AUTHORITY_AUDIT",
+  "status": "PASS",
+  "checks": [
+    "compileall PASS",
+    "git diff --check PASS",
+    "no new capability contract/registration",
+    "no action creation",
+    "no planner",
+    "no scheduler call",
+    "no semantic registry",
+    "no event UPDATE/DELETE",
+    "generic non-token evidence no longer clears token window",
+    "boundary law token present",
+    "only existing OPAQUE_CONTROL_STATE_OBSERVED and BOUNDED_ACTION_EXECUTED operational event kinds own grouping boundaries"
+  ],
+  "result": "SUBSTRATE_HARDENING_CHANGES_COST_AND_BOUNDARY_BINDING_WITHOUT_NEW_COGNITIVE_OR_EFFECT_AUTHORITY",
+  "promotion": "NONE"
+}

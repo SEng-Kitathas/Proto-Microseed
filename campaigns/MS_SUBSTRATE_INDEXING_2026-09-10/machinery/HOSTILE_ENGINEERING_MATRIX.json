@@ -1,45 +1,53 @@
 {
-  "status": "OPEN",
+  "status": "P13_ALL_EXCEPT_SOAK_PREFLIGHT_ATTACK_KILLED",
   "attacks": [
     {
       "id": "MSI-H01",
       "claim": "execution duplicate refusal requires full scan",
-      "expected": "KILL with derived O(1) membership, identical refusal semantics"
+      "expected": "KILL with derived O(1) membership, identical refusal semantics",
+      "result": "KILLED_BY_P02_P03_O1_EXECUTED_INTENT_MEMBERSHIP"
     },
     {
       "id": "MSI-H02",
       "claim": "latest BOOT currentness requires decoding all events",
-      "expected": "KILL with indexed exact latest-event query"
+      "expected": "KILL with indexed exact latest-event query",
+      "result": "KILLED_BY_P02_P03_INDEXED_LATEST_BOOT_QUERY"
     },
     {
       "id": "MSI-H03",
       "claim": "suffix-after-boot reasoning requires full pre-boot history materialization",
-      "expected": "KILL with indexed suffix query"
+      "expected": "KILL with indexed suffix query",
+      "result": "KILLED_FOR_OPERAND_WINDOW_POST_BOOT_SUFFIX_QUERY; OTHER_FULL_HISTORY_LOADERS_REMAIN_OUTSIDE_TIMED_ACT_GATE"
     },
     {
       "id": "MSI-H04",
       "claim": "execution index may drift across restart/load",
-      "expected": "KILL via load/add invariant and hostile corruption detection"
+      "expected": "KILL via load/add invariant and hostile corruption detection",
+      "result": "KILLED_BY_REPLAY_ADD_EXECUTION_INDEX_REBUILD_TEST"
     },
     {
       "id": "MSI-H05",
       "claim": "index/cache existence grants authority",
-      "expected": "KILL; authority unchanged"
+      "expected": "KILL; authority unchanged",
+      "result": "KILLED_INDEX_AND_BOUNDARY_FIELDS_GRANT_NO_NEW_AUTHORITY"
     },
     {
       "id": "MSI-H06",
       "claim": "arbitrary caller non-token evidence is a lawful grouping delimiter",
-      "expected": "KILL in boundary tranche"
+      "expected": "KILL in boundary tranche",
+      "result": "KILLED_BY_P06_P07_STRICT_OPERATIONAL_BOUNDARY_CHAIN"
     },
     {
       "id": "MSI-H07",
       "claim": "removing arbitrary evidence delimiter may erase authenticated action boundary",
-      "expected": "KILL; action execution boundary preserved"
+      "expected": "KILL; action execution boundary preserved",
+      "result": "KILLED_ACTION_BOUNDARY_TESTS_AND_DESCENDANT_BREADTH_GREEN"
     },
     {
       "id": "MSI-H08",
       "claim": "soak may proceed while per-act latency slope remains history-linear",
-      "expected": "KILL; soak gate remains blocked until scale test"
+      "expected": "KILL; soak gate remains blocked until scale test",
+      "result": "STILL_OPEN_UNTIL_ACTUAL_SOAK_PATH_SCALE_PREFLIGHT"
     }
   ]
 }

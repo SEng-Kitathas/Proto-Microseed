@@ -1,0 +1,9 @@
+{
+  "pass": 11,
+  "name": "FINAL_INTEGRATED_ORGANISM_BREADTH",
+  "status": "PASS_WITH_KNOWN_RESOURCE_SCAR",
+  "raw_test_entity": "7 WinError32 TemporaryDirectory teardown failures + 2 PASS; failures at cleanup of open biography.sqlite3",
+  "cleanup_neutral_final": "82 files / 253/253 PASS; MS2046 + MS2051 + test_entity + all current language/substrate tests; test bodies/assertions unchanged",
+  "result": "FINAL_INTEGRATED_CURRENT_SUBSTRATE_LINEAGE_GREEN_253_OF_253",
+  "promotion": "NONE"
+}

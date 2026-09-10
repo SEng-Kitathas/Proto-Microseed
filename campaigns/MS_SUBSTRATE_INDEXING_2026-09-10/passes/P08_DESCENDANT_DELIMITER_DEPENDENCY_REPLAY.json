@@ -1,0 +1,21 @@
+{
+  "pass": 8,
+  "name": "DESCENDANT_DELIMITER_DEPENDENCY_REPLAY",
+  "status": "PASS_WITH_SCARS",
+  "first_broad_replay": "127/240 PASS; 113 failures after generic evidence delimiter removal",
+  "localization": "failures clustered in arity/boundary/segment descendants whose fixtures used incidental non-token evidence (qualification/composition/witness output) as implicit experiment reset",
+  "shared_repairs": [
+    "3-locus and 4-locus seeding fixtures now end with authenticated control-state boundary",
+    "shared structural _boundary helper starts each intended window with authenticated control-state observation"
+  ],
+  "intermediate_high_fanout": "72/77 then 77/77 after five explicit historical delimiter assumptions evolved",
+  "second_broad_replay": "233/240 PASS; seven explicit assumptions remained",
+  "final_seven": "21/21 PASS after explicit operational reset/idempotence/current-law evolution; production strict boundary unchanged",
+  "scars": [
+    "EVIDENCE_SHAPE != GROUPING_AUTHORITY",
+    "DERIVED_COMPOSITION_EVIDENCE != OPERATIONAL_WINDOW_BOUNDARY",
+    "BOUNDARY_WITNESS != BOUNDARY_EVENT",
+    "TEST_EXPERIMENT_BOUNDARY != INCIDENTAL_EVIDENCE_OUTPUT"
+  ],
+  "promotion": "NONE"
+}

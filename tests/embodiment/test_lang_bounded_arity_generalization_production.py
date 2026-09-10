@@ -1,4 +1,4 @@
-from microseed import EpistemicStatus,Microseed
+from microseed import Authority,EpistemicStatus,Microseed,Observation
 from scratch.lang_b3_three_grounded_referents_fixture import fixture as fixture3,_close as close3
 from scratch.lang_arity_four_grounded_referents_fixture import (
     fixture as fixture4,_close as close4,OpaqueFourLocusWorld,attach_four_runtime_surface,fresh_four_owned_profiles,
@@ -13,7 +13,12 @@ def _obs(m,tokens,phase,base):
 
 
 def _boundary(m,eid):
-    m.append_evidence(eid,{'kind':'ARITY_GENERALIZATION_REPRESENTED_BOUNDARY','runtime_boot_seq':m._current_runtime_boot_seq()},EpistemicStatus.PRESSURE_SUPPORTED,source='HOSTILE-WORLD')
+    out=m.observe_opaque_control_state(
+        Observation(f'CAP-{eid}','EXTERNAL-WORLD','opaque-control-state','s0',authority=Authority.OBSERVATION_ONLY),
+        evidence_id=eid,
+    )
+    assert out['status']=='CURRENT_OPAQUE_CONTROL_STATE',out
+    return out
 
 
 def test_one_production_owner_derives_arity2_and_arity3_without_caller_arity_and_matches_legacy_content():
@@ -30,6 +35,7 @@ def test_one_production_owner_derives_arity2_and_arity3_without_caller_arity_and
         assert g2['composition_content_digest_sha256']==legacy2['composition_content_digest_sha256']
         assert g2['ordered_operational_referent_signatures']==legacy2['ordered_operational_referent_signatures']
 
+        _boundary(m,'E-PROD-GEN-B3-START')
         _obs(m,('R4','T9','W3'),'PROD-GEN-B3',13100)
         proto3=derive_current_bounded_ordered_composition_prototype(m)
         g3=m.derive_and_record_current_native_bounded_ordered_composition(max_records=32768)
@@ -41,9 +47,13 @@ def test_one_production_owner_derives_arity2_and_arity3_without_caller_arity_and
         assert g3['composition_content_digest_sha256']==legacy3['composition_content_digest_sha256']
         assert g3['ordered_operational_referent_signatures']==legacy3['ordered_operational_referent_signatures']
 
-        # The generic evidence is itself represented non-token evidence and consumes/closes the current token suffix.
-        consumed=m.derive_and_record_current_native_bounded_ordered_composition(max_records=32768)
-        assert consumed['status']=='DEFER_UNKNOWN' and consumed['reason']=='BOUNDED_OPERAND_WINDOW_BELOW_MINIMUM' and consumed['derived_arity']==0,consumed
+        # Composition evidence is grouping-neutral. With no new operational boundary or token,
+        # repeated derivation is deterministic/idempotent over the same three-token window.
+        repeated=m.derive_and_record_current_native_bounded_ordered_composition(max_records=32768)
+        assert repeated['status']=='CURRENT_NATIVE_BOUNDED_ORDERED_OPERATIONAL_REFERENCE_COMPOSITION_RECORDED',repeated
+        assert repeated['derived_arity']==3
+        assert repeated['composition_content_digest_sha256']==g3['composition_content_digest_sha256']
+        assert repeated['composition_record_status']=='COMPOSITION_EVIDENCE_ALREADY_PRESENT'
     finally:
         close3(m);td.cleanup()
 
@@ -81,11 +91,13 @@ def _run_arity4_once(tokens=('R4','T9','W3','K7'),sensor_transform=None):
         assert not hasattr(m,'derive_and_record_current_native_b4_ordered_composition')
         digest=str(g4['composition_content_digest_sha256'])
 
+        _boundary(m,'E-PROD-GEN-B4-ORDER-START')
         _obs(m,(ta,tb,td_token,tc),'PROD-GEN-B4-ORDER',14100)
         order=m.derive_and_record_current_native_bounded_ordered_composition(max_records=65536)
         assert order['status']=='CURRENT_NATIVE_BOUNDED_ORDERED_OPERATIONAL_REFERENCE_COMPOSITION_RECORDED',order
         assert order['derived_arity']==4 and order['composition_content_digest_sha256']!=digest
 
+        _boundary(m,'E-PROD-GEN-B4-DUP-START')
         _obs(m,(ta,tb,tc,ta),'PROD-GEN-B4-DUP',14200)
         dup=m.derive_and_record_current_native_bounded_ordered_composition(max_records=65536)
         assert dup['status']=='DEFER_UNKNOWN' and dup['reason']=='ALL_BOUNDED_REFERENT_OPERANDS_MUST_BE_DISTINCT',dup
@@ -97,7 +109,8 @@ def _run_arity4_once(tokens=('R4','T9','W3','K7'),sensor_transform=None):
         _obs(m,tokens,'PROD-GEN-B4-DRIFT',14400)
         before=m.derive_and_record_current_native_bounded_ordered_composition(max_records=65536)
         assert before['status']=='CURRENT_NATIVE_BOUNDED_ORDERED_OPERATIONAL_REFERENCE_COMPOSITION_RECORDED',before
-        # re-present after output boundary, then stale one leaf before derivation
+        # Re-present after an actual operational boundary, then stale one leaf before derivation.
+        _boundary(m,'E-PROD-GEN-B4-DRIFT2-START')
         _obs(m,tokens,'PROD-GEN-B4-DRIFT2',14500)
         m.change_capability_dependency('QD',reason='PROD-GEN-B4-QD-DRIFT')
         drift=m.derive_and_record_current_native_bounded_ordered_composition(max_records=65536)

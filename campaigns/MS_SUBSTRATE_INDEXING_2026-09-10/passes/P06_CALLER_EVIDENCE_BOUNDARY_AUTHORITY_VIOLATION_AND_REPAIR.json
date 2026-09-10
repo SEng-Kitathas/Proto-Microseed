@@ -1,0 +1,11 @@
+{
+  "pass": 6,
+  "name": "CALLER_EVIDENCE_BOUNDARY_AUTHORITY_VIOLATION_AND_REPAIR",
+  "status": "PASS_REPAIRED",
+  "baseline": "P01 independently reproduced arbitrary caller-origin exact non-token EVIDENCE resetting operand window to post-evidence arity2 despite caller_supplied_boundary=NO",
+  "repair": "generic non-token EVIDENCE is grouping-neutral; only authenticated operational events may close token window",
+  "current_law": "CALLER_EVIDENCE_INGRESS_HAS_NO_GROUPING_AUTHORITY",
+  "hostile_suite": "test_ms_substrate_boundary_authority_hardening.py 5/5 PASS after two fixture-expectation corrections; old semantics initially failed all 5 tests",
+  "result": "ATTACK_3_KILLED_IN_CURRENT_RUNTIME",
+  "promotion": "NONE"
+}

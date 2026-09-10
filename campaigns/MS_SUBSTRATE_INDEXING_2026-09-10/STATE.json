@@ -1,11 +1,11 @@
 {
   "campaign": "MS_SUBSTRATE_INDEXING_2026-09-10",
-  "status": "P05_INDEXING_TRANCHE_SEAL_READY",
+  "status": "P13_STRICT_BOUNDARY_TRANCHE_SEAL_READY",
   "base_receipt": "793be7a81c9c3a71f57d4d89046882f22ed6207a",
-  "soak_status": "BLOCKED_PENDING_BOUNDARY_AUTHORITY_HARDENING_AND_FINAL_SCALE_GATE",
+  "soak_status": "BLOCKED_PENDING_EXACT_STRICT_SUBSTRATE_COMMIT_AND_ACTUAL_SOAK_PATH_PREFLIGHT",
   "deeper_parent_wip": "7b26c7105f36bb66f7887301a4dfe608ec61dff4",
-  "completed_passes": 5,
-  "current_pass": 6,
-  "current_discriminator": "SEAL_INDEXING_TRANCHE_THEN_BOUNDARY_DELIMITER_AUTHORITY_HARDENING",
+  "completed_passes": 13,
+  "current_pass": 14,
+  "current_discriminator": "SEAL_STRICT_SUBSTRATE_THEN_ACTUAL_SOAK_PATH_SCALE_PREFLIGHT",
   "promotion": "NONE"
 }

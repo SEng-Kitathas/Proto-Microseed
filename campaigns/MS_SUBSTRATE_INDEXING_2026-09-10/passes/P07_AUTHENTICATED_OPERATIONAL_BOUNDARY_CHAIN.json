@@ -1,0 +1,16 @@
+{
+  "pass": 7,
+  "name": "AUTHENTICATED_OPERATIONAL_BOUNDARY_CHAIN",
+  "status": "PASS",
+  "evidence": [
+    "OPAQUE_CONTROL_STATE_OBSERVED accepted only with exact OpaqueControlStateWitness shape",
+    "referenced evidence must match state_id/next_state_id and carry capture_id",
+    "prior matching OBSERVATION event must have OBSERVATION_ONLY authority",
+    "naked forged control-state store event fails closed",
+    "malformed EFFECT-authority control-state event fails closed",
+    "authenticated BOUNDED_ACTION_EXECUTED boundary remains independently validated"
+  ],
+  "result": "BOUNDARY_AUTHORITY_REQUIRES_EXISTING_OPERATIONAL_OWNER_CHAIN_NOT_EVIDENCE_SHAPE_OR_SOURCE_LABEL",
+  "authority_gain": "NONE",
+  "promotion": "NONE"
+}

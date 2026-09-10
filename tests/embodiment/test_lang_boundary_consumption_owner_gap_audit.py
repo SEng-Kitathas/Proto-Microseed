@@ -9,6 +9,6 @@ def test_historical_structural_boundary_consumer_gap_is_now_embodied_but_negativ
     assert r['current_consumer_method']=='derive_and_record_current_native_structural_segment_state'
     assert r['bounded_composition_count_before']==r['bounded_composition_count_after_boundary']==0
     assert r['generic_composition_after_boundary_status']=='DEFER_UNKNOWN'
-    assert r['generic_composition_after_boundary_reason']=='BOUNDED_OPERAND_WINDOW_BELOW_MINIMUM'
+    assert r['generic_composition_after_boundary_reason']=='ALL_BOUNDED_REFERENT_OPERANDS_MUST_BE_DISTINCT'
     assert r['historical_localized_missing_mechanism']=='CURRENT_STRUCTURAL_BOUNDARY_WITNESS_TO_RETROSPECTIVE_SEGMENT_COMPOSITION_STATE_OWNER'
     assert r['ledger_rewrite_authority']==r['caller_grouping_authority']==r['effect_authority']=='NONE'

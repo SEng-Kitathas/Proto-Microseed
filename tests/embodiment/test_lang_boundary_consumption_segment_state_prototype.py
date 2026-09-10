@@ -1,7 +1,7 @@
 from tempfile import TemporaryDirectory
 from pathlib import Path
 
-from microseed import Microseed
+from microseed import Authority,Microseed,Observation
 from scratch.lang_arity_four_grounded_referents_fixture import OpaqueFourLocusWorld,attach_four_runtime_surface,seed_four_current_native_referent_associations,_close
 from scratch.lang_c08e_native_token_relation_binding import observe_opaque_token
 from scratch.lang_boundary_consumption_segment_state_prototype import derive_current_segment_state_from_unique_boundary
@@ -67,6 +67,11 @@ def test_two_current_boundary_witnesses_are_ambiguous_without_a_consumption_mark
         _obs(m,('R4','T9','R4','K7'),95000,'BOUNDARY-CONSUME-MULTI-A')
         a=m.derive_and_record_current_native_structural_boundary_occasion(max_records=65536,max_events=65536)
         assert a['status']=='CURRENT_NATIVE_STRUCTURAL_BOUNDARY_WITNESS_RECORDED',a
+        reset=m.observe_opaque_control_state(
+            Observation('CAP-BOUNDARY-CONSUME-MULTI-B','EXTERNAL','opaque-control','s0',authority=Authority.OBSERVATION_ONLY),
+            evidence_id='E-BOUNDARY-CONSUME-MULTI-B-WINDOW',
+        )
+        assert reset['status']=='CURRENT_OPAQUE_CONTROL_STATE',reset
         _obs(m,('T9','W3','T9','R4'),95100,'BOUNDARY-CONSUME-MULTI-B')
         b=m.derive_and_record_current_native_structural_boundary_occasion(max_records=65536,max_events=65536)
         assert b['status']=='CURRENT_NATIVE_STRUCTURAL_BOUNDARY_WITNESS_RECORDED',b

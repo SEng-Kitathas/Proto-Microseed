@@ -4901,12 +4901,13 @@ class Microseed:
     ) -> dict[str, Any]:
         """Derive one bounded current token window from authenticated durable chronology.
 
-        Current-runtime opaque-token evidence extends the window. Any represented non-token
-        evidence closes it, preserving the previously earned evidence delimiter semantics.
-        An authenticated current-runtime ``BOUNDED_ACTION_EXECUTED`` store event also closes
-        it, reusing the action-segmentation boundary already owned by passive-transition
-        reasoning. Other store traffic has no grouping authority. No caller boundary id,
-        timeout, phase label, or semantic delimiter is accepted.
+        Current-runtime opaque-token evidence extends the window. Generic non-token ``EVIDENCE``
+        is grouping-neutral: evidence ingress alone does not own boundary authority. A dedicated
+        ``OPAQUE_CONTROL_STATE_OBSERVED`` store event closes the window only when its serialized
+        observation-only witness is backed by exact evidence from a prior matching OBSERVATION
+        event in this boot. An authenticated current-runtime ``BOUNDED_ACTION_EXECUTED`` event
+        also closes it. Other store traffic has no grouping authority. No caller boundary id,
+        timeout, phase label, semantic delimiter, or evidence kind label is accepted.
         """
         bound=int(max_events)
         if bound<=0:
@@ -4922,10 +4923,14 @@ class Microseed:
                     "reason":"OPERAND_WINDOW_EVENT_HISTORY_EXCEEDS_SCAN_BUDGET",
                     "current_event_count":len(events),"max_events":bound}
         selected=[]; last_boundary=None
-        seen_evidence_events=set(); seen_execution_events=set()
+        seen_evidence_events=set(); seen_execution_events=set(); observations_by_capture={}
         for event in events:
             kind=str(event.get("kind","")); payload=event.get("payload") or {}
-            if kind=="EVIDENCE":
+            if kind=="OBSERVATION":
+                capture_id=str(payload.get("capture_id",""))
+                if capture_id:
+                    observations_by_capture.setdefault(capture_id,[]).append((int(event.get("seq",-1)),dict(payload)))
+            elif kind=="EVIDENCE":
                 eid=str(payload.get("evidence_id",""))
                 if eid in seen_evidence_events:
                     return {"status":"DEFER_UNKNOWN","reason":"OPERAND_WINDOW_EVIDENCE_EVENT_REPLAY_DETECTED",
@@ -4940,12 +4945,38 @@ class Microseed:
                         and int(ep.get("runtime_boot_seq",-1))==boot):
                     selected.append((position_by_eid[eid],erow,int(event["seq"])))
                 else:
-                    selected=[]
-                    last_boundary={
-                        "kind":"REPRESENTED_NON_TOKEN_EVIDENCE",
-                        "store_seq":int(event["seq"]),"evidence_id":eid,
-                        "evidence_sha256":str(erow.get("sha256","")),
-                    }
+                    # Exact evidence remains represented, but evidence ingress alone carries no
+                    # grouping authority. Dedicated authenticated operational events own boundaries.
+                    continue
+            elif kind=="OPAQUE_CONTROL_STATE_OBSERVED":
+                state_id=str(payload.get("state_id","")); evidence_id=str(payload.get("evidence_id",""))
+                expected=OpaqueControlStateWitness(state_id=state_id,evidence_id=evidence_id).serializable()
+                if not state_id or not evidence_id or payload!=expected:
+                    return {"status":"DEFER_UNKNOWN","reason":"CONTROL_STATE_BOUNDARY_WITNESS_SHAPE_NOT_AUTHENTICATED",
+                            "store_seq":int(event.get("seq",-1))}
+                erow=self.evidence.get(evidence_id)
+                ep={} if erow is None else (erow.get("payload") or {})
+                evidence_state=str(ep.get("state_id",ep.get("next_state_id","")))
+                capture_id=str(ep.get("capture_id",""))
+                if erow is None or erow.get("negative") or evidence_state!=state_id or not capture_id:
+                    return {"status":"DEFER_UNKNOWN","reason":"CONTROL_STATE_BOUNDARY_EVIDENCE_NOT_AUTHENTICATED",
+                            "evidence_id":evidence_id,"state_id":state_id,"store_seq":int(event.get("seq",-1))}
+                observations=observations_by_capture.get(capture_id,())
+                evidence_referent=ep.get("referent")
+                matched=[obs for _seq,obs in observations
+                         if obs.get("authority")==Authority.OBSERVATION_ONLY.value
+                         and (evidence_referent is None or obs.get("referent")==evidence_referent)]
+                if not matched:
+                    return {"status":"DEFER_UNKNOWN","reason":"CONTROL_STATE_BOUNDARY_OBSERVATION_CHAIN_NOT_AUTHENTICATED",
+                            "evidence_id":evidence_id,"capture_id":capture_id,"state_id":state_id,
+                            "store_seq":int(event.get("seq",-1))}
+                selected=[]
+                last_boundary={
+                    "kind":"OPAQUE_CONTROL_STATE_OBSERVED","store_seq":int(event["seq"]),
+                    "state_id":state_id,"evidence_id":evidence_id,
+                    "evidence_sha256":str(erow.get("sha256","")),"capture_id":capture_id,
+                    "boundary_authentication":"OBSERVATION_EVIDENCE_CONTROL_STATE_CHAIN",
+                }
             elif kind=="BOUNDED_ACTION_EXECUTED":
                 execution_id=str(payload.get("execution_id",""))
                 if execution_id in seen_execution_events:
@@ -4962,12 +4993,15 @@ class Microseed:
                     "store_seq":int(event["seq"]),"execution_id":execution_id,
                     "capability_id":str(payload.get("capability_id","")),
                     "capability_epoch":int(payload.get("capability_epoch",-1)),
+                    "boundary_authentication":"CURRENT_ACTION_EXECUTION_RECORD",
                 }
         arity=len(selected)
         base={"derived_arity":arity,"last_boundary":last_boundary,
               "window_chronology_basis":"AUTHENTICATED_DURABLE_STORE_EVENT_CHRONOLOGY",
-              "caller_supplied_boundary":"NO","semantic_grouping_authority":"NONE",
-              "execution_authority_gain":"NONE"}
+              "grouping_boundary_basis":"AUTHENTICATED_OPERATIONAL_EVENTS_ONLY",
+              "caller_supplied_boundary":"NO","caller_evidence_grouping_authority":"NONE",
+              "semantic_grouping_authority":"NONE","execution_authority_gain":"NONE",
+              "boundary_law":"CALLER_EVIDENCE_INGRESS_HAS_NO_GROUPING_AUTHORITY"}
         if arity<int(min_arity):
             return {**base,"status":"DEFER_UNKNOWN","reason":"BOUNDED_OPERAND_WINDOW_BELOW_MINIMUM"}
         if arity>int(max_arity):
@@ -4981,9 +5015,9 @@ class Microseed:
         """Compose one exact bounded contiguous current-token operand window (arity 2..4).
 
         Arity is derived from authenticated current-runtime chronology rather than supplied
-        by the caller. The window preserves the earned represented-non-token evidence
-        delimiter and additionally recognizes authenticated ``BOUNDED_ACTION_EXECUTED``
-        store events as operational boundaries. Overlong windows fail closed; they are never
+        by the caller. Generic evidence ingress is grouping-neutral; only authenticated
+        ``OPAQUE_CONTROL_STATE_OBSERVED`` and ``BOUNDED_ACTION_EXECUTED`` operational events
+        close the token window. Overlong windows fail closed; they are never
         silently cropped. This is bounded direct operational composition only, not semantic
         grouping, effect authorization, or generic/unbounded N-ary composition.
         """

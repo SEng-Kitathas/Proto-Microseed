@@ -1,7 +1,7 @@
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
-from microseed import EpistemicStatus,Microseed
+from microseed import Authority,EpistemicStatus,Microseed,Observation
 from scratch.lang_arity_four_grounded_referents_fixture import OpaqueFourLocusWorld,attach_four_runtime_surface,fresh_four_owned_profiles,seed_four_current_native_referent_associations,_close
 from scratch.lang_c08e_native_token_relation_binding import observe_opaque_token
 from scratch.lang_boundary_consumption_durable_segment_state_prototype import record_oldest_unconsumed_structural_segment_state_prototype
@@ -22,6 +22,11 @@ def _obs(m,seq,base,phase='BOUNDARY-CONSUME-DURABLE'):
         r=observe_opaque_token(m,t,base+i,phase=phase);assert r['status']=='OPAQUE_TOKEN_OBSERVED_NATIVE_EVIDENCE',r
 
 def _boundary(m,seq,base):
+    reset=m.observe_opaque_control_state(
+        Observation(f'CAP-DURABLE-WINDOW-{base}','EXTERNAL','opaque-control','s0',authority=Authority.OBSERVATION_ONLY),
+        evidence_id=f'E-DURABLE-WINDOW-{base}',
+    )
+    assert reset['status']=='CURRENT_OPAQUE_CONTROL_STATE',reset
     _obs(m,seq,base)
     out=m.derive_and_record_current_native_structural_boundary_occasion(max_records=65536,max_events=65536)
     assert out['status']=='CURRENT_NATIVE_STRUCTURAL_BOUNDARY_WITNESS_RECORDED',out

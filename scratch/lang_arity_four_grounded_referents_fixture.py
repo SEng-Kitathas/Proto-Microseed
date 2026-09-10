@@ -130,6 +130,9 @@ def seed_four_current_native_referent_associations(ms:Microseed,world:OpaqueFour
         token=token_for[locus];action=action_for[locus]
         live=ms.assess_opaque_evidence_association_currentness(records[token],witness_evidence_id=str(profiles[action]['evidence_id']))
         assert live['status']=='CURRENTNESS_CONFIRMED',live
+    # Fixture hygiene: qualification/evidence output is grouping-neutral. End seeding with an
+    # actual observation-owned control-state boundary so downstream experiments start cleanly.
+    _observe_s0(ms,'SEED-END-CLEAN-WINDOW')
     return {'profiles':profiles,'mapping':mapping,'records':records,'lifecycle':lifecycle}
 
 

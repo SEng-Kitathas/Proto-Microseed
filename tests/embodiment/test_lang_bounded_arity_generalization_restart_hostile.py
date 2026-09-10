@@ -1,7 +1,7 @@
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
-from microseed import Microseed
+from microseed import Authority,Microseed,Observation
 from scratch.lang_arity_four_grounded_referents_fixture import (
     OpaqueFourLocusWorld,attach_four_runtime_surface,fresh_four_owned_profiles,
     seed_four_current_native_referent_associations,_close,
@@ -43,10 +43,17 @@ def test_restart_requires_fresh_operand_window_and_live_leaf_revalidation_before
         second=m2.derive_and_record_current_native_bounded_ordered_composition(max_records=65536)
         assert second['status']=='CURRENT_NATIVE_BOUNDED_ORDERED_OPERATIONAL_REFERENCE_COMPOSITION_RECORDED',second
         assert second['derived_arity']==4 and second['composition_content_digest_sha256']==digest
-        # output closes window
-        consumed=m2.derive_and_record_current_native_bounded_ordered_composition(max_records=65536)
-        assert consumed['status']=='DEFER_UNKNOWN' and consumed['derived_arity']==0
-        # fresh window then frame drift must remove support
+        # Composition output evidence is grouping-neutral; repeated derivation is idempotent.
+        repeated=m2.derive_and_record_current_native_bounded_ordered_composition(max_records=65536)
+        assert repeated['status']=='CURRENT_NATIVE_BOUNDED_ORDERED_OPERATIONAL_REFERENCE_COMPOSITION_RECORDED',repeated
+        assert repeated['composition_content_digest_sha256']==second['composition_content_digest_sha256']
+        assert repeated['composition_record_status']=='COMPOSITION_EVIDENCE_ALREADY_PRESENT'
+        # A new experiment begins only after an actual operational boundary.
+        reset=m2.observe_opaque_control_state(
+            Observation('CAP-ARITY4-R2-FRAME-DRIFT','EXTERNAL','opaque-control','s0',authority=Authority.OBSERVATION_ONLY),
+            evidence_id='E-ARITY4-R2-FRAME-DRIFT-WINDOW',
+        )
+        assert reset['status']=='CURRENT_OPAQUE_CONTROL_STATE',reset
         _obs(m2,tokens,'ARITY4-R2-FRAME-DRIFT',17100)
         m2.change_operational_frame('F',reason='ARITY4-R2-FRAME-DRIFT')
         stale=m2.derive_and_record_current_native_bounded_ordered_composition(max_records=65536)

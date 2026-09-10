@@ -36,9 +36,11 @@ def test_unique_structural_conflict_records_exact_durable_boundary_witness_but_d
         assert payload['boundary_temporality']=='RETROSPECTIVE_RECOGNITION_AFTER_EXTENSION_CONFLICT'
         assert len(payload['components'])==4
         assert payload['left_last_token_store_seq']<payload['right_first_token_store_seq']
-        # The witness itself is represented non-token evidence and closes the current suffix; it does not rewrite past chronology into two compositions.
+        # Boundary witness evidence is grouping-neutral. The conflicted source window stays visible;
+        # the witness does not authorize a retroactive direct composition or erase chronology.
         composition=m.derive_and_record_current_native_bounded_ordered_composition(max_records=65536,max_events=65536)
-        assert composition['status']=='DEFER_UNKNOWN' and composition['reason']=='BOUNDED_OPERAND_WINDOW_BELOW_MINIMUM' and composition['derived_arity']==0,composition
+        assert composition['status']=='DEFER_UNKNOWN' and composition['reason']=='ALL_BOUNDED_REFERENT_OPERANDS_MUST_BE_DISTINCT',composition
+        assert composition['derived_arity']==4
         again=record_unique_structural_boundary_witness_prototype(m)
         assert again['status']=='CURRENT_STRUCTURAL_BOUNDARY_WITNESS_ALREADY_PRESENT',again
         assert again['boundary_content_digest_sha256']==out['boundary_content_digest_sha256']

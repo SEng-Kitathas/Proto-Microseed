@@ -37,9 +37,11 @@ def test_production_unique_extension_conflict_records_retrospective_structural_b
         row=m.evidence.get(out['boundary_evidence_id']);assert row is not None
         assert row['payload']['operator_owner']=='MICROSEED_NATIVE_STRUCTURAL_BOUNDARY_OCCASION'
         assert row['payload']['boundary_temporality']=='RETROSPECTIVE_RECOGNITION_AFTER_EXTENSION_CONFLICT'
-        # Witness is a boundary fact, not permission to materialize retroactive compositions.
+        # Witness evidence is grouping-neutral and therefore cannot fabricate a new window boundary.
+        # The original conflicted window remains visible and direct composition still fails closed.
         comp=m.derive_and_record_current_native_bounded_ordered_composition(max_records=65536,max_events=65536)
-        assert comp['status']=='DEFER_UNKNOWN' and comp['reason']=='BOUNDED_OPERAND_WINDOW_BELOW_MINIMUM' and comp['derived_arity']==0,comp
+        assert comp['status']=='DEFER_UNKNOWN' and comp['reason']=='ALL_BOUNDED_REFERENT_OPERANDS_MUST_BE_DISTINCT',comp
+        assert comp['derived_arity']==4
         again=m.derive_and_record_current_native_structural_boundary_occasion(max_records=65536,max_events=65536)
         assert again['status']=='CURRENT_NATIVE_STRUCTURAL_BOUNDARY_WITNESS_ALREADY_PRESENT',again
         assert again['boundary_content_digest_sha256']==out['boundary_content_digest_sha256']
