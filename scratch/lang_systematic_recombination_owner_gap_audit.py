@@ -36,6 +36,9 @@ def run_audit() -> dict[str,object]:
         'def _native_structural_segment_bounded_child_carriers(',
         'def _validate_current_native_structural_segment_bounded_recursive_composition_state(',
         'def derive_and_record_current_native_structural_segment_bounded_recursive_composition(',
+        'def _native_depth_one_structural_segment_parent_child_carrier(',
+        'def _validate_current_native_structural_segment_depth_two_recursive_composition_state(',
+        'def derive_and_record_current_native_structural_segment_depth_two_recursive_composition(',
         'def derive_and_record_current_native_recursive_b2_ordered_composition(',
     )
     assert tuple(owned_methods)==expected,owned_methods
@@ -46,13 +49,15 @@ def run_audit() -> dict[str,object]:
         'c08g_order_sensitive':c08g['order_sensitive'],
         'production_owned_composition_methods':owned_methods,
         'historically_localized_missing_mechanism':'MICROSEED_OWNED_BOUNDED_ORDERED_COMPOSITION_OPERATOR',
-        'binding_now_embodied':'YES_BOUNDED_B2_PLUS_DIRECT_B3_PLUS_BOUNDED_ARITY_2_TO_4_PLUS_FIXED_DEPTH_ONE_RECURSIVE_PLUS_RETROSPECTIVE_SEGMENT_REUSE_WITH_CHILD_LEAF_ARITY_2_TO_4',
-        'structural_segment_operand_scope':'BOUNDED_RETROSPECTIVE_SIDES_LEAF_ARITY_2_TO_4_WITH_EXACT_TWO_GROUPED_CHILDREN_DEPTH_ONE',
+        'binding_now_embodied':'YES_BOUNDED_B2_PLUS_DIRECT_B3_PLUS_BOUNDED_ARITY_2_TO_4_PLUS_FIXED_DEPTH_ONE_SEGMENT_REUSE_PLUS_ONE_EXPLICIT_DEPTH_TWO_RETROSPECTIVE_PARENT_EDGE',
+        'structural_segment_operand_scope':'BOUNDED_RETROSPECTIVE_SIDES_LEAF_ARITY_2_TO_4_PLUS_DEPTH_ONE_PARENT_AS_ONE_NESTED_CHILD_AT_EXPLICIT_DEPTH_TWO',
         'generic_unbounded_structural_segment_operand':'NOT_EARNED',
-        'recursive_depth':'1_ONLY',
+        'recursive_depth':'2_FIXED_EDGE_ONLY',
         'direct_b3_arity':'3_ONLY',
         'bounded_generalized_arity':'2_TO_4_ONLY',
         'generic_unbounded_systematicity':'NOT_EARNED',
+        'generic_recursive_closure':'NOT_EARNED',
+        'depth_three_reuse':'NOT_EARNED',
         'new_planner_required':'NO',
         'grammar_authority':'NONE','semantic_authority':'NONE','truth_authority':'NONE','execution_authority':'NONE',
     }

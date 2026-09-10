@@ -1,0 +1,10 @@
+{
+  "campaign": "SEGMENT_PARENT_OPERAND_REBASE_2026-09-10",
+  "status": "ACTIVE_P02_REPLAY_TARGETED_GREEN",
+  "base_receipt": "c33104c8b1e3e24147f99e9a147a3673976e45a4",
+  "donor_wip": "7b26c7105f36bb66f7887301a4dfe608ec61dff4",
+  "completed_passes": 2,
+  "current_pass": 3,
+  "current_discriminator": "BROAD_CURRENT_SUBSTRATE_CURRENTNESS_COMPATIBILITY",
+  "promotion": "NONE"
+}

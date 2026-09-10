@@ -1,0 +1,8 @@
+{
+  "pass": 1,
+  "status": "PASS",
+  "base": "c33104c8b1e3e24147f99e9a147a3673976e45a4",
+  "donor_wip": "7b26c7105f36bb66f7887301a4dfe608ec61dff4",
+  "transplant": "three production methods + five prototype/test files only; donor campaign/log state not copied",
+  "result": "WIP_MECHANISM_REPLAYED_WITHOUT_WIP_AUTHORITY"
+}

@@ -6282,6 +6282,270 @@ class Microseed:
             "caller_supplied_output_evidence_id":"NO","skipped":tuple(skipped),
         }
 
+    def _native_depth_one_structural_segment_parent_child_carrier(
+        self, row: dict[str, Any], *, rows: list[dict[str, Any]], boot: int,
+    ) -> dict[str, Any]:
+        """Normalize one exact CURRENT retrospective depth-one segment parent as one nested child."""
+        payload=row.get("payload") or {}
+        kind=str(payload.get("kind",""))
+        if kind=="OWNED_NATIVE_STRUCTURAL_SEGMENT_B2_RECURSIVE_COMPOSITION_STATE":
+            current=self._validate_current_native_structural_segment_b2_recursive_composition_state(row,rows=rows,boot=boot)
+            required="CURRENT_NATIVE_STRUCTURAL_SEGMENT_B2_RECURSIVE_COMPOSITION_STATE"
+        elif kind=="OWNED_NATIVE_STRUCTURAL_SEGMENT_BOUNDED_RECURSIVE_COMPOSITION_STATE":
+            current=self._validate_current_native_structural_segment_bounded_recursive_composition_state(row,rows=rows,boot=boot)
+            required="CURRENT_NATIVE_STRUCTURAL_SEGMENT_BOUNDED_RECURSIVE_COMPOSITION_STATE"
+        else:
+            return {"status":"DEFER_UNKNOWN","reason":"DEPTH_ONE_RETROSPECTIVE_SEGMENT_PARENT_KIND_REQUIRED"}
+        if current.get("status")!=required:
+            return {**current,"status":"DEFER_UNKNOWN"}
+        if int(current.get("composition_depth",-1))!=1 or int(current.get("child_arity",-1))!=2:
+            return {"status":"DEFER_UNKNOWN","reason":"EXACT_DEPTH_ONE_TWO_CHILD_SEGMENT_PARENT_REQUIRED","source_parent_kind":kind}
+        nested_children=tuple(current.get("children",()))
+        nested_child_digests=tuple(str(x) for x in current.get("ordered_child_composition_content_digests",()))
+        if len(nested_children)!=2 or len(nested_child_digests)!=2 or len(set(nested_child_digests))!=2:
+            return {"status":"DEFER_UNKNOWN","reason":"EXACT_DISTINCT_GROUPED_DEPTH_ONE_SEGMENT_PARENT_REQUIRED","source_parent_kind":kind}
+        expected=action_result_digest({
+            "operator":"RECURSIVE_ORDERED_EVIDENCE_TUPLE",
+            "ordered_child_composition_content_digests":list(nested_child_digests),
+            "composition_depth":1,"child_arity":2,
+            "identity_scope":"EXACT_GROUPED_OPERATIONAL_COMPOSITION_ONLY",
+        })
+        if expected!=str(current.get("composition_content_digest_sha256","")):
+            return {"status":"DEFER_UNKNOWN","reason":"DEPTH_ONE_SEGMENT_PARENT_CONTENT_DIGEST_MISMATCH","source_parent_kind":kind}
+        return {
+            "status":"CURRENT_DEPTH_ONE_STRUCTURAL_SEGMENT_PARENT_CHILD",
+            "source_parent_kind":kind,
+            "source_parent_evidence_ref":[str(row["evidence_id"]),str(row["sha256"])],
+            "source_segment_state_evidence_ref":[str(current["segment_state_evidence_id"]),str(current["segment_state_evidence_sha256"])],
+            "source_boundary_evidence_ref":[str(current["boundary_evidence_id"]),str(current["boundary_evidence_sha256"])],
+            "composition_content_digest_sha256":expected,
+            "composition_depth":1,"child_arity":2,
+            "nested_children":nested_children,
+            "nested_child_content_digests":nested_child_digests,
+            "retrospective_provenance":"CURRENT_APPEND_ONLY_DEPTH_ONE_SEGMENT_PARENT_STATE",
+            "historical_event_authority":"NONE","flattening_authority":"NONE",
+            "associativity_authority":"NONE","authority_gain":"NONE",
+        }
+    def _validate_current_native_structural_segment_depth_two_recursive_composition_state(
+        self, row: dict[str, Any], *, rows: list[dict[str, Any]], boot: int,
+    ) -> dict[str, Any]:
+        base={
+            "input_parent_depth":1,"composition_depth":2,"child_arity":2,
+            "recursive_depth_limit":2,"generic_recursive_closure_authority":"NONE",
+            "depth_three_authority":"NONE","historical_event_authority":"NONE",
+            "ledger_rewrite_authority":"NONE","flattening_authority":"NONE",
+            "associativity_authority":"NONE","semantic_composition_authority":"NONE",
+            "grammar_authority":"NONE","effect_authority":"NONE","execution_authority":"NONE",
+            "scheduler_authority":"NONE","authority_gain":"NONE",
+        }
+        if row.get("negative"):
+            return {**base,"status":"DEFER_UNKNOWN","reason":"SEGMENT_DEPTH_TWO_STATE_MUST_BE_POSITIVE"}
+        payload=row.get("payload") or {}
+        if payload.get("kind")!="OWNED_NATIVE_STRUCTURAL_SEGMENT_DEPTH_TWO_RECURSIVE_COMPOSITION_STATE":
+            return {**base,"status":"DEFER_UNKNOWN","reason":"SEGMENT_DEPTH_TWO_STATE_KIND_REQUIRED"}
+        if int(payload.get("runtime_boot_seq",-1))!=boot:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"SEGMENT_DEPTH_TWO_STATE_CURRENT_BOOT_REQUIRED"}
+        if (payload.get("operator_owner")!="MICROSEED_NATIVE_STRUCTURAL_SEGMENT_DEPTH_TWO_RECURSIVE_COMPOSITION"
+                or payload.get("composition_operator")!="RECURSIVE_ORDERED_EVIDENCE_TUPLE"
+                or int(payload.get("input_parent_depth",-1))!=1
+                or int(payload.get("composition_depth",-1))!=2
+                or int(payload.get("child_arity",-1))!=2
+                or payload.get("selection_basis")!="LATEST_TWO_DISTINCT_CURRENT_DEPTH_ONE_RETROSPECTIVE_SEGMENT_PARENT_CONTENTS_IN_EVIDENCE_ORDER"
+                or payload.get("grouping_basis")!="EXACT_DEPTH_ONE_SEGMENT_PARENT_BOUNDARIES_PRESERVED"
+                or payload.get("temporality")!="CURRENT_RETROSPECTIVE_DERIVATION_APPENDED_AFTER_DEPTH_ONE_PARENT_STATES"):
+            return {**base,"status":"DEFER_UNKNOWN","reason":"SEGMENT_DEPTH_TWO_STATE_OWNER_OR_SHAPE_MISMATCH"}
+        for k in (
+            "historical_event_authority","ledger_rewrite_authority","flattening_authority",
+            "associativity_authority","semantic_composition_authority","grammar_authority",
+            "effect_authority","execution_authority","scheduler_authority","authority_gain",
+            "generic_recursive_closure_authority","depth_three_authority",
+        ):
+            if payload.get(k)!="NONE":
+                return {**base,"status":"DEFER_UNKNOWN","reason":"SEGMENT_DEPTH_TWO_STATE_AUTHORITY_OVERCLAIM","field":k}
+        expected_id="E-NATIVE-STRUCTURAL-SEGMENT-DEPTH-TWO-RECURSIVE-"+action_result_digest(payload)[:24]
+        if str(row.get("evidence_id",""))!=expected_id:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"SEGMENT_DEPTH_TWO_STATE_EVIDENCE_ID_NOT_DERIVED_FROM_CONTENT","expected_evidence_id":expected_id}
+        payload_children=tuple(payload.get("children",()))
+        child_digests=tuple(str(x) for x in payload.get("ordered_child_composition_content_digests",()))
+        if len(payload_children)!=2 or len(child_digests)!=2 or len(set(child_digests))!=2:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"TWO_DISTINCT_DEPTH_ONE_PARENT_CHILDREN_REQUIRED"}
+        validated=[]
+        for ordinal,(child_payload,expected_digest) in enumerate(zip(payload_children,child_digests)):
+            if not isinstance(child_payload,dict) or int(child_payload.get("ordinal",-1))!=ordinal:
+                return {**base,"status":"DEFER_UNKNOWN","reason":"DEPTH_TWO_CHILD_ORDINAL_MISMATCH"}
+            ref=tuple(child_payload.get("source_parent_evidence_ref",()))
+            if len(ref)!=2:
+                return {**base,"status":"DEFER_UNKNOWN","reason":"DEPTH_TWO_CHILD_PARENT_REF_REQUIRED"}
+            parent_row=self.evidence.get(str(ref[0]))
+            if parent_row is None or str(parent_row.get("sha256",""))!=str(ref[1]):
+                return {**base,"status":"DEFER_UNKNOWN","reason":"DEPTH_TWO_CHILD_PARENT_REF_NOT_EXACT"}
+            carrier=self._native_depth_one_structural_segment_parent_child_carrier(parent_row,rows=rows,boot=boot)
+            if carrier.get("status")!="CURRENT_DEPTH_ONE_STRUCTURAL_SEGMENT_PARENT_CHILD":
+                return {**base,**carrier,"status":"DEFER_UNKNOWN"}
+            expected_child={
+                "ordinal":ordinal,
+                "source_parent_kind":carrier["source_parent_kind"],
+                "source_parent_evidence_ref":carrier["source_parent_evidence_ref"],
+                "source_segment_state_evidence_ref":carrier["source_segment_state_evidence_ref"],
+                "source_boundary_evidence_ref":carrier["source_boundary_evidence_ref"],
+                "composition_content_digest_sha256":carrier["composition_content_digest_sha256"],
+                "composition_depth":1,"child_arity":2,
+                "nested_child_content_digests":list(carrier["nested_child_content_digests"]),
+                "retrospective_provenance":"CURRENT_APPEND_ONLY_DEPTH_ONE_SEGMENT_PARENT_STATE",
+                "historical_event_authority":"NONE","flattening_authority":"NONE",
+                "associativity_authority":"NONE","authority_gain":"NONE",
+            }
+            if child_payload!=expected_child or str(carrier["composition_content_digest_sha256"])!=expected_digest:
+                return {**base,"status":"DEFER_UNKNOWN","reason":"DEPTH_TWO_CHILD_CONTENT_OR_PROVENANCE_MISMATCH"}
+            validated.append(carrier)
+        content={
+            "operator":"RECURSIVE_ORDERED_EVIDENCE_TUPLE",
+            "ordered_child_composition_content_digests":list(child_digests),
+            "composition_depth":2,"child_arity":2,
+            "identity_scope":"EXACT_GROUPED_OPERATIONAL_COMPOSITION_ONLY",
+        }
+        digest=action_result_digest(content)
+        if str(payload.get("composition_content_digest_sha256",""))!=digest:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"SEGMENT_DEPTH_TWO_STATE_CONTENT_DIGEST_MISMATCH"}
+        return {
+            **base,"status":"CURRENT_NATIVE_STRUCTURAL_SEGMENT_DEPTH_TWO_RECURSIVE_COMPOSITION_STATE",
+            "composition_state_evidence_id":str(row["evidence_id"]),
+            "composition_state_evidence_sha256":str(row["sha256"]),
+            "composition_content_digest_sha256":digest,
+            "ordered_child_composition_content_digests":child_digests,
+            "children":tuple(validated),
+            "selection_basis":payload["selection_basis"],"grouping_basis":payload["grouping_basis"],
+            "temporality":payload["temporality"],
+        }
+    def derive_and_record_current_native_structural_segment_depth_two_recursive_composition(
+        self, *, max_records: int = 4096,
+    ) -> dict[str, Any]:
+        """Compose the latest two distinct CURRENT depth-one retrospective segment parents once.
+
+        This owner is intentionally not recursively closed: only the two already-earned depth-one
+        retrospective segment-parent kinds are eligible inputs. Its own depth-two output kind is
+        validated for tamper/currentness but is never admitted as a child.
+        """
+        base={
+            "selection_basis":"LATEST_TWO_DISTINCT_CURRENT_DEPTH_ONE_RETROSPECTIVE_SEGMENT_PARENT_CONTENTS_IN_EVIDENCE_ORDER",
+            "grouping_basis":"EXACT_DEPTH_ONE_SEGMENT_PARENT_BOUNDARIES_PRESERVED",
+            "input_parent_depth":1,"composition_depth":2,"child_arity":2,
+            "recursive_depth_limit":2,"generic_recursive_closure_authority":"NONE",
+            "depth_three_authority":"NONE","historical_event_authority":"NONE",
+            "ledger_rewrite_authority":"NONE","flattening_authority":"NONE",
+            "associativity_authority":"NONE","semantic_composition_authority":"NONE",
+            "grammar_authority":"NONE","effect_authority":"NONE","execution_authority":"NONE",
+            "scheduler_authority":"NONE","authority_gain":"NONE",
+        }
+        bound=int(max_records)
+        if bound<=0:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"SEGMENT_DEPTH_TWO_EVIDENCE_SCAN_BUDGET_REQUIRED"}
+        total=self.evidence.count()
+        if total>bound:
+            return {**base,"status":"SEARCH_BUDGET_EXHAUSTED_NOT_SATURATED",
+                    "reason":"SEGMENT_DEPTH_TWO_EVIDENCE_HISTORY_EXCEEDS_SCAN_BUDGET",
+                    "total_records":total,"max_records":bound}
+        boot=self._current_runtime_boot_seq()
+        if boot<0:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"CURRENT_RUNTIME_BOOT_BOUNDARY_REQUIRED"}
+        rows=self.evidence.list(); candidates=[]
+        accepted={
+            "OWNED_NATIVE_STRUCTURAL_SEGMENT_B2_RECURSIVE_COMPOSITION_STATE",
+            "OWNED_NATIVE_STRUCTURAL_SEGMENT_BOUNDED_RECURSIVE_COMPOSITION_STATE",
+        }
+        for pos,row in enumerate(rows):
+            payload=row.get("payload") or {}; kind=payload.get("kind")
+            if int(payload.get("runtime_boot_seq",-1))!=boot:
+                continue
+            if kind in accepted:
+                carrier=self._native_depth_one_structural_segment_parent_child_carrier(row,rows=rows,boot=boot)
+                if carrier.get("status")!="CURRENT_DEPTH_ONE_STRUCTURAL_SEGMENT_PARENT_CHILD":
+                    return {**base,**carrier,"status":"DEFER_UNKNOWN"}
+                carrier["evidence_list_position"]=pos; candidates.append(carrier)
+            elif kind=="OWNED_NATIVE_STRUCTURAL_SEGMENT_DEPTH_TWO_RECURSIVE_COMPOSITION_STATE":
+                current=self._validate_current_native_structural_segment_depth_two_recursive_composition_state(row,rows=rows,boot=boot)
+                if current.get("status")!="CURRENT_NATIVE_STRUCTURAL_SEGMENT_DEPTH_TWO_RECURSIVE_COMPOSITION_STATE":
+                    return {**base,**current,"status":"DEFER_UNKNOWN"}
+        selected_rev=[]; seen=set()
+        for child in reversed(candidates):
+            digest=str(child["composition_content_digest_sha256"])
+            if digest in seen:
+                continue
+            seen.add(digest); selected_rev.append(child)
+            if len(selected_rev)==2:
+                break
+        if len(selected_rev)<2:
+            return {**base,"status":"DEFER_UNKNOWN",
+                    "reason":"TWO_DISTINCT_CURRENT_DEPTH_ONE_SEGMENT_PARENT_CONTENTS_REQUIRED",
+                    "current_distinct_parent_count":len(selected_rev)}
+        children=tuple(reversed(selected_rev)); child_digests=tuple(str(c["composition_content_digest_sha256"]) for c in children)
+        content={
+            "operator":"RECURSIVE_ORDERED_EVIDENCE_TUPLE",
+            "ordered_child_composition_content_digests":list(child_digests),
+            "composition_depth":2,"child_arity":2,
+            "identity_scope":"EXACT_GROUPED_OPERATIONAL_COMPOSITION_ONLY",
+        }
+        digest=action_result_digest(content)
+        payload_children=[]
+        for ordinal,carrier in enumerate(children):
+            payload_children.append({
+                "ordinal":ordinal,
+                "source_parent_kind":carrier["source_parent_kind"],
+                "source_parent_evidence_ref":carrier["source_parent_evidence_ref"],
+                "source_segment_state_evidence_ref":carrier["source_segment_state_evidence_ref"],
+                "source_boundary_evidence_ref":carrier["source_boundary_evidence_ref"],
+                "composition_content_digest_sha256":carrier["composition_content_digest_sha256"],
+                "composition_depth":1,"child_arity":2,
+                "nested_child_content_digests":list(carrier["nested_child_content_digests"]),
+                "retrospective_provenance":"CURRENT_APPEND_ONLY_DEPTH_ONE_SEGMENT_PARENT_STATE",
+                "historical_event_authority":"NONE","flattening_authority":"NONE",
+                "associativity_authority":"NONE","authority_gain":"NONE",
+            })
+        payload={
+            "kind":"OWNED_NATIVE_STRUCTURAL_SEGMENT_DEPTH_TWO_RECURSIVE_COMPOSITION_STATE",
+            "runtime_boot_seq":boot,
+            "operator_owner":"MICROSEED_NATIVE_STRUCTURAL_SEGMENT_DEPTH_TWO_RECURSIVE_COMPOSITION",
+            "composition_content_digest_sha256":digest,
+            "composition_operator":"RECURSIVE_ORDERED_EVIDENCE_TUPLE",
+            "input_parent_depth":1,"composition_depth":2,"child_arity":2,
+            "ordered_child_composition_content_digests":list(child_digests),
+            "children":payload_children,
+            "selection_basis":base["selection_basis"],"grouping_basis":base["grouping_basis"],
+            "identity_scope":"EXACT_GROUPED_OPERATIONAL_COMPOSITION_ONLY",
+            "temporality":"CURRENT_RETROSPECTIVE_DERIVATION_APPENDED_AFTER_DEPTH_ONE_PARENT_STATES",
+            "generic_recursive_closure_authority":"NONE","depth_three_authority":"NONE",
+            "historical_event_authority":"NONE","ledger_rewrite_authority":"NONE",
+            "flattening_authority":"NONE","associativity_authority":"NONE",
+            "semantic_composition_authority":"NONE","grammar_authority":"NONE",
+            "effect_authority":"NONE","execution_authority":"NONE",
+            "scheduler_authority":"NONE","authority_gain":"NONE",
+            "caller_supplied_parent_ids":"NO","caller_supplied_parent_order":"NO",
+            "caller_supplied_grouping":"NO","caller_supplied_depth":"NO",
+            "caller_supplied_output_evidence_id":"NO",
+        }
+        evidence_id="E-NATIVE-STRUCTURAL-SEGMENT-DEPTH-TWO-RECURSIVE-"+action_result_digest(payload)[:24]
+        existing=self.evidence.get(evidence_id)
+        if existing is None:
+            ref=self.append_evidence(evidence_id,payload,EpistemicStatus.PRESSURE_SUPPORTED,
+                                     source="MICROSEED-NATIVE-STRUCTURAL-SEGMENT-DEPTH-TWO-RECURSIVE-COMPOSITION")
+            evidence_sha=ref.sha256; record_status="SEGMENT_DEPTH_TWO_STATE_RECORDED"
+        else:
+            if existing.get("negative") or existing.get("payload")!=payload:
+                return {**base,"status":"DEFER_UNKNOWN","reason":"SEGMENT_DEPTH_TWO_STATE_EVIDENCE_ID_COLLISION","composition_state_evidence_id":evidence_id}
+            evidence_sha=str(existing.get("sha256","")); record_status="SEGMENT_DEPTH_TWO_STATE_ALREADY_PRESENT"
+        return {
+            **base,"status":"CURRENT_NATIVE_STRUCTURAL_SEGMENT_DEPTH_TWO_RECURSIVE_COMPOSITION_STATE_RECORDED",
+            "composition_state_evidence_id":evidence_id,"composition_state_evidence_sha256":evidence_sha,
+            "composition_state_record_status":record_status,
+            "composition_content_digest_sha256":digest,
+            "ordered_child_composition_content_digests":child_digests,
+            "children":children,
+            "composition_operator":"RECURSIVE_ORDERED_EVIDENCE_TUPLE",
+            "caller_supplied_parent_ids":"NO","caller_supplied_parent_order":"NO",
+            "caller_supplied_grouping":"NO","caller_supplied_depth":"NO",
+            "caller_supplied_output_evidence_id":"NO",
+        }
+
     def derive_and_record_current_native_recursive_b2_ordered_composition(
         self, *, max_records: int = 4096,
     ) -> dict[str, Any]:

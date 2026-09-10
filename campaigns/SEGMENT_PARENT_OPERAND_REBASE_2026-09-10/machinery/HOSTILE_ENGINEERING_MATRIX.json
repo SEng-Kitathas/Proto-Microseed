@@ -1,0 +1,40 @@
+{
+  "status": "P02_TARGETED_GREEN",
+  "attacks": [
+    {
+      "id": "SPR-H01",
+      "claim": "depth-one parent must flatten grandchildren to be reusable",
+      "status": "KILLED_TARGETED"
+    },
+    {
+      "id": "SPR-H02",
+      "claim": "one depth-two success earns generic recursion",
+      "status": "KILLED_TARGETED"
+    },
+    {
+      "id": "SPR-H03",
+      "claim": "depth-two output may feed same owner",
+      "status": "KILLED_TARGETED"
+    },
+    {
+      "id": "SPR-H04",
+      "claim": "alternate regrouping is associative equivalence",
+      "status": "KILLED_TARGETED"
+    },
+    {
+      "id": "SPR-H05",
+      "claim": "caller may choose parent ids/order/grouping/depth/output",
+      "status": "KILLED_TARGETED"
+    },
+    {
+      "id": "SPR-H06",
+      "claim": "duplicate parent content manufactures second operand",
+      "status": "KILLED_TARGETED"
+    },
+    {
+      "id": "SPR-H07",
+      "claim": "current substrate/currentness hot paths are altered by replay",
+      "status": "OPEN_BROAD_HASH_AND_SCALE_GATE"
+    }
+  ]
+}

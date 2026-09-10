@@ -1,0 +1,7 @@
+{
+  "pass": 2,
+  "status": "PASS",
+  "verification": "23/23 PASS",
+  "scope": "prototype + production + hostiles + ceiling + explicit systematic owner inventory",
+  "result": "REPLAYED_DEPTH_TWO_MECHANISM_SURVIVES_CURRENT_SUBSTRATE_CURRENTNESS_UNCHANGED"
+}
