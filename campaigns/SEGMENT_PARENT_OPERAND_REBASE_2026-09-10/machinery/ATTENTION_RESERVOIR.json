@@ -1,7 +1,7 @@
 {
   "schema": "microseed.segment-parent-operand-rebase.attention.v1",
-  "status": "P19_PASS_SEAL_READY",
-  "primary": "SEAL_PUBLISH_REMOTE_READBACK",
+  "status": "CAMPAIGN_COMPLETE",
+  "primary": "DEPTH_TWO_PARENT_STATE_AS_POTENTIAL_CHILD_FOR_ONE_EXPLICIT_DEPTH_THREE_EDGE_WITHOUT_GENERIC_RECURSIVE_CLOSURE",
   "next_primary_after_seal": "DEPTH_TWO_PARENT_STATE_AS_POTENTIAL_CHILD_FOR_ONE_EXPLICIT_DEPTH_THREE_EDGE_WITHOUT_GENERIC_RECURSIVE_CLOSURE",
   "deferred": [
     "depth-three/general recursion",
