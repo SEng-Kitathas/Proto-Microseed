@@ -1,0 +1,32 @@
+{
+  "pass": 19,
+  "name": "SUBSTRATE_CAMPAIGN_PASS_GATE",
+  "status": "PASS_SEAL_READY",
+  "implementation_head": "e6c3c9f564fbfb66d5415bf092ff0ae4241c6c5a",
+  "earned_claim": "HISTORY_STABLE_TIMED_ACTION_SUBSTRATE_WITH_AUTHENTICATED_OPERATIONAL_GROUPING_BOUNDARIES",
+  "checks": {
+    "execution_membership_index": "PASS_FLAT",
+    "latest_boot_index": "PASS_FLAT",
+    "post_boot_suffix_query": "PASS_EQUIVALENT",
+    "biography_head_frontier_index": "PASS_FLAT_AND_RESTART_REBUILT",
+    "caller_evidence_delimiter_attack": "KILLED",
+    "authenticated_control_state_boundary": "PASS",
+    "authenticated_action_boundary": "PASS",
+    "descendant_replay": "113 failures -> 7 -> 0; final broad green",
+    "donor_restart_cadence_per_act_cost_gate": "PASS",
+    "full_regression": "258/258 cleanup-neutral final integrated",
+    "compile_diff_anti_authority": "PASS"
+  },
+  "soak_performance_gate": "OPEN",
+  "full_developmental_soak_gate": "BLOCKED_BY_SEPARATE_CAUSAL_SHIFT_CURRENTNESS_FAILURE",
+  "blocking_observation": "historical donor soak on current descendant produced R-41 stale while s2 rehearsal proposal remained CURRENT, raising LOCALIZED_PROPOSAL_CURRENTNESS_WRONG",
+  "next_frontier": "STALE_PREDICTIVE_RELATION_TO_DERIVED_REHEARSAL_PROPOSAL_CURRENTNESS_PROPAGATION",
+  "laws": [
+    "AUTHORITY_RIGOR != SUBSTRATE_RIGOR",
+    "ACCUMULATED_HISTORY != PER_ACT_LINEAR_WORK",
+    "INDEXED_LOOKUP != NEW_AUTHORITY",
+    "CALLER_EVIDENCE_INGRESS != GROUPING_BOUNDARY_AUTHORITY",
+    "TIMED_ACTION_SUBSTRATE_GATE_OPEN != DEVELOPMENTAL_SOAK_SCIENCE_PASS"
+  ],
+  "promotion": "NONE"
+}

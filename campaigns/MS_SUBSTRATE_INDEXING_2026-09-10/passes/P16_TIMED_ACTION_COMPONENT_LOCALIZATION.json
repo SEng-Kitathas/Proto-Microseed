@@ -1,0 +1,46 @@
+{
+  "pass": 16,
+  "name": "TIMED_ACTION_COMPONENT_LOCALIZATION",
+  "status": "PASS_NO_REMAINING_LINEAR_COMPONENT_FOUND",
+  "substrate_head": "e6c3c9f564fbfb66d5415bf092ff0ae4241c6c5a",
+  "job": "job-04c0bd24ef29",
+  "timed_actions": 3600,
+  "component_early_to_late_medians_ms": {
+    "adapter_total": [
+      2.02255,
+      2.04035
+    ],
+    "fresh_commitment": [
+      0.1227,
+      0.1205
+    ],
+    "rehearsal_status_total_per_action": [
+      0.0604,
+      0.0598
+    ],
+    "derive_bounded_commitment": [
+      0.08405,
+      0.08255
+    ],
+    "capability_invoke": [
+      0.0065,
+      0.0065
+    ],
+    "add_execution": [
+      0.0009,
+      0.001
+    ],
+    "biography_append": [
+      0.76265,
+      0.7807
+    ],
+    "state_store_append": [
+      0.90905,
+      0.92575
+    ]
+  },
+  "sqlite_fixed_payload_commit_benchmark": "state-store and biography append+commit medians ~0.88-0.94 ms through 35k rows; no monotonic size slope, with occasional WAL/OS tail spikes",
+  "interpretation": "no timed subcomponent shows the prior O(n) growth shape; residual aggregate mean movement is consistent with tail/OS variance rather than an identified history-linear mechanism",
+  "nonclaim": "does not assert zero latency variance",
+  "promotion": "NONE"
+}

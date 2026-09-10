@@ -1,0 +1,58 @@
+{
+  "pass": 17,
+  "name": "DONOR_RESTART_CADENCE_3600_ACTION_SCALE_GATE",
+  "status": "PASS_TIMED_ACTION_SUBSTRATE_GATE",
+  "substrate_head": "e6c3c9f564fbfb66d5415bf092ff0ae4241c6c5a",
+  "job": "job-83ddf9c611d5",
+  "episodes": 1200,
+  "timed_actions": 3600,
+  "restart_episodes": [
+    300,
+    600,
+    900
+  ],
+  "bands_median_ms": [
+    2.0205,
+    1.96555,
+    1.99685,
+    2.00335,
+    1.99305,
+    2.00735
+  ],
+  "bands_mean_ms": [
+    2.1368858333,
+    2.1955631667,
+    2.1920863333,
+    2.140403,
+    2.2101048333,
+    2.1369856667
+  ],
+  "late_to_early_median_ratio": 0.9934917099727788,
+  "late_to_early_mean_ratio": 1.0000467190767872,
+  "session_median_ms": [
+    1.9966,
+    1.99075,
+    2.00105,
+    2.0001
+  ],
+  "restart_receipts": [
+    {
+      "episode": 300,
+      "archive_sha256": "b810311ef746ead09dddb2c722d980dc4ec1b34b6f622febd9201a46d81e0457",
+      "automatic_authority_gain": "NONE"
+    },
+    {
+      "episode": 600,
+      "archive_sha256": "ff9fd22c67c24de4a9b7ce337fb2d8a0d77722f52280c769b1f618d6c0fa83a2",
+      "automatic_authority_gain": "NONE"
+    },
+    {
+      "episode": 900,
+      "archive_sha256": "78d45b3968588bf992d887e84969e0f8216b9defaa2f21e72126734330f8064f",
+      "automatic_authority_gain": "NONE"
+    }
+  ],
+  "result": "THE_PRIOR_HISTORY_COUPLED_PER_ACT_COST_CONFOUND_IS_NOT_PRESENT_AT_THE_DONOR_SOAK_RESTART_CADENCE_ON_THE_EXACT_INDEXED_SUBSTRATE",
+  "nonclaim": "does not validate causal-shift behavior or the old donor soak scientific assertions",
+  "promotion": "NONE"
+}

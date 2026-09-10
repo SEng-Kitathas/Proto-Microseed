@@ -1,0 +1,56 @@
+{
+  "schema": "microseed.substrate-indexing.csc.v1",
+  "status": "PASS_BOUNDED",
+  "interfaces": [
+    {
+      "interface": "execution history -> duplicate-intent check",
+      "status": "PASS",
+      "note": "derived O(1) membership rebuilt through authoritative execution replay"
+    },
+    {
+      "interface": "event history -> current BOOT / post-BOOT suffix",
+      "status": "PASS",
+      "note": "indexed SQL query, append-only event authority unchanged"
+    },
+    {
+      "interface": "biography history -> current head frontier",
+      "status": "PASS",
+      "note": "derived incremental heads, full authoritative rederivation on verify/restart"
+    },
+    {
+      "interface": "arbitrary evidence ingress -> grouping boundary",
+      "status": "REFUSED",
+      "note": "generic non-token evidence is grouping-neutral"
+    },
+    {
+      "interface": "control-state observation -> grouping boundary",
+      "status": "PASS_AUTHENTICATED",
+      "note": "requires exact observation/evidence/control-state store-event chain"
+    },
+    {
+      "interface": "action execution -> grouping boundary",
+      "status": "PASS_AUTHENTICATED",
+      "note": "existing exact execution-record authentication preserved"
+    },
+    {
+      "interface": "current descendants -> stricter boundary law",
+      "status": "PASS",
+      "note": "initial 113 failures repaired through explicit operational test boundaries; final 240/240"
+    },
+    {
+      "interface": "soak timed action path -> accumulated history",
+      "status": "PASS_BOUNDED",
+      "note": "restart-cadence 3600-action early/late mean ratio 1.00005, median ratio 0.99349"
+    },
+    {
+      "interface": "causal shift -> rehearsal proposal currentness",
+      "status": "DEFER_UNKNOWN",
+      "note": "separate blocker: old R stale but s2 proposal remained CURRENT in historical donor soak"
+    }
+  ],
+  "earned_candidate": "HISTORY_STABLE_TIMED_ACTION_SUBSTRATE_WITH_AUTHENTICATED_OPERATIONAL_GROUPING_BOUNDARIES",
+  "soak_performance_gate": "OPEN",
+  "developmental_soak_science": "BLOCKED_SEPARATE_CURRENTNESS_SEAM",
+  "next_frontier": "STALE_PREDICTIVE_RELATION_TO_DERIVED_REHEARSAL_PROPOSAL_CURRENTNESS_PROPAGATION",
+  "promotion": "NONE"
+}

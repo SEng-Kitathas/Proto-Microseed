@@ -1,0 +1,14 @@
+{
+  "schema": "microseed.substrate-indexing.attention.v1",
+  "status": "P19_PASS_SEAL_READY",
+  "primary": "SEAL_PUBLISH_REMOTE_READBACK",
+  "next_primary_after_seal": "STALE_PREDICTIVE_RELATION_TO_DERIVED_REHEARSAL_PROPOSAL_CURRENTNESS_PROPAGATION",
+  "blocked": [
+    "full causal-shift developmental soak until rehearsal-currentness blocker is resolved/qualified"
+  ],
+  "deferred": [
+    "depth-two parent operand WIP 7b26c710...",
+    "Windows SQLite explicit close/resource lifecycle"
+  ],
+  "promotion": "NONE"
+}

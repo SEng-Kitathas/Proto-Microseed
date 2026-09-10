@@ -1,0 +1,20 @@
+{
+  "campaign": "MS_SUBSTRATE_INDEXING_2026-09-10",
+  "status": "PASS_SEAL_READY",
+  "completed_passes": 19,
+  "implementation_head": "e6c3c9f564fbfb66d5415bf092ff0ae4241c6c5a",
+  "earned_claim": "HISTORY_STABLE_TIMED_ACTION_SUBSTRATE_WITH_AUTHENTICATED_OPERATIONAL_GROUPING_BOUNDARIES",
+  "soak_performance_gate": "OPEN",
+  "developmental_soak_science": "BLOCKED_BY_STALE_PREDICTIVE_RELATION_TO_REHEARSAL_CURRENTNESS_SEAM",
+  "next_frontier": "STALE_PREDICTIVE_RELATION_TO_DERIVED_REHEARSAL_PROPOSAL_CURRENTNESS_PROPAGATION",
+  "verification": {
+    "final_current": "258/258 cleanup-neutral",
+    "restart_cadence_actions": 3600,
+    "restart_count": 3,
+    "late_to_early_mean_ratio": 1.0000467190767872,
+    "late_to_early_median_ratio": 0.9934917099727788,
+    "compileall": "PASS",
+    "anti_authority": "PASS"
+  },
+  "promotion": "NONE"
+}

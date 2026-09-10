@@ -1,0 +1,19 @@
+{
+  "pass": 15,
+  "name": "EXACT_3600_ACTION_NO_RESTART_PREFLIGHT",
+  "status": "MIXED__NOT_FINAL_GATE",
+  "substrate_head": "e6c3c9f564fbfb66d5415bf092ff0ae4241c6c5a",
+  "timed_actions": 3600,
+  "episodes": 1200,
+  "mode": "P_ONLY_NO_CAUSAL_SHIFT",
+  "observed": {
+    "late_to_early_median_ratio": 1.048457258472433,
+    "late_to_early_mean_ratio": 1.1914719064009032,
+    "median_delta_ms": 0.0958,
+    "mean_delta_ms": 0.4136815,
+    "ols_slope_ms_per_1000_actions": 0.107442743269759
+  },
+  "interpretation": "much improved from pre-index history growth but residual tail/late trend remained; gate intentionally stayed blocked pending component localization and restart-cadence replication",
+  "nonclaim": "not causal-shift science; nominal completion is not a substrate PASS",
+  "promotion": "NONE"
+}

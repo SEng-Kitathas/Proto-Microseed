@@ -1,11 +1,13 @@
 {
   "campaign": "MS_SUBSTRATE_INDEXING_2026-09-10",
-  "status": "P14_BIOGRAPHY_FRONTIER_SEAL_READY",
+  "status": "P19_PASS_SEAL_READY",
   "base_receipt": "793be7a81c9c3a71f57d4d89046882f22ed6207a",
-  "soak_status": "BLOCKED_PENDING_EXACT_BIOGRAPHY_INDEX_COMMIT_AND_3600_ACTION_PREFLIGHT",
+  "soak_status": "BLOCKED_BY_SEPARATE_REHEARSAL_CURRENTNESS_FAILURE",
   "deeper_parent_wip": "7b26c7105f36bb66f7887301a4dfe608ec61dff4",
-  "completed_passes": 14,
-  "current_pass": 15,
-  "current_discriminator": "EXACT_COMMIT_1200_EPISODE_P_ONLY_3600_ACTION_SOAK_PATH_SCALE_PREFLIGHT",
-  "promotion": "NONE"
+  "completed_passes": 19,
+  "current_pass": 20,
+  "current_discriminator": "SEAL_PUBLISH_REMOTE_READBACK",
+  "promotion": "NONE",
+  "soak_performance_gate": "OPEN",
+  "next_frontier": "STALE_PREDICTIVE_RELATION_TO_DERIVED_REHEARSAL_PROPOSAL_CURRENTNESS_PROPAGATION"
 }
