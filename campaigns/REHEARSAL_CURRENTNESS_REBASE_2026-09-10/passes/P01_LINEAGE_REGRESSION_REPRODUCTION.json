@@ -1,0 +1,16 @@
+{
+  "pass": 1,
+  "name": "LINEAGE_REGRESSION_REPRODUCTION",
+  "status": "PASS_VIOLATION_REPRODUCED",
+  "evidence": [
+    "historical donor violation harness reproduced on substrate receipt 5206925...",
+    "K-17 and M-23 current; R-41 stale; s2 proposal incorrectly CURRENT before repair; commitment YES; intent nominated"
+  ],
+  "lineage": [
+    "historical violation a5b6796...",
+    "repair 7b1278d...",
+    "canonical promotion c036ab55... is not ancestor of current substrate receipt"
+  ],
+  "result": "CURRENT_RESEARCH_LINE_LOST_ALREADY_CANONICAL_P1A_REHEARSAL_CURRENTNESS_GUARD",
+  "promotion": "NONE"
+}

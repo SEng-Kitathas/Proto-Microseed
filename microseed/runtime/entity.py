@@ -772,6 +772,20 @@ class Microseed:
             c = self.capabilities.contracts.get(cid)
             if c is None or c.computed_signature_sha256() != signature:
                 return {"status":"UNKNOWN_INCOMPLETE","reason":f"REHEARSAL_EVIDENCE_PREMISE_SIGNATURE_DRIFT:{cid}","authority":Authority.NONE.value}
+        # Canonical P1A currentness semantics, rebased onto the hardened substrate.
+        # A durable rehearsal cannot outlive a learned transition premise it already owns
+        # by exact rehearsal-relation digest. The learned-owner lookup is derived/indexed
+        # so fresh execution reauthorization does not scan all learned relations.
+        for relation_digest in p.transition_relation_digests:
+            learned_ids = self.action_outcome_learning.learned_relation_ids_for_rehearsal_digest(relation_digest)
+            if learned_ids:
+                learned_matches = tuple(self.action_outcome_learning.relations[rid] for rid in learned_ids)
+                if not any(self._action_outcome_relation_current(learned) for learned in learned_matches):
+                    return {
+                        "status":"UNKNOWN_INCOMPLETE",
+                        "reason":f"REHEARSAL_LEARNED_RELATION_NOT_CURRENT:{','.join(learned_ids)}",
+                        "authority":Authority.NONE.value,
+                    }
         return {
             "status":"CURRENT_REHEARSAL_PROPOSAL", "proposal_id":proposal_id, "sequence":list(p.sequence),
             "authority":p.authority, "truth_authority":p.truth_authority, "execution_authority":p.execution_authority,

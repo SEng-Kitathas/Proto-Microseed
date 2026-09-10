@@ -1,0 +1,13 @@
+{
+  "pass": 2,
+  "name": "INDEXED_CANONICAL_P1A_EMBODIMENT",
+  "status": "PASS_TARGETED",
+  "evidence": [
+    "all production learned-relation insertion/replay paths funnel through ActionOutcomeLearningRegistry.add_relation()",
+    "derived rehearsal digest -> relation ids index maintained there with replacement cleanup",
+    "counterfactual_rehearsal_status restores canonical matching-owner currentness rule using index only"
+  ],
+  "result": "CANONICAL_P1A_SEMANTICS_RESTORED_WITHOUT_FULL_LEARNED_RELATION_SCAN",
+  "authority_gain": "NONE",
+  "promotion": "NONE"
+}

@@ -1,0 +1,19 @@
+{
+  "pass": 4,
+  "name": "CURRENTNESS_LOOKUP_SCALING",
+  "status": "PASS_FLAT",
+  "actual_counterfactual_status_median_ms": {
+    "195": 0.0018,
+    "1108": 0.0018,
+    "5000": 0.0017,
+    "20000": 0.0017
+  },
+  "actual_counterfactual_status_mean_ms": {
+    "195": 0.0018389,
+    "1108": 0.001788,
+    "5000": 0.0017991,
+    "20000": 0.0017614
+  },
+  "result": "RESTORED_CANONICAL_CURRENTNESS_GUARD_DOES_NOT_REOPEN_HISTORY_LINEAR_RELATION_SCAN",
+  "promotion": "NONE"
+}

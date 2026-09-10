@@ -1,0 +1,45 @@
+{
+  "status": "P05_TARGETED_ATTACKS_KILLED",
+  "attacks": [
+    {
+      "id": "RC-H01",
+      "claim": "stale learned relation may remain execution premise through durable proposal",
+      "result": "KILLED"
+    },
+    {
+      "id": "RC-H02",
+      "claim": "one stale relation globally invalidates unrelated proposals",
+      "result": "KILLED"
+    },
+    {
+      "id": "RC-H03",
+      "claim": "one stale owner invalidates digest even if another matching owner is current",
+      "result": "KILLED"
+    },
+    {
+      "id": "RC-H04",
+      "claim": "supplied-row transition with no learned owner is treated as stale",
+      "result": "KILLED"
+    },
+    {
+      "id": "RC-H05",
+      "claim": "canonical repair requires O(n) scan over all learned relations",
+      "result": "KILLED_BY_DERIVED_DIGEST_INDEX"
+    },
+    {
+      "id": "RC-H06",
+      "claim": "index can drift across restart/replacement",
+      "result": "KILLED_BY_REPLAY_REBUILD_AND_REPLACEMENT_TESTS"
+    },
+    {
+      "id": "RC-H07",
+      "claim": "recovery evidence requires executing stale learned proposal",
+      "result": "KILLED_BY_CANONICAL_ASSISTED_RECOVERY_TEST_EVOLUTION"
+    },
+    {
+      "id": "RC-H08",
+      "claim": "current-lineage causal-shift soak passes",
+      "result": "OPEN_PENDING_FULL_REPLAY"
+    }
+  ]
+}

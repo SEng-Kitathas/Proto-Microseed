@@ -1,0 +1,12 @@
+{
+  "pass": 5,
+  "name": "TARGETED_AND_BROAD_REGRESSION",
+  "status": "PASS_WITH_KNOWN_CLEANUP_SCAR",
+  "raw_targeted": "37 pass + 2 known WinError32 biography.sqlite3 teardown failures + 1 stale MS1943 recovery assertion",
+  "audit_evolution": "canonical c036ab55 version of MS1943 uses supplied-row assisted proposal for recovery after learned proposal stales; current stale test evolved to same semantics",
+  "cleanup_neutral_targeted": "40/40 PASS",
+  "broad": "257/257 PASS across 83 files: all current language/substrate + indexed currentness + MS1943 + historical semantic donor",
+  "compileall": "PASS",
+  "result": "CURRENTNESS_REBASE_COMPATIBLE_WITH_HARDENED_SUBSTRATE_AND_CURRENT_GROUNDED_LINEAGE",
+  "promotion": "NONE"
+}

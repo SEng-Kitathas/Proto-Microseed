@@ -484,6 +484,9 @@ class ActionOutcomeLearningRegistry:
     def __init__(self) -> None:
         self.candidates: dict[str, ActionOutcomePredictiveCandidate] = {}
         self.relations: dict[str, QualifiedActionOutcomePredictiveRelation] = {}
+        # Derived lookup only: exact rehearsal-relation digest -> learned relation ids.
+        # Rebuilt through add_relation() during durable replay; carries no authority.
+        self._rehearsal_relation_ids_by_digest: dict[str, set[str]] = {}
         self.currentness_witnesses: dict[str, Any] = {}
         self.replacement_links: dict[str, Any] = {}
         self.relation_replacement_lineage: dict[str, dict[str, str]] = {}
@@ -504,7 +507,23 @@ class ActionOutcomeLearningRegistry:
     def add_relation(self, r: QualifiedActionOutcomePredictiveRelation) -> None:
         if any(x != "NONE" for x in (r.truth_authority, r.causal_theorem_authority, r.execution_authority, r.semantic_goal_authority)):
             raise ValueError("ACTION_OUTCOME_RELATION_AUTHORITY_ESCALATION")
+        prior = self.relations.get(r.relation_id)
+        if prior is not None:
+            prior_rr = prior.as_rehearsal_relation()
+            if prior_rr is not None:
+                prior_digest = prior_rr.digest()
+                prior_ids = self._rehearsal_relation_ids_by_digest.get(prior_digest)
+                if prior_ids is not None:
+                    prior_ids.discard(r.relation_id)
+                    if not prior_ids:
+                        self._rehearsal_relation_ids_by_digest.pop(prior_digest, None)
         self.relations[r.relation_id] = r
+        rr = r.as_rehearsal_relation()
+        if rr is not None:
+            self._rehearsal_relation_ids_by_digest.setdefault(rr.digest(), set()).add(r.relation_id)
+
+    def learned_relation_ids_for_rehearsal_digest(self, digest: str) -> tuple[str, ...]:
+        return tuple(sorted(self._rehearsal_relation_ids_by_digest.get(str(digest), ())))
 
     def add_projection_routing_candidate(self, candidate: Any) -> None:
         if getattr(candidate, "authority", None) != Authority.MODEL_OUTPUT_ONLY.value or any(

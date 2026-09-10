@@ -1,0 +1,12 @@
+{
+  "campaign": "REHEARSAL_CURRENTNESS_REBASE_2026-09-10",
+  "status": "P05_REPAIR_CHECKPOINT_READY",
+  "base_receipt": "5206925e2b82bc9b0ca4073d0ddaa76378b28310",
+  "canonical_p1a": "c036ab55dca2bca057c0f84ca6d5c8bc3e313fa7",
+  "completed_passes": 5,
+  "current_pass": 6,
+  "current_discriminator": "EXACT_REPAIR_COMMIT_THEN_CURRENT_LINEAGE_CAUSAL_SHIFT_SOAK",
+  "soak_performance_gate": "OPEN",
+  "soak_science_gate": "BLOCKED_PENDING_EXACT_REPAIR_COMMIT_AND_FULL_CAUSAL_SHIFT_REPLAY",
+  "promotion": "NONE"
+}

@@ -1,0 +1,15 @@
+{
+  "pass": 3,
+  "name": "SELECTIVE_CURRENTNESS_HOSTILES",
+  "status": "PASS",
+  "evidence": [
+    "modern indexed rebase + historical semantic donor 8/8 PASS",
+    "multi-owner digest: one current match preserves proposal, all stale blocks",
+    "unrelated stale learned relations do not invalidate target proposal",
+    "supplied-row/no learned owner remains current",
+    "index replacement cleanup and replay rebuild exact",
+    "Microseed restart rebuild exact"
+  ],
+  "result": "CURRENTNESS_PROPAGATION_IS_EXACT_DIGEST_OWNED_AND_SELECTIVE",
+  "promotion": "NONE"
+}
