@@ -1,0 +1,13 @@
+{
+  "pass": 14,
+  "name": "REPLAY_PROVENANCE_AND_DONOR_CEILING",
+  "status": "PASS",
+  "evidence": [
+    "fresh branch based on c33104c8",
+    "donor WIP 7b26c710 used only to extract three production methods + five prototype/test files",
+    "donor campaign/log state not imported",
+    "replay checkpoint a95a2f12f24158baa62b982b7a4360be2dc28cc4"
+  ],
+  "result": "DONOR_MECHANISM_REPLAYED_WITHOUT_DONOR_AUTHORITY",
+  "promotion": "NONE"
+}

@@ -1,0 +1,13 @@
+{
+  "pass": 4,
+  "name": "FINAL_INTEGRATED_BREADTH",
+  "status": "PASS",
+  "evidence": [
+    "job-ae1ec78fb7b5",
+    "303/303 PASS",
+    "96 files cleanup-neutral",
+    "includes organism/rehearsal/currentness/depth-two"
+  ],
+  "result": "FINAL_CURRENT_LINEAGE_GREEN_303_OF_303",
+  "promotion": "NONE"
+}

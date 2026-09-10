@@ -1,0 +1,12 @@
+{
+  "pass": 6,
+  "name": "NESTED_GROUPING_NO_FLATTENING",
+  "status": "PASS",
+  "evidence": [
+    "depth-two parent top-level identity contains exactly two depth-one parent content digests",
+    "each child retains its own nested child digests/provenance",
+    "flattened four-grandchild identity differs from actual parent identity"
+  ],
+  "result": "DEPTH_ONE_PARENT_REMAINS_ONE_NESTED_CHILD",
+  "promotion": "NONE"
+}

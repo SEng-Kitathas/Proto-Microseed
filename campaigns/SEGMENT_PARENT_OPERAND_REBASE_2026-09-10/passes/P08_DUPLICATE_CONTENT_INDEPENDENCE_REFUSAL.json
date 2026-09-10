@@ -1,0 +1,11 @@
+{
+  "pass": 8,
+  "name": "DUPLICATE_CONTENT_INDEPENDENCE_REFUSAL",
+  "status": "PASS",
+  "evidence": [
+    "duplicate depth-one parent content yields only one distinct candidate content",
+    "two distinct current parent contents required before depth-two output"
+  ],
+  "result": "DUPLICATE_CONTENT_CANNOT_MANUFACTURE_SECOND_OPERAND",
+  "promotion": "NONE"
+}

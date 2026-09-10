@@ -1,0 +1,12 @@
+{
+  "pass": 10,
+  "name": "BUDGET_AND_NO_AUTO_SCHEDULING",
+  "status": "PASS",
+  "evidence": [
+    "budget truncation returns SEARCH_BUDGET_EXHAUSTED_NOT_SATURATED",
+    "depth-one parent creation does not auto invoke depth-two owner",
+    "public API exposes max_records only; caller cannot provide parent ids/order/grouping/depth/output id"
+  ],
+  "result": "SEARCH_BUDGET_CANNOT_FAKE_SATURATION_AND_CONTENT_OWNERSHIP_DOES_NOT_EARN_SCHEDULING",
+  "promotion": "NONE"
+}

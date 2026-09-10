@@ -1,0 +1,15 @@
+{
+  "pass": 12,
+  "name": "DEPTH_CEILING_AUDIT",
+  "status": "PASS_BOUNDED",
+  "evidence": [
+    "composition_depth=2",
+    "child_arity=2",
+    "recursive_depth_limit=2",
+    "generic_recursive_closure_authority=NONE",
+    "depth_three_authority=NONE",
+    "ceiling tests PASS"
+  ],
+  "result": "ONE_DEPTH_TWO_EDGE_EARNED__DEPTH_THREE_AND_GENERIC_CLOSURE_NOT_EARNED",
+  "promotion": "NONE"
+}

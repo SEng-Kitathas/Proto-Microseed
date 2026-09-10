@@ -1,0 +1,28 @@
+{
+  "schema": "microseed.segment-parent-operand-rebase.csc.v1",
+  "status": "PASS_BOUNDED",
+  "base_receipt": "c33104c8b1e3e24147f99e9a147a3673976e45a4",
+  "replay_checkpoint": "a95a2f12f24158baa62b982b7a4360be2dc28cc4",
+  "earned_candidate": "ONE_EXPLICIT_CURRENT_DEPTH_TWO_RETROSPECTIVE_SEGMENT_PARENT_COMPOSITION_EDGE_WITHOUT_FLATTENING_OR_ASSOCIATIVITY",
+  "interfaces": [
+    "current depth-one parent -> nested child PASS",
+    "two distinct current parent contents -> explicit depth-two identity PASS",
+    "grouping/order -> exact and noncommutative PASS",
+    "duplicate/forgery/currentness/restart -> PASS",
+    "depth-two output -> same-owner input REFUSED",
+    "substrate/currentness hot paths -> unchanged PASS",
+    "generic recursion/depth-three -> DEFER_UNKNOWN"
+  ],
+  "ceilings": [
+    "ONE_DEPTH_TWO_EDGE != GENERIC_RECURSIVE_CLOSURE",
+    "DEPTH_ONE_PARENT_AS_CHILD != FLATTENED_GRANDCHILDREN",
+    "CONTENT_IDENTITY != ASSOCIATIVITY",
+    "REUSABLE_OPERAND != FLATTENING_OR_ASSOCIATIVITY",
+    "RETROSPECTIVE_REUSE_STATE != HISTORICAL_COMPOSITION_EVENT",
+    "CONTENT_REUSE_OWNERSHIP != ENDOGENOUS_SCHEDULING",
+    "ORDERED_OPERATIONAL_COMPOSITION != SEMANTIC_COMPOSITION"
+  ],
+  "authority_gain": "NONE",
+  "promotion": "NONE",
+  "next_frontier": "DEPTH_TWO_PARENT_STATE_AS_POTENTIAL_CHILD_FOR_ONE_EXPLICIT_DEPTH_THREE_EDGE_WITHOUT_GENERIC_RECURSIVE_CLOSURE"
+}

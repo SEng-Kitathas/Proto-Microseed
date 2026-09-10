@@ -1,0 +1,13 @@
+{
+  "pass": 13,
+  "name": "STATIC_ANTI_AUTHORITY_AUDIT",
+  "status": "PASS",
+  "evidence": [
+    "git diff --check PASS",
+    "264 entity lines added",
+    "all added authority fields exactly NONE",
+    "no CapabilityContract/register_capability/action creation/planner/scheduler/semantic registry/event UPDATE/DELETE"
+  ],
+  "result": "DEPTH_TWO_REPLAY_ADDS_BINDING_WITHOUT_AUTHORITY_INFLATION",
+  "promotion": "NONE"
+}

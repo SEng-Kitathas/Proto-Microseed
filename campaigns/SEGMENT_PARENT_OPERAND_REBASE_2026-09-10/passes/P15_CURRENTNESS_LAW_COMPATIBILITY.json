@@ -1,0 +1,11 @@
+{
+  "pass": 15,
+  "name": "CURRENTNESS_LAW_COMPATIBILITY",
+  "status": "PASS",
+  "evidence": [
+    "restored P1A currentness production code byte-identical to sealed base",
+    "broad currentness tests PASS inside 278/278 and 303/303 surfaces"
+  ],
+  "result": "DEPTH_TWO_REPLAY_DOES_NOT_BYPASS_OR_MUTATE_LEARNED_RELATION_CURRENTNESS",
+  "promotion": "NONE"
+}

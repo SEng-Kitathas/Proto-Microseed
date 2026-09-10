@@ -1,0 +1,11 @@
+{
+  "pass": 7,
+  "name": "ORDER_NONCOMMUTATIVITY_AND_ASSOCIATIVITY_REFUSAL",
+  "status": "PASS",
+  "evidence": [
+    "B2->mixed and mixed->B2 yield reversed child order and distinct parent digests",
+    "alternate regrouping digest differs from earned grouping"
+  ],
+  "result": "EVIDENCE_OWNED_ORDER_PRESERVED_AND_ASSOCIATIVITY_NOT_INFERRED",
+  "promotion": "NONE"
+}

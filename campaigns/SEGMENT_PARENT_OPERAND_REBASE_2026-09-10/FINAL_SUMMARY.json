@@ -1,0 +1,20 @@
+{
+  "campaign": "SEGMENT_PARENT_OPERAND_REBASE_2026-09-10",
+  "status": "PASS_SEAL_READY",
+  "completed_passes": 19,
+  "base_receipt": "c33104c8b1e3e24147f99e9a147a3673976e45a4",
+  "replay_checkpoint": "a95a2f12f24158baa62b982b7a4360be2dc28cc4",
+  "earned_claim": "ONE_EXPLICIT_CURRENT_DEPTH_TWO_RETROSPECTIVE_SEGMENT_PARENT_COMPOSITION_EDGE_WITHOUT_FLATTENING_OR_ASSOCIATIVITY",
+  "verification": {
+    "targeted": "23/23",
+    "broad": "278/278",
+    "final_integrated": "303/303",
+    "compileall": "PASS",
+    "diff_check": "PASS",
+    "anti_authority": "PASS",
+    "CSC": "PASS_BOUNDED",
+    "substrate_benchmark": "BOUNDED"
+  },
+  "next_frontier": "DEPTH_TWO_PARENT_STATE_AS_POTENTIAL_CHILD_FOR_ONE_EXPLICIT_DEPTH_THREE_EDGE_WITHOUT_GENERIC_RECURSIVE_CLOSURE",
+  "promotion": "NONE"
+}

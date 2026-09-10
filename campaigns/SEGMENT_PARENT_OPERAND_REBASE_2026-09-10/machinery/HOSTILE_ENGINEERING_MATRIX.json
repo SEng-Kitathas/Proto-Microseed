@@ -1,5 +1,5 @@
 {
-  "status": "P02_TARGETED_GREEN",
+  "status": "P19_ALL_LISTED_ATTACKS_KILLED",
   "attacks": [
     {
       "id": "SPR-H01",
@@ -34,7 +34,7 @@
     {
       "id": "SPR-H07",
       "claim": "current substrate/currentness hot paths are altered by replay",
-      "status": "OPEN_BROAD_HASH_AND_SCALE_GATE"
+      "status": "KILLED_BROAD_HASH_AND_SCALE_GATE"
     }
   ]
 }

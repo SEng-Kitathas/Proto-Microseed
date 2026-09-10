@@ -1,0 +1,12 @@
+{
+  "pass": 5,
+  "name": "SUBSTRATE_CURRENTNESS_NONREGRESSION",
+  "status": "PASS",
+  "evidence": [
+    "action_closure.py action_learning.py store.py biography.py Git-object diff empty vs c33104c8",
+    "execute_bounded_action/counterfactual_rehearsal_status/_current_runtime_boot_seq/_derive_current_store_aware_bounded_operand_window/_fresh_action_commitment_for_intent byte-identical to base",
+    "substrate benchmark bounded after replay"
+  ],
+  "result": "DEPTH_TWO_REPLAY_IS_ADDITIVE_AROUND_HARDENED_SUBSTRATE_AND_RESTORED_CURRENTNESS",
+  "promotion": "NONE"
+}

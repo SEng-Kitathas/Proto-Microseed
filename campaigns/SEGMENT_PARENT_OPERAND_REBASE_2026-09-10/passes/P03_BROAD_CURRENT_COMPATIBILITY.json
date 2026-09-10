@@ -1,0 +1,13 @@
+{
+  "pass": 3,
+  "name": "BROAD_CURRENT_COMPATIBILITY",
+  "status": "PASS",
+  "evidence": [
+    "job-1a8d47330f5d",
+    "278/278 PASS",
+    "86 files",
+    "all current test_lang_* + test_ms_substrate_* + indexed currentness + MS1943 + replayed depth-two"
+  ],
+  "result": "REPLAYED_DEPTH_TWO_EDGE_COMPATIBLE_WITH_CURRENT_LANGUAGE_SUBSTRATE_CURRENTNESS_LINEAGE",
+  "promotion": "NONE"
+}

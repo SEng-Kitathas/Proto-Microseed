@@ -1,0 +1,29 @@
+{
+  "pass": 19,
+  "name": "CAMPAIGN_PASS_GATE",
+  "status": "PASS_SEAL_READY",
+  "replay_checkpoint": "a95a2f12f24158baa62b982b7a4360be2dc28cc4",
+  "earned_claim": "ONE_EXPLICIT_CURRENT_DEPTH_TWO_RETROSPECTIVE_SEGMENT_PARENT_COMPOSITION_EDGE_WITHOUT_FLATTENING_OR_ASSOCIATIVITY",
+  "checks": {
+    "targeted": "23/23 PASS",
+    "broad": "278/278 PASS",
+    "final_integrated": "303/303 PASS",
+    "substrate_currentness_nonregression": "PASS",
+    "compileall": "PASS",
+    "git_diff_check": "PASS",
+    "anti_authority": "PASS",
+    "CSC": "PASS_BOUNDED"
+  },
+  "not_earned": [
+    "depth-three reuse",
+    "generic recursive closure",
+    "flattening",
+    "associativity",
+    "historical composition-event authority",
+    "semantic/grammar authority",
+    "scheduler/planner/EFFECT authority",
+    "canon promotion"
+  ],
+  "next_frontier": "DEPTH_TWO_PARENT_STATE_AS_POTENTIAL_CHILD_FOR_ONE_EXPLICIT_DEPTH_THREE_EDGE_WITHOUT_GENERIC_RECURSIVE_CLOSURE",
+  "promotion": "NONE"
+}

@@ -1,0 +1,13 @@
+{
+  "pass": 9,
+  "name": "FORGERY_CURRENTNESS_RESTART",
+  "status": "PASS",
+  "evidence": [
+    "copied valid depth-two payload under alternate id refused",
+    "copied valid depth-one parent under alternate id cannot become child",
+    "nested leaf/currentness drift invalidates depth-two state",
+    "restart requires fresh current depth-one parents and rederives same content identity"
+  ],
+  "result": "DEPTH_TWO_REUSE_REQUIRES_EXACT_CURRENT_NESTED_ANCESTRY_AND_CONTENT_DERIVATION",
+  "promotion": "NONE"
+}

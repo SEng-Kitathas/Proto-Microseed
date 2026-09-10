@@ -1,0 +1,10 @@
+{
+  "schema": "microseed.segment-parent-operand-rebase.pdver.v1",
+  "status": "P19_PASS_SEAL_READY",
+  "probe": "can current depth-one retrospective segment parent become one nested child in one explicit depth-two edge",
+  "derive": "replay prior donor mechanism onto current substrate/currentness rather than merge WIP authority",
+  "embody": "three explicit nonrecursive depth-two methods",
+  "verify": "23/23 targeted; 278/278 broad; 303/303 final; static/substrate/currentness gates PASS",
+  "recurse": "DEPTH_TWO_PARENT_STATE_AS_POTENTIAL_CHILD_FOR_ONE_EXPLICIT_DEPTH_THREE_EDGE_WITHOUT_GENERIC_RECURSIVE_CLOSURE",
+  "promotion": "NONE"
+}

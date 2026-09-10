@@ -1,0 +1,12 @@
+{
+  "pass": 11,
+  "name": "OWNER_SCOPE_AND_NONOVERLAP",
+  "status": "PASS",
+  "evidence": [
+    "accepted input kinds are only OWNED_NATIVE_STRUCTURAL_SEGMENT_B2_RECURSIVE_COMPOSITION_STATE and OWNED_NATIVE_STRUCTURAL_SEGMENT_BOUNDED_RECURSIVE_COMPOSITION_STATE",
+    "depth-two output kind excluded from accepted input block",
+    "historical recursive-B2/direct bounded/segment owners not widened"
+  ],
+  "result": "EXPLICIT_FIXED_DEPTH_TWO_OWNER_HAS_TYPED_NONRECURSIVE_SCOPE",
+  "promotion": "NONE"
+}
