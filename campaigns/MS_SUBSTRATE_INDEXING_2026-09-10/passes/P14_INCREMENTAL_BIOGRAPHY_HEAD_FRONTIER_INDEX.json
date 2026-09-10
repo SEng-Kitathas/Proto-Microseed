@@ -1,0 +1,56 @@
+{
+  "pass": 14,
+  "name": "INCREMENTAL_BIOGRAPHY_HEAD_FRONTIER_INDEX",
+  "status": "PASS",
+  "baseline_violation": {
+    "mechanism": "DevelopmentalBiography.append() called heads(); heads() rebuilt all event ids/parent ids on every mirrored developmental event inside execute_bounded_action timed path",
+    "heads_median_ms": {
+      "195": 0.01,
+      "1108": 0.0647,
+      "5000": 0.52545,
+      "20000": 2.137
+    },
+    "actual_donor_path_pre_fix_coarse_band_means_ms": [
+      2.2367,
+      2.66,
+      3.6933,
+      4.16
+    ],
+    "note": "donor monotonic timer quantized at ~16ms; means still exposed strong early-to-late growth; this nominal PASS label was rejected by task-level gate"
+  },
+  "repair": {
+    "mechanism": "derived in-memory _heads set rebuilt from authoritative biography events on restart; append updates frontier incrementally after durable insert; verify re-derives authoritative heads and detects cache drift",
+    "heads_median_ms": {
+      "195": 0.0002,
+      "1108": 0.0002,
+      "5000": 0.0002,
+      "20000": 0.0002
+    },
+    "authority_gain": "NONE"
+  },
+  "verification": [
+    "biography/index/boundary targeted 16/16 PASS",
+    "current language+substrate 245/245 PASS across 80 files",
+    "reconstructed+organism cleanup-neutral 258/258 PASS across 83 files"
+  ],
+  "candidate_highres_400_episode_preflight": {
+    "median_ms": [
+      2.09815,
+      2.0861,
+      2.1091,
+      2.147
+    ],
+    "mean_ms": [
+      2.14675,
+      2.25911,
+      2.33188,
+      2.37164
+    ],
+    "late_to_early_median_ratio": 1.02328,
+    "late_to_early_mean_ratio": 1.10476,
+    "status": "PROMISING_BUT_NOT_FINAL_EXACT_COMMIT_GATE"
+  },
+  "law": "DERIVED_INDEX != BIOGRAPHY_AUTHORITY",
+  "next": "EXACT_COMMIT_1200_EPISODE_P_ONLY_3600_ACTION_SOAK_PATH_SCALE_PREFLIGHT",
+  "promotion": "NONE"
+}

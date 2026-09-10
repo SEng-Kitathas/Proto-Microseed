@@ -53,6 +53,9 @@ class DevelopmentalBiography:
         )
         self.conn.commit()
         self._events = self._load_and_verify()
+        # Derived incremental frontier over authoritative content-bound events.
+        # Rebuilt from durable events on restart; it carries no independent authority.
+        self._heads = self._derive_heads(self._events)
         if not self._events:
             anchor = dict(legacy_anchor or {})
             anchor.setdefault("historical_biography_before_v0_6", "UNKNOWN_INCOMPLETE")
@@ -107,6 +110,12 @@ class DevelopmentalBiography:
             raise BiographyIntegrityError(";".join(errors))
         return events
 
+    @staticmethod
+    def _derive_heads(events: dict[str, BiographyEvent]) -> set[str]:
+        all_ids=set(events)
+        parents={p for ev in events.values() for p in ev.parents}
+        return all_ids-parents
+
     def verify(self) -> tuple[bool, tuple[str, ...]]:
         try:
             current = self._load_and_verify()
@@ -114,12 +123,12 @@ class DevelopmentalBiography:
             return False, tuple(str(exc).split(";"))
         if set(current) != set(self._events):
             return False, ("in_memory_database_event_set_mismatch",)
+        if self._derive_heads(current) != set(self._heads):
+            return False, ("in_memory_database_head_set_mismatch",)
         return True, ()
 
     def heads(self) -> tuple[str, ...]:
-        all_ids = set(self._events)
-        parents = {p for ev in self._events.values() for p in ev.parents}
-        return tuple(sorted(all_ids - parents))
+        return tuple(sorted(self._heads))
 
     def append(
         self,
@@ -128,7 +137,7 @@ class DevelopmentalBiography:
         *,
         parents: Iterable[str] | None = None,
     ) -> BiographyEvent:
-        parent_ids = tuple(sorted(self.heads() if parents is None else tuple(str(x) for x in parents)))
+        parent_ids = tuple(sorted(self._heads if parents is None else tuple(str(x) for x in parents)))
         for p in parent_ids:
             if p not in self._events:
                 raise ValueError(f"unknown biography parent:{p}")
@@ -145,6 +154,8 @@ class DevelopmentalBiography:
         self.conn.commit()
         ev = BiographyEvent(eid, str(kind), normalized, parent_ids)
         self._events[eid] = ev
+        self._heads.difference_update(parent_ids)
+        self._heads.add(eid)
         return ev
 
     def ancestors(self, event_id: str) -> set[str]:
