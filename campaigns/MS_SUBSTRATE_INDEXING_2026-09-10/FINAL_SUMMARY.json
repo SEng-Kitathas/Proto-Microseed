@@ -1,7 +1,7 @@
 {
   "campaign": "MS_SUBSTRATE_INDEXING_2026-09-10",
-  "status": "PASS_SEAL_READY",
-  "completed_passes": 19,
+  "status": "COMPLETE_SEALED_PUBLISHED",
+  "completed_passes": 20,
   "implementation_head": "e6c3c9f564fbfb66d5415bf092ff0ae4241c6c5a",
   "earned_claim": "HISTORY_STABLE_TIMED_ACTION_SUBSTRATE_WITH_AUTHENTICATED_OPERATIONAL_GROUPING_BOUNDARIES",
   "soak_performance_gate": "OPEN",
@@ -16,5 +16,8 @@
     "compileall": "PASS",
     "anti_authority": "PASS"
   },
-  "promotion": "NONE"
+  "promotion": "NONE",
+  "science_seal": "75ac873d5fe3330c31ff0321078930320fa59045",
+  "research_branch": "research/ms-substrate-indexing-v1",
+  "remote_science_readback": "EXACT"
 }

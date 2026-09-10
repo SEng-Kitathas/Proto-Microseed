@@ -1,0 +1,39 @@
+{
+  "pass": 20,
+  "name": "SEAL_PUBLISH_REMOTE_READBACK",
+  "status": "COMPLETE",
+  "branch": "research/ms-substrate-indexing-v1",
+  "implementation_head": "e6c3c9f564fbfb66d5415bf092ff0ae4241c6c5a",
+  "science_seal": "75ac873d5fe3330c31ff0321078930320fa59045",
+  "remote_science_readback": {
+    "status": "EXACT",
+    "ls_remote_head": "75ac873d5fe3330c31ff0321078930320fa59045"
+  },
+  "earned_claim": "HISTORY_STABLE_TIMED_ACTION_SUBSTRATE_WITH_AUTHENTICATED_OPERATIONAL_GROUPING_BOUNDARIES",
+  "verification": {
+    "current_language_substrate_after_biography_index": "245/245 PASS across 80 files",
+    "final_integrated_cleanup_neutral": "258/258 PASS across 83 files",
+    "strict_boundary_descendant_replay": "113 failures -> 7 -> 0; final strict broad 240/240",
+    "restart_cadence_timed_actions": 3600,
+    "restart_count": 3,
+    "restart_late_to_early_mean_ratio": 1.0000467190767872,
+    "restart_late_to_early_median_ratio": 0.9934917099727788,
+    "compileall": "PASS",
+    "git_diff_check": "PASS",
+    "CSC": "PASS_BOUNDED",
+    "anti_authority": "PASS"
+  },
+  "soak_performance_gate": "OPEN",
+  "developmental_soak_science": "BLOCKED_BY_SEPARATE_REHEARSAL_CURRENTNESS_FAILURE",
+  "next_frontier": "STALE_PREDICTIVE_RELATION_TO_DERIVED_REHEARSAL_PROPOSAL_CURRENTNESS_PROPAGATION",
+  "authority": {
+    "index_cache": "NONE",
+    "boundary_semantic": "NONE",
+    "scheduler": "NONE",
+    "planner": "NONE",
+    "execution_gain": "NONE",
+    "EFFECT_gain": "NONE",
+    "canon_promotion": "NONE"
+  },
+  "receipt_note": "This receipt records exact remote readback of the P19 science seal. The Git commit containing P20 is verified separately after commit/push to avoid self-reference."
+}

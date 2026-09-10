@@ -1,7 +1,7 @@
 {
   "schema": "microseed.substrate-indexing.attention.v1",
-  "status": "P19_PASS_SEAL_READY",
-  "primary": "SEAL_PUBLISH_REMOTE_READBACK",
+  "status": "CAMPAIGN_COMPLETE",
+  "primary": "STALE_PREDICTIVE_RELATION_TO_DERIVED_REHEARSAL_PROPOSAL_CURRENTNESS_PROPAGATION",
   "next_primary_after_seal": "STALE_PREDICTIVE_RELATION_TO_DERIVED_REHEARSAL_PROPOSAL_CURRENTNESS_PROPAGATION",
   "blocked": [
     "full causal-shift developmental soak until rehearsal-currentness blocker is resolved/qualified"

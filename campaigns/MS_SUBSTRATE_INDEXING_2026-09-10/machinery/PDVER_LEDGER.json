@@ -1,10 +1,11 @@
 {
   "schema": "microseed.substrate-indexing.pdver.v1",
-  "status": "P19_PASS_SEAL_READY",
+  "status": "COMPLETE_SEALED_PUBLISHED",
   "probe": "O(n) timed-act cost + caller-controlled evidence delimiter",
   "derive": "duplicate execution scans + full BOOT/suffix scans + biography heads() O(n); evidence-shape delimiter lacked ownership",
   "embody": "execution membership index + SQL event queries + authenticated operational boundary chain + incremental biography head frontier",
   "verify": "broad/reconstructed/final lineage, microbench, component profile, exact donor 3600-action restart cadence",
   "recurse": "STALE_PREDICTIVE_RELATION_TO_DERIVED_REHEARSAL_PROPOSAL_CURRENTNESS_PROPAGATION",
-  "promotion": "NONE"
+  "promotion": "NONE",
+  "science_seal": "75ac873d5fe3330c31ff0321078930320fa59045"
 }
