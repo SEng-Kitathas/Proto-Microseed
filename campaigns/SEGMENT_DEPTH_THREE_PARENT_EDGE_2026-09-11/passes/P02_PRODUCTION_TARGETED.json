@@ -1,0 +1,10 @@
+{
+  "pass": 2,
+  "status": "PASS",
+  "verification": "14/14 PASS",
+  "result": "BOUNDED_PRODUCTION_MIXED_DEPTH_THREE_OWNER_TARGETED_GREEN",
+  "production_owner": "MICROSEED_NATIVE_STRUCTURAL_SEGMENT_DEPTH_THREE_RECURSIVE_COMPOSITION",
+  "child_depths": "EXACTLY_ONE_DEPTH_TWO_PLUS_ONE_DEPTH_ONE",
+  "generic_recursive_closure": "NOT_EARNED",
+  "promotion": "NONE"
+}

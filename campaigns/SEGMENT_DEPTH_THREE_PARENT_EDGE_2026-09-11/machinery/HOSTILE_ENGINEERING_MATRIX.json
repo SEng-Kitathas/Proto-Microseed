@@ -1,0 +1,40 @@
+{
+  "status": "TARGETED_GREEN_BROAD_PENDING",
+  "attacks": [
+    {
+      "id": "D3-H01",
+      "attack": "reuse nested depth-one child as external child",
+      "status": "KILLED"
+    },
+    {
+      "id": "D3-H02",
+      "attack": "depth-three output self-feeds owner",
+      "status": "KILLED"
+    },
+    {
+      "id": "D3-H03",
+      "attack": "flatten descendants",
+      "status": "KILLED"
+    },
+    {
+      "id": "D3-H04",
+      "attack": "swap valid children against evidence order",
+      "status": "KILLED_BY_VALIDATOR"
+    },
+    {
+      "id": "D3-H05",
+      "attack": "stale nested parent survives currentness drift",
+      "status": "KILLED"
+    },
+    {
+      "id": "D3-H06",
+      "attack": "generic recursive closure inferred",
+      "status": "KILLED_BY_CEILING"
+    },
+    {
+      "id": "D3-H07",
+      "attack": "broad substrate/currentness regression",
+      "status": "OPEN"
+    }
+  ]
+}
