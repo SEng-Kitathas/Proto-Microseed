@@ -1,0 +1,13 @@
+{
+  "pass": 6,
+  "name": "STATIC_SELF_FEED_AND_DEPTH_CEILING",
+  "status": "PASS",
+  "result": "DEPTH_THREE_OUTPUT_VALIDATED_BUT_NEVER_ADMITTED_AS_CHILD",
+  "checks": [
+    "exact mixed child depths [1,2]",
+    "evidence order enforced",
+    "external depth-one parent enforced",
+    "generic_recursive_closure_authority NONE",
+    "depth_four_authority NONE"
+  ]
+}

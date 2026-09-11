@@ -1,0 +1,7 @@
+{
+  "pass": 5,
+  "name": "PREDECESSOR_METHOD_NONREGRESSION",
+  "status": "PASS",
+  "result": "DEPTH_TWO_OWNER_AND_SUBSTRATE_CURRENTNESS_HOT_METHODS_BYTE_IDENTICAL_TO_BASE",
+  "protected_methods": 7
+}

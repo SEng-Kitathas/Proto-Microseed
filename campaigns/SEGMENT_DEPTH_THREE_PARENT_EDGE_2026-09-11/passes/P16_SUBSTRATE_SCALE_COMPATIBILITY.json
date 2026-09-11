@@ -1,0 +1,12 @@
+{
+  "pass": 16,
+  "name": "SUBSTRATE_SCALE_COMPATIBILITY",
+  "status": "PASS_BOUNDED",
+  "result": "NO_OBSERVED_REINTRODUCTION_OF_HISTORY_LINEAR_TIMED_ACTION_COST",
+  "evidence": [
+    "BOOT lookup ~0.0031-0.0033 ms through 20k",
+    "execution membership ~0.0001 ms through 20k",
+    "execute median ~1.813-1.846 ms at 195/1108/5000 prior executions"
+  ],
+  "authority_gain": "NONE"
+}

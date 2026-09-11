@@ -1,0 +1,16 @@
+{
+  "pass": 18,
+  "name": "CSC_AND_CONVERGENCE",
+  "status": "PASS_BOUNDED",
+  "interfaces": [
+    "current depth-two parent -> nested child PASS",
+    "external current depth-one parent -> nested child PASS",
+    "mixed child depths [2,1] -> explicit depth-three identity PASS",
+    "depth-three output -> same-owner input REFUSED",
+    "flattening/regrouping/currentness/forgery -> PASS",
+    "substrate/currentness hot paths -> unchanged PASS",
+    "generic recursion/depth-four -> NOT_EARNED"
+  ],
+  "result": "BOUNDED_MIXED_DEPTH_THREE_EDGE_CONVERGED_WITHOUT_FLATTENING_ASSOCIATIVITY_OR_RECURSIVE_CLOSURE",
+  "promotion": "NONE"
+}
