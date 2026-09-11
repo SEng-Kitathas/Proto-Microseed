@@ -1,0 +1,43 @@
+{
+  "pass": 20,
+  "name": "SEAL_PUBLISH_REMOTE_READBACK",
+  "status": "COMPLETE",
+  "branch": "research/grounded-language-segment-depth-three-parent-v1",
+  "broad_green_checkpoint": "65b9f73d1cf6673cbeb62e75feccde862f1e9a98",
+  "science_seal": "a83ae8e736f38be6d18d78310d8acd7fc2ef6b0f",
+  "remote_science_readback": {
+    "status": "EXACT",
+    "ls_remote_head": "a83ae8e736f38be6d18d78310d8acd7fc2ef6b0f"
+  },
+  "earned_claim": "ONE_EXPLICIT_CURRENT_DEPTH_THREE_RETROSPECTIVE_SEGMENT_PARENT_COMPOSITION_EDGE_WITHOUT_FLATTENING_OR_ASSOCIATIVITY",
+  "verification": {
+    "targeted": "15/15 PASS",
+    "broad": "292/292 PASS",
+    "final_integrated": "317/317 PASS",
+    "substrate_currentness_nonregression": "PASS",
+    "benchmark": "BOUNDED",
+    "compileall": "PASS",
+    "git_diff_check": "PASS",
+    "anti_authority": "PASS",
+    "CSC": "PASS_BOUNDED"
+  },
+  "ceilings": [
+    "DEPTH_THREE_EDGE != GENERIC_RECURSIVE_CLOSURE",
+    "NESTED_PARENT != FLATTENED_DESCENDANTS",
+    "CONTENT_IDENTITY != ASSOCIATIVITY",
+    "ORDERED_OPERATIONAL_COMPOSITION != SEMANTIC_COMPOSITION"
+  ],
+  "authority": {
+    "depth_four": "NONE",
+    "generic_recursive_closure": "NONE",
+    "flattening": "NONE",
+    "associativity": "NONE",
+    "semantic": "NONE",
+    "planner": "NONE",
+    "scheduler": "NONE",
+    "EFFECT": "NONE",
+    "canon_promotion": "NONE"
+  },
+  "next_frontier": "DEPTH_THREE_PARENT_STATE_AS_POTENTIAL_CHILD_FOR_ONE_EXPLICIT_DEPTH_FOUR_EDGE_WITHOUT_GENERIC_RECURSIVE_CLOSURE",
+  "receipt_note": "Records exact remote readback of P19 science seal. Commit containing P20 is verified separately after push to avoid self-reference."
+}

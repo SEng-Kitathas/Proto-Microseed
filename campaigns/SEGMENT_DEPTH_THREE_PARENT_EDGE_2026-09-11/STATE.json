@@ -1,14 +1,14 @@
 {
   "campaign": "SEGMENT_DEPTH_THREE_PARENT_EDGE_2026-09-11",
-  "status": "PASS_SEAL_READY",
+  "status": "COMPLETE_SEALED_PUBLISHED",
   "base_receipt": "cc1c57da746c85be01c43d81816eb525022acf8e",
   "targeted_checkpoint": "5880d7b960eaf8d40a9ece978d593297f8057096",
   "broad_green_checkpoint": "65b9f73d1cf6673cbeb62e75feccde862f1e9a98",
-  "completed_passes": 19,
-  "current_pass": 19,
-  "current_discriminator": "SCIENCE_SEAL_COMMIT_AND_REMOTE_READBACK",
+  "completed_passes": 20,
+  "current_pass": null,
+  "current_discriminator": "DEPTH_THREE_PARENT_STATE_AS_POTENTIAL_CHILD_FOR_ONE_EXPLICIT_DEPTH_FOUR_EDGE_WITHOUT_GENERIC_RECURSIVE_CLOSURE",
   "promotion": "NONE",
   "earned_candidate": "ONE_EXPLICIT_CURRENT_DEPTH_THREE_RETROSPECTIVE_SEGMENT_PARENT_COMPOSITION_EDGE_WITHOUT_FLATTENING_OR_ASSOCIATIVITY",
   "next_frontier": "DEPTH_THREE_PARENT_STATE_AS_POTENTIAL_CHILD_FOR_ONE_EXPLICIT_DEPTH_FOUR_EDGE_WITHOUT_GENERIC_RECURSIVE_CLOSURE",
-  "science_seal": null
+  "science_seal": "a83ae8e736f38be6d18d78310d8acd7fc2ef6b0f"
 }
