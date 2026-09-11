@@ -10,15 +10,13 @@ If you are trying to understand what Microseed *is*, start at [`START_HERE.md`](
 
 The default `main` branch is the conservative public/canonical surface and does **not** automatically absorb every earned research result. The current remote-exact research frontier is:
 
-- branch: `research/rehearsal-currentness-rebase-on-substrate-v1`
-- science seal: `1d6d384fd97dc7e84b7c2e88114d76e965e886fa`
-- campaign completion/readback head: `c33104c8b1e3e24147f99e9a147a3673976e45a4`
-- current earned frontier: hardened history-stable timed action substrate plus authenticated operational grouping boundaries, with canonical stale-learned-relation rehearsal currentness restored through indexed exact learned-owner lookup; the preserved depth-two grouped-parent operand is again the next research frontier
+- branch: `research/grounded-language-segment-parent-operand-currentness-v1`
+- science seal: `1101ef1b93e07f04face76209e28843b73d62df8`
+- campaign completion/readback head: `cc1c57da746c85be01c43d81816eb525022acf8e`
+- current earned frontier: one explicit CURRENT depth-two retrospective segment-parent composition edge preserving each depth-one parent as one nested child, without flattening, associativity, or generic recursive closure
 
-Recent earned research on that lineage includes native grounded token↔referent association, bounded held-out B2 recombination, fixed-depth recursive reuse, distinct-leaf B3, one bounded direct composition owner deriving arity 2–4 without caller-supplied arity, authenticated action-execution boundary recognition, bounded retrospective structural boundary-occasion ownership when exactly one lawful split is compelled by current grounded structure, append-only structural segment-state consumption that materializes current retrospective segment state without rewriting historical composition events, bounded B2-compatible reuse of distinct 2+2 segment sides as grouped recursive operands without flattening or historical backfill, and bounded generalization of those grouped children so each side may independently have leaf arity 2–4 while the parent remains exactly two children at depth one. These are research results, not a claim that generic AGI, language competence, semantic ontology, unrestricted planning, or unbounded composition has been completed.
+The depth-two campaign adds one bounded edge above the previously earned grouped depth-one parents while preserving hardened substrate/currentness laws. `ONE_DEPTH_TWO_EDGE != GENERIC_RECURSIVE_CLOSURE`; depth-three remains separately unearned.
 
-
-The currentness campaign also revalidated the hardened substrate under a full 1,200-episode causal-shift soak: old R-41 becomes stale, only its owning durable rehearsal blocks, K/M remain current, an explicitly qualified replacement R re-enters, and no global reset or authority gain occurs. This restores previously canonical P1A semantics without reintroducing O(total learned relations) reauthorization scans.
 ---
 
 
