@@ -1,0 +1,12 @@
+{
+  "pass": 2,
+  "status": "PASS",
+  "verification": "15/15 PASS",
+  "scope": "prototype + production + ceiling",
+  "result": "BOUNDED_PRODUCTION_DEPTH_FOUR_OWNER_TARGETED_GREEN",
+  "production_owner": "MICROSEED_NATIVE_STRUCTURAL_SEGMENT_DEPTH_FOUR_RECURSIVE_COMPOSITION",
+  "child_depths": "EXACTLY_ONE_DEPTH_THREE_PLUS_ONE_DEPTH_ONE",
+  "full_ancestry_exclusion": "PASS",
+  "generic_recursive_closure": "NOT_EARNED",
+  "promotion": "NONE"
+}

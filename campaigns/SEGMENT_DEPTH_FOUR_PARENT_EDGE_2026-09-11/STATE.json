@@ -1,0 +1,11 @@
+{
+  "campaign": "SEGMENT_DEPTH_FOUR_PARENT_EDGE_2026-09-11",
+  "status": "ACTIVE_P02_TARGETED_GREEN_BROAD_PENDING",
+  "base_receipt": "34d02bb2eebc8518961d6f5914d3ca65123b3c9e",
+  "branch": "research/grounded-language-segment-depth-four-parent-v1",
+  "completed_passes": 2,
+  "current_pass": 3,
+  "current_discriminator": "BROAD_LANGUAGE_SUBSTRATE_CURRENTNESS_NONREGRESSION",
+  "promotion": "NONE",
+  "targeted_consistency": "16/16 PASS"
+}
