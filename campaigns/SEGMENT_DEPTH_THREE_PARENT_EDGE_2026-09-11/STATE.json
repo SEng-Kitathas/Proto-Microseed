@@ -1,10 +1,10 @@
 {
   "campaign": "SEGMENT_DEPTH_THREE_PARENT_EDGE_2026-09-11",
-  "status": "ACTIVE_P02_TARGETED_GREEN_BROAD_PENDING",
+  "status": "ACTIVE_P03_BROAD_GREEN_INTEGRATED_PENDING",
   "base_receipt": "cc1c57da746c85be01c43d81816eb525022acf8e",
   "branch": "research/grounded-language-segment-depth-three-parent-v1",
-  "completed_passes": 2,
-  "current_pass": 3,
-  "current_discriminator": "BROAD_LANGUAGE_SUBSTRATE_CURRENTNESS_NONREGRESSION",
+  "completed_passes": 3,
+  "current_pass": 4,
+  "current_discriminator": "FINAL_INTEGRATED_ORGANISM_REHEARSAL_NONREGRESSION",
   "promotion": "NONE"
 }

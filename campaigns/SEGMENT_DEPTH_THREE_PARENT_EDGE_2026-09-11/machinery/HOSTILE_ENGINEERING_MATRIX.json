@@ -1,5 +1,5 @@
 {
-  "status": "TARGETED_GREEN_BROAD_PENDING",
+  "status": "BROAD_GREEN_INTEGRATED_PENDING",
   "attacks": [
     {
       "id": "D3-H01",
@@ -34,7 +34,7 @@
     {
       "id": "D3-H07",
       "attack": "broad substrate/currentness regression",
-      "status": "OPEN"
+      "status": "KILLED_292_OF_292_BROAD_PASS"
     }
   ]
 }
