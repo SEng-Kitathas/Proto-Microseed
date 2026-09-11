@@ -10,15 +10,12 @@ If you are trying to understand what Microseed *is*, start at [`START_HERE.md`](
 
 The default `main` branch is the conservative public/canonical surface and does **not** automatically absorb every earned research result. The current remote-exact research frontier is:
 
-- branch: `research/grounded-language-segment-parent-operand-currentness-v1`
-- science seal: `1101ef1b93e07f04face76209e28843b73d62df8`
-- campaign completion/readback head: `cc1c57da746c85be01c43d81816eb525022acf8e`
-- current earned frontier: one explicit CURRENT depth-two retrospective segment-parent composition edge preserving each depth-one parent as one nested child, without flattening, associativity, or generic recursive closure
+- branch: `research/grounded-language-segment-depth-three-parent-v1`
+- science seal: `a83ae8e736f38be6d18d78310d8acd7fc2ef6b0f`
+- campaign completion/readback head: `34d02bb2eebc8518961d6f5914d3ca65123b3c9e`
+- earned frontier: one explicit CURRENT depth-three retrospective segment-parent composition edge using exactly one depth-two parent plus one external depth-one parent as whole nested operands, without flattening, associativity, or generic recursive closure
 
-The depth-two campaign adds one bounded edge above the previously earned grouped depth-one parents while preserving hardened substrate/currentness laws. `ONE_DEPTH_TWO_EDGE != GENERIC_RECURSIVE_CLOSURE`; depth-three remains separately unearned.
-
----
-
+The depth-three campaign is 20/20 COMPLETE_SEALED_PUBLISHED. Verification: targeted 15/15, broad 292/292 across 89 files, final integrated 317/317 across 99 files, static authority PASS, substrate benchmark bounded, compile/diff PASS, CSC PASS_BOUNDED. `DEPTH_THREE_EDGE != GENERIC_RECURSIVE_CLOSURE`; depth-four remains separately unearned.
 
 ## Governing engineering / research process
 

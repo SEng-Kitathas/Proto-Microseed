@@ -29,124 +29,65 @@ The central research question is:
 
 ## Current public research frontier
 
-The conservative default `main` branch is intentionally not identical to the newest research head. For the current organism frontier, checkout:
+The conservative public surface points to the current remote-exact research lineage:
 
 ```text
-research/grounded-language-segment-parent-operand-currentness-v1
+research branch:  research/grounded-language-segment-depth-three-parent-v1
+science seal:     a83ae8e736f38be6d18d78310d8acd7fc2ef6b0f
+campaign receipt: 34d02bb2eebc8518961d6f5914d3ca65123b3c9e
 ```
 
-Exact anchors:
-
-```text
-science seal:     1101ef1b93e07f04face76209e28843b73d62df8
-campaign receipt: cc1c57da746c85be01c43d81816eb525022acf8e
-```
-
-That branch preserves this earned chain:
+Earned research chain now includes:
 
 ```text
 C08I native pair harvest
-  70bc659d26dd668cbda2ecb62b7914856c25a9b0
 → active acquisition revalidation
-  dfeaff9cd797be8a26d6082eef8f09101043c100
 → bounded held-out B2 recombination
-  80fb18a6922abf663928ab2638a23ca65f702529
 → fixed-depth recursive B2-child reuse
-  9c633d096a1f60f4263c10895ed44edd1a6d07bf
 → direct distinct-leaf B3
-  39bd68e5484e2229b6a4349248025aebb3428835
 → bounded direct arity 2–4
-  d961ce17180fe365f7c185779742b913d908d37a
 → authenticated action-execution window-boundary recognition
-  c87a6dfff3c0b6d2236ac89c52f0988c8e4caf0c
 → bounded retrospective structural boundary-occasion ownership
-  d87a45a5886f5b5b4de26315e468be39a0717370
-→ bounded append-only structural segment-state consumption
-  7ba1010be8201e71fbad922b7b1068491f996886
-→ bounded B2-compatible structural segment state as reusable recursive composition operand
-  500ac5de919f770f79e675002a87a366213836c7
+→ append-only structural segment-state consumption
+→ bounded structural segment state as reusable recursive composition operand
 → bounded grouped segment operands with child leaf arity 2–4
-  38bf32af09962f7d4718ed0d1dbb0fbf6fc2905a
 → history-stable timed-action substrate + authenticated grouping boundaries
-  75ac873d5fe3330c31ff0321078930320fa59045
 → indexed canonical stale-learned-relation rehearsal currentness restored
-  1d6d384fd97dc7e84b7c2e88114d76e965e886fa
 → one explicit current depth-two retrospective segment-parent composition edge
-  1101ef1b93e07f04face76209e28843b73d62df8
+→ one explicit current depth-three mixed retrospective segment-parent composition edge
+  a83ae8e736f38be6d18d78310d8acd7fc2ef6b0f
 ```
+
+The current result preserves a depth-two parent and an external depth-one parent as two whole nested children in evidence order. The depth-three output is validated for currentness/tamper but is never admitted as a child by the same owner. No generic recursive closure, flattening, associativity, semantic/planner authority, or canon promotion is implied.
 
 ## Read order for Claude or another external reviewer
 
-If you want an AI reviewer to understand the project rather than mistake the process scaffolding for the object of research, use this order:
-
-1. **This file — `START_HERE.md`.** Establish project identity, intent, and the main-vs-research distinction.
-2. **`README.md`.** Use it for the broader public/canonical history and repository map, but do not stop at the governance section.
-3. **Checkout `research/grounded-language-segment-parent-operand-currentness-v1`.** The latest research is not all on default `main`.
-4. **`campaigns/SEGMENT_PARENT_OPERAND_REBASE_2026-09-10/FINAL_SUMMARY.json`.** This is the compact current depth-two campaign result and exact authority ceiling.
-5. **`campaigns/REHEARSAL_CURRENTNESS_REBASE_2026-09-10/FINAL_SUMMARY.json`.** This is the prior indexed-currentness restoration campaign.
-6. **`campaigns/MS_SUBSTRATE_INDEXING_2026-09-10/FINAL_SUMMARY.json`.** This is the immediately prior substrate-hardening campaign and soak-performance gate.
-7. **`campaigns/SEGMENT_OPERAND_ARITY_GENERALIZATION_2026-09-09/FINAL_SUMMARY.json`.** This is the prior grouped-segment arity campaign.
-8. **`campaigns/SEGMENT_STATE_OPERAND_2026-09-09/FINAL_SUMMARY.json`.** This is the immediately prior 2+2 segment-operand campaign.
-9. **`campaigns/BOUNDARY_CONSUMPTION_2026-09-08/FINAL_SUMMARY.json`.** This is the prior segment-consumption campaign.
-10. **`campaigns/BOUNDARY_OCCASION_2026-09-08/FINAL_SUMMARY.json`.** This is the prior structural boundary-occasion campaign.
-11. **`campaigns/OPERAND_WINDOW_BOUNDARY_2026-09-07/FINAL_SUMMARY.json`.** This is the prior action-execution boundary-recognition campaign.
-12. **`campaigns/ARITY_GENERALIZATION_2026-09-07/FINAL_SUMMARY.json`.** This shows the direct bounded arity-generalization campaign, including inherited negative-token evidence defects that were found and repaired rather than hidden.
-13. **`microseed/runtime/entity.py`.** Read the production organism implementation, especially the native grounded association/composition/currentness/action-closure paths. Do not infer a faculty from a method name; trace the evidence and authority gates.
-14. **Relevant embodiment tests:**
-   - `tests/embodiment/test_lang_action_execution_boundary_production.py`
-   - `tests/embodiment/test_lang_action_execution_boundary_replay_and_history.py`
-   - `tests/embodiment/test_lang_action_execution_boundary_restart_production.py`
-   - `tests/embodiment/test_lang_bounded_arity_generalization_production.py`
-   - `tests/embodiment/test_lang_systematic_heldout_native_b2_recombination.py`
-   - `tests/embodiment/test_lang_recursive_b2_composition_as_operand.py`
-   - `tests/embodiment/test_lang_c08i_native_pair_harvest.py`
-   - `tests/embodiment/test_lang_boundary_occasion_production.py`
-   - `tests/embodiment/test_lang_boundary_occasion_production_hostiles.py`
-   - `tests/embodiment/test_lang_boundary_occasion_ceiling_audit.py`
-   - `tests/embodiment/test_lang_boundary_consumption_production.py`
-   - `tests/embodiment/test_lang_boundary_consumption_ceiling_audit.py`
-   - `tests/embodiment/test_lang_boundary_consumption_invocation_budget_smuggling.py`
-   - `tests/embodiment/test_lang_segment_state_b2_recursive_production.py`
-   - `tests/embodiment/test_lang_segment_state_b2_recursive_hostiles.py`
-   - `tests/embodiment/test_lang_segment_state_operand_owner_gap_audit.py`
-   - `tests/embodiment/test_lang_segment_operand_arity_owner_gap_audit.py`
-   - `tests/embodiment/test_lang_segment_operand_bounded_arity_carrier_prototype.py`
-   - `tests/embodiment/test_lang_segment_operand_bounded_arity_production.py`
-   - `tests/embodiment/test_lang_segment_operand_bounded_arity_hostiles.py`
-   - `tests/embodiment/test_lang_segment_operand_arity_ceiling_audit.py`
-   - `tests/embodiment/test_ms_substrate_indexed_execution_and_store.py`
-   - `tests/embodiment/test_ms_substrate_boundary_authority_hardening.py`
-   - `tests/embodiment/test_ms_substrate_biography_head_index.py`
-   - `tests/embodiment/test_rehearsal_currentness_indexed_rebase.py`
-   - `tests/embodiment/test_ms1943_signal_predictive_currentness.py`
-15. **Methodology for the deeper conceptual constraints:** start with `methodology/MS1959_MS1961_AFFORDANCE_RELATIVE_PROTO_REFERENCE.md`, then follow the numbered lineage relevant to the mechanism being inspected.
-16. **For exact continuity/current frontier**, use the separate `SEng-Kitathas/Proto-Microseed-RD-Continuity` repository if available. Its current re-entry/current-state/live-shadow surfaces are recovery authority, not a replacement for reading the organism code and experiments.
+1. **This file — `START_HERE.md`.** Establish identity, intent, and the main-vs-research distinction.
+2. **`README.md`.** Read the broader public/canonical history and authority boundary.
+3. **Checkout `research/grounded-language-segment-depth-three-parent-v1`.** Latest research is not all on default `main`.
+4. **`campaigns/SEGMENT_DEPTH_THREE_PARENT_EDGE_2026-09-11/FINAL_SUMMARY.json`.** Current depth-three result and exact authority ceiling.
+5. **`campaigns/SEGMENT_PARENT_OPERAND_REBASE_2026-09-10/FINAL_SUMMARY.json`.** Prior depth-two parent-edge result.
+6. **`campaigns/REHEARSAL_CURRENTNESS_REBASE_2026-09-10/FINAL_SUMMARY.json`.** Indexed rehearsal-currentness restoration.
+7. **`campaigns/MS_SUBSTRATE_INDEXING_2026-09-10/FINAL_SUMMARY.json`.** Substrate hardening/performance gate.
+8. **`microseed/runtime/entity.py`.** Inspect production owners and currentness/authority gates; do not infer faculty from method names alone.
+9. **Relevant embodiment tests:** `test_lang_segment_depth_three_parent_prototype.py`, `test_lang_segment_depth_three_parent_production.py`, `test_lang_segment_depth_three_parent_ceiling_audit.py`, plus the depth-two parent, substrate, and rehearsal-currentness surfaces.
+10. **For exact continuity/current frontier**, use the separate RD continuity repository when available; it is recovery authority, not scientific canon.
 
 ## What the current frontier actually earns
 
-The current research lineage has earned bounded mechanisms for grounded operational association and composition. The same bounded direct composition owner can derive arity 2, 3, or held-out 4 from current grounded token chronology without caller-supplied arity. It can recognize an authenticated current-runtime action execution as an operational boundary and retrospectively derive a durable structural boundary witness when exactly one lawful split is compelled. The segment-consumption campaign can consume that CURRENT witness into append-only retrospective left/right structural segment state whose content identity matches the earned bounded-composition identity. The 2+2 segment-operand campaign earned two grouped fixed-depth-one recursive operands, and the bounded-arity campaign generalized each grouped LEFT/RIGHT child independently to leaf arity 2–4 while the parent remained exactly two child-composition digests at depth one. Subsequent substrate hardening removed the measured history-coupled act-cost scans and arbitrary-evidence grouping authority, and the current campaign restored canonical stale-learned-relation rehearsal currentness through indexed exact learned-owner lookup without reintroducing O(total learned relations) scans. The current depth-two campaign then earns exactly one explicit nested parent-composition edge while refusing recursive self-input, flattening, and associativity.
+The research lineage earns one bounded mixed-depth depth-three composition edge. Exactly one CURRENT depth-two retrospective segment parent and one CURRENT external depth-one retrospective segment parent can become two nested children of one depth-three operational composition. Their whole content identities and provenance are preserved, child order is evidence-owned, stale nested state fails closed, and caller-supplied parent IDs/order/grouping/depth/output IDs do not gain authority.
 
-The current frontier is **not** “AGI complete.” `AGI substrate` here names the research target and architectural role: a small developmental substrate intended to grow cognition. The project still refuses to promote missing mechanisms by rhetoric. Among the explicit nonclaims are:
+The depth-three owner explicitly refuses recursive self-input. Existing depth-two/substrate/currentness hot paths remain byte-identical where protected, broad and integrated regression suites are green, and the timed-action substrate remains bounded.
 
-- generic/unbounded N-ary composition;
-- generic/unbounded structural segment-state operand reuse beyond the earned bounded leaf arity 2–4 cases;
-- depth-three reuse beyond the earned one explicit depth-two edge, or generic recursive closure;
-- flattening or associativity inferred from reusable operand content identity;
-- endogenous boundary monitoring / segment-consumer scheduling;
-- unrestricted or generic planning;
-- semantic truth/reference authority from language;
-- grammar or language competence;
-- semantic self/body/other ontology;
-- generic exploration authority;
-- canon promotion of every successful research branch.
+Not earned: depth-four reuse, generic recursive closure, flattening, associativity, historical-event reinterpretation, semantic/grammar authority, generic planning, endogenous scheduling, EFFECT authority, or canon promotion.
 
 ## Current next discriminator
 
 ```text
-DEPTH_TWO_PARENT_STATE_AS_POTENTIAL_CHILD_FOR_ONE_EXPLICIT_DEPTH_THREE_EDGE_WITHOUT_GENERIC_RECURSIVE_CLOSURE
+DEPTH_THREE_PARENT_STATE_AS_POTENTIAL_CHILD_FOR_ONE_EXPLICIT_DEPTH_FOUR_EDGE_WITHOUT_GENERIC_RECURSIVE_CLOSURE
 ```
 
-Microseed now has one explicit current depth-two retrospective segment-parent composition edge. The next discriminator asks only whether that exact depth-two parent can participate as one nested child in one explicit depth-three edge, without generic recursive closure, flattening, associativity, or recursive self-feeding.
+The next question is intentionally one edge deeper only: can the exact earned depth-three parent participate as one nested child in one explicit depth-four edge while preserving currentness, provenance, grouping, non-flattening, and non-associativity—without generic recursive closure or arbitrary recursive self-feeding?
 
 ## Reading discipline
 
