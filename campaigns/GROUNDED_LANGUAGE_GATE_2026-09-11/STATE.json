@@ -1,15 +1,15 @@
 {
   "campaign": "GROUNDED_LANGUAGE_GATE_2026-09-11",
-  "status": "ACTIVE_P05_BROAD_GREEN_P06_READY",
+  "status": "ACTIVE_P06_SCHEMA_ABSTRACTION_TRANSFER_FOCUSED_GREEN_BROAD_PENDING",
   "base_receipt": "e03996491aa9248490f229911d91ec068c037c4f",
   "branch": "research/grounded-language-gate-v1",
   "prelingual_control_arm": "depth-four published base + independent depth-five prelingual branch",
-  "current_pass": 6,
-  "current_discriminator": "GROUNDED_LANGUAGE_MEDIATED_CAUSAL_SCHEMA_ABSTRACTION_AND_CROSS_CONTEXT_TRANSFER",
+  "current_pass": "P06B",
+  "current_discriminator": "P06_BROAD_LANGUAGE_SUBSTRATE_NONREGRESSION",
   "freeze_on_p0_or_p1_smuggling": true,
   "language_authority": "NONE",
   "promotion": "NONE",
-  "completed_passes": 5,
+  "completed_passes": 6,
   "p01_verification": "5/5 anti-smuggling; 8/8 with MS2046",
   "freeze_triggered": false,
   "archetype_envelope": "DEFINED_PRE_P02",
@@ -28,7 +28,7 @@
   "p04_verification": "7/7 dedicated; 50/50 combined",
   "p04_capability_attribution": "LEGITIMATE_OWNED_LANGUAGE_MEDIATED_EMPIRICAL_CAUSAL_COMPOSITION",
   "archetype_hostiles": "ADE-H01..H10 ALL EXPLICITLY GREEN BY P04",
-  "next_after_broad": "GROUNDED_LANGUAGE_MEDIATED_CAUSAL_SCHEMA_ABSTRACTION_AND_CROSS_CONTEXT_TRANSFER",
+  "next_after_broad": "GROUNDED_LANGUAGE_MEDIATED_RELATIONAL_ANALOGY_AND_SCHEMA_COMPOSITION",
   "p04_broad_checkpoint": "ffe987ad79fd699d9a2616a24e015ac7ef42938c",
   "p04_broad_verification": "355/355 PASS across 100 files",
   "p04_broad_chunks": "4 deterministic non-overlapping chunks",
@@ -38,5 +38,8 @@
   "planner_authority": "NONE",
   "p05_broad_checkpoint": "ac07e6023e50f24123d2e50169d7c7fffc4afbe2",
   "p05_broad_verification": "363/363 PASS across 101 files",
-  "p05_broad_chunks": "4 deterministic non-overlapping chunks"
+  "p05_broad_chunks": "4 deterministic non-overlapping chunks",
+  "p06_verification": "7/7 dedicated; 65/65 combined",
+  "p06_capability_attribution": "LEGITIMATE_OWNED_LANGUAGE_MEDIATED_SCHEMA_ABSTRACTION_AND_CROSS_CONTEXT_TRANSFER",
+  "ontology_authority": "NONE"
 }

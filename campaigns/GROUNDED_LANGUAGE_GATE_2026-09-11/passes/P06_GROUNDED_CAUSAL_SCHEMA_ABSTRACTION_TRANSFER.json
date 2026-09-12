@@ -1,0 +1,37 @@
+{
+  "pass": 6,
+  "status": "PASS_CAUSAL_SCHEMA_ABSTRACTION_TRANSFER_FOCUSED_GREEN",
+  "verification": "7/7 P06 dedicated PASS; 65/65 combined P01-P06 + C06 + MS1427 + MS2046 + MS1940 + Veya identity PASS",
+  "result": "MULTI_CONTEXT_OWNED_CAUSAL_SCHEMA_ABSTRACTED_AND_TRANSFERRED_TO_HELDOUT_CONTEXT",
+  "mechanism": {
+    "training_contexts": "TWO_CONCRETELY_DISJOINT_OWNED_P05_TWO_STEP_CHAINS",
+    "schema_content": "TWO_EDGE_JOIN_TOPOLOGY + GROUNDED_CONCEPT_CONTENT_SEQUENCE + STEP_EFFECT_SIGN_ROLES",
+    "concrete_training_ids_excluded": true,
+    "heldout_context": "NEW_CAPABILITIES + NEW_STATE_LABELS + REMAPPED_SURFACE_WORDS",
+    "heldout_transfer": "PASS",
+    "actual_heldout_execution": "PASS",
+    "bad_state_join": "REFUSED",
+    "effect_role_mismatch": "REFUSED",
+    "single_context_pseudo_abstraction": "REFUSED",
+    "overlapping_context_pseudo_abstraction": "REFUSED",
+    "text_only_schema": "REFUSED",
+    "forged_schema": "REFUSED",
+    "heldout_relation_drift": "FAILS_CLOSED",
+    "heldout_concept_drift": "FAILS_CLOSED",
+    "language_disabled_ablation": "SCHEMA_CONTENT_REMAINS_INSPECTABLE_WITHOUT_LEXICAL_INDEX"
+  },
+  "authority": {
+    "language": "NONE",
+    "truth": "NONE",
+    "ontology": "NONE",
+    "causal_theorem": "NONE",
+    "general_causal_learner": "NONE",
+    "planner": "NONE",
+    "execution": "NONE",
+    "value_priority": "NONE",
+    "external_oracle": "NONE"
+  },
+  "freeze_triggered": false,
+  "claim_ceiling": "GROUNDED_LANGUAGE_MEDIATED_CAUSAL_SCHEMA_TRANSFER != GENERAL_ONTOLOGY_ANALOGY_OR_PLANNER_AUTHORITY",
+  "next_after_broad": "GROUNDED_LANGUAGE_MEDIATED_RELATIONAL_ANALOGY_AND_SCHEMA_COMPOSITION"
+}
