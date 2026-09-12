@@ -1,0 +1,26 @@
+{
+  "pass": "ECHO-M06B",
+  "status": "PASS_BROAD_GREEN",
+  "checkpoint": "80fde25b5299a421b6901637f63eecd4ca083bf4",
+  "verification": "414/414 PASS",
+  "files": 108,
+  "chunks": [
+    105,
+    92,
+    104,
+    113
+  ],
+  "result": "ECHO_M06_BROAD_NONREGRESSION_GREEN",
+  "joint_training_exemplar": "NONE",
+  "training_cohort_overlap": "REFUSED",
+  "heldout_recombination": "PASS",
+  "friendship_authority": "NONE",
+  "trust_authority": "NONE",
+  "attachment_authority": "NONE",
+  "importance_authority": "NONE",
+  "social_valence_authority": "NONE",
+  "personality_authority": "NONE",
+  "relationship_type_authority": "NONE",
+  "freeze_triggered": false,
+  "next_after_recovery": "GROUNDED_RELATIONAL_SUBROLE_COMPOSITION_WITH_HELDOUT_RECOMBINATION_AND_NO_JOINT_EXEMPLAR"
+}
