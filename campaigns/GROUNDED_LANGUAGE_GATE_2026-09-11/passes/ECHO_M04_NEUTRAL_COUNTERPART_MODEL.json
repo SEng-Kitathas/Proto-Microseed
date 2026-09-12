@@ -1,0 +1,49 @@
+{
+  "pass": "ECHO-M04",
+  "status": "PASS_FOCUSED_GREEN",
+  "origin": "ECHO_SOCIAL_MODEL_PRESSURE",
+  "verification": "7/7 dedicated PASS; 94/94 combined P01-P06 + M01-M04 + causal/grounding substrates PASS",
+  "result": "OWNED_NEUTRAL_COUNTERPART_MODEL_COMPOSES_ONLY_CURRENT_EARNED_FACETS",
+  "mechanism": {
+    "facets": [
+      "latest_observed_episode",
+      "current_call_name_preference",
+      "recurrent_interaction"
+    ],
+    "partial_model_allowed": "PASS",
+    "facet_currentness": "PASS",
+    "later_preference_updates_model": "PASS",
+    "wrong_counterpart": "REFUSED",
+    "epoch_drift": "STALE",
+    "text_only_personality_friendship_claims": "NOT_ADMITTED",
+    "transcript_auto_model": "NONE",
+    "read_path_mutation": "NONE"
+  },
+  "explicit_unknowns": [
+    "human_identity_truth",
+    "legal_name",
+    "personality",
+    "friendship",
+    "trust",
+    "attachment",
+    "importance",
+    "social_valence",
+    "relationship_type",
+    "goals",
+    "beliefs",
+    "preferences_beyond_observed"
+  ],
+  "authority": {
+    "model": "NONE",
+    "human_identity_truth": "NONE",
+    "personality": "NONE",
+    "friendship": "NONE",
+    "trust": "NONE",
+    "attachment": "NONE",
+    "social_valence": "NONE",
+    "relationship_type": "NONE"
+  },
+  "claim_ceiling": "COUNTERPART_MODEL != PERSON_IDENTITY_PERSONALITY_OR_RELATIONSHIP_TRUTH",
+  "freeze_triggered": false,
+  "next_after_broad": "GROUNDED_COUNTERPART_SOCIAL_RELATION_CONCEPTS_WITHOUT_VALENCE_PRELOAD"
+}
