@@ -1,0 +1,33 @@
+{
+  "pass": 3,
+  "status": "PASS_CONCEPT_FORMATION_GREEN_NO_ORACLE_BYPASS_OBSERVED",
+  "verification": "8/8 P03 dedicated PASS; 32/32 combined P01+P02+P03+C06+MS2046+MS1940+Veya identity PASS",
+  "result": "LANGUAGE_PARTICIPATES_IN_OWNED_GROUNDED_SECOND_ORDER_CONCEPT_FORMATION",
+  "mechanism": {
+    "language_role": "GROUPS_GROUNDED_EXAMPLES_AND_INDEXES_OWNED_CONCEPT_CONTENT",
+    "concept_content": "DERIVED_RELATION_SEQUENCE_TRANSFORM_INVARIANT",
+    "state_ownership": "DURABLE_EXACT_EVIDENCE_IN_VEYA_STORE",
+    "heldout_causal_use": "PASS",
+    "surface_remapping": "CONCEPT_CONTENT_IDENTITY_PRESERVED",
+    "language_disabled_ablation": "LEXICAL_RETRIEVAL_REMOVED_WHILE_OWNED_CONCEPT_CONTENT_REMAINS",
+    "grounding_drift": "USE_REQUIRES_FRESH_REVALIDATION_NOT_ERASURE",
+    "external_text_oracle": "REFUSED",
+    "ambiguity": "FAILS_CLOSED"
+  },
+  "archetype_hostiles": {
+    "ADE-H02": "PASS_P03",
+    "ADE-H03": "PASS_P03",
+    "ADE-H08": "PASS_P03"
+  },
+  "authority": {
+    "language": "NONE",
+    "predicate": "NONE",
+    "truth": "NONE",
+    "execution": "NONE",
+    "planner": "NONE",
+    "value_priority": "NONE",
+    "external_oracle": "NONE"
+  },
+  "freeze_triggered": false,
+  "claim_ceiling": "GROUNDED_LANGUAGE_MEDIATED_CONCEPT_FORMATION != GENERAL_SEMANTICS_OR_PREDICATE_AUTHORITY"
+}
