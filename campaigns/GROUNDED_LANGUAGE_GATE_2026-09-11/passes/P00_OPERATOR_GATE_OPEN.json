@@ -1,0 +1,12 @@
+{
+  "pass": 0,
+  "status": "PASS_OPERATOR_AUTHORIZED",
+  "decision": "MS2052_3A_OPEN_GROUNDED_LANGUAGE_RESEARCH_GATE",
+  "base_receipt": "e03996491aa9248490f229911d91ec068c037c4f",
+  "branch": "research/grounded-language-gate-v1",
+  "prelingual_control_arm": "PRESERVED",
+  "additional_operator_law": "LANGUAGE_MAY_ENABLE_CAPABILITY_BUT_MUST_NOT_BE_THE_UNEARNED_CAPABILITY",
+  "freeze_on_capability_smuggling": true,
+  "language_authority": "NONE",
+  "canon_promotion": "NONE"
+}

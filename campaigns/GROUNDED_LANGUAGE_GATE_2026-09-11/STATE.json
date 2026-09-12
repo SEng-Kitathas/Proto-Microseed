@@ -1,0 +1,12 @@
+{
+  "campaign": "GROUNDED_LANGUAGE_GATE_2026-09-11",
+  "status": "ACTIVE_P00_OPERATOR_GATE_OPEN__ANTI_SMUGGLING_CONTROLS_DEFINED",
+  "base_receipt": "e03996491aa9248490f229911d91ec068c037c4f",
+  "branch": "research/grounded-language-gate-v1",
+  "prelingual_control_arm": "depth-four published base + independent depth-five prelingual branch",
+  "current_pass": 1,
+  "current_discriminator": "GROUNDED_REFERENT_READOUT_WITH_OPAQUE_CARRIER_CONTROL",
+  "freeze_on_p0_or_p1_smuggling": true,
+  "language_authority": "NONE",
+  "promotion": "NONE"
+}
