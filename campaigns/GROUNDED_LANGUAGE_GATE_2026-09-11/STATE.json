@@ -1,11 +1,11 @@
 {
   "campaign": "GROUNDED_LANGUAGE_GATE_2026-09-11",
-  "status": "ACTIVE_P05_MULTISTEP_CAUSAL_COUNTERFACTUAL_FOCUSED_GREEN_BROAD_PENDING",
+  "status": "ACTIVE_P05_BROAD_GREEN_P06_READY",
   "base_receipt": "e03996491aa9248490f229911d91ec068c037c4f",
   "branch": "research/grounded-language-gate-v1",
   "prelingual_control_arm": "depth-four published base + independent depth-five prelingual branch",
-  "current_pass": "P05B",
-  "current_discriminator": "P05_BROAD_LANGUAGE_SUBSTRATE_NONREGRESSION",
+  "current_pass": 6,
+  "current_discriminator": "GROUNDED_LANGUAGE_MEDIATED_CAUSAL_SCHEMA_ABSTRACTION_AND_CROSS_CONTEXT_TRANSFER",
   "freeze_on_p0_or_p1_smuggling": true,
   "language_authority": "NONE",
   "promotion": "NONE",
@@ -35,5 +35,8 @@
   "causal_theorem_authority": "NONE",
   "p05_verification": "8/8 dedicated; 58/58 combined",
   "p05_capability_attribution": "LEGITIMATE_OWNED_LANGUAGE_MEDIATED_MULTISTEP_EMPIRICAL_CAUSAL_COMPOSITION",
-  "planner_authority": "NONE"
+  "planner_authority": "NONE",
+  "p05_broad_checkpoint": "ac07e6023e50f24123d2e50169d7c7fffc4afbe2",
+  "p05_broad_verification": "363/363 PASS across 101 files",
+  "p05_broad_chunks": "4 deterministic non-overlapping chunks"
 }

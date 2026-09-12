@@ -1,0 +1,45 @@
+{
+  "pass": "P05B",
+  "status": "PASS_BROAD_GREEN",
+  "checkpoint": "ac07e6023e50f24123d2e50169d7c7fffc4afbe2",
+  "verification": "363/363 PASS",
+  "files": 101,
+  "chunking": "4 deterministic non-overlapping chunks over one exact file set",
+  "chunks": [
+    {
+      "chunk": "1/4",
+      "files": 26,
+      "passed": 92,
+      "duration_seconds": 86.25
+    },
+    {
+      "chunk": "2/4",
+      "files": 25,
+      "passed": 71,
+      "duration_seconds": 59.35
+    },
+    {
+      "chunk": "3/4",
+      "files": 25,
+      "passed": 99,
+      "duration_seconds": 113.85,
+      "note": "verified rerun after first synchronous client response was lost; original consequence guard completed before rerun"
+    },
+    {
+      "chunk": "4/4",
+      "files": 25,
+      "passed": 101,
+      "duration_seconds": 103.53
+    }
+  ],
+  "verified_aggregate_duration_seconds": 362.98,
+  "infrastructure_anomaly": "first chunk-3 client response lost via ngrok while server consequence holder continued; no verdict claimed from lost run; rerun after guard cleared passed 99/99",
+  "scope": "all current test_lang_* + test_ms_substrate_* + Veya P01-P05 + identity + MS2046 + MS1940 + MS1427 + rehearsal currentness + MS1943",
+  "windows_cleanup_override": "standard TemporaryDirectory cleanup override; no science assertion changed",
+  "result": "VEYA_P05_LANGUAGE_SUBSTRATE_CURRENTNESS_BROAD_NONREGRESSION_GREEN",
+  "planner_authority": "NONE",
+  "causal_theorem_authority": "NONE",
+  "language_authority": "NONE",
+  "freeze_triggered": false,
+  "next": "GROUNDED_LANGUAGE_MEDIATED_CAUSAL_SCHEMA_ABSTRACTION_AND_CROSS_CONTEXT_TRANSFER"
+}
