@@ -8,14 +8,16 @@ If you are trying to understand what Microseed *is*, start at [`START_HERE.md`](
 
 ### Current research pointer
 
-The default `main` branch remains the conservative public/canonical surface. The current remote-exact research frontier is:
+The default `main` branch remains the conservative public/canonical surface. The current remote-exact **prelingual structural** frontier is:
 
-- branch: `research/grounded-language-segment-depth-four-parent-v1`
-- science seal: `dfadf440862d0b942b9d0579bbb5605ee42b459e`
-- campaign completion/readback head: `e03996491aa9248490f229911d91ec068c037c4f`
-- earned frontier: one explicit CURRENT depth-four retrospective segment-parent composition edge using exactly one depth-three parent plus one external depth-one parent outside the full depth-three ancestry, without flattening, associativity, or generic recursive closure
+- branch: `research/grounded-language-segment-depth-five-parent-v1`
+- science seal: `2aca9b753f982fd0f5f651f2b94868d8cf1847dd`
+- campaign completion/readback head: `5dd2acf638302e2b160f4e2d5ec3e82ca1234b47`
+- earned frontier: one explicit CURRENT depth-five retrospective segment-parent composition edge using exactly one depth-four parent plus one external depth-one parent outside the full depth-four ancestry, without flattening, associativity, or generic recursive closure
 
-The depth-four campaign is 20/20 COMPLETE_SEALED_PUBLISHED. Verification: targeted 16/16, broad 307/307 across 92 files, final integrated 332/332 across 102 files, static authority PASS, substrate benchmark bounded, compile/diff PASS, CSC PASS_BOUNDED. `DEPTH_FOUR_EDGE != GENERIC_RECURSIVE_CLOSURE`; depth-five remains separately unearned.
+The depth-five campaign is 20/20 COMPLETE_SEALED_PUBLISHED with **language assistance NONE**. Verification: targeted 15/15, broad 321/321 across 95 files, final integrated 346/346 across 105 files, static authority PASS, substrate benchmark bounded, compile/diff PASS, CSC PASS_BOUNDED. `DEPTH_FIVE_EDGE != GENERIC_RECURSIVE_CLOSURE`; depth-six remains separately unearned.
+
+A separate tentative **Veya grounded-language research branch** exists, but it does not contribute authority to this prelingual frontier and is not absorbed into canon by this pointer.
 
 ## Governing engineering / research process
 

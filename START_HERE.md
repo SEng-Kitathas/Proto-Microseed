@@ -29,41 +29,42 @@ The central research question is:
 
 ## Current public research frontier
 
-The conservative public surface points to the current remote-exact research lineage:
+The conservative public surface points to the current remote-exact **prelingual structural** lineage:
 
 ```text
-research branch:  research/grounded-language-segment-depth-four-parent-v1
-science seal:     dfadf440862d0b942b9d0579bbb5605ee42b459e
-campaign receipt: e03996491aa9248490f229911d91ec068c037c4f
+research branch:  research/grounded-language-segment-depth-five-parent-v1
+science seal:     2aca9b753f982fd0f5f651f2b94868d8cf1847dd
+campaign receipt: 5dd2acf638302e2b160f4e2d5ec3e82ca1234b47
 ```
 
-The current result preserves one CURRENT depth-three parent plus one CURRENT external depth-one parent outside the entire depth-three ancestry as two whole nested children in evidence order. The depth-four output is validated for currentness/tamper but never admitted as a child by the same owner. No generic recursive closure, flattening, associativity, semantic/planner authority, or canon promotion is implied.
+The current result preserves one CURRENT depth-four parent plus one CURRENT external depth-one parent outside the entire depth-four ancestry as two whole nested children in evidence order. The depth-five output is validated for currentness/tamper but never admitted as a child by the same owner. No generic recursive closure, flattening, associativity, semantic/planner authority, or canon promotion is implied.
+
+The Veya grounded-language branch is a separate tentative research track and does not supply this prelingual result.
 
 ## Read order for Claude or another external reviewer
 
-1. **This file — `START_HERE.md`.** Establish identity, intent, and the main-vs-research distinction.
+1. **This file — `START_HERE.md`.** Establish identity, intent, and the public-vs-research distinction.
 2. **`README.md`.** Read the broader public/canonical history and authority boundary.
-3. **Checkout `research/grounded-language-segment-depth-four-parent-v1`.** Latest research is not all on default `main`.
-4. **`campaigns/SEGMENT_DEPTH_FOUR_PARENT_EDGE_2026-09-11/FINAL_SUMMARY.json`.** Current depth-four result and exact authority ceiling.
-5. **`campaigns/SEGMENT_DEPTH_THREE_PARENT_EDGE_2026-09-11/FINAL_SUMMARY.json`.** Prior depth-three result.
-6. **`campaigns/SEGMENT_PARENT_OPERAND_REBASE_2026-09-10/FINAL_SUMMARY.json`.** Prior depth-two result.
-7. **`microseed/runtime/entity.py`.** Inspect production owners and currentness/authority gates.
-8. **Relevant tests:** depth-four prototype/production/ceiling plus depth-three, depth-two, substrate, and rehearsal-currentness suites.
-9. **Use the RD continuity repository for exact recovery/current-frontier state; it is recovery authority, not scientific canon.
+3. **Checkout `research/grounded-language-segment-depth-five-parent-v1`.** Current prelingual structural research is not all on default `main`.
+4. **`campaigns/SEGMENT_DEPTH_FIVE_PARENT_EDGE_2026-09-11/FINAL_SUMMARY.json`.** Current depth-five result and exact authority ceiling.
+5. **`campaigns/SEGMENT_DEPTH_FOUR_PARENT_EDGE_2026-09-11/FINAL_SUMMARY.json`.** Prior depth-four result.
+6. **`microseed/runtime/entity.py`.** Inspect production owners and currentness/authority gates.
+7. **Relevant tests:** depth-five prototype/production/ceiling plus depth-four, substrate, and rehearsal-currentness suites.
+8. **Use the RD continuity repository for exact current recovery state; it is recovery authority, not scientific canon.
 
 ## What the current frontier actually earns
 
-The research lineage earns one bounded full-ancestry depth-four composition edge. Exactly one CURRENT depth-three retrospective segment parent and one CURRENT external depth-one retrospective segment parent outside the complete depth-three ancestry can become two nested children of one depth-four operational composition. Whole parent identities/provenance are preserved, child order is evidence-owned, stale nested state fails closed, and caller-supplied parent IDs/order/grouping/depth/output IDs do not gain authority.
+The prelingual research lineage earns one bounded full-ancestry depth-five composition edge. Exactly one CURRENT depth-four retrospective segment parent and one CURRENT external depth-one retrospective segment parent outside the complete depth-four ancestry can become two nested children of one depth-five operational composition. Whole parent identities/provenance are preserved, child order is evidence-owned, stale nested state fails closed, and caller-supplied parent IDs/order/grouping/depth/output IDs do not gain authority.
 
-Not earned: depth-five reuse, generic recursive closure, flattening, associativity, historical-event reinterpretation, semantic/grammar authority, generic planning, endogenous scheduling, EFFECT authority, or canon promotion.
+Not earned: depth-six reuse, generic recursive closure, flattening, associativity, historical-event reinterpretation, semantic/grammar authority, generic planning, endogenous scheduling, EFFECT authority, or canon promotion.
 
 ## Current next discriminator
 
 ```text
-DEPTH_FOUR_PARENT_STATE_AS_POTENTIAL_CHILD_FOR_ONE_EXPLICIT_DEPTH_FIVE_EDGE_WITHOUT_GENERIC_RECURSIVE_CLOSURE
+DEPTH_FIVE_PARENT_STATE_AS_POTENTIAL_CHILD_FOR_ONE_EXPLICIT_DEPTH_SIX_EDGE_WITHOUT_GENERIC_RECURSIVE_CLOSURE
 ```
 
-The next question is exactly one edge deeper: can the earned depth-four parent participate as one nested child in one explicit depth-five edge while preserving full ancestry exclusion, currentness, provenance, grouping, non-flattening, and non-associativity—without generic recursive closure or recursive self-feeding?
+The next prelingual structural question is exactly one edge deeper: can the earned depth-five parent participate as one nested child in one explicit depth-six edge while preserving full ancestry exclusion, currentness, provenance, grouping, non-flattening, and non-associativity—without generic recursive closure or recursive self-feeding?
 
 ## Reading discipline
 
