@@ -1,0 +1,20 @@
+{
+  "pass": "ECHO-M03B",
+  "status": "PASS_BROAD_GREEN",
+  "checkpoint": "7f3dd2504674520f1da6bc3666e7f74d74487255",
+  "verification": "392/392 PASS",
+  "files": 105,
+  "chunks": [
+    100,
+    78,
+    106,
+    108
+  ],
+  "result": "ECHO_M03_BROAD_NONREGRESSION_GREEN",
+  "friendship_authority": "NONE",
+  "trust_authority": "NONE",
+  "attachment_authority": "NONE",
+  "relationship_type_authority": "NONE",
+  "freeze_triggered": false,
+  "next_after_recovery": "GROUNDED_COUNTERPART_SOCIAL_RELATION_CONCEPTS_WITHOUT_VALENCE_PRELOAD"
+}
