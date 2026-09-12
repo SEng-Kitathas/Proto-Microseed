@@ -1,11 +1,11 @@
 {
   "campaign": "GROUNDED_LANGUAGE_GATE_2026-09-11",
-  "status": "ACTIVE_ECHO_M05_FOCUSED_GREEN_BROAD_PENDING",
+  "status": "ACTIVE_ECHO_M05_BROAD_GREEN_RECOVERY_PENDING",
   "base_receipt": "e03996491aa9248490f229911d91ec068c037c4f",
   "branch": "research/grounded-language-gate-v1",
   "prelingual_control_arm": "depth-four published base + independent depth-five prelingual branch",
-  "current_pass": "ECHO_M05B",
-  "current_discriminator": "ECHO_M05_BROAD_LANGUAGE_SUBSTRATE_NONREGRESSION",
+  "current_pass": "ECHO_M05R",
+  "current_discriminator": "ECHO_M05_RECOVERY_PUBLICATION",
   "freeze_on_p0_or_p1_smuggling": true,
   "language_authority": "NONE",
   "promotion": "NONE",
@@ -44,7 +44,7 @@
   "ontology_authority": "NONE",
   "p06_broad_checkpoint": "cb90c61de34e891b875091cb6a2d138497e6bae1",
   "p06_broad_verification": "370/370 PASS across 102 files",
-  "next_after_recovery": "GROUNDED_COUNTERPART_SOCIAL_RELATION_CONCEPTS_WITHOUT_VALENCE_PRELOAD",
+  "next_after_recovery": "GROUNDED_SOCIAL_INTERACTION_ROLE_COMPOSITION_WITHOUT_VALENCE",
   "echo_m01_verification": "8/8 dedicated; 73/73 combined",
   "echo_m01_origin": "MEMORY_PRESSURE",
   "clean_roadmap_p07": "DEFERRED_NOT_REJECTED",
@@ -60,5 +60,7 @@
   "echo_m04_verification": "7/7 dedicated; 94/94 combined",
   "echo_m04_broad_checkpoint": "2a970a993fcc79efc6f654b8a651c9adb8a95804",
   "echo_m04_broad_verification": "399/399 PASS across 106 files",
-  "echo_m05_verification": "7/7 dedicated; 101/101 combined"
+  "echo_m05_verification": "7/7 dedicated; 101/101 combined",
+  "echo_m05_broad_checkpoint": "a9c478cf9b3e62a5e9423ba74e194036634a15bf",
+  "echo_m05_broad_verification": "406/406 PASS across 107 files"
 }
