@@ -1,0 +1,30 @@
+{
+  "pass": "ECHO-M07B",
+  "status": "PASS_BROAD_GREEN",
+  "checkpoint": "bc7a617af475d42016c44f50f84b5cd8a416fb23",
+  "verification": "422/422 PASS",
+  "files": 109,
+  "chunks": [
+    107,
+    86,
+    114,
+    115
+  ],
+  "result": "ECHO_M07_BROAD_NONREGRESSION_GREEN",
+  "same_stimulus_mixed_role_control_outcomes": "REQUIRED_AND_PASS",
+  "heldout_response_preobserved": "REFUSED",
+  "fresh_actual_match": "PASS",
+  "fresh_actual_counterexample": "VIOLATION_NO_NARRATIVE_REPAIR",
+  "global_response_shortcut": "REFUSED",
+  "general_social_reasoning_authority": "NONE",
+  "planner_authority": "NONE",
+  "friendship_authority": "NONE",
+  "trust_authority": "NONE",
+  "attachment_authority": "NONE",
+  "importance_authority": "NONE",
+  "personality_authority": "NONE",
+  "social_valence_authority": "NONE",
+  "relationship_type_authority": "NONE",
+  "freeze_triggered": false,
+  "next_after_recovery": "DISC_SHARP_001_RETROACTIVE_LANGUAGE_AUDIT"
+}
