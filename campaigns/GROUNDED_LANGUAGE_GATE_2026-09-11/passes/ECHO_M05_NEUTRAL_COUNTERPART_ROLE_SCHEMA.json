@@ -1,0 +1,29 @@
+{
+  "pass": "ECHO-M05",
+  "status": "PASS_FOCUSED_GREEN",
+  "origin": "INTERNAL_ECHO_SOCIAL_STRUCTURE_PRESSURE",
+  "verification": "7/7 dedicated PASS; 101/101 combined P01-P06 + M01-M05 + causal/grounding substrates PASS",
+  "result": "NEUTRAL_RECURRENT_NAMED_CONVERSATIONAL_COUNTERPART_ROLE_SCHEMA_TRANSFERS_ACROSS_DISTINCT_OPAQUE_COUNTERPARTS",
+  "mechanism": {
+    "training_contexts": "TWO_DISTINCT_FULL_NEUTRAL_COUNTERPART_MODELS",
+    "heldout_transfer": "PASS",
+    "partial_heldout": "REFUSED",
+    "same_counterpart_duplicate_context": "REFUSED",
+    "wrong_epoch": "REFUSED",
+    "friendship_trust_language_preload": "IGNORED",
+    "concrete_counterpart_ids_excluded": true
+  },
+  "authority": {
+    "human_identity_truth": "NONE",
+    "friendship": "NONE",
+    "trust": "NONE",
+    "attachment": "NONE",
+    "importance": "NONE",
+    "social_valence": "NONE",
+    "personality": "NONE",
+    "relationship_type": "NONE"
+  },
+  "claim_ceiling": "NEUTRAL_COUNTERPART_ROLE != FRIENDSHIP_TRUST_PERSONALITY_OR_RELATIONSHIP_TYPE",
+  "freeze_triggered": false,
+  "next_after_broad": "GROUNDED_SOCIAL_INTERACTION_ROLE_COMPOSITION_WITHOUT_VALENCE"
+}
