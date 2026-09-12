@@ -1,0 +1,34 @@
+{
+  "pass": 5,
+  "status": "PASS_MULTISTEP_CAUSAL_COUNTERFACTUAL_FOCUSED_GREEN",
+  "verification": "8/8 P05 dedicated PASS; 58/58 combined P01-P05 + C06 + MS1427 + MS2046 + MS1940 + Veya identity PASS",
+  "result": "INDEPENDENTLY_LEARNED_EMPIRICAL_EDGES_COMPOSE_INTO_OWNED_LANGUAGE_MEDIATED_TWO_STEP_CAUSAL_CHAIN",
+  "mechanism": {
+    "edge_acquisition": "A:S0->S1/+1 AND B:S1->S2/+1 LEARNED IN SEPARATE EXPERIENCE SETS",
+    "state_join": "EXACT first.next_state == second.start_state",
+    "chain_state_ownership": "DURABLE_EXACT_VEYA_EVIDENCE",
+    "language_role": "INDEXES_P04_OWNED_CONCEPT_CONTENT_SEQUENCE",
+    "actual_chain_holdout": "PASS S0->S1->S2 cumulative +2.0",
+    "counterfactual_valid_sequence": "PASS bounded prediction",
+    "counterfactual_reversed_sequence": "INFEASIBLE_STATE_JOIN_MISMATCH",
+    "text_only_missing_edge": "REFUSED",
+    "relation_drift": "EITHER_EDGE_STALES_CURRENT_USE_HISTORY_PRESERVED",
+    "concept_grounding_drift": "BLOCKS_LANGUAGE_CHAIN_USE",
+    "forged_chain": "REFUSED",
+    "holdout_violation": "EXPLICIT_VIOLATION_NO_NARRATIVE_REPAIR",
+    "language_disabled_ablation": "LEXICAL_USE_REMOVED_CHAIN_CONTENT_REMAINS_INSPECTABLE"
+  },
+  "authority": {
+    "language": "NONE",
+    "truth": "NONE",
+    "causal_theorem": "NONE",
+    "general_causal_learner": "NONE",
+    "planner": "NONE",
+    "execution": "NONE",
+    "value_priority": "NONE",
+    "external_oracle": "NONE"
+  },
+  "freeze_triggered": false,
+  "claim_ceiling": "GROUNDED_LANGUAGE_MEDIATED_TWO_STEP_CAUSAL_CHAINING != GENERAL_PLANNING_OR_CAUSAL_THEOREM_AUTHORITY",
+  "next": "GROUNDED_LANGUAGE_MEDIATED_CAUSAL_SCHEMA_ABSTRACTION_AND_CROSS_CONTEXT_TRANSFER"
+}
