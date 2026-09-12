@@ -1,0 +1,33 @@
+{
+  "pass": "ECHO-M06",
+  "status": "PASS_FOCUSED_GREEN",
+  "origin": "DISC_SHARP_001_COMPOSABILITY_PRESSURE",
+  "verification": "8/8 dedicated PASS; 109/109 combined P01-P06 + M01-M06 + causal/grounding substrates PASS",
+  "result": "INDEPENDENT_NEUTRAL_COUNTERPART_SUBROLES_COMPOSE_INTO_NOVEL_HELDOUT_ROLE_WITHOUT_JOINT_TRAINING_EXEMPLAR",
+  "mechanism": {
+    "named_subrole_training": "DISJOINT_NAMED_ONLY_COHORT",
+    "recurrent_subrole_training": "DISJOINT_RECURRENT_ONLY_COHORT",
+    "joint_training_exemplar": "NONE",
+    "training_cohort_overlap": "REFUSED",
+    "heldout_full_recombination": "PASS",
+    "heldout_missing_named": "REFUSED",
+    "heldout_missing_recurrent": "REFUSED",
+    "social_words_substitution": "REFUSED",
+    "wrong_epoch": "REFUSED",
+    "seen_training_counterpart": "REFUSED",
+    "forged_schema": "REFUSED"
+  },
+  "authority": {
+    "human_identity_truth": "NONE",
+    "friendship": "NONE",
+    "trust": "NONE",
+    "attachment": "NONE",
+    "importance": "NONE",
+    "social_valence": "NONE",
+    "personality": "NONE",
+    "relationship_type": "NONE"
+  },
+  "claim_ceiling": "SYSTEMATIC_NEUTRAL_SUBROLE_RECOMBINATION != GENERAL_SOCIAL_REASONING_OR_RELATIONSHIP_TRUTH",
+  "freeze_triggered": false,
+  "next_after_broad": "GROUNDED_RELATIONAL_SUBROLE_COMPOSITION_WITH_HELDOUT_RECOMBINATION_AND_NO_JOINT_EXEMPLAR"
+}

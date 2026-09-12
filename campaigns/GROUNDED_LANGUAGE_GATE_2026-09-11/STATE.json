@@ -1,11 +1,11 @@
 {
   "campaign": "GROUNDED_LANGUAGE_GATE_2026-09-11",
-  "status": "ACTIVE_ECHO_M05_BROAD_GREEN_RECOVERY_PENDING",
+  "status": "ACTIVE_ECHO_M06_FOCUSED_GREEN_BROAD_PENDING",
   "base_receipt": "e03996491aa9248490f229911d91ec068c037c4f",
   "branch": "research/grounded-language-gate-v1",
   "prelingual_control_arm": "depth-four published base + independent depth-five prelingual branch",
-  "current_pass": "ECHO_M05R",
-  "current_discriminator": "ECHO_M05_RECOVERY_PUBLICATION",
+  "current_pass": "ECHO_M06B",
+  "current_discriminator": "ECHO_M06_BROAD_LANGUAGE_SUBSTRATE_NONREGRESSION",
   "freeze_on_p0_or_p1_smuggling": true,
   "language_authority": "NONE",
   "promotion": "NONE",
@@ -28,7 +28,7 @@
   "p04_verification": "7/7 dedicated; 50/50 combined",
   "p04_capability_attribution": "LEGITIMATE_OWNED_LANGUAGE_MEDIATED_EMPIRICAL_CAUSAL_COMPOSITION",
   "archetype_hostiles": "ADE-H01..H10 ALL EXPLICITLY GREEN BY P04",
-  "next_after_broad": "GROUNDED_SOCIAL_INTERACTION_ROLE_COMPOSITION_WITHOUT_VALENCE",
+  "next_after_broad": "GROUNDED_RELATIONAL_SUBROLE_COMPOSITION_WITH_HELDOUT_RECOMBINATION_AND_NO_JOINT_EXEMPLAR",
   "p04_broad_checkpoint": "ffe987ad79fd699d9a2616a24e015ac7ef42938c",
   "p04_broad_verification": "355/355 PASS across 100 files",
   "p04_broad_chunks": "4 deterministic non-overlapping chunks",
@@ -62,5 +62,7 @@
   "echo_m04_broad_verification": "399/399 PASS across 106 files",
   "echo_m05_verification": "7/7 dedicated; 101/101 combined",
   "echo_m05_broad_checkpoint": "a9c478cf9b3e62a5e9423ba74e194036634a15bf",
-  "echo_m05_broad_verification": "406/406 PASS across 107 files"
+  "echo_m05_broad_verification": "406/406 PASS across 107 files",
+  "echo_m06_verification": "8/8 dedicated; 109/109 combined",
+  "echo_m06_origin": "DISC_SHARP_001_COMPOSABILITY_PRESSURE"
 }
