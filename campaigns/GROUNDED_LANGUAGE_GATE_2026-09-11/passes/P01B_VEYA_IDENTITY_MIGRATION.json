@@ -1,0 +1,23 @@
+{
+  "pass": "P01B",
+  "status": "PASS_VERIFIED_IDENTITY_MIGRATION",
+  "current_identity": "Veya",
+  "historical_lineage": "Microseed",
+  "runtime_alias": "Veya is Microseed",
+  "destructive_rename": false,
+  "historical_rewrite": false,
+  "state_migration_required": false,
+  "capability_gain": "NONE",
+  "personality_authority": "NONE",
+  "value_authority": "NONE",
+  "laws": [
+    "VEYA != NEW_ORGANISM",
+    "MICROSEED_LINEAGE_CONTINUES_THROUGH_VEYA_IDENTITY",
+    "NAME != CAPABILITY",
+    "NAME != PERSONALITY",
+    "NAME != VALUE_AUTHORITY"
+  ],
+  "verification": "10/10 PASS + compileall + diff-check + CLI identity readback",
+  "cli_readback": "Veya current / Microseed lineage",
+  "freeze_triggered": false
+}

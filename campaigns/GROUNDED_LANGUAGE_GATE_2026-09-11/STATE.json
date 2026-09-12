@@ -13,5 +13,9 @@
   "p01_verification": "5/5 anti-smuggling; 8/8 with MS2046",
   "freeze_triggered": false,
   "archetype_envelope": "DEFINED_PRE_P02",
-  "archetype_envelope_status": "PROVISIONAL_WITH_SUNSET"
+  "archetype_envelope_status": "PROVISIONAL_WITH_SUNSET",
+  "current_organism_identity": "Veya",
+  "historical_lineage_name": "Microseed",
+  "identity_migration": "VERIFIED_PRE_P02",
+  "identity_migration_verification": "10/10 PASS + CLI readback"
 }

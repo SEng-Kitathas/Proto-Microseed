@@ -1,9 +1,13 @@
-"""Proto-Microseed Main-Dev embodiment.
+"""Veya current organism identity over the Proto-Microseed/Main-Dev research lineage.
 
 This package preserves research/authority separation while integrating the
 narrow architectural changes warranted by evidence through MS1502.
 """
 from .runtime.entity import Microseed
+from .identity import CURRENT_ORGANISM_IDENTITY, HISTORICAL_LINEAGE_NAME, IDENTITY_LAWS, current_identity
+
+# Current organism-facing identity. Historical/runtime compatibility remains `Microseed`.
+Veya = Microseed
 from .runtime.commitment import TernaryCommitment, RelationalCommitment
 from .runtime.types import (
     Authority, EpistemicStatus, QualificationState, ResourceMode,
@@ -61,7 +65,7 @@ from .development.epistemic import (
 )
 
 __all__ = [
-    "Microseed", "TernaryCommitment", "RelationalCommitment", "Authority", "EpistemicStatus", "QualificationState",
+    "Microseed", "Veya", "CURRENT_ORGANISM_IDENTITY", "HISTORICAL_LINEAGE_NAME", "IDENTITY_LAWS", "current_identity", "TernaryCommitment", "RelationalCommitment", "Authority", "EpistemicStatus", "QualificationState",
     "ResourceMode", "Observation", "QueryObligation", "CapabilityContract", "OperationalFrameContract", "EpisodeSchemaContract", "ValueVariableContract", "FeasibilityState", "RecruitmentTopologyContract", "OperationalCounterpartyContract", "OperationalCoordinationContract",
     "project_feasibility", "project_epistemic_status", "project_qualification_state", "project_epistemic_deficit_state",
     "CapabilityCandidate", "CapabilityQualificationTicket", "ExternalCapabilityQualifier",
