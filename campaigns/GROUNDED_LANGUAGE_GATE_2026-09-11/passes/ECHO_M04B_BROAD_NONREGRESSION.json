@@ -1,0 +1,23 @@
+{
+  "pass": "ECHO-M04B",
+  "status": "PASS_BROAD_GREEN",
+  "checkpoint": "2a970a993fcc79efc6f654b8a651c9adb8a95804",
+  "verification": "399/399 PASS",
+  "files": 106,
+  "chunks": [
+    102,
+    80,
+    100,
+    117
+  ],
+  "result": "ECHO_M04_BROAD_NONREGRESSION_GREEN",
+  "model_authority": "NONE",
+  "human_identity_truth_authority": "NONE",
+  "personality_authority": "NONE",
+  "friendship_authority": "NONE",
+  "trust_authority": "NONE",
+  "attachment_authority": "NONE",
+  "relationship_type_authority": "NONE",
+  "freeze_triggered": false,
+  "next_after_recovery": "GROUNDED_COUNTERPART_SOCIAL_RELATION_CONCEPTS_WITHOUT_VALENCE_PRELOAD"
+}
