@@ -1,0 +1,6 @@
+{
+  "pass": 11,
+  "name": "IDEMPOTENCY_AND_APPEND_ONLY",
+  "status": "PASS",
+  "result": "DEPTH_FIVE_STATE_DERIVATION_IDEMPOTENT_AND_APPEND_ONLY"
+}

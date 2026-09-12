@@ -1,0 +1,12 @@
+{
+  "pass": 4,
+  "status": "PASS",
+  "verification": "346/346 PASS",
+  "files": 105,
+  "duration_seconds": 420.51,
+  "job_id": "job-a1568638ba6a",
+  "checkpoint": "fa32647b09b87c14ac165bd380e1b8a3bacdecab",
+  "production_checkpoint": "049bfd3c4d2d00e35cf18797c5e3be165846a637",
+  "language_assistance": "NONE",
+  "result": "FINAL_INTEGRATED_ORGANISM_REHEARSAL_NONREGRESSION_GREEN"
+}

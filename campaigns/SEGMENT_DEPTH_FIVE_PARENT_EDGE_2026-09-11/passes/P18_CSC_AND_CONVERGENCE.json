@@ -1,0 +1,16 @@
+{
+  "pass": 18,
+  "name": "CSC_AND_CONVERGENCE",
+  "status": "PASS_BOUNDED",
+  "interfaces": [
+    "current depth-four parent -> nested child PASS",
+    "external current depth-one parent outside full ancestry -> nested child PASS",
+    "mixed child depths [4,1] -> explicit depth-five identity PASS",
+    "depth-five output -> same-owner input REFUSED",
+    "flattening/regrouping/currentness/forgery -> PASS",
+    "substrate/currentness hot paths -> unchanged PASS",
+    "generic recursion/depth-six -> NOT_EARNED"
+  ],
+  "result": "BOUNDED_FULL_ANCESTRY_DEPTH_FIVE_EDGE_CONVERGED_WITHOUT_FLATTENING_ASSOCIATIVITY_OR_RECURSIVE_CLOSURE",
+  "promotion": "NONE"
+}

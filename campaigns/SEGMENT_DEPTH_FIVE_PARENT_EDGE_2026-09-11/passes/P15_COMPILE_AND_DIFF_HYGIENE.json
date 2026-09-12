@@ -1,0 +1,8 @@
+{
+  "pass": 15,
+  "name": "COMPILE_AND_DIFF_HYGIENE",
+  "status": "PASS",
+  "compileall": "PASS",
+  "git_diff_check": "PASS",
+  "note": "line-ending warning only"
+}
