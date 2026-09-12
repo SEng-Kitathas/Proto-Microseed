@@ -1,0 +1,34 @@
+{
+  "pass": "ECHO-M07",
+  "status": "PASS_FOCUSED_GREEN",
+  "origin": "DISC_SHARP_001_PREDICTIVE_UTILITY_PRESSURE",
+  "verification": "8/8 dedicated PASS; 117/117 combined P01-P06 + M01-M07 + causal/grounding substrates PASS",
+  "result": "COMPOSED_NEUTRAL_COUNTERPART_ROLE_SUPPORTS_NOVEL_HELDOUT_RESPONSE_PREDICTION_BEFORE_OBSERVATION",
+  "mechanism": {
+    "same_stimulus_mixed_role_control_outcomes": "REQUIRED",
+    "global_response_shortcut": "REFUSED",
+    "role_training_consistency": "REQUIRED",
+    "heldout_response_preobserved": "REFUSED",
+    "novel_heldout_role_prediction": "PASS",
+    "fresh_actual_match": "PASS",
+    "fresh_actual_counterexample": "VIOLATION_NO_NARRATIVE_REPAIR",
+    "missing_role": "REFUSED",
+    "wrong_epoch": "REFUSED",
+    "forged_predictor": "REFUSED"
+  },
+  "authority": {
+    "general_social_reasoning": "NONE",
+    "planner": "NONE",
+    "friendship": "NONE",
+    "trust": "NONE",
+    "attachment": "NONE",
+    "importance": "NONE",
+    "social_valence": "NONE",
+    "personality": "NONE",
+    "relationship_type": "NONE",
+    "human_identity_truth": "NONE"
+  },
+  "claim_ceiling": "ROLE_CONDITIONED_HELDOUT_RESPONSE_PREDICTION != GENERAL_SOCIAL_REASONING_PLANNING_OR_RELATIONSHIP_TRUTH",
+  "freeze_triggered": false,
+  "next_after_broad": "GROUNDED_ROLE_CONDITIONED_BOUNDED_DECISION_SELECTION_WITH_FRESH_OUTCOME_VALIDATION"
+}
