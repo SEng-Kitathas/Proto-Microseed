@@ -1,11 +1,13 @@
 {
   "campaign": "SEGMENT_DEPTH_FOUR_PARENT_EDGE_2026-09-11",
-  "status": "ACTIVE_P02_TARGETED_GREEN_BROAD_PENDING",
+  "status": "PASS_SEAL_READY",
   "base_receipt": "34d02bb2eebc8518961d6f5914d3ca65123b3c9e",
-  "branch": "research/grounded-language-segment-depth-four-parent-v1",
-  "completed_passes": 2,
-  "current_pass": 3,
-  "current_discriminator": "BROAD_LANGUAGE_SUBSTRATE_CURRENTNESS_NONREGRESSION",
+  "targeted_checkpoint": "42969c3b59ae344e4fc1362c9cee8ef30d29ee3b",
+  "completed_passes": 19,
+  "current_pass": 19,
+  "current_discriminator": "SCIENCE_SEAL_COMMIT_AND_REMOTE_READBACK",
   "promotion": "NONE",
-  "targeted_consistency": "16/16 PASS"
+  "earned_candidate": "ONE_EXPLICIT_CURRENT_DEPTH_FOUR_RETROSPECTIVE_SEGMENT_PARENT_COMPOSITION_EDGE_WITHOUT_FLATTENING_OR_ASSOCIATIVITY",
+  "next_frontier": "DEPTH_FOUR_PARENT_STATE_AS_POTENTIAL_CHILD_FOR_ONE_EXPLICIT_DEPTH_FIVE_EDGE_WITHOUT_GENERIC_RECURSIVE_CLOSURE",
+  "science_seal": null
 }

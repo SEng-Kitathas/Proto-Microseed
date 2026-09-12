@@ -1,0 +1,10 @@
+{
+  "pass": 4,
+  "status": "PASS",
+  "verification": "332/332 PASS",
+  "files": 102,
+  "duration_seconds": 478.13,
+  "job_id": "job-bfb073e27b06",
+  "checkpoint": "42969c3b59ae344e4fc1362c9cee8ef30d29ee3b",
+  "result": "FINAL_INTEGRATED_ORGANISM_REHEARSAL_NONREGRESSION_GREEN"
+}

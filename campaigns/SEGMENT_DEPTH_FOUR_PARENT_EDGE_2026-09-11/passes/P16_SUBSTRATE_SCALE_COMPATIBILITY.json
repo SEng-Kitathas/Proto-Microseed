@@ -1,0 +1,7 @@
+{
+  "pass": 16,
+  "name": "SUBSTRATE_SCALE_COMPATIBILITY",
+  "status": "PASS_BOUNDED",
+  "result": "NO_OBSERVED_REINTRODUCTION_OF_HISTORY_LINEAR_TIMED_ACTION_COST",
+  "authority_gain": "NONE"
+}

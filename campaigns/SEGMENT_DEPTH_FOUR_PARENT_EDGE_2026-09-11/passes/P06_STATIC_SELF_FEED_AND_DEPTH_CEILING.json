@@ -1,0 +1,6 @@
+{
+  "pass": 6,
+  "name": "STATIC_SELF_FEED_AND_DEPTH_CEILING",
+  "status": "PASS",
+  "result": "DEPTH_FOUR_OUTPUT_VALIDATED_BUT_NEVER_ADMITTED_AS_CHILD"
+}

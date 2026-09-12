@@ -1,0 +1,6 @@
+{
+  "pass": 7,
+  "name": "FULL_ANCESTRY_EXCLUSION",
+  "status": "PASS",
+  "result": "EXTERNAL_DEPTH_ONE_PARENT_MUST_BE_OUTSIDE_ENTIRE_DEPTH_THREE_ANCESTRY"
+}
