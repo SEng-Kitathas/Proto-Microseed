@@ -1,11 +1,14 @@
 {
   "campaign": "SEGMENT_DEPTH_FIVE_PARENT_EDGE_2026-09-11",
-  "status": "ACTIVE_P02_TARGETED_GREEN_BROAD_PENDING",
+  "status": "ACTIVE_P03_BROAD_GREEN_INTEGRATED_PENDING",
   "base_receipt": "e03996491aa9248490f229911d91ec068c037c4f",
   "branch": "research/grounded-language-segment-depth-five-parent-v1",
-  "completed_passes": 2,
-  "current_pass": 3,
-  "current_discriminator": "BROAD_LANGUAGE_SUBSTRATE_CURRENTNESS_NONREGRESSION",
+  "completed_passes": 3,
+  "current_pass": 4,
+  "current_discriminator": "FINAL_INTEGRATED_ORGANISM_REHEARSAL_NONREGRESSION",
   "promotion": "NONE",
-  "targeted_consistency": "15/15 PASS"
+  "targeted_consistency": "15/15 PASS",
+  "broad_checkpoint": "049bfd3c4d2d00e35cf18797c5e3be165846a637",
+  "broad_verification": "321/321 PASS",
+  "language_assistance": "NONE"
 }

@@ -1,0 +1,12 @@
+{
+  "pass": 3,
+  "status": "PASS",
+  "verification": "321/321 PASS",
+  "files": 95,
+  "duration_seconds": 390.68,
+  "job_id": "job-09ca606adbb5",
+  "checkpoint": "049bfd3c4d2d00e35cf18797c5e3be165846a637",
+  "scope": "all current test_lang_* + test_ms_substrate_* + indexed rehearsal currentness + MS1943",
+  "language_assistance": "NONE",
+  "result": "BROAD_LANGUAGE_SUBSTRATE_CURRENTNESS_NONREGRESSION_GREEN"
+}
