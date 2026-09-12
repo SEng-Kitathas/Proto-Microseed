@@ -26,3 +26,6 @@ Test whether already-grounded referent competence can acquire a readable languag
 Any P0/P1 anti-smuggling violation freezes this branch before further language capability work.
 
 Historical MS702–MS801 language/predicate/event-frame work remains donor-only and must be re-earned under current grounding laws.
+
+## Operator clarification — capability versus smuggling
+Language is expected to enable real cognition in some regimes. Concept grasping, causal connection, abstraction, composition, memory organization, and planning may legitimately improve through language. This does not violate the gate. The campaign freezes only when language is acting as an ungrounded/unowned shortcut, oracle, hidden state, or authority bypass rather than an earned mechanism.
