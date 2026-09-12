@@ -1,0 +1,17 @@
+{
+  "pass": "ECHO-M02B",
+  "status": "PASS_BROAD_GREEN",
+  "checkpoint": "8d96eda0ffecfad2443365ae61a2c1b47e7be9c6",
+  "verification": "385/385 PASS",
+  "files": 104,
+  "chunks": [
+    98,
+    84,
+    97,
+    106
+  ],
+  "result": "ECHO_M02_BROAD_NONREGRESSION_GREEN",
+  "human_identity_truth_authority": "NONE",
+  "freeze_triggered": false,
+  "next_after_recovery": "GROUNDED_COUNTERPART_PREFERENCE_RETRIEVAL_AND_SOCIAL_RELATION_BINDING"
+}

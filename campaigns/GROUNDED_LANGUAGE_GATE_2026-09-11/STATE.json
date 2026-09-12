@@ -1,11 +1,11 @@
 {
   "campaign": "GROUNDED_LANGUAGE_GATE_2026-09-11",
-  "status": "ACTIVE_ECHO_M02_FOCUSED_GREEN_BROAD_PENDING",
+  "status": "ACTIVE_ECHO_M02_BROAD_GREEN_RECOVERY_PENDING",
   "base_receipt": "e03996491aa9248490f229911d91ec068c037c4f",
   "branch": "research/grounded-language-gate-v1",
   "prelingual_control_arm": "depth-four published base + independent depth-five prelingual branch",
-  "current_pass": "ECHO_M02B",
-  "current_discriminator": "ECHO_M02_BROAD_LANGUAGE_SUBSTRATE_NONREGRESSION",
+  "current_pass": "ECHO_M02R",
+  "current_discriminator": "ECHO_M02_RECOVERY_PUBLICATION",
   "freeze_on_p0_or_p1_smuggling": true,
   "language_authority": "NONE",
   "promotion": "NONE",
@@ -51,5 +51,7 @@
   "echo_m01_broad_checkpoint": "8dfa66327ac84988fdfd60413015bd78517a978f",
   "echo_m01_broad_verification": "378/378 PASS across 103 files",
   "echo_m02_verification": "7/7 dedicated; 80/80 combined",
-  "echo_m02_origin": "USER_CALL_NAME_PREFERENCE_PRESSURE"
+  "echo_m02_origin": "USER_CALL_NAME_PREFERENCE_PRESSURE",
+  "echo_m02_broad_checkpoint": "8d96eda0ffecfad2443365ae61a2c1b47e7be9c6",
+  "echo_m02_broad_verification": "385/385 PASS across 104 files"
 }
