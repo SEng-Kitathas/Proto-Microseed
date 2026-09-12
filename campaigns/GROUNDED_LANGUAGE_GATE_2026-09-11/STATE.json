@@ -1,11 +1,11 @@
 {
   "campaign": "GROUNDED_LANGUAGE_GATE_2026-09-11",
-  "status": "ACTIVE_P04_CAUSAL_COMPOSITION_FOCUSED_GREEN_BROAD_PENDING",
+  "status": "ACTIVE_P04_BROAD_GREEN_P05_READY",
   "base_receipt": "e03996491aa9248490f229911d91ec068c037c4f",
   "branch": "research/grounded-language-gate-v1",
   "prelingual_control_arm": "depth-four published base + independent depth-five prelingual branch",
-  "current_pass": "P04B",
-  "current_discriminator": "P04_BROAD_LANGUAGE_SUBSTRATE_NONREGRESSION",
+  "current_pass": 5,
+  "current_discriminator": "GROUNDED_LANGUAGE_MEDIATED_MULTI_STEP_CAUSAL_CHAINING_AND_COUNTERFACTUAL_COMPOSITION",
   "freeze_on_p0_or_p1_smuggling": true,
   "language_authority": "NONE",
   "promotion": "NONE",
@@ -28,5 +28,9 @@
   "p04_verification": "7/7 dedicated; 50/50 combined",
   "p04_capability_attribution": "LEGITIMATE_OWNED_LANGUAGE_MEDIATED_EMPIRICAL_CAUSAL_COMPOSITION",
   "archetype_hostiles": "ADE-H01..H10 ALL EXPLICITLY GREEN BY P04",
-  "next_after_broad": "GROUNDED_LANGUAGE_MEDIATED_MULTI_STEP_CAUSAL_CHAINING_AND_COUNTERFACTUAL_COMPOSITION"
+  "next_after_broad": "GROUNDED_LANGUAGE_MEDIATED_MULTI_STEP_CAUSAL_CHAINING_AND_COUNTERFACTUAL_COMPOSITION",
+  "p04_broad_checkpoint": "ffe987ad79fd699d9a2616a24e015ac7ef42938c",
+  "p04_broad_verification": "355/355 PASS across 100 files",
+  "p04_broad_chunks": "4 deterministic non-overlapping chunks",
+  "causal_theorem_authority": "NONE"
 }

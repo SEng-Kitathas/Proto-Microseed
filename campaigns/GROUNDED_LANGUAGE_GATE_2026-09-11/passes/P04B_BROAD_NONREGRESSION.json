@@ -1,0 +1,42 @@
+{
+  "pass": "P04B",
+  "status": "PASS_BROAD_GREEN",
+  "checkpoint": "ffe987ad79fd699d9a2616a24e015ac7ef42938c",
+  "verification": "355/355 PASS",
+  "files": 100,
+  "chunking": "4 deterministic non-overlapping chunks over one exact file set",
+  "chunks": [
+    {
+      "chunk": "1/4",
+      "files": 25,
+      "passed": 90,
+      "duration_seconds": 80.99
+    },
+    {
+      "chunk": "2/4",
+      "files": 25,
+      "passed": 77,
+      "duration_seconds": 62.88
+    },
+    {
+      "chunk": "3/4",
+      "files": 25,
+      "passed": 89,
+      "duration_seconds": 137.33
+    },
+    {
+      "chunk": "4/4",
+      "files": 25,
+      "passed": 99,
+      "duration_seconds": 107.95
+    }
+  ],
+  "total_duration_seconds": 389.15,
+  "scope": "all current test_lang_* + test_ms_substrate_* + Veya P01-P04 + identity + MS2046 + MS1940 + MS1427 + rehearsal currentness + MS1943",
+  "windows_cleanup_override": "standard TemporaryDirectory cleanup override; no science assertion changed",
+  "result": "VEYA_P04_LANGUAGE_SUBSTRATE_CURRENTNESS_BROAD_NONREGRESSION_GREEN",
+  "language_authority": "NONE",
+  "causal_theorem_authority": "NONE",
+  "freeze_triggered": false,
+  "next": "GROUNDED_LANGUAGE_MEDIATED_MULTI_STEP_CAUSAL_CHAINING_AND_COUNTERFACTUAL_COMPOSITION"
+}
