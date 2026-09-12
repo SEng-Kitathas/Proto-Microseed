@@ -1,15 +1,15 @@
 {
   "campaign": "GROUNDED_LANGUAGE_GATE_2026-09-11",
-  "status": "ACTIVE_P01_READOUT_GREEN_NO_SMUGGLING_OBSERVED",
+  "status": "ACTIVE_P02_COMMUNICATION_GREEN_NO_SMUGGLING_OBSERVED",
   "base_receipt": "e03996491aa9248490f229911d91ec068c037c4f",
   "branch": "research/grounded-language-gate-v1",
   "prelingual_control_arm": "depth-four published base + independent depth-five prelingual branch",
-  "current_pass": 2,
-  "current_discriminator": "GROUNDED_COMMUNICATION_USE_WITH_PRELINGUAL_OPAQUE_CONTROL_AND_ARCHETYPE_HOSTILES",
+  "current_pass": 3,
+  "current_discriminator": "GROUNDED_LANGUAGE_MEDIATED_CONCEPT_FORMATION_WITH_PROVENANCE_AND_ORACLE_CONTROLS",
   "freeze_on_p0_or_p1_smuggling": true,
   "language_authority": "NONE",
   "promotion": "NONE",
-  "completed_passes": 1,
+  "completed_passes": 2,
   "p01_verification": "5/5 anti-smuggling; 8/8 with MS2046",
   "freeze_triggered": false,
   "archetype_envelope": "DEFINED_PRE_P02",
@@ -17,5 +17,6 @@
   "current_organism_identity": "Veya",
   "historical_lineage_name": "Microseed",
   "identity_migration": "VERIFIED_PRE_P02",
-  "identity_migration_verification": "10/10 PASS + CLI readback"
+  "identity_migration_verification": "10/10 PASS + CLI readback",
+  "p02_verification": "7/7 dedicated; 22/22 combined"
 }
