@@ -1,0 +1,32 @@
+{
+  "pass": "ECHO-M01",
+  "status": "PASS_FOCUSED_GREEN",
+  "origin": "ECHO_CHAMBER_MEMORY_PRESSURE",
+  "verification": "8/8 dedicated PASS; 73/73 combined P01-P06 + M01 + causal/grounding substrates PASS",
+  "result": "OWNED_BOUNDED_CONVERSATIONAL_EPISODE_PERSISTS_ACROSS_RESTART_WITH_SESSION_COUNTERPART_EPOCH_PROVENANCE",
+  "mechanism": {
+    "storage": "EXACT_VEYA_EVIDENCE",
+    "restart_persistence": "PASS",
+    "recall_scope": "BOUNDED_RECENT_EVIDENCE_ROWS",
+    "session_boundary": "PASS",
+    "wrong_counterpart": "REFUSED",
+    "counterpart_epoch_drift": "STALE_HISTORY_PRESERVED",
+    "same_session_default": "BLOCKED",
+    "corrupt_episode": "FAILS_CLOSED",
+    "unowned_generic_evidence": "REFUSED",
+    "echo_transcript_auto_ingestion": "NONE",
+    "memory_semantics": "HISTORICAL_UTTERANCE_EVENT_ONLY"
+  },
+  "authority": {
+    "truth": "NONE",
+    "semantic_truth_inference": "NONE",
+    "counterpart_identity": "OPAQUE_EXPERIMENTAL_ID_ONLY",
+    "selfhood": "NONE",
+    "language": "NONE",
+    "planner": "NONE",
+    "execution": "NONE"
+  },
+  "claim_ceiling": "CONVERSATIONAL_EPISODIC_RECALL != USER_IDENTITY_TRUTH_OR_GENERAL_MEMORY_SEARCH",
+  "freeze_triggered": false,
+  "next_after_broad": "GROUNDED_CONVERSATIONAL_EPISODIC_MEMORY_RETRIEVAL_AND_COUNTERPART_BINDING"
+}
