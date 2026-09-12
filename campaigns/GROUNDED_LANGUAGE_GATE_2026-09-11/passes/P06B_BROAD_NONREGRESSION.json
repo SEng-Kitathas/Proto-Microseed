@@ -1,0 +1,32 @@
+{
+  "pass": "P06B",
+  "status": "PASS_BROAD_GREEN",
+  "checkpoint": "cb90c61de34e891b875091cb6a2d138497e6bae1",
+  "verification": "370/370 PASS",
+  "files": 102,
+  "chunks": [
+    {
+      "chunk": "1/4",
+      "passed": 94
+    },
+    {
+      "chunk": "2/4",
+      "passed": 73
+    },
+    {
+      "chunk": "3/4",
+      "passed": 93
+    },
+    {
+      "chunk": "4/4",
+      "passed": 110
+    }
+  ],
+  "scope": "all current test_lang_* + test_ms_substrate_* + Veya P01-P06 + identity + MS2046 + MS1940 + MS1427 + rehearsal currentness + MS1943",
+  "language_authority": "NONE",
+  "ontology_authority": "NONE",
+  "planner_authority": "NONE",
+  "causal_theorem_authority": "NONE",
+  "freeze_triggered": false,
+  "next": "GROUNDED_LANGUAGE_MEDIATED_RELATIONAL_ANALOGY_AND_SCHEMA_COMPOSITION"
+}

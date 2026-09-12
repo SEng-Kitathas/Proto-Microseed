@@ -1,11 +1,11 @@
 {
   "campaign": "GROUNDED_LANGUAGE_GATE_2026-09-11",
-  "status": "ACTIVE_P06_SCHEMA_ABSTRACTION_TRANSFER_FOCUSED_GREEN_BROAD_PENDING",
+  "status": "ACTIVE_P06_BROAD_GREEN_RECOVERY_PENDING",
   "base_receipt": "e03996491aa9248490f229911d91ec068c037c4f",
   "branch": "research/grounded-language-gate-v1",
   "prelingual_control_arm": "depth-four published base + independent depth-five prelingual branch",
-  "current_pass": "P06B",
-  "current_discriminator": "P06_BROAD_LANGUAGE_SUBSTRATE_NONREGRESSION",
+  "current_pass": "P06R",
+  "current_discriminator": "P06_RECOVERY_PUBLICATION",
   "freeze_on_p0_or_p1_smuggling": true,
   "language_authority": "NONE",
   "promotion": "NONE",
@@ -41,5 +41,8 @@
   "p05_broad_chunks": "4 deterministic non-overlapping chunks",
   "p06_verification": "7/7 dedicated; 65/65 combined",
   "p06_capability_attribution": "LEGITIMATE_OWNED_LANGUAGE_MEDIATED_SCHEMA_ABSTRACTION_AND_CROSS_CONTEXT_TRANSFER",
-  "ontology_authority": "NONE"
+  "ontology_authority": "NONE",
+  "p06_broad_checkpoint": "cb90c61de34e891b875091cb6a2d138497e6bae1",
+  "p06_broad_verification": "370/370 PASS across 102 files",
+  "next_after_recovery": "GROUNDED_LANGUAGE_MEDIATED_RELATIONAL_ANALOGY_AND_SCHEMA_COMPOSITION"
 }
