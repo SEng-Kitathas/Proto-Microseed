@@ -1,0 +1,39 @@
+{
+  "pass": 20,
+  "name": "SEAL_PUBLISH_REMOTE_READBACK",
+  "status": "COMPLETE",
+  "branch": "research/grounded-language-segment-depth-five-parent-v1",
+  "production_checkpoint": "049bfd3c4d2d00e35cf18797c5e3be165846a637",
+  "broad_green_checkpoint": "fa32647b09b87c14ac165bd380e1b8a3bacdecab",
+  "science_seal": "2aca9b753f982fd0f5f651f2b94868d8cf1847dd",
+  "remote_science_readback": {
+    "status": "EXACT",
+    "ls_remote_head": "2aca9b753f982fd0f5f651f2b94868d8cf1847dd"
+  },
+  "earned_claim": "ONE_EXPLICIT_CURRENT_DEPTH_FIVE_RETROSPECTIVE_SEGMENT_PARENT_COMPOSITION_EDGE_WITHOUT_FLATTENING_OR_ASSOCIATIVITY",
+  "verification": {
+    "targeted": "15/15 PASS",
+    "broad": "321/321 PASS",
+    "final_integrated": "346/346 PASS",
+    "substrate_currentness_nonregression": "PASS",
+    "benchmark": "BOUNDED",
+    "compileall": "PASS",
+    "git_diff_check": "PASS",
+    "anti_authority": "PASS",
+    "CSC": "PASS_BOUNDED"
+  },
+  "language_assistance": "NONE",
+  "authority": {
+    "depth_six": "NONE",
+    "generic_recursive_closure": "NONE",
+    "flattening": "NONE",
+    "associativity": "NONE",
+    "semantic": "NONE",
+    "planner": "NONE",
+    "scheduler": "NONE",
+    "EFFECT": "NONE",
+    "canon_promotion": "NONE"
+  },
+  "next_frontier": "DEPTH_FIVE_PARENT_STATE_AS_POTENTIAL_CHILD_FOR_ONE_EXPLICIT_DEPTH_SIX_EDGE_WITHOUT_GENERIC_RECURSIVE_CLOSURE",
+  "receipt_note": "Records exact remote readback of P19 science seal. Commit containing P20 is verified separately after push to avoid self-reference."
+}
