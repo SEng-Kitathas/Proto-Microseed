@@ -1,0 +1,24 @@
+{
+  "pass": 1,
+  "status": "PASS_READOUT_GREEN_NO_SMUGGLING_OBSERVED",
+  "verification": "5/5 anti-smuggling PASS; 8/8 including original MS2046 grounding suite",
+  "result": "READABLE_AND_OPAQUE_SURFACES_PRESERVE_SAME_GROUNDED_REFERENT_COMPETENCE",
+  "controls": {
+    "prelingual_grounded_control": "PASS",
+    "opaque_carrier": "PASS",
+    "surface_alias_permutation": "PASS",
+    "ungrounded_fluency": "PASS_FAIL_CLOSED",
+    "language_disabled": "PASS",
+    "stale_grounding": "PASS_FAIL_CLOSED"
+  },
+  "authority": {
+    "language": "NONE",
+    "semantic_reference": "NONE",
+    "truth": "NONE",
+    "execution": "NONE",
+    "planner": "NONE",
+    "value_priority": "NONE"
+  },
+  "freeze_triggered": false,
+  "claim_ceiling": "GROUNDED_LANGUAGE_READOUT != LANGUAGE_COMPETENCE"
+}
