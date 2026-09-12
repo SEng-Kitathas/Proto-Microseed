@@ -1,15 +1,15 @@
 {
   "campaign": "GROUNDED_LANGUAGE_GATE_2026-09-11",
-  "status": "ACTIVE_P03_BROAD_GREEN_P04_READY",
+  "status": "ACTIVE_P04_CAUSAL_COMPOSITION_FOCUSED_GREEN_BROAD_PENDING",
   "base_receipt": "e03996491aa9248490f229911d91ec068c037c4f",
   "branch": "research/grounded-language-gate-v1",
   "prelingual_control_arm": "depth-four published base + independent depth-five prelingual branch",
-  "current_pass": 4,
-  "current_discriminator": "GROUNDED_LANGUAGE_MEDIATED_CAUSAL_CONNECTION_AND_CONCEPT_COMPOSITION",
+  "current_pass": "P04B",
+  "current_discriminator": "P04_BROAD_LANGUAGE_SUBSTRATE_NONREGRESSION",
   "freeze_on_p0_or_p1_smuggling": true,
   "language_authority": "NONE",
   "promotion": "NONE",
-  "completed_passes": 3,
+  "completed_passes": 4,
   "p01_verification": "5/5 anti-smuggling; 8/8 with MS2046",
   "freeze_triggered": false,
   "archetype_envelope": "DEFINED_PRE_P02",
@@ -24,5 +24,9 @@
   "p03_broad_checkpoint": "2d15d882c9db7bbac3b789167c498afc1dcca4d1",
   "p03_broad_verification": "337/337 PASS across 98 files",
   "p03_broad_worker_completion": "COMPLETED return_code 0",
-  "p03_supervisor_anomaly": "HOST_PREEMPTED_STALE_METADATA_WORKER_COMPLETED_GREEN"
+  "p03_supervisor_anomaly": "HOST_PREEMPTED_STALE_METADATA_WORKER_COMPLETED_GREEN",
+  "p04_verification": "7/7 dedicated; 50/50 combined",
+  "p04_capability_attribution": "LEGITIMATE_OWNED_LANGUAGE_MEDIATED_EMPIRICAL_CAUSAL_COMPOSITION",
+  "archetype_hostiles": "ADE-H01..H10 ALL EXPLICITLY GREEN BY P04",
+  "next_after_broad": "GROUNDED_LANGUAGE_MEDIATED_MULTI_STEP_CAUSAL_CHAINING_AND_COUNTERFACTUAL_COMPOSITION"
 }
