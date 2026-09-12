@@ -1,7 +1,7 @@
 {
   "campaign": "SEGMENT_DEPTH_FOUR_PARENT_EDGE_2026-09-11",
-  "status": "PASS_SEAL_READY",
-  "completed_passes": 19,
+  "status": "COMPLETE_SEALED_PUBLISHED",
+  "completed_passes": 20,
   "base_receipt": "34d02bb2eebc8518961d6f5914d3ca65123b3c9e",
   "targeted_checkpoint": "42969c3b59ae344e4fc1362c9cee8ef30d29ee3b",
   "earned_claim": "ONE_EXPLICIT_CURRENT_DEPTH_FOUR_RETROSPECTIVE_SEGMENT_PARENT_COMPOSITION_EDGE_WITHOUT_FLATTENING_OR_ASSOCIATIVITY",
@@ -17,7 +17,7 @@
   },
   "next_frontier": "DEPTH_FOUR_PARENT_STATE_AS_POTENTIAL_CHILD_FOR_ONE_EXPLICIT_DEPTH_FIVE_EDGE_WITHOUT_GENERIC_RECURSIVE_CLOSURE",
   "promotion": "NONE",
-  "science_seal": null,
+  "science_seal": "dfadf440862d0b942b9d0579bbb5605ee42b459e",
   "research_branch": "research/grounded-language-segment-depth-four-parent-v1",
-  "remote_science_readback": "PENDING"
+  "remote_science_readback": "EXACT"
 }
