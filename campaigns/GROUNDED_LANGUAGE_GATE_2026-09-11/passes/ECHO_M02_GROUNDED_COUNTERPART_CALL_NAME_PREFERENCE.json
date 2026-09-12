@@ -1,0 +1,28 @@
+{
+  "pass": "ECHO-M02",
+  "status": "PASS_FOCUSED_GREEN",
+  "origin": "ECHO_USER_INTRO_CALL_ME_Rahl",
+  "verification": "7/7 dedicated PASS; 80/80 combined P01-P06 + M01 + M02 + causal/grounding substrates PASS",
+  "result": "CURRENT_SELF_DECLARED_CONVERSATIONAL_CALL_NAME_PREFERENCE_BOUND_TO_OPAQUE_COUNTERPART_EPOCH",
+  "mechanism": {
+    "source": "OWNED_M01_CONVERSATIONAL_EPISODE",
+    "restart_persistence": "PASS",
+    "explicit_unambiguous_nomination_required": "PASS",
+    "hedged_or_negated_nomination": "REFUSED",
+    "later_explicit_preference_replaces_current": "PASS_HISTORY_PRESERVED",
+    "wrong_counterpart": "REFUSED",
+    "counterpart_epoch_change": "STALE",
+    "forged_or_generic_source": "REFUSED",
+    "transcript_auto_binding": "NONE"
+  },
+  "authority": {
+    "human_identity_truth": "NONE",
+    "legal_name": "NONE",
+    "counterpart_identity": "OPAQUE_EXPERIMENTAL_ID_ONLY",
+    "social_relationship": "NONE",
+    "truth": "NONE"
+  },
+  "claim_ceiling": "CALL_NAME_PREFERENCE != HUMAN_IDENTITY_TRUTH",
+  "freeze_triggered": false,
+  "next_after_broad": "GROUNDED_COUNTERPART_PREFERENCE_RETRIEVAL_AND_SOCIAL_RELATION_BINDING"
+}
