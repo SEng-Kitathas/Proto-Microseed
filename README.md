@@ -8,14 +8,14 @@ If you are trying to understand what Microseed *is*, start at [`START_HERE.md`](
 
 ### Current research pointer
 
-The default `main` branch is the conservative public/canonical surface and does **not** automatically absorb every earned research result. The current remote-exact research frontier is:
+The default `main` branch remains the conservative public/canonical surface. The current remote-exact research frontier is:
 
-- branch: `research/grounded-language-segment-depth-three-parent-v1`
-- science seal: `a83ae8e736f38be6d18d78310d8acd7fc2ef6b0f`
-- campaign completion/readback head: `34d02bb2eebc8518961d6f5914d3ca65123b3c9e`
-- earned frontier: one explicit CURRENT depth-three retrospective segment-parent composition edge using exactly one depth-two parent plus one external depth-one parent as whole nested operands, without flattening, associativity, or generic recursive closure
+- branch: `research/grounded-language-segment-depth-four-parent-v1`
+- science seal: `dfadf440862d0b942b9d0579bbb5605ee42b459e`
+- campaign completion/readback head: `e03996491aa9248490f229911d91ec068c037c4f`
+- earned frontier: one explicit CURRENT depth-four retrospective segment-parent composition edge using exactly one depth-three parent plus one external depth-one parent outside the full depth-three ancestry, without flattening, associativity, or generic recursive closure
 
-The depth-three campaign is 20/20 COMPLETE_SEALED_PUBLISHED. Verification: targeted 15/15, broad 292/292 across 89 files, final integrated 317/317 across 99 files, static authority PASS, substrate benchmark bounded, compile/diff PASS, CSC PASS_BOUNDED. `DEPTH_THREE_EDGE != GENERIC_RECURSIVE_CLOSURE`; depth-four remains separately unearned.
+The depth-four campaign is 20/20 COMPLETE_SEALED_PUBLISHED. Verification: targeted 16/16, broad 307/307 across 92 files, final integrated 332/332 across 102 files, static authority PASS, substrate benchmark bounded, compile/diff PASS, CSC PASS_BOUNDED. `DEPTH_FOUR_EDGE != GENERIC_RECURSIVE_CLOSURE`; depth-five remains separately unearned.
 
 ## Governing engineering / research process
 

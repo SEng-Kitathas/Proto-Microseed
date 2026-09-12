@@ -32,62 +32,38 @@ The central research question is:
 The conservative public surface points to the current remote-exact research lineage:
 
 ```text
-research branch:  research/grounded-language-segment-depth-three-parent-v1
-science seal:     a83ae8e736f38be6d18d78310d8acd7fc2ef6b0f
-campaign receipt: 34d02bb2eebc8518961d6f5914d3ca65123b3c9e
+research branch:  research/grounded-language-segment-depth-four-parent-v1
+science seal:     dfadf440862d0b942b9d0579bbb5605ee42b459e
+campaign receipt: e03996491aa9248490f229911d91ec068c037c4f
 ```
 
-Earned research chain now includes:
-
-```text
-C08I native pair harvest
-→ active acquisition revalidation
-→ bounded held-out B2 recombination
-→ fixed-depth recursive B2-child reuse
-→ direct distinct-leaf B3
-→ bounded direct arity 2–4
-→ authenticated action-execution window-boundary recognition
-→ bounded retrospective structural boundary-occasion ownership
-→ append-only structural segment-state consumption
-→ bounded structural segment state as reusable recursive composition operand
-→ bounded grouped segment operands with child leaf arity 2–4
-→ history-stable timed-action substrate + authenticated grouping boundaries
-→ indexed canonical stale-learned-relation rehearsal currentness restored
-→ one explicit current depth-two retrospective segment-parent composition edge
-→ one explicit current depth-three mixed retrospective segment-parent composition edge
-  a83ae8e736f38be6d18d78310d8acd7fc2ef6b0f
-```
-
-The current result preserves a depth-two parent and an external depth-one parent as two whole nested children in evidence order. The depth-three output is validated for currentness/tamper but is never admitted as a child by the same owner. No generic recursive closure, flattening, associativity, semantic/planner authority, or canon promotion is implied.
+The current result preserves one CURRENT depth-three parent plus one CURRENT external depth-one parent outside the entire depth-three ancestry as two whole nested children in evidence order. The depth-four output is validated for currentness/tamper but never admitted as a child by the same owner. No generic recursive closure, flattening, associativity, semantic/planner authority, or canon promotion is implied.
 
 ## Read order for Claude or another external reviewer
 
 1. **This file — `START_HERE.md`.** Establish identity, intent, and the main-vs-research distinction.
 2. **`README.md`.** Read the broader public/canonical history and authority boundary.
-3. **Checkout `research/grounded-language-segment-depth-three-parent-v1`.** Latest research is not all on default `main`.
-4. **`campaigns/SEGMENT_DEPTH_THREE_PARENT_EDGE_2026-09-11/FINAL_SUMMARY.json`.** Current depth-three result and exact authority ceiling.
-5. **`campaigns/SEGMENT_PARENT_OPERAND_REBASE_2026-09-10/FINAL_SUMMARY.json`.** Prior depth-two parent-edge result.
-6. **`campaigns/REHEARSAL_CURRENTNESS_REBASE_2026-09-10/FINAL_SUMMARY.json`.** Indexed rehearsal-currentness restoration.
-7. **`campaigns/MS_SUBSTRATE_INDEXING_2026-09-10/FINAL_SUMMARY.json`.** Substrate hardening/performance gate.
-8. **`microseed/runtime/entity.py`.** Inspect production owners and currentness/authority gates; do not infer faculty from method names alone.
-9. **Relevant embodiment tests:** `test_lang_segment_depth_three_parent_prototype.py`, `test_lang_segment_depth_three_parent_production.py`, `test_lang_segment_depth_three_parent_ceiling_audit.py`, plus the depth-two parent, substrate, and rehearsal-currentness surfaces.
-10. **For exact continuity/current frontier**, use the separate RD continuity repository when available; it is recovery authority, not scientific canon.
+3. **Checkout `research/grounded-language-segment-depth-four-parent-v1`.** Latest research is not all on default `main`.
+4. **`campaigns/SEGMENT_DEPTH_FOUR_PARENT_EDGE_2026-09-11/FINAL_SUMMARY.json`.** Current depth-four result and exact authority ceiling.
+5. **`campaigns/SEGMENT_DEPTH_THREE_PARENT_EDGE_2026-09-11/FINAL_SUMMARY.json`.** Prior depth-three result.
+6. **`campaigns/SEGMENT_PARENT_OPERAND_REBASE_2026-09-10/FINAL_SUMMARY.json`.** Prior depth-two result.
+7. **`microseed/runtime/entity.py`.** Inspect production owners and currentness/authority gates.
+8. **Relevant tests:** depth-four prototype/production/ceiling plus depth-three, depth-two, substrate, and rehearsal-currentness suites.
+9. **Use the RD continuity repository for exact recovery/current-frontier state; it is recovery authority, not scientific canon.
 
 ## What the current frontier actually earns
 
-The research lineage earns one bounded mixed-depth depth-three composition edge. Exactly one CURRENT depth-two retrospective segment parent and one CURRENT external depth-one retrospective segment parent can become two nested children of one depth-three operational composition. Their whole content identities and provenance are preserved, child order is evidence-owned, stale nested state fails closed, and caller-supplied parent IDs/order/grouping/depth/output IDs do not gain authority.
+The research lineage earns one bounded full-ancestry depth-four composition edge. Exactly one CURRENT depth-three retrospective segment parent and one CURRENT external depth-one retrospective segment parent outside the complete depth-three ancestry can become two nested children of one depth-four operational composition. Whole parent identities/provenance are preserved, child order is evidence-owned, stale nested state fails closed, and caller-supplied parent IDs/order/grouping/depth/output IDs do not gain authority.
 
-The depth-three owner explicitly refuses recursive self-input. Existing depth-two/substrate/currentness hot paths remain byte-identical where protected, broad and integrated regression suites are green, and the timed-action substrate remains bounded.
-
-Not earned: depth-four reuse, generic recursive closure, flattening, associativity, historical-event reinterpretation, semantic/grammar authority, generic planning, endogenous scheduling, EFFECT authority, or canon promotion.
+Not earned: depth-five reuse, generic recursive closure, flattening, associativity, historical-event reinterpretation, semantic/grammar authority, generic planning, endogenous scheduling, EFFECT authority, or canon promotion.
 
 ## Current next discriminator
 
 ```text
-DEPTH_THREE_PARENT_STATE_AS_POTENTIAL_CHILD_FOR_ONE_EXPLICIT_DEPTH_FOUR_EDGE_WITHOUT_GENERIC_RECURSIVE_CLOSURE
+DEPTH_FOUR_PARENT_STATE_AS_POTENTIAL_CHILD_FOR_ONE_EXPLICIT_DEPTH_FIVE_EDGE_WITHOUT_GENERIC_RECURSIVE_CLOSURE
 ```
 
-The next question is intentionally one edge deeper only: can the exact earned depth-three parent participate as one nested child in one explicit depth-four edge while preserving currentness, provenance, grouping, non-flattening, and non-associativity—without generic recursive closure or arbitrary recursive self-feeding?
+The next question is exactly one edge deeper: can the earned depth-four parent participate as one nested child in one explicit depth-five edge while preserving full ancestry exclusion, currentness, provenance, grouping, non-flattening, and non-associativity—without generic recursive closure or recursive self-feeding?
 
 ## Reading discipline
 
