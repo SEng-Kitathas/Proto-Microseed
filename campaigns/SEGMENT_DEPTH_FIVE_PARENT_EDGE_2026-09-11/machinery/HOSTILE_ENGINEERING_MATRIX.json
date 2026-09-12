@@ -1,0 +1,40 @@
+{
+  "status": "TARGETED_GREEN_BROAD_PENDING",
+  "attacks": [
+    {
+      "id": "D5-H01",
+      "attack": "reuse depth-one descendant already inside depth-four ancestry",
+      "status": "KILLED_PROTOTYPE"
+    },
+    {
+      "id": "D5-H02",
+      "attack": "depth-five output self-feeds same owner",
+      "status": "KILLED_BY_PROTOTYPE_CEILING"
+    },
+    {
+      "id": "D5-H03",
+      "attack": "flatten descendants",
+      "status": "KILLED_PROTOTYPE"
+    },
+    {
+      "id": "D5-H04",
+      "attack": "caller owns parent order/grouping/depth",
+      "status": "KILLED_PROTOTYPE"
+    },
+    {
+      "id": "D5-H05",
+      "attack": "stale nested parent survives currentness drift",
+      "status": "KILLED_PROTOTYPE"
+    },
+    {
+      "id": "D5-H06",
+      "attack": "generic recursive closure inferred",
+      "status": "KILLED_BY_CEILING"
+    },
+    {
+      "id": "D5-H07",
+      "attack": "production/broad regression",
+      "status": "OPEN_BROAD"
+    }
+  ]
+}

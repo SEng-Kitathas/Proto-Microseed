@@ -7083,6 +7083,127 @@ class Microseed:
             evidence_sha=str(existing.get("sha256",""));record_status="SEGMENT_DEPTH_FOUR_STATE_ALREADY_PRESENT"
         return {**base,"status":"CURRENT_NATIVE_STRUCTURAL_SEGMENT_DEPTH_FOUR_RECURSIVE_COMPOSITION_STATE_RECORDED","composition_state_record_status":record_status,"composition_state_evidence_id":evidence_id,"composition_state_evidence_sha256":evidence_sha,"composition_content_digest_sha256":digest,"ordered_child_composition_content_digests":child_digests,"ordered_child_composition_depths":child_depths,"children":children,"caller_supplied_parent_ids":"NO","caller_supplied_parent_order":"NO","caller_supplied_grouping":"NO","caller_supplied_depth":"NO","caller_supplied_output_evidence_id":"NO"}
 
+    def _native_depth_four_structural_segment_parent_child_carrier(
+        self, row: dict[str, Any], *, rows: list[dict[str, Any]], boot: int,
+    ) -> dict[str, Any]:
+        current=self._validate_current_native_structural_segment_depth_four_recursive_composition_state(row,rows=rows,boot=boot)
+        if current.get("status")!="CURRENT_NATIVE_STRUCTURAL_SEGMENT_DEPTH_FOUR_RECURSIVE_COMPOSITION_STATE":
+            return {**current,"status":"DEFER_UNKNOWN"}
+        ancestry=set()
+        for child in current.get("children",()):
+            ancestry.add(str(child.get("composition_content_digest_sha256","")))
+            for d in child.get("nested_child_content_digests",()): ancestry.add(str(d))
+            for d in child.get("full_ancestry_content_digests",()): ancestry.add(str(d))
+        ancestry.discard("")
+        return {
+            "status":"CURRENT_DEPTH_FOUR_STRUCTURAL_SEGMENT_PARENT_CHILD",
+            "source_parent_kind":"OWNED_NATIVE_STRUCTURAL_SEGMENT_DEPTH_FOUR_RECURSIVE_COMPOSITION_STATE",
+            "source_parent_evidence_ref":[str(row["evidence_id"]),str(row["sha256"])],
+            "composition_content_digest_sha256":str(current["composition_content_digest_sha256"]),
+            "composition_depth":4,"child_arity":2,
+            "nested_child_content_digests":tuple(str(x) for x in current["ordered_child_composition_content_digests"]),
+            "full_ancestry_content_digests":tuple(sorted(ancestry)),
+            "retrospective_provenance":"CURRENT_APPEND_ONLY_DEPTH_FOUR_SEGMENT_PARENT_STATE",
+            "historical_event_authority":"NONE","flattening_authority":"NONE","associativity_authority":"NONE","authority_gain":"NONE",
+        }
+
+    def _validate_current_native_structural_segment_depth_five_recursive_composition_state(
+        self, row: dict[str, Any], *, rows: list[dict[str, Any]], boot: int,
+    ) -> dict[str, Any]:
+        base={"max_input_parent_depth":4,"composition_depth":5,"child_arity":2,"recursive_depth_limit":5,
+              "generic_recursive_closure_authority":"NONE","depth_six_authority":"NONE","historical_event_authority":"NONE",
+              "ledger_rewrite_authority":"NONE","flattening_authority":"NONE","associativity_authority":"NONE",
+              "semantic_composition_authority":"NONE","grammar_authority":"NONE","effect_authority":"NONE",
+              "execution_authority":"NONE","scheduler_authority":"NONE","authority_gain":"NONE"}
+        if row.get("negative"): return {**base,"status":"DEFER_UNKNOWN","reason":"SEGMENT_DEPTH_FIVE_STATE_MUST_BE_POSITIVE"}
+        payload=row.get("payload") or {}
+        if payload.get("kind")!="OWNED_NATIVE_STRUCTURAL_SEGMENT_DEPTH_FIVE_RECURSIVE_COMPOSITION_STATE": return {**base,"status":"DEFER_UNKNOWN","reason":"SEGMENT_DEPTH_FIVE_STATE_KIND_REQUIRED"}
+        if int(payload.get("runtime_boot_seq",-1))!=boot: return {**base,"status":"DEFER_UNKNOWN","reason":"SEGMENT_DEPTH_FIVE_STATE_CURRENT_BOOT_REQUIRED"}
+        if (payload.get("operator_owner")!="MICROSEED_NATIVE_STRUCTURAL_SEGMENT_DEPTH_FIVE_RECURSIVE_COMPOSITION"
+            or payload.get("composition_operator")!="RECURSIVE_ORDERED_EVIDENCE_TUPLE"
+            or int(payload.get("max_input_parent_depth",-1))!=4 or int(payload.get("composition_depth",-1))!=5
+            or int(payload.get("child_arity",-1))!=2
+            or payload.get("selection_basis")!="LATEST_CURRENT_DEPTH_FOUR_PARENT_PLUS_LATEST_CURRENT_EXTERNAL_DEPTH_ONE_PARENT_IN_EVIDENCE_ORDER"
+            or payload.get("grouping_basis")!="WHOLE_DEPTH_FOUR_AND_DEPTH_ONE_PARENT_BOUNDARIES_PRESERVED"
+            or payload.get("temporality")!="CURRENT_RETROSPECTIVE_DERIVATION_APPENDED_AFTER_DEPTH_FOUR_AND_EXTERNAL_DEPTH_ONE_PARENT_STATES"):
+            return {**base,"status":"DEFER_UNKNOWN","reason":"SEGMENT_DEPTH_FIVE_STATE_OWNER_OR_SHAPE_MISMATCH"}
+        for k in ("historical_event_authority","ledger_rewrite_authority","flattening_authority","associativity_authority",
+                  "semantic_composition_authority","grammar_authority","effect_authority","execution_authority",
+                  "scheduler_authority","authority_gain","generic_recursive_closure_authority","depth_six_authority"):
+            if payload.get(k)!="NONE": return {**base,"status":"DEFER_UNKNOWN","reason":"SEGMENT_DEPTH_FIVE_STATE_AUTHORITY_OVERCLAIM","field":k}
+        expected_id="E-NATIVE-STRUCTURAL-SEGMENT-DEPTH-FIVE-RECURSIVE-"+action_result_digest(payload)[:24]
+        if str(row.get("evidence_id",""))!=expected_id: return {**base,"status":"DEFER_UNKNOWN","reason":"SEGMENT_DEPTH_FIVE_STATE_EVIDENCE_ID_NOT_DERIVED_FROM_CONTENT","expected_evidence_id":expected_id}
+        pcs=tuple(payload.get("children",())); digs=tuple(str(x) for x in payload.get("ordered_child_composition_content_digests",())); depths=tuple(int(x) for x in payload.get("ordered_child_composition_depths",()))
+        if len(pcs)!=2 or len(digs)!=2 or len(set(digs))!=2 or len(depths)!=2 or sorted(depths)!=[1,4]:
+            return {**base,"status":"DEFER_UNKNOWN","reason":"EXACT_ONE_DEPTH_FOUR_AND_ONE_DEPTH_ONE_CHILD_REQUIRED"}
+        positions={str(r.get("evidence_id","")):i for i,r in enumerate(rows)}; validated=[]; epos=[]; d4cur=None; d1cur=None
+        for ordinal,(cp,digest,dep) in enumerate(zip(pcs,digs,depths)):
+            if not isinstance(cp,dict) or int(cp.get("ordinal",-1))!=ordinal or int(cp.get("composition_depth",-1))!=dep:
+                return {**base,"status":"DEFER_UNKNOWN","reason":"DEPTH_FIVE_CHILD_ORDINAL_OR_DEPTH_MISMATCH"}
+            ref=tuple(cp.get("source_parent_evidence_ref",()))
+            if len(ref)!=2: return {**base,"status":"DEFER_UNKNOWN","reason":"DEPTH_FIVE_CHILD_PARENT_REF_REQUIRED"}
+            prow=self.evidence.get(str(ref[0]))
+            if prow is None or str(prow.get("sha256",""))!=str(ref[1]): return {**base,"status":"DEFER_UNKNOWN","reason":"DEPTH_FIVE_CHILD_PARENT_REF_NOT_EXACT"}
+            epos.append(int(positions.get(str(ref[0]),-1)))
+            if dep==4:
+                c=self._native_depth_four_structural_segment_parent_child_carrier(prow,rows=rows,boot=boot)
+                if c.get("status")!="CURRENT_DEPTH_FOUR_STRUCTURAL_SEGMENT_PARENT_CHILD": return {**base,**c,"status":"DEFER_UNKNOWN"}
+                expected={"ordinal":ordinal,"source_parent_kind":"OWNED_NATIVE_STRUCTURAL_SEGMENT_DEPTH_FOUR_RECURSIVE_COMPOSITION_STATE","source_parent_evidence_ref":c["source_parent_evidence_ref"],"composition_content_digest_sha256":c["composition_content_digest_sha256"],"composition_depth":4,"child_arity":2,"nested_child_content_digests":list(c["nested_child_content_digests"]),"full_ancestry_content_digests":list(c["full_ancestry_content_digests"]),"retrospective_provenance":"CURRENT_APPEND_ONLY_DEPTH_FOUR_SEGMENT_PARENT_STATE","historical_event_authority":"NONE","flattening_authority":"NONE","associativity_authority":"NONE","authority_gain":"NONE"};d4cur=c
+            else:
+                c=self._native_depth_one_structural_segment_parent_child_carrier(prow,rows=rows,boot=boot)
+                if c.get("status")!="CURRENT_DEPTH_ONE_STRUCTURAL_SEGMENT_PARENT_CHILD": return {**base,**c,"status":"DEFER_UNKNOWN"}
+                expected={"ordinal":ordinal,"source_parent_kind":c["source_parent_kind"],"source_parent_evidence_ref":c["source_parent_evidence_ref"],"source_segment_state_evidence_ref":c["source_segment_state_evidence_ref"],"source_boundary_evidence_ref":c["source_boundary_evidence_ref"],"composition_content_digest_sha256":c["composition_content_digest_sha256"],"composition_depth":1,"child_arity":2,"nested_child_content_digests":list(c["nested_child_content_digests"]),"retrospective_provenance":"CURRENT_APPEND_ONLY_DEPTH_ONE_SEGMENT_PARENT_STATE","historical_event_authority":"NONE","flattening_authority":"NONE","associativity_authority":"NONE","authority_gain":"NONE"};d1cur=c
+            if cp!=expected or str(c["composition_content_digest_sha256"])!=digest: return {**base,"status":"DEFER_UNKNOWN","reason":"DEPTH_FIVE_CHILD_CONTENT_OR_PROVENANCE_MISMATCH"}
+            validated.append(c)
+        if any(x<0 for x in epos) or epos!=sorted(epos): return {**base,"status":"DEFER_UNKNOWN","reason":"DEPTH_FIVE_CHILD_ORDER_NOT_EVIDENCE_OWNED"}
+        if d4cur is None or d1cur is None: return {**base,"status":"DEFER_UNKNOWN","reason":"EXACT_ONE_DEPTH_FOUR_AND_ONE_DEPTH_ONE_CHILD_REQUIRED"}
+        ancestry=set(str(x) for x in d4cur["full_ancestry_content_digests"]);ancestry.add(str(d4cur["composition_content_digest_sha256"]))
+        if str(d1cur["composition_content_digest_sha256"]) in ancestry: return {**base,"status":"DEFER_UNKNOWN","reason":"DEPTH_FIVE_EXTERNAL_DEPTH_ONE_PARENT_MUST_BE_OUTSIDE_FULL_DEPTH_FOUR_ANCESTRY"}
+        content={"operator":"RECURSIVE_ORDERED_EVIDENCE_TUPLE","ordered_child_composition_content_digests":list(digs),"ordered_child_composition_depths":list(depths),"composition_depth":5,"child_arity":2,"identity_scope":"EXACT_GROUPED_OPERATIONAL_COMPOSITION_ONLY"}
+        digest=action_result_digest(content)
+        if str(payload.get("composition_content_digest_sha256",""))!=digest: return {**base,"status":"DEFER_UNKNOWN","reason":"SEGMENT_DEPTH_FIVE_STATE_CONTENT_DIGEST_MISMATCH"}
+        return {**base,"status":"CURRENT_NATIVE_STRUCTURAL_SEGMENT_DEPTH_FIVE_RECURSIVE_COMPOSITION_STATE","composition_state_evidence_id":str(row["evidence_id"]),"composition_state_evidence_sha256":str(row["sha256"]),"composition_content_digest_sha256":digest,"ordered_child_composition_content_digests":digs,"ordered_child_composition_depths":depths,"children":tuple(validated),"selection_basis":payload["selection_basis"],"grouping_basis":payload["grouping_basis"],"temporality":payload["temporality"]}
+
+    def derive_and_record_current_native_structural_segment_depth_five_recursive_composition(self, *, max_records: int = 4096) -> dict[str, Any]:
+        base={"selection_basis":"LATEST_CURRENT_DEPTH_FOUR_PARENT_PLUS_LATEST_CURRENT_EXTERNAL_DEPTH_ONE_PARENT_IN_EVIDENCE_ORDER","grouping_basis":"WHOLE_DEPTH_FOUR_AND_DEPTH_ONE_PARENT_BOUNDARIES_PRESERVED","max_input_parent_depth":4,"composition_depth":5,"child_arity":2,"recursive_depth_limit":5,"generic_recursive_closure_authority":"NONE","depth_six_authority":"NONE","historical_event_authority":"NONE","ledger_rewrite_authority":"NONE","flattening_authority":"NONE","associativity_authority":"NONE","semantic_composition_authority":"NONE","grammar_authority":"NONE","effect_authority":"NONE","execution_authority":"NONE","scheduler_authority":"NONE","authority_gain":"NONE"}
+        if max_records<=0:return {**base,"status":"DEFER_UNKNOWN","reason":"SEGMENT_DEPTH_FIVE_EVIDENCE_SCAN_BUDGET_REQUIRED"}
+        total=self.evidence.count()
+        if total>max_records:return {**base,"status":"DEFER_UNKNOWN","reason":"SEGMENT_DEPTH_FIVE_EVIDENCE_HISTORY_EXCEEDS_SCAN_BUDGET","evidence_record_count":total}
+        boot=self._current_runtime_boot_seq()
+        if boot<0:return {**base,"status":"DEFER_UNKNOWN","reason":"CURRENT_RUNTIME_BOOT_BOUNDARY_REQUIRED"}
+        rows=self.evidence.list();d1s=[];d4s=[];accepted_depth_one={"OWNED_NATIVE_STRUCTURAL_SEGMENT_B2_RECURSIVE_COMPOSITION_STATE","OWNED_NATIVE_STRUCTURAL_SEGMENT_BOUNDED_RECURSIVE_COMPOSITION_STATE"}
+        for pos,row in enumerate(rows):
+            payload=row.get("payload") or {};kind=payload.get("kind")
+            if int(payload.get("runtime_boot_seq",-1))!=boot:continue
+            if kind in accepted_depth_one:
+                c=self._native_depth_one_structural_segment_parent_child_carrier(row,rows=rows,boot=boot)
+                if c.get("status")!="CURRENT_DEPTH_ONE_STRUCTURAL_SEGMENT_PARENT_CHILD":return {**base,**c,"status":"DEFER_UNKNOWN"}
+                c["evidence_list_position"]=pos;d1s.append(c)
+            elif kind=="OWNED_NATIVE_STRUCTURAL_SEGMENT_DEPTH_FOUR_RECURSIVE_COMPOSITION_STATE":
+                c=self._native_depth_four_structural_segment_parent_child_carrier(row,rows=rows,boot=boot)
+                if c.get("status")!="CURRENT_DEPTH_FOUR_STRUCTURAL_SEGMENT_PARENT_CHILD":return {**base,**c,"status":"DEFER_UNKNOWN"}
+                c["evidence_list_position"]=pos;d4s.append(c)
+            elif kind=="OWNED_NATIVE_STRUCTURAL_SEGMENT_DEPTH_FIVE_RECURSIVE_COMPOSITION_STATE":
+                cur=self._validate_current_native_structural_segment_depth_five_recursive_composition_state(row,rows=rows,boot=boot)
+                if cur.get("status")!="CURRENT_NATIVE_STRUCTURAL_SEGMENT_DEPTH_FIVE_RECURSIVE_COMPOSITION_STATE":return {**base,**cur,"status":"DEFER_UNKNOWN"}
+        if not d4s:return {**base,"status":"DEFER_UNKNOWN","reason":"CURRENT_DEPTH_FOUR_SEGMENT_PARENT_REQUIRED"}
+        d4=d4s[-1];ancestry=set(str(x) for x in d4["full_ancestry_content_digests"]);ancestry.add(str(d4["composition_content_digest_sha256"]))
+        external=[c for c in d1s if str(c["composition_content_digest_sha256"]) not in ancestry]
+        if not external:return {**base,"status":"DEFER_UNKNOWN","reason":"DISTINCT_EXTERNAL_CURRENT_DEPTH_ONE_PARENT_OUTSIDE_FULL_DEPTH_FOUR_ANCESTRY_REQUIRED"}
+        d1=external[-1];children=tuple(sorted((d4,d1),key=lambda x:int(x["evidence_list_position"])));digs=tuple(str(c["composition_content_digest_sha256"]) for c in children);depths=tuple(int(c["composition_depth"]) for c in children)
+        content={"operator":"RECURSIVE_ORDERED_EVIDENCE_TUPLE","ordered_child_composition_content_digests":list(digs),"ordered_child_composition_depths":list(depths),"composition_depth":5,"child_arity":2,"identity_scope":"EXACT_GROUPED_OPERATIONAL_COMPOSITION_ONLY"};digest=action_result_digest(content);pcs=[]
+        for ordinal,c in enumerate(children):
+            if int(c["composition_depth"])==4: pcs.append({"ordinal":ordinal,"source_parent_kind":"OWNED_NATIVE_STRUCTURAL_SEGMENT_DEPTH_FOUR_RECURSIVE_COMPOSITION_STATE","source_parent_evidence_ref":c["source_parent_evidence_ref"],"composition_content_digest_sha256":c["composition_content_digest_sha256"],"composition_depth":4,"child_arity":2,"nested_child_content_digests":list(c["nested_child_content_digests"]),"full_ancestry_content_digests":list(c["full_ancestry_content_digests"]),"retrospective_provenance":"CURRENT_APPEND_ONLY_DEPTH_FOUR_SEGMENT_PARENT_STATE","historical_event_authority":"NONE","flattening_authority":"NONE","associativity_authority":"NONE","authority_gain":"NONE"})
+            else: pcs.append({"ordinal":ordinal,"source_parent_kind":c["source_parent_kind"],"source_parent_evidence_ref":c["source_parent_evidence_ref"],"source_segment_state_evidence_ref":c["source_segment_state_evidence_ref"],"source_boundary_evidence_ref":c["source_boundary_evidence_ref"],"composition_content_digest_sha256":c["composition_content_digest_sha256"],"composition_depth":1,"child_arity":2,"nested_child_content_digests":list(c["nested_child_content_digests"]),"retrospective_provenance":"CURRENT_APPEND_ONLY_DEPTH_ONE_SEGMENT_PARENT_STATE","historical_event_authority":"NONE","flattening_authority":"NONE","associativity_authority":"NONE","authority_gain":"NONE"})
+        payload={"kind":"OWNED_NATIVE_STRUCTURAL_SEGMENT_DEPTH_FIVE_RECURSIVE_COMPOSITION_STATE","runtime_boot_seq":boot,"operator_owner":"MICROSEED_NATIVE_STRUCTURAL_SEGMENT_DEPTH_FIVE_RECURSIVE_COMPOSITION","composition_content_digest_sha256":digest,"composition_operator":"RECURSIVE_ORDERED_EVIDENCE_TUPLE","max_input_parent_depth":4,"composition_depth":5,"child_arity":2,"ordered_child_composition_content_digests":list(digs),"ordered_child_composition_depths":list(depths),"children":pcs,"selection_basis":base["selection_basis"],"grouping_basis":base["grouping_basis"],"identity_scope":"EXACT_GROUPED_OPERATIONAL_COMPOSITION_ONLY","temporality":"CURRENT_RETROSPECTIVE_DERIVATION_APPENDED_AFTER_DEPTH_FOUR_AND_EXTERNAL_DEPTH_ONE_PARENT_STATES","generic_recursive_closure_authority":"NONE","depth_six_authority":"NONE","historical_event_authority":"NONE","ledger_rewrite_authority":"NONE","flattening_authority":"NONE","associativity_authority":"NONE","semantic_composition_authority":"NONE","grammar_authority":"NONE","effect_authority":"NONE","execution_authority":"NONE","scheduler_authority":"NONE","authority_gain":"NONE","caller_supplied_parent_ids":"NO","caller_supplied_parent_order":"NO","caller_supplied_grouping":"NO","caller_supplied_depth":"NO","caller_supplied_output_evidence_id":"NO"}
+        evidence_id="E-NATIVE-STRUCTURAL-SEGMENT-DEPTH-FIVE-RECURSIVE-"+action_result_digest(payload)[:24];existing=self.evidence.get(evidence_id)
+        if existing is None:
+            ref=self.append_evidence(evidence_id,payload,EpistemicStatus.PRESSURE_SUPPORTED,source="MICROSEED-NATIVE-STRUCTURAL-SEGMENT-DEPTH-FIVE-RECURSIVE-COMPOSITION");esha=ref.sha256;rstatus="SEGMENT_DEPTH_FIVE_STATE_RECORDED"
+        else:
+            if existing.get("negative") or existing.get("payload")!=payload:return {**base,"status":"DEFER_UNKNOWN","reason":"SEGMENT_DEPTH_FIVE_STATE_EVIDENCE_ID_COLLISION","composition_state_evidence_id":evidence_id}
+            esha=str(existing.get("sha256",""));rstatus="SEGMENT_DEPTH_FIVE_STATE_ALREADY_PRESENT"
+        return {**base,"status":"CURRENT_NATIVE_STRUCTURAL_SEGMENT_DEPTH_FIVE_RECURSIVE_COMPOSITION_STATE_RECORDED","composition_state_record_status":rstatus,"composition_state_evidence_id":evidence_id,"composition_state_evidence_sha256":esha,"composition_content_digest_sha256":digest,"ordered_child_composition_content_digests":digs,"ordered_child_composition_depths":depths,"children":children,"caller_supplied_parent_ids":"NO","caller_supplied_parent_order":"NO","caller_supplied_grouping":"NO","caller_supplied_depth":"NO","caller_supplied_output_evidence_id":"NO"}
+
     def derive_and_record_current_native_recursive_b2_ordered_composition(
         self, *, max_records: int = 4096,
     ) -> dict[str, Any]:

@@ -1,0 +1,8 @@
+{
+  "pass": 1,
+  "status": "PASS",
+  "verification": "5/5 PASS",
+  "result": "READ_ONLY_DEPTH_FOUR_PLUS_EXTERNAL_DEPTH_ONE_TO_DEPTH_FIVE_PROTOTYPE_SURVIVES_HOSTILES",
+  "full_ancestry_exclusion": "PASS",
+  "authority_gain": "NONE"
+}
