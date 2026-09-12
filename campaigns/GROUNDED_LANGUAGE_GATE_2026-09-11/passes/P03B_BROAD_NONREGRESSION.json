@@ -1,0 +1,26 @@
+{
+  "pass": "P03B",
+  "status": "PASS_BROAD_GREEN",
+  "checkpoint": "2d15d882c9db7bbac3b789167c498afc1dcca4d1",
+  "verification": "337/337 PASS",
+  "files": 98,
+  "duration_seconds": 386.67,
+  "job_id": "job-40af2a72c9fb",
+  "worker_completion": {
+    "state": "COMPLETED",
+    "return_code": 0,
+    "finished_at": "2026-09-12T03:58:05.572930+00:00"
+  },
+  "supervisor_anomaly": {
+    "persisted_job_status": "HOST_PREEMPTED",
+    "classification": "STALE_SUPERVISOR_METADATA_AFTER_LIVE_WORKER_CONTINUED",
+    "science_effect": "NONE",
+    "retry_job": "job-5c25097458a3",
+    "retry_status": "HOST_PREEMPTED_BEFORE_OUTPUT"
+  },
+  "stderr_bytes": 0,
+  "scope": "all current test_lang_* + test_ms_substrate_* + Veya P01/P02/P03 + identity + MS2046 + MS1940 + rehearsal currentness + MS1943",
+  "result": "VEYA_P03_LANGUAGE_SUBSTRATE_CURRENTNESS_BROAD_NONREGRESSION_GREEN",
+  "language_authority": "NONE",
+  "freeze_triggered": false
+}

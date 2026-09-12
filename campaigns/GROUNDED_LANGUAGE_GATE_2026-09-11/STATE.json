@@ -1,6 +1,6 @@
 {
   "campaign": "GROUNDED_LANGUAGE_GATE_2026-09-11",
-  "status": "ACTIVE_P03_CONCEPT_FORMATION_GREEN_NO_ORACLE_BYPASS_OBSERVED",
+  "status": "ACTIVE_P03_BROAD_GREEN_P04_READY",
   "base_receipt": "e03996491aa9248490f229911d91ec068c037c4f",
   "branch": "research/grounded-language-gate-v1",
   "prelingual_control_arm": "depth-four published base + independent depth-five prelingual branch",
@@ -20,5 +20,9 @@
   "identity_migration_verification": "10/10 PASS + CLI readback",
   "p02_verification": "7/7 dedicated; 22/22 combined",
   "p03_verification": "8/8 dedicated; 32/32 combined",
-  "p03_capability_attribution": "LEGITIMATE_OWNED_LANGUAGE_MEDIATED_COGNITION"
+  "p03_capability_attribution": "LEGITIMATE_OWNED_LANGUAGE_MEDIATED_COGNITION",
+  "p03_broad_checkpoint": "2d15d882c9db7bbac3b789167c498afc1dcca4d1",
+  "p03_broad_verification": "337/337 PASS across 98 files",
+  "p03_broad_worker_completion": "COMPLETED return_code 0",
+  "p03_supervisor_anomaly": "HOST_PREEMPTED_STALE_METADATA_WORKER_COMPLETED_GREEN"
 }
