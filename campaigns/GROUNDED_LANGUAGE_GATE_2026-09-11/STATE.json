@@ -5,11 +5,13 @@
   "branch": "research/grounded-language-gate-v1",
   "prelingual_control_arm": "depth-four published base + independent depth-five prelingual branch",
   "current_pass": 2,
-  "current_discriminator": "GROUNDED_COMMUNICATION_USE_WITH_PRELINGUAL_OPAQUE_CONTROL",
+  "current_discriminator": "GROUNDED_COMMUNICATION_USE_WITH_PRELINGUAL_OPAQUE_CONTROL_AND_ARCHETYPE_HOSTILES",
   "freeze_on_p0_or_p1_smuggling": true,
   "language_authority": "NONE",
   "promotion": "NONE",
   "completed_passes": 1,
   "p01_verification": "5/5 anti-smuggling; 8/8 with MS2046",
-  "freeze_triggered": false
+  "freeze_triggered": false,
+  "archetype_envelope": "DEFINED_PRE_P02",
+  "archetype_envelope_status": "PROVISIONAL_WITH_SUNSET"
 }

@@ -1,0 +1,15 @@
+{
+  "pass": "P01A",
+  "status": "PASS_ENVELOPE_DEFINED_PRE_P02",
+  "source_role": "CFE donor/reference only",
+  "cfe_laws_imported_as_design_constraints": [
+    "SHAPE_THE_FIELD != PRESCRIBE_THE_ORGANISM",
+    "CURATOR_ONTOLOGY != LEARNER_ONTOLOGY"
+  ],
+  "fixed_persona": false,
+  "soft_attractors": true,
+  "hostile_failure_basins_defined": true,
+  "sunset_self_authorship_defined": true,
+  "language_authority": "NONE",
+  "canon_promotion": "NONE"
+}
